@@ -24,9 +24,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //se attivo da problemi nel caricamento dei componenti e della login
+        /*
         DB::listen(function ($event) {
             dump($event->sql);
             dump($event->bindings);
         });
+        */
     }
 }

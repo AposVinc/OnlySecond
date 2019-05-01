@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -40,6 +41,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -63,10 +70,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = new User();
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = $data['password'];
+        $user->save();
+        return $user;
+    }
+
+    public function register(Request $request){
+        $input = $request->except('_token');
+        $this->validator($input);
+        $user = $this->create($input);
+        \Auth::login($user);
+
+        return redirect()->to('/home');
     }
 }

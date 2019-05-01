@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/home', function () {
+    return view('welcome');
+});
 
 
 
@@ -27,14 +27,14 @@ Route::get('/shop', 'ShopController@index')->name('shop');
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
-/*
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('user.login');
 Route::post('login', 'Auth\LoginController@login')->name('user.loginpost');
 Route::get('logout', 'Auth\LoginController@logout')->name('user.logout'); //era post, non so perchè
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('user.register');
 Route::post('register', 'Auth\RegisterController@register')->name('user.registerpost');
-*/
+
 /*
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('user.login');
@@ -61,6 +61,10 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 
 //ADMIN
 Route::name('admin.')->group(function () {
+
+    Route::get('admin', function (){
+        return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
+    });
 
     Route::get('admin/index', function (){
         return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
