@@ -76,6 +76,9 @@ Route::name('admin.')->group(function () {
 
 
     #brand
+    Route::get('admin/listbrand', 'BrandController@showListForm')->name('listbrand');
+
+
     Route::get('admin/addbrand', 'BrandController@showAddForm')->name('addbrand');
     Route::post('admin/addbrandstore', 'BrandController@create')->name('addbrandcreate');
 

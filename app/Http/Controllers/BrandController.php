@@ -18,6 +18,12 @@ class BrandController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function showListForm()
+    {
+        $brand = \App\Brand::withTrashed()->get();
+        return view('backend.brand.listbrand', ['brand' => $brand]);
+    }
+
     public function showAddForm()
     {
         return view('backend.brand.addbrand');

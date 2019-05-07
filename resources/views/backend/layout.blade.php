@@ -54,6 +54,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Brand</a>
                     <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa "></i><a href="{{url::route('admin.listbrand')}}">Lista Brand</a></li>
                         <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addbrand')}}">Aggiungi Brand</a></li>
                         <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editbrand')}}">Modifica Brand</a></li>
                         <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deletebrand')}}">Elimina Brand</a></li>
