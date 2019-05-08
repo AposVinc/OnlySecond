@@ -34,8 +34,22 @@
                     </div>
                 </div>
 
+                AGGIUNGERE
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Collezione</label></div>
+                    <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection">
+                            <option value="0">Seleziona il nuovo brand</option>
+                            @foreach($brands as $data)
+                                <option value="{{$data->id}}"> {{$data->name}} </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nuovo Nome</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserire il nome della Collezione" class="form-control"></div>
                 </div>
             </div>

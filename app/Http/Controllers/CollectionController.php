@@ -15,6 +15,13 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function showListForm()
+    {
+        $collection = Collection::withTrashed()->get();
+        return view('backend.collection.listcollection', ['collection' => $collection]);
+    }
+
     public function showAddForm()
     {
         $brand = Brand::all();

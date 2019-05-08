@@ -34,21 +34,23 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Lista Brand</strong>
+                            <strong class="card-title">Lista Collezioni</strong>
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Nome</th>
+                                    <th>Nome Brand</th>
+                                    <th>Nome Collezione</th>
                                     <th>creato il</th>
                                     <th>ultima modifica</th>
                                     <th>eliminato il</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($brand as $b)
+                                @foreach($collection as $b)
                                     <tr>
+                                        <td>{{$b->brand()->first()->name}}</td>
                                         <td>{{$b->name}}</td>
                                         <td>{{$b->created_at}}</td>
                                         <td>{{$b->updated_at}}</td>

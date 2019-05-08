@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
-
 use App\Brand;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-
 
 class BrandController extends Controller
 {
@@ -20,7 +17,7 @@ class BrandController extends Controller
 
     public function showListForm()
     {
-        $brand = \App\Brand::withTrashed()->get();
+        $brand = Brand::withTrashed()->get();
         return view('backend.brand.listbrand', ['brand' => $brand]);
     }
 
@@ -31,20 +28,19 @@ class BrandController extends Controller
 
     public function showEditForm()
     {
-        //$brand = DB::table('brands')->get();
-        $brand = \App\Brand::withTrashed()->get();
+        $brand = Brand::withTrashed()->get();
         return view('backend.brand.editbrand', ['brand' => $brand]);
     }
 
     public function showDeleteForm()
     {
-        $brand = \App\Brand::all(); //all() non mostrare brand gia eliminati
+        $brand = Brand::all(); //all() non mostrare brand gia eliminati
         return view('backend.brand.deletebrand', ['brand' => $brand]);
     }
 
     public function showRestoreForm()
     {
-        $brand = \App\Brand::onlyTrashed('brands')->get();
+        $brand = Brand::onlyTrashed('brands')->get();
         return view('backend.brand.restorebrand',['brand' => $brand]);
     }
 
@@ -57,7 +53,7 @@ class BrandController extends Controller
     public function create(Request $request)  //
     {
         $input = $request->all();
-        $brand = new \App\Brand();
+        $brand = new Brand();
         $brand->name = $input['text-input'];
         $brand->save();
 

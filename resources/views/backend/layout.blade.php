@@ -65,6 +65,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gestione Collezioni</a>
                     <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa "></i><a href="{{url::route('admin.listcollection')}}">Lista Collezioni</a></li>
                         <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addcollection')}}">Aggiungi Collezione</a></li>
                         <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editcollection')}}">Modifica Collezione</a></li>
                         <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deletecollection')}}">Elimina Collezione</a></li>

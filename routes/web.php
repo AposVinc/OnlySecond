@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 
 Route::get('/home', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 
@@ -78,7 +78,6 @@ Route::name('admin.')->group(function () {
     #brand
     Route::get('admin/listbrand', 'BrandController@showListForm')->name('listbrand');
 
-
     Route::get('admin/addbrand', 'BrandController@showAddForm')->name('addbrand');
     Route::post('admin/addbrandstore', 'BrandController@create')->name('addbrandcreate');
 
@@ -93,6 +92,8 @@ Route::name('admin.')->group(function () {
 
 
     #collection
+    Route::get('admin/listcollection', 'CollectionController@showListForm')->name('listcollection');
+
     Route::get('admin/addcollection', 'CollectionController@showAddForm')->name('addcollection');
     Route::post('admin/addcollectioncreate', 'CollectionController@create')->name('addcollectioncreate');
 
