@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Colo Shop</title>
+    <title>Only Second E-commerce</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Colo Shop Template">
@@ -39,36 +39,36 @@
 
                                 <li class="currency">
                                     <a href="#">
-                                        usd
+                                        Moneta
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="currency_selection">
-                                        <li><a href="#">cad</a></li>
-                                        <li><a href="#">aud</a></li>
-                                        <li><a href="#">eur</a></li>
-                                        <li><a href="#">gbp</a></li>
+                                        <li><a href="#">€ Euro </a></li>
+                                        <li><a href="#">£ Sterling</a></li>
+                                        <li><a href="#">$ US Dollar</a></li>
                                     </ul>
                                 </li>
                                 <li class="language">
                                     <a href="#">
-                                        English
+                                        Lingua
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="language_selection">
-                                        <li><a href="#">French</a></li>
-                                        <li><a href="#">Italian</a></li>
-                                        <li><a href="#">German</a></li>
-                                        <li><a href="#">Spanish</a></li>
+                                        <li><a href="#">Italiano</a></li>
+                                        <li><a href="#">Francese</a></li>
+                                        <li><a href="#">Tedesco</a></li>
+                                        <li><a href="#">Spagnolo</a></li>
                                     </ul>
                                 </li>
                                 <li class="account">
                                     <a href="#">
-                                        My Account
+                                        Il mio account
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="account_selection">
-                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                                        <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Accedi</a></li>
+                                        <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrati</a></li>
+                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Area Privata</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -89,7 +89,7 @@
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
-                                <li><a href="index.html">home</a></li>
+                                <li><a href="index.html">Home</a></li>
                                 <li><a href="categories.html">shop</a></li>
                                 <li><a href="categories.html">promotion</a></li>
                                 <li><a href="single.html">pages</a></li>
