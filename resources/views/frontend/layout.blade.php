@@ -66,9 +66,14 @@
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="account_selection">
-                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Accedi</a></li>
-                                        <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrati</a></li>
-                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Area Privata</a></li>
+                                        @auth
+                                            <li><a href="{{route('user.logout')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Esci</a></li>
+                                        @else
+                                            <li><a href="{{route('user.login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Accedi</a></li>
+                                            <li><a href="{{route('user.register')}}"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrati</a></li>
+                                            <li><a href="{{url('admin')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Area Privata</a></li>
+                                        @endauth
+
                                     </ul>
                                 </li>
                             </ul>
