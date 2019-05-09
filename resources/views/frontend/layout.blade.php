@@ -13,6 +13,11 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset("plugins/frontend/OwlCarousel2-2.2.1/animate.css")}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset("css/frontend/main_styles.css")}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset("css/frontend/responsive.css")}}">
+<!-- css pagina contatti-->
+    <link rel="stylesheet" href="{{URL::asset("plugins/frontend/themify-icons/themify-icons.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset("plugins/frontend/jquery-ui-1.12.1.custom/jquery-ui.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset("css/frontend/contact_styles.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset("css/frontend/contact_responsive.css")}}">
 </head>
 
 <body>
@@ -94,12 +99,12 @@
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="categories.html">shop</a></li>
-                                <li><a href="categories.html">promotion</a></li>
-                                <li><a href="single.html">pages</a></li>
-                                <li><a href="single.html">blog</a></li>
-                                <li><a href="contact.html">contact</a></li>
+                                <li><a href="{{url('/home')}}">Home</a></li>
+                                <li><a href="categories.html">Brand</a></li>
+                                <li><a href="categories.html">Donna</a></li>
+                                <li><a href="single.html">Uomo</a></li>
+                                <li><a href="single.html">Chi siamo</a></li>
+                                <li><a href="{{url('/contact')}}">Contatti</a></li>
                             </ul>
                             <ul class="navbar_user">
                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -243,6 +248,10 @@
 <script src="{{URL::asset("plugins/frontend/OwlCarousel2-2.2.1/owl.carousel.js")}}"></script>
 <script src="{{URL::asset("plugins/frontend/easing/easing.js")}}"></script>
 <script src="{{URL::asset("js/frontend/bootstrap4/custom.js")}}"></script>
+<!-- script pagina contatti-->
+<script src="{{URL::asset("https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA")}}"></script>
+<script src="{{URL::asset("plugins/frontend/jquery-ui-1.12.1.custom/jquery-ui.js")}}"></script>
+<script src="{{URL::asset("js/frontend/contact_custom.js")}}"></script>
 </body>
 
 </html>

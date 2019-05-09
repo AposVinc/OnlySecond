@@ -24,6 +24,9 @@ Route::get('/home', function () {
 
 Route::get('/shop', 'ShopController@index')->name('shop');
 
+Route::get('/contact', function(){
+    return view('frontend.contact');
+});
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
