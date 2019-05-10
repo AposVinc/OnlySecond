@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="{{ URL::asset('css/backend/isa.css') }}"> <!-- aggiunta non ricordo per cosa -->
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <!--css lista brand-->
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
 
 </head>
 
@@ -54,7 +57,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Brand</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa "></i><a href="{{url::route('admin.listbrand')}}">Lista Brand</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listbrand')}}">Lista Brand</a></li>
                         <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addbrand')}}">Aggiungi Brand</a></li>
                         <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editbrand')}}">Modifica Brand</a></li>
                         <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deletebrand')}}">Elimina Brand</a></li>
@@ -308,6 +311,18 @@
 <script src="{{ URL::asset('vendor/backend/jqvmap/dist/jquery.vmap.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+<!--script lista brand-->
+<script src="{{ URL::asset('vendor/backend/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/jszip/dist/jszip.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/pdfmake/build/pdfmake.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/pdfmake/build/vfs_fonts.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+<script src="{{ URL::asset('js/backend/init-scripts/data-table/datatables-init.js')}}"></script>
 <script>
     (function($) {
         "use strict";

@@ -7,7 +7,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Dashboard</h1>
+                    <h1>Lista Brand</h1>
                 </div>
             </div>
         </div>
@@ -15,9 +15,9 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Table</a></li>
-                        <li class="active">Data table</li>
+                        <li><a href="{{route('admin.index')}}">Home</a></li>
+                        <li>Gestione Brand</li>
+                        <li class="active">Lista Brand</li>
                     </ol>
                 </div>
             </div>
@@ -33,17 +33,17 @@
 
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
+                      <!--  <div class="card-header">
                             <strong class="card-title">Lista Brand</strong>
-                        </div>
+                        </div>-->
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th>Nome</th>
                                     <th>creato il</th>
-                                    <th>ultima modifica</th>
-                                    <th>eliminato il</th>
+                                    <th>Ultima modifica</th>
+                                    <th>Eliminato il</th>
                                 </tr>
                                 </thead>
                                 <tbody>
