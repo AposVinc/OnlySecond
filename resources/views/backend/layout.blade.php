@@ -323,6 +323,7 @@
 <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
 <script src="{{ URL::asset('js/backend/init-scripts/data-table/datatables-init.js')}}"></script>
+
 <script>
     (function($) {
         "use strict";
