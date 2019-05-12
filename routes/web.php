@@ -108,7 +108,8 @@ Route::name('admin.')->group(function () {
     Route::post('admin/deletecollectiondestroy','CollectionController@destroy')->name('deletecollectiondestroy');
 
     Route::get('admin/restorecollection','CollectionController@showRestoreForm')->name('restorecollection');
-    Route::post('admin/restorecollectionrestore','CollectionController@restore')->name('restorecollectioncollection');
+    Route::post('admin/getCollectionrestore', 'CollectionController@getCollectionrestore')->name('restoreGetCollection');
+    Route::post('admin/restorecollectionrestore','CollectionController@restore')->name('restorecollectionrestore');
 
 
     #product

@@ -41,7 +41,7 @@
                                 <thead>
                                 <tr>
                                     <th>Nome</th>
-                                    <th>creato il</th>
+                                    <th>Creato il</th>
                                     <th>Ultima modifica</th>
                                     <th>Eliminato il</th>
                                 </tr>

@@ -15,6 +15,13 @@ class BrandController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function EchoMessage($msg)
+    {
+        echo '<script type="text/javascript">
+            alert("' . $msg . '")
+            </script>';
+    }
+
     public function showListForm()
     {
         $brand = Brand::withTrashed()->get();
@@ -41,7 +48,12 @@ class BrandController extends Controller
     public function showRestoreForm()
     {
         $brand = Brand::onlyTrashed('brands')->get();
-        return view('backend.brand.restorebrand',['brand' => $brand]);
+        if(sizeof($brand)==0) {
+            $this->EchoMessage("Non ci sono Brand da ripristinare");
+            return view('backend.index');
+        }else {
+            return view('backend.brand.restorebrand', ['brand' => $brand]);
+        }
     }
 
     /**

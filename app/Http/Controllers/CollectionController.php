@@ -16,6 +16,13 @@ class CollectionController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function EchoMessage($msg)
+    {
+        echo '<script type="text/javascript">
+            alert("' . $msg . '")
+            </script>';
+    }
+
     public function showListForm()
     {
         $collection = Collection::withTrashed()->get();
@@ -54,16 +61,34 @@ class CollectionController extends Controller
         return $output;
     }
 
+    function getCollectionrestore(Request $request)
+    {
+        $value = $request->get('value');    //id del brand
+        $data = Collection::onlyTrashed('collections')->where('brand_id', $value)->get();
+        $output = '<option value="0">Seleziona la collezione</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
+        }
+        return $output;
+    }
+
     public function showDeleteForm()
     {
-        $brand = \App\Brand::all(); //all() non mostrare brand gia eliminati
+        $brand = Brand::all(); //all() non mostrare brand gia eliminati
         return view('backend.collection.deletecollection', ['brand' => $brand]);
     }
 
     public function showRestoreForm()
     {
-        $brand = \App\Brand::onlyTrashed('brands')->get();
-        return view('backend.collection.restorecollection',['brand' => $brand]);
+        $collection = Collection::onlyTrashed('collections')->get();
+        $brand=Brand::all();
+        if(sizeof($collection)==0) {
+            $this->EchoMessage("Non ci sono Collezioni da ripristinare");
+            return view('backend.index');
+        }else {
+            return view('backend.collection.restorecollection',['brand' => $brand]);
+        }
     }
 
     public function showAddCollectionForm()
@@ -118,9 +143,35 @@ class CollectionController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Collection $collection)
+    public function update(Request $request)//Collection $collection
     {
-        echo old('brand');
+        //echo old('brand');
+        $brand= $request->get('brand');
+        $collection= $request->get('collection');
+        $newbrand= $request->get('newbrand');
+        $newcollection=$request->get('newcollection');
+
+        Collection::where('id',$collection)->restore();
+
+        Collection::where('id',$collection)
+            ->update(['name' => $newcollection],['brand_id'=>$newbrand]);
+
+        return redirect()->to('admin/index');
+    }
+
+    /**
+     * Restore the specified resource from storage.
+     *
+     * @param  \App\Collection  $collection
+     * @return \Illuminate\Http\Response
+     */
+
+    public function restore(Request $request)   //query senza nome
+    {
+        $id = $request->get('collection');
+        Collection::where('id',$id)->restore();
+
+        return redirect()->to('admin/index');
     }
 
     /**
@@ -129,8 +180,11 @@ class CollectionController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Collection $collection)
+    public function destroy(Request $request)
     {
+        $collection=$request->get('collection');
+        Collection::where('id',$collection)->delete();
 
+        return redirect()->to('admin/index');
     }
 }
