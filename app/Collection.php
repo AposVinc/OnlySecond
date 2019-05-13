@@ -23,7 +23,7 @@ class Collection extends Model
     protected $primaryKey = 'id';
 
     function brand(){
-        return $this->belongsTo('App\Brand');
+        return $this->hasOne('App\Brand');
     }
 
     function products() {
