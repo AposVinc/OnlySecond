@@ -45,13 +45,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($collection as $b)
+                                @foreach($collections as $collection)
                                     <tr>
-                                        <td>{{$b->brand()->first()->name}}</td>
-                                        <td>{{$b->name}}</td>
-                                        <td>{{$b->created_at}}</td>
-                                        <td>{{$b->updated_at}}</td>
-                                        <td>{{$b->deleted_at}}</td>
+                                        <td>{{$collection->brand->name}}</td>
+                                        <td>{{$collection->name}}</td>
+                                        <td>{{$collection->created_at}}</td>
+                                        <td>{{$collection->updated_at}}</td>
+                                        <td>{{$collection->deleted_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
