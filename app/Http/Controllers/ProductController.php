@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Product;
 use DB;
 use Illuminate\Http\Request;
@@ -18,10 +19,31 @@ class ProductController extends Controller
 
     }
 
-    public function showAddProductForm()
+    public function showListForm()
     {
-        $brand = DB::table('brands')->get();
-        return view('backend.product.addproduct',['brand' => $brand]);
+        $products = Product::withTrashed()->with('')->get();
+        return view('backend.product.listProduct', ['products' => $products]);
+    }
+
+    public function showAddForm()
+    {
+        $brands = Brand::withTrashed()->get();
+        return view('backend.product.addProduct',['brands' => $brands]);
+    }
+
+    public function showEditForm()
+    {
+        return view('backend.product.editProduct');
+    }
+
+    public function showDeleteForm()
+    {
+        return view('backend.product.deleteProduct');
+    }
+
+    public function showRestoreForm()
+    {
+        return view('backend.product.restoreProduct');
     }
 
     /**

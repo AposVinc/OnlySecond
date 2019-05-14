@@ -24,35 +24,35 @@ class BrandController extends Controller
 
     public function showListForm()
     {
-        $brand = Brand::withTrashed()->get();
-        return view('backend.brand.listbrand', ['brand' => $brand]);
+        $brands = Brand::withTrashed()->get();
+        return view('backend.brand.listBrand', ['brands' => $brands]);
     }
 
     public function showAddForm()
     {
-        return view('backend.brand.addbrand');
+        return view('backend.brand.addBrand');
     }
 
     public function showEditForm()
     {
-        $brand = Brand::withTrashed()->get();
-        return view('backend.brand.editbrand', ['brand' => $brand]);
+        $brands = Brand::withTrashed()->get();
+        return view('backend.brand.editBrand', ['brands' => $brands]);
     }
 
     public function showDeleteForm()
     {
-        $brand = Brand::all(); //all() non mostrare brand gia eliminati
-        return view('backend.brand.deletebrand', ['brand' => $brand]);
+        $brands = Brand::all(); //all() non mostrare brand gia eliminati
+        return view('backend.brand.deleteBrand', ['brands' => $brands]);
     }
 
     public function showRestoreForm()
     {
-        $brand = Brand::onlyTrashed('brands')->get();
-        if(sizeof($brand)==0) {
+        $brands = Brand::onlyTrashed('brands')->get();
+        if(sizeof($brands)==0) {
             $this->EchoMessage("Non ci sono Brand da ripristinare");
             return view('backend.index');
         }else {
-            return view('backend.brand.restorebrand', ['brand' => $brand]);
+            return view('backend.brand.restoreBrand', ['brands' => $brands]);
         }
     }
 

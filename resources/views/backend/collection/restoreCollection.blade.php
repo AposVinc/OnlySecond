@@ -2,12 +2,12 @@
 
 @section('content')
 
-    <form action="{{route('admin.deletecollectiondestroy')}}" method="post" class="form-horizontal">
+    <form action="{{route('admin.restoreCollectionRestore')}}" method="post" class="form-horizontal">
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-header">
-                <strong>Elimina Collezione</strong>
+                <strong>Ripristina Collezione</strong>
             </div>
             <div class="card-body card-block">
                 <div class="row form-group">
@@ -15,7 +15,7 @@
                     <div class="col-12 col-md-9">
                         <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection">
                             <option value="0">Seleziona il brand</option>
-                            @foreach($brand as $data)
+                            @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
                         </select>
@@ -28,13 +28,12 @@
                         <select name="collection" id="collection" class="form-control">
                             <option value="0">Seleziona la collezione</option>
                         </select>
-                        <small class="help-block form-text">Seleziona la collezione da modificare</small>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Submit
+                    <i class="fa fa-dot-circle-o"></i> Ripristina
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
                     <i class="fa fa-ban"></i> Reset
@@ -43,5 +42,4 @@
         </div>
         <!-- </div>-->
     </form>
-
 @endsection

@@ -37,7 +37,7 @@
                         <select name="brand" id="brand" class="form-control" onchange="activeModel()">
                             <!-- onchange serve per attivare il modello dopo aver scelto un brand -->
                             <option value="0">Seleziona il brand</option>
-                            @foreach($brand as $key => $data)
+                            @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
                         </select>

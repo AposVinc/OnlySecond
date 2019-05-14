@@ -79,50 +79,55 @@ Route::name('admin.')->group(function () {
 
 
     #brand
-    Route::get('admin/listbrand', 'BrandController@showListForm')->name('listbrand');
+    Route::get('admin/listBrand', 'BrandController@showListForm')->name('listBrand');
 
-    Route::get('admin/addbrand', 'BrandController@showAddForm')->name('addbrand');
-    Route::post('admin/addbrandstore', 'BrandController@create')->name('addbrandcreate');
+    Route::get('admin/addBrand', 'BrandController@showAddForm')->name('addBrand');
+    Route::post('admin/addBrandStore', 'BrandController@create')->name('addBrandCreate');
 
-    Route::get('admin/editbrand', 'BrandController@showEditForm')->name('editbrand');
-    Route::post('admin/editbrandupdate', 'BrandController@update')->name('editbrandupdate');
+    Route::get('admin/editBrand', 'BrandController@showEditForm')->name('editBrand');
+    Route::post('admin/editBrandUpdate', 'BrandController@update')->name('editBrandUpdate');
 
-    Route::get('admin/deletebrand','BrandController@showDeleteForm')->name('deletebrand');
-    Route::post('admin/deletebranddestroy','BrandController@destroy')->name('deletebranddestroy');
+    Route::get('admin/deleteBrand','BrandController@showDeleteForm')->name('deleteBrand');
+    Route::post('admin/deleteBrandDestroy','BrandController@destroy')->name('deleteBrandDestroy');
 
-    Route::get('admin/restorebrand','BrandController@showRestoreForm')->name('restorebrand');
-    Route::post('admin/restorebrandrestore','BrandController@restore')->name('restorebrandrestore');
+    Route::get('admin/restoreBrand','BrandController@showRestoreForm')->name('restoreBrand');
+    Route::post('admin/restoreBrandRestore','BrandController@restore')->name('restoreBrandRestore');
 
 
     #collection
-    Route::get('admin/listcollection', 'CollectionController@showListForm')->name('listcollection');
+    Route::get('admin/listCollection', 'CollectionController@showListForm')->name('listCollection');
 
-    Route::get('admin/addcollection', 'CollectionController@showAddForm')->name('addcollection');
-    Route::post('admin/addcollectioncreate', 'CollectionController@create')->name('addcollectioncreate');
+    Route::get('admin/addCollection', 'CollectionController@showAddForm')->name('addCollection');
+    Route::post('admin/addCollectionCreate', 'CollectionController@create')->name('addCollectionCreate');
 
-    Route::get('admin/editcollection', 'CollectionController@showEditForm')->name('editcollection');
+    Route::get('admin/editCollection', 'CollectionController@showEditForm')->name('editCollection');
     Route::post('admin/getCollection', 'CollectionController@getCollection')->name('editGetCollection');
-    Route::post('admin/editcollectionupdate', 'CollectionController@update')->name('editcollectionupdate');
+    Route::post('admin/editCollectionUpdate', 'CollectionController@update')->name('editCollectionUpdate');
 
-    Route::get('admin/deletecollection','CollectionController@showDeleteForm')->name('deletecollection');
-    Route::post('admin/deletecollectiondestroy','CollectionController@destroy')->name('deletecollectiondestroy');
+    Route::get('admin/deleteCollection','CollectionController@showDeleteForm')->name('deleteCollection');
+    Route::post('admin/deleteCollectionDestroy','CollectionController@destroy')->name('deleteCollectionDestroy');
 
-    Route::get('admin/restorecollection','CollectionController@showRestoreForm')->name('restorecollection');
-    Route::post('admin/getCollectionrestore', 'CollectionController@getCollectionrestore')->name('restoreGetCollection');
-    Route::post('admin/restorecollectionrestore','CollectionController@restore')->name('restorecollectionrestore');
+    Route::get('admin/restoreCollection','CollectionController@showRestoreForm')->name('restoreCollection');
+    Route::post('admin/getCollectionRestore', 'CollectionController@getCollectionRestore')->name('restoreGetCollection');
+    Route::post('admin/restoreCollectionRestore','CollectionController@restore')->name('restoreCollectionRestore');
 
 
     #product
-    Route::get('admin/addproduct', 'ProductController@showAddProductForm')->name('addproduct');
-    Route::post('admin/addproductsend', 'ProductController@store')->name('addproductstore');
+    Route::get('admin/listProduct', 'ProductController@showListForm')->name('listProduct');
 
-    Route::get('admin/editproduct', function (){
-        return view('backend.prodotto.editproduct');
-    })->name('editproduct');
+    Route::get('admin/addProduct', 'ProductController@showAddForm')->name('addProduct');
+    Route::post('admin/addProductSend', 'ProductController@store')->name('addProductStore');
 
-    Route::get('admin/deleteproduct', function (){
-        return view('backend.prodotto.deleteproduct');
-    })->name('deleteproduct');
+    Route::get('admin/editProduct', 'ProductController@showEditForm')->name('editProduct');
+    Route::post('admin/getProduct', 'ProductController@getCollection')->name('editGetProduct');
+    Route::post('admin/editProductUpdate', 'ProductController@update')->name('editProductUpdate');
+
+    Route::get('admin/deleteProduct','ProductController@showDeleteForm')->name('deleteProduct');
+    Route::post('admin/deleteProductDestroy','ProductController@destroy')->name('deleteProductDestroy');
+
+    Route::get('admin/restoreProduct','ProductController@showRestoreForm')->name('restoreProduct');
+    Route::post('admin/getProductRestore', 'ProductController@getProductRestore')->name('restoreGetProduct');
+    Route::post('admin/restoreProductRestore','ProductController@restore')->name('restoreProductRestore');
 
 });
 

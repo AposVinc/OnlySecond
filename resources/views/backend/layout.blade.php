@@ -57,32 +57,33 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Brand</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listbrand')}}">Lista Brand</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addbrand')}}">Aggiungi Brand</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editbrand')}}">Modifica Brand</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deletebrand')}}">Elimina Brand</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restorebrand')}}">Ripristina Brand</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listBrand')}}">Lista Brand</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addBrand')}}">Aggiungi Brand</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editBrand')}}">Modifica Brand</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteBrand')}}">Elimina Brand</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreBrand')}}">Ripristina Brand</a></li>
 
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gestione Collezioni</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listcollection')}}">Lista Collezioni</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addcollection')}}">Aggiungi Collezione</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editcollection')}}">Modifica Collezione</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deletecollection')}}">Elimina Collezione</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restorecollection')}}">Ripristina Collezione</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listCollection')}}">Lista Collezioni</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addCollection')}}">Aggiungi Collezione</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editCollection')}}">Modifica Collezione</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteCollection')}}">Elimina Collezione</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreCollection')}}">Ripristina Collezione</a></li>
                     </ul>
                 </li>
                 <h3 class="menu-title">Prodotto</h3>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Prodotti</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addproduct')}}">Aggiungi Prodotto</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editproduct')}}">Modifica Prodotto</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteproduct')}}">Elimina Prodotto</a></li>
-
+                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listProduct')}}">Lista Prodotto</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addProduct')}}">Aggiungi Prodotto</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editProduct')}}">Modifica Prodotto</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteProduct')}}">Elimina Prodotto</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreProduct')}}">Ripristina Prodotto</a></li>
                     </ul>
                 </li>
                 <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->

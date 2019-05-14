@@ -26,13 +26,13 @@ class CollectionController extends Controller
     public function showListForm()
     {
         $collections = Collection::withTrashed()->with('brand')->get();
-        return view('backend.collection.listcollection', ['collections' => $collections]);
+        return view('backend.collection.listCollection', ['collections' => $collections]);
     }
 
     public function showAddForm()
     {
-        $brand = Brand::all();
-        return view('backend.collection.addcollection',['brand' => $brand]);
+        $brands = Brand::all();
+        return view('backend.collection.addCollection',['brands' => $brands]);
     }
 
     public function showEditForm()
@@ -40,7 +40,7 @@ class CollectionController extends Controller
         $brands = Brand::withTrashed()->get();
         #$collections = Collection::withTrashed()->get();
 
-        return view('backend.collection.editcollection')->with('brands',$brands);
+        return view('backend.collection.editCollection')->with('brands',$brands);
         #return view('backend.collection.editcollection')->with('collections',$collections)->with('brands',$brands);
 
         /*altra soluzione sarebbe:
@@ -61,7 +61,7 @@ class CollectionController extends Controller
         return $output;
     }
 
-    function getCollectionrestore(Request $request)
+    function getCollectionRestore(Request $request)
     {
         $value = $request->get('value');    //id del brand
         $data = Collection::onlyTrashed('collections')->where('brand_id', $value)->get();
@@ -75,8 +75,8 @@ class CollectionController extends Controller
 
     public function showDeleteForm()
     {
-        $brand = Brand::all(); //all() non mostrare brand gia eliminati
-        return view('backend.collection.deletecollection', ['brand' => $brand]);
+        $brands = Brand::all(); //all() non mostrare brand gia eliminati
+        return view('backend.collection.deleteCollection', ['brands' => $brands]);
     }
 
     public function showRestoreForm()
@@ -87,14 +87,14 @@ class CollectionController extends Controller
             $this->EchoMessage("Non ci sono Collezioni da ripristinare");
             return view('backend.index');
         }else {
-            return view('backend.collection.restorecollection',['brand' => $brand]);
+            return view('backend.collection.restoreCollection',['brand' => $brand]);
         }
     }
 
     public function showAddCollectionForm()
     {
-        $brand = DB::table('brands')->get();
-        return view('backend.collection.addcollection',['brand' => $brand]);
+        $brands = DB::table('brands')->get();
+        return view('backend.collection.addCollection',['brands' => $brands]);
     }
 
     /**
