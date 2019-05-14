@@ -25,8 +25,8 @@ class CollectionController extends Controller
 
     public function showListForm()
     {
-        $collection = Collection::withTrashed()->get();
-        return view('backend.collection.listcollection', ['collection' => $collection]);
+        $collections = Collection::withTrashed()->with('brand')->get();
+        return view('backend.collection.listcollection', ['collections' => $collections]);
     }
 
     public function showAddForm()
@@ -145,17 +145,24 @@ class CollectionController extends Controller
      */
     public function update(Request $request)//Collection $collection
     {
-        //echo old('brand');
         $brand= $request->get('brand');
         $collection= $request->get('collection');
         $newbrand= $request->get('newbrand');
-        $newcollection=$request->get('newcollection');
+        $newcollectionname=$request->get('newcollectionname');
 
         Collection::where('id',$collection)->restore();
 
-        Collection::where('id',$collection)
-            ->update(['name' => $newcollection],['brand_id'=>$newbrand]);
-
+        if ($newcollectionname == ""){
+            Collection::where('id',$collection)
+                ->update(['brand_id' => $newbrand]);
+        } else if($newbrand== "0") {
+            Collection::where('id',$collection)
+                ->update(['name' => $newcollectionname, 'brand_id' => $brand]);
+        }else{
+            Collection::where('id',$collection)
+                ->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
+        }
+        
         return redirect()->to('admin/index');
     }
 

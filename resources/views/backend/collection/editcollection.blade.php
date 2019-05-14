@@ -34,7 +34,6 @@
                     </div>
                 </div>
 
-                AGGIUNGERE
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
@@ -51,7 +50,7 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nuovo Nome</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="newcollection" placeholder="Inserire il nome della Collezione" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="newcollectionname" placeholder="Inserire il nome della Collezione" class="form-control"></div>
                 </div>
             </div>
             <div class="card-footer">
