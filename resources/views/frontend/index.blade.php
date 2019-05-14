@@ -7,7 +7,7 @@
             <div class="row align-items-center fill_height">
                 <div class="col">
                     <div class="main_slider_content">
-                        <h6>Casio / Collezione 2019</h6>
+                        <h6>CASIO / Collezione 2019</h6>
                         <h1>Nuovi Arrivi</h1>
                         <div class="red_button shop_now_button"><a href="#">Compra Ora</a></div>
                     </div>
