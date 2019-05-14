@@ -300,12 +300,11 @@ section
 .currency > a
 {
 	display: block;
-	color: #b5aec4;
+	color: white;
 	font-weight: 400;
 	height: 50px;
 	line-height: 50px;
 	font-size: 13px;
-	text-transform: uppercase;
 }
 .currency > a > i
 {
@@ -383,7 +382,7 @@ section
 .language > a
 {
 	display: block;
-	color: #b5aec4;
+	color: white;
 	font-weight: 400;
 	height: 50px;
 	line-height: 50px;
@@ -462,7 +461,7 @@ section
 .account > a
 {
 	display: block;
-	color: #b5aec4;
+	color: white;
 	font-weight: 400;
 	height: 50px;
 	line-height: 50px;
@@ -843,7 +842,7 @@ section
 .red_button a
 {
 	display: block;
-	color: #FFFFFF;
+	color: black;
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: 500;
@@ -1073,35 +1072,35 @@ section
 {
 	font-size: 16px !important;
 	font-weight: 400;
-	color: #b9b4c7 !important;
+	color: white !important;
 }
 .input_ph:-moz-placeholder /* older Firefox*/
 {
 	font-size: 16px !important;
 	font-weight: 400;
-	color: #b9b4c7 !important;
+	color: white !important;
 }
 .input_ph::-moz-placeholder /* Firefox 19+ */
 {
 	font-size: 16px !important;
 	font-weight: 400;
-	color: #b9b4c7 !important;
+	color: white !important;
 }
 .input_ph:-ms-input-placeholder
 {
 	font-size: 16px !important;
 	font-weight: 400;
-	color: #b9b4c7 !important;
+	color: white !important;
 }
 .input_ph::input-placeholder
 {
 	font-size: 16px !important;
 	font-weight: 400;
-	color: #b9b4c7 !important;
+	color: white !important;
 }
 textarea
 {
-	border: solid 1px #e5e5e5;
+	border: solid 1px white;
 	padding-left: 20px;
 	padding-top: 15px;
 }

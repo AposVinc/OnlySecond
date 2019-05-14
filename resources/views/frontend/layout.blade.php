@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="top_nav_left">free shipping on all u.s orders over $50</div>
+                        <div class="top_nav_left">Consegna gratuita con una spesa superiore ai 150€</div>
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="top_nav_right">
@@ -67,7 +67,7 @@
                                 </li>
                                 <li class="account">
                                     <a href="#">
-                                        Il mio account
+                                        Il Mio Account
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="account_selection">
