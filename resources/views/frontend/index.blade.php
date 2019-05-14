@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <div class="main_slider" style="background-image:url(images/slider_1.jpg)">
+    <div class="main_slider" style="background-image: url(http://localhost/OnlySecond/images/casioslider.jpg)">
         <div class="container fill_height">
             <div class="row align-items-center fill_height">
                 <div class="col">
                     <div class="main_slider_content">
-                        <h6>Casio / Collection 2019</h6>
-                        <h1>New Arrivals</h1>
-                        <div class="red_button shop_now_button"><a href="#">shop now</a></div>
+                        <h6>Casio / Collezione 2019</h6>
+                        <h1>Nuovi Arrivi</h1>
+                        <div class="red_button shop_now_button"><a href="#">Compra Ora</a></div>
                     </div>
                 </div>
             </div>
