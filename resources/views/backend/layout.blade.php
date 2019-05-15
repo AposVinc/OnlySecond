@@ -75,6 +75,11 @@
                         <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreCollection')}}">Ripristina Collezione</a></li>
                     </ul>
                 </li>
+                <h3 class="menu-item-has-children dropdown">
+                    <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-balance-scale"></i>Gestione Categorie</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listCategory')}}">Lista Categorie</a></li>
+                </h3>
                 <h3 class="menu-title">Prodotto</h3>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Prodotti</a>

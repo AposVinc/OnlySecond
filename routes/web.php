@@ -129,6 +129,10 @@ Route::name('admin.')->group(function () {
     Route::post('admin/getProductRestore', 'ProductController@getProductRestore')->name('restoreGetProduct');
     Route::post('admin/restoreProductRestore','ProductController@restore')->name('restoreProductRestore');
 
+    #category
+    Route::get('admin/listCategory', 'CategoryController@showListForm')->name('listCategory');
+
+
 });
 
 
