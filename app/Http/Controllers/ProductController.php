@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Product;
-use DB;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -21,8 +20,13 @@ class ProductController extends Controller
 
     public function showListForm()
     {
-        $products = Product::withTrashed()->with('')->get();
-        return view('backend.product.listProduct', ['products' => $products]);
+        $brands = Brand::withTrashed()->with('products')->get();
+        /*
+        foreach ($brands as $brand => $collections){
+            foreach ($collections as $collection ){echo $collection;
+        }}
+        */
+        return view('backend.product.listProduct', ['brands' => $brands]);
     }
 
     public function showAddForm()
