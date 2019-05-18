@@ -20,6 +20,7 @@ class Category extends Model
         'name',
     ];
 
+    protected $primaryKey = 'id';
 
     public function category(){
         return $this->hasOne('App\Product');

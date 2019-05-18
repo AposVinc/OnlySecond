@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Category;
+use DB;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Input;
 class CategoryController extends Controller
 {
     /**
@@ -13,9 +13,11 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function EchoMessage($msg)
     {
-        //
+        echo '<script type="text/javascript">
+            alert("' , $msg , '")
+                </script>';
     }
 
     /**
@@ -23,9 +25,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function showListForm(){
+        $categories = Category::withTrashed()->get();
+        return view('backend.category.listCategory', ['categories' => $categories]);
     }
 
     /**
@@ -34,9 +36,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function showAddForm()
     {
-        //
+        return view('backend.category.addCategory');
     }
 
     /**
