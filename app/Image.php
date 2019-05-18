@@ -17,7 +17,7 @@ class Image extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable =[
-        'path', 'product_id',
+        'image', 'product_id',
     ];
 
     public function product()

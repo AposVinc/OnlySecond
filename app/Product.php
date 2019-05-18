@@ -20,7 +20,7 @@ class Product extends Model
         'cod', 'name', 'price', 'producer_id', 'category_id',
     ];
 
-    function collections() {
+    function collection() {
         return $this->belongsTo('App\Collection');
     }
 
