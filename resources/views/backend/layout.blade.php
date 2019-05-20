@@ -79,6 +79,7 @@
                     <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Gestione Categorie</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{url::route('admin.listCategory')}}">Lista Categorie</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addCategory')}}">Aggiungi Categoria</a></li>
 
                     </ul>
                 </li>
