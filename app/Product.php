@@ -17,7 +17,7 @@ class Product extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable =[
-        'cod', 'name', 'price', 'producer_id', 'category_id',
+        'cod', 'name', 'price', 'producer_id', 'category_id','specification_id'
     ];
 
     function collection() {
@@ -29,9 +29,33 @@ class Product extends Model
         return $this->belongsTo('App\Category');
     }
 
-    public function image()
+    public function specification()
     {
-        return $this->hasOne('App\Image');
+        return $this->hasOne('App\Specification');
     }
 
+    public function images()
+    {
+        return $this->hasMany('App\Image');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+
+    public function suppliers()
+    {
+        return $this->hasMany('App\Supplier');
+    }
+
+    public function discount()
+    {
+        return $this->hasOne('App\Discount');
+    }
+
+    public function usersWishlist()
+    {
+        return $this->belongsToMany('App\User', 'wishlists');
+    }
 }
