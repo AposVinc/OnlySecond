@@ -1,29 +1,46 @@
 @extends('backend.layout')
 
 @section('content')
-    <form action="{{route('admin.addCategoryCreate')}}" method="post" class="form-horizontal">
-    @csrf
-
-    <div class="card add">
-        <div class="card-header">
-            <strong>Aggiungi Categoria</strong>
-        </div>
-        <div>
-            <div class="card-body card-block">
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for=text-input" class="form-control-label">Nome Categoria</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserire il nome della Categoria da aggiungere" class="form-control"></div>
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Aggiungi Categoria</h1>
                 </div>
             </div>
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Submit
-                </button>
-                <button type="reset" class="btn btn-primary btn-sm">
-                    <i class="fa fa-ban"></i> Reset
-                </button>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="{{route('admin.index')}}">Home</a></li>
+                        <li>Gestione Categoria</li>
+                        <li class="active">Aggiungi Gategoria</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
+
+    <form action="{{route('admin.addBrandCreate')}}" method="post" class="form-horizontal">
+    @csrf
+        <div class="card add">
+            <div>
+                <div class="card-body card-block">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Categoria</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserire il nome della Categoria da aggiungere" class="form-control"></div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Aggiungi
+                    </button>
+                    <button type="reset" class="btn btn-danger btn-sm">
+                        <i class="fa fa-ban"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
     </form>
 @endsection

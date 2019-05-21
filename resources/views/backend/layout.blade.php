@@ -457,6 +457,7 @@
 
 @if(route::currentRouteName()=='admin.editCategory' or route::currentRouteName()=='admin.deleteCategory')
 @endif
+
 </body>
 
 </html>
