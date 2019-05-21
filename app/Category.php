@@ -22,7 +22,7 @@ class Category extends Model
 
     protected $primaryKey = 'id';
 
-    public function category(){
+    function categories(){
         return $this->hasOne('App\Product');
     }
 }

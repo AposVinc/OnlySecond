@@ -36,8 +36,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function showAddForm()
-    {
+    public function showAddForm(){
         return view('backend.category.addCategory');
     }
 
