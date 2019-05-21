@@ -39,19 +39,38 @@
                                 <tr>
                                     <th>Nome Brand</th>
                                     <th>Nome Collezione</th>
+                                    <th>Nome Prodotto</th>
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
                                     <th>Eliminato il</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($collections as $collection)
+                                <!--foreach($brands as $brand => $collections)
+                                foreach($collections as $collection )
                                     <tr>
-                                        <td>{{$collection->brand->name}}</td>
-                                        <td>{{$collection->name}}</td>
-                                        <td>{{$collection->created_at}}</td>
-                                        <td>{{$collection->updated_at}}</td>
-                                        <td>{{$collection->deleted_at}}</td>
+                                        <td>{$brand->name}}</td>
+                                        <td>{$collection->name}}</td>
+                                        <td>{$product->name}}</td>
+                                        <td>{$product->created_at}}</td>
+                                        <td>{$product->updated_at}}</td>
+                                        <td>{$product->deleted_at}}</td>
+                                    </tr>
+                                endforeach
+                                endforeach
+                                -->
+                                @foreach($products as $product)
+                                    <tr>
+                                        @foreach($collections as $collection)
+                                            @if($collection->name==$product->collection->name)
+                                                <td>{{$collection->brand->name}}</td>
+                                            @endif
+                                        @endforeach
+                                        <td>{{$product->collection->name}}</td>
+                                        <td>{{$product->name}}</td>
+                                        <td>{{$product->created_at}}</td>
+                                        <td>{{$product->updated_at}}</td>
+                                        <td>{{$product->deleted_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

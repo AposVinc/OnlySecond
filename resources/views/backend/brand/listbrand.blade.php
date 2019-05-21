@@ -33,9 +33,6 @@
 
                 <div class="col-md-12">
                     <div class="card">
-                      <!--  <div class="card-header">
-                            <strong class="card-title">Lista Brand</strong>
-                        </div>-->
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>

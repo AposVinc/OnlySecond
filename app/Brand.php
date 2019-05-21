@@ -25,4 +25,9 @@ class Brand extends Model
     function collections() {
         return $this->hasMany('App\Collection');
     }
+
+    public function products()
+    {
+        return $this->hasManyThrough('App\Product', 'App\Collection');
+    }
 }
