@@ -112,12 +112,6 @@ class BrandController extends Controller
         return redirect()->to('admin/index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Brand  $brand
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         $id = $request->get('brand');

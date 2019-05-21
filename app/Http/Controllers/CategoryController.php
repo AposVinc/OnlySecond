@@ -17,20 +17,41 @@ class CategoryController extends Controller
     public function EchoMessage($msg)
     {
         echo '<script type="text/javascript">
-            alert("' , $msg , '")
+            alert("', $msg, '")
                 </script>';
     }
 
-    public function showListForm(){
+    public function showListForm()
+    {
         $categories = Category::withTrashed()->get();
         return view('backend.category.listCategory', ['categories' => $categories]);
     }
 
-    public function showAddForm(){
+    public function showAddForm()
+    {
         return view('backend.category.addCategory');
     }
 
-    public function create(Request $request){
+    public function showRestoreForm()
+    {
+        $categories = Category::onlyTrashed('categories')->get();
+        if (sizeof($categories) == 0) {
+            $this->EchoMessage("Non ci sono Categorie da ripristinare");
+            return view('backend.index');
+        } else {
+            return view('backend.category.restoreCategory', ['categories' => $categories]);
+        }
+    }
+
+    public function showDeleteForm()
+    {
+        $categories = Category::all();
+        return view('backend.category.deleteCategory', ['categories' => $categories]);
+    }
+
+
+    public function create(Request $request)
+    {
         $input = $request->all();
         $category = new Category();
         $category->name = $input('text-input');
@@ -39,33 +60,36 @@ class CategoryController extends Controller
         return redirect()->to('admin/listCategory');
     }
 
-    public function restore(Request $request){
+    public function restore(Request $request)
+    {
         $id = $request->get('category');
-        Category::where(id,$id)->restore();
+        Category::where(id, $id)->restore();
 
         return redirect()->to('admin/index');
 
     }
 
-    public function show($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->get('category');
+        Category::where('id', $id)->delete();
+
+        return redirect()->to('admin/index');
     }
 
-    public function edit($id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->get('category');
+        $newname = $request->get('newname');
+
+
+        Category::where('id', $id)->restore();
+        Category::where('id', $id)
+            ->update(['name' => $newname]);
+
+        return redirect()->to('admin/index');
     }
 
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-
-    public function destroy($id)
-    {
-        //
-    }
 }
