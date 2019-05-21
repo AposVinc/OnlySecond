@@ -133,14 +133,14 @@ Route::name('admin.')->group(function () {
     Route::get('admin/listCategory', 'CategoryController@showListForm')->name('listCategory');
 
     Route::get('admin/addCategory', 'CategoryController@showAddForm')->name('addCategory');
-    Route::post('admin/addCategorySend', 'CategoryController@store')->name('addCategoryStore');
+    Route::post('admin/addCategorySend', 'CategoryController@create')->name('addCategoryStore');
 
     Route::get('admin/editCategory', 'CategoryController@showEditForm')->name('editCategory');
     Route::post('admin/getCategory', 'CategoryController@getCategory')->name('editGetCategory');
     Route::post('admin/editCategoryUpdate', 'CategoryController@update')->name('editCategoryUpdate');
 
     Route::get('admin/deleteCategory', 'CategoryController@showDeleteForm')->name('deleteCategory');
-    Route::post('admin/deleteCategoryDestroy', 'CategoryController@destroy')->name(deleteCategoryDestroy);
+    Route::post('admin/deleteCategoryDestroy', 'CategoryController@destroy')->name('deleteCategoryDestroy');
 
     Route::get('admin/restoreCategory', 'CategoryController@showRestoreForm')->name('restoreCategory');
     Route::post('admin/getCategoryRestore', 'CategoryController@getCategoryRestore')->name('restoreGetCategory');

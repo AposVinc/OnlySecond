@@ -7,7 +7,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Lista Collezioni</h1>
+                    <h1>Lista Prodotti</h1>
                 </div>
             </div>
         </div>
@@ -16,16 +16,13 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="{{route('admin.index')}}">Home</a></li>
-                        <li>Gestione Collezioni</li>
-                        <li class="active">Lista Collezioni</li>
+                        <li>Gestione Prodotto</li>
+                        <li class="active">Lista Prodotti</li>
                     </ol>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 
     <div class="content mt-3">
         <div class="animated fadeIn">
