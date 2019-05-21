@@ -40,6 +40,24 @@ class CategoryController extends Controller
         return view('backend.category.addCategory');
     }
 
+    public function create(Request $request){
+        $input= $request->all();
+        $category=new category;
+        $category->name = $input('text-input');
+        $category->save();
+
+        return redicted()->to('admin/listCategory');
+
+    }
+
+    public function restore(Request $request){
+        $id = $request->get('category');
+        Category::where(id,$id)->restore();
+
+        return reditect()->to('admin/index');
+
+    }
+
     /**
      * Display the specified resource.
      *
