@@ -6,6 +6,8 @@ use App\Brand;
 use App\Collection;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use DB;
 
 class ProductController extends Controller
 {
@@ -96,7 +98,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id = $request->get('product');
+        $newname = $request->get('newname');
+
+        Product::where('id',$id)->restore();
+        Product::where('id',$id)
+            ->update(['name' => $newname]);
+
+        return redirect()->to('admin/index');
     }
 
     /**
@@ -105,8 +114,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->get('product');
+        Product::where('id',$id)->delete();
+
+        return redirect()->to('admin/index');
     }
 }
