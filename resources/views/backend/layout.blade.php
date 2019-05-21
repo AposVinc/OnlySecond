@@ -75,6 +75,17 @@
                         <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreCollection')}}">Ripristina Collezione</a></li>
                     </ul>
                 </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Gestione Categorie</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listCategory')}}">Lista Categorie</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addCategory')}}">Aggiungi Categoria</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editCategory')}}">Modifica Categoria</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteCategory')}}">Elimina Categoria</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreCategory')}}">Ripristina Categoria</a></li>
+                    </ul>
+                </li>
+
                 <h3 class="menu-title">Prodotto</h3>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Prodotti</a>
@@ -442,6 +453,9 @@
 
         });
     </script>
+@endif
+
+@if(route::currentRouteName()=='admin.editCategory' or route::currentRouteName()=='admin.deleteCategory')
 @endif
 
 </body>

@@ -129,6 +129,19 @@ Route::name('admin.')->group(function () {
     Route::post('admin/getProductRestore', 'ProductController@getProductRestore')->name('restoreGetProduct');
     Route::post('admin/restoreProductRestore','ProductController@restore')->name('restoreProductRestore');
 
+    #category
+    Route::get('admin/listCategory', 'CategoryController@showListForm')->name('listCategory');
+
+    Route::get('admin/addCategory', 'CategoryController@showAddForm')->name('addCategory');
+    Route::post('admin/addCategorySend', 'CategoryController@store')->name('addCategoryStore');
+
+    Route::get('admin/editCategory', 'CategoryController@showEditForm')->name('editCategory');
+
+    Route::get('admin/deleteCategory', 'CategoryController@showDeleteForm')->name('deleteCategory');
+
+    Route::get('admin/restoreCategory', 'CategoryController@showRestoreForm')->name('restoreCategory');
+
+
 });
 
 

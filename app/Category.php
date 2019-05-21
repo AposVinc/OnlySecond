@@ -16,13 +16,13 @@ class Category extends Model
      */
     protected $dates = ['deleted_at'];
 
-
     protected $fillable =[
         'name',
     ];
 
-    public function category()
-    {
+    protected $primaryKey = 'id';
+
+    function categories(){
         return $this->hasOne('App\Product');
     }
 }
