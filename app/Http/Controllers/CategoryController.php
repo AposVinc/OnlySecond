@@ -31,19 +31,19 @@ class CategoryController extends Controller
     }
 
     public function create(Request $request){
-        $input= $request->all();
-        $category=new category;
+        $input = $request->all();
+        $category = new Category();
         $category->name = $input('text-input');
         $category->save();
 
-        return redicted()->to('admin/listCategory');
+        return redirect()->to('admin/listCategory');
     }
 
     public function restore(Request $request){
         $id = $request->get('category');
         Category::where(id,$id)->restore();
 
-        return reditect()->to('admin/index');
+        return redirect()->to('admin/index');
 
     }
 

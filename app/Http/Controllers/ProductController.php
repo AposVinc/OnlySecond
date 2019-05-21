@@ -60,28 +60,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function create(Request $request)  //
     {
+        $input = $request->all();
+        $product = new Product();
+        $product->name = $input['text-input'];
+        $product->save();
 
+        return redirect()->to('admin/index');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($cod)
     {
         $product = Product::where('cod', $cod)->firstOrFail();

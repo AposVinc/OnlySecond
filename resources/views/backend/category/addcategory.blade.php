@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <form action="{{route('admin.addBrandCreate')}}" method="post" class="form-horizontal">
+    <form action="{{route('admin.addCategoryCreate')}}" method="post" class="form-horizontal">
     @csrf
         <div class="card add">
             <div>
