@@ -65,9 +65,10 @@ class ProductController extends Controller
 
     public function create(Request $request)  //
     {
-        $input = $request->all();
+        //$input = $request->all();
         $product = new Product();
-        $product->name = $input['text-input'];
+        $product->name=$request->nome;
+        //$product->name = $input['text-input'];
         $product->save();
 
         return redirect()->to('admin/index');

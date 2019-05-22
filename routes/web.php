@@ -82,7 +82,7 @@ Route::name('admin.')->group(function () {
     Route::get('admin/listBrand', 'BrandController@showListForm')->name('listBrand');
 
     Route::get('admin/addBrand', 'BrandController@showAddForm')->name('addBrand');
-    Route::post('admin/addBrandStore', 'BrandController@create')->name('addBrandCreate');
+    Route::post('admin/addBrandCreate', 'BrandController@create')->name('addBrandCreate');
 
     Route::get('admin/editBrand', 'BrandController@showEditForm')->name('editBrand');
     Route::post('admin/editBrandUpdate', 'BrandController@update')->name('editBrandUpdate');
