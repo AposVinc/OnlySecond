@@ -116,7 +116,7 @@ Route::name('admin.')->group(function () {
     Route::get('admin/listProduct', 'ProductController@showListForm')->name('listProduct');
 
     Route::get('admin/addProduct', 'ProductController@showAddForm')->name('addProduct');
-    Route::post('admin/addProductSend', 'ProductController@create')->name('addProductCreate');
+    Route::post('admin/addProductCreate', 'ProductController@create')->name('addProductCreate');
 
     Route::get('admin/editProduct', 'ProductController@showEditForm')->name('editProduct');
     Route::post('admin/getProduct', 'ProductController@getCollection')->name('editGetProduct');
@@ -133,7 +133,7 @@ Route::name('admin.')->group(function () {
     Route::get('admin/listCategory', 'CategoryController@showListForm')->name('listCategory');
 
     Route::get('admin/addCategory', 'CategoryController@showAddForm')->name('addCategory');
-    Route::post('admin/addCategorySend', 'CategoryController@create')->name('addCategoryCreate');
+    Route::post('admin/addCategoryCreate', 'CategoryController@create')->name('addCategoryCreate');
 
     Route::get('admin/editCategory', 'CategoryController@showEditForm')->name('editCategory');
     Route::post('admin/getCategory', 'CategoryController@getCategory')->name('editGetCategory');

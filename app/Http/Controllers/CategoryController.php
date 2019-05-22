@@ -29,6 +29,7 @@ class CategoryController extends Controller
 
     public function showAddForm()
     {
+
         return view('backend.category.addCategory');
     }
 
@@ -52,12 +53,13 @@ class CategoryController extends Controller
 
     public function create(Request $request)
     {
-        $input = $request->all();
+       // $input = $request->all();
         $category = new Category();
-        $category->name = $input('text-input');
+        $category->name=$request->nome;
+        //$category->name = $input('text-input');
         $category->save();
 
-        return redirect()->to('admin/listCategory');
+        return redirect()->to('admin/index');
     }
 
     public function restore(Request $request)
