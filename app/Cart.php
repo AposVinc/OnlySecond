@@ -3,9 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Cart extends Model
 {
     use SoftDeletes;
 
@@ -21,8 +20,7 @@ class Category extends Model
         'name',
     ];
 
-    public function products()
-    {
+    public function products(){
         return $this->belongsToMany('App\Product');
     }
 }

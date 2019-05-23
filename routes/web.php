@@ -77,7 +77,8 @@ Route::name('admin.')->group(function () {
         return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
     })->name('login');
 
-
+Route::get('admin/prova','ProveController@prova');
+    Route::get('admin/prova1','ProveController@prova1');
     #brand
     Route::get('admin/listBrand', 'BrandController@showListForm')->name('listBrand');
 

@@ -3,9 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Billingaddress extends Model
 {
     use SoftDeletes;
 
@@ -18,11 +17,11 @@ class Category extends Model
 
 
     protected $fillable =[
-        'name',
+        'via','numerocivico','citta','provincia','cap',
     ];
 
-    public function products()
+    public function orderhistory()
     {
-        return $this->belongsToMany('App\Product');
+        return $this->belongsTo('App\Orderhistory');
     }
 }

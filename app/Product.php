@@ -17,45 +17,26 @@ class Product extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable =[
-        'cod', 'name', 'price', 'producer_id', 'category_id','specification_id'
+        'cod', 'name', 'price', 'producer_id', 'category_id',
     ];
 
     function collection() {
         return $this->belongsTo('App\Collection');
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsToMany('App\Category');
     }
 
-    public function specification()
+    public function image()
     {
-        return $this->hasOne('App\Specification');
+        return $this->hasOne('App\Image');
     }
 
-    public function images()
-    {
-        return $this->hasMany('App\Image');
+    public function orderhistories(){
+//ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot, prendere in considerazione la possibilità di convertire il modello pivot in un modello Eloquent effettivo.
+        return $this->belongsToMany('App\Orderhistory')->using('App\OrderhistoryProduct')->withPivot('quantity');
     }
 
-    public function reviews()
-    {
-        return $this->hasMany('App\Review');
-    }
-
-    public function suppliers()
-    {
-        return $this->hasMany('App\Supplier');
-    }
-
-    public function discount()
-    {
-        return $this->hasOne('App\Discount');
-    }
-
-    public function usersWishlist()
-    {
-        return $this->belongsToMany('App\User', 'wishlists');
-    }
 }
