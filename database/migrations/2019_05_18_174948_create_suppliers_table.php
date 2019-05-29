@@ -17,12 +17,11 @@ class CreateSuppliersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->string('phone_office',9);
-            $table->string('phone_mobile',10);
+            $table->string('phone',10);
             $table->string('city');
             $table->string('address');
             $table->string('zip',5);
-            $table->string('iban');
+            $table->string('iban',27);
             $table->timestamps();
 
             $table->softDeletes();

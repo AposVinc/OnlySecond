@@ -33,28 +33,28 @@ class ProductController extends Controller
         //return view('backend.product.listProduct', ['brands' => $brands]);
         $products= Product::withTrashed()->with('collection')->get();
         $collections=Collection::withTrashed()->with('brand')->get();
-        return view('backend.product.listProduct', ['products' => $products], ['collections'=>$collections]);
+        return view('backend.product.list', ['products' => $products], ['collections'=>$collections]);
     }
 
     public function showAddForm()
     {
         $brands = Brand::withTrashed()->get();
-        return view('backend.product.addProduct',['brands' => $brands]);
+        return view('backend.product.add',['brands' => $brands]);
     }
 
     public function showEditForm()
     {
-        return view('backend.product.editProduct');
+        return view('backend.product.edit');
     }
 
     public function showDeleteForm()
     {
-        return view('backend.product.deleteProduct');
+        return view('backend.product.delete');
     }
 
     public function showRestoreForm()
     {
-        return view('backend.product.restoreProduct');
+        return view('backend.product.restore');
     }
 
     /**
@@ -70,7 +70,7 @@ class ProductController extends Controller
         $product->name = $input['text-input'];
         $product->save();
 
-        return redirect()->to('admin/index');
+        return redirect()->to('Admin/Index');
     }
     public function show($cod)
     {
@@ -105,7 +105,7 @@ class ProductController extends Controller
         Product::where('id',$id)
             ->update(['name' => $newname]);
 
-        return redirect()->to('admin/index');
+        return redirect()->to('Admin/Index');
     }
 
     /**
@@ -119,6 +119,6 @@ class ProductController extends Controller
         $id = $request->get('product');
         Product::where('id',$id)->delete();
 
-        return redirect()->to('admin/index');
+        return redirect()->to('Admin/Index');
     }
 }

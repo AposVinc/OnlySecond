@@ -76,7 +76,7 @@
                                         @else
                                             <li><a href="{{route('user.login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Accedi</a></li>
                                             <li><a href="{{route('user.register')}}"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrati</a></li>
-                                            <li><a href="{{url('admin')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Area Privata</a></li>
+                                            <li><a href="{{route('Admin.Login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Area Privata</a></li>
                                         @endauth
 
                                     </ul>
