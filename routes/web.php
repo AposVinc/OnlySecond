@@ -131,14 +131,12 @@ Route::prefix('Admin')->group(function () {
                 Route::post('/AddStore', 'ProductController@create')->name('AddCreate');
 
                 Route::get('/Edit', 'ProductController@showEditForm')->name('Edit');
-                Route::post('/EditGet', 'ProductController@getCollection')->name('EditGetProduct');
                 Route::post('/EditUpdate', 'ProductController@update')->name('EditUpdate');
 
                 Route::get('/Delete', 'ProductController@showDeleteForm')->name('Delete');
                 Route::post('/DeleteDestroy', 'ProductController@destroy')->name('DeleteDestroy');
 
                 Route::get('/Restore', 'ProductController@showRestoreForm')->name('Restore');
-                Route::post('/RestoreGetProduct', 'ProductController@getProductRestore')->name('RestoreGetProduct');
                 Route::post('/RestoreRestore', 'ProductController@restore')->name('RestoreRestore');
             });
         });
