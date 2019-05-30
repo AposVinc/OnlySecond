@@ -355,7 +355,7 @@
     })(jQuery);
 </script>
 
-@if(route::currentRouteName('admin.addproduct'))
+@if(route::currentRouteName('admin.addProduct'))
 <script src="{{ URL::asset('vendor/backend/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
 
@@ -375,7 +375,7 @@
 </script>
 @endif
 
-@if(route::currentRouteName('admin.editbrand'))
+@if(route::currentRouteName('admin.editBrand'))
     <script>
         /* script per scrivere nome Brand nel edit*/
         function showName() {
@@ -391,7 +391,7 @@
     </script>
 @endif
 
-@if(route::currentRouteName()=='admin.editcollection' or route::currentRouteName()=='admin.deletecollection')
+@if(route::currentRouteName()=='admin.editCollection' or route::currentRouteName()=='admin.deleteCollection')
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamic').change(function(){
@@ -423,7 +423,7 @@
     </script>
 @endif
 
-@if(route::currentRouteName()=='admin.restorecollection')
+@if(route::currentRouteName()=='admin.restoreCollection')
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamic').change(function(){
