@@ -110,7 +110,7 @@ class CollectionController extends Controller
         $collection->brand_id = $input['brand'];
         $collection->save();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Collection/List');
     }
 
 
@@ -163,7 +163,7 @@ class CollectionController extends Controller
                 ->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
         }
         
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Collection/List');
     }
 
     /**
@@ -178,7 +178,7 @@ class CollectionController extends Controller
         $id = $request->get('collection');
         Collection::where('id',$id)->restore();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Collection/List');
     }
 
     /**
@@ -192,6 +192,6 @@ class CollectionController extends Controller
         $collection=$request->get('collection');
         Collection::where('id',$collection)->delete();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Collection/List');
     }
 }

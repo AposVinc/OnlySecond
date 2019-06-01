@@ -28,7 +28,6 @@ class CategoryController extends Controller
 
     public function showAddForm()
     {
-
         return view('backend.category.add');
     }
     public function showEditForm()
@@ -63,7 +62,7 @@ class CategoryController extends Controller
         //$category->name = $input('text-input');
         $category->save();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Category/List');
     }
 
     public function restore(Request $request)
@@ -71,7 +70,7 @@ class CategoryController extends Controller
         $id = $request->get('category');
         Category::where(id, $id)->restore();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Category/List');
 
     }
 
@@ -80,7 +79,7 @@ class CategoryController extends Controller
         $id = $request->get('category');
         Category::where('id', $id)->delete();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Category/List');
     }
 
     public function update(Request $request)
@@ -93,9 +92,6 @@ class CategoryController extends Controller
         Category::where('id', $id)
             ->update(['name' => $newname]);
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Category/List');
     }
-
-
-
 }

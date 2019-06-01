@@ -67,7 +67,7 @@ class BrandController extends Controller
         $brand->name = $input['text-input'];
         $brand->save();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Brand/List');
     }
 
     /**
@@ -93,7 +93,7 @@ class BrandController extends Controller
         Brand::where('id',$id)
             ->update(['name' => $newname]);
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Brand/List');
     }
 
     /**
@@ -107,7 +107,7 @@ class BrandController extends Controller
         $id = $request->get('brand');
         Brand::where('id',$id)->restore();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Brand/List');
     }
 
     public function destroy(Request $request)
@@ -115,7 +115,7 @@ class BrandController extends Controller
         $id = $request->get('brand');
         Brand::where('id',$id)->delete();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Brand/List');
     }
 
 }

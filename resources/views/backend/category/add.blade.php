@@ -15,7 +15,7 @@
                     <ol class="breadcrumb text-right">
                         <li><a href="{{route('Admin.Index')}}">Home</a></li>
                         <li>Gestione Categoria</li>
-                        <li class="active">Aggiungi Gategoria</li>
+                        <li class="active">Aggiungi Categoria</li>
                     </ol>
                 </div>
             </div>

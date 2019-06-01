@@ -106,7 +106,7 @@ class ProductController extends Controller
         Product::where('id',$id)
             ->update(['name' => $newname]);
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Product/List');
     }
 
     /**
@@ -120,6 +120,6 @@ class ProductController extends Controller
         $id = $request->get('product');
         Product::where('id',$id)->delete();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Product/List');
     }
 }
