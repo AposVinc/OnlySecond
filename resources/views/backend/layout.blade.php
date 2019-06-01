@@ -79,11 +79,11 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Gestione Categorie</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.listCategory')}}">Lista Categorie</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.addCategory')}}">Aggiungi Categoria</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.editCategory')}}">Modifica Categoria</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.deleteCategory')}}">Elimina Categoria</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.restoreCategory')}}">Ripristina Categoria</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Category.List')}}">Lista Categorie</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Category.Add')}}">Aggiungi Categoria</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Category.Edit')}}">Modifica Categoria</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Category.Delete')}}">Elimina Categoria</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Category.Restore')}}">Ripristina Categoria</a></li>
                     </ul>
                 </li>
 
