@@ -3,9 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Payment extends Model
 {
     use SoftDeletes;
 
@@ -21,10 +20,8 @@ class Category extends Model
         'name',
     ];
 
-
-    public function products()
+    public function orderhistory()
     {
-        return $this->belongsToMany('App\Product');
-
+        return $this->belongsTo('App\Orderhistory');
     }
 }

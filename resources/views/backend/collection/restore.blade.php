@@ -2,12 +2,12 @@
 
 @section('content')
 
-    <form action="{{route('admin.deleteCollectionDestroy')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Collection.RestoreRestore')}}" method="post" class="form-horizontal">
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-header">
-                <strong>Elimina Collezione</strong>
+                <strong>Ripristina Collezione</strong>
             </div>
             <div class="card-body card-block">
                 <div class="row form-group">
@@ -28,13 +28,12 @@
                         <select name="collection" id="collection" class="form-control">
                             <option value="0">Seleziona la collezione</option>
                         </select>
-                        <small class="help-block form-text">Seleziona la collezione da modificare</small>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Submit
+                    <i class="fa fa-dot-circle-o"></i> Ripristina
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
                     <i class="fa fa-ban"></i> Reset
@@ -43,5 +42,4 @@
         </div>
         <!-- </div>-->
     </form>
-
 @endsection

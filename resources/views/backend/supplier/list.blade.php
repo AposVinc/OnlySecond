@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <div class="breadcrumbs">
         <div class="col-sm-4">
             <div class="page-header float-left">
@@ -15,22 +14,18 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="{{route('admin.index')}}">Home</a></li>
-                        <li>Gestione Brand</li>
-                        <li class="active">Lista Brand</li>
+                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
+                        <li>Gestione Fornitori</li>
+                        <li class="active">Lista Fornitori</li>
                     </ol>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
-
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -44,12 +39,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($brands as $brand)
+                                @foreach($suppliers as $supplier)
                                     <tr>
-                                        <td>{{$brand->name}}</td>
-                                        <td>{{$brand->created_at}}</td>
-                                        <td>{{$brand->updated_at}}</td>
-                                        <td>{{$brand->deleted_at}}</td>
+                                        <td>{{$supplier->name}}</td>
+                                        <td>{{$supplier->created_at}}</td>
+                                        <td>{{$supplier->updated_at}}</td>
+                                        <td>{{$supplier->deleted_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -57,7 +52,6 @@
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </div><!-- .animated -->

@@ -5,26 +5,23 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Discount extends Model
 {
-    use SoftDeletes;
+    //use SoftDeletes;
 
     /**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
-
+    //protected $dates = ['deleted_at'];
 
     protected $fillable =[
-        'name',
+
     ];
 
-
-    public function products()
+    public function product()
     {
-        return $this->belongsToMany('App\Product');
-
+        return $this->belongsTo('App\Product');
     }
 }

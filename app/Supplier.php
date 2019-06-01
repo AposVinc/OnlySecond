@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Supplier extends Model
 {
     use SoftDeletes;
 
@@ -16,15 +16,12 @@ class Category extends Model
      */
     protected $dates = ['deleted_at'];
 
-
     protected $fillable =[
-        'name',
+
     ];
 
-
-    public function products()
+    public function product()
     {
-        return $this->belongsToMany('App\Product');
-
+        return $this->belongsTo('App\Product');
     }
 }

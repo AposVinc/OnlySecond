@@ -2,55 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use App\Brand;
+use App\Supplier;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class SupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function EchoMessage($msg)
-    {
-        echo '<script type="text/javascript">
-            alert("' . $msg . '")
-            </script>';
-    }
 
     public function showListForm()
     {
-        $brands = Brand::withTrashed()->get();
-        return view('backend.brand.list', ['brands' => $brands]);
+        $suppliers = Supplier::withTrashed()->get();
+        return view('backend.supplier.list', ['suppliers' => $suppliers]);
     }
 
     public function showAddForm()
     {
-        return view('backend.brand.add');
+        return view('backend.supplier.add');
     }
 
     public function showEditForm()
     {
-        $brands = Brand::withTrashed()->get();
-        return view('backend.brand.edit', ['brands' => $brands]);
+        $suppliers = Supplier::withTrashed()->get();
+        return view('backend.supplier.edit', ['suppliers' => $suppliers]);
     }
 
     public function showDeleteForm()
     {
-        $brands = Brand::all(); //all() non mostrare brand gia eliminati
-        return view('backend.brand.delete', ['brands' => $brands]);
+        $suppliers = Supplier::all(); //all() non mostrare brand gia eliminati
+        return view('backend.supplier.delete', ['suppliers' => $suppliers]);
     }
 
     public function showRestoreForm()
     {
-        $brands = Brand::onlyTrashed('brands')->get();
-        if(sizeof($brands)==0) {
-            $this->EchoMessage("Non ci sono Brand da ripristinare");
+        $suppliers = Supplier::onlyTrashed('brands')->get();
+        if (sizeof($suppliers) == 0) {
+            $this->EchoMessage("Non ci sono Supplier da ripristinare");
             return view('backend.index');
-        }else {
-            return view('backend.brand.restore', ['brands' => $brands]);
+        } else {
+            return view('backend.supplier.restore', ['suppliers' => $suppliers]);
         }
     }
 
@@ -63,9 +51,16 @@ class BrandController extends Controller
     public function create(Request $request)  //
     {
         $input = $request->all();
-        $brand = new Brand();
-        $brand->name = $input['text-input'];
-        $brand->save();
+
+        $supplier = new Supplier();
+        $supplier->name = $input['name'];
+        $supplier->email = $input['email'];
+        $supplier->phone = $input['phone'];
+        $supplier->city = $input['city'];
+        $supplier->address = $input['address'];
+        $supplier->zip = $input['zip'];
+        $supplier->iban = $input['iban'];
+        $supplier->save();
 
         return redirect()->to('Admin/Index');
     }
@@ -78,6 +73,8 @@ class BrandController extends Controller
      */
     public function update(Request $request)
     {
+        echo $request;
+        /*
         $id = $request->get('brand');
         $newname = $request->get('newname');
 
@@ -86,14 +83,15 @@ class BrandController extends Controller
                 DB::table('brands')
                     ->where('id', $input['brand'])
                     ->update(['name' => $input['newname']]);
-        */
+        *//*
 
-        Brand::where('id',$id)->restore(); //se era stato eliminato viene ripristinato
+        Brand::where('id', $id)->restore(); //se era stato eliminato viene ripristinato
 
-        Brand::where('id',$id)
+        Brand::where('id', $id)
             ->update(['name' => $newname]);
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('admin/index');
+    */
     }
 
     /**
@@ -104,18 +102,19 @@ class BrandController extends Controller
      */
     public function restore(Request $request)   //query senza nome
     {
-        $id = $request->get('brand');
-        Brand::where('id',$id)->restore();
+        $id = $request->get('supplier');
+        Supplier::where('id', $id)->restore();
 
         return redirect()->to('Admin/Index');
     }
 
     public function destroy(Request $request)
     {
-        $id = $request->get('brand');
-        Brand::where('id',$id)->delete();
+        $id = $request->get('supplier');
+        Supplier::where('id', $id)->delete();
 
         return redirect()->to('Admin/Index');
     }
 
 }
+

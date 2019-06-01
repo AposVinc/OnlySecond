@@ -14,7 +14,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="{{route('admin.index')}}">Home</a></li>
+                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
                         <li>Gestione Brand</li>
                         <li class="active">Modifica Brand</li>
                     </ol>
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <form action="{{route('admin.editBrandUpdate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Brand.EditUpdate')}}" method="post" class="form-horizontal">
     @csrf
         <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->

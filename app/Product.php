@@ -24,14 +24,19 @@ class Product extends Model
         return $this->belongsTo('App\Collection');
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsToMany('App\Category');
     }
 
     public function image()
     {
         return $this->hasOne('App\Image');
+    }
+
+    public function orderhistories(){
+//ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot, prendere in considerazione la possibilità di convertire il modello pivot in un modello Eloquent effettivo.
+        return $this->belongsToMany('App\Orderhistory')->using('App\OrderhistoryProduct')->withPivot('quantity');
     }
 
 }
