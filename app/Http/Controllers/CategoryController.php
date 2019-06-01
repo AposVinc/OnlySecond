@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+
 
 class CategoryController extends Controller
 {
@@ -24,13 +23,18 @@ class CategoryController extends Controller
     public function showListForm()
     {
         $categories = Category::withTrashed()->get();
-        return view('backend.category.listCategory', ['categories' => $categories]);
+        return view('backend.category.lis', ['categories' => $categories]);
     }
 
     public function showAddForm()
     {
 
-        return view('backend.category.addCategory');
+        return view('backend.category.add');
+    }
+    public function showEditForm()
+    {
+        $categories = Category::withTrashed()->get();
+        return view('backend.category.edit', ['categories' => $categories]);
     }
 
     public function showRestoreForm()
@@ -40,14 +44,14 @@ class CategoryController extends Controller
             $this->EchoMessage("Non ci sono Categorie da ripristinare");
             return view('backend.index');
         } else {
-            return view('backend.category.restoreCategory', ['categories' => $categories]);
+            return view('backend.category.restore', ['categories' => $categories]);
         }
     }
 
     public function showDeleteForm()
     {
         $categories = Category::all();
-        return view('backend.category.deleteCategory', ['categories' => $categories]);
+        return view('backend.category.delete', ['categories' => $categories]);
     }
 
 
@@ -59,7 +63,7 @@ class CategoryController extends Controller
         //$category->name = $input('text-input');
         $category->save();
 
-        return redirect()->to('admin/index');
+        return redirect()->to('Admin/Index');
     }
 
     public function restore(Request $request)
@@ -67,7 +71,7 @@ class CategoryController extends Controller
         $id = $request->get('category');
         Category::where(id, $id)->restore();
 
-        return redirect()->to('admin/index');
+        return redirect()->to('Admin/Index');
 
     }
 
@@ -76,7 +80,7 @@ class CategoryController extends Controller
         $id = $request->get('category');
         Category::where('id', $id)->delete();
 
-        return redirect()->to('admin/index');
+        return redirect()->to('Admin/Index');
     }
 
     public function update(Request $request)
@@ -89,7 +93,7 @@ class CategoryController extends Controller
         Category::where('id', $id)
             ->update(['name' => $newname]);
 
-        return redirect()->to('admin/index');
+        return redirect()->to('Admin/Index');
     }
 
 
