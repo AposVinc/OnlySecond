@@ -57,32 +57,33 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Brand</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listBrand')}}">Lista Brand</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addBrand')}}">Aggiungi Brand</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editBrand')}}">Modifica Brand</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteBrand')}}">Elimina Brand</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreBrand')}}">Ripristina Brand</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Brand.List')}}">Lista Brand</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Brand.Add')}}">Aggiungi Brand</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Brand.Edit')}}">Modifica Brand</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Brand.Delete')}}">Elimina Brand</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Brand.Restore')}}">Ripristina Brand</a></li>
 
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gestione Collezioni</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listCollection')}}">Lista Collezioni</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addCollection')}}">Aggiungi Collezione</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editCollection')}}">Modifica Collezione</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteCollection')}}">Elimina Collezione</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreCollection')}}">Ripristina Collezione</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Collection.List')}}">Lista Collezioni</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Collection.Add')}}">Aggiungi Collezione</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Collection.Edit')}}">Modifica Collezione</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Collection.Delete')}}">Elimina Collezione</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Collection.Restore')}}">Ripristina Collezione</a></li>
                     </ul>
                 </li>
+
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Gestione Categorie</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listCategory')}}">Lista Categorie</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addCategory')}}">Aggiungi Categoria</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editCategory')}}">Modifica Categoria</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteCategory')}}">Elimina Categoria</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreCategory')}}">Ripristina Categoria</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.listCategory')}}">Lista Categorie</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.addCategory')}}">Aggiungi Categoria</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.editCategory')}}">Modifica Categoria</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.deleteCategory')}}">Elimina Categoria</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.restoreCategory')}}">Ripristina Categoria</a></li>
                     </ul>
                 </li>
 
@@ -90,13 +91,27 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Prodotti</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('admin.listProduct')}}">Lista Prodotto</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('admin.addProduct')}}">Aggiungi Prodotto</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('admin.editProduct')}}">Modifica Prodotto</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('admin.deleteProduct')}}">Elimina Prodotto</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('admin.restoreProduct')}}">Ripristina Prodotto</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Product.List')}}">Lista Prodotto</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Product.Add')}}">Aggiungi Prodotto</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Product.Edit')}}">Modifica Prodotto</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Product.Delete')}}">Elimina Prodotto</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Ripristina Prodotto</a></li>
                     </ul>
                 </li>
+
+                <h3 class="menu-title">Fornitori</h3>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Fornitori</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Supplier.List')}}">Lista Fornitori</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Supplier.Add')}}">Aggiungi Fornitore</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Supplier.Edit')}}">Modifica Fornitore</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Supplier.Delete')}}">Elimina Fornitore</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Supplier.Restore')}}">Ripristina Fornitore</a></li>
+                    </ul>
+                </li>
+
+
                 <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
@@ -355,7 +370,8 @@
     })(jQuery);
 </script>
 
-@if(route::currentRouteName('admin.addProduct'))
+@if(route::currentRouteName('Admin.Product.Add'))
+
 <script src="{{ URL::asset('vendor/backend/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
 
@@ -375,7 +391,8 @@
 </script>
 @endif
 
-@if(route::currentRouteName('admin.editBrand'))
+@if(route::currentRouteName('Admin.Brand.Edit'))
+
     <script>
         /* script per scrivere nome Brand nel edit*/
         function showName() {
@@ -391,7 +408,8 @@
     </script>
 @endif
 
-@if(route::currentRouteName()=='admin.editCollection' or route::currentRouteName()=='admin.deleteCollection')
+@if(route::currentRouteName()==('Admin.Collection.Edit'or'Admin.Collection.Delete'))
+
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamic').change(function(){
@@ -408,7 +426,7 @@
                     var _token = jQuery('input[name="_token"]').val();
 
                     jQuery.ajax({
-                        url:"{{ route('admin.editGetCollection') }}",
+                        url:"{{ route('Admin.Collection.EditGetCollection') }}",
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result)
@@ -423,7 +441,8 @@
     </script>
 @endif
 
-@if(route::currentRouteName()=='admin.restoreCollection')
+@if(route::currentRouteName()=='Admin.Collection.Restore')
+
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamic').change(function(){
@@ -440,7 +459,7 @@
                     var _token = jQuery('input[name="_token"]').val();
 
                     jQuery.ajax({
-                        url:"{{ route('admin.restoreGetCollection') }}",
+                        url:"{{ route('Admin.Collection.RestoreGetCollection') }}",
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result)
@@ -453,9 +472,6 @@
 
         });
     </script>
-@endif
-
-@if(route::currentRouteName()=='admin.editCategory' or route::currentRouteName()=='admin.deleteCategory')
 @endif
 
 </body>
