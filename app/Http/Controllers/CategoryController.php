@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function showListForm()
     {
         $categories = Category::withTrashed()->get();
-        return view('backend.category.lis', ['categories' => $categories]);
+        return view('backend.category.list', ['categories' => $categories]);
     }
 
     public function showAddForm()
