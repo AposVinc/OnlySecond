@@ -371,6 +371,7 @@
 </script>
 
 @if(route::currentRouteName('Admin.Product.Add'))
+
 <script src="{{ URL::asset('vendor/backend/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
 
@@ -391,6 +392,7 @@
 @endif
 
 @if(route::currentRouteName('Admin.Brand.Edit'))
+
     <script>
         /* script per scrivere nome Brand nel edit*/
         function showName() {
@@ -407,6 +409,7 @@
 @endif
 
 @if(route::currentRouteName()==('Admin.Collection.Edit'or'Admin.Collection.Delete'))
+
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamic').change(function(){
@@ -439,6 +442,7 @@
 @endif
 
 @if(route::currentRouteName()=='Admin.Collection.Restore')
+
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamic').change(function(){
