@@ -81,9 +81,8 @@ class CollectionController extends Controller
 
     public function showRestoreForm()
     {
-        $collection = Collection::onlyTrashed('collections')->get();
-        $brands=Brand::all();
-        if(sizeof($collection)==0) {
+        $brands=Collection::onlyTrashed('collections')->with('brand')->get();
+        if(sizeof($brands)==0) {
             $this->EchoMessage("Non ci sono Collezioni da ripristinare");
             return view('backend.index');
         }else {

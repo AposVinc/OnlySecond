@@ -16,7 +16,7 @@
                         <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection">
                             <option value="0">Seleziona il brand</option>
                             @foreach($brands as $data)
-                                <option value="{{$data->id}}"> {{$data->name}} </option>
+                                <option value="{{$data->brand->id}}"> {{$data->brand->name}} </option>
                             @endforeach
                         </select>
                     </div>

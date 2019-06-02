@@ -408,7 +408,7 @@
     </script>
 @endif
 
-@if(route::currentRouteName()==('Admin.Collection.Edit'or'Admin.Collection.Delete'))
+@if(strpos(route::currentRouteName(),'Admin.Collection')!== false)
 
     <script>
         jQuery(document).ready(function(){
@@ -424,42 +424,10 @@
                     var value = jQuery(this).val();
                     var dependent = jQuery(this).data('dependent');
                     var _token = jQuery('input[name="_token"]').val();
+                    var path = window.location.pathname;
 
                     jQuery.ajax({
-                        url:"{{ route('Admin.Collection.EditGetCollection') }}",
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result)
-                        {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
-                }
-            });
-
-        });
-    </script>
-@endif
-
-@if(route::currentRouteName()=='Admin.Collection.Restore')
-
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamic').change(function(){
-
-                if(jQuery(this).val() != '0')
-                {
-                    let sel = document.getElementById('collection');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-
-                    jQuery.ajax({
-                        url:"{{ route('Admin.Collection.RestoreGetCollection') }}",
+                        url:((path.includes('Edit')) ? ('{{ route('Admin.Collection.EditGetCollection') }}'):((path.includes('Delete'))?('{{ route('Admin.Collection.EditGetCollection') }}'):('{{ route('Admin.Collection.RestoreGetCollection') }}'))),
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result)
