@@ -19,8 +19,27 @@
         foto aggiuntive
         hidden si/no
     -->
-
-    <form action="{{route('admin.addProductCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Aggiungi Prodotto</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
+                        <li>Gestione Prodotti</li>
+                        <li class="active">Aggiungi Prodotto</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="{{route('Admin.Product.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-header">
