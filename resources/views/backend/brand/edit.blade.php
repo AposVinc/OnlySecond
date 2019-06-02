@@ -32,18 +32,16 @@
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
                         <select name="brand" id="brand" class="form-control" onchange="showName()">
-                            <option value="0">Seleziona il brand</option>
+                            <option value="0">Seleziona il brand da modificare</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
                         </select>
-                        <small class="help-block form-text">Seleziona il brand da modificare</small>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Brand</label></div>
                     <div class="col-12 col-md-9"><input value="" type="text" id="text-input newname" name="newname" placeholder="Inserisci il nuovo nome del brand" class="form-control">
-                        <small class="help-block form-text">Inserisci il nuovo nome da assegnare al brand</small>
                     </div>
                 </div>
             </div>
