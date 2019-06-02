@@ -98,6 +98,13 @@
                         <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Ripristina Prodotto</a></li>
                     </ul>
                 </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Sconti</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Discount.List')}}">Lista Sconti</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Discount.Add')}}">Aggiungi Sconto</a></li>
+                        </ul>
+                </li>
 
                 <h3 class="menu-title">Fornitori</h3>
                 <li class="menu-item-has-children dropdown">

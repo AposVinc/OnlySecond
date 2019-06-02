@@ -179,6 +179,16 @@ Route::prefix('Admin')->group(function () {
                 Route::post('/RestoreRestore', 'SupplierController@restore')->name('RestoreRestore');
             });
         });
+
+        #discount
+        Route::prefix('/Discount')->group(function () {
+            Route::name('Discount.')->group(function () {
+                Route::get('/List', 'DiscountController@showListForm')->name('List');
+
+                Route::get('/Add', 'DiscountController@showAddForm')->name('Add');
+                Route::post('/AddStore', 'DiscountController@create')->name('AddCreate');
+            });
+        });
     });
 });
 

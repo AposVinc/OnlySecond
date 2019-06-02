@@ -71,7 +71,7 @@ class ProductController extends Controller
         //$product->name = $input['text-input'];
         $product->save();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Product/List');
     }
     public function show($cod)
     {
