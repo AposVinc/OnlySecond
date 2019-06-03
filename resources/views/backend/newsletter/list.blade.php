@@ -7,7 +7,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Lista Brand</h1>
+                    <h1>Lista Mail</h1>
                 </div>
             </div>
         </div>
@@ -16,8 +16,8 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                        <li>Gestione Brand</li>
-                        <li class="active">Lista Brand</li>
+                        <li>Gestione Newsletter</li>
+                        <li class="active">Lista Mail</li>
                     </ol>
                 </div>
             </div>
