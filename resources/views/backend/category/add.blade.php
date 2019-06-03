@@ -13,23 +13,23 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="{{route('admin.index')}}">Home</a></li>
+                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
                         <li>Gestione Categoria</li>
-                        <li class="active">Aggiungi Gategoria</li>
+                        <li class="active">Aggiungi Categoria</li>
                     </ol>
                 </div>
             </div>
         </div>
     </div>
 
-    <form action="{{route('admin.addCategoryCreate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Category.AddCreate')}}" method="post" class="form-horizontal">
     @csrf
         <div class="card add">
             <div>
                 <div class="card-body card-block">
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Categoria</label></div>
-                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserire il nome della Categoria da aggiungere" class="form-control"></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="nome" placeholder="Inserire il nome della Categoria da aggiungere" class="form-control"></div>
                     </div>
                 </div>
                 <div class="card-footer">

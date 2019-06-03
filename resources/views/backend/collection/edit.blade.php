@@ -2,13 +2,31 @@
 
 @section('content')
 
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Modifica Collezione</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
+                        <li>Gestione Collezioni</li>
+                        <li class="active">Modifica Collezione</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <form action="{{route('Admin.Collection.EditUpdate')}}" method="post" class="form-horizontal">
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
-            <div class="card-header">
-                <strong>Modifica Collezione</strong>
-            </div>
             <div class="card-body card-block">
 
 
@@ -28,9 +46,8 @@
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
                         <select name="collection" id="collection" class="form-control">
-                            <option value="0">Seleziona la collezione</option>
+                            <option value="0">Seleziona la collezione </option>
                         </select>
-                        <small class="help-block form-text">Seleziona la collezione da modificare</small>
                     </div>
                 </div>
 
@@ -50,12 +67,12 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nuovo Nome</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="newcollectionname" placeholder="Inserire il nome della Collezione" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="newcollectionname" placeholder="Inserire il nome della nuova Collezione" class="form-control"></div>
                 </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Aggiungi
+                    <i class="fa fa-dot-circle-o"></i> Modifica
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
                     <i class="fa fa-ban"></i> Reset

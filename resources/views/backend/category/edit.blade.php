@@ -12,7 +12,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="{{route('admin.index')}}">Home</a></li>
+                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
                         <li>Gestione Categorie</li>
                         <li class="active">Modifica Categoria</li>
                     </ol>
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <form action="{{route('admin.editCategoryUpdate')}}" method="post" class="form-horizontal">
+    <form action="{{route('admin.Category.EditUpdate')}}" method="post" class="form-horizontal">
     @csrf
         <div class="card add">
             <div class="card-body card-block">

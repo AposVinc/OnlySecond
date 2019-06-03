@@ -92,6 +92,7 @@ Route::prefix('Admin')->group(function () {
                 Route::get('/Edit', 'BrandController@showEditForm')->name('Edit');
                 Route::post('/EditUpdate', 'BrandController@update')->name('EditUpdate');
 
+
                 Route::get('/Delete', 'BrandController@showDeleteForm')->name('Delete');
                 Route::post('/DeleteDestroy', 'BrandController@destroy')->name('DeleteDestroy');
 
@@ -142,21 +143,23 @@ Route::prefix('Admin')->group(function () {
         });
 
         #category
-        Route::get('/listCategory', 'CategoryController@showListForm')->name('listCategory');
+        Route::prefix('/Category')->group(function () {
+            Route::name('Category.')->group(function () {
+                Route::get('/List', 'CategoryController@showListForm')->name('List');
 
-        Route::get('/addCategory', 'CategoryController@showAddForm')->name('addCategory');
-        Route::post('/addCategorySend', 'CategoryController@create')->name('addCategoryCreate');
+                Route::get('/Add', 'CategoryController@showAddForm')->name('Add');
+                Route::post('/AddStore', 'CategoryController@create')->name('AddCreate');
 
-        Route::get('/editCategory', 'CategoryController@showEditForm')->name('editCategory');
-        Route::post('/getCategory', 'CategoryController@getCategory')->name('editGetCategory');
-        Route::post('/editCategoryUpdate', 'CategoryController@update')->name('editCategoryUpdate');
+                Route::get('/Edit', 'CategoryController@showEditForm')->name('Edit');
+                Route::post('/EditUpdate', 'CategoryController@update')->name('EditUpdate');
 
-        Route::get('/deleteCategory', 'CategoryController@showDeleteForm')->name('deleteCategory');
-        Route::post('/deleteCategoryDestroy', 'CategoryController@destroy')->name('deleteCategoryDestroy');
+                Route::get('/Delete', 'CategoryController@showDeleteForm')->name('Delete');
+                Route::post('/DeleteDestroy', 'CategoryController@destroy')->name('DeleteDestroy');
 
-        Route::get('/restoreCategory', 'CategoryController@showRestoreForm')->name('restoreCategory');
-        Route::post('/getCategoryRestore', 'CategoryController@getCategoryRestore')->name('restoreGetCategory');
-        Route::post('/restoreCategoryRestore', 'CategoryController@restore')->name('restoreCategoryRestore');
+                Route::get('/Restore', 'CategoryController@showRestoreForm')->name('Restore');
+                Route::post('/RestoreRestore', 'CategoryController@restore')->name('RestoreRestore');
+            });
+        });
 
         #supplier
         Route::prefix('/Supplier')->group(function () {
@@ -176,7 +179,7 @@ Route::prefix('Admin')->group(function () {
                 Route::post('/RestoreRestore', 'SupplierController@restore')->name('RestoreRestore');
             });
         });
-
+        
         #newsletter
         Route::prefix('/Newsletter')->group(function () {
             Route::name('Newsletter.')->group(function () {
@@ -187,6 +190,15 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
+        #discount
+        Route::prefix('/Discount')->group(function () {
+            Route::name('Discount.')->group(function () {
+                Route::get('/List', 'DiscountController@showListForm')->name('List');
+
+                Route::get('/Add', 'DiscountController@showAddForm')->name('Add');
+                Route::post('/AddStore', 'DiscountController@create')->name('AddCreate');
+            });
+        });
     });
 });
 

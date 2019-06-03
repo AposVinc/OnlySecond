@@ -79,11 +79,11 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Gestione Categorie</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.listCategory')}}">Lista Categorie</a></li>
-                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.addCategory')}}">Aggiungi Categoria</a></li>
-                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.editCategory')}}">Modifica Categoria</a></li>
-                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.deleteCategory')}}">Elimina Categoria</a></li>
-                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.restoreCategory')}}">Ripristina Categoria</a></li>
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Category.List')}}">Lista Categorie</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Category.Add')}}">Aggiungi Categoria</a></li>
+                        <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Category.Edit')}}">Modifica Categoria</a></li>
+                        <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Category.Delete')}}">Elimina Categoria</a></li>
+                        <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Category.Restore')}}">Ripristina Categoria</a></li>
                     </ul>
                 </li>
 
@@ -97,6 +97,13 @@
                         <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Product.Delete')}}">Elimina Prodotto</a></li>
                         <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Ripristina Prodotto</a></li>
                     </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Sconti</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Discount.List')}}">Lista Sconti</a></li>
+                        <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Discount.Add')}}">Aggiungi Sconto</a></li>
+                        </ul>
                 </li>
 
                 <h3 class="menu-title">Fornitori</h3>
@@ -416,7 +423,7 @@
     </script>
 @endif
 
-@if(route::currentRouteName()==('Admin.Collection.Edit'or'Admin.Collection.Delete'))
+@if(strpos(route::currentRouteName(),'Admin.Collection')!== false)
 
     <script>
         jQuery(document).ready(function(){
@@ -432,42 +439,10 @@
                     var value = jQuery(this).val();
                     var dependent = jQuery(this).data('dependent');
                     var _token = jQuery('input[name="_token"]').val();
+                    var path = window.location.pathname;
 
                     jQuery.ajax({
-                        url:"{{ route('Admin.Collection.EditGetCollection') }}",
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result)
-                        {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
-                }
-            });
-
-        });
-    </script>
-@endif
-
-@if(route::currentRouteName()=='Admin.Collection.Restore')
-
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamic').change(function(){
-
-                if(jQuery(this).val() != '0')
-                {
-                    let sel = document.getElementById('collection');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-
-                    jQuery.ajax({
-                        url:"{{ route('Admin.Collection.RestoreGetCollection') }}",
+                        url:((path.includes('Edit')) ? ('{{ route('Admin.Collection.EditGetCollection') }}'):((path.includes('Delete'))?('{{ route('Admin.Collection.EditGetCollection') }}'):('{{ route('Admin.Collection.RestoreGetCollection') }}'))),
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result)

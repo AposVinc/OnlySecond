@@ -65,12 +65,13 @@ class ProductController extends Controller
 
     public function create(Request $request)  //
     {
-        $input = $request->all();
+        //$input = $request->all();
         $product = new Product();
-        $product->name = $input['text-input'];
+        $product->name=$request->nome;
+        //$product->name = $input['text-input'];
         $product->save();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Product/List');
     }
     public function show($cod)
     {
@@ -105,7 +106,7 @@ class ProductController extends Controller
         Product::where('id',$id)
             ->update(['name' => $newname]);
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Product/List');
     }
 
     /**
@@ -119,6 +120,6 @@ class ProductController extends Controller
         $id = $request->get('product');
         Product::where('id',$id)->delete();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Product/List');
     }
 }

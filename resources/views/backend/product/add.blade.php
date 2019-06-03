@@ -19,8 +19,27 @@
         foto aggiuntive
         hidden si/no
     -->
-
-    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Aggiungi Prodotto</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
+                        <li>Gestione Prodotti</li>
+                        <li class="active">Aggiungi Prodotto</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="{{route('Admin.Product.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-header">
@@ -29,7 +48,7 @@
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Codice</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserisci il codice del prodotto" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="nome" placeholder="Inserisci il codice del prodotto" class="form-control"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
@@ -155,7 +174,7 @@
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Submit
+                    <i class="fa fa-dot-circle-o"></i> Aggiungi
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
                     <i class="fa fa-ban"></i> Reset

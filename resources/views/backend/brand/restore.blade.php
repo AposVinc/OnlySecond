@@ -32,12 +32,11 @@
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
                         <select name="brand" id="brand" class="form-control" onchange="showName()">
-                            <option value="0">Seleziona il brand</option>
+                            <option value="0">Seleziona il brand da ripritinare</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
                         </select>
-                        <small class="help-block form-text">Seleziona il brand da Ripristinare</small>
                     </div>
                 </div>
             </div>
