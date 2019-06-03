@@ -3,6 +3,7 @@
 use App\Brand;
 use App\Collection;
 use App\Product;
+use App\Newsletter;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
+        $newsletter1 = new Newsletter(['email' => 'f14e48631f-f65fb0@inbox.mailtrap.io']);
+        $newsletter1->save();
 
+        $newsletter2 = new Newsletter(['email' => 'mail1@mail1.it']);
+        $newsletter2->save();
+
+        /*
         $brand1 = new Brand(['name' => 'Fossil']);
         $brand1->save();
 
@@ -52,5 +59,7 @@ class DatabaseSeeder extends Seeder
 
         $product1c2b2 = new Product(['name' => 'p1c2b2']);
         $collection2b2->products()->save($product1c2b2);
+        */
+
     }
 }

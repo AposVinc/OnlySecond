@@ -179,6 +179,16 @@ Route::prefix('Admin')->group(function () {
                 Route::post('/RestoreRestore', 'SupplierController@restore')->name('RestoreRestore');
             });
         });
+        
+        #newsletter
+        Route::prefix('/Newsletter')->group(function () {
+            Route::name('Newsletter.')->group(function () {
+                Route::get('/List', 'NewsletterController@showListForm')->name('List');
+
+                Route::get('/SendMail', 'NewsletterController@showSendMailForm')->name('SendMailForm');
+                Route::post('/SendMailPost', 'NewsletterController@SendMail')->name('SendMail');
+            });
+        });
 
         #discount
         Route::prefix('/Discount')->group(function () {
