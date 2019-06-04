@@ -193,7 +193,7 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
-        #Offers
+        #offers
         Route::prefix('/Offer')->group(function () {
             Route::name('Offer.')->group(function () {
                 Route::get('/List', 'OfferController@showListForm')->name('List');
