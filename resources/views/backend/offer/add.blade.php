@@ -25,9 +25,6 @@
     <form action="{{route('Admin.Offer.AddCreate')}}" method="post" class="form-horizontal">
     @csrf
         <div class="card add">
-            <div class="card-header">
-                <strong>Aggiungi Offerta</strong>
-            </div>
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
@@ -40,11 +37,22 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collezione" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
                         <select name="collezione" id="collezione" class="form-control" >
                             <option value="0">Seleziona il collezione</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="prodotto" class=" form-control-label">Prodotto</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="prodotto" id="prodotto" class="form-control" >
+                            <option value="0">Seleziona il prodotto</option>
 
                         </select>
                     </div>

@@ -26,9 +26,6 @@
     <form action="{{route('Admin.Category.DeleteDestroy')}}" method="post" class="form-horizontal">
         @csrf
         <div class="card add">
-             <div class="card-header">
-                 <strong>Elimina Categoria</strong>
-             </div>
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="category" class="form-control-label">Categoria</label></div>

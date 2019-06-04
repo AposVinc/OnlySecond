@@ -44,7 +44,8 @@ class OfferController extends Controller
 
     public function showDeleteForm()
     {
-        return view('backend.offer.delete');
+        $offers = Offer::all();
+        return view('backend.offer.delete', ['offers' => $offers]);
     }
 
     public function showRestoreForm()
