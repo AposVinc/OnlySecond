@@ -19,6 +19,7 @@ class Offer extends Model
     protected $fillable =[
         'rate',
     ];
+
     public function product(){
         return $this->hasOne('App\Product');
     }

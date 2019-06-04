@@ -27,7 +27,9 @@ class OfferController extends Controller
 
     public function showEditForm()
     {
-        return view('backend.offer.edit');
+       // $offers = Offer::withTrashed()->get();
+        $offers = Product::with('offers')->get();
+        return view('backend.offer.edit', ['offers' => $offers]);
     }
 
     function getOffer(Request $request)
