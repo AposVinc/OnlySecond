@@ -43,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collezione" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collezione" id="collezione" disabled="disabled" class="form-control" >
+                        <select name="collezione" id="collezione" class="form-control" >
                             <option value="0">Seleziona il collezione</option>
 
                         </select>

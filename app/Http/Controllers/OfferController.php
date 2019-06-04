@@ -24,9 +24,22 @@ class OfferController extends Controller
         $brands = Brand::withTrashed()->get();
         return view('backend.offer.add',['brands' => $brands]);
     }
+
     public function showEditForm()
     {
         return view('backend.offer.edit');
+    }
+
+    function getOffer(Request $request)
+    {
+        $value = $request->get('value');
+        $data = Collection::withTrashed()->where('brand_id', $value)->get();
+        $output = '<option value="0">Seleziona la collezione</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
+        }
+        return $output;
     }
 
     public function showDeleteForm()

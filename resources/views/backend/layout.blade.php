@@ -308,9 +308,9 @@
         function activeModel() {
             var x = document.getElementById("brand").value;
             if (x == 0) {
-                document.getElementById('modello').setAttribute('disabled','disabled');
+                document.getElementById('collezione').setAttribute('disabled','disabled');
             } else {
-                document.getElementById('modello').removeAttribute('disabled');
+                document.getElementById('collezione').removeAttribute('disabled');
             }
         }
     </script>
@@ -360,6 +360,7 @@
         });
     </script>
 @endif
+
 
 </body>
 
