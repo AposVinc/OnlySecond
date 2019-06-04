@@ -17,20 +17,10 @@ class Offer extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable =[
-        'name', 'price', 'producer_id', 'category_id',
+        'rate',
     ];
-    function collection() {
-        return $this->belongsTo('App\Collection');
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany('App\Category');
-    }
-
-    public function image()
-    {
-        return $this->hasOne('App\Image');
+    public function product(){
+        return $this->hasOne('App\Product');
     }
 
 }

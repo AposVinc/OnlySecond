@@ -17,7 +17,6 @@ class CreateOffersTable extends Migration
             $table->increments('id');
             $table->integer('product_id');
             $table->integer('rate');//percentuale
-            $table->string('codice_sconto')->nullable(); //non so se aggiungerlo
             $table->timestamps();
 
             $table->softDeletes();
