@@ -198,7 +198,7 @@ Route::prefix('Admin')->group(function () {
             Route::name('Offer.')->group(function () {
                 Route::get('/List', 'OfferController@showListForm')->name('List');
 
-                Route::get('/Add', 'OfferController@showAddForm')->name('Add');
+                //Route::get('/Add', 'OfferController@showAddForm')->name('Add');
                 //Route::post('/AddStore', 'OfferController@create')->name('AddCreate');
             });
         });
