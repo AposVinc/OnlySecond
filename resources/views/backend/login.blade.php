@@ -47,11 +47,11 @@
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                     </div>
 
                     @if ($message_error_be = $errors->first('login_be_error_message'))

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiscountsTable extends Migration
+class CreateOffersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDiscountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('discounts', function (Blueprint $table) {
+        Schema::create('offers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
             $table->integer('rate');//percentuale
@@ -21,6 +21,8 @@ class CreateDiscountsTable extends Migration
             $table->timestamps();
 
             $table->softDeletes();
+database/migrations/2019_05_18_171323_create_offers_table.php
+
 
         });
     }
@@ -32,6 +34,6 @@ class CreateDiscountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('discounts');
+        Schema::dropIfExists('offers');
     }
 }
