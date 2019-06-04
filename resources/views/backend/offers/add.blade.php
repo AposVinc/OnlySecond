@@ -27,8 +27,8 @@
     <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="brand" class=" form-control-label">ID Prodotto</label></div>
-
+                    <div class="col col-md-3"><label for="brand" class=" form-control-label">Codice</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserire il codice del prodotto" class="form-control"></div>
                 </div>
 
             </div>
