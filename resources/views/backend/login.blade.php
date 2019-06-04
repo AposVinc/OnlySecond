@@ -42,7 +42,7 @@
                 </a>
             </div>
             <div class="login-form">
-                <form method="POST" action="{{ route('admin.login.submit') }}">
+                <form method="POST" action="{{ route('Admin.LoginPost') }}">
                     @csrf
 
                     <div class="form-group">
@@ -69,7 +69,7 @@
                     <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30"> Sign in </button>
 
                     <br><br>
-                    <a href="{{ url('/welcome') }}" class="btn btn-primary btn-flat m-b-30 m-t-30">Return to Home</a>
+                    <a href="{{ route('Home') }}" class="btn btn-primary btn-flat m-b-30 m-t-30">Return to Home</a>
 
                 </form>
 
@@ -93,16 +93,14 @@
 <!--
 
 
-
-
-<a href="{{ route('admin.login.submit') }}" class="btn btn-success btn-flat m-b-30 m-t-30">Sing in</a>
+<a href="{{ route('Admin.LoginPost') }}" class="btn btn-success btn-flat m-b-30 m-t-30">Sing in</a>
 <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">
-                         Sign in
-                    </button>
+    Sign in
+</button>
 
-                    <button type="submit" href="{{ url('/welcome') }}" class="btn btn-success btn-flat m-b-30 m-t-30">
-                        Return to Home
-                    </button>
+<button type="submit" href="{{ url('/welcome') }}" class="btn btn-success btn-flat m-b-30 m-t-30">
+    Return to Home
+</button>
 
 -->
 

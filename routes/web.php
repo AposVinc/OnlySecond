@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('frontend.index');
-});
+})->name('Home');
 
 
 
@@ -73,10 +73,13 @@ Route::prefix('Admin')->group(function () {
         Route::get('/Index', function () {
             return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
         })->name('Index');
-
+/*
         Route::get('/Login', function () {
             return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
         })->name('Login');
+*/
+        Route::get('/Login', 'Auth\LoginController@showLoginFormBE')->name('LoginForm');
+        Route::post('/LoginPost', 'Auth\LoginController@loginBE')->name('LoginPost');
 
         Route::get('/prova', 'ProveController@prova');
         Route::get('/prova1', 'ProveController@prova1');

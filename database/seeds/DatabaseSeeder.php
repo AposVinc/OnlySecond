@@ -1,9 +1,12 @@
 <?php
 
+use App\User;
 use App\Brand;
 use App\Collection;
 use App\Product;
 use App\Newsletter;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +25,29 @@ class DatabaseSeeder extends Seeder
 
         $newsletter2 = new Newsletter(['email' => 'mail1@mail1.it']);
         $newsletter2->save();
+
+        Permission::create(['name'=>'gest_utenti']);
+        Permission::create(['name'=>'gest_prodotti']);
+        Permission::create(['name'=>'gest_offerte']);
+        Permission::create(['name'=>'gest_banner']);
+        Permission::create(['name'=>'gest_imgprod']);
+        Permission::create(['name'=>'gest_fornitori']);
+        Permission::create(['name'=>'gest_newsletter']);
+
+        $admin = Role::create(['name' => 'admin'])->givePermissionTo(Permission::all());
+        $manager = Role::create(['name' => 'manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
+                                                                            'gest_banner','gest_imgprod',
+                                                                            'gest_fornitori','gest_newsletter']);
+        $designer = Role::create(['name' => 'designer'])->givePermissionTo(['gest_banner','gest_imgprod']);
+        $pubblicitario = Role::create(['name'=>'pubblicitario'])->givePermissionTo(['gest_offerte','gest_banner','gest_newsletter']);
+
+
+        $utente1 = new User(['name'=>'a', 'email'=>'a@a.it', 'password'=>'aaaaaaaa']);
+        $utente1->assignRole($admin)->save();
+
+        $utente2 = new User(['name'=>'b', 'email'=>'b@b.it', 'password'=>'bbbbbbbb']);
+        $utente2->assignRole($pubblicitario)->save();
+
 
         /*
         $brand1 = new Brand(['name' => 'Fossil']);
