@@ -185,13 +185,13 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
-        #discount
-        Route::prefix('/Discount')->group(function () {
-            Route::name('Discount.')->group(function () {
-                Route::get('/List', 'DiscountController@showListForm')->name('List');
+        #Offers
+        Route::prefix('/Offer')->group(function () {
+            Route::name('Offer.')->group(function () {
+                Route::get('/List', 'OfferController@showListForm')->name('List');
 
-                Route::get('/Add', 'DiscountController@showAddForm')->name('Add');
-                Route::post('/AddStore', 'DiscountController@create')->name('AddCreate');
+                Route::get('/Add', 'OfferController@showAddForm')->name('Add');
+                //Route::post('/AddStore', 'OfferController@create')->name('AddCreate');
             });
         });
     });

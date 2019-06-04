@@ -22,7 +22,7 @@
         </div>
     </div>
     </div>
-    <form action="{{route('Admin.Discount.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{route('Offer')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="card add">
             <div class="card-header">
                 <strong>Aggiungi Sconto</strong>
