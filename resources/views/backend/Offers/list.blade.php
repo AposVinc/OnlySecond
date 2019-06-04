@@ -44,7 +44,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($offer as $offer)
+                                @foreach($offers as $offer)
                                     <tr>
                                         <td>{{$offer->brand->name}}</td>
                                         <td>{{$offer->name}}</td>

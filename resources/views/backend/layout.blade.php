@@ -98,7 +98,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Offerte</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Offer.List')}}">Lista Offerte</a></li>
-                            <!--<li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Offer.Add')}}">Aggiungi Sconto</a></li>-->
+
                         </ul>
                     </li>
                 @endcan
