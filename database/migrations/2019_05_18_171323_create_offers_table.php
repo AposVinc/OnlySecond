@@ -21,7 +21,7 @@ class CreateOffersTable extends Migration
             $table->timestamps();
 
             $table->softDeletes();
-database/migrations/2019_05_18_171323_create_offers_table.php
+
 
 
         });
