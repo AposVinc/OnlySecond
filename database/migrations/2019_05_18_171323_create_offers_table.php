@@ -17,6 +17,7 @@ class CreateOffersTable extends Migration
             $table->increments('id');
             $table->integer('product_id');
             $table->integer('rate');//percentuale
+            $table->date('end'); //fine offerta della settimana, deve essere settata una alla volta.
             $table->timestamps();
 
             $table->softDeletes();
