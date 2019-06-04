@@ -10,8 +10,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
 
-class OfferController extends Controller
-{
+class OfferController extends Controller{
+
+    public function EchoMessage($msg)
+    {
+        echo '<script type="text/javascript">
+                alert("', $msg, '")
+                    </script>';
+    }
     public function showListForm()
     {
         $offers= Offer::withTrashed()->with('collection')->get();
@@ -52,7 +58,13 @@ class OfferController extends Controller
 
     public function showRestoreForm()
     {
-        return view('backend.offer.restore');
+        $offers = Offer::onlyTrashed('offers')->get();
+        if (sizeof($offers) == 0) {
+            $this->EchoMessage("Non ci sono Offerte da ripristinare");
+            return view('backend.index');
+        } else {
+            return view('backend.offer.restore', ['offers' => $offers]);
+        }
     }
 
     public function create(Request $request)  //
@@ -67,6 +79,35 @@ class OfferController extends Controller
     {
         $offer = Product::where('cod', $cod)->firstOrFail();
         return view('offer')->with(['offer' => $offer]);
+    }
+    public function restore(Request $request)
+    {
+        $id = $request->get('category');
+        Category::where(id, $id)->restore();
+
+        return redirect()->to('Admin/Category/List');
+
+    }
+
+    public function destroy(Request $request)
+    {
+        $id = $request->get('offer');
+        Offer::where('id', $id)->delete();
+
+        return redirect()->to('Admin/Offer/List');
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->get('offer');
+        $newname = $request->get('newname');
+
+
+        Offer::where('id', $id)->restore();
+        Offer::where('id', $id)
+            ->update(['name' => $newname]);
+
+        return redirect()->to('Admin/Offer/List');
     }
 
 }

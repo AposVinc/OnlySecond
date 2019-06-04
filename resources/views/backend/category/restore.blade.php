@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <form action="{{route('adminCategory.RestoreRestore')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Category.RestoreRestore')}}" method="post" class="form-horizontal">
         @csrf
         <div class="card add">
             <strong>Ripristina Categoria</strong>
