@@ -65,7 +65,6 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 //ADMIN
 Route::prefix('Admin')->group(function () {
     Route::name('Admin.')->group(function () {
-
         Route::get('', function () {
             return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
         });
@@ -73,16 +72,9 @@ Route::prefix('Admin')->group(function () {
         Route::get('/Index', function () {
             return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
         })->name('Index');
-/*
-        Route::get('/Login', function () {
-            return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
-        })->name('Login');
-*/
+
         Route::get('/Login', 'Auth\LoginController@showLoginFormBE')->name('LoginForm');
         Route::post('/LoginPost', 'Auth\LoginController@loginBE')->name('LoginPost');
-
-        Route::get('/prova', 'ProveController@prova');
-        Route::get('/prova1', 'ProveController@prova1');
 
         #brand
         Route::prefix('/Brand')->group(function () {
