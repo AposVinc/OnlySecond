@@ -16,27 +16,27 @@ class OfferController extends Controller
     {
         $offers= Offer::withTrashed()->with('collection')->get();
         $collections=Collection::withTrashed()->with('brand')->get();
-        return view('backend.offers.list', ['offers' => $offers], ['collections'=>$collections]);
+        return view('backend.offer.list', ['offer' => $offers], ['collections'=>$collections]);
     }
 
     public function showAddForm()
     {
-        $offers = Offer::withTrashed()->get();//
-        return view('backend.offers.add', ['offers' => $offers]);
+        $brands = Brand::withTrashed()->get();
+        return view('backend.offer.add',['brands' => $brands]);
     }
     public function showEditForm()
     {
-        return view('backend.offers.edit');
+        return view('backend.offer.edit');
     }
 
     public function showDeleteForm()
     {
-        return view('backend.offers.delete');
+        return view('backend.offer.delete');
     }
 
     public function showRestoreForm()
     {
-        return view('backend.offers.restore');
+        return view('backend.offer.restore');
     }
 
     public function create(Request $request)  //
@@ -50,7 +50,7 @@ class OfferController extends Controller
     public function show($cod)
     {
         $offer = Product::where('cod', $cod)->firstOrFail();
-        return view('offers')->with(['offers' => $offer]);
+        return view('offer')->with(['offer' => $offer]);
     }
 
 }

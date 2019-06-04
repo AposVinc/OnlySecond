@@ -63,10 +63,10 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="modello" class=" form-control-label">Modello</label></div>
+                    <div class="col col-md-3"><label for="modello" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
                         <select name="modello" id="modello" disabled="disabled" class="form-control" >
-                            <option value="0">Seleziona il modello</option>
+                            <option value="0">Seleziona la collezione</option>
 
                             <option value="1">Option #1</option>
                             <option value="2">Option #2</option>
