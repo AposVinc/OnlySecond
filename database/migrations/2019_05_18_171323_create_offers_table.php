@@ -20,6 +20,8 @@ class CreateDiscountsTable extends Migration
             $table->string('codice_sconto')->nullable(); //non so se aggiungerlo
             $table->timestamps();
 
+            $table->softDeletes();
+
         });
     }
 
