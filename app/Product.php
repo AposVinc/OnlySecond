@@ -34,7 +34,7 @@ class Product extends Model
         return $this->hasOne('App\Image');
     }
 
-    public function offer(){
+    public function offers(){
         return $this->belongsTo('App\Offer');
     }
 

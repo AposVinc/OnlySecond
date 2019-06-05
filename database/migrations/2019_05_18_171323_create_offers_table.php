@@ -13,7 +13,7 @@ class CreateOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('offers', function (Blueprint $table) {
+        Schema::create('offer', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
             $table->integer('rate');//percentuale
@@ -34,6 +34,6 @@ class CreateOffersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offers');
+        Schema::dropIfExists('offer');
     }
 }

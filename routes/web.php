@@ -204,13 +204,22 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
-        #offers
+        #offer
         Route::prefix('/Offer')->group(function () {
             Route::name('Offer.')->group(function () {
                 Route::get('/List', 'OfferController@showListForm')->name('List');
 
                 Route::get('/Add', 'OfferController@showAddForm')->name('Add');
                 Route::post('/AddStore', 'OfferController@create')->name('AddCreate');
+
+                Route::get('/Edit', 'OfferController@showEditForm')->name('Edit');
+                Route::post('/EditUpdate', 'OfferController@update')->name('EditUpdate');
+
+                Route::get('/Delete', 'OfferController@showDeleteForm')->name('Delete');
+                Route::post('/DeleteDestroy', 'OfferController@destroy')->name('DeleteDestroy');
+
+                Route::get('/Restore', 'OfferController@showRestoreForm')->name('Restore');
+                Route::post('/RestoreRestore', 'OfferController@restore')->name('RestoreRestore');
             });
         });
     });

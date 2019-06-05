@@ -95,7 +95,7 @@
                     </li>
                     <h3 class="menu-title">Prodotto</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Prodotti</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cube"> </i>Gestione Prodotti</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Product.List')}}">Lista Prodotto</a></li>
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Product.Add')}}">Aggiungi Prodotto</a></li>
@@ -108,11 +108,13 @@
                 @can('gest_offerte')
                     <h3 class="menu-title">Offerte</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Offerte</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-percent"> </i>Gestione Offerte</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Offer.List')}}">Lista Offerte</a></li>
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Offer.Add')}}">Aggiungi Offerta</a></li>
-
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Offer.Edit')}}">Modifica Offerta</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Offer.Delete')}}">Elimina Offerta</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Offer.Restore')}}">Ripristina Offerta</a></li>
                         </ul>
                     </li>
                 @endcan
@@ -321,9 +323,9 @@
         function activeModel() {
             var x = document.getElementById("brand").value;
             if (x == 0) {
-                document.getElementById('modello').setAttribute('disabled','disabled');
+                document.getElementById('collezione').setAttribute('disabled','disabled');
             } else {
-                document.getElementById('modello').removeAttribute('disabled');
+                document.getElementById('collezione').removeAttribute('disabled');
             }
         }
     </script>
@@ -373,6 +375,7 @@
         });
     </script>
 @endif
+
 
 </body>
 
