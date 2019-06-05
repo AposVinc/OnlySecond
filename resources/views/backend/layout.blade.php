@@ -48,6 +48,19 @@
                 <li class="active">
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
+                @can('gest_utenti')
+                    <h3 class="menu-title">Utenti</h3>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Utenti</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.User.List')}}">Lista Utenti</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.User.Add')}}">Aggiungi Utente</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.User.Edit')}}">Modifica Utente</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.User.Delete')}}">Elimina Utente</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.User.Restore')}}">Ripristina Utente</a></li>
+                        </ul>
+                    </li>
+                @endcan
                 @can('gest_prodotti')
                     <h3 class="menu-title">Brand</h3>
                     <li class="menu-item-has-children dropdown">

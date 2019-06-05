@@ -2,31 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Supplier;
+use App\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
-class SupplierController extends Controller
+class UserController extends Controller
 {
     public function showListForm()
     {
-        $suppliers = Supplier::withTrashed()->get();
-        return view('backend.supplier.list', ['suppliers' => $suppliers]);
+        $users = User::with('roles')->get();
+        //return view('backend.user.list', ['users' => $users]);
+
+        $roles = Role::all();
+        //return view('backend.user.list', ['roles'=>$roles]);
+
+        return view('backend.user.list', ['roles'=>$roles,'users' => $users]);
     }
 
     public function showAddForm()
     {
-        return view('backend.supplier.add');
+        return view('backend.user.add');
     }
 
     public function showEditForm()
     {
-        $suppliers = Supplier::withTrashed()->get();
-        return view('backend.supplier.edit', ['suppliers' => $suppliers]);
+        $users = User::withTrashed()->get();
+        return view('backend.user.edit', ['users' => $users]);
     }
 
     public function showDeleteForm()
     {
-        $suppliers = Supplier::all(); //all() non mostrare brand gia eliminati
+        $suppliers = User::all(); //all() non mostrare brand gia eliminati
         return view('backend.supplier.delete', ['suppliers' => $suppliers]);
     }
 
@@ -116,4 +122,3 @@ class SupplierController extends Controller
     }
 
 }
-

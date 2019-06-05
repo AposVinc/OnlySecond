@@ -76,6 +76,25 @@ Route::prefix('Admin')->group(function () {
         Route::get('/Login', 'Auth\LoginController@showLoginFormBE')->name('LoginForm');
         Route::post('/LoginPost', 'Auth\LoginController@loginBE')->name('LoginPost');
 
+        #supplier
+        Route::prefix('/User')->group(function () {
+            Route::name('User.')->group(function () {
+                Route::get('/List', 'UserController@showListForm')->name('List');
+
+                Route::get('/Add', 'UserController@showAddForm')->name('Add');
+                Route::post('/AddStore', 'UserController@create')->name('AddCreate');
+
+                Route::get('/Edit', 'UserController@showEditForm')->name('Edit');
+                Route::post('/EditUpdate', 'UserController@update')->name('EditUpdate');
+
+                Route::get('/Delete', 'UserController@showDeleteForm')->name('Delete');
+                Route::post('/DeleteDestroy', 'UserController@destroy')->name('DeleteDestroy');
+
+                Route::get('/Restore', 'UserController@showRestoreForm')->name('Restore');
+                Route::post('/RestoreRestore', 'UserController@restore')->name('RestoreRestore');
+            });
+        });
+
         #brand
         Route::prefix('/Brand')->group(function () {
             Route::name('Brand.')->group(function () {
