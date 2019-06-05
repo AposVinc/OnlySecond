@@ -11,12 +11,7 @@ class UserController extends Controller
     public function showListForm()
     {
         $users = User::with('roles')->get();
-        //return view('backend.user.list', ['users' => $users]);
-
-        $roles = Role::all();
-        //return view('backend.user.list', ['roles'=>$roles]);
-
-        return view('backend.user.list', ['roles'=>$roles,'users' => $users]);
+        return view('backend.user.list', ['users' => $users]);
     }
 
     public function showAddForm()

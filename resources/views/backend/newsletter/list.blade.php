@@ -2,27 +2,12 @@
 
 @section('content')
 
-
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>Lista Mail</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                        <li>Gestione Newsletter</li>
-                        <li class="active">Lista Mail</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    @component('backend.breadcrumbs')
+        @slot('title')
+            Lista Mail
+        @endslot
+        Mail
+    @endcomponent
 
     <div class="content mt-3">
         <div class="animated fadeIn">

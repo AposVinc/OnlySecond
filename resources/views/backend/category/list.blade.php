@@ -2,26 +2,12 @@
 
 @section('content')
 
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <hl>Lista Categorie</hl>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                  <ol class="breadcrumb text-right">
-                      <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                      <li>Gestione Categorie</li>
-                      <li class="active">Lista Categorie</li>
-                  </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    @component('backend.breadcrumbs')
+        @slot('title')
+            Lista Categorie
+        @endslot
+        Categorie
+    @endcomponent
 
     <div class="content mt-3">
         <div class="animated fadeIn">

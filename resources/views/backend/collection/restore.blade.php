@@ -2,26 +2,12 @@
 
 @section('content')
 
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>Ripristina Collezione</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                        <li>Gestione Collezioni</li>
-                        <li class="active">Ripristina Collezione</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    @component('backend.breadcrumbs')
+        @slot('title')
+            Ripristina Collezione
+        @endslot
+        Collezioni
+    @endcomponent
 
     <form action="{{route('Admin.Collection.RestoreRestore')}}" method="post" class="form-horizontal">
     @csrf

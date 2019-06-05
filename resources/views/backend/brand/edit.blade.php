@@ -2,26 +2,12 @@
 
 @section('content')
 
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>Modifica Brand</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                        <li>Gestione Brand</li>
-                        <li class="active">Modifica Brand</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    @component('backend.breadcrumbs')
+        @slot('title')
+            Modifica Brand
+        @endslot
+        Brand
+    @endcomponent
 
     <form action="{{route('Admin.Brand.EditUpdate')}}" method="post" class="form-horizontal">
     @csrf

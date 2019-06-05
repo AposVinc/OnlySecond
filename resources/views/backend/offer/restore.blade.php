@@ -1,26 +1,13 @@
 @extends('backend.layout')
+
 @section('content')
 
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>Ripristina Offerta</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                        <li>Gestione Offerta</li>
-                        <li class="active">Ripristina Offerta</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    @component('backend.breadcrumbs')
+        @slot('title')
+            Ripristina Offerta
+        @endslot
+        Offerte
+    @endcomponent
 
     <form action="{{route('Admin.Offer.RestoreRestore')}}" method="post" class="form-horizontal">
         @csrf

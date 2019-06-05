@@ -2,26 +2,12 @@
 
 @section('content')
 
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>Aggiungi Fornitore</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                        <li>Gestione Fornitore</li>
-                        <li class="active">Aggiungi Fornitore</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    @component('backend.breadcrumbs')
+        @slot('title')
+            Aggiungi Fornitore
+        @endslot
+        Fornitori
+    @endcomponent
 
     <form action="{{route('Admin.Supplier.AddCreate')}}" method="post" class="form-horizontal"> <!-- enctype="multipart/form-data" -->
     @csrf
