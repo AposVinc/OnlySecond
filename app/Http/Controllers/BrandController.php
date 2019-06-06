@@ -81,13 +81,6 @@ class BrandController extends Controller
         $id = $request->get('brand');
         $newname = $request->get('newname');
 
-        /*
-                //prima versione, poi modificata. non serve più.        PUO SERVIRE COME AIUTO
-                DB::table('brands')
-                    ->where('id', $input['brand'])
-                    ->update(['name' => $input['newname']]);
-        */
-
         Brand::where('id',$id)->restore(); //se era stato eliminato viene ripristinato
 
         Brand::where('id',$id)

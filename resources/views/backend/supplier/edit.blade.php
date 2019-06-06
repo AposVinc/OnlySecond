@@ -17,7 +17,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="supplier" id="supplier" class="form-control" onchange="showName()">
+                        <select name="supplier" id="supplier" class="form-control">
                             <option value="0" selected>Seleziona il fornitore</option>
                             @foreach($suppliers as $supplier)
                                 <option value="{{$supplier->id}}">{{$supplier->name}}</option>
@@ -26,8 +26,6 @@
                         <small class="help-block form-text">Seleziona il fornitore da modificare</small>
                     </div>
                 </div>
-
-                {{old('supplier')}}
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
@@ -54,7 +52,7 @@
                     <div class="col-12 col-md-9"><input value="" type="text" id="zip" name="zip" placeholder="Inserire il CAP del Fornitore" class="form-control"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="iban" class=" form-control-label">Phone</label></div>
+                    <div class="col col-md-3"><label for="iban" class=" form-control-label">IBAN</label></div>
                     <div class="col-12 col-md-9"><input value="" type="text" id="iban" name="iban" placeholder="Inserire l'IBAN del Fornitore" class="form-control"></div>
                 </div>
 

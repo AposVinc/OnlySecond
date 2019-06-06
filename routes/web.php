@@ -15,12 +15,9 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-
 Route::get('/home', function () {
     return view('frontend.index');
 })->name('Home');
-
-
 
 Route::get('/shop', 'ShopController@index')->name('shop');
 
@@ -30,7 +27,6 @@ Route::get('/contact', function(){
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
-
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('user.login');
 Route::post('login', 'Auth\LoginController@login')->name('user.loginpost');
 Route::get('logout', 'Auth\LoginController@logout')->name('user.logout'); //era post, non so perchè
@@ -65,6 +61,11 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 //ADMIN
 Route::prefix('Admin')->group(function () {
     Route::name('Admin.')->group(function () {
+
+        Route::get('/Layout', function () {
+            return view('backend.layout');
+        })->name('Layout');
+
         Route::get('', function () {
             return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
         });
@@ -110,8 +111,7 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/Delete', 'RoleController@showDeleteForm')->name('Delete');
                     Route::post('/DeleteDestroy', 'RoleController@destroy')->name('DeleteDestroy');
 
-                    Route::get('/Restore', 'RoleController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'RoleController@restore')->name('RestoreRestore');
+                    //Ripristina non c'è perche non previsto da Spatie infatti non ha SoftDeletes
                 });
             });
         });

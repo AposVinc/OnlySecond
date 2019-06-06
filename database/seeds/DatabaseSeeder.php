@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name'=>'gest_fornitori']);
         Permission::create(['name'=>'gest_newsletter']);
 
+        $cliente = Role::create(['name' => 'cliente']);
         $admin = Role::create(['name' => 'admin'])->givePermissionTo(Permission::all());
         $manager = Role::create(['name' => 'manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
                                                                             'gest_banner','gest_imgprod',
@@ -47,6 +48,10 @@ class DatabaseSeeder extends Seeder
 
         $utente2 = new User(['name'=>'b', 'email'=>'b@b.it', 'password'=>'bbbbbbbb']);
         $utente2->assignRole($pubblicitario)->save();
+
+        $utente3 = new User(['name'=>'c', 'email'=>'c@c.it', 'password'=>'cccccccc']);
+        $utente3->assignRole($cliente)->save();
+
 
 
         /*

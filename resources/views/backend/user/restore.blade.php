@@ -1,6 +1,14 @@
 @extends('backend.layout')
 
 @section('content')
+
+    @component('backend.breadcrumbs')
+        @slot('title')
+            Ripristina Utente
+        @endslot
+        Utenti
+    @endcomponent
+
     <form action="{{route('Admin.Supplier.RestoreRestore')}}" method="post" class="form-horizontal">
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->

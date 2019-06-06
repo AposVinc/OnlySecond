@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
 
     public function showAddForm()
     {
-        return view('backend.user.add');
+        $roles = Role::all();
+        return view('backend.user.add',['roles' => $roles]);
     }
 
     public function showEditForm()
@@ -79,14 +81,7 @@ class UserController extends Controller
         $newname = $request->get('newname');
 
         /*
-                //prima versione, poi modificata. non serve più.        PUO SERVIRE COME AIUTO
-                DB::table('brands')
-                    ->where('id', $input['brand'])
-                    ->update(['name' => $input['newname']]);
-        *//*
-
         Brand::where('id', $id)->restore(); //se era stato eliminato viene ripristinato
-
         Brand::where('id', $id)
             ->update(['name' => $newname]);
 

@@ -245,6 +245,7 @@
                     @else
                         <a class="nav-link float-right" href="{{route('Admin.LoginForm')}}"><i class="fa fa-sign-out"></i> Login</a>
                     @endauth
+                        <a class="nav-link float-right" href="{{route('Home')}}"><i class="fa fa-home"></i> Front End</a>
                 </div>
             </div>
         </div>

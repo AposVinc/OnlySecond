@@ -112,29 +112,6 @@ class CollectionController extends Controller
         return redirect()->to('Admin/Collection/List');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Collection  $collection
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Collection $collection)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Collection  $collection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Collection $collection)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *

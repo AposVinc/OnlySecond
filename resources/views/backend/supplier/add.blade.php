@@ -40,7 +40,7 @@
                 <div class="col-12 col-md-9"><input type="text" id="zip" name="zip" placeholder="Inserire il CAP del Fornitore" class="form-control"></div>
             </div>
             <div class="row form-group">
-                <div class="col col-md-3"><label for="iban" class=" form-control-label">Phone</label></div>
+                <div class="col col-md-3"><label for="iban" class=" form-control-label">IBAN</label></div>
                 <div class="col-12 col-md-9"><input type="text" id="iban" name="iban" placeholder="Inserire l'IBAN del Fornitore" class="form-control"></div>
             </div>
         </div>
