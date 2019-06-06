@@ -9,12 +9,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin</title>
+    <title>Admin - Only Second</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="/TecnologieDelWeb/template/back-end/apple-icon.png">
-    <link rel="shortcut icon" href="/TecnologieDelWeb/template/back-end/favicon.ico">
+    <link rel="apple-touch-icon" href="{{URL::asset("images/backend/gear.png")}}">
+    <link rel="shortcut icon" href="{{URL::asset("images/backend/gear.ico")}}">
 
     <link rel="stylesheet" href="{{ URL::asset('vendor/backend/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('vendor/backend/font-awesome/css/font-awesome.min.css') }}">
@@ -40,8 +40,8 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="layout"><img src="images/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="layout"><img src="images/logo2.png" alt="Logo"></a>
+            <a class="navbar-brand" href="{{'Admin.Index'}}"><img src="{{url::asset('images/logo/lungo-O-bianca.png')}}" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="{{'Admin.Index'}}"><img src="{{url::asset('images/logo/corto-O-bianca.png')}}" alt="Logo"></a>
         </div>
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -51,13 +51,22 @@
                 @can('gest_utenti')
                     <h3 class="menu-title">Utenti</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Utenti</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"> </i>Gestione Utenti</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.User.List')}}">Lista Utenti</a></li>
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.User.Add')}}">Aggiungi Utente</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.User.Edit')}}">Modifica Utente</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.User.Delete')}}">Elimina Utente</a></li>
                             <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.User.Restore')}}">Ripristina Utente</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Ruoli</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Role.List')}}">Lista Ruoli</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Role.Add')}}">Aggiungi Ruolo</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Role.Edit')}}">Modifica Ruolo</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Role.Delete')}}">Elimina Ruolo</a></li>
                         </ul>
                     </li>
                 @endcan
@@ -230,37 +239,13 @@
             </div>
 
             <div class="col-sm-5">
-                <div class="user-area dropdown float-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                    </a>
-                    <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
-                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
-                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
-                    </div>
+                <div>
+                    @auth
+                        <a class="nav-link float-right" href="{{route('user.logout')}}"><i class="fa fa-sign-in"></i> Logout</a>
+                    @else
+                        <a class="nav-link float-right" href="{{route('Admin.LoginForm')}}"><i class="fa fa-sign-out"></i> Login</a>
+                    @endauth
                 </div>
-                <div class="language-select dropdown" id="language-select">
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                        <i class="flag-icon flag-icon-us"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="language">
-                        <div class="dropdown-item">
-                            <span class="flag-icon flag-icon-fr"></span>
-                        </div>
-                        <div class="dropdown-item">
-                            <i class="flag-icon flag-icon-es"></i>
-                        </div>
-                        <div class="dropdown-item">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </div>
-                        <div class="dropdown-item">
-                            <i class="flag-icon flag-icon-it"></i>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </header>
