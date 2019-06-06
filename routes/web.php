@@ -28,7 +28,7 @@ Route::get('/contact', function(){
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('user.login');
-Route::post('login', 'Auth\LoginController@login')->name('user.loginpost');
+Route::post('login', 'Auth\LoginController@loginFE')->name('user.loginpost');
 Route::get('logout', 'Auth\LoginController@logout')->name('user.logout'); //era post, non so perchè
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('user.register');

@@ -71,20 +71,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = new User();
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = Hash::make($data['password']);
-        $user->save();
-        return $user;
-    }
-
-    public function register(Request $request){
-        $input = $request->except('_token');
-        $this->validator($input);
-        $user = $this->create($input);
-        \Auth::login($user);
-
-        return redirect()->to('/home');
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password']
+        ])->assignRole('cliente');
     }
 }

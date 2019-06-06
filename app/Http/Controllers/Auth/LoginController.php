@@ -49,17 +49,16 @@ class LoginController extends Controller
         return view('backend.login');
     }
 
-    public function login(Request $request)
+    public function loginFE(Request $request)
     {
-        $input = $request->except('_token');
-        \Auth::attempt($input);
-        return redirect()->to('/home');
+        $this->login($request);
+        return redirect()->route('Home');
     }
+
 
     public function loginBE(Request $request)
     {
-        $input = $request->except('_token');
-        \Auth::attempt($input);
+        $this->login($request);
         return redirect()->route('Admin.Index');
     }
 
