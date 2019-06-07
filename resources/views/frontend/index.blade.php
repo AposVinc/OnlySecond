@@ -45,13 +45,7 @@
             </div>
         </div>
     </div>
-    @auth
-        <li><a href="{{route('user.logout')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Esci</a></li>
-    @else
-        <li><a href="{{route('user.login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Accedi</a></li>
-        <li><a href="{{route('user.register')}}"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrati</a></li>
-        <li><a href="{{route('Admin.LoginForm')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Area Privata</a></li>
-    @endauth
+
     <!-- New Arrivals -->
 
     <div class="new_arrivals">
