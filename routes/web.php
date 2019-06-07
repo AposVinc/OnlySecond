@@ -70,9 +70,7 @@ Route::prefix('Admin')->group(function () {
             return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
         });
 
-        Route::get('/Index', function () {
-            return view('backend.index');   //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
-        })->name('Index');
+        Route::get('/Index', 'Controller@Index')->name('Index'); //QUI VIENE SALTATA LA FORM DI LOGIN GESTITA NE BRANCH "BACKEND"
 
         Route::get('/Login', 'Auth\LoginController@showLoginFormBE')->name('LoginForm');
         Route::post('/LoginPost', 'Auth\LoginController@loginBE')->name('LoginPost');
