@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-
+                non devono esserci i clienti
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->

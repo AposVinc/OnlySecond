@@ -12,6 +12,7 @@ class UserController extends Controller
     public function showListForm()
     {
         $users = User::with('roles')->get();
+        //non devono esserci i clienti
         return view('backend.user.list', ['users' => $users]);
     }
 
@@ -24,7 +25,8 @@ class UserController extends Controller
     public function showEditForm()
     {
         $users = User::withTrashed()->get();
-        return view('backend.user.edit', ['users' => $users]);
+        $roles = Role::all();
+        return view('backend.user.edit', ['users' => $users, 'roles' => $roles]);
     }
 
     public function showDeleteForm()
@@ -75,18 +77,9 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        echo $request;
-        /*
-        $id = $request->get('brand');
-        $newname = $request->get('newname');
-
-        /*
-        Brand::where('id', $id)->restore(); //se era stato eliminato viene ripristinato
-        Brand::where('id', $id)
-            ->update(['name' => $newname]);
-
-        return redirect()->to('admin/index');
-    */
+        User::where('id', $request['user'])->first()->syncRoles([$request['role']]);
+//MANCA LA MODIFICA DEL NOME, PASSWORD E AMAIL
+        return redirect()->route('Admin.User.List');
     }
 
     /**

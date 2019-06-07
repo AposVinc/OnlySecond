@@ -9,25 +9,23 @@
         Utenti
     @endcomponent
 
-    <form action="{{route('Admin.Supplier.EditUpdate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.User.EditUpdate')}}" method="post" class="form-horizontal">
     @csrf
         <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-body card-block">
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
+                    <div class="col col-md-3"><label for="user" class=" form-control-label">Fornitore</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="supplier" id="supplier" class="form-control" onchange="showName()">
+                        <select name="user" id="user" class="form-control">
                             <option value="0" selected>Seleziona il fornitore</option>
-                            @foreach($suppliers as $supplier)
-                                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
                         </select>
                         <small class="help-block form-text">Seleziona il fornitore da modificare</small>
                     </div>
                 </div>
-
-                {{old('supplier')}}
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
@@ -38,24 +36,23 @@
                     <div class="col-12 col-md-9"><input value="" type="email" id="email" name="email" placeholder="Inserire la email del Fornitore" class="form-control"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="phone" class=" form-control-label">Phone</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="phone" name="phone" placeholder="Inserire il numero del Fornitore" class="form-control"></div>
+                    <div class="col col-md-3"><label for="password" class=" form-control-label">Città</label></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="password" name="password" placeholder="Inserire il password del Fornitore" class="form-control"></div>
                 </div>
+
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="city" class=" form-control-label">Città</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="city" name="city" placeholder="Inserire la città del Fornitore" class="form-control"></div>
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="address" class=" form-control-label">Indirizzo</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="address" name="address" placeholder="Inserire l'indirizzo del Fornitore" class="form-control"></div>
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="zip" class=" form-control-label">Città</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="zip" name="zip" placeholder="Inserire il CAP del Fornitore" class="form-control"></div>
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="iban" class=" form-control-label">Phone</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="iban" name="iban" placeholder="Inserire l'IBAN del Fornitore" class="form-control"></div>
+                    <div class="col col-md-3"><label class=" form-control-label">Ruolo</label></div>
+                    <div class="col col-md-9">
+                        <div class="form-check">
+                            @foreach($roles as $role)
+                                <div class="radio">
+                                    <label for="{{$role->name}}" class="form-check-label ">
+                                        <input type="radio" id="{{$role->name}}" name="role" value="{{$role->name}}" class="form-check-input">{{$role->name}}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
 
             </div>

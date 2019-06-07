@@ -65,7 +65,7 @@
                                 </li>
                                 @auth
                                     <li class="language">
-                                        <a href="{{route('Admin.Layout')}}">
+                                        <a href="{{route('Admin.Index')}}">
                                             Area Privata
                                             <i class="fa fa-lock"></i>
                                         </a>
