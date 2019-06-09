@@ -150,6 +150,16 @@
                         </ul>
                     </li>
                 @endcan
+                @can('gest_banner')
+                    <h3 class="menu-title">Banner</h3>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Gestione Banner</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista Banner</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi Banner</a></li>
+                        </ul>
+                    </li>
+                @endcan
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -333,7 +343,7 @@
     </script>
 @endif
 
-@if(strpos(route::currentRouteName(),'Admin.Collection')!== false)
+@if(strpos(route::currentRouteName(),'Admin')!== false)
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamic').change(function(){
@@ -349,7 +359,7 @@
                     var path = window.location.pathname;
 
                     jQuery.ajax({
-                        url:((path.includes('Edit')) ? ('{{ route('Admin.Collection.EditGetCollection') }}'):((path.includes('Delete'))?('{{ route('Admin.Collection.EditGetCollection') }}'):('{{ route('Admin.Collection.RestoreGetCollection') }}'))),
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.RestoreGetCollection') }}'): ('{{ route('Admin.GetCollection') }}')),
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result) {
@@ -362,7 +372,21 @@
     </script>
 @endif
 
-
+<script>
+    jQuery("#click").click(function() {
+        var image = jQuery(event.target).text();
+        var node=document.getElementById("prova");
+        if(node.childNodes.length>1){
+           var img =document.getElementById("img");
+           node.removeChild(img);
+        }
+        var nodeadd=document.createElement('img');
+        var url = "http://localhost/OnlySecond/public/../images/" + image;
+        nodeadd.src=url;
+        nodeadd.id="img";
+        node.appendChild(nodeadd);
+    });
+</script>
 </body>
 
 </html>

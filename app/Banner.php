@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Banner extends Model
 {
@@ -17,7 +18,7 @@ class Banner extends Model
 
 
     protected $fillable =[
-        'image',
+        'image','collection_id',
     ];
 
     function collection()

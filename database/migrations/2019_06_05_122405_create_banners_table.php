@@ -18,6 +18,8 @@ class CreateBannersTable extends Migration
             $table->binary('image');
             $table->integer('collection_id');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

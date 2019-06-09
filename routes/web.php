@@ -75,6 +75,10 @@ Route::prefix('Admin')->group(function () {
         Route::get('/Login', 'Auth\LoginController@showLoginFormBE')->name('LoginForm');
         Route::post('/LoginPost', 'Auth\LoginController@loginBE')->name('LoginPost');
 
+        #route chiamata ajax per collection
+        Route::post('/EditGetCollection', 'CollectionController@getCollection')->name('GetCollection');
+        Route::post('/RestoreGetCollection','CollectionController@getCollectionRestore')->name('RestoreGetCollection');
+
         #user
         Route::group(['middleware' => ['permission:gest_utenti']], function () {
             Route::prefix('/User')->group(function () {
@@ -144,14 +148,12 @@ Route::prefix('Admin')->group(function () {
                     Route::post('/AddStore', 'CollectionController@create')->name('AddCreate');
 
                     Route::get('/Edit', 'CollectionController@showEditForm')->name('Edit');
-                    Route::post('/EditGetCollection', 'CollectionController@getCollection')->name('EditGetCollection');
                     Route::post('/EditUpdate', 'CollectionController@update')->name('EditUpdate');
 
                     Route::get('/Delete', 'CollectionController@showDeleteForm')->name('Delete');
                     Route::post('/DeleteDestroy', 'CollectionController@destroy')->name('DeleteDestroy');
 
                     Route::get('/Restore', 'CollectionController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreGetCollection','CollectionController@getCollectionRestore')->name('RestoreGetCollection');
                     Route::post('/RestoreRestore', 'CollectionController@restore')->name('RestoreRestore');
                 });
             });
@@ -256,6 +258,14 @@ Route::prefix('Admin')->group(function () {
 
         });
         Route::group(['middleware' => ['permission:gest_banner']], function () {
+            Route::prefix('/Banner')->group(function () {
+                Route::name('Banner.')->group(function () {
+                    Route::get('/List', 'BannerController@showListForm')->name('List');
+
+                    Route::get('/Add', 'BannerController@showAddForm')->name('Add');
+                    Route::post('/AddStore', 'BannerController@create')->name('AddCreate');
+                });
+            });
         });
 
     });

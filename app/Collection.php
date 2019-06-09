@@ -30,8 +30,8 @@ class Collection extends Model
         return $this->hasMany('App\Product');
     }
 
-    function banner(){
-        return $this->hasOne('App\Banner');
+    function banners(){
+        return $this->hasMany('App\Banner');
     }
 
 }

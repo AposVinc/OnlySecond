@@ -27,6 +27,16 @@
   width: 800px;
 }
 
+.center { /* centrare il div nella lista banner per la visualizzazione delle immagini */
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.openimg{ /* cursore click*/
+  cursor: pointer;
+}
+
 .centre-text-cell{
   text-align: center;
 }
