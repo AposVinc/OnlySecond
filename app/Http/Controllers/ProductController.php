@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Category;
 use App\Collection;
 use App\Product;
+use App\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
@@ -16,35 +18,27 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-
-    }
 
     public function showListForm()
     {
-       // $brands = Brand::withTrashed()->with('products')->get();
-        //echo $brands;
-        /*
-        foreach ($brands as $brand => $collections){
-            foreach ($collections as $collection ){echo $collection;
-        }}
-        */
-        //return view('backend.product.listProduct', ['brands' => $brands]);
-        $products= Product::withTrashed()->with('collection')->get();
-        $collections=Collection::withTrashed()->with('brand')->get();
-        return view('backend.product.list', ['products' => $products], ['collections'=>$collections]);
+        $brands = Brand::withTrashed()->get();
+        return view('backend.product.list', ['brands' => $brands]);
     }
 
     public function showAddForm()
     {
         $brands = Brand::withTrashed()->get();
-        return view('backend.product.add',['brands' => $brands]);
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+        return view('backend.product.add',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers]);
     }
 
     public function showEditForm()
     {
-        return view('backend.product.edit');
+        $brands = Brand::withTrashed()->get();
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+        return view('backend.product.edit',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers]);
     }
 
     public function showDeleteForm()
@@ -73,6 +67,7 @@ class ProductController extends Controller
 
         return redirect()->to('Admin/Product/List');
     }
+
     public function show($cod)
     {
         $product = Product::where('cod', $cod)->firstOrFail();
@@ -107,6 +102,14 @@ class ProductController extends Controller
             ->update(['name' => $newname]);
 
         return redirect()->to('Admin/Product/List');
+    }
+
+    public function restore(Request $request)   //query senza nome
+    {
+        $id = $request->get('collection');
+        Collection::where('id',$id)->restore();
+
+        return redirect()->to('Admin/Collection/List');
     }
 
     /**

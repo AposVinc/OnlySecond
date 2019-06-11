@@ -56,9 +56,12 @@
                             <option value="1">Option #1</option>
                             <option value="2">Option #2</option>
                             <option value="3">Option #3</option>
-
                         </select>
                     </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nome" class="form-control"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Genere</label></div>
@@ -82,32 +85,13 @@
                     <div class="col col-md-3"><label class=" form-control-label">Categoria di Orologi</label></div>
                     <div class="col col-md-9">
                         <div class="form-check">
-                            <div class="checkbox">
-                                <label for="checkbox1" class="form-check-label">
-                                    <input type="checkbox"  id="checkbox1" name="checkbox1" value="option1" class="form-check-input" >Classic
-                                    <!--type="checkbox"-->
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="checkbox2" class="form-check-label ">
-                                    <input type="checkbox" id="checkbox2" name="checkbox2" value="option2" class="form-check-input"> Digital
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="checkbox3" class="form-check-label ">
-                                    <input type="checkbox" id="checkbox3" name="checkbox3" value="option3" class="form-check-input"> Waterproof
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="checkbox4" class="form-check-label ">
-                                    <input type="checkbox" id="checkbox4" name="checkbox4" value="option4" class="form-check-input"> Smartwatch
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="checkbox5" class="form-check-label ">
-                                    <input type="checkbox" id="checkbox5" name="checkbox5" value="option5" class="form-check-input"> Sportivi
-                                </label>
-                            </div>
+                            @foreach($categories as $category)
+                                <div class="checkbox">
+                                    <label for="{{$category->name}}" class="form-check-label">
+                                        <input type="checkbox"  id="{{$category->id}}" name="category" value="{{$category->name}}" class="form-check-input" >{{$category->name}}
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -138,24 +122,21 @@
                     <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Colore</label></div>
+                    <div class="col col-md-3"><label for="color-input" class=" form-control-label">Colore</label></div>
                     <div class="col-12 col-md-9"><input type="color" id="color-input" name="color-input" ><!--0class="form-control"--><small class="form-text text-muted">Scegliere il colore dell'orologio</small></div>
                 </div>
+                &emsp;
                 <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Nascondi dallo Shop</label></div>
-                    <div class="col col-md-9">
-                        <div class="form-check-inline form-check">
-                            <label for="inline-radio1" class="form-check-label ">
-                                <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input"> Si
-                            </label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<!-- ho inserito un po di spazio altrimenti il pallino del no era unito al si-->
-                            <label for="inline-radio2" class="form-check-label ">
-                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input"> No
-                            </label>
-                        </div>
+                    <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="supplier" id="supplier" class="form-control">
+                            <option value="0">Seleziona il fornitore</option>
+                            @foreach($suppliers as $supplier)
+                                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
-
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
