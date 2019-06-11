@@ -28,13 +28,15 @@
                                 <tbody>
                                 @foreach($users as $user)
                                     @foreach($user->roles as $role)
-                                    <tr>
-                                        <td>{{$user->name}}</td>
-                                        <td>{{$role->name}}</td>
-                                        <td>{{$user->created_at}}</td>
-                                        <td>{{$user->updated_at}}</td>
-                                        <td>{{$user->deleted_at}}</td>
-                                    </tr>
+                                        @if($role->name != 'cliente')
+                                            <tr>
+                                                <td>{{$user->name}}</td>
+                                                <td>{{$role->name}}</td>
+                                                <td>{{$user->created_at}}</td>
+                                                <td>{{$user->updated_at}}</td>
+                                                <td>{{$user->deleted_at}}</td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 @endforeach
                                 </tbody>
@@ -42,7 +44,6 @@
                         </div>
                     </div>
                 </div>
-                non devono esserci i clienti
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->

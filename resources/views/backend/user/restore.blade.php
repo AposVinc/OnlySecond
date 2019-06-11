@@ -9,24 +9,24 @@
         Utenti
     @endcomponent
 
-    <form action="{{route('Admin.Supplier.RestoreRestore')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.User.RestoreRestore')}}" method="post" class="form-horizontal">
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-header">
-                <strong>Ripristina Fornitore</strong>
+                <strong>Ripristina Utente</strong>
             </div>
             <div class="card-body card-block">
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
+                    <div class="col col-md-3"><label for="user" class=" form-control-label">Utente</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="supplier" id="supplier" class="form-control" onchange="showName()">
-                            <option value="0">Seleziona il fornitore</option>
-                            @foreach($suppliers as $supplier)
-                                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                        <select name="user" id="user" class="form-control">
+                            <option value="0">Seleziona l'Utente</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
                         </select>
-                        <small class="help-block form-text">Seleziona il fornitore da ripristinare</small>
+                        <small class="help-block form-text">Seleziona l'Utente da ripristinare</small>
                     </div>
                 </div>
             </div>

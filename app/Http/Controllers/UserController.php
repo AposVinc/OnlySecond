@@ -9,10 +9,9 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    public function showListForm()
+    public function showListForm()  //non devono esserci i clienti
     {
-        $users = User::with('roles')->get();
-        //non devono esserci i clienti
+        $users = User::withTrashed()->with('roles')->get();
         return view('backend.user.list', ['users' => $users]);
     }
 
@@ -31,19 +30,14 @@ class UserController extends Controller
 
     public function showDeleteForm()
     {
-        $suppliers = User::all(); //all() non mostrare brand gia eliminati
-        return view('backend.supplier.delete', ['suppliers' => $suppliers]);
+        $users = User::all();
+        return view('backend.user.delete', ['users' => $users]);
     }
 
     public function showRestoreForm()
     {
-        $suppliers = Supplier::onlyTrashed('brands')->get();
-        if (sizeof($suppliers) == 0) {
-            $this->EchoMessage("Non ci sono Supplier da ripristinare");
-            return view('backend.index');
-        } else {
-            return view('backend.supplier.restore', ['suppliers' => $suppliers]);
-        }
+        $users = User::onlyTrashed()->get();
+        return view('backend.user.restore', ['users' => $users]);
     }
 
     /**
@@ -56,17 +50,14 @@ class UserController extends Controller
     {
         $input = $request->all();
 
-        $supplier = new Supplier();
-        $supplier->name = $input['name'];
-        $supplier->email = $input['email'];
-        $supplier->phone = $input['phone'];
-        $supplier->city = $input['city'];
-        $supplier->address = $input['address'];
-        $supplier->zip = $input['zip'];
-        $supplier->iban = $input['iban'];
-        $supplier->save();
+        $user = new User();
+        $user->name = $input['name'];
+        $user->email = $input['email'];
+        $user->password = $input['password'];
+        $user->assignRole(Role::findById($input['role']));
+        $user->save();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->route('Admin.User.List');
     }
 
     /**
@@ -90,18 +81,18 @@ class UserController extends Controller
      */
     public function restore(Request $request)   //query senza nome
     {
-        $id = $request->get('supplier');
-        Supplier::where('id', $id)->restore();
+        $id = $request->get('user');
+        User::where('id', $id)->restore();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->route('Admin.User.List');
     }
 
     public function destroy(Request $request)
     {
-        $id = $request->get('supplier');
-        Supplier::where('id', $id)->delete();
+        $id = $request->get('user');
+        User::where('id', $id)->delete();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->route('Admin.User.List');
     }
 
 }
