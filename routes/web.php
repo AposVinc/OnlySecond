@@ -79,8 +79,9 @@ Route::prefix('Admin')->group(function () {
         Route::post('/EditGetCollection', 'CollectionController@getCollection')->name('GetCollection');
         Route::post('/RestoreGetCollection','CollectionController@getCollectionRestore')->name('RestoreGetCollection');
 
-        #user
+
         Route::group(['middleware' => ['permission:gest_utenti']], function () {
+            #user
             Route::prefix('/User')->group(function () {
                 Route::name('User.')->group(function () {
                     Route::get('/List', 'UserController@showListForm')->name('List');
@@ -118,8 +119,9 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
-        #brand
+
         Route::group(['middleware' => ['permission:gest_prodotti']], function () {
+            #brand
             Route::prefix('/Brand')->group(function () {
                 Route::name('Brand.')->group(function () {
                     Route::get('/List', 'BrandController@showListForm')->name('List');
@@ -160,7 +162,6 @@ Route::prefix('Admin')->group(function () {
 
 
             #product
-
             Route::prefix('/Product')->group(function () {
                 Route::name('Product.')->group(function () {
                     Route::get('/List', 'ProductController@showListForm')->name('List');
@@ -200,8 +201,8 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
-        #supplier
         Route::group(['middleware' => ['permission:gest_fornitori']], function () {
+            #supplier
             Route::prefix('/Supplier')->group(function () {
                 Route::name('Supplier.')->group(function () {
                     Route::get('/List', 'SupplierController@showListForm')->name('List');
@@ -221,8 +222,8 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
-        #newsletter
         Route::group(['middleware' => ['permission:gest_newsletter']], function () {
+            #newsletter
             Route::prefix('/Newsletter')->group(function () {
                 Route::name('Newsletter.')->group(function () {
                     Route::get('/List', 'NewsletterController@showListForm')->name('List');
@@ -232,8 +233,8 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
-        #offer
         Route::group(['middleware' => ['permission:gest_offerte']], function () {
+            #offer
             Route::prefix('/Offer')->group(function () {
                 Route::name('Offer.')->group(function () {
                     Route::get('/List', 'OfferController@showListForm')->name('List');

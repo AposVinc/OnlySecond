@@ -80,6 +80,7 @@ class OfferController extends Controller{
         $offer = Product::where('cod', $cod)->firstOrFail();
         return view('offer')->with(['offer' => $offer]);
     }
+
     public function restore(Request $request)
     {
         $id = $request->get('category');
