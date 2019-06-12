@@ -157,6 +157,9 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista Banner</a></li>
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi Banner</a></li>
+                         <!--   <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica Banner</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>-->
                         </ul>
                     </li>
                 @endcan
@@ -372,21 +375,29 @@
     </script>
 @endif
 
-<script>
-    jQuery("#click").click(function() {
-        var image = jQuery(event.target).text();
-        var node=document.getElementById("prova");
-        if(node.childNodes.length>1){
-           var img =document.getElementById("img");
-           node.removeChild(img);
+@if(strpos(route::currentRouteName(),'Admin.Banner.List')!== false)
+    <script>
+        jQuery("#click").click(function() {
+            var image = jQuery(event.target).text();
+            if(image.includes('png') || image.includes('jpg')){
+                var url = "http://localhost/OnlySecond/public/../images/" + image;
+                PopupCentrata(url);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+
+        function PopupCentrata(url)
+        {
+            var w = 600;
+            var h = 450;
+            var l = Math.floor((screen.width-w)/2);
+            var t = Math.floor((screen.height-h)/2);
+            window.open(url,"","width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
         }
-        var nodeadd=document.createElement('img');
-        var url = "http://localhost/OnlySecond/public/../images/" + image;
-        nodeadd.src=url;
-        nodeadd.id="img";
-        node.appendChild(nodeadd);
-    });
-</script>
+
+    </script>
+@endif
 </body>
 
 </html>

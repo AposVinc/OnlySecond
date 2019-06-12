@@ -8,9 +8,7 @@
         @endslot
         Banner
     @endcomponent
-    <div id="prova" class="center">
 
-    </div>
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -21,6 +19,7 @@
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th>Nome Brand</th>
                                     <th>Nome Collezione</th>
                                     <th>Immagine Banner</th>
                                     <th>Creato il</th>
@@ -31,6 +30,11 @@
                                 <tbody>
                                 @foreach($banners as $banner)
                                     <tr>
+                                        @foreach($collections as $collection)
+                                            @if($collection->name == $banner->collection->name)
+                                                <td>{{$collection->brand->name}}</td>
+                                            @endif
+                                        @endforeach
                                         <td>{{$banner->collection->name}}</td>
                                         <td><u><a class="openimg">{{$banner->image}}</a></u></td>
                                         <td>{{$banner->created_at}}</td>
