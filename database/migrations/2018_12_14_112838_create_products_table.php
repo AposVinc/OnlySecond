@@ -15,14 +15,13 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cod',6);
+            $table->string('cod',6)->unique();
             $table->string('name',20);
             $table->integer('collection_id');
-            $table->decimal('price', 4, 2);
+            $table->decimal('price', 6, 2);
             $table->integer('stock_availability');//disponibilita magazzino
             $table->enum('genere',['M','F','U']);
             $table->longtext('long_desc')->nullable(); //forse non serve se c'è la tab specification?
-            $table->integer('category_id');
             $table->integer('supplier_id');
             $table->string('color',6);    //da mettere nelle specifiche o si lascia?
             $table->timestamps();

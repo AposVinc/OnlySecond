@@ -15,14 +15,6 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function EchoMessage($msg)
-    {
-        echo '<script type="text/javascript">
-            alert("' . $msg . '")
-            </script>';
-    }
-
     public function showListForm()
     {
         $collections = Collection::withTrashed()->with('brand')->get();
