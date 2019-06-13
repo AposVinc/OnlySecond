@@ -265,6 +265,12 @@ Route::prefix('Admin')->group(function () {
 
                     Route::get('/Add', 'BannerController@showAddForm')->name('Add');
                     Route::post('/AddStore', 'BannerController@create')->name('AddCreate');
+
+                    Route::get('/Edit', 'BannerController@showEditForm')->name('Edit');
+                    Route::post('/EditUpdate', 'BannerController@update')->name('EditUpdate');
+
+                    Route::post('/EditGetCollectionBanner', 'CollectionController@getCollectionBanner')->name('GetCollectionBanner');
+                    Route::post('/EditGetBanner', 'BannerController@getBanner')->name('GetBanner');
                 });
             });
         });

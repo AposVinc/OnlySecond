@@ -157,9 +157,9 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista Banner</a></li>
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi Banner</a></li>
-                         <!--   <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica Banner</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>-->
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica Banner</a></li>
+                         <!--   <li><i class="fa fa-minus-square-o"></i><a href="url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>-->
                         </ul>
                     </li>
                 @endcan
@@ -373,6 +373,64 @@
             });
         });
     </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Banner')!== false)
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.dynamicBanner').change(function(){
+                if(jQuery(this).val() != '0') {
+                    let sel = document.getElementById('collectionBanner');
+                    for (i = sel.length - 1; i >= 0; i--) {
+                        if (i!=0) sel.remove(i);
+                    }
+                    var select = jQuery(this).attr("id");
+                    var value = jQuery(this).val();
+                    var dependent = jQuery(this).data('dependent');
+                    var _token = jQuery('input[name="_token"]').val();
+
+                    jQuery.ajax({
+                        url:"{{ route('Admin.Banner.GetCollectionBanner') }}",
+                        method:"POST",
+                        data:{select:select, value:value, _token:_token, dependent:dependent},
+                        success:function(result) {
+                            jQuery('#'+dependent).html(result);
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.dynamicImage').change(function(){
+                if(jQuery(this).val() != '0') {
+                    let sel = document.getElementById('banner');
+                    for (i = sel.length - 1; i >= 0; i--) {
+                        if (i!=0) sel.remove(i);
+                    }
+                    var select = jQuery(this).attr("id");
+                    var value = jQuery(this).val();
+                    var dependent = jQuery(this).data('dependent');
+                    var _token = jQuery('input[name="_token"]').val();
+
+                    jQuery.ajax({
+                        url:"{{ route('Admin.Banner.GetBanner') }}",
+                        method:"POST",
+                        data:{select:select, value:value, _token:_token, dependent:dependent},
+                        success:function(result) {
+                            jQuery('#'+dependent).html(result);
+                        },
+                        error: function (response) {
+                            alert(response);
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+
 @endif
 
 @if(strpos(route::currentRouteName(),'Admin.Banner.List')!== false)
