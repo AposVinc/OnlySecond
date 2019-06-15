@@ -37,6 +37,11 @@
   cursor: pointer;
 }
 
+.error{
+  background-color: white;
+  color: red;
+}
+
 .centre-text-cell{
   text-align: center;
 }

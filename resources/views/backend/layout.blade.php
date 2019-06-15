@@ -158,8 +158,8 @@
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista Banner</a></li>
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi Banner</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica Banner</a></li>
-                         <!--   <li><i class="fa fa-minus-square-o"></i><a href="url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>-->
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>
                         </ul>
                     </li>
                 @endcan
@@ -388,9 +388,10 @@
                     var value = jQuery(this).val();
                     var dependent = jQuery(this).data('dependent');
                     var _token = jQuery('input[name="_token"]').val();
+                    var path = window.location.pathname;
 
                     jQuery.ajax({
-                        url:"{{ route('Admin.Banner.GetCollectionBanner') }}",
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.Banner.RestoreGetCollectionBanner') }}'): ('{{ route('Admin.Banner.GetCollectionBanner') }}')),
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result) {
@@ -414,9 +415,10 @@
                     var value = jQuery(this).val();
                     var dependent = jQuery(this).data('dependent');
                     var _token = jQuery('input[name="_token"]').val();
+                    var path = window.location.pathname;
 
                     jQuery.ajax({
-                        url:"{{ route('Admin.Banner.GetBanner') }}",
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.Banner.RestoreGetBanner') }}'): ('{{ route('Admin.Banner.GetBanner') }}')),
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result) {
@@ -426,6 +428,26 @@
                             alert(response);
                         }
                     })
+                }
+            });
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function() {
+            jQuery('.visualizza').change(function () {
+                let node = document.getElementById('prova');
+                if(node.childNodes.length>1){
+                    var img =document.getElementById("img");
+                    node.removeChild(img);
+                }
+                var image = this.options[this.selectedIndex].text;
+                if(image != 'Seleziona il banner'){
+                    var nodeadd=document.createElement('img');
+                    var url = "http://localhost/OnlySecond/public/../images/" + image;
+                    nodeadd.src=url;
+                    nodeadd.id="img";
+                    node.appendChild(nodeadd);
                 }
             });
         });

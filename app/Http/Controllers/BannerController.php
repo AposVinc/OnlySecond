@@ -33,7 +33,36 @@ class BannerController extends Controller
 
     public function showEditForm()
     {
-        $banners = Banner::withTrashed()->with('collection')->get();
+        $banners = Banner::withoutTrashed()->with('collection')->get();
+        $brandsBanner=new \Illuminate\Database\Eloquent\Collection();
+        foreach ($banners as $banner){
+            $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
+            foreach ($b as $b1){
+                if(!($brandsBanner->contains($b1))){
+                    $brandsBanner->add($b1);
+                }
+            }
+        }
+        $brands=Brand::all();
+        return view('backend.banner.edit',['brandsBanner' => $brandsBanner, 'brands'=> $brands]);
+    }
+
+    function getBanner(Request $request)
+    {
+        $value = $request->get('value');    //id della collection
+        $data=Banner::withoutTrashed()->where('collection_id',$value)->get();
+        $output ='<option value="0">Seleziona il banner</option>';
+        foreach($data as $row)
+        {
+            //$url="http://localhost/OnlySecond/public/../images/". $row->image; <img src="'.$url.'"/>
+            $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
+        }
+        return $output;
+    }
+
+    public function showDeleteForm()
+    {
+        $banners = Banner::withoutTrashed()->with('collection')->get();
         $brands=new \Illuminate\Database\Eloquent\Collection();
         foreach ($banners as $banner){
             $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
@@ -43,20 +72,34 @@ class BannerController extends Controller
                 }
             }
         }
-        return view('backend.banner.edit',['brands' => $brands]);
+        return view('backend.banner.delete',['brands' => $brands]);
     }
 
-    function getBanner(Request $request)
+    function getBannerRestore(Request $request)
     {
         $value = $request->get('value');    //id della collection
-        $data=Banner::withTrashed()->where('collection_id',$value)->get();
+        $data=Banner::onlyTrashed()->where('collection_id',$value)->get();
         $output ='<option value="0">Seleziona il banner</option>';
         foreach($data as $row)
         {
-            //$url="http://localhost/OnlySecond/public/../images/". $row->image; <img src="'.$url.'"/>
             $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
         }
         return $output;
+    }
+
+    public function showRestoreForm()
+    {
+        $banners = Banner::onlyTrashed()->with('collection')->get();
+        $brands=new \Illuminate\Database\Eloquent\Collection();
+        foreach ($banners as $banner){
+            $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
+            foreach ($b as $b1){
+                if(!($brands->contains($b1))){
+                    $brands->add($b1);
+                }
+            }
+        }
+        return view('backend.banner.restore',['brands' => $brands]);
     }
 
     public function create()
@@ -71,12 +114,9 @@ class BannerController extends Controller
 
     public function update(Request $request)
     {
-        $collection= $request->get('collection');
         $banner=$request->get('banner');
         $newcollection=$request->get('newcollection');
         $newbanner=$request->get('newbanner');
-
-        Banner::where('id',$banner)->restore();
 
         if ($newcollection == "0"){
             Banner::where('id',$banner)
@@ -91,4 +131,21 @@ class BannerController extends Controller
 
         return redirect()->to('Admin/Banner/List');
     }
+
+    public function restore(Request $request)   //query senza nome
+    {
+        $id = $request->get('banner');
+        Banner::where('id',$id)->restore();
+
+        return redirect()->to('Admin/Banner/List');
+    }
+
+    public function destroy(Request $request)
+    {
+        $banner=$request->get('banner');
+        Banner::where('id',$banner)->delete();
+
+        return redirect()->to('Admin/Banner/List');
+    }
+
 }
