@@ -256,8 +256,32 @@ Route::prefix('Admin')->group(function () {
 
 
         Route::group(['middleware' => ['permission:gest_imgprod']], function () {
+            Route::prefix('/Image')->group(function () {
+                Route::name('Image.')->group(function () {
+                    Route::get('/List', 'ImageController@showListForm')->name('List');
 
+                    Route::get('/Add', 'ImageController@showAddForm')->name('Add');
+                    Route::post('/AddStore', 'ImageController@create')->name('AddCreate');
+
+                    Route::post('/GetProduct', 'ProductController@getProduct')->name('GetProduct');
+
+                 /*   Route::get('/Edit', 'BannerController@showEditForm')->name('Edit');
+                    Route::post('/EditUpdate', 'BannerController@update')->name('EditUpdate');
+
+                    Route::post('/EditGetCollectionBanner', 'CollectionController@getCollectionBanner')->name('GetCollectionBanner');
+                    Route::post('/RestoreGetCollectionBanner', 'CollectionController@getCollectionBannerRestore')->name('RestoreGetCollectionBanner');
+                    Route::post('/EditGetBanner', 'BannerController@getBanner')->name('GetBanner');
+                    Route::post('/RestoreGetBanner', 'BannerController@getBannerRestore')->name('RestoreGetBanner');
+
+                    Route::get('/Delete', 'BannerController@showDeleteForm')->name('Delete');
+                    Route::post('/DeleteDestroy', 'BannerController@destroy')->name('DeleteDestroy');
+
+                    Route::get('/Restore', 'BannerController@showRestoreForm')->name('Restore');
+                    Route::post('/RestoreRestore', 'BannerController@restore')->name('RestoreRestore');*/
+                });
+            });
         });
+
         Route::group(['middleware' => ['permission:gest_banner']], function () {
             Route::prefix('/Banner')->group(function () {
                 Route::name('Banner.')->group(function () {

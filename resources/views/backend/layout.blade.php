@@ -163,6 +163,19 @@
                         </ul>
                     </li>
                 @endcan
+                @can('gest_imgprod')
+                    <h3 class="menu-title">Immagine Prodotto</h3>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Gestione Immagine</a>
+                        <ul class="sub-menu children dropdown-menu">
+                         <!-- <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica Banner</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>-->
+                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Image.List')}}">Lista Immagine</a></li>
+                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Image.Add')}}">Aggiungi Immagine</a></li>
+                        </ul>
+                    </li>
+                @endcan
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -455,7 +468,36 @@
 
 @endif
 
-@if(strpos(route::currentRouteName(),'Admin.Banner.List')!== false)
+@if(strpos(route::currentRouteName(),'Admin.Image')!== false)
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.dynamicProduct').change(function(){
+                if(jQuery(this).val() != '0') {
+                    let sel = document.getElementById('product');
+                    for (i = sel.length - 1; i >= 0; i--) {
+                        if (i!=0) sel.remove(i);
+                    }
+                    var select = jQuery(this).attr("id");
+                    var value = jQuery(this).val();
+                    var dependent = jQuery(this).data('dependent');
+                    var _token = jQuery('input[name="_token"]').val();
+                    var path = window.location.pathname;
+
+                    jQuery.ajax({
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.Banner.RestoreGetCollectionBanner') }}'): ('{{ route('Admin.Image.GetProduct') }}')),
+                        method:"POST",
+                        data:{select:select, value:value, _token:_token, dependent:dependent},
+                        success:function(result) {
+                            jQuery('#'+dependent).html(result);
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Banner.List')!== false or strpos(route::currentRouteName(),'Admin.Image.List')!== false)
     <script>
         jQuery("#click").click(function() {
             var image = jQuery(event.target).text();

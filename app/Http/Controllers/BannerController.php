@@ -54,7 +54,6 @@ class BannerController extends Controller
         $output ='<option value="0">Seleziona il banner</option>';
         foreach($data as $row)
         {
-            //$url="http://localhost/OnlySecond/public/../images/". $row->image; <img src="'.$url.'"/>
             $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
         }
         return $output;
