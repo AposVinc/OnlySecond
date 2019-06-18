@@ -71,7 +71,7 @@
                     </li>
                 @endcan
                 @can('gest_prodotti')
-                    <h3 class="menu-title">Brand</h3>
+                    <h3 class="menu-title">Gestione Brand</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Brand</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -102,15 +102,14 @@
                             <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Category.Restore')}}">Ripristina Categoria</a></li>
                         </ul>
                     </li>
-                    <h3 class="menu-title">Prodotto</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cube"> </i>Gestione Prodotti</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cube"> </i>Prodotti</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Product.List')}}">Lista Prodotto</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Product.Add')}}">Aggiungi Prodotto</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Product.Edit')}}">Modifica Prodotto</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Product.Delete')}}">Elimina Prodotto</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Ripristina Prodotto</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Product.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Product.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Product.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Product.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                 @endcan

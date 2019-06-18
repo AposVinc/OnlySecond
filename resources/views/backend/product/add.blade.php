@@ -1,30 +1,15 @@
 @extends('backend.layout')
 
 @section('content')
-    <!-- CODICE e NOME potrebbero esser gestiti o dal clente o all' interno del DB
-        per il codice potremmo o fare tutto con l'id autoincrement o calcolare con qualche procedura il codice
-        che associa XXYY1234 dove XX sta per il brand YY per il modello e il resto è un numero (il numero dobbiamo definire come)
-
-        il nome  forse non serve scriverlo, abbiamo gia marca e modello
--->
-    <!--
-        PREZZO
-        QUANTITà
-        Descrizione
-        Brand (aggiungere sez brand nel menù laterale sx)
-        Modello
-        Categoria
-        Colore
-        foto principale
-        foto aggiuntive
-        hidden si/no
-    -->
 
     @component('backend.breadcrumbs')
+        Brand
         @slot('title')
-            Aggiungi Prodotto
+            Prodotti
         @endslot
-        Prodotti
+        @slot('sez')
+            Aggiungi
+        @endslot
     @endcomponent
 
     <form action="{{route('Admin.Product.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
