@@ -62,7 +62,7 @@ class BannerController extends Controller
     public function showDeleteForm()
     {
         $banners = Banner::withoutTrashed()->with('collection')->get();
-        $brands=new \Illuminate\Database\Eloquent\Collection();
+        $brands = new \Illuminate\Database\Eloquent\Collection();
         foreach ($banners as $banner){
             $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
             foreach ($b as $b1){
