@@ -40,29 +40,7 @@
                         <div class="top_nav_right">
                             <ul class="top_nav_menu">
                                 <!-- Currency / Language / My Account -->
-                                <li class="currency">
-                                    <a href="#">
-                                        Moneta
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="currency_selection">
-                                        <li><a href="#">€ Euro </a></li>
-                                        <li><a href="#">£ Sterling</a></li>
-                                        <li><a href="#">$ US Dollar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="language">
-                                    <a href="#">
-                                        Lingua
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="language_selection">
-                                        <li><a href="#">Italiano</a></li>
-                                        <li><a href="#">Francese</a></li>
-                                        <li><a href="#">Tedesco</a></li>
-                                        <li><a href="#">Spagnolo</a></li>
-                                    </ul>
-                                </li>
+
                                 @auth
                                     <li class="language">
                                         <a href="{{route('Admin.Index')}}">
@@ -111,15 +89,15 @@
                         <nav class="navbar">
                             <ul class="navbar_menu">
                                 <li><a href="{{url('/home')}}">Home</a></li>
-                                <li><a href="categories.html">Brand</a></li>
                                 <li><a href="categories.html">Donna</a></li>
-                                <li><a href="single.html">Uomo</a></li>
+                                <li><a href="categories.html">Uomo</a></li>
+                                <li><a href="single.html">Unisex</a></li>
                                 <li><a href="single.html">Chi siamo</a></li>
                                 <li><a href="{{url('/contact')}}">Contatti</a></li>
                             </ul>
                             <ul class="navbar_user">
 
-                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+
                                 <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 
                                 <li class="checkout">
@@ -139,55 +117,6 @@
         </div>
     </header>
 
-    <div class="fs_menu_overlay"></div>
-    <div class="hamburger_menu">
-        <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-        <div class="hamburger_menu_content text-right">
-            <ul class="menu_top_nav">
-                <li class="menu_item has-children">
-                    <a href="#">
-                        usd
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="menu_selection">
-                        <li><a href="#">cad</a></li>
-                        <li><a href="#">aud</a></li>
-                        <li><a href="#">eur</a></li>
-                        <li><a href="#">gbp</a></li>
-                    </ul>
-                </li>
-                <li class="menu_item has-children">
-                    <a href="#">
-                        English
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="menu_selection">
-                        <li><a href="#">French</a></li>
-                        <li><a href="#">Italian</a></li>
-                        <li><a href="#">German</a></li>
-                        <li><a href="#">Spanish</a></li>
-                    </ul>
-                </li>
-                <li class="menu_item has-children">
-                    <a href="#">
-                        My Account
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="menu_selection">
-                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                        <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-                    </ul>
-                </li>
-                <li class="menu_item"><a href="#">home</a></li>
-                <li class="menu_item"><a href="#">shop</a></li>
-                <li class="menu_item"><a href="#">promotion</a></li>
-                <li class="menu_item"><a href="#">pages</a></li>
-                <li class="menu_item"><a href="#">blog</a></li>
-                <li class="menu_item"><a href="#">contact</a></li>
-            </ul>
-        </div>
-    </div>
-
     <!-- Slider -->
 
     @yield('content')
@@ -200,14 +129,14 @@
                 <div class="col-lg-6">
                     <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
                         <h4>Newsletter</h4>
-                        <p>Subscribe to our newsletter and get 20% off your first purchase</p>
+                        <p>Iscriviti alla nostra Newsletter e ricevi il 20% di sconto sul tuo primo acquisto!</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <form action="post">
                         <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-                            <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+                            <input id="newsletter_email" type="email" placeholder="Inserisci l'email" required="required" data-error="Valid email is required.">
+                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">Iscriviti</button>
                         </div>
                     </form>
                 </div>
@@ -224,8 +153,8 @@
                     <div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
                         <ul class="footer_nav">
                             <li><a href="#">Blog</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="#">Domande</a></li>
+                            <li><a href="contact.html">Contattaci</a></li>
                         </ul>
                     </div>
                 </div>
@@ -244,7 +173,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer_nav_container">
-                        <div class="cr">©2019 All Rights Reserverd.</div>
+                        <div class="cr">©2019 Tutti I Diritti Sono Riervati.</div>
                     </div>
                 </div>
             </div>
