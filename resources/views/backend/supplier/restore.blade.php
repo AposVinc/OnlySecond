@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Ripristina Fornitore
+        @slot('gest')
+            Fornitori
         @endslot
-        Fornitori
+        @slot('sez')
+            Fornitori
+        @endslot
+        @slot('op')
+            Ripristina
+        @endslot
+        Fornitore
     @endcomponent
 
     <form action="{{route('Admin.Supplier.RestoreRestore')}}" method="post" class="form-horizontal">

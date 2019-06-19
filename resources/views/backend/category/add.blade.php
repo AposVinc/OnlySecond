@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Aggiungi Categoria
+        @slot('gest')
+            Brand
         @endslot
-        Categorie
+        @slot('sez')
+            Categorie
+        @endslot
+        @slot('op')
+            Aggiungi
+        @endslot
+        Categoria
     @endcomponent
 
     <form action="{{route('Admin.Category.AddCreate')}}" method="post" class="form-horizontal">

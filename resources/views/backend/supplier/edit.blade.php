@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Modifica Fornitore
+        @slot('gest')
+            Fornitori
         @endslot
-        Fornitori
+        @slot('sez')
+            Fornitori
+        @endslot
+        @slot('op')
+            Modifica
+        @endslot
+        Fornitore
     @endcomponent
 
     <form action="{{route('Admin.Supplier.EditUpdate')}}" method="post" class="form-horizontal">

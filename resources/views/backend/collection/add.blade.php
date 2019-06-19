@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Aggiungi Collezione
+        @slot('gest')
+            Brand
         @endslot
-        Collezioni
+        @slot('sez')
+            Collezioni
+        @endslot
+        @slot('op')
+            Aggiungi
+        @endslot
+        Collezione
     @endcomponent
 
     <form action="{{route('Admin.Collection.AddCreate')}}" method="post" class="form-horizontal">

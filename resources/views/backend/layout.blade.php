@@ -49,57 +49,57 @@
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
                 @can('gest_utenti')
-                    <h3 class="menu-title">Utenti</h3>
+                    <h3 class="menu-title">Gestione Utenti</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"> </i>Gestione Utenti</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"> </i>Utenti</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.User.List')}}">Lista Utenti</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.User.Add')}}">Aggiungi Utente</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.User.Edit')}}">Modifica Utente</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.User.Delete')}}">Elimina Utente</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.User.Restore')}}">Ripristina Utente</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.User.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.User.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.User.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.User.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.User.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Ruoli</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Ruoli</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Role.List')}}">Lista Ruoli</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Role.Add')}}">Aggiungi Ruolo</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Role.Edit')}}">Modifica Ruolo</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Role.Delete')}}">Elimina Ruolo</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Role.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Role.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Role.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Role.Delete')}}">Elimina</a></li>
                         </ul>
                     </li>
                 @endcan
                 @can('gest_prodotti')
                     <h3 class="menu-title">Gestione Brand</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Gestione Brand</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Brand</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Brand.List')}}">Lista Brand</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Brand.Add')}}">Aggiungi Brand</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Brand.Edit')}}">Modifica Brand</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Brand.Delete')}}">Elimina Brand</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Brand.Restore')}}">Ripristina Brand</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Brand.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Brand.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Brand.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Brand.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Brand.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gestione Collezioni</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Collezioni</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Collection.List')}}">Lista Collezioni</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Collection.Add')}}">Aggiungi Collezione</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Collection.Edit')}}">Modifica Collezione</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Collection.Delete')}}">Elimina Collezione</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Collection.Restore')}}">Ripristina Collezione</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Collection.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Collection.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Collection.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Collection.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Collection.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Gestione Categorie</a>
+                        <a href="#" class ="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Categorie</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Category.List')}}">Lista Categorie</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Category.Add')}}">Aggiungi Categoria</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Category.Edit')}}">Modifica Categoria</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Category.Delete')}}">Elimina Categoria</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Category.Restore')}}">Ripristina Categoria</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Category.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Category.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Category.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Category.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Category.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -114,67 +114,69 @@
                     </li>
                 @endcan
                 @can('gest_offerte')
-                    <h3 class="menu-title">Offerte</h3>
+                    <h3 class="menu-title">Gestione Offerte</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-percent"> </i>Gestione Offerte</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-percent"> </i>Offerte</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Offer.List')}}">Lista Offerte</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Offer.Add')}}">Aggiungi Offerta</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Offer.Edit')}}">Modifica Offerta</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Offer.Delete')}}">Elimina Offerta</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Offer.Restore')}}">Ripristina Offerta</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Offer.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Offer.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Offer.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Offer.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Offer.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                 @endcan
                 @can('gest_fornitori')
-                    <h3 class="menu-title">Fornitori</h3>
+                    <h3 class="menu-title">Gestione Fornitori</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"> </i>Gestione Fornitori</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"> </i>Fornitori</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Supplier.List')}}">Lista Fornitori</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Supplier.Add')}}">Aggiungi Fornitore</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Supplier.Edit')}}">Modifica Fornitore</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Supplier.Delete')}}">Elimina Fornitore</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Supplier.Restore')}}">Ripristina Fornitore</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Supplier.List')}}">Lista</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Supplier.Add')}}">Aggiungi</a></li>
+                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Supplier.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Supplier.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Supplier.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                 @endcan
                 @can('gest_newsletter')
-                    <h3 class="menu-title">Newsletter</h3>
+                    <h3 class="menu-title">Gestione Newsletters</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-envelope"> </i>Gestione Newsletter</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-envelope"> </i>Newsletters</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Newsletter.List')}}">Lista Mail</a></li>
                             <li><i class="fa fa-mail-forward"></i><a href="{{url::route('Admin.Newsletter.SendMailForm')}}">Invia Mail</a></li>
                         </ul>
                     </li>
                 @endcan
-                @can('gest_banner')
-                    <h3 class="menu-title">Banner</h3>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Gestione Banner</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista Banner</a></li>
-                            <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi Banner</a></li>
-                            <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica Banner</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>
-                        </ul>
-                    </li>
-                @endcan
-                @can('gest_imgprod')
-                    <h3 class="menu-title">Immagine Prodotto</h3>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Gestione Immagine</a>
-                        <ul class="sub-menu children dropdown-menu">
-                         <!-- <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica Banner</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina Banner</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina Banner</a></li>-->
-                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Image.List')}}">Lista Immagine</a></li>
-                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Image.Add')}}">Aggiungi Immagine</a></li>
-                        </ul>
-                    </li>
-                @endcan
+
+                @if(auth()->user()->can('gest_banner') or auth()->user()->can('gest_imgprod'))
+                    <h3 class="menu-title">Gestione Immagini</h3>
+                    @can('gest_banner')
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Banner</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista</a></li>
+                                <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi</a></li>
+                                <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica</a></li>
+                                <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
+                                <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina</a></li>
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('gest_imgprod')
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Immagine Prodotto</a>
+                            <ul class="sub-menu children dropdown-menu">
+                            <!-- <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica</a></li>
+                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina</a></li>-->
+                                <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Image.List')}}">Lista</a></li>
+                                <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Image.Add')}}">Aggiungi</a></li>
+                            </ul>
+                        </li>
+                    @endcan
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -189,13 +191,13 @@
             <div class="col-sm-7">
                 <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                 <div class="header-left">
-
-Admin
-
-
+                    @foreach(auth()->user()->roles as $role)
+                        @if($role->name != 'cliente')
+                            <a class="nav-link float-left">Ruolo: {{$role->name}}</a>
+                        @endif
+                    @endforeach
                 </div>
             </div>
-
             <div class="col-sm-5">
                 <div>
                     @auth
@@ -203,15 +205,13 @@ Admin
                     @else
                         <a class="nav-link float-right" href="{{route('Admin.LoginForm')}}"><i class="fa fa-sign-out"></i> Login</a>
                     @endauth
-                        <a class="nav-link float-right" href="{{route('Home')}}"><i class="fa fa-home"></i> Front End</a>
+                    <a class="nav-link float-right" href="{{route('Home')}}"><i class="fa fa-home"></i> Front End</a>
                 </div>
             </div>
         </div>
     </header>
     <!-- Header-->
-
     @yield('content')
-
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->

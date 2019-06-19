@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Elimina Ruolo
+        @slot('gest')
+            Utenti
         @endslot
-        Ruoli
+        @slot('sez')
+            Ruoli
+        @endslot
+        @slot('op')
+            Elimina
+        @endslot
+        Ruolo
     @endcomponent
 
     <form action="{{route('Admin.Role.DeleteDestroy')}}" method="post" class="form-horizontal">

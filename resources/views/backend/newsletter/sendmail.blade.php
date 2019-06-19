@@ -3,10 +3,15 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
+        @slot('gest')
+            Newsletters
+        @endslot
+        @slot('sez')
+            Newsletters
+        @endslot
+        @slot('op')
             Invia Mail
         @endslot
-        Mail
     @endcomponent
 
     <form action="{{route('Admin.Newsletter.SendMail')}}" method="post" class="form-horizontal">

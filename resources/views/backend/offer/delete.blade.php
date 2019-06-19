@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Elimina Offerta
+        @slot('gest')
+            Offerte
         @endslot
-        Offerte
+        @slot('sez')
+            Offerte
+        @endslot
+        @slot('op')
+            Elimina
+        @endslot
+        Offerta
     @endcomponent
 
     <form action="{{route('Admin.Offer.DeleteDestroy')}}" method="post" class="form-horizontal">

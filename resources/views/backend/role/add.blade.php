@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Aggiungi Ruolo
+        @slot('gest')
+            Utenti
         @endslot
-        Ruoli
+        @slot('sez')
+            Ruoli
+        @endslot
+        @slot('op')
+            Aggiungi
+        @endslot
+        Ruolo
     @endcomponent
 
     <form action="{{route('Admin.Role.AddCreate')}}" method="post" class="form-horizontal"> <!-- enctype="multipart/form-data" -->
@@ -61,6 +67,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
                         <i class="fa fa-dot-circle-o"></i> Aggiungi
@@ -74,4 +81,5 @@
         <!-- </div>-->
 
     </form>
+
 @endsection

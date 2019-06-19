@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Aggiungi Fornitore
+        @slot('gest')
+            Fornitori
         @endslot
-        Fornitori
+        @slot('sez')
+            Fornitori
+        @endslot
+        @slot('op')
+            Aggiungi
+        @endslot
+        Fornitore
     @endcomponent
 
     <form action="{{route('Admin.Supplier.AddCreate')}}" method="post" class="form-horizontal"> <!-- enctype="multipart/form-data" -->

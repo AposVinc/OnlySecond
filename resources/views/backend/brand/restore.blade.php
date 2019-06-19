@@ -3,8 +3,14 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Ripristina Brand
+        @slot('gest')
+            Brand
+        @endslot
+        @slot('sez')
+            Brand
+        @endslot
+        @slot('op')
+            Ripristina
         @endslot
         Brand
     @endcomponent

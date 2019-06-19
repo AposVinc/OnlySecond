@@ -3,13 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        Brand
-        @slot('title')
-            Prodotti
+        @slot('gest')
+            Brand
         @endslot
         @slot('sez')
+            Prodotti
+        @endslot
+        @slot('op')
             Aggiungi
         @endslot
+        Prodotto
     @endcomponent
 
     <form action="{{route('Admin.Product.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">

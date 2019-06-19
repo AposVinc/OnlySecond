@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Ripristina Collezione
+        @slot('gest')
+            Brand
         @endslot
-        Collezioni
+        @slot('sez')
+            Collezioni
+        @endslot
+        @slot('op')
+            Ripristina
+        @endslot
+        Collezione
     @endcomponent
 
     <form action="{{route('Admin.Collection.RestoreRestore')}}" method="post" class="form-horizontal">

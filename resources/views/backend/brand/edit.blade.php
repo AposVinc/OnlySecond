@@ -3,8 +3,14 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Modifica Brand
+        @slot('gest')
+            Brand
+        @endslot
+        @slot('sez')
+            Brand
+        @endslot
+        @slot('op')
+            Modifica
         @endslot
         Brand
     @endcomponent

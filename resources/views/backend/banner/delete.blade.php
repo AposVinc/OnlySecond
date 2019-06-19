@@ -3,8 +3,14 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Elimina Banner
+        @slot('gest')
+            Immagini
+        @endslot
+        @slot('sez')
+            Banner
+        @endslot
+        @slot('op')
+            Elimina
         @endslot
         Banner
     @endcomponent

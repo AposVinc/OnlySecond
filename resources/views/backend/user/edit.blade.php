@@ -3,13 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        Utenti
-        @slot('title')
-            Utente
+        @slot('gest')
+            Utenti
         @endslot
         @slot('sez')
+            Utente
+        @endslot
+        @slot('op')
             Modifica
         @endslot
+        Utente
     @endcomponent
 
     <form action="{{route('Admin.User.EditUpdate')}}" method="post" class="form-horizontal">

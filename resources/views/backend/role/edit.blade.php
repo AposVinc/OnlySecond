@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Modifica Ruolo
+        @slot('gest')
+            Utenti
         @endslot
-        Ruoli
+        @slot('sez')
+            Ruoli
+        @endslot
+        @slot('op')
+            Modifica
+        @endslot
+        Ruolo
     @endcomponent
 
     <form action="{{route('Admin.Role.EditUpdate')}}" method="post" class="form-horizontal">

@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Elimina Fornitore
+        @slot('gest')
+            Fornitori
         @endslot
-        Fornitori
+        @slot('sez')
+            Fornitori
+        @endslot
+        @slot('op')
+            Elimina
+        @endslot
+        Fornitore
     @endcomponent
 
     <form action="{{route('Admin.Supplier.DeleteDestroy')}}" method="post" class="form-horizontal">

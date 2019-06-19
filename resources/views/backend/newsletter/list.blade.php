@@ -3,10 +3,15 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
+        @slot('gest')
+            Newsletters
+        @endslot
+        @slot('sez')
+            Newsletters
+        @endslot
+        @slot('op')
             Lista Mail
         @endslot
-        Mail
     @endcomponent
 
     <div class="content mt-3">
