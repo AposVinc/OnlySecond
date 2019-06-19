@@ -3,10 +3,13 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Aggiungi Utente
-        @endslot
         Utenti
+        @slot('title')
+            Utente
+        @endslot
+        @slot('sez')
+            Aggiungi
+        @endslot
     @endcomponent
 
     <form action="{{route('Admin.User.AddCreate')}}" method="post" class="form-horizontal"> <!-- enctype="multipart/form-data" -->

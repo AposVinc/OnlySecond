@@ -3,10 +3,13 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Ripristina Utente
-        @endslot
         Utenti
+        @slot('title')
+            Utente
+        @endslot
+        @slot('sez')
+            Ripristina
+        @endslot
     @endcomponent
 
     <form action="{{route('Admin.User.RestoreRestore')}}" method="post" class="form-horizontal">

@@ -3,10 +3,13 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Elimina Utente
-        @endslot
         Utenti
+        @slot('title')
+            Utente
+        @endslot
+        @slot('sez')
+            Elimina
+        @endslot
     @endcomponent
 
     <form action="{{route('Admin.User.DeleteDestroy')}}" method="post" class="form-horizontal">

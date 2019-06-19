@@ -3,10 +3,13 @@
 @section('content')
 
     @component('backend.breadcrumbs')
+        Utenti
         @slot('title')
-        Lista Utenti
+            Utente
         @endslot
-        Utente
+        @slot('sez')
+            Lista
+        @endslot
     @endcomponent
 
     <div class="content mt-3">

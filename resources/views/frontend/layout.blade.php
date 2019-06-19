@@ -28,10 +28,12 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/owl.carousel.css') }}">
 
-    <link rel="shortcut icon" href="/public/images/frontend/favicon.png">
-    <link rel="apple-touch-icon" href="/public/images/frontend/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/public/images/frontend/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/public/images/frontend/apple-touch-icon-114x114.png">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset("plugins/frontend/font-awesome-4.7.0/css/font-awesome.min.css")}}">
+
+    <link rel="shortcut icon" href="{{URL::asset("images/icon/rosa.ico")}}">
+    <link rel="apple-touch-icon" href="{{URL::asset("images/icon/rosa.png")}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{URL::asset("images/icon/rosa.png")}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{URL::asset("images/icon/rosa.png")}}">
 </head>
 
 <body>
@@ -55,11 +57,6 @@
                     </div>
                     <div class="col-xs-12 col-sm-8">
                         <ul class="header-top-right text-right">
-                            <li class="account"><a href="{{route('Admin.LoginForm')}}">Area Privata</a></li>
-                            <li class="account"><a href="{{route('user.login')}}">Il mio account</a></li>
-                            @auth
-                                <li class="account"><a href="{{route('user.logout')}}">Logout</a></li>
-                            @endauth
                             <li class="language dropdown"> <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Lingua <span class="caret"></span> </span>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><a href="#">Italiano</a></li>
@@ -73,6 +70,16 @@
                                     <li><a href="#">$ US Dollar</a></li>
                                 </ul>
                             </li>
+
+                            @auth
+                                <li class="account"> <a href="{{route('Admin.Index')}}"> Area Privata <i class="fa fa-lock"></i></a> </li>
+                                <!-- Sostituire con pagina profilo -->
+                                <li class="account"><a href="{{route('user.login')}}">Il mio account (mod) </a><i class="fa fa-user"></i></li>
+                                <li class="account"><a href="{{route('user.logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
+                            @else
+                                <li class="account"> <a href="{{route('Admin.LoginForm')}}"> Area Privata <i class="fa fa-lock"></i></a> </li>
+                                <li class="account"> <a href="{{route('user.login')}}">Il mio account </a><i class="fa fa-user"></i> </li>
+                            @endauth
                         </ul>
                     </div>
                 </div>

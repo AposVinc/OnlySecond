@@ -1437,7 +1437,7 @@ input#amount {
     width: 140px;
 }
 .Shipping, .Order, .Save, .Safe {
-    background: transparent url("../images/icon.png") no-repeat scroll 16px 0px;
+    background: transparent url("../../images/frontend/icon.png") no-repeat scroll 16px 0px;
     overflow: hidden;
     height: 50px;
     width: 70px;
