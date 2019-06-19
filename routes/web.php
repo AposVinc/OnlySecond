@@ -19,6 +19,10 @@ Route::get('/home', function () {
     return view('frontend.index');
 })->name('Home');
 
+Route::get('/home1', function () {
+    return view('frontendColorshop.index');
+})->name('Home1');
+
 Route::get('/shop', 'ShopController@index')->name('shop');
 
 Route::get('/contact', function(){

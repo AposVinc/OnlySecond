@@ -1,4 +1,4 @@
-@extends('frontend.layout')
+@extends('frontendColorshop.layout')
 
 @section('content')
 
