@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Aggiungi Offerta
+        @slot('gest')
+            Offerte
         @endslot
-        Offerte
+        @slot('sez')
+            Offerte
+        @endslot
+        @slot('op')
+            Aggiungi
+        @endslot
+        Offerta
     @endcomponent
 
     <form action="{{route('Admin.Offer.AddCreate')}}" method="post" class="form-horizontal">

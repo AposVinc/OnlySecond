@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Modifica Categoria
+        @slot('gest')
+            Brand
         @endslot
-        Categorie
+        @slot('sez')
+            Categorie
+        @endslot
+        @slot('op')
+            Modifica
+        @endslot
+        Categoria
     @endcomponent
 
     <form action="{{route('Admin.Category.EditUpdate')}}" method="post" class="form-horizontal">

@@ -37,12 +37,12 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name'=>'gest_newsletter']);
 
         $cliente = Role::create(['name' => 'cliente']);
-        $admin = Role::create(['name' => 'admin'])->givePermissionTo(Permission::all());
-        $manager = Role::create(['name' => 'manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
+        $admin = Role::create(['name' => 'Admin'])->givePermissionTo(Permission::all());
+        $manager = Role::create(['name' => 'Manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
                                                                             'gest_banner','gest_imgprod',
                                                                             'gest_fornitori','gest_newsletter']);
-        $designer = Role::create(['name' => 'designer'])->givePermissionTo(['gest_banner','gest_imgprod']);
-        $pubblicitario = Role::create(['name'=>'pubblicitario'])->givePermissionTo(['gest_offerte','gest_banner','gest_newsletter']);
+        $designer = Role::create(['name' => 'Designer'])->givePermissionTo(['gest_banner','gest_imgprod']);
+        $pubblicitario = Role::create(['name'=>'Pubblicitario'])->givePermissionTo(['gest_offerte','gest_banner','gest_newsletter']);
 
 
         $utente1 = new User(['name'=>'a', 'email'=>'a@a.it', 'password'=>'aaaaaaaa']);

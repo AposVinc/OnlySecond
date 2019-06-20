@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Lista Immagine Prodotto
+        @slot('gest')
+            Immagini
         @endslot
-        Immagine Prodotto
+        @slot('sez')
+            Immagine Prodotto
+        @endslot
+        @slot('op')
+            Lista
+        @endslot
+        Immagini
     @endcomponent
 
     <div class="content mt-3">

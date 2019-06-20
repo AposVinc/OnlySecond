@@ -3,8 +3,14 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-        Lista Ruoli
+        @slot('gest')
+            Utenti
+        @endslot
+        @slot('sez')
+            Ruoli
+        @endslot
+        @slot('op')
+            Lista
         @endslot
         Ruoli
     @endcomponent

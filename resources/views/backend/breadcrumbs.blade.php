@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>{{$sez}} {{$title}}</h1>
+                <h1>{{$op}} {{$slot}}</h1>
             </div>
         </div>
     </div>
@@ -12,9 +12,9 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
                     <li><a href="{{route('Admin.Index')}}">Home</a></li>
-                    <li>Gestione {{$slot}}</li>
-                    <li class="active">{{$title}}</li>
+                    <li>Gestione {{$gest}}</li>
                     <li class="active">{{$sez}}</li>
+                    <li class="active">{{$op}}</li>
                 </ol>
             </div>
         </div>

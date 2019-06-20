@@ -3,13 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        Utenti
-        @slot('title')
-            Utente
+        @slot('gest')
+            Utenti
         @endslot
         @slot('sez')
+            Utente
+        @endslot
+        @slot('op')
             Aggiungi
         @endslot
+        Utente
     @endcomponent
 
     <form action="{{route('Admin.User.AddCreate')}}" method="post" class="form-horizontal"> <!-- enctype="multipart/form-data" -->
@@ -18,7 +21,6 @@
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div>
                 <div class="card-body card-block">
-
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
                         <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nome" class="form-control"></div>

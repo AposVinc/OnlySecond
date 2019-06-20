@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Aggiungi Immagine Prodotto
+        @slot('gest')
+            Immagini
         @endslot
-        Immagine Prodotto
+        @slot('sez')
+            Immagine Prodotto
+        @endslot
+        @slot('op')
+            Aggiungi
+        @endslot
+        Immagine
     @endcomponent
 
     <form action="{{route('Admin.Image.AddCreate')}}" method="post" class="form-horizontal">

@@ -3,8 +3,14 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-            Lista Fornitori
+        @slot('gest')
+            Fornitori
+        @endslot
+        @slot('sez')
+            Fornitori
+        @endslot
+        @slot('op')
+            Lista
         @endslot
         Fornitori
     @endcomponent

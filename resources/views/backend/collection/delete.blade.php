@@ -3,10 +3,16 @@
 @section('content')
 
     @component('backend.breadcrumbs')
-        @slot('title')
-           Elimina Collezione
+        @slot('gest')
+            Brand
         @endslot
-        Collezioni
+        @slot('sez')
+            Collezioni
+        @endslot
+        @slot('op')
+            Elimina
+        @endslot
+        Collezione
     @endcomponent
 
     <form action="{{route('Admin.Collection.DeleteDestroy')}}" method="post" class="form-horizontal">
