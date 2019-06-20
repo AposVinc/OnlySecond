@@ -17,7 +17,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control dynamicBanner" data-dependent="collectionBanner">
+                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collectionBanner">
                             <option value="0">Seleziona il brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -29,7 +29,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collectionBanner" class="form-control dynamicImage" data-dependent="banner">
+                        <select name="collection" id="collectionBanner" class="form-control dynamicBanner" data-dependent="banner">
                             <option value="0">Seleziona la collezione</option>
                         </select>
                     </div>
