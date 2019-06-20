@@ -320,36 +320,10 @@
 @endif
 
 @if(strpos(route::currentRouteName(),'Admin.Banner')!== false)
+    <!-- serve per prendere i banner  -->
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamicBanner').change(function(){
-                if(jQuery(this).val() != '0') {
-                    let sel = document.getElementById('collectionBanner');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-                    var path = window.location.pathname;
-
-                    jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.Banner.RestoreGetCollectionBanner') }}'): ('{{ route('Admin.Banner.GetCollectionBanner') }}')),
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result) {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
-                }
-            });
-        });
-    </script>
-
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamicImage').change(function(){
                 if(jQuery(this).val() != '0') {
                     let sel = document.getElementById('banner');
                     for (i = sel.length - 1; i >= 0; i--) {
@@ -367,9 +341,6 @@
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result) {
                             jQuery('#'+dependent).html(result);
-                        },
-                        error: function (response) {
-                            alert(response);
                         }
                     })
                 }
@@ -399,7 +370,7 @@
 
 @endif
 
-@if(strpos(route::currentRouteName(),'Admin.Image')!== false)
+@if(strpos(route::currentRouteName(),'Admin.Image')!== false or strpos(route::currentRouteName(),'Admin.Product')!== false)
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamicProduct').change(function(){
@@ -415,7 +386,65 @@
                     var path = window.location.pathname;
 
                     jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.Banner.RestoreGetCollectionBanner') }}'): ('{{ route('Admin.Image.GetProduct') }}')),
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.Image.RestoreGetProduct') }}'): ('{{ route('Admin.Image.GetProduct') }}')),
+                        method:"POST",
+                        data:{select:select, value:value, _token:_token, dependent:dependent},
+                        success:function(result) {
+                            jQuery('#'+dependent).html(result);
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Image')!== false )
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.dynamicImage').change(function(){
+                if(jQuery(this).val() != '0') {
+                    let sel = document.getElementById('image');
+                    for (i = sel.length - 1; i >= 0; i--) {
+                        if (i!=0) sel.remove(i);
+                    }
+                    var select = jQuery(this).attr("id");
+                    var value = jQuery(this).val();
+                    var dependent = jQuery(this).data('dependent');
+                    var _token = jQuery('input[name="_token"]').val();
+                    var path = window.location.pathname;
+
+                    jQuery.ajax({
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.Image.RestoreGetImage') }}'): ('{{ route('Admin.Image.GetImage') }}')),
+                        method:"POST",
+                        data:{select:select, value:value, _token:_token, dependent:dependent},
+                        success:function(result) {
+                            jQuery('#'+dependent).html(result);
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Offer')!== false )
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.dynamicOffer').change(function(){
+                if(jQuery(this).val() != '0') {
+                    let sel = document.getElementById('offer');
+                    for (i = sel.length - 1; i >= 0; i--) {
+                        if (i!=0) sel.remove(i);
+                    }
+                    var select = jQuery(this).attr("id");
+                    var value = jQuery(this).val();
+                    var dependent = jQuery(this).data('dependent');
+                    var _token = jQuery('input[name="_token"]').val();
+                    var path = window.location.pathname;
+
+                    jQuery.ajax({
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.Offer.RestoreGetOffer') }}'): ('{{ route('Admin.Offer.GetOffer') }}')),
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result) {

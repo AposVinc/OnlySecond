@@ -83,6 +83,9 @@ Route::prefix('Admin')->group(function () {
         Route::post('/EditGetCollection', 'CollectionController@getCollection')->name('GetCollection');
         Route::post('/RestoreGetCollection','CollectionController@getCollectionRestore')->name('RestoreGetCollection');
 
+        #route chiamata ajax per collection
+        Route::post('/GetProduct', 'ProductController@getProduct')->name('GetProduct');
+        Route::post('/RestoreGetProduct', 'ProductController@getProductRestore')->name('RestoreGetProduct');
 
         Route::group(['middleware' => ['permission:gest_utenti']], function () {
             #user
@@ -254,6 +257,9 @@ Route::prefix('Admin')->group(function () {
 
                     Route::get('/Restore', 'OfferController@showRestoreForm')->name('Restore');
                     Route::post('/RestoreRestore', 'OfferController@restore')->name('RestoreRestore');
+
+                    Route::post('/GetOffer', 'OfferController@getOffer')->name('GetOffer');
+                    Route::post('/RestoreGetOffer', 'OfferController@getOfferRestore')->name('RestoreGetOffer');
                 });
             });
         });
@@ -267,21 +273,8 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/Add', 'ImageController@showAddForm')->name('Add');
                     Route::post('/AddStore', 'ImageController@create')->name('AddCreate');
 
-                    Route::post('/GetProduct', 'ProductController@getProduct')->name('GetProduct');
-
-                 /*   Route::get('/Edit', 'BannerController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'BannerController@update')->name('EditUpdate');
-
-                    Route::post('/EditGetCollectionBanner', 'CollectionController@getCollectionBanner')->name('GetCollectionBanner');
-                    Route::post('/RestoreGetCollectionBanner', 'CollectionController@getCollectionBannerRestore')->name('RestoreGetCollectionBanner');
-                    Route::post('/EditGetBanner', 'BannerController@getBanner')->name('GetBanner');
-                    Route::post('/RestoreGetBanner', 'BannerController@getBannerRestore')->name('RestoreGetBanner');
-
-                    Route::get('/Delete', 'BannerController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'BannerController@destroy')->name('DeleteDestroy');
-
-                    Route::get('/Restore', 'BannerController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'BannerController@restore')->name('RestoreRestore');*/
+                    Route::post('/GetImage', 'ImageController@getImage')->name('GetImage');
+                    Route::post('/RestoreGetImage', 'ImageController@getImageRestore')->name('RestoreGetImage');
                 });
             });
         });
@@ -297,9 +290,7 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/Edit', 'BannerController@showEditForm')->name('Edit');
                     Route::post('/EditUpdate', 'BannerController@update')->name('EditUpdate');
 
-                    Route::post('/EditGetCollectionBanner', 'CollectionController@getCollectionBanner')->name('GetCollectionBanner');
-                    Route::post('/RestoreGetCollectionBanner', 'CollectionController@getCollectionBannerRestore')->name('RestoreGetCollectionBanner');
-                    Route::post('/EditGetBanner', 'BannerController@getBanner')->name('GetBanner');
+                    Route::post('/GetBanner', 'BannerController@getBanner')->name('GetBanner');
                     Route::post('/RestoreGetBanner', 'BannerController@getBannerRestore')->name('RestoreGetBanner');
 
                     Route::get('/Delete', 'BannerController@showDeleteForm')->name('Delete');
