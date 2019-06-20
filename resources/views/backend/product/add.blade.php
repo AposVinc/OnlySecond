@@ -21,14 +21,14 @@
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Codice</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="nome" placeholder="Inserisci il codice del prodotto" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="nome" placeholder="Inserisci il codice del prodotto" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="activeModel()">
+                        <select name="brand" id="brand" class="form-control" onchange="activeModel()"required>
                             <!-- onchange serve per attivare il modello dopo aver scelto un brand -->
-                            <option value="0">Seleziona il brand</option>
+                            <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
@@ -38,33 +38,27 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collezione" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collezione" id="collezione" disabled="disabled" class="form-control" >
-                            <option value="0">Seleziona la collezione</option>
+                        <select name="collezione" id="collezione" disabled="disabled" class="form-control" required>
+                            <option value="">Seleziona la collezione</option>
+                            <option value="2">Seleziona la123</option>
 
-                            <option value="1">Option #1</option>
-                            <option value="2">Option #2</option>
-                            <option value="3">Option #3</option>
                         </select>
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nome" class="form-control"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Genere</label></div>
                     <div class="col col-md-9">
                         <div class="form-check-inline form-check">
-                            <label for="inline-radio1" class="form-check-label ">
-                                <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input"> M
+                            <label for="inline-radio1" class="form-check-label " >
+                                <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input" required> M
                             </label>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <label for="inline-radio2" class="form-check-label ">
-                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input"> F
+                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" required> F
                             </label>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <label for="inline-radio2" class="form-check-label ">
-                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input"> Unisex
+                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" required> Unisex
                             </label>
                         </div>
                     </div>
@@ -76,7 +70,7 @@
                             @foreach($categories as $category)
                                 <div class="checkbox">
                                     <label for="{{$category->name}}" class="form-check-label">
-                                        <input type="checkbox"  id="{{$category->id}}" name="category" value="{{$category->name}}" class="form-check-input" >{{$category->name}}
+                                        <input type="checkbox" id="{{$category->id}}" name="category" value="{{$category->name}}" class="form-check-input">{{$category->name}}
                                     </label>
                                 </div>
                             @endforeach
