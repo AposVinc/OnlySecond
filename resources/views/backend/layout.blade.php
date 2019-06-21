@@ -274,22 +274,6 @@
     </script>
 @endif
 
-@if(route::currentRouteName('Admin.Brand.Edit'))
-    <script>
-        /* script per scrivere nome Brand nel edit*/
-        function showName() {
-            var b = document.getElementById("brand");
-            var x = b.value;
-            if (x == 0) {
-                document.getElementById('text-input').removeAttribute('value');
-            } else {
-                document.getElementById('text-input').setAttribute('name',b.innerText)
-                //setAttribute('value', b. );
-            }
-        }
-    </script>
-@endif
-
 @if(strpos(route::currentRouteName(),'Admin')!== false)
     <script>
         jQuery(document).ready(function(){
