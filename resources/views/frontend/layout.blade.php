@@ -52,7 +52,7 @@
                 <div class="row ">
                     <div class="col-xs-12 col-sm-4">
                         <div class="header-top-left">
-                            <div class="contact"><span class="hidden-xs hidden-sm hidden-md">Days a week from 9:00 am to 7:00 pm</span></div>
+                            <div class="contact"><span class="hidden-xs hidden-sm hidden-md">Spedizione gratuita con ordini superiori ai 150€</span></div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-8">
@@ -233,8 +233,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li> <a href="about.html">Chi siamo</a></li>
-                            <li> <a href="contact_us.html">Contatti</a></li>
+                            <li> <a href="about">Chi siamo</a></li>
+                            <li> <a href="contact">Contatti</a></li>
                         </ul>
                     </div>
                     <!-- /.nav-collapse -->

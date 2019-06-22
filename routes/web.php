@@ -29,6 +29,10 @@ Route::get('/contact', function(){
     return view('frontend.contact');
 });
 
+Route::get('/about', function(){
+    return view('frontend.about');
+});
+
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('user.login');

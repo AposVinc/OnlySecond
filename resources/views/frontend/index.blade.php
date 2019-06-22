@@ -23,7 +23,7 @@
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
                     <div class="icon-right Order"></div>
-                    <h6>Order Onlivne</h6>
+                    <h6>Order Online</h6>
                     <p>Hours : 8am - 11pm</p>
                 </div>
             </div>
