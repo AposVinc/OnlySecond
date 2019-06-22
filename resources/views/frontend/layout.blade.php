@@ -235,7 +235,6 @@
                             </li>
                             <li> <a href="about.html">Chi siamo</a></li>
                             <li> <a href="contact_us.html">Contatti</a></li>
-
                         </ul>
                     </div>
                     <!-- /.nav-collapse -->
