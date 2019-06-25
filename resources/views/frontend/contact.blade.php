@@ -67,10 +67,27 @@
                     <!-- END Contact FORM -->
                 </div>
             </div>
-            <!-- map  -->
-            <div class="row">
-                <div class="col-xs-12 map mb_80">
-                    <div id="map"></div>
+            <!--ho aggiunto al posto della mappa questa sezione dove facciamo vedere tutti i brand che vendiamo  -->
+            <div id="brand_carouse" class="ptb_30 text-center">
+                <div class="type-01">
+                    <div class="heading-part mb_20 ">
+                        <h2 class="main_title">Brand Logo</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="brand owl-carousel ptb_20">
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand1.png" alt="Disney" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand2.png" alt="Dell" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand3.png" alt="Harley" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand4.png" alt="Canon" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand5.png" alt="Canon" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand6.png" alt="Canon" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand7.png" alt="Canon" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand8.png" alt="Canon" class="img-responsive" /></a> </div>
+                                <div class="item text-center"> <a href="#"><img src="images/brand/brand9.png" alt="Canon" class="img-responsive" /></a> </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
