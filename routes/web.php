@@ -33,6 +33,10 @@ Route::get('/about', function(){
     return view('frontend.about');
 });
 
+Route::get('/checkout', function(){
+    return view('frontend.checkout');
+});
+
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('user.login');

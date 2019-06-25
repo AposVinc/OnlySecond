@@ -1608,7 +1608,7 @@ input#amount {
 #product-tab .owl-nav, .blog .owl-nav, .latest_pro .owl-nav {
     right: 10px;
 }
-#product-thumbnail .owl-nav .owl-prev, {
+#product-thumbnail .owl-nav .owl-prev {
     left: 0;
 }
 
@@ -1617,7 +1617,7 @@ input#amount {
 ----------------------------------------------- */
 
 .breadcrumb {
-    background-image: url("../images/breadcrumb.jpg");
+    background-color: black;
     border-radius: 0;
     display: inline-block;
     padding-left: 20px;
@@ -1628,7 +1628,7 @@ input#amount {
     display: inline-block;
 }
 .breadcrumb li.active {
-    color: #fff;
+    color: #ffe72c;
 }
 .breadcrumb h1 {
     color: #fff;

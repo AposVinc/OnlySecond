@@ -153,7 +153,7 @@
                                     <form action="cart_page.html">
                                         <input class="btn pull-left mt_10" value="View cart" type="submit">
                                     </form>
-                                    <form action="checkout_page.html">
+                                    <form action="checkout">
                                         <input class="btn pull-right mt_10" value="Checkout" type="submit">
                                     </form>
                                 </li>
