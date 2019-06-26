@@ -3,30 +3,33 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
+<html class="no-js" lang="it">
 <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin</title>
+    <title>Admin - Only Second</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="/TecnologieDelWeb/template/back-end/apple-iconn.png">
-    <link rel="shortcut icon" href="/TecnologieDelWeb/template/back-end/faviconn.ico">
+    <link rel="apple-touch-icon" href="{{URL::asset("images/backend/gear.png")}}">
+    <link rel="shortcut icon" href="{{URL::asset("images/backend/gear.ico")}}">
 
-    <link rel="stylesheet" href="/TecnologieDelWeb/template/back-end/vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/TecnologieDelWeb/template/back-end/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/TecnologieDelWeb/template/back-end/vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="/TecnologieDelWeb/template/back-end/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="/TecnologieDelWeb/template/back-end/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/themify-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/selectFX/css/cs-skin-elastic.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/jqvmap/dist/jqvmap.min.css') }}">
 
-    <link rel="stylesheet" href="/TecnologieDelWeb/template/back-end/assets/css/style.css">
-    <link rel="stylesheet" href="/TecnologieDelWeb/template/back-end/assets/css/isa.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/backend/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/backend/isa.css') }}"> <!-- aggiunta non ricordo per cosa -->
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <!--css tabella liste-->
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
 </head>
 
 <body class="bg-dark">
@@ -76,12 +79,10 @@
     </div>
 </div>
 
-
-<script src="/TecnologieDelWeb/template/back-end/vendors/jquery/dist/jquery.min.js"></script>
-<script src="/TecnologieDelWeb/template/back-end/vendors/popper.js/dist/umd/popper.min.js"></script>
-<script src="/TecnologieDelWeb/template/back-end/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/TecnologieDelWeb/template/back-end/assets/js/main.js"></script>
-
+<script src="{{ URL::asset('vendor/backend/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/backend/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/backend/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/backend/main.js') }}"></script>
 
 </body>
 

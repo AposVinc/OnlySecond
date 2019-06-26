@@ -16,8 +16,6 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 
-.env
-.env.*.php
 /.idea
 /template
 
