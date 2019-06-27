@@ -35,7 +35,11 @@
                                 <tbody>
                                 @foreach($collections as $collection)
                                     <tr>
-                                        <td>{{$collection->brand->name}}</td>
+                                        @foreach($brands as $brand)
+                                            @if($collection->brand_id == $brand->id)
+                                            <td>{{$brand->name}}</td>
+                                            @endif
+                                        @endforeach
                                         <td>{{$collection->name}}</td>
                                         <td>{{$collection->created_at}}</td>
                                         <td>{{$collection->updated_at}}</td>

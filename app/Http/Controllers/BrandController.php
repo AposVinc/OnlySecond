@@ -106,7 +106,11 @@ class BrandController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('brand');
-        Brand::where('id',$id)->delete();
+        //Brand::where('id',$id)->delete();
+
+
+        $post = Brand::find($id);
+        $post->delete();
 
         return redirect()->to('Admin/Brand/List');
     }

@@ -18,8 +18,9 @@ class CollectionController extends Controller
      */
     public function showListForm()
     {
-        $collections = Collection::withTrashed()->with('brand')->get();
-        return view('backend.collection.list', ['collections' => $collections]);
+        $collections = Collection::withTrashed()->get();
+        $brands = Brand::withTrashed()->get();
+        return view('backend.collection.list', ['collections' => $collections, 'brands' => $brands]);
     }
 
     public function showAddForm()
