@@ -21,6 +21,8 @@ class CreateBannersTable extends Migration
 
             $table->softDeletes();
         });
+        DB::statement("ALTER TABLE `banners` CHANGE `image` `image` LONGBLOB NOT NULL;");
+
     }
 
     /**

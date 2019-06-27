@@ -23,10 +23,13 @@ class CreateProductsTable extends Migration
             $table->longtext('long_desc')->nullable(); //forse non serve se c'è la tab specification?
             $table->integer('supplier_id');
             $table->string('color',6);    //da mettere nelle specifiche o si lascia?
+            $table->binary('image')->nullable();
             $table->timestamps();
 
             $table->softDeletes();
         });
+        DB::statement("ALTER TABLE `products` CHANGE `image` `image` LONGBLOB NOT NULL;");
+
     }
 
     /**
