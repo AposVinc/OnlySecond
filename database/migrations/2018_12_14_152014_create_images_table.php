@@ -21,6 +21,7 @@ class CreateImagesTable extends Migration
 
             $table->softDeletes();
         });
+        DB::statement("ALTER TABLE `images` CHANGE `image` `image` LONGBLOB NOT NULL;");
     }
 
     /**
