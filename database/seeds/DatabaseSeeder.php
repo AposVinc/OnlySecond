@@ -55,13 +55,13 @@ class DatabaseSeeder extends Seeder
         $utente3->assignRole($cliente)->save();
 
 
-        $smart = new Category(['name' => 'smart']);
+        $smart = new Category(['name' => 'Smart']);
         $smart->save();
-        $water_resistence = new Category(['name' => 'water resistence']);
+        $water_resistence = new Category(['name' => 'Water Resistence']);
         $water_resistence->save();
-        $classic = new Category(['name' => 'classic']);
+        $classic = new Category(['name' => 'Classic']);
         $classic->save();
-        $digital = new Category(['name' => 'digital']);
+        $digital = new Category(['name' => 'Digital']);
         $digital->save();
 
         $fornitore1 = new Supplier(['name'=>'fornitore1','email'=>'fornitore1@fornitore.it','phone'=>'1231231231','city'=>'Roma','address'=>'via Milano','zip'=>'00001','iban'=>'123123123123123']);
@@ -69,40 +69,51 @@ class DatabaseSeeder extends Seeder
         $fornitore2 = new Supplier(['name'=>'fornitore2','email'=>'fornitore2@fornitore.it','phone'=>'1231231232','city'=>'Milano','address'=>'via Roma','zip'=>'00002','iban'=>'123123123123124']);
         $fornitore2->save();
 
+        /*------------------------------------------------------*/
 
-        $brand1 = new Brand(['name' => 'Fossil']);
-        $brand1->save();
+        $Fossil = new Brand(['name' => 'Fossil']);
+        $Fossil->save();
 
-        $collection1b1 = new Collection(['name' => 'Goodwin']);
-        $brand1->collections()->save($collection1b1);
 
-        $collection2b1 = new Collection(['name' => 'Belmar']);
-        $brand1->collections()->save($collection2b1);
+        $Carlie = new Collection(['name' => 'Carlie']);
+        $Fossil->collections()->save($Carlie);
 
-        $product1c1b1 = new Product(['cod' => '123456','name' => 'p1c1b1','price' => 35, 'stock_availability' => '24',
-                                        'genere' => 'M','long_desc' => 'long desc','color' => 'ffffff']);
-        $product1c1b1->collection_id = $collection1b1->id;
-        $product1c1b1->supplier_id = $fornitore1->id;
-        $product1c1b1->save();
-        $product1c1b1->categories()->save($classic);
-        $collection1b1->products()->save($product1c1b1);
+        $Sport = new Collection(['name' => 'Sport']);
+        $Fossil->collections()->save($Sport);
 
-        $product2c1b1 = new Product(['cod' => '123457','name' => 'p2c1b1','price' => '70', 'stock_availability' => '5',
+
+        $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
                                         'genere' => 'F','long_desc' => 'long desc','color' => 'ffffff']);
-        $product2c1b1->collection_id = $collection2b1->id;
-        $product2c1b1->supplier_id = $fornitore1->id;
-        $product2c1b1->save();
-        $product2c1b1->categories()->save($smart);
-        $product2c1b1->categories()->save($water_resistence);
-        $collection1b1->products()->save($product2c1b1);
+        $CarlieP1->collection_id = $Carlie->id;
+        $CarlieP1->supplier_id = $fornitore1->id;
+        $CarlieP1->save();
+        $CarlieP1->categories()->save($classic);
+        $Carlie->products()->save($CarlieP1);
 
-        $product1c2b1 = new Product(['cod' => '123458','name' => 'p1c2b1','price' => '99.99', 'stock_availability' => '13',
-                                        'genere' => 'M','long_desc' => 'long desc','color' => 'ffffff']);
-        $product1c2b1->collection_id = $collection2b1->id;
-        $product1c2b1->supplier_id = $fornitore2->id;
-        $product1c2b1->save();
-        $product1c2b1->categories()->save($digital);
-        $collection2b1->products()->save($product1c2b1);
+        $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
+                                        'genere' => 'F','long_desc' => 'long desc','color' => 'ff9999']);
+        $CarlieP2->collection_id = $Carlie->id;
+        $CarlieP2->supplier_id = $fornitore1->id;
+        $CarlieP2->save();
+        $CarlieP2->categories()->save($classic);
+        $Carlie->products()->save($CarlieP2);
+
+        $CarlieP3 = new Product(['cod' => 'ES4488','price' => '149', 'stock_availability' => '5',
+                                        'genere' => 'F','long_desc' => 'long desc','color' => '000000']);
+        $CarlieP3->collection_id = $Carlie->id;
+        $CarlieP3->supplier_id = $fornitore1->id;
+        $CarlieP3->save();
+        $CarlieP3->categories()->save($classic);
+        $Carlie->products()->save($CarlieP3);
+
+
+        $Sport1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
+                                        'genere' => 'U','long_desc' => 'long desc','color' => '000000']);
+        $Sport1->collection_id = $Sport->id;
+        $Sport1->supplier_id = $fornitore1->id;
+        $Sport1->save();
+        $Sport1->categories()->save($smart);
+        $Sport->products()->save($Sport1);
 
 /*
         $brand2 = new Brand(['name' => 'Brand2']);

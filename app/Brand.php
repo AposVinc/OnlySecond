@@ -30,8 +30,7 @@ class Brand extends Model
         return $this->hasMany('App\Collection');
     }
 
-    public function products()
-    {
+    public function products()  {
         return $this->hasManyThrough('App\Product', 'App\Collection');
     }
 
