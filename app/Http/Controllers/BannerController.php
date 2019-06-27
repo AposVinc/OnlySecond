@@ -25,6 +25,12 @@ class BannerController extends Controller
         return view('backend.banner.list', ['banners' => $banners , 'collections'=> $collections]);
     }
 
+    public function showImage($id)
+    {
+        $banner = Banner::find($id)->get();
+        return view('backend.banner.image', ['banner' => $banner]);
+    }
+
     public function showAddForm()
     {
         $brands = Brand::all();
