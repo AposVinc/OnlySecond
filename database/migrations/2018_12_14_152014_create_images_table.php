@@ -15,13 +15,12 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->binary('image');
+            $table->string('image');
             $table->integer('product_id');
             $table->timestamps();
 
             $table->softDeletes();
         });
-        DB::statement("ALTER TABLE `images` CHANGE `image` `image` LONGBLOB NOT NULL;");
     }
 
     /**

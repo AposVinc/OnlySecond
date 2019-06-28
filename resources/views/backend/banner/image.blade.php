@@ -19,7 +19,7 @@
         <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
-                    <img src="">
+                    <img src="{{asset($banner->image)}}">
                 </div>
             </div>
             <div class="card-footer">
