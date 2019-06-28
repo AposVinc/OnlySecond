@@ -14,10 +14,10 @@ class CreateOrderhistoryProductTable extends Migration
     public function up()
     {
         Schema::create('orderhistory_product', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('product_id');
+            $table->bigIncrements('id')->unsigned();
+            $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
-            $table->integer('orderhistory_id');
+            $table->unsignedBigInteger('orderhistory_id');
             $table->timestamps();
 
             $table->softDeletes();

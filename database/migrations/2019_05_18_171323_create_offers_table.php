@@ -14,8 +14,8 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offer', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('product_id');
+            $table->bigIncrements('id')->unsigned();
+            $table->unsignedBigInteger('product_id');
             $table->integer('rate');//percentuale
             $table->date('end'); //fine offerta della settimana, deve essere settata una alla volta.
             $table->timestamps();

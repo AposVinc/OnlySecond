@@ -14,18 +14,21 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('cod',6)->unique();
-            $table->integer('collection_id');
+            $table->unsignedBigInteger('collection_id');
             $table->decimal('price', 6, 2);
             $table->integer('stock_availability');//disponibilita magazzino
             $table->enum('genere',['M','F','U']);
             $table->longtext('long_desc')->nullable(); //forse non serve se c'è la tab specification?
-            $table->integer('supplier_id');
+            $table->unsignedBigInteger('supplier_id');
             $table->string('color',6);    //da mettere nelle specifiche o si lascia?
             $table->timestamps();
 
             $table->softDeletes();
+
+            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
         });
 
     }

@@ -14,7 +14,7 @@ class CreateCouriersTable extends Migration
     public function up()
     {
         Schema::create('couriers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('name');
             $table->string('contact');
             $table->timestamps();

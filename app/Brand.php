@@ -8,8 +8,7 @@ use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
 
 class Brand extends Model
 {
-    use SoftDeletes;
-    use SoftCascadeTrait;
+    use SoftDeletes, SoftCascadeTrait;
 
     /**
      * The attributes that should be mutated to dates.
@@ -18,7 +17,7 @@ class Brand extends Model
      */
     protected $dates = ['deleted_at'];
 
-    protected  $softCascade = ['collections'];
+    protected $softCascade = ['collections'];
 
     protected $fillable =[
         'name',

@@ -14,8 +14,8 @@ class CreateSpecificationsTable extends Migration
     public function up()
     {
         Schema::create('specifications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('product_id');
+            $table->bigIncrements('id')->unsigned();
+            $table->unsignedBigInteger('product_id');
             $table->string('case_size');//dimensione cassa
             $table->string('material');
             $table->string('case_thickness');//spessore cassa

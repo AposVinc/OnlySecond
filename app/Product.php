@@ -2,12 +2,13 @@
 
 namespace App;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, SoftCascadeTrait;
 
     /**
      * The attributes that should be mutated to dates.
@@ -15,6 +16,7 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+    protected $softCascade = ['images'];
 
     protected $fillable =[
         'cod', 'name', 'price', 'producer_id', 'category_id',
@@ -29,14 +31,14 @@ class Product extends Model
         return $this->belongsToMany('App\Category');
     }
 
-    public function image()
+    public function images()
     {
-        return $this->hasOne('App\Image');
+        return $this->hasMany('App\Image');
     }
 
     public function supplier()
     {
-        return $this->hasOne('App\Supplier');
+        return $this->belongsTo('App\Supplier');
     }
 
     public function offers(){

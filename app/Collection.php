@@ -2,12 +2,13 @@
 
 namespace App;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Collection extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, SoftCascadeTrait;
 
     /**
      * The attributes that should be mutated to dates.
@@ -15,6 +16,7 @@ class Collection extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+    protected $softCascade = ['products','banners'];
 
     protected $fillable =[
         'name','brand_id',
