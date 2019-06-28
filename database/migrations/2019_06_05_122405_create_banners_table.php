@@ -15,14 +15,12 @@ class CreateBannersTable extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->binary('image');
+            $table->string('image');
             $table->integer('collection_id');
             $table->timestamps();
 
             $table->softDeletes();
         });
-        DB::statement("ALTER TABLE `banners` CHANGE `image` `image` LONGBLOB NOT NULL;");
-
     }
 
     /**

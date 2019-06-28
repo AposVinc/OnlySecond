@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
 
 
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
-                                        'genere' => 'F','long_desc' => 'long desc','color' => 'ffffff', 'image' => '/public/images/orologi/Fossil/Donna Carlie/1.jpg']);
+                                        'genere' => 'F','long_desc' => 'long desc','color' => 'ffffff', 'image' => '/images/orologi/Fossil/Donna Carlie/1.jpg']);
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
         $CarlieP1->save();
