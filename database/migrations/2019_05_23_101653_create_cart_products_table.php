@@ -21,6 +21,8 @@ class CreateCartProductsTable extends Migration
             $table->timestamps();
 
             $table->softDeletes();
+
+
         });
     }
 
