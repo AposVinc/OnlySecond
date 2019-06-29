@@ -284,7 +284,7 @@
                         <div class="panel-body">
                             <label for="input-coupon" class="col-sm-4 control-label">Aggiungi il codice coupon</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="input-coupon" placeholder="Enter your coupon here" value="" name="coupon">
+                                <input type="text" class="form-control" id="input-coupon" placeholder="Inserisci il tuo coupon qui" value="" name="coupon">
                                 <span class="input-group-btn">
                   <input type="button" class="btn" data-loading-text="Caricamento..." id="button-coupon" value="Applica Il Coupon">
                   </span> </div>
@@ -299,7 +299,7 @@
                         <div class="panel-body">
                             <label for="input-voucher" class="col-sm-4 control-label">Aggiungi il tuo codice sconto qui</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="input-voucher" placeholder="Enter your gift voucher code here" value="" name="voucher">
+                                <input type="text" class="form-control" id="input-voucher" placeholder="Inserisci il tuo codice qui" value="" name="voucher">
                                 <span class="input-group-btn">
                   <input type="button" class="btn" data-loading-text="Caricamento..." id="button-voucher" value="Applica Lo Sconto">
                   </span> </div>

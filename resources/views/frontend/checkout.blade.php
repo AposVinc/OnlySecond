@@ -38,7 +38,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="left_banner left-sidebar-widget mb_50 mt_30"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
+            <!--<div class="left_banner left-sidebar-widget mb_50 mt_30"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
             <div class="left-special left-sidebar-widget mb_50">
                 <div class="heading-part mb_20 ">
                     <h2 class="main_title">Top Products</h2>
@@ -233,7 +233,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="col-sm-8 col-lg-9 mtb_20">
             <div class="panel-group" id="accordion">
