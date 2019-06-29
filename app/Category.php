@@ -16,16 +16,19 @@ class Category extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = ['category_product'];
+    protected $softCascade = ['productsRel'];
 
     protected $fillable =[
         'name',
     ];
 
-
     public function products()
     {
         return $this->belongsToMany('App\Product');
+    }
 
+    public function productsRel()
+    {
+        return $this->hasMany('App\CategoryProduct');
     }
 }

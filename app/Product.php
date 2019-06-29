@@ -16,7 +16,7 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = ['images','specification','offers','reviews','category_product'];
+    protected $softCascade = ['images','specification','offers','reviews','categoriesRel'];
 
     protected $fillable =[
         'cod', 'name', 'price', 'producer_id', 'category_id',
@@ -30,6 +30,12 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Category');
     }
+
+    public function categoriesRel()
+    {
+        return $this->hasMany('App\CategoryProduct');
+    }
+
 
     public function images()
     {

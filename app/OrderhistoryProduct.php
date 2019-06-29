@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class OrderhistoryProduct extends Pivot
 {
-
+    protected $fillable =[
+        'quantity',
+    ];
 }

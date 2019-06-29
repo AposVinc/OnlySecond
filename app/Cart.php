@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    use SoftDeletes;
 
     /**
      * The attributes that should be mutated to dates.

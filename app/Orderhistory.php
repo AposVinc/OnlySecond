@@ -16,7 +16,6 @@ class Orderhistory extends Model
      */
     protected $dates = ['deleted_at'];
 
-
     protected $fillable =[
         'name',
     ];
