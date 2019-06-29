@@ -713,7 +713,7 @@
                             <td class="text-right">230.00€</td>
                         </tr>
                         <tr>
-                            <td class="text-right"><strong>Tassa(Iva) (5%):</strong></td>
+                            <td class="text-right"><strong>Tassa(Iva 5%):</strong></td>
                             <td class="text-right">11.50€</td>
                         </tr>
                        <!--

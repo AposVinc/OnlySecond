@@ -6,7 +6,7 @@
 <head>
     <!-- =====  BASIC PAGE NEEDS  ===== -->
     <meta charset="utf-8">
-    <title>Only Second E-commerce </title>
+    <title>Only Second E-Commerce </title>
     <!-- =====  SEO MATE  ===== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="">
@@ -17,9 +17,11 @@
     <meta name="rating" content="8 YEARS">
     <meta name="Language" content="en-us">
     <meta name="GOOGLEBOT" content="NOARCHIVE">
+
     <!-- =====  MOBILE SPECIFICATION  ===== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="viewport" content="width=device-width">
+
     <!-- =====  CSS  ===== -->
 
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/font-awesome.min.css') }}" />
@@ -90,7 +92,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-4">
                         <div class="main-search mt_40">
-                            <input id="search-input" name="search" value="" placeholder="Search" class="form-control input-lg" autocomplete="off" type="text">
+                            <input id="search-input" name="search" value="" placeholder="Cerca" class="form-control input-lg" autocomplete="off" type="text">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
                             </span>
@@ -131,20 +133,22 @@
                                     <table class="table">
                                         <tbody>
                                         <tr>
-                                            <td class="text-right"><strong>Sub-Total</strong></td>
-                                            <td class="text-right">$2,100.00</td>
+                                            <td class="text-right"><strong>Sub-Totale</strong></td>
+                                            <td class="text-right">460.00€</td>
                                         </tr>
                                         <tr>
-                                            <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-                                            <td class="text-right">$2.00</td>
+                                            <td class="text-right"><strong>Tassa(iva 5%)</strong></td>
+                                            <td class="text-right">23.00€</td>
                                         </tr>
+                                       <!--
                                         <tr>
                                             <td class="text-right"><strong>VAT (20%)</strong></td>
                                             <td class="text-right">$20.00</td>
                                         </tr>
+                                        -->
                                         <tr>
-                                            <td class="text-right"><strong>Total</strong></td>
-                                            <td class="text-right">$2,122.00</td>
+                                            <td class="text-right"><strong>Totale</strong></td>
+                                            <td class="text-right">483,00€</td>
                                         </tr>
                                         </tbody>
                                     </table>
