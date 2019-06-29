@@ -33,7 +33,7 @@ class BrandController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::withTrashed()->get();
+        $brands = Brand::all();
         return view('backend.brand.edit', ['brands' => $brands]);
     }
 
@@ -80,8 +80,6 @@ class BrandController extends Controller
     {
         $id = $request->get('brand');
         $newname = $request->get('newname');
-
-        Brand::where('id',$id)->restore(); //se era stato eliminato viene ripristinato
 
         Brand::where('id',$id)
             ->update(['name' => $newname]);
