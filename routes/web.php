@@ -36,6 +36,9 @@ Route::get('/about', function(){
 Route::get('/checkout', function(){
     return view('frontend.checkout');
 });
+Route::get('/cartpage', function(){
+    return view('frontend.cartpage');
+});
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...

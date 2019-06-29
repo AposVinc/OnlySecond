@@ -150,8 +150,8 @@
                                     </table>
                                 </li>
                                 <li>
-                                    <form action="cart_page.html">
-                                        <input class="btn pull-left mt_10" value="View cart" type="submit">
+                                    <form action="cartpage">
+                                        <input class="btn pull-left mt_10" value="Carta" type="submit">
                                     </form>
                                     <form action="checkout">
                                         <input class="btn pull-right mt_10" value="Checkout" type="submit">
@@ -234,7 +234,7 @@
                                 </ul>
                             </li>
                             <li> <a href="about">Chi siamo</a></li>
-                            <li> <a href="contact">Contatti</a></li>
+                            <li> <a href="contact">Contatti</a>
                         </ul>
                     </div>
                     <!-- /.nav-collapse -->
