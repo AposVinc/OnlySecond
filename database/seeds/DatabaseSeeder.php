@@ -71,16 +71,63 @@ class DatabaseSeeder extends Seeder
 
         /*------------------------------------------------------*/
 
+        /* Fossil */
         $Fossil = new Brand(['name' => 'Fossil']);
         $Fossil->save();
 
-
+        /* Collezioni Fossil */
         $Carlie = new Collection(['name' => 'Carlie']);
         $Fossil->collections()->save($Carlie);
 
         $Sport = new Collection(['name' => 'Sport']);
         $Fossil->collections()->save($Sport);
 
+        $Q_Explorist = new Collection(['name' => 'Q Explorist']);
+        $Fossil->collections()->save($Q_Explorist);
+
+        /* Lacoste */
+        $Lacoste = new Brand(['name' => 'Lacoste']);
+        $Lacoste->save();
+
+        /* Collezioni Lacoste */
+        $Moon = new Collection(['name' => 'Moon']);
+        $Lacoste->collections()->save($Moon);
+
+        $Lacoste_12_12 = new Collection(['name' => 'Lacoste 12.12']);
+        $Lacoste->collections()->save($Lacoste_12_12);
+
+        /* Tissot */
+        $Tissot = new Brand(['name' => 'Tissot']);
+        $Tissot->save();
+
+        /* Collezioni Tissot */
+        $Lovely = new Collection(['name' => 'Lovely']);
+        $Tissot->collections()->save($Lovely);
+
+        $Chrono = new Collection(['name' => 'Chrono']);
+        $Tissot->collections()->save($Chrono);
+
+        /* Wellington */
+        $Wellington = new Brand(['name' => 'Wellington']);
+        $Wellington->save();
+
+        /* Collezioni Wellington */
+        $Roselyn = new Collection(['name' => 'Roselyn']);
+        $Wellington->collections()->save($Roselyn);
+
+        $Sheffield = new Collection(['name' => 'Sheffield']);
+        $Wellington->collections()->save($Sheffield);
+
+        $Bayswater = new Collection(['name' => 'Bayswater']);
+        $Wellington->collections()->save($Bayswater);
+
+        /* Diesel */
+        $Diesel = new Brand(['name' => 'Diesel']);
+        $Diesel->save();
+
+        /* Collezioni Diesel */
+        $Double_Down_P44 = new Collection(['name' => 'Double Down P44']);
+        $Diesel->collections()->save($Double_Down_P44);
 
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
                                         'genere' => 'F','long_desc' => 'long desc','color' => 'ffffff']);

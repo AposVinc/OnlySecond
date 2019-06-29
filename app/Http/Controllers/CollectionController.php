@@ -16,6 +16,13 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function EchoMessage($msg)
+    {
+        echo '<script type="text/javascript">
+            alert("' . $msg . '")
+            </script>';
+    }
+
     public function showListForm()
     {
         $collections = Collection::withTrashed()->get();
@@ -31,23 +38,15 @@ class CollectionController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::withTrashed()->get();
-        #$collections = Collection::withTrashed()->get();
-
+        $brands = Brand::all();
         return view('backend.collection.edit')->with('brands',$brands);
-        #return view('backend.collection.editcollection')->with('collections',$collections)->with('brands',$brands);
-
-        /*altra soluzione sarebbe:
-            restituire join tra brand e collection, fare for each per brand e per collection nel blade.
-            con javascript alla scelta del brand prendi id, e tutte le collezioni con brand_id diverso vengono impostati ad hidden
-        */
     }
 
     function getCollection(Request $request)
     {
         $value = $request->get('value');    //id del brand
-        $data = Collection::withTrashed()->where('brand_id', $value)->get();
-        $output = '<option value="0">Seleziona la collezione</option>';
+        $data = Collection::withoutTrashed()->where('brand_id', $value)->get();
+        $output = '<option value="">Seleziona la collezione</option>';
         foreach($data as $row)
         {
             $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
@@ -59,7 +58,7 @@ class CollectionController extends Controller
     {
         $value = $request->get('value');    //id del brand
         $data = Collection::onlyTrashed('collections')->where('brand_id', $value)->get();
-        $output = '<option value="0">Seleziona la collezione</option>';
+        $output = '<option value="">Seleziona la collezione</option>';
         foreach($data as $row)
         {
             $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
@@ -117,19 +116,14 @@ class CollectionController extends Controller
 
     public function showRestoreForm()
     {
-        $brands=Collection::onlyTrashed('collections')->with('brand')->get();
-        if(sizeof($brands)==0) {
+        $collections = Collection::onlyTrashed('collections')->get();
+        $brands = Brand::withTrashed()->get();
+        if(sizeof($collections)==0) {
             $this->EchoMessage("Non ci sono Collezioni da ripristinare");
             return view('backend.index');
         }else {
-            return view('backend.collection.restore',['brands' => $brands]);
+            return view('backend.collection.restore',['brands' => $brands,'collections' => $collections]);
         }
-    }
-
-    public function showAddCollectionForm()
-    {
-        $brands = DB::table('brands')->get();
-        return view('backend.collection.add',['brands' => $brands]);
     }
 
     /**
@@ -162,19 +156,8 @@ class CollectionController extends Controller
         $newbrand= $request->get('newbrand');
         $newcollectionname=$request->get('newcollectionname');
 
-        Collection::where('id',$collection)->restore();
+        Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
 
-        if ($newcollectionname == ""){
-            Collection::where('id',$collection)
-                ->update(['brand_id' => $newbrand]);
-        } else if($newbrand== "0") {
-            Collection::where('id',$collection)
-                ->update(['name' => $newcollectionname, 'brand_id' => $brand]);
-        }else{
-            Collection::where('id',$collection)
-                ->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
-        }
-        
         return redirect()->to('Admin/Collection/List');
     }
 
@@ -187,8 +170,11 @@ class CollectionController extends Controller
 
     public function restore(Request $request)   //query senza nome
     {
-        $id = $request->get('collection');
-        Collection::where('id',$id)->restore();
+        $idcollection = $request->get('collection');
+        $idbrand= $request->get('brand');
+
+        Brand::where('id',$idbrand)->restore();
+        Collection::where('id',$idcollection)->restore();
 
         return redirect()->to('Admin/Collection/List');
     }

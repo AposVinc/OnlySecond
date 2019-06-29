@@ -16,9 +16,9 @@
     @endcomponent
 
     <form action="{{route('Admin.Collection.EditUpdate')}}" method="post" class="form-horizontal">
-    @csrf
-    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+        @csrf
+
+        <div class="card add">
             <div class="card-body card-block">
 
 
@@ -38,7 +38,7 @@
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
                         <select name="collection" id="collection" class="form-control" required>
-                            <option value="">Seleziona la collezione </option>
+                            <option value="0">Seleziona la collezione </option>
                         </select>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
                         <select name="newbrand" id="brand" class="form-control " data-dependent="collection" required>
-                            <!-- ho tolto dynamic perchè altrimenti si azzara il valore della collection scelta dal menù a tendina-->
+
                             <option value="">Seleziona il nuovo brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -70,7 +70,7 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
 
 @endsection
