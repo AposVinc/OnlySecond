@@ -23,7 +23,9 @@ Route::get('/home1', function () {
     return view('frontendColorshop.index');
 })->name('Home1');
 
-Route::get('/shop', 'ShopController@index')->name('shop');
+Route::get('/shop', function () {
+    return view('frontend.shop');
+})->name('Shop');
 
 Route::get('/contact', function(){
     return view('frontend.contact');
@@ -39,6 +41,11 @@ Route::get('/checkout', function(){
 Route::get('/cartpage', function(){
     return view('frontend.cartpage');
 });
+
+Route::get('/discount', function(){
+    return view('frontend.discount');
+});
+
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...

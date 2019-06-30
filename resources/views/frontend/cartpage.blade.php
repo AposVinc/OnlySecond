@@ -7,10 +7,10 @@
         <!-- =====  BANNER STRAT  ===== -->
         <div class="col-sm-12">
             <div class="breadcrumb ptb_20">
-                <h1>Carta</h1>
+                <h1>Carrello</h1>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li class="active">Carta</li>
+                    <li class="active">Carrello</li>
                 </ul>
             </div>
         </div>
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- <div class="left_banner left-sidebar-widget mb_50 mt_30"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
+             <div class="left_banner left-sidebar-widget mb_50 mt_30"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
                      <div class="left-special left-sidebar-widget mb_50">
                           <div class="heading-part mb_20 ">
                               <h2 class="main_title">Top Products</h2>
@@ -233,7 +233,7 @@
                                   </li>
                               </ul>
                           </div>
-                      </div>-->
+                      </div>
         </div>
         <div class="col-sm-8 col-lg-9 mtb_20">
             <form enctype="multipart/form-data" method="post" action="#">
@@ -716,12 +716,7 @@
                             <td class="text-right"><strong>Tassa(Iva 5%):</strong></td>
                             <td class="text-right">11.50€</td>
                         </tr>
-                       <!--
-                        <tr>
-                            <td class="text-right"><strong>VAT (20%):</strong></td>
-                            <td class="text-right">$42.00</td>
-                        </tr>
-                        -->
+
                         <tr>
                             <td class="text-right"><strong>Totale:</strong></td>
                             <td class="text-right">241.50€</td>

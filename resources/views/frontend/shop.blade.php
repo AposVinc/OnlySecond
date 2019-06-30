@@ -10,7 +10,7 @@
                     <h1>Products</h1>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li class="active">Products</li>
+                        <li class="active">Prodotti</li>
                     </ul>
                 </div>
             </div>

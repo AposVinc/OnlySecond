@@ -140,12 +140,6 @@
                                             <td class="text-right"><strong>Tassa(iva 5%)</strong></td>
                                             <td class="text-right">23.00€</td>
                                         </tr>
-                                       <!--
-                                        <tr>
-                                            <td class="text-right"><strong>VAT (20%)</strong></td>
-                                            <td class="text-right">$20.00</td>
-                                        </tr>
-                                        -->
                                         <tr>
                                             <td class="text-right"><strong>Totale</strong></td>
                                             <td class="text-right">483,00€</td>
@@ -155,10 +149,7 @@
                                 </li>
                                 <li>
                                     <form action="cartpage">
-                                        <input class="btn pull-left mt_10" value="Carta" type="submit">
-                                    </form>
-                                    <form action="checkout">
-                                        <input class="btn pull-right mt_10" value="Checkout" type="submit">
+                                        <input class="btn pull-right mt_10" value="Riepilogo" type="submit">
                                     </form>
                                 </li>
                             </ul>
@@ -171,7 +162,9 @@
                     <div class="collapse navbar-collapse js-navbar-collapse">
                         <ul id="menu" class="nav navbar-nav">
                             <li> <a href="{{route('Home')}}">Home</a></li>
-                            <li class="dropdown"> <a href="{{url::route('shop')}}" class="dropdown-toggle" data-toggle="dropdown">Brand </a> <!-- non funzione l'href-->
+                            <li> <a href="{{route("Shop")}}">Shop</a></li>
+
+                            <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown">Brand </a> <!-- non funzione l'href-->
                                 <ul class="dropdown-menu">
                                     <!-- poi ci andra un while che per ogni brand estatto dal database aggiunge all'elenco un <li>, la lista deve esser ordinata alfanumericamente
                                     se vogliamo possiamo mettere un limite sul numero e mandare a capo dopo 6 brand o una cosa del genere
@@ -186,7 +179,7 @@
                                     <li> <a href="{{ url('/shop') }}">Wellington</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collezioni </a>
+                            <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie</a>
                                 <ul class="dropdown-menu mega-dropdown-menu row">
                                     <li class="col-md-3">
                                         <ul>
@@ -239,6 +232,7 @@
                             </li>
                             <li> <a href="about">Chi siamo</a></li>
                             <li> <a href="contact">Contatti</a>
+                            <li> <a href="discount">In Sconto %</a>
                         </ul>
                     </div>
                     <!-- /.nav-collapse -->
@@ -281,7 +275,7 @@
                         <li><a href="#">Condizioni di vendita</a></li>
                         <li><a href="#">Informativa privacy</a></li>
                         <li><a href="#">Termini e condizioni</a></li>
-                        <li><a href="contact.html">Contatti</a></li>
+                        <li><a href="contact">Contatti</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">
@@ -359,6 +353,7 @@
 <script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/custom.js') }}"></script>
 
+
 @if(route::currentRouteName('shop'))
     <!-- PRESI DALLA PAGINA category_page -->
     <script src="{{ URL::asset('js/frontend/jquery-ui.js')}}"></script>
@@ -379,6 +374,27 @@
     </script>
     <!-- PRESI DALLA PAGINA category_page END -->
 @endif
+<!-- checkout nuovo indirizzo-->
+<script type="text/javascript">
+    $('input[name=\'payment_address\']').on('change', function() {
+        if (this.value == 'new') {
+            $('#payment-existing').hide();
+            $('#payment-new').show();
+        } else {
+            $('#payment-existing').show();
+            $('#payment-new').hide();
+        }
+    });
+    $('input[name=\'shipping_address\']').on('change', function() {
+        if (this.value == 'new') {
+            $('#shipping-existing').hide();
+            $('#shipping-new').show();
+        } else {
+            $('#shipping-existing').show();
+            $('#shipping-new').hide();
+        }
+    });
+</script>
 
 </body>
 
