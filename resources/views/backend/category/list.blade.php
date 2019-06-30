@@ -9,7 +9,7 @@
             Categorie
         @endslot
         @slot('op')
-            Lisra
+            Lista
         @endslot
         Categorie
     @endcomponent

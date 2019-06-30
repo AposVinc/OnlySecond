@@ -54,15 +54,21 @@ class DatabaseSeeder extends Seeder
         $utente3 = new User(['name'=>'c', 'email'=>'c@c.it', 'password'=>'cccccccc']);
         $utente3->assignRole($cliente)->save();
 
-
+        /* Categorie */
         $smart = new Category(['name' => 'Smart']);
         $smart->save();
+
         $water_resistence = new Category(['name' => 'Water Resistence']);
         $water_resistence->save();
+
         $classic = new Category(['name' => 'Classic']);
         $classic->save();
+
         $digital = new Category(['name' => 'Digital']);
         $digital->save();
+
+        $Sport = new Category(['name' => 'Sport']);
+        $Sport->save();
 
         $fornitore1 = new Supplier(['name'=>'fornitore1','email'=>'fornitore1@fornitore.it','phone'=>'1231231231','city'=>'Roma','address'=>'via Milano','zip'=>'00001','iban'=>'123123123123123']);
         $fornitore1->save();

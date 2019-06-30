@@ -30,9 +30,10 @@ class CategoryController extends Controller
     {
         return view('backend.category.add');
     }
+
     public function showEditForm()
     {
-        $categories = Category::withTrashed()->get();
+        $categories = Category::withoutTrashed()->get();
         return view('backend.category.edit', ['categories' => $categories]);
     }
 
@@ -56,10 +57,8 @@ class CategoryController extends Controller
 
     public function create(Request $request)
     {
-       // $input = $request->all();
         $category = new Category();
         $category->name=$request->nome;
-        //$category->name = $input('text-input');
         $category->save();
 
         return redirect()->to('Admin/Category/List');
@@ -68,7 +67,7 @@ class CategoryController extends Controller
     public function restore(Request $request)
     {
         $id = $request->get('category');
-        Category::where(id, $id)->restore();
+        Category::where('id', $id)->restore();
 
         return redirect()->to('Admin/Category/List');
 
@@ -87,8 +86,6 @@ class CategoryController extends Controller
         $id = $request->get('category');
         $newname = $request->get('newname');
 
-
-        Category::where('id', $id)->restore();
         Category::where('id', $id)
             ->update(['name' => $newname]);
 

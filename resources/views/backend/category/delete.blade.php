@@ -22,8 +22,8 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="category" class="form-control-label">Categoria</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="category" id="category" class="form-control" onchange="showName()">
-                            <option value="0">Seleziona la categoria</option>
+                        <select name="category" id="category" class="form-control" required>
+                            <option value="">Seleziona la categoria</option>
                             @foreach($categories as $key=> $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
