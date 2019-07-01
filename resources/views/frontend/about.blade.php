@@ -4,11 +4,11 @@
 <!-- =====  CONTAINER START  ===== -->
 <div class="container mt_30">
     <div class="row ">
-        <div id="column-left" class="col-sm-4 col-lg-3 hidden-xs">
+       <!-- <div id="column-left" class="col-sm-4 col-lg-3 hidden-xs">
             <div id="category-menu" class="navbar collapse in mb_40" aria-expanded="true" style="" role="button">
                 <div class="nav-responsive">
                     <div class="heading-part">
-                        <!-- pannello di sinistra lasciato così in modo da poter decidere insieme cosa metterci-->
+                        pannello di sinistra lasciato così in modo da poter decidere insieme cosa metterci
                         <h2 class="main_title">Top category</h2>
                     </div>
                     <ul class="nav  main-navigation collapse in">
@@ -29,19 +29,19 @@
                 </div>
             </div>
             <div class="left_banner left-sidebar-widget mt_30 mb_40"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
-        </div>
-        <div class="col-sm-8 col-lg-9 mtb_20">
+        </div> -->
+        <div class="col-sm-12 col-lg-auto mtb_20">
             <!-- about  -->
             <div class="row">
                 <div class="col-md-12">
-                    <figure> <img src="images/about-page-gaando.jpg" alt="#"> </figure>
+                    <figure> <img src="..\images\immabout.jpg" alt="#"> </figure>
                 </div>
                 <div class="col-md-12">
                     <div class="about-text">
                         <div class="about-heading-wrap">
                             <h2 class="about-heading mb_20 mt_40 ptb_10"> La Storia Della Nostra Azienda <span> Only Second </span></h2>
                         </div>
-                        <p>OnlySecond è specializzato nella vendita online di orologi. Trovare consigli su un orologio, poter confrontare differenti orologi, ordinare subito, trovare un cinturino di ricambio per il tuo orologio: tutto è possibile su OnlySecond!
+                        <p> OnlySecond è specializzato nella vendita online di orologi. Trovare consigli su un orologio, poter confrontare differenti orologi, ordinare subito, trovare un cinturino di ricambio per il tuo orologio: tutto è possibile su OnlySecond!
                             OnlySecond lo specialista degli orologi.</p>
                         <!-- bottone rimosso poichè secondo me inutile
                         <button type="button" class="btn mt_30">HIRE ME</button> -->
@@ -52,36 +52,35 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="heading-part mb_20 mt_40">
-                        <h2 class="main_title">Cosa Stai Cercando?</h2>
+                        <h2 class="main_title">Perchè acquistare su OnlySecond?</h2>
                     </div>
                     <div class="panel-group" id="accordion">
                         <div class="panel panel-default pull-left">
                             <div class="panel-heading">
-                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. Domanda 1</a> </h4>
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. Lo specialista degli orologi</a> </h4>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    <p>Descrizione domanda 1</p>
-                                </div>
+                                    <p> Grazie alle opportunità offerte dalla Rete Internet, siamo in grado di occuparci della vendita delle più conosciute marche di orologi. Siamo costantemente alla ricerca di nuove occasioni per sorprendervi.</div>
                             </div>
                         </div>
                         <div class="panel panel-default pull-left">
                             <div class="panel-heading">
-                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. Domanda 2</a> </h4>
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. Sicurezza innanzi tutto</a> </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p>Descrizione domanda 2</p>
+                                    <p>OS è membro di E-commerce Europe ed offre un metodo di acquisto affidabile e sicuro. Pagare il tuo ordine è facile coni nostri metodi di pagamento, come Carta di Credito e PayPal.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-default pull-left">
                             <div class="panel-heading">
-                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. Domanda 3</a> </h4>
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. Resi gratuiti</a> </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p>Descrizione domanda 3</p>
+                                    <p>Restituisci gratuitamente il pacco a OnlySecond con il nostro Servizio Resi gratuito  alla tua sede locale per il ritiro. Non paghi nulla per il reso del tuo pacco!</p>
                                 </div>
                             </div>
                         </div>
@@ -113,14 +112,14 @@
             <!-- =====  end  ===== -->
             <!--Team Carousel -->
             <div class="heading-part mb_10">
-                <h2 class="main_title mt_50">Orologi Di Tutti I Tipi</h2>
+                <h2 class="main_title mt_50">Il Nostro Team</h2>
             </div>
             <div class="team_grid box">
                 <div class="team3col  owl-carousel">
                     <div class="item team-detail">
-                        <div class="team-item-img"> <img src="images/tm1.jpg" alt="" /> </div>
-                        <div class="team-designation mt_20">Digitali</div>
-                        <h4 class="team-title  mtb_10">Casio </h4>
+                        <div class="team-item-img"> <img src="..\images\tm1.jpg" alt="" /> </div>
+                        <div class="team-designation mt_20">Sara</div>
+                        <h4 class="team-title  mtb_10">Di Berardino </h4>
                         <p>Descrizione</p>
                         <ul class="social mt_20 mb_80">
                             <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -131,9 +130,9 @@
                         </ul>
                     </div>
                     <div class="item team-detail">
-                        <div class="team-item-img"> <img src="images/tm2.jpg" alt="" /> </div>
-                        <div class="team-designation mt_20">Classici</div>
-                        <h4 class="team-title  mtb_10">Wellington </h4>
+                        <div class="team-item-img"> <img src="..\images\tm2.jpg" alt="" /> </div>
+                        <div class="team-designation mt_20">Vincenzo</div>
+                        <h4 class="team-title  mtb_10">Apostolo </h4>
                         <p>Descrizione</p>
                         <ul class="social mt_20 mb_80">
                             <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -144,9 +143,9 @@
                         </ul>
                     </div>
                     <div class="item team-detail">
-                        <div class="team-item-img"> <img src="images/tm3.jpg" alt="" /> </div>
-                        <div class="team-designation mt_20">Acciaio</div>
-                        <h4 class="team-title  mtb_10">Breil </h4>
+                        <div class="team-item-img"> <img src="..\images\tm3.jpg" alt="" /> </div>
+                        <div class="team-designation mt_20">Valentina</div>
+                        <h4 class="team-title  mtb_10">Rampa </h4>
                         <p>Descrizione</p>
                         <ul class="social mt_20 mb_80">
                             <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
