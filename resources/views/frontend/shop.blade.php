@@ -4,7 +4,7 @@
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
         <div class="row ">
-            <!-- =====  BANNER STRAT  ===== -->
+            <!-- =====  BANNER START  ===== -->
             <div class="col-sm-12">
                 <div class="breadcrumb ptb_20">
                     <h1>Products</h1>
@@ -16,272 +16,94 @@
             </div>
             <!-- =====  BREADCRUMB END===== -->
             <div id="column-left" class="col-sm-4 col-lg-3 ">
-                <div id="category-menu" class="navbar collapse in mb_40" aria-expanded="true" style="" role="button">
-                    <div class="nav-responsive">
-                        <div class="heading-part">
-                            <h2 class="main_title">Top category</h2>
-                        </div>
-                        <ul class="nav  main-navigation collapse in">
-                            <li><a href="#">Appliances</a></li>
-                            <li><a href="#">Mobile Phones</a></li>
-                            <li><a href="#">Tablet PC & Accessories</a></li>
-                            <li><a href="#">Consumer Electronics</a></li>
-                            <li><a href="#">Computers & Networking</a></li>
-                            <li><a href="#">Electrical & Tools</a></li>
-                            <li><a href="#">Apparel</a></li>
-                            <li><a href="#">Bags & Shoes</a></li>
-                            <li><a href="#">Toys & Hobbies</a></li>
-                            <li><a href="#">Watches & Jewelry</a></li>
-                            <li><a href="#">Home & Garden</a></li>
-                            <li><a href="#">Health & Beauty</a></li>
-                            <li><a href="#">Outdoors & Sports</a></li>
-                        </ul>
-                    </div>
-                </div>
+
                 <div class="filter left-sidebar-widget mb_50">
                     <div class="heading-part mtb_20 ">
-                        <h2 class="main_title">Refinr Search</h2>
+                        <h2 class="main_title">Applica i Filtri</h2>
                     </div>
                     <div class="filter-block">
                         <p>
-                            <label for="amount">Price range:</label>
+                            <label for="amount">Range Prezzo:</label>
                             <input type="text" id="amount" readonly>
                         </p>
                         <div id="slider-range" class="mtb_20"></div>
                         <div class="list-group">
                             <div class="list-group-item mb_10">
-                                <label>Color</label>
+                                <label>Genere</label>
                                 <div id="filter-group1">
                                     <div class="checkbox">
                                         <label>
-                                            <input value="" type="checkbox"> Red (10)</label>
+                                            <input value="" type="checkbox"> Uomo </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input value="" type="checkbox"> Green (06)</label>
+                                            <input value="" type="checkbox"> Donna </label>
                                     </div>
                                     <div class="checkbox ">
                                         <label>
-                                            <input value="" type="checkbox"> Blue(09)
+                                            <input value="" type="checkbox"> Unisex
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="list-group-item mb_10">
-                                <label>Size</label>
-                                <div id="filter-group3">
+                                <label>Brand</label>
+                                <div id="filter-group2">
                                     <div class="checkbox">
                                         <label>
-                                            <input value="" type="checkbox"> Big (3)</label>
+                                            <input value="" type="checkbox"> Breil </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input value="" type="checkbox"> Medium (2)</label>
+                                            <input value="" type="checkbox"> Casio </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input value="" type="checkbox"> Small (1)</label>
+                                            <input value="" type="checkbox"> Wellington </label>
+                                    </div>
+                                    <div class="checkbox ">
+                                        <label>
+                                            <input value="" type="checkbox"> Swatch
+                                        </label>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn">Refine Search</button>
+                            <div class="list-group-item mb_10">
+                                <label>Colore</label>
+                                <div id="filter-group3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="" type="checkbox"> Blu </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="" type="checkbox"> Nero </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="" type="checkbox"> Bianco </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item mb_10">
+                                <label>Materiale</label>
+                                <div id="filter-group4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="" type="checkbox"> Acciaio </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="" type="checkbox"> Legno </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="" type="checkbox"> Pelle </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn">Filtra</button>
                         </div>
-                    </div>
-                </div>
-                <div class="left_banner left-sidebar-widget mb_50"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
-                <div class="left-special left-sidebar-widget mb_50">
-                    <div class="heading-part mb_10 ">
-                        <h2 class="main_title">Top Products</h2>
-                    </div>
-                    <div id="left-special" class="owl-carousel">
-                        <ul class="row ">
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product1.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product1-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product3.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product3-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product4.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product4-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="row ">
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product5.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product5-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product6.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product6-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product7.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product7-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="row ">
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product8.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product8-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product9.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product9-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product10.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product10-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="row ">
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product1.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product1-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product2.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product2-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item product-layout-left mb_20">
-                                <div class="product-list col-xs-4">
-                                    <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product3.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="images/product/product3-1.jpg"> </a> </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="caption product-detail">
-                                        <h6 class="product-name"><a href="#">New LCDScreen and HD Video Recording</a></h6>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                      </span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
