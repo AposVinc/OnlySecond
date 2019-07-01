@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Offer extends Model
 {
-    use SoftDeletes,SoftCascadeTrait;
+    use SoftDeletes, SoftCascadeTrait;
 
     /**
      * The attributes that should be mutated to dates.
@@ -16,14 +16,19 @@ class Offer extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = [];
+    protected $softCascade = ['productsRel'];
 
     protected $fillable =[
         'rate',
     ];
 
-    public function product(){
+    public function products(){
         return $this->belongsToMany('App\Product');
+    }
+
+    public function productsRel()
+    {
+        return $this->hasMany('App\OfferProduct');
     }
 
 }

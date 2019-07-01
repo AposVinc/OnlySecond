@@ -36,7 +36,6 @@ class Product extends Model
         return $this->hasMany('App\CategoryProduct');
     }
 
-
     public function images()
     {
         return $this->hasMany('App\Image');
@@ -59,6 +58,11 @@ class Product extends Model
 
     public function offers(){
         return $this->belongsToMany('App\Offer');
+    }
+
+    public function offersRel()
+    {
+        return $this->hasMany('App\OfferProduct');
     }
 
     public function orderhistories(){

@@ -15,14 +15,11 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->unsignedBigInteger('product_id');
             $table->integer('rate');//percentuale
-            $table->date('end'); //fine offerta della settimana, deve essere settata una alla volta.
+            $table->timestamp('end'); //fine offerta della settimana, deve essere settata una alla volta.
             $table->timestamps();
 
             $table->softDeletes();
-
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

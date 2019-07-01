@@ -67,7 +67,7 @@ class CategoryController extends Controller
     public function restore(Request $request)
     {
         $id = $request->get('category');
-        Category::where('id', $id)->restore();
+        Category::find($id)->restore();
 
         return redirect()->to('Admin/Category/List');
 
@@ -76,7 +76,7 @@ class CategoryController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('category');
-        Category::where('id', $id)->delete();
+        Category::find($id)->delete();
 
         return redirect()->to('Admin/Category/List');
     }
@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $id = $request->get('category');
         $newname = $request->get('newname');
 
-        Category::where('id', $id)
+        Category::find($id)
             ->update(['name' => $newname]);
 
         return redirect()->to('Admin/Category/List');

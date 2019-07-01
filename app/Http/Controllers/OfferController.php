@@ -84,7 +84,7 @@ class OfferController extends Controller{
     public function restore(Request $request)
     {
         $id = $request->get('category');
-        Category::where(id, $id)->restore();
+        Category::find($id)->restore();
 
         return redirect()->to('Admin/Category/List');
 
@@ -93,7 +93,7 @@ class OfferController extends Controller{
     public function destroy(Request $request)
     {
         $id = $request->get('offer');
-        Offer::where('id', $id)->delete();
+        Offer::find($id)->delete();
 
         return redirect()->to('Admin/Offer/List');
     }
@@ -102,7 +102,6 @@ class OfferController extends Controller{
     {
         $id = $request->get('offer');
         $newname = $request->get('newname');
-
 
         Offer::where('id', $id)->restore();
         Offer::where('id', $id)
