@@ -231,7 +231,7 @@
                                 </ul>
                             </li>
                             <li> <a href="about">Chi siamo</a></li>
-                            <li> <a href="contact">Contatti</a>
+                            <li> <a href="contact">Contattaci</a>
                             <li> <a href="discount">In Sconto %</a>
                         </ul>
                     </div>

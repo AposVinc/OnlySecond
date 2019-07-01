@@ -4,13 +4,13 @@
 <!-- =====  CONTAINER START  ===== -->
 <div class="container mt_30">
     <div class="row ">
-        <div id="column-left" class="col-sm-4 col-lg-3 hidden-xs">
+        <!--<div id="column-left" class="col-sm-4 col-lg-3 hidden-xs">
             <div id="category-menu" class="navbar collapse in mb_40" aria-expanded="true" style="" role="button">
                 <div class="nav-responsive">
                     <div class="heading-part">
                         <h2 class="main_title">Top Brands</h2>
                     </div>
-                    <!-- pannello di sinistra lasciato così in modo da poter decidere insieme cosa metterci-->
+                     pannello di sinistra lasciato così in modo da poter decidere insieme cosa metterci
                     <ul class="nav  main-navigation collapse in">
                         <li><a href="#">Breil</a></li>
                         <li><a href="#">Tissot</a></li>
@@ -29,8 +29,8 @@
                 </div>
             </div>
             <div class="left_banner left-sidebar-widget mt_30 mb_40"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
-        </div>
-        <div class="col-sm-8 col-lg-9 mtb_20">
+        </div>-->
+        <div class="col-sm-12 col-lg-auto mtb_20">
             <!-- contact  -->
             <div class="row">
                 <div class="col-md-4 col-xs-12 contact">
@@ -67,27 +67,10 @@
                     <!-- END Contact FORM -->
                 </div>
             </div>
-            <!--ho aggiunto al posto della mappa questa sezione dove facciamo vedere tutti i brand che vendiamo  -->
-            <div id="brand_carouse" class="ptb_30 text-center">
-                <div class="type-01">
-                    <div class="heading-part mb_20 ">
-                        <h2 class="main_title">Brand Logo</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="brand owl-carousel ptb_20">
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand1.png" alt="Disney" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand2.png" alt="Dell" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand3.png" alt="Harley" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand4.png" alt="Canon" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand5.png" alt="Canon" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand6.png" alt="Canon" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand7.png" alt="Canon" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand8.png" alt="Canon" class="img-responsive" /></a> </div>
-                                <div class="item text-center"> <a href="#"><img src="images/brand/brand9.png" alt="Canon" class="img-responsive" /></a> </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- map  -->
+            <div class="row">
+                <div class="col-xs-12 map mb_80">
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
