@@ -131,12 +131,11 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $input = Input::all();
         $collection = new Collection();
-        $collection->name = $input['text-input'];
-        $collection->brand_id = $input['brand'];
+        $collection->name =  $request->get('text-input');
+        $collection->brand_id =  $request->get('brand');
         $collection->save();
 
         return redirect()->to('Admin/Collection/List');
@@ -151,7 +150,6 @@ class CollectionController extends Controller
      */
     public function update(Request $request)//Collection $collection
     {
-        $brand= $request->get('brand');
         $collection= $request->get('collection');
         $newbrand= $request->get('newbrand');
         $newcollectionname=$request->get('newcollectionname');
@@ -188,7 +186,7 @@ class CollectionController extends Controller
     public function destroy(Request $request)
     {
         $collection=$request->get('collection');
-        Collection::where('id',$collection)->delete();
+        Collection::withTrashed()->find($collection)->delete();
 
         return redirect()->to('Admin/Collection/List');
     }

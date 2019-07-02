@@ -452,7 +452,6 @@
         });
     </script>
     <script type="text/javascript">
-
         function PopupCentrata(url)
         {
             var w = 600;
@@ -461,7 +460,6 @@
             var t = Math.floor((screen.height-h)/2);
             window.open(url,"","width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
         }
-
     </script>
 @endif
 </body>

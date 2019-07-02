@@ -16,13 +16,13 @@ class Supplier extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = ['images'];
+    protected $softCascade = ['products'];
 
     protected $fillable =[
 
     ];
 
-    public function product()
+    public function products()
     {
         return $this->hasMany('App\Product');
     }

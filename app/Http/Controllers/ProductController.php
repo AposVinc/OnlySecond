@@ -128,7 +128,7 @@ class ProductController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('product');
-        Product::where('id',$id)->delete();
+        Product::withTrashed()->find($id)->delete();
 
         return redirect()->to('Admin/Product/List');
     }

@@ -105,8 +105,7 @@ class BrandController extends Controller
     {
         $id = $request->get('brand');
 
-        $brand = Brand::find($id);
-        $brand->delete();
+        $brand = Brand::withTrashed()->find($id)->delete();
 
         return redirect()->to('Admin/Brand/List');
     }

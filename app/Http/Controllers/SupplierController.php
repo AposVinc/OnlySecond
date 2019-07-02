@@ -98,7 +98,7 @@ class SupplierController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('supplier');
-        Supplier::where('id', $id)->delete();
+        Supplier::withTrashed()->find($id)->delete();
 
         return redirect()->to('Admin/Index');
     }

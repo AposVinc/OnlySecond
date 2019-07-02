@@ -90,7 +90,7 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('user');
-        User::where('id', $id)->delete();
+        User::withTrashed()->find($id)->delete();
 
         return redirect()->route('Admin.User.List');
     }

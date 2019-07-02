@@ -90,14 +90,6 @@ class OfferController extends Controller{
 
     }
 
-    public function destroy(Request $request)
-    {
-        $id = $request->get('offer');
-        Offer::find($id)->delete();
-
-        return redirect()->to('Admin/Offer/List');
-    }
-
     public function update(Request $request)
     {
         $id = $request->get('offer');
@@ -110,4 +102,11 @@ class OfferController extends Controller{
         return redirect()->to('Admin/Offer/List');
     }
 
+    public function destroy(Request $request)
+    {
+        $id = $request->get('offer');
+        Offer::withTrashed()->find($id)->delete();
+
+        return redirect()->to('Admin/Offer/List');
+    }
 }
