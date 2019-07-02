@@ -20,7 +20,8 @@ class CreateOrderhistoryProductTable extends Migration
             $table->unsignedBigInteger('orderhistory_id');
             $table->timestamps();
 
-            $table->softDeletes();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('orderhistory_id')->references('id')->on('orderhistories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -21,7 +21,7 @@ class CreateCollectionsTable extends Migration
 
             $table->softDeletes();
 
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

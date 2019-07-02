@@ -32,7 +32,7 @@ class CreateSpecificationsTable extends Migration
 
             $table->softDeletes();
 
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });
             //https://www.bluespirit.com/orologio-maserati-traguardo-r8871612003-P21308.html
     }

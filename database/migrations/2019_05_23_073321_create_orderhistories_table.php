@@ -25,7 +25,11 @@ class CreateOrderhistoriesTable extends Migration
             $table->unsignedBigInteger('billingaddress_id');
             $table->timestamps();
 
-            $table->softDeletes();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('courier_id')->references('id')->on('couriers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('billingaddress_id')->references('id')->on('billingaddresses')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

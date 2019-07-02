@@ -21,7 +21,7 @@ class CreateImagesTable extends Migration
 
             $table->softDeletes();
 
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

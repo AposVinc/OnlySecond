@@ -21,7 +21,7 @@ class CreateBannersTable extends Migration
 
             $table->softDeletes();
 
-            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
+            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
