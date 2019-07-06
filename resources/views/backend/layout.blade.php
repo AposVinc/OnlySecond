@@ -370,7 +370,7 @@
                     var path = window.location.pathname;
 
                     jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.Image.RestoreGetProduct') }}'): ('{{ route('Admin.Image.GetProduct') }}')),
+                        url:((path.includes('Restore')) ? ('{{ route('Admin.RestoreGetProduct') }}'): ('{{ route('Admin.GetProduct') }}')),
                         method:"POST",
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result) {

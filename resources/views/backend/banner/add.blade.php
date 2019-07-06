@@ -23,7 +23,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection">
+                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection" required>
                             <option value="0">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
@@ -32,9 +32,9 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
+                    <div class="col col-md-3"><label for="collection" class=" form-control-label" >Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control">
+                        <select name="collection" id="collection" class="form-control" required>
                             <option value="0">Seleziona la collezione </option>
                         </select>
                     </div>

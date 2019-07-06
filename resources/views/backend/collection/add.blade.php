@@ -17,7 +17,6 @@
 
     <form action="{{route('Admin.Collection.AddCreate')}}" method="post" class="form-horizontal">
         @csrf
-
         <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
@@ -35,7 +34,6 @@
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Collezione</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserire il nome della Collezione da aggiungere" class="form-control" required></div>
                 </div>
-
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">

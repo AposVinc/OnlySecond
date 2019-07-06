@@ -13,19 +13,6 @@ use DB;
 
 class ProductController extends Controller
 {
-
-    function getProduct(Request $request)
-    {
-        $value = $request->get('value');    //id della collection
-        $data=Product::withoutTrashed()->where('collection_id',$value)->get();
-        $output ='<option value="0">Seleziona il prodotto</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output;
-    }
-
     public function showListForm()
     {
         $brands = Brand::withTrashed()->get();
@@ -58,12 +45,24 @@ class ProductController extends Controller
         return view('backend.product.restore');
     }
 
+
+    function getProduct(Request $request)
+    {
+        $value = $request->get('value');    //id della collection
+        $data=Product::withoutTrashed()->where('collection_id',$value)->get();
+        $output ='<option value="0">Seleziona il prodotto</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
+        }
+        return $output;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create(Request $request)  //
     {
         //$input = $request->all();
@@ -81,16 +80,6 @@ class ProductController extends Controller
         return view('product')->with(['product' => $product]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

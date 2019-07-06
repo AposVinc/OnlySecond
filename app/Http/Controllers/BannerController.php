@@ -53,18 +53,6 @@ class BannerController extends Controller
         return view('backend.banner.edit',['brandsBanner' => $brandsBanner, 'brands'=> $brands]);
     }
 
-    function getBanner(Request $request)
-    {
-        $value = $request->get('value');    //id della collection
-        $data=Banner::withoutTrashed()->where('collection_id',$value)->get();
-        $output ='<option value="0">Seleziona il banner</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
-        }
-        return $output;
-    }
-
     public function showDeleteForm()
     {
         $banners = Banner::withoutTrashed()->with('collection')->get();
@@ -78,18 +66,6 @@ class BannerController extends Controller
             }
         }
         return view('backend.banner.delete',['brands' => $brands]);
-    }
-
-    function getBannerRestore(Request $request)
-    {
-        $value = $request->get('value');    //id della collection
-        $data=Banner::onlyTrashed()->where('collection_id',$value)->get();
-        $output ='<option value="0">Seleziona il banner</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
-        }
-        return $output;
     }
 
     public function showRestoreForm()
@@ -106,6 +82,32 @@ class BannerController extends Controller
         }
         return view('backend.banner.restore',['brands' => $brands]);
     }
+
+
+    function getBanner(Request $request)
+    {
+        $value = $request->get('value');    //id della collection
+        $data=Banner::withoutTrashed()->where('collection_id',$value)->get();
+        $output ='<option value="0">Seleziona il banner</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
+        }
+        return $output;
+    }
+
+    function getBannerRestore(Request $request)
+    {
+        $value = $request->get('value');    //id della collection
+        $data=Banner::onlyTrashed()->where('collection_id',$value)->get();
+        $output ='<option value="0">Seleziona il banner</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
+        }
+        return $output;
+    }
+
 
     public function create()
     {

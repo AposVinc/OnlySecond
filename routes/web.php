@@ -105,6 +105,10 @@ Route::prefix('Admin')->group(function () {
         Route::post('/GetProduct', 'ProductController@getProduct')->name('GetProduct');
         Route::post('/RestoreGetProduct', 'ProductController@getProductRestore')->name('RestoreGetProduct');
 
+        #route chiamata ajax per image
+        Route::post('/GetImage', 'ImageController@getImage')->name('GetImage');
+        Route::post('/RestoreGetImage', 'ImageController@getImageRestore')->name('RestoreGetImage');
+
         Route::group(['middleware' => ['permission:gest_utenti']], function () {
             #user
             Route::prefix('/User')->group(function () {
@@ -202,6 +206,7 @@ Route::prefix('Admin')->group(function () {
 
                     Route::get('/Restore', 'ProductController@showRestoreForm')->name('Restore');
                     Route::post('/RestoreRestore', 'ProductController@restore')->name('RestoreRestore');
+
                 });
             });
 
@@ -284,20 +289,19 @@ Route::prefix('Admin')->group(function () {
 
 
         Route::group(['middleware' => ['permission:gest_imgprod']], function () {
+            #image
             Route::prefix('/Image')->group(function () {
                 Route::name('Image.')->group(function () {
                     Route::get('/List', 'ImageController@showListForm')->name('List');
 
                     Route::get('/Add', 'ImageController@showAddForm')->name('Add');
                     Route::post('/AddStore', 'ImageController@create')->name('AddCreate');
-
-                    Route::post('/GetImage', 'ImageController@getImage')->name('GetImage');
-                    Route::post('/RestoreGetImage', 'ImageController@getImageRestore')->name('RestoreGetImage');
                 });
             });
         });
 
         Route::group(['middleware' => ['permission:gest_banner']], function () {
+            #banner
             Route::prefix('/Banner')->group(function () {
                 Route::name('Banner.')->group(function () {
                     Route::get('/List', 'BannerController@showListForm')->name('List');

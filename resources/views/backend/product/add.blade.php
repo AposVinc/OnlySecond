@@ -20,15 +20,14 @@
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-body card-block">
                 <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Codice</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="nome" placeholder="Inserisci il codice del prodotto" class="form-control" required></div>
+                    <div class="col col-md-3"><label for="cod" class=" form-control-label">Codice</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="cod" name="cod" placeholder="Inserisci il codice del prodotto" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="activeModel()"required>
-                            <!-- onchange serve per attivare il modello dopo aver scelto un brand -->
-                            <option value="">Seleziona il brand</option>
+                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection" required>
+                            <option value="0">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
@@ -36,12 +35,10 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="collezione" class=" form-control-label">Collezione</label></div>
+                    <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collezione" id="collezione" disabled="disabled" class="form-control" required>
-                            <option value="">Seleziona la collezione</option>
-                            <option value="2">Seleziona la123</option>
-
+                        <select name="collection" id="collection" class="form-control" required>
+                            <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
                 </div>
