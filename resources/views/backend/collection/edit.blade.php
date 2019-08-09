@@ -20,8 +20,6 @@
 
         <div class="card add">
             <div class="card-body card-block">
-
-
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
@@ -33,21 +31,21 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
                         <select name="collection" id="collection" class="form-control" required>
-                            <option value="0">Seleziona la collezione </option>
+                            <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
                 </div>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
                         <select name="newbrand" id="brand" class="form-control " data-dependent="collection" required>
-
                             <option value="">Seleziona il nuovo brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -55,7 +53,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nuovo Nome</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="newcollectionname" placeholder="Inserire il nome della nuova Collezione" class="form-control" required></div>

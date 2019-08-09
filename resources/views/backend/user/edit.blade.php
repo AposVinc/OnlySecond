@@ -23,8 +23,8 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="user" class=" form-control-label">Utente</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="user" id="user" class="form-control">
-                            <option value="0" selected>Seleziona l'Utente</option>
+                        <select name="user" id="user" class="form-control" required>
+                            <option value="" selected>Seleziona l'Utente</option>
                             @foreach($users as $user)
                                 <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
@@ -35,15 +35,15 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="name" name="name" placeholder="Inserire il nuovo nome" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="name" name="name" placeholder="Inserire il nuovo nome" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="email" class=" form-control-label">Email</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="email" id="email" name="email" placeholder="Inserire la nuova email" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="email" id="email" name="email" placeholder="Inserire la nuova email" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="password" class=" form-control-label">Password</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="password" name="password" placeholder="Inserire la nuova password" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="password" name="password" placeholder="Inserire la nuova password" class="form-control" required></div>
                 </div>
 
                 <div class="row form-group">
@@ -54,7 +54,7 @@
                                 @if($role->name != 'cliente')
                                     <div class="radio">
                                         <label for="{{$role->name}}" class="form-check-label ">
-                                            <input type="radio" id="{{$role->name}}" name="role" value="{{$role->name}}" class="form-check-input">{{$role->name}}
+                                            <input type="radio" id="{{$role->name}}" name="role" value="{{$role->name}}" class="form-check-input" required>{{$role->name}}
                                         </label>
                                     </div>
                                 @endif

@@ -34,8 +34,8 @@ class OfferController extends Controller{
     public function showEditForm()
     {
        // $offers = Offer::withTrashed()->get();
-        $offers = Product::with('offers')->get();
-        return view('backend.offer.edit', ['offers' => $offers]);
+        $brands = Brand::all();
+        return view('backend.offer.edit', ['brands' => $brands]);
     }
 
     function getOffer(Request $request)
@@ -52,22 +52,25 @@ class OfferController extends Controller{
 
     public function showDeleteForm()
     {
-        $offers = Offer::all();
-        return view('backend.offer.delete', ['offers' => $offers]);
+        $brands = Brand::all();
+        return view('backend.offer.delete', ['brands' => $brands]);
     }
 
-    public function showRestoreForm()
+    public function showRestoreForm()   //solo offerte da reispristnare?
     {
-        $offers = Offer::onlyTrashed('offers')->get();
+        $brands = Brand::onlyTrashed()->get(); //
+        /*
         if (sizeof($offers) == 0) {
             $this->EchoMessage("Non ci sono Offerte da ripristinare");
             return view('backend.index');
         } else {
             return view('backend.offer.restore', ['offers' => $offers]);
         }
+        */
+        return view('backend.offer.restore', ['brands' => $brands]);
     }
 
-    public function create(Request $request)  //
+    public function create(Request $request)
     {
         $offer = new Offer();
         $offer->name=$request->nome;
@@ -75,6 +78,7 @@ class OfferController extends Controller{
 
         return redirect()->to('Admin/Offer/List');
     }
+
     public function show($cod)
     {
         $offer = Product::where('cod', $cod)->firstOrFail();

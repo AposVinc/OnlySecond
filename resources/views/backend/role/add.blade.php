@@ -23,10 +23,13 @@
                 <div class="card-body card-block">
                     <div class="row form-group" style="padding-bottom: 2%">
                         <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
-                        <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nome" class="form-control"></div>
+                        <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nome" class="form-control" required></div>
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label class=" form-control-label">Gestione</label></div>
+
+                        <!-- SONO FISSI!!!-->
+
                         <div class="col col-md-9">
                             <div class="form-check">
                                 <div class="checkbox">

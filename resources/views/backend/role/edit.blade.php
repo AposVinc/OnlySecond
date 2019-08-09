@@ -24,7 +24,7 @@
                     <div class="col col-md-3"><label for="role" class=" form-control-label">Ruolo</label></div>
                     <div class="col-12 col-md-9">
                         <select name="role" id="role" class="form-control" required>
-                            <option value="0" selected>Seleziona il ruolo</option>
+                            <option value="" selected>Seleziona il ruolo</option>
                             @foreach($roles as $role)
                                 <option value="{{$role->id}}">{{$role->name}}</option>
                             @endforeach
@@ -41,6 +41,9 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Gestione</label></div>
+
+                    <!-- SONO FISSI!!!-->
+
                     <div class="col col-md-9">
                         <div class="form-check">
                             <div class="checkbox">

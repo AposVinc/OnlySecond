@@ -23,8 +23,8 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="supplier" id="supplier" class="form-control">
-                            <option value="0" selected>Seleziona il fornitore</option>
+                        <select name="supplier" id="supplier" class="form-control" required>
+                            <option value="" selected>Seleziona il fornitore</option>
                             @foreach($suppliers as $supplier)
                                 <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                             @endforeach
@@ -35,31 +35,31 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="name" name="name" placeholder="Inserire il nome del Fornitore" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="name" name="name" placeholder="Inserire il nome del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="email" class=" form-control-label">Email</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="email" id="email" name="email" placeholder="Inserire la email del Fornitore" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="email" id="email" name="email" placeholder="Inserire la email del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="phone" class=" form-control-label">Phone</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="phone" name="phone" placeholder="Inserire il numero del Fornitore" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="phone" name="phone" placeholder="Inserire il numero del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="city" class=" form-control-label">Città</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="city" name="city" placeholder="Inserire la città del Fornitore" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="city" name="city" placeholder="Inserire la città del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="address" class=" form-control-label">Indirizzo</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="address" name="address" placeholder="Inserire l'indirizzo del Fornitore" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="address" name="address" placeholder="Inserire l'indirizzo del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="zip" class=" form-control-label">Città</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="zip" name="zip" placeholder="Inserire il CAP del Fornitore" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="zip" name="zip" placeholder="Inserire il CAP del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="iban" class=" form-control-label">IBAN</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="iban" name="iban" placeholder="Inserire l'IBAN del Fornitore" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input value="" type="text" id="iban" name="iban" placeholder="Inserire l'IBAN del Fornitore" class="form-control" required></div>
                 </div>
 
             </div>

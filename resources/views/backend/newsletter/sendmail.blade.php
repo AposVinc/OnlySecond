@@ -21,11 +21,11 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="oggetto" class=" form-control-label">Oggetto</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="oggetto" name="oggetto" placeholder="Inserire oggetto della mail" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input type="text" id="oggetto" name="oggetto" placeholder="Inserire oggetto della mail" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="testo" class=" form-control-label">Testo</label></div>
-                    <div class="col-12 col-md-9"><textarea name="testo" id="testo" rows="9" placeholder="Inserisci una il testo della mail da mandare..." class="form-control"></textarea></div>
+                    <div class="col-12 col-md-9"><textarea name="testo" id="testo" rows="9" placeholder="Inserisci una il testo della mail da mandare..." class="form-control" required></textarea></div>
                 </div>
             </div>
             <div class="card-footer">

@@ -20,34 +20,67 @@
         <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="prodotto" class=" form-control-label">Prodotto in offerta</label></div>
+                    <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="prodotto" id="prodotto" class="form-control" >
-                            <option value="0">Seleziona il prodotto</option>
-                            @foreach($offers as $key => $data)
+                        <select name="brand" id="brand" class="form-control" onchange="activeModel()" required>
+                            <option value="">Seleziona il brand</option>
+                            @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
+
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nuovo Sconto</label></div>
+                    <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-percent"></i></div>
-                            <input type="text" id="input3-group1" name="input3-group1" placeholder="00" class="form-control">
-                        </div>
+                        <select name="collection" id="collection" class="form-control" required>
+                            <option value="">Seleziona il collezione</option>
+                        </select>
                     </div>
                 </div>
+
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Prezzo Scontato</label></div>
+                    <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="product" id="product" class="form-control" required>
+                            <option value="">Seleziona il prodotto</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="price" class=" form-control-label">Prezzo Non Scontato</label></div>
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="input3-group1" name="input3-group1" placeholder="00.00" class="form-control" disabled="disabled">
+                            <input type="text" id="price" name="input3-group1" placeholder="00.00" class="form-control" disabled="disabled">
                         </div>
                     </div>
                 </div>
+
+                &nbsp;&nbsp;
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="rate" class=" form-control-label">Nuovo Sconto</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                            <input type="text" value="" id="rate" name="input3-group1" placeholder="00" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="price-rate" class=" form-control-label">Nuovo Prezzo Scontato</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                            <input type="text" id="price-rate" name="input3-group1" placeholder="00.00" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">

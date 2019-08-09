@@ -26,8 +26,8 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="supplier" id="supplier" class="form-control">
-                            <option value="0">Seleziona il fornitore</option>
+                        <select name="supplier" id="supplier" class="form-control" required>
+                            <option value="">Seleziona il fornitore</option>
                             @foreach($suppliers as $supplier)
                                 <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                             @endforeach

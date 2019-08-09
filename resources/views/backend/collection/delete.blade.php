@@ -36,7 +36,7 @@
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
                         <select name="collection" id="collection" class="form-control" required>
-                            <option value="0">Seleziona la collezione</option>
+                            <option value="">Seleziona la collezione</option>
                         </select>
                     </div>
                 </div>

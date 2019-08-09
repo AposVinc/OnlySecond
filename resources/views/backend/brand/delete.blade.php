@@ -23,7 +23,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control"  required>
+                        <select name="brand" id="brand" class="form-control" required>
                             <option value="">Seleziona il brand da eliminare</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>

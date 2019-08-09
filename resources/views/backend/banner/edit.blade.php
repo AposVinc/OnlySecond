@@ -26,12 +26,11 @@
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-body card-block">
 
-
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control dynamicBanner" data-dependent="collectionBanner">
-                            <option value="0">Seleziona il brand</option>
+                        <select name="brand" id="brand" class="form-control dynamicBanner" data-dependent="collectionBanner" required>
+                            <option value="">Seleziona il brand</option>
                             @foreach($brandsBanner as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
@@ -42,8 +41,8 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collectionBanner" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collectionBanner" class="form-control dynamicImage" data-dependent="banner">
-                            <option value="0">Seleziona la collezione </option>
+                        <select name="collection" id="collectionBanner" class="form-control dynamicImage" data-dependent="banner" required>
+                            <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
                 </div>
@@ -51,18 +50,20 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="banner" class=" form-control-label">Banner</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="banner" id="banner" class="form-control">
-                            <option value="0">Seleziona il banner </option>
+                        <select name="banner" id="banner" class="form-control" required>
+                            <option value="">Seleziona il banner </option>
                         </select>
                     </div>
                 </div>
 
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="newbrand" id="brand" class="form-control dynamic" data-dependent="collection">
+                        <select name="newbrand" id="brand" class="form-control dynamic" data-dependent="collection" required>
                             <!-- ho tolto dynamic perchè altrimenti si azzara il valore della collection scelta dal menù a tendina-->
-                            <option value="0">Seleziona il nuovo brand</option>
+                            <option value="">Seleziona il nuovo brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
@@ -73,8 +74,8 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Nuova Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="newcollection" id="collection" class="form-control">
-                            <option value="0">Seleziona la collezione </option>
+                        <select name="newcollection" id="collection" class="form-control" required>
+                            <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
                 </div>
@@ -82,7 +83,7 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Immagine Banner</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="newbanner" class="form-control-file"></div>
+                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="newbanner" class="form-control-file" required></div>
                 </div>
             </div>
             <div class="card-footer">

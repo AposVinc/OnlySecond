@@ -23,7 +23,7 @@
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Brand</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Inserire il nome del Brand da aggiungere" class="form-control" required></div>
+                    <div class="col-12 col-md-9"><input type="text" value="" id="text-input" name="text-input" placeholder="Inserire il nome del Brand da aggiungere" class="form-control" required></div>
                 </div>
             </div>
             <div class="card-footer">

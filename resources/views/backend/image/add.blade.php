@@ -23,8 +23,8 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection">
-                            <option value="0">Seleziona il brand</option>
+                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection" required>
+                            <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                             @endforeach
@@ -34,22 +34,22 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control dynamicProduct" data-dependent="product">
-                            <option value="0">Seleziona la collezione </option>
+                        <select name="collection" id="collection" class="form-control dynamicProduct" data-dependent="product" required>
+                            <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control">
-                            <option value="0">Seleziona il prodotto </option>
+                        <select name="product" id="product" class="form-control" required>
+                            <option value="">Seleziona il prodotto </option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Immagine Prodotto</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" required></div>
                 </div>
 
             </div>
