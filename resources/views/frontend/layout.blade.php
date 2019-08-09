@@ -251,16 +251,16 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="news-head pull-left">
-                            <h2>Segui i nostri aggiornamenti !</h2>
-                            <div class="new-desc">Sii il primo a sapere dei nostri nuovi arrivi e molto altro!</div>
+                            <h2>Segui i nostri aggiornamenti!</h2>
+                            <div class="new-desc">Scrivici per conoscere i nuovi arrivi e molto altro!</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="news-form pull-right">
                             <form onsubmit="return validatemail();" method="post">
                                 <div class="form-group required">
-                                    <input name="email" id="email" placeholder="Enter Your Email" class="form-control input-lg" required="" type="email">
-                                    <button type="submit" class="btn btn-default btn-lg">Subscribe</button>
+                                    <input name="email" id="email" placeholder="Inserisci la tua Email" class="form-control input-lg" required="" type="email">
+                                    <button type="submit" class="btn btn-default btn-lg">Iscriviti</button>
                                 </div>
                             </form>
                         </div>
@@ -273,35 +273,35 @@
                     <ul>
                         <li><a href="#">Chi siamo</a></li>
                         <li><a href="#">Condizioni di vendita</a></li>
-                        <li><a href="#">Informativa privacy</a></li>
-                        <li><a href="#">Termini e condizioni</a></li>
+                        <li><a href="#">Informativa Privacy</a></li>
+                        <li><a href="#">Termini e Condizioni</a></li>
                         <li><a href="contact">Contatti</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">
                     <h6 class="footer-title ptb_20">Servizi</h6>
                     <ul>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Site Map</a></li>
-                        <li><a href="#">Wish List</a></li>
-                        <li><a href="#">Il mio account</a></li>
-                        <li><a href="#">Cronologia ordini</a></li>
+                        <li><a href="#">WishList</a></li>
+                        <li><a href="#">Il Mio Account</a></li>
+                        <li><a href="#">Cronologia Ordini</a></li>
+                        <li><a href="#">---</a></li>
+                        <li><a href="#">---</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">
-                    <h6 class="footer-title ptb_20">Extras</h6>
+                    <h6 class="footer-title ptb_20">Extra</h6>
                     <ul>
                         <li><a href="#">Brands</a></li>
-                        <li><a href="#">Gift Certificates</a></li>
-                        <li><a href="#">Affiliates</a></li>
-                        <li><a href="#">Specials</a></li>
                         <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Blognews</a></li>
+                        <li><a href="#">----</a></li>
+                        <li><a href="#">----</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">
-                    <h6 class="footer-title ptb_20">Contacts</h6>
+                    <h6 class="footer-title ptb_20">Contattaci</h6>
                     <ul>
-                        <li>Shop & Offices,</li>
+                        <li>Shop Online</li>
                         <li>12345 Street Only, Italia IT</li>
                         <li>(+024) 666 888</li>
                         <li>only.second@shop.it</li>
