@@ -76,7 +76,7 @@
                             @auth
                                 <li class="account"> <a href="{{route('Admin.Index')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
                                 <!-- Sostituire con pagina profilo -->
-                                <li class="account"><a href="{{route('user.login')}}"> Il mio account  </a><i class="fa fa-user"></i></li>
+                                <li class="account"><a href="{{route('user.login')}}"> Il Mio Profilo  </a><i class="fa fa-user"></i></li>
                                 <li class="account"><a href="{{route('user.logout')}}"> Logout  </a><i class="fa fa-sign-out"></i></li>
                             @else
                                 <li class="account"> <a href="{{route('Admin.LoginForm')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
@@ -233,6 +233,7 @@
                             <li> <a href="about">Chi siamo</a></li>
                             <li> <a href="contact">Contattaci</a>
                             <li> <a href="discount">In Sconto %</a>
+
                         </ul>
                     </div>
                     <!-- /.nav-collapse -->
@@ -282,7 +283,7 @@
                     <h6 class="footer-title ptb_20">Servizi</h6>
                     <ul>
                         <li><a href="#">WishList</a></li>
-                        <li><a href="#">Il Mio Account</a></li>
+                        <li><a href="#">Il Mio Profilo</a></li>
                         <li><a href="#">Cronologia Ordini</a></li>
                         <li><a href="#">---</a></li>
                         <li><a href="#">---</a></li>
@@ -325,7 +326,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="copyright-part text-center">@ 2019 All Rights Reserved Only Second</div>
+                        <div class="copyright-part text-center">@ 2019 Tutti I Diritti Sono Riservati Only Second</div>
                     </div>
                     <div class="col-sm-4">
                         <div class="payment-icon text-right">
