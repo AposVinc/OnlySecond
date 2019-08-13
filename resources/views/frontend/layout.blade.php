@@ -156,6 +156,9 @@
                         </div>
                     </div>
                 </div>
+<<<<<< master
+                @include('frontend.partials.nav')
+======
                 <nav class="navbar">
                     <p>menu</p>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> <span class="i-bar"><i class="fa fa-bars"></i></span></button>
@@ -263,6 +266,7 @@
                     </div>
                     <!-- /.nav-collapse -->
                 </nav>
+>>>>>> help-1
             </div>
         </div>
     </header>
