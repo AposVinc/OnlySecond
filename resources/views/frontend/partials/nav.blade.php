@@ -16,9 +16,38 @@
                     @endforeach
                 </ul>
             </li>
-
             <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie</a>
                 <ul class="dropdown-menu mega-dropdown-menu row">
+                <!--
+                                    <li class="col-md-3">
+                                        <ul>
+                                            <li class="dropdown-header">PROVA1</li>
+                                            @php($categories = App\Category::all())
+                @foreach($categories as $category)
+                    @foreach($category->products as $products)
+                        @foreach($products as $product)
+                            <li><a href="#">{{$category->name}}</a></li>
+                                                    @endforeach
+                    @endforeach
+                @endforeach
+                    </ul>
+                </li>
+-->
+
+                    <li class="col-md-3">
+                        <ul>
+                            <li class="dropdown-header">PROVA2</li>
+                            @php($products = App\Product::where('genre','F')->get())
+                            @foreach($products as $product)
+                                @foreach($product->categories as $category)
+                                    <li><a href="#">{{$category->name}}</a></li>
+                                @endforeach
+                            @endforeach
+                        </ul>
+                    </li>
+
+
+
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">Donna</li>
