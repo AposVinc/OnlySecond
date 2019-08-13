@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('collection_id');
             $table->decimal('price', 6, 2);
             $table->integer('stock_availability');//disponibilita magazzino
-            $table->enum('genere',['M','F','U']);
+            $table->enum('genre',['M','F','U']);
             $table->longtext('long_desc')->nullable(); //forse non serve se c'è la tab specification?
             $table->unsignedBigInteger('supplier_id');
             $table->string('color',6);    //da mettere nelle specifiche o si lascia?

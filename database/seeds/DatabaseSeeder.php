@@ -136,7 +136,7 @@ class DatabaseSeeder extends Seeder
         $Diesel->collections()->save($Double_Down_P44);
 
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
-                                        'genere' => 'F','long_desc' => 'long desc','color' => 'ffffff']);
+                                        'genre' => 'F','long_desc' => 'long desc','color' => 'ffffff']);
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
         $CarlieP1->save();
@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
         $Carlie->products()->save($CarlieP1);
 
         $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
-                                        'genere' => 'F','long_desc' => 'long desc','color' => 'ff9999']);
+                                        'genre' => 'F','long_desc' => 'long desc','color' => 'ff9999']);
         $CarlieP2->collection_id = $Carlie->id;
         $CarlieP2->supplier_id = $fornitore1->id;
         $CarlieP2->save();
@@ -152,7 +152,7 @@ class DatabaseSeeder extends Seeder
         $Carlie->products()->save($CarlieP2);
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '149', 'stock_availability' => '5',
-                                        'genere' => 'F','long_desc' => 'long desc','color' => '000000']);
+                                        'genre' => 'F','long_desc' => 'long desc','color' => '000000']);
         $CarlieP3->collection_id = $Carlie->id;
         $CarlieP3->supplier_id = $fornitore1->id;
         $CarlieP3->save();
@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder
 
 
         $Sport1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
-                                        'genere' => 'U','long_desc' => 'long desc','color' => '000000']);
+                                        'genre' => 'U','long_desc' => 'long desc','color' => '000000']);
         $Sport1->collection_id = $Sport->id;
         $Sport1->supplier_id = $fornitore1->id;
         $Sport1->save();
