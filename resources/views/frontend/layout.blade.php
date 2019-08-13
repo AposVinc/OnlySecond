@@ -169,16 +169,13 @@
                                     <!-- poi ci andra un while che per ogni brand estatto dal database aggiunge all'elenco un <li>, la lista deve esser ordinata alfanumericamente
                                     se vogliamo possiamo mettere un limite sul numero e mandare a capo dopo 6 brand o una cosa del genere
                                     la pagina che si apre deve aver gia settato i filti. se scelgo tissot avro solo tissot-->
-                                    <li> <a href="{{ url('/shop') }}">Tissot</a></li>
-                                    <li> <a href="{{ url('/shop') }}">Morellato</a></li>
-                                    <li> <a href="{{ url('/shop') }}">Fossil</a></li>
-                                    <li> <a href="{{ url('/shop') }}">Ice Watch</a></li>
-                                    <li> <a href="{{ url('/shop') }}">Casio</a></li>
-                                    <li> <a href="{{ url('/shop') }}">Breil</a></li>
-                                    <li> <a href="{{ url('/shop') }}">Swatch</a></li>
-                                    <li> <a href="{{ url('/shop') }}">Wellington</a></li>
+                                    @php($brands = \App\Brand::withoutTrashed()->orderBy('name')->get())
+                                    @foreach($brands as $brand)
+                                        <li> <a href="{{ url('/shop') }}">{{$brand->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
+
                             <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie</a>
                                 <ul class="dropdown-menu mega-dropdown-menu row">
                                     <li class="col-md-3">
