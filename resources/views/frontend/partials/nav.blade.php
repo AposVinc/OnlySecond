@@ -37,12 +37,9 @@
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">PROVA2</li>
-                            @php($products = App\Product::where('genre','F')->get())
-                            @foreach($products as $product)
-                                @foreach($product->categories as $category)
+                                @foreach($categoriesF as $category)
                                     <li><a href="#">{{$category->name}}</a></li>
                                 @endforeach
-                            @endforeach
                         </ul>
                     </li>
 

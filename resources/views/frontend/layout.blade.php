@@ -157,10 +157,6 @@
                     </div>
                 </div>
                 @include('frontend.partials.nav')
-
-
-
-
             </div>
         </div>
     </header>

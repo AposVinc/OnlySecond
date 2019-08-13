@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Brand;
 use DB;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,11 +32,5 @@ class AppServiceProvider extends ServiceProvider
         });
 */
 
-        view()->composer('frontend.partials.nav',function ($view){
-            $view->with('brands', Brand::withoutTrashed()->orderBy('name')->get());
-        });
-        view()->composer('frontend.partials.nav',function ($view){
-            $view->with('a', Brand::withoutTrashed()->orderBy('name')->get());
-        });
     }
 }
