@@ -15,8 +15,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //https://laracasts.com/series/laravel-5-fundamentals/episodes/25
-        view()->composer('frontend.partials.nav', 'App\Http\Composers\NavigationComposer@compose');
+       //
     }
     /**
      * Bootstrap services.
@@ -25,6 +24,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //https://laracasts.com/series/laravel-5-fundamentals/episodes/25
+        view()->composer('frontend.partials.nav', 'App\Http\Composers\NavigationComposer@compose');
     }
 }
