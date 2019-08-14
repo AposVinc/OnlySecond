@@ -16,37 +16,30 @@
                     @endforeach
                 </ul>
             </li>
-
             <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie</a>
                 <ul class="dropdown-menu mega-dropdown-menu row">
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">Donna</li>
-                            <li><a href="#">Classici</a></li>
-                            <li><a href="#">Digitali</a></li>
-                            <li><a href="#">Waterproof </a></li>
-                            <li><a href="#">Smartwatch</a></li>
-                            <li><a href="#">Sportivi</a></li>
+                            @foreach($categoriesF as $categoryF)
+                                <li><a href="#">{{$categoryF->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">Uomo</li>
-                            <li><a href="#">Classici</a></li>
-                            <li><a href="#">Digitali</a></li>
-                            <li><a href="#">Waterproof </a></li>
-                            <li><a href="#">Smartwatch</a></li>
-                            <li><a href="#">Sportivi</a></li>
+                            @foreach($categoriesM as $categoryM)
+                                <li><a href="#">{{$categoryM->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">Unisex</li>
-                            <li><a href="#">Classici</a></li>
-                            <li><a href="#">Digitali</a></li>
-                            <li><a href="#">Waterproof </a></li>
-                            <li><a href="#">Smartwatch</a></li>
-                            <li><a href="#">Sportivi</a></li>
+                            @foreach($categoriesU as $categoryU)
+                                <li><a href="#">{{$categoryU->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <!--  IMMAGINE NELLA TENDINA DELLE CATEGORIE   -->
