@@ -17,16 +17,17 @@ class NavigationComposer
 
     public  function compose(View $view){
         $brands = Brand::withoutTrashed()->orderBy('name')->get();
-        //$cF = collect(['id','name']);
-        $cF = new Collection();
+        $cF = collect(['id','name']);
+        //$cF = new Collection();
         $cM = collect(['id','name']);
         $cU = collect(['id','name']);
 
-        //        $cU = Category::all()->first();
+        //  $cU = Category::all()->first();
 
         //https://laracasts.com/discuss/channels/eloquent/removing-duplicates-from-collection?page=1
 
         //non ne mostra più di 1, non capisco perchè
+ /*
         $productsF = Product::where('genre','F')->get();
         foreach ($productsF as $product) {
             foreach ($product->categories as $category){
@@ -34,16 +35,15 @@ class NavigationComposer
             }
         }
         $categoriesF = $cF->unique()->all();
-
+*/
 
         //non ne mostra più di 1, non capisco perchè
-        /*
+
         $productsF = Product::where('genre','F')->get();
         foreach ($productsF as $product) {
             $cF = collect($product->categories);
         }
         $categoriesF = $cF->unique()->values()->all();
-*/
 
         $productsM = Product::where('genre','M')->get();
         foreach ($productsM as $product) {

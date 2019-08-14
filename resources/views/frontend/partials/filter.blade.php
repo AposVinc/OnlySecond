@@ -15,15 +15,15 @@
                     <div id="filter-group1">
                         <div class="checkbox">
                             <label>
-                                <input value="" type="checkbox"> Uomo </label>
+                                <input value="M" type="checkbox"> Uomo </label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input value="" type="checkbox"> Donna </label>
+                                <input value="F" type="checkbox"> Donna </label>
                         </div>
                         <div class="checkbox ">
                             <label>
-                                <input value="" type="checkbox"> Unisex
+                                <input value="U" type="checkbox"> Unisex
                             </label>
                         </div>
                     </div>
@@ -31,23 +31,12 @@
                 <div class="list-group-item mb_10">
                     <label>Brand</label>
                     <div id="filter-group2">
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Breil </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Casio </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Wellington </label>
-                        </div>
-                        <div class="checkbox ">
-                            <label>
-                                <input value="" type="checkbox"> Swatch
-                            </label>
-                        </div>
+                        @foreach($brands as $brand)
+                            <div class="checkbox">
+                                <label>
+                                    <input value="{{$brand->id}}" type="checkbox"> {{$brand->name}} </label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="list-group-item mb_10">
