@@ -91,6 +91,40 @@ class DatabaseSeeder extends Seeder
         $Q_Explorist = new Collection(['name' => 'Q Explorist']);
         $Fossil->collections()->save($Q_Explorist);
 
+        /* Prodotti Fossil */
+        $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
+            'genre' => 'F','long_desc' => 'long desc','color' => 'bianco']);
+        $CarlieP1->collection_id = $Carlie->id;
+        $CarlieP1->supplier_id = $fornitore1->id;
+        $CarlieP1->save();
+        $CarlieP1->categories()->save($classic);
+        $Carlie->products()->save($CarlieP1);
+
+        $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
+            'genre' => 'F','long_desc' => 'long desc','color' => 'rosa']);
+        $CarlieP2->collection_id = $Carlie->id;
+        $CarlieP2->supplier_id = $fornitore1->id;
+        $CarlieP2->save();
+        $CarlieP2->categories()->save($classic);
+        $Carlie->products()->save($CarlieP2);
+
+        $CarlieP3 = new Product(['cod' => 'ES4488','price' => '149', 'stock_availability' => '5',
+            'genre' => 'F','long_desc' => 'long desc','color' => 'nero']);
+        $CarlieP3->collection_id = $Carlie->id;
+        $CarlieP3->supplier_id = $fornitore1->id;
+        $CarlieP3->save();
+        $CarlieP3->categories()->save($classic);
+        $Carlie->products()->save($CarlieP3);
+
+        $Sport1P1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
+            'genre' => 'U','long_desc' => 'long desc','color' => 'nero']);
+        $Sport1P1->collection_id = $Sport->id;
+        $Sport1P1->supplier_id = $fornitore1->id;
+        $Sport1P1->save();
+        $Sport1P1->categories()->save($smart);
+        $Sport->products()->save($Sport1P1);
+
+
         /* Lacoste */
         $Lacoste = new Brand(['name' => 'Lacoste']);
         $Lacoste->save();
@@ -101,6 +135,16 @@ class DatabaseSeeder extends Seeder
 
         $Lacoste_12_12 = new Collection(['name' => 'Lacoste 12.12']);
         $Lacoste->collections()->save($Lacoste_12_12);
+
+        /* Prodotti Lacoste */
+        $Lacoste_12_12_1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
+            'genre' => 'M','long_desc' => 'long desc','color' => 'blu']);
+        $Lacoste_12_12_1->collection_id = $Lacoste_12_12->id;
+        $Lacoste_12_12_1->supplier_id = $fornitore1->id;
+        $Lacoste_12_12_1->save();
+        $Lacoste_12_12_1->categories()->save($classic);
+        $Lacoste_12_12->products()->save($Lacoste_12_12_1);
+
 
         /* Tissot */
         $Tissot = new Brand(['name' => 'Tissot']);
@@ -135,38 +179,6 @@ class DatabaseSeeder extends Seeder
         $Double_Down_P44 = new Collection(['name' => 'Double Down P44']);
         $Diesel->collections()->save($Double_Down_P44);
 
-        $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
-                                        'genre' => 'F','long_desc' => 'long desc','color' => 'ffffff']);
-        $CarlieP1->collection_id = $Carlie->id;
-        $CarlieP1->supplier_id = $fornitore1->id;
-        $CarlieP1->save();
-        $CarlieP1->categories()->save($classic);
-        $Carlie->products()->save($CarlieP1);
-
-        $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
-                                        'genre' => 'F','long_desc' => 'long desc','color' => 'ff9999']);
-        $CarlieP2->collection_id = $Carlie->id;
-        $CarlieP2->supplier_id = $fornitore1->id;
-        $CarlieP2->save();
-        $CarlieP2->categories()->save($classic);
-        $Carlie->products()->save($CarlieP2);
-
-        $CarlieP3 = new Product(['cod' => 'ES4488','price' => '149', 'stock_availability' => '5',
-                                        'genre' => 'F','long_desc' => 'long desc','color' => '000000']);
-        $CarlieP3->collection_id = $Carlie->id;
-        $CarlieP3->supplier_id = $fornitore1->id;
-        $CarlieP3->save();
-        $CarlieP3->categories()->save($classic);
-        $Carlie->products()->save($CarlieP3);
-
-
-        $Sport1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
-                                        'genre' => 'U','long_desc' => 'long desc','color' => '000000']);
-        $Sport1->collection_id = $Sport->id;
-        $Sport1->supplier_id = $fornitore1->id;
-        $Sport1->save();
-        $Sport1->categories()->save($smart);
-        $Sport->products()->save($Sport1);
 
 /*
         $brand2 = new Brand(['name' => 'Brand2']);
