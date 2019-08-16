@@ -38,20 +38,15 @@ class CollectionController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::all();
+        $brands = Brand::withoutTrashed()->with('collections')->get();
         return view('backend.collection.edit')->with('brands',$brands);
     }
 
     function getCollection(Request $request)
     {
-        $value = $request->get('value');    //id del brand
-        $data = Collection::withoutTrashed()->where('brand_id', $value)->get();
-        $output = '<option value="">Seleziona la collezione</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output;
+        $value = $request->get('value');
+        $collections = Collection::withoutTrashed()->where('brand_id', $value)->get();
+        return $collections;
     }
 
     function getCollectionRestore(Request $request)

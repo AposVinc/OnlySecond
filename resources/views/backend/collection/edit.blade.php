@@ -17,13 +17,14 @@
 
     <form action="{{route('Admin.Collection.EditUpdate')}}" method="post" class="form-horizontal">
         @csrf
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <div class="card add">
             <div class="card-body card-block">
+
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection" required>
+                        <select name="brand" id="brand" class="form-control" onchange="Example()" data-dependent="collection" required> <!-- dynamic -->
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -31,6 +32,7 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
@@ -38,9 +40,7 @@
                             <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
-                </div>
-
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>&nbsp;&nbsp;
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
@@ -69,5 +69,41 @@
         </div>
 
     </form>
+<script>
+    function Example(){
+        var selectCollection = document.getElementById('collection');
+        selectCollection.options.length = 0;
+        var option = document.createElement('option');
+        option.text= "Seleziona la collezione";
+        selectCollection.add(option);
+        var data;
+        var selected = document.getElementById('brand');
+        var value = selected.options[selected.selectedIndex].value;
 
+        jQuery.ajax({
+            url:'{{ route('Admin.GetCollection') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result)
+            {
+                data=result;
+                data.forEach(myFunction);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+
+    }
+
+    function myFunction(item, index) {
+        var selectCollection = document.getElementById('collection');
+        var option = document.createElement('option');
+        option.text= item.name;
+        option.value= item.id;
+        selectCollection.add(option);
+    }
+
+</script>
 @endsection
