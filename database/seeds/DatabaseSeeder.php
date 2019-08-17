@@ -1,6 +1,7 @@
 <?php
 
 use App\Category;
+use App\Image;
 use App\Supplier;
 use App\User;
 use App\Brand;
@@ -93,35 +94,47 @@ class DatabaseSeeder extends Seeder
 
         /* Prodotti Fossil */
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
-            'genre' => 'F','long_desc' => 'long desc','color' => 'bianco']);
+            'genre' => 'F','long_desc' => 'long desc','color' => 'Bianco']);
+        $CarlieP1I1 = new Image(['image' => 'Fossil/Charlie/Fossil_Carlie_Bianco_1.jpg', 'main' => '1']);
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
         $CarlieP1->save();
         $CarlieP1->categories()->save($classic);
+        $CarlieP1->images()->save($CarlieP1I1);
         $Carlie->products()->save($CarlieP1);
 
         $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
-            'genre' => 'F','long_desc' => 'long desc','color' => 'rosa']);
+            'genre' => 'F','long_desc' => 'long desc','color' => 'Rosa']);
+        $CarlieP2I1 = new Image(['image' => 'Fossil/Charlie/Fossil_Carlie_Rosa_1.jpg', 'main' => '1']);
         $CarlieP2->collection_id = $Carlie->id;
         $CarlieP2->supplier_id = $fornitore1->id;
         $CarlieP2->save();
         $CarlieP2->categories()->save($classic);
+        $CarlieP2->images()->save($CarlieP2I1);
         $Carlie->products()->save($CarlieP2);
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '149', 'stock_availability' => '5',
-            'genre' => 'F','long_desc' => 'long desc','color' => 'nero']);
+            'genre' => 'F','long_desc' => 'long desc','color' => 'Nero']);
+        $CarlieP3I1 = new Image(['image' => 'Fossil/Charlie/Fossil_Carlie_Nero_1.jpg', 'main' => '1']);
+        $CarlieP3I2 = new Image(['image' => 'Fossil/Charlie/Fossil_Carlie_Nero_2.jpg', 'main' => '0']);
+        $CarlieP3I3 = new Image(['image' => 'Fossil/Charlie/Fossil_Carlie_Nero_3.jpg', 'main' => '0']);
         $CarlieP3->collection_id = $Carlie->id;
         $CarlieP3->supplier_id = $fornitore1->id;
         $CarlieP3->save();
         $CarlieP3->categories()->save($classic);
+        $CarlieP3->images()->save($CarlieP3I1);
+        $CarlieP3->images()->save($CarlieP3I2);
+        $CarlieP3->images()->save($CarlieP3I3);
         $Carlie->products()->save($CarlieP3);
 
         $Sport1P1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
-            'genre' => 'U','long_desc' => 'long desc','color' => 'nero']);
+            'genre' => 'U','long_desc' => 'long desc','color' => 'Nero']);
+        $SportP1I1 = new Image(['image' => 'Fossil/Charlie/Fossil_Sport_Nero_1.jpg', 'main' => '1']);
         $Sport1P1->collection_id = $Sport->id;
         $Sport1P1->supplier_id = $fornitore1->id;
         $Sport1P1->save();
         $Sport1P1->categories()->save($smart);
+        $Sport1P1->images()->save($SportP1I1);
         $Sport->products()->save($Sport1P1);
 
 
@@ -137,13 +150,15 @@ class DatabaseSeeder extends Seeder
         $Lacoste->collections()->save($Lacoste_12_12);
 
         /* Prodotti Lacoste */
-        $Lacoste_12_12_1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
-            'genre' => 'M','long_desc' => 'long desc','color' => 'blu']);
-        $Lacoste_12_12_1->collection_id = $Lacoste_12_12->id;
-        $Lacoste_12_12_1->supplier_id = $fornitore1->id;
-        $Lacoste_12_12_1->save();
-        $Lacoste_12_12_1->categories()->save($classic);
-        $Lacoste_12_12->products()->save($Lacoste_12_12_1);
+        $Lacoste_12_12_P1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
+            'genre' => 'M','long_desc' => 'long desc','color' => 'Blu']);
+        $Lacoste_12_12_P1I1 = new Image(['image' => 'Lacoste/12.12/Lacoste_12.12_Blu_1.jpg', 'main' => '1']);
+        $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
+        $Lacoste_12_12_P1->supplier_id = $fornitore1->id;
+        $Lacoste_12_12_P1->save();
+        $Lacoste_12_12_P1->categories()->save($classic);
+        $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I1);
+        $Lacoste_12_12->products()->save($Lacoste_12_12_P1);
 
 
         /* Tissot */

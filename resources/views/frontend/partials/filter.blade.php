@@ -23,8 +23,7 @@
                         </div>
                         <div class="checkbox ">
                             <label>
-                                <input value="U" type="checkbox"> Unisex
-                            </label>
+                                <input value="U" type="checkbox"> Unisex </label>
                         </div>
                     </div>
                 </div>
@@ -42,18 +41,12 @@
                 <div class="list-group-item mb_10">
                     <label>Colore</label>
                     <div id="filter-group3">
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Blu </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Nero </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Bianco </label>
-                        </div>
+                        @foreach($colors as $color)
+                            <div class="checkbox">
+                                <label>
+                                    <input value="{{$color->color}}" type="checkbox"> {{$color->color}} </label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="list-group-item mb_10">

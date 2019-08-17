@@ -15,58 +15,58 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Route::get('/home', function () {
+Route::get('/Home', function () {
     return view('frontend.index');
 })->name('Home');
 
-Route::get('/home1', function () {
+Route::get('/Home1', function () {
     return view('frontendColorshop.index');
 })->name('Home1');
 
-Route::get('/shop', function () {
+Route::get('/Shop', function () {
     return view('frontend.shop');
 })->name('Shop');
 
-Route::get('/contact', function(){
+Route::get('/Contact', function(){
     return view('frontend.contact');
 });
 
-Route::get('/about', function(){
+Route::get('/About', function(){
     return view('frontend.about');
 });
 
-Route::get('/checkout', function(){
+Route::get('/Checkout', function(){
     return view('frontend.checkout');
 });
-Route::get('/cartpage', function(){
+Route::get('/CartPage', function(){
     return view('frontend.cartpage');
 });
 
-Route::get('/discount', function(){
+Route::get('/Discount', function(){
     return view('frontend.discount');
 });
 
-Route::get('/profile', function () {
+Route::get('/Profile', function () {
     return view('frontend.profile');
 });
-Route::get('/chronology', function () {
+Route::get('/Chronology', function () {
     return view('frontend.chronology');
 });
-Route::get('/editprofile', function () {
+Route::get('/EditProfile', function () {
     return view('frontend.editprofile');
 });
-Route::get('/favorite', function () {
+Route::get('/Favorite', function () {
     return view('frontend.favorite');
 });
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('user.login');
-Route::post('login', 'Auth\LoginController@loginFE')->name('user.loginpost');
-Route::get('logout', 'Auth\LoginController@logout')->name('user.logout');
+Route::get('Login', 'Auth\LoginController@showLoginForm')->name('user.login');
+Route::post('Login', 'Auth\LoginController@loginFE')->name('user.loginpost');
+Route::get('Logout', 'Auth\LoginController@logout')->name('user.logout');
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('user.register');
-Route::post('register', 'Auth\RegisterController@register')->name('user.registerpost');
+Route::get('Register', 'Auth\RegisterController@showRegistrationForm')->name('user.register');
+Route::post('Register', 'Auth\RegisterController@register')->name('user.registerpost');
 
 /*
 // Authentication Routes...

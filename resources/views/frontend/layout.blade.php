@@ -29,6 +29,9 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/style.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/owl.carousel.css') }}">
+    @if(strpos(route::currentRouteName(),'Shop')!== false)
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/jquery-ui.css') }}">
+    @endif
 
     <link rel="stylesheet" type="text/css" href="{{URL::asset("plugins/frontend/font-awesome-4.7.0/css/font-awesome.min.css")}}">
 
@@ -270,13 +273,11 @@
 <script src="{{ URL::asset('js/frontend/owl.carousel.min.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/jquery.magnific-popup.js') }}"></script>
-<script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/custom.js') }}"></script>
 
-
-@if(route::currentRouteName('shop'))
+@if(strpos(route::currentRouteName(),'Shop')!== false)
     <!-- PRESI DALLA PAGINA category_page -->
-    <script src="{{ URL::asset('js/frontend/jquery-ui.js')}}"></script>
+    <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
     <script>
         $(function() {
             $("#slider-range").slider({
@@ -294,6 +295,9 @@
     </script>
     <!-- PRESI DALLA PAGINA category_page END -->
 @endif
+
+<script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
+
 <!-- checkout nuovo indirizzo-->
 <script type="text/javascript">
     $('input[name=\'payment_address\']').on('change', function() {
@@ -315,6 +319,7 @@
         }
     });
 </script>
+
 
 </body>
 
