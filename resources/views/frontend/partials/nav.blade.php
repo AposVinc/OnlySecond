@@ -22,7 +22,7 @@
                         <ul>
                             <li class="dropdown-header">Donna</li>
                             @foreach($categoriesF as $categoryF)
-                                <li><a href="#">{{$categoryF->name}}</a></li>
+                                <li><a href="#">{{$categoryF}}</a></li>
                             @endforeach
                         </ul>
                     </li>

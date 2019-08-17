@@ -4,8 +4,8 @@
 namespace App\Http\Composers;
 
 use App\Brand;
-use App\Collection;
 use App\Product;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class NavigationComposer
@@ -17,8 +17,8 @@ class NavigationComposer
 
     public  function compose(View $view){
         $brands = Brand::withoutTrashed()->orderBy('name')->get();
-        $cF = collect(['id','name']);
-        //$cF = new Collection();
+        //$cF = collect(['id','name']);
+        $cF = new Collection();
         $cM = collect(['id','name']);
         $cU = collect(['id','name']);
 
@@ -39,11 +39,11 @@ class NavigationComposer
 
         //non ne mostra più di 1, non capisco perchè
 
-        $productsF = Product::where('genre','F')->get();
+        $productsF = Product::where('genre','F')->with('categories')->get();
         foreach ($productsF as $product) {
-            $cF = collect($product->categories);
+            $cF->put($product->categories->id, $product->categories->name);
         }
-        $categoriesF = $cF->unique()->values()->all();
+        $categoriesF = $cF->unique();
 
         $productsM = Product::where('genre','M')->get();
         foreach ($productsM as $product) {
