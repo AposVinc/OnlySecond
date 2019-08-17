@@ -21,24 +21,24 @@
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">Donna</li>
-                            @foreach($categoriesF as $categoryF)
-                                <li><a href="#">{{$categoryF}}</a></li>
+                            @foreach($categoriesF as $category)
+                                <li><a href="#">{{$category->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">Uomo</li>
-                            @foreach($categoriesM as $categoryM)
-                                <li><a href="#">{{$categoryM->name}}</a></li>
+                            @foreach($categoriesM as $category)
+                                <li><a href="#">{{$category->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="col-md-3">
                         <ul>
                             <li class="dropdown-header">Unisex</li>
-                            @foreach($categoriesU as $categoryU)
-                                <li><a href="#">{{$categoryU->name}}</a></li>
+                            @foreach($categoriesU as $category)
+                                <li><a href="#">{{$category->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
