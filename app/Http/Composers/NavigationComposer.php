@@ -28,23 +28,23 @@ class NavigationComposer
                 $cF->push($category);
             }
         }
-        $categoriesF = $cF->unique('id');
+        $categoriesF = $cF->unique('id')->sortBy('name');
 
         $productsM = Product::withoutTrashed()->where('genre','M')->with('categories')->get();
         foreach ($productsM as $product) {
             foreach ($product->categories as $category){
-                $cF->push($category);
+                $cM->push($category);
             }
         }
-        $categoriesM = $cM->unique('id');
+        $categoriesM = $cM->unique('id')->sortBy('name');
 
         $productsU = Product::withoutTrashed()->where('genre','U')->with('categories')->get();
         foreach ($productsU as $product) {
             foreach ($product->categories as $category){
-                $cF->push($category);
+                $cU->push($category);
             }
         }
-        $categoriesU = $cU->unique('id');
+        $categoriesU = $cU->unique('id')->sortBy('name');
 
         $view->with('brands', $brands)->with('categoriesF', $categoriesF)->with('categoriesM', $categoriesM)->with('categoriesU', $categoriesU);
     }
