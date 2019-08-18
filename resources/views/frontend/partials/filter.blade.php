@@ -9,6 +9,14 @@
                 <input type="text" id="amount" readonly>
             </p>
             <div id="slider-range" class="mtb_20"></div>
+            <div class="list-group-item mb_10">
+                <label>In sconto</label>
+                <div id="filter-group2">
+                    <div class="checkbox">
+                        <label><input value="sconto" type="checkbox"> Fino al 50% </label>
+                    </div>
+                </div>
+            </div>
             <div class="list-group">
                 <div class="list-group-item mb_10">
                     <label>Genere</label>
@@ -39,6 +47,17 @@
                     </div>
                 </div>
                 <div class="list-group-item mb_10">
+                    <label>Collezioni</label>
+                    <div id="filter-group2">
+                        @foreach($collections as $collection)
+                            <div class="checkbox">
+                                <label>
+                                    <input value="{{$collection->id}}" type="checkbox"> {{$collection->name}} </label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="list-group-item mb_10">
                     <label>Colore</label>
                     <div id="filter-group3">
                         @foreach($colors as $color)
@@ -52,18 +71,12 @@
                 <div class="list-group-item mb_10">
                     <label>Materiale</label>
                     <div id="filter-group4">
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Acciaio </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Legno </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input value="" type="checkbox"> Pelle </label>
-                        </div>
+                        @foreach($materials as $material)
+                            <div class="checkbox">
+                                <label>
+                                    <input value="{{$material->material}}" type="checkbox"> {{$material->material}} </label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <button type="button" class="btn">Filtra</button>

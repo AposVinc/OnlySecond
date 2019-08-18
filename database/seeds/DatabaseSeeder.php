@@ -146,7 +146,7 @@ class DatabaseSeeder extends Seeder
         $Moon = new Collection(['name' => 'Moon']);
         $Lacoste->collections()->save($Moon);
 
-        $Lacoste_12_12 = new Collection(['name' => 'Lacoste 12.12']);
+        $Lacoste_12_12 = new Collection(['name' => '12.12']);
         $Lacoste->collections()->save($Lacoste_12_12);
 
         /* Prodotti Lacoste */
