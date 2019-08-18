@@ -25,7 +25,12 @@
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Brand</label></div>
                     <div class="col-12 col-md-9"><input type="text" value="" id="text-input" name="text-input" placeholder="Inserire il nome del Brand da aggiungere" class="form-control" required></div>
                 </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="logo" class=" form-control-label">Logo</label></div>
+                    <div class="col-12 col-md-9"><input type="file" id="logo" name="logo" class="form-control-file" required></div>
+                </div>
             </div>
+
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Aggiungi

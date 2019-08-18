@@ -10,8 +10,9 @@ use Illuminate\View\View;
 class ShopComposer
 {
     public  function compose(View $view){
-        $products = Product::withoutTrashed()->with('images')->get();
+        $products = Product::withoutTrashed()->with('collection')->with('images')->get();
+        $brands = Brand::withoutTrashed()->orderBy('name')->get();
 
-        $view->with('products', $products);
+        $view->with('products', $products)->with('brands',$brands);
     }
 }

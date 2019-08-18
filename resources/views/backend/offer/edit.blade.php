@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                &nbsp;&nbsp;
+                &emsp;
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="rate" class=" form-control-label">Nuovo Sconto</label></div>

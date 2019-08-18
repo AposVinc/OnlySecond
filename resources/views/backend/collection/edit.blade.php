@@ -40,7 +40,9 @@
                             <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
-                </div>&nbsp;&nbsp;
+                </div>
+
+                &emsp;
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
