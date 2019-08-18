@@ -12,7 +12,7 @@
                     se vogliamo possiamo mettere un limite sul numero e mandare a capo dopo 6 brand o una cosa del genere
                     la pagina che si apre deve aver gia settato i filti. se scelgo tissot avro solo tissot-->
                     @foreach($brands as $brand)
-                        <li> <a href="{{ url('/shop') }}">{{$brand->name}}</a></li>
+                        <li> <a href="{{ route('Shop') }}">{{$brand->name}}</a></li>
                     @endforeach
                 </ul>
             </li>
@@ -22,7 +22,7 @@
                         <ul>
                             <li class="dropdown-header">Donna</li>
                             @foreach($categoriesF as $categoryF)
-                                <li><a href="#">{{$categoryF->name}}</a></li>
+                                <li><a href="{{ route('Shop') }}">{{$categoryF->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -30,7 +30,7 @@
                         <ul>
                             <li class="dropdown-header">Uomo</li>
                             @foreach($categoriesM as $categoryM)
-                                <li><a href="#">{{$categoryM->name}}</a></li>
+                                <li><a href="{{ route('Shop') }}">{{$categoryM->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -38,7 +38,7 @@
                         <ul>
                             <li class="dropdown-header">Unisex</li>
                             @foreach($categoriesU as $categoryU)
-                                <li><a href="#">{{$categoryU->name}}</a></li>
+                                <li><a href="{{ route('Shop') }}">{{$categoryU->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
