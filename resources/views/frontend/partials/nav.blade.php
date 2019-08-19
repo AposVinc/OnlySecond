@@ -1,5 +1,5 @@
 <nav class="navbar">
-    <p>menu</p>
+    <p>Menù</p>
     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> <span class="i-bar"><i class="fa fa-bars"></i></span></button>
     <div class="collapse navbar-collapse js-navbar-collapse">
         <ul id="menu" class="nav navbar-nav">
@@ -61,10 +61,9 @@
                     </li>
                 </ul>
             </li>
-            <li> <a href="about">Chi siamo</a></li>
-            <li> <a href="contact">Contattaci</a>
-            <li> <a href="discount">In Sconto %</a>
-
+            <li> <a href="About">Chi siamo</a></li>
+            <li> <a href="Contact">Contattaci</a>
+            <li> <a href="Discount">In Sconto %</a>
         </ul>
     </div>
     <!-- /.nav-collapse -->

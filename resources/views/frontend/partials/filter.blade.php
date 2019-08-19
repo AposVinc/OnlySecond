@@ -10,7 +10,7 @@
             </p>
             <div id="slider-range" class="mtb_20"></div>
             <div class="list-group-item mb_10">
-                <label>In sconto</label>
+                <label>Sconto</label>
                 <div id="filter-group2">
                     <div class="checkbox">
                         <label><input value="sconto" type="checkbox"> Fino al 50% </label>

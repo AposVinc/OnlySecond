@@ -49,7 +49,7 @@
                                         <h2 class="a-spacing-none ya-card__heading--rich a-text-normal">
                                             Impostazioni Del Profilo
                                         </h2>
-                                        <div><span class="a-color-secondary">Modifica nome, cognome e il numero di cellulare</span></div>
+                                        <div><span class="a-color-secondary">Modifica Nome, Cognome e il Numero di Cellulare</span></div>
 
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                         <h2 class="a-spacing-none ya-card__heading--rich a-text-normal">
                                             WishList
                                         </h2>
-                                        <div><span class="a-color-secondary">I tuoi prodotti preferiti</span></div>
+                                        <div><span class="a-color-secondary">I Tuoi Prodotti Preferiti</span></div>
 
                                     </div>
                                 </div>

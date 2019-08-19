@@ -10,9 +10,9 @@
     <div class="notfound">
         <div class="notfound-404">
             <h1>Oops!</h1>
-            <h2>404 - La Pagina non è stata trovata</h2>
+            <h2>404 - La Pagina Non E' Stata Trovata</h2>
         </div>
-        <a href="{{route('Home')}}">Torna alla Homepage</a>
+        <a href="{{route('Home')}}">Torna Alla Homepage</a>
     </div>
 </div>
 
