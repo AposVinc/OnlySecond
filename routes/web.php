@@ -29,35 +29,39 @@ Route::get('/Shop', function () {
 
 Route::get('/Contact', function(){
     return view('frontend.contact');
-});
+})->name('Contact');
 
 Route::get('/About', function(){
     return view('frontend.about');
-});
+})->name('About');
 
 Route::get('/Checkout', function(){
     return view('frontend.checkout');
-});
+})->name('Checkout');
+
 Route::get('/CartPage', function(){
     return view('frontend.cartpage');
-});
+})->name('CartPage');
 
 Route::get('/Discount', function(){
     return view('frontend.discount');
-});
+})->name('Discount');
 
 Route::get('/Profile', function () {
     return view('frontend.profile');
-});
+})->name('Profile');
+
 Route::get('/Chronology', function () {
     return view('frontend.chronology');
-});
+})->name('Chronology');
+
 Route::get('/EditProfile', function () {
     return view('frontend.editprofile');
-});
+})->name('EditProfile');
+
 Route::get('/Favorite', function () {
     return view('frontend.favorite');
-});
+})->name('Favorite');
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
