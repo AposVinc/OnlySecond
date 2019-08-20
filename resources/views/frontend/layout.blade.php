@@ -79,7 +79,7 @@
                             @auth
                                 <li class="account"> <a href="{{route('Admin.Index')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
                                 <!-- Sostituire con pagina profilo -->
-                                <li class="account"><a href="{{route('user.login')}}"> Il Mio Profilo  </a><i class="fa fa-user"></i></li>
+                                <li class="account"><a href="{{route('Profile')}}"> Il Mio Profilo  </a><i class="fa fa-user"></i></li>
                                 <li class="account"><a href="{{route('user.logout')}}"> Logout  </a><i class="fa fa-sign-out"></i></li>
                             @else
                                 <li class="account"> <a href="{{route('Admin.LoginForm')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
@@ -150,8 +150,9 @@
                                         </tbody>
                                     </table>
                                 </li>
+
                                 <li>
-                                    <form action="cartpage">
+                                    <form action="{{route('CartPage')}}">
                                         <input class="btn pull-right mt_10" value="Riepilogo" type="submit">
                                     </form>
                                 </li>
@@ -194,11 +195,11 @@
                 <div class="col-md-3 footer-block">
                     <h6 class="footer-title ptb_20">Informazioni</h6>
                     <ul>
-                        <li><a href="#">Chi siamo</a></li>
+                        <li><a href="{{route('About')}}">Chi siamo</a></li>
                         <li><a href="#">Condizioni di vendita</a></li>
                         <li><a href="#">Informativa Privacy</a></li>
                         <li><a href="#">Termini e Condizioni</a></li>
-                        <li><a href="contact">Contatti</a></li>
+                        <li><a href="{{route('Contact')}}">Contatti</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">

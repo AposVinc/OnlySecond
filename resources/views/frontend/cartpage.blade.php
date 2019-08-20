@@ -725,10 +725,10 @@
                     </table>
                 </div>
             </div>
-            <form action="index">
+            <form action="{{route('Shop')}}">
                 <input class="btn pull-left mt_30" type="submit" value="Continua Lo Shopping" />
             </form>
-            <form action="checkout">
+            <form action="{{route('Checkout')}}">
                 <input class="btn pull-right mt_30" type="submit" value="Checkout" />
             </form>
         </div>

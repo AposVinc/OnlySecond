@@ -17,7 +17,7 @@
             <div class="ya-card-row">
 
                 <div class="ya-card-cell">
-                    <a href="chronology" class="ya-card__whole-card-link">
+                    <a href="{{route('Chronology')}}" class="ya-card__whole-card-link">
                     <div data-card-identifier="yourorders" class="a-box ya-card--rich"><div class="a-box-inner">
                         <div class="a-row">
                             <div class="a-column a-span3">
@@ -39,7 +39,7 @@
 
                 <div class="ya-card-cell">
 
-                    <a href="editprofile" class="ya-card__whole-card-link">
+                    <a href="{{route('EditProfile')}}" class="ya-card__whole-card-link">
                         <div data-card-identifier="edit" class="a-box ya-card--rich"><div class="a-box-inner">
                                 <div class="a-row">
                                     <div class="a-column a-span3">
@@ -59,7 +59,7 @@
 
                 <div class="ya-card-cell">
 
-                    <a href="favorite" class="ya-card__whole-card-link">
+                    <a href="{{route('Favorite')}}" class="ya-card__whole-card-link">
                         <div data-card-identifier="edit" class="a-box ya-card--rich"><div class="a-box-inner">
                                 <div class="a-row">
                                     <div class="a-column a-span3">
