@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <div class="panel-body  col-lg-9 mtb_20">
+            <div class="panel-body col-lg-12 mtb_20">
                 <div class="row">
                     <div class="col-lg-12">
                         <form id="login-form" action="{{route('user.loginpost')}}" method="post">

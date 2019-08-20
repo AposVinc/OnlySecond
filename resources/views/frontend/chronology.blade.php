@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-8 col-lg-9 mtb_20">
+            <div class="col-lg-12 mtb_20">
                 <form enctype="multipart/form-data" method="post" action="#">
                     <div class="table-responsive">
                         <table class="table table-bordered">
