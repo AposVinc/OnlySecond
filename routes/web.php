@@ -39,7 +39,7 @@ Route::get('/Checkout', function(){
     return view('frontend.checkout');
 })->name('Checkout');
 
-Route::get('/Cartpage', function(){
+Route::get('/CartPage', function(){
     return view('frontend.cartpage');
 })->name('CartPage');
 
