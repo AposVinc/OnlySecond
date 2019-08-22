@@ -24,7 +24,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="Example()" data-dependent="collection" required> <!-- dynamic -->
+                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" data-dependent="collection" required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -72,7 +72,7 @@
 
     </form>
 <script>
-    function Example(){
+    function EditCollection(){
         var selectCollection = document.getElementById('collection');
         selectCollection.options.length = 0;
         var option = document.createElement('option');
@@ -90,7 +90,7 @@
             success:function(result)
             {
                 data=result;
-                data.forEach(myFunction);
+                data.forEach(AddOptionCollection);
             },
             error:function(xhr){
                 alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
@@ -99,7 +99,7 @@
 
     }
 
-    function myFunction(item, index) {
+    function AddOptionCollection(item, index) {
         var selectCollection = document.getElementById('collection');
         var option = document.createElement('option');
         option.text= item.name;
