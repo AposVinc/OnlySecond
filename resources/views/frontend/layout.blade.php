@@ -39,6 +39,7 @@
     <link rel="apple-touch-icon" href="{{URL::asset("images/icon/rosa.png")}}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{URL::asset("images/icon/rosa.png")}}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{URL::asset("images/icon/rosa.png")}}">
+
 </head>
 
 <body>
@@ -320,6 +321,33 @@
         }
     });
 </script>
+
+
+@if(strpos(route::currentRouteName(),'Contact')!== false)
+    <!-- Maps da errore con le api, su forum ho letto che è a pagamento
+    https://www.mtb-mag.com/forum/threads/questa-pagina-non-carica-correttamente-google-maps.369147/
+
+    OpenStreetMaps è un alternativa a Maps ma meno completa-->
+
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script>
+        map = new OpenLayers.Map("map");
+        map.addLayer(new OpenLayers.Layer.OSM());
+
+        var lonLat = new OpenLayers.LonLat( 13.349258 , 42.368826 )
+            .transform(
+                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                map.getProjectionObject() // to Spherical Mercator Projection
+            );
+        var zoom=16;
+        var markers = new OpenLayers.Layer.Markers( "Markers" );
+        map.addLayer(markers);
+        markers.addMarker(new OpenLayers.Marker(lonLat));
+        map.setCenter (lonLat, zoom);
+    </script>
+    <script src="{{URL::asset('js/frontend/map.js')}}"></script>
+    <script src="{{URL::asset('js/frontend/mail.js')}}"></script>
+@endif
 
 
 </body>
