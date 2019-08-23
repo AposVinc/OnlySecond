@@ -7,6 +7,7 @@ use App\Banner;
 use App\Collection;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
@@ -109,14 +110,49 @@ class BannerController extends Controller
     }
 
 
-    public function create()
+    public function create(Request $request)
     {
-        $input = Input::all();
-        $banner = new Banner();
-        $banner->image = $input['file-input'];
-        $banner->collection_id = $input['collection'];
-        $banner->save();
-        return redirect()->to('Admin/Banner/List');
+         if ($request->hasFile('file')) { //  se il file è presente nella request
+             if ($request->file('file')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+                $path='public/Banner';
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $nameBrand=Brand::where('id', $request->get('brand'))->first()->name;
+                $path.= '/'. $nameBrand;
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $idCollection=$request->get('collection');
+                $nameCollection=Collection::where('id', $idCollection)->first()->name;
+                $path.= '/'. $nameCollection;
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $counter=Banner::where('collection_id', $idCollection)->max('counter');
+                $counter +=1;
+                $filename= $nameBrand. '_'. $nameCollection. '_'. $counter;
+                $path = $request->file('file')->storeAs($path, $filename);
+                if($path!=""){
+                    $banner = new Banner();
+                    $banner->path_image = $path;
+                    $banner->collection_id = $idCollection;
+                    $banner->counter = $counter;
+                    if($request->get('inline-radios')){
+                        $banner->visible = true;
+                    }else{
+                        $banner->visible = false;
+                    }
+                    $banner->save();
+                    return redirect()->to('Admin/Banner/List')->with('status','Caricamento avvenuto con successo!!');
+                }
+            }else{
+                return redirect()->to('Admin/Banner/List')->with('status','Errore durante il caricamento. Riprovare!!');
+            }
+        }else{
+            return redirect()->to('Admin/Banner/List')->with('status','File non trovato. Riprovare!!');
+        }
+
     }
 
     public function update(Request $request)

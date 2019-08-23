@@ -43,6 +43,17 @@
                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Immagine Banner</label></div>
                     <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file" required></div>
                 </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label">Visibilità</label></div>
+                    <div class="col col-md-9">
+                        <div class="form-check-inline form-check">
+                            <label for="inline-radio1" class="form-check-label " >
+                                <input type="radio" id="inline-radio1" name="inline-radios" value="true" class="form-check-input">
+                                Visibile nella Home Page
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="card-footer">
