@@ -221,6 +221,7 @@
                 success:function(result)
                 {
                     data=result;
+                    alert(data);
                     data.forEach(AddOptionProduct);
                 },
                 error:function(xhr){
@@ -233,7 +234,7 @@
         function AddOptionProduct(item, index) {
             var selectProduct = document.getElementById('product');
             var option = document.createElement('option');
-            option.text= item.name;
+            option.text= item.cod;
             option.value= item.id;
             selectProduct.add(option);
         }
