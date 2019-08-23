@@ -17,14 +17,12 @@
 
     <form action="{{route('Admin.Collection.EditUpdate')}}" method="post" class="form-horizontal">
         @csrf
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         <div class="card add">
             <div class="card-body card-block">
-
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" data-dependent="collection" required>
+                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()"  required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -45,9 +43,9 @@
                 &emsp;
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="brand" class=" form-control-label">Nuovo Brand</label></div>
+                    <div class="col col-md-3"><label for="newbrand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="newbrand" id="brand" class="form-control " data-dependent="collection" required>
+                        <select name="newbrand" id="newbrand" class="form-control " data-dependent="collection" required>
                             <option value="">Seleziona il nuovo brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -56,8 +54,8 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nuovo Nome</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="newcollectionname" placeholder="Inserire il nome della nuova Collezione" class="form-control" required></div>
+                    <div class="col col-md-3"><label for="newcollectionname" class=" form-control-label">Nuovo Nome</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="newcollectionname" name="newcollectionname" placeholder="Inserire il nome della nuova Collezione" class="form-control" required></div>
                 </div>
             </div>
             <div class="card-footer">
@@ -71,6 +69,7 @@
         </div>
 
     </form>
+
 <script>
     function EditCollection(){
         var selectCollection = document.getElementById('collection');

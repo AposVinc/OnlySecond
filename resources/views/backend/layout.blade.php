@@ -257,7 +257,7 @@
     })(jQuery);
 </script>
 
-@if(route::currentRouteName('Admin.Product.Add'))
+@if(strpos(route::currentRouteName(),'Admin.Product')!== false)
     <script src="{{ URL::asset('vendor/backend/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script src="{{ URL::asset('vendor/backend/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
     <script src="{{ URL::asset('js/backend/main.js') }}"></script>
@@ -266,9 +266,9 @@
         function activeModel() {
             var x = document.getElementById("brand").value;
             if (x == 0) {
-                document.getElementById('collezione').setAttribute('disabled','disabled');
+                document.getElementById('collection').setAttribute('disabled','disabled');
             } else {
-                document.getElementById('collezione').removeAttribute('disabled');
+                document.getElementById('collection').removeAttribute('disabled');
             }
         }
     </script>
@@ -462,6 +462,7 @@
         }
     </script>
 @endif
+
 </body>
 
 </html>

@@ -48,14 +48,9 @@ class ProductController extends Controller
 
     function getProduct(Request $request)
     {
-        $value = $request->get('value');    //id della collection
-        $data=Product::withoutTrashed()->where('collection_id',$value)->get();
-        $output ='<option value="0">Seleziona il prodotto</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output;
+        $value = $request->get('value');
+        $products = Product::withoutTrashed()->where('collection_id', $value)->get();
+        return $products;
     }
 
     /**
