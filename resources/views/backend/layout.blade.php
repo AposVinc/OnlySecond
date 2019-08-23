@@ -226,6 +226,7 @@
 <script src="{{ URL::asset('vendor/backend/jqvmap/dist/jquery.vmap.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+
 <!--script tabella liste-->
 <script src="{{ URL::asset('vendor/backend/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{ URL::asset('vendor/backend/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
@@ -257,6 +258,150 @@
     })(jQuery);
 </script>
 
+<script>
+    function EditCollection(){
+        var selectCollection = document.getElementById('collection');
+        selectCollection.options.length = 0;
+        var option = document.createElement('option');
+        option.text= "Seleziona la collezione";
+        selectCollection.add(option);
+        var data;
+        var selected = document.getElementById('brand');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetCollection') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result)
+            {
+                data=result;
+                data.forEach(AddOptionCollection);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+
+    }
+
+    function AddOptionCollection(item, index) {
+        var selectCollection = document.getElementById('collection');
+        var option = document.createElement('option');
+        option.text= item.name;
+        option.value= item.id;
+        selectCollection.add(option);
+    }
+
+
+    function EditNewCollection(){
+        var selectCollection = document.getElementById('newcollection');
+        selectCollection.options.length = 0;
+        var option = document.createElement('option');
+        option.text= "Seleziona la collezione";
+        selectCollection.add(option);
+        var data;
+        var selected = document.getElementById('newbrand');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetCollection') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result)
+            {
+                data=result;
+                data.forEach(AddOptionNewCollection);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+
+    function AddOptionNewCollection(item, index) {
+        var selectCollection = document.getElementById('newcollection');
+        var option = document.createElement('option');
+        option.text= item.name;
+        option.value= item.id;
+        selectCollection.add(option);
+    }
+
+
+    function EditProduct(){
+        var selectProduct = document.getElementById('product');
+        selectProduct.options.length = 0;
+        var option = document.createElement('option');
+        option.text= "Seleziona il prodotto";
+        selectProduct.add(option);
+        var data;
+        var selected = document.getElementById('collection');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetProduct') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result) {
+                data=result;
+                data.forEach(AddOptionProduct);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionProduct(item, index) {
+        var selectProduct = document.getElementById('product');
+        var option = document.createElement('option');
+        option.text= item.cod;
+        option.value= item.id;
+        selectProduct.add(option);
+    }
+
+
+    function EditBanner(){
+        var selectBanner = document.getElementById('banner');
+        selectBanner.options.length = 0;
+        var option = document.createElement('option');
+        option.text= "Seleziona il banner";
+        selectBanner.add(option);
+        var data;
+        var selected = document.getElementById('collection');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetBanner') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result) {
+                data=result;
+                data.forEach(AddOptionBanner);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionBanner(item, index) {
+        var selectBanner = document.getElementById('banner');
+        var option = document.createElement('option');
+        option.text= item.path_image;
+        option.value= item.id;
+        selectBanner.add(option);
+    }
+
+</script>
+
+
+
+
+
+<!--
 @if(strpos(route::currentRouteName(),'Admin.Product')!== false)
     <script src="{{ URL::asset('vendor/backend/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script src="{{ URL::asset('vendor/backend/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
@@ -304,7 +449,7 @@
 @endif
 
 @if(strpos(route::currentRouteName(),'Admin.Banner')!== false)
-    <!-- serve per prendere i banner  -->
+    ---------- serve per prendere i banner  -----------
     <script>
         jQuery(document).ready(function(){
             jQuery('.dynamicBanner').change(function(){
@@ -462,7 +607,7 @@
         }
     </script>
 @endif
-
+-->
 </body>
 
 </html>

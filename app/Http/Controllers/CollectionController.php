@@ -145,9 +145,9 @@ class CollectionController extends Controller
      */
     public function update(Request $request)//Collection $collection
     {
-        $collection= $request->get('collection');
-        $newbrand= $request->get('newbrand');
-        $newcollectionname=$request->get('newcollectionname');
+        $collection = $request->get('collection');
+        $newbrand = $request->get('newbrand');
+        $newcollectionname = $request->get('newcollectionname');
 
         Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
 

@@ -39,7 +39,7 @@ class BannerController extends Controller
     }
 
     public function showEditForm()
-    {
+    {/*
         $banners = Banner::withoutTrashed()->with('collection')->get();
         $brandsBanner=new \Illuminate\Database\Eloquent\Collection();
         foreach ($banners as $banner){
@@ -52,11 +52,14 @@ class BannerController extends Controller
         }
         $brands=Brand::all();
         return view('backend.banner.edit',['brandsBanner' => $brandsBanner, 'brands'=> $brands]);
+    */
+        $brands = Brand::withTrashed()->get();
+        return view('backend.banner.edit',['brands' => $brands]);
     }
 
     public function showDeleteForm()
     {
-        $banners = Banner::withoutTrashed()->with('collection')->get();
+ /*       $banners = Banner::withoutTrashed()->with('collection')->get();
         $brands = new \Illuminate\Database\Eloquent\Collection();
         foreach ($banners as $banner){
             $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
@@ -67,11 +70,14 @@ class BannerController extends Controller
             }
         }
         return view('backend.banner.delete',['brands' => $brands]);
+*/
+        $brands = Brand::withTrashed()->get();
+        return view('backend.banner.delete',['brands' => $brands]);
     }
 
     public function showRestoreForm()
     {
-        $banners = Banner::onlyTrashed()->with('collection')->get();
+ /*       $banners = Banner::onlyTrashed()->with('collection')->get();
         $brands=new \Illuminate\Database\Eloquent\Collection();
         foreach ($banners as $banner){
             $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
@@ -82,11 +88,16 @@ class BannerController extends Controller
             }
         }
         return view('backend.banner.restore',['brands' => $brands]);
+*/
+        $brands = Brand::onlyTrashed()->get();
+        return view('backend.banner.restore',['brands' => $brands]);
+
     }
 
 
     function getBanner(Request $request)
     {
+        /*
         $value = $request->get('value');    //id della collection
         $data=Banner::withoutTrashed()->where('collection_id',$value)->get();
         $output ='<option value="0">Seleziona il banner</option>';
@@ -95,6 +106,10 @@ class BannerController extends Controller
             $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
         }
         return $output;
+        */
+        $value = $request->get('value');
+        $banners = Banner::withoutTrashed()->where('collection_id', $value)->get();
+        return $banners;
     }
 
     function getBannerRestore(Request $request)
