@@ -228,17 +228,20 @@
 <script src="{{ URL::asset('vendor/backend/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
 
 <!--script tabella liste-->
-<script src="{{ URL::asset('vendor/backend/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/jszip/dist/jszip.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/pdfmake/build/pdfmake.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/pdfmake/build/vfs_fonts.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-<script src="{{ URL::asset('js/backend/init-scripts/data-table/datatables-init.js')}}"></script>
+@if(strpos(route::currentRouteName(),'.List')!== false)
+    <script src="{{ URL::asset('vendor/backend/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/jszip/dist/jszip.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/pdfmake/build/vfs_fonts.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+    <script src="{{ URL::asset('js/backend/init-scripts/data-table/datatables-init.js')}}"></script>
+@endif
+
 
 <script>
     (function($) {
@@ -283,9 +286,7 @@
                 alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
             }
         });
-
     }
-
     function AddOptionCollection(item, index) {
         var selectCollection = document.getElementById('collection');
         var option = document.createElement('option');
@@ -320,7 +321,6 @@
             }
         });
     }
-
     function AddOptionNewCollection(item, index) {
         var selectCollection = document.getElementById('newcollection');
         var option = document.createElement('option');
@@ -395,9 +395,131 @@
         selectBanner.add(option);
     }
 
+
+    function EditOffer(){
+        var selectOffer = document.getElementById('offer');
+        selectOffer.options.length = 0;
+        var option = document.createElement('option');
+        option.text= "Seleziona l'offerta";
+        selectOffer.add(option);
+        var data;
+        var selected = document.getElementById('product');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetOffer') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result) {
+                data=result;
+                data.forEach(AddOptionOffer);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionOffer(item, index) {
+        var selectOffer = document.getElementById('offer');
+        var option = document.createElement('option');
+        option.text= item.id;
+        option.value= item.id;
+        selectOffer.add(option);
+    }
+
 </script>
 
 
+@if(strpos(route::currentRouteName(),'Admin.Collection.Restore')!== false)
+    <script>
+        function EditCollectionRestore(){
+            var selectCollection = document.getElementById('collection');
+            selectCollection.options.length = 0;
+            var option = document.createElement('option');
+            option.text= "Seleziona la collezione";
+            selectCollection.add(option);
+            var data;
+            var selected = document.getElementById('brand');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetCollection') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result)
+                {
+                    data=result;
+                    data.forEach(AddOptionCollection);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Banner.Restore')!== false)
+    <script>
+        function EditBannerRestore(){
+            var selectBanner = document.getElementById('banner');
+            selectBanner.options.length = 0;
+            var option = document.createElement('option');
+            option.text= "Seleziona il banner";
+            selectBanner.add(option);
+            var data;
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetBanner') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    data=result;
+                    data.forEach(AddOptionBanner);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Offer.Add')!== false or strpos(route::currentRouteName(),'Admin.Offer.Edit')!== false)
+    <script>
+        function EditPrice(){
+            var selected = document.getElementById('product');
+            var price = document.getElementById('price');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.GetPrice') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    price.value = result;
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+
+        function EditPriceRate(){
+            var price = document.getElementById('price');
+            var rate = document.getElementById('rate');
+            var pricerate = document.getElementById('price-rate');
+
+            pricerate.value = (price.value/100) * rate.value;
+        }
+    </script>
+@endif
 
 
 
@@ -406,17 +528,6 @@
     <script src="{{ URL::asset('vendor/backend/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script src="{{ URL::asset('vendor/backend/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
     <script src="{{ URL::asset('js/backend/main.js') }}"></script>
-    <script>
-        /* script per attivare, nell'add prodotto, il modello solo dopo aver scelto un brand*/
-        function activeModel() {
-            var x = document.getElementById("brand").value;
-            if (x == 0) {
-                document.getElementById('collection').setAttribute('disabled','disabled');
-            } else {
-                document.getElementById('collection').removeAttribute('disabled');
-            }
-        }
-    </script>
 @endif
 
 @if(strpos(route::currentRouteName(),'Admin')!== false)

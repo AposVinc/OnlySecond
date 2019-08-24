@@ -89,9 +89,8 @@ class BannerController extends Controller
         }
         return view('backend.banner.restore',['brands' => $brands]);
 */
-        $brands = Brand::onlyTrashed()->get();
+        $brands = Brand::withoutTrashed()->get();
         return view('backend.banner.restore',['brands' => $brands]);
-
     }
 
 
@@ -114,6 +113,7 @@ class BannerController extends Controller
 
     function getBannerRestore(Request $request)
     {
+        /*
         $value = $request->get('value');    //id della collection
         $data=Banner::onlyTrashed()->where('collection_id',$value)->get();
         $output ='<option value="0">Seleziona il banner</option>';
@@ -122,6 +122,10 @@ class BannerController extends Controller
             $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
         }
         return $output;
+    */
+        $value = $request->get('value');
+        $banners = Banner::onlyTrashed()->where('collection_id', $value)->get();
+        return $banners;
     }
 
 
@@ -176,7 +180,7 @@ class BannerController extends Controller
         $newcollection=$request->get('newcollection');
         $newbanner=$request->get('newbanner');
 
-        if ($newcollection == "0"){
+        if ($newcollection == ""){
             Banner::where('id',$banner)
                 ->update(['image' => $newbanner]);
         } else if($newbanner=="") {

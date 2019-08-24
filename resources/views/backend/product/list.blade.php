@@ -26,7 +26,6 @@
                                 <tr>
                                     <th>Nome Brand</th>
                                     <th>Nome Collezione</th>
-                                    <th>Nome Prodotto</th>
                                     <th>Codice Prodotto</th>
                                     <th>Disp. Magaz</th>
                                     <th>Prezzo</th>
@@ -42,7 +41,6 @@
                                         <tr>
                                             <td>{{$brand->name}}</td>
                                             <td>{{$collection->name}}</td>
-                                            <td>{{$product->name}}</td>
                                             <td>{{$product->cod}}</td>
                                             <td>{{$product->stock_availability}}</td>
                                             <td>{{$product->price}} €</td>

@@ -35,7 +35,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" onchange="EditBanner()" required>
+                        <select name="collection" id="collection" class="form-control" onchange="EditBannerRestore()" required>
                             <option value="">Seleziona la collezione</option>
                         </select>
                     </div>

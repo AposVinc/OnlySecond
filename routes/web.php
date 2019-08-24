@@ -125,6 +125,11 @@ Route::prefix('Admin')->group(function () {
         Route::post('/GetBanner', 'BannerController@getBanner')->name('GetBanner');
         Route::post('/RestoreGetBanner', 'BannerController@getBannerRestore')->name('RestoreGetBanner');
 
+        #route chiamata ajax per offer
+        Route::post('/GetOffer', 'OfferController@getOffer')->name('GetOffer');
+        Route::post('/GetPrice', 'OfferController@getPrice')->name('GetPrice');
+        Route::post('/RestoreGetOffer', 'OfferController@getOfferRestore')->name('RestoreGetOffer');
+
         #route chiamata ajax per image
         Route::post('/GetImage', 'ImageController@getImage')->name('GetImage');
         Route::post('/RestoreGetImage', 'ImageController@getImageRestore')->name('RestoreGetImage');

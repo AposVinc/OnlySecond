@@ -22,7 +22,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="activeModel()" required>
+                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
@@ -34,7 +34,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" required>
+                        <select name="collection" id="collection" class="form-control" onchange="EditProduct()" required>
                             <option value="">Seleziona il collezione</option>
                         </select>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" required>
+                        <select name="product" id="product" class="form-control" onchange="EditPrice()" required>
                             <option value="">Seleziona il prodotto</option>
                         </select>
                     </div>
@@ -54,7 +54,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price" name="input3-group1" placeholder="00.00" class="form-control" disabled="disabled">
+                            <input type="text" id="price" name="price" step="00.01" value="00.00" placeholder="00.00" class="form-control" disabled="disabled">
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-percent"></i></div>
-                            <input type="text" id="rate" name="input3-group1" placeholder="00" class="form-control" required>
+                            <input type="text" id="rate" name="rate" placeholder="00" class="form-control" oninput="EditPriceRate()" required>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price-rate" name="input3-group1" placeholder="00.00" class="form-control" disabled="disabled">
+                            <input type="text" id="price-rate" name="price-rate" step="00.01" placeholder="00.00" class="form-control" disabled="disabled">
                         </div>
                     </div>
                 </div>

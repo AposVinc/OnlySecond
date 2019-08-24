@@ -45,7 +45,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="newbrand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="newbrand" id="newbrand" class="form-control " data-dependent="collection" required>
+                        <select name="newbrand" id="newbrand" class="form-control" required>
                             <option value="">Seleziona il nuovo brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -70,41 +70,4 @@
 
     </form>
 
-<script>
-    function EditCollection(){
-        var selectCollection = document.getElementById('collection');
-        selectCollection.options.length = 0;
-        var option = document.createElement('option');
-        option.text= "Seleziona la collezione";
-        selectCollection.add(option);
-        var data;
-        var selected = document.getElementById('brand');
-        var value = selected.options[selected.selectedIndex].value;
-
-        jQuery.ajax({
-            url:'{{ route('Admin.GetCollection') }}',
-            method:"POST",
-            dataType: "json",
-            data:{value:value, _token: "{{ csrf_token() }}"},
-            success:function(result)
-            {
-                data=result;
-                data.forEach(AddOptionCollection);
-            },
-            error:function(xhr){
-                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-            }
-        });
-
-    }
-
-    function AddOptionCollection(item, index) {
-        var selectCollection = document.getElementById('collection');
-        var option = document.createElement('option');
-        option.text= item.name;
-        option.value= item.id;
-        selectCollection.add(option);
-    }
-
-</script>
 @endsection

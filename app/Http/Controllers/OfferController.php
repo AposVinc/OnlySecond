@@ -38,18 +38,6 @@ class OfferController extends Controller{
         return view('backend.offer.edit', ['brands' => $brands]);
     }
 
-    function getOffer(Request $request)
-    {
-        $value = $request->get('value');
-        $data = Collection::withTrashed()->where('brand_id', $value)->get();
-        $output = '<option value="0">Seleziona la collezione</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output;
-    }
-
     public function showDeleteForm()
     {
         $brands = Brand::all();
@@ -69,6 +57,48 @@ class OfferController extends Controller{
         */
         return view('backend.offer.restore', ['brands' => $brands]);
     }
+
+
+    function getOffer(Request $request)
+    {
+        /*
+        $value = $request->get('value');
+        $data = Collection::withTrashed()->where('brand_id', $value)->get();
+        $output = '<option value="0">Seleziona la collezione</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
+        }
+        return $output;
+        */
+        $value = $request->get('value');
+        $offers = Product::withoutTrashed()->find($value)->offers()->get();
+        return $offers;
+    }
+
+    function getPrice(Request $request)
+    {
+        $value = $request->get('value');
+        $price = Product::withoutTrashed()->find($value)->price;
+        return $price;
+    }
+
+    function getOfferRestore(Request $request)
+    {
+        /*
+        $value = $request->get('value');    //id del brand
+        $data = Collection::onlyTrashed('collections')->where('brand_id', $value)->get();
+        $output = '<option value="">Seleziona la collezione</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
+        }
+        return $output; */
+        $value = $request->get('value');
+        $offers = Offer::onlyTrashed()->where('product_id', $value)->get();
+        return $offers;
+    }
+
 
     public function create(Request $request)
     {

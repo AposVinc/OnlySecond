@@ -22,7 +22,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="activeModel()" required>
+                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
@@ -34,7 +34,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" required>
+                        <select name="collection" id="collection" class="form-control" onchange="EditProduct()" required>
                             <option value="">Seleziona il collezione</option>
                         </select>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" required>
+                        <select name="product" id="product" class="form-control" onchange="EditOffer()" required>
                             <option value="">Seleziona il prodotto</option>
                         </select>
                     </div>
