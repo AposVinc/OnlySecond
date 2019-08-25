@@ -10,6 +10,8 @@ class Specification extends Model
 {
     use SoftDeletes, SoftCascadeTrait;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be mutated to dates.
      *
@@ -17,7 +19,6 @@ class Specification extends Model
      */
     protected $dates = ['deleted_at'];
     protected $softCascade = [];
-
 
     protected $fillable =[
 

@@ -10,6 +10,8 @@ class Supplier extends Model
 {
     use SoftDeletes, SoftCascadeTrait;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be mutated to dates.
      *
@@ -19,8 +21,7 @@ class Supplier extends Model
     protected $softCascade = ['products'];
 
     protected $fillable =[
-
-    ];
+        ];
 
     public function products()
     {

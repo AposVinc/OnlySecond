@@ -10,6 +10,8 @@ class OfferProduct extends Pivot
 {
     use SoftDeletes, SoftCascadeTrait;
 
+    protected $primaryKey = 'id';
+
     protected $dates = ['deleted_at'];
     protected $softCascade = [];
 }

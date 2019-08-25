@@ -9,6 +9,8 @@ class Image extends Model
 {
     use SoftDeletes;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be mutated to dates.
      *

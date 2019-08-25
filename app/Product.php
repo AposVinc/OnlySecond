@@ -10,6 +10,8 @@ class Product extends Model
 {
     use SoftDeletes, SoftCascadeTrait;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be mutated to dates.
      *
@@ -19,8 +21,9 @@ class Product extends Model
     protected $softCascade = ['images','specification','offersRel','reviews','categoriesRel'];
 
     protected $fillable =[
-        'cod', 'name', 'price', 'producer_id', 'category_id',
+        'cod', 'collection_id', 'price', 'producer_id', 'category_id',
     ];
+
 
     function collection() {
         return $this->belongsTo('App\Collection');
