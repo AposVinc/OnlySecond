@@ -26,8 +26,7 @@ class CollectionController extends Controller
     public function showListForm()
     {
         $collections = Collection::withTrashed()->get();
-        $brands = Brand::withTrashed()->get();
-        return view('backend.collection.list', ['collections' => $collections, 'brands' => $brands]);
+        return view('backend.collection.list', ['collections' => $collections]);
     }
 
     public function showAddForm()
@@ -199,7 +198,7 @@ class CollectionController extends Controller
      */
     public function destroy(Request $request)
     {
-        $collection=$request->get('collection');
+        $collection = $request->get('collection');
         Collection::withTrashed()->find($collection)->delete();
 
         return redirect()->to('Admin/Collection/List');

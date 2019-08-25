@@ -266,7 +266,8 @@
         var selectCollection = document.getElementById('collection');
         selectCollection.options.length = 0;
         var option = document.createElement('option');
-        option.text= "Seleziona la collezione";
+        option.text = "Seleziona la collezione";
+        option.value = "";
         selectCollection.add(option);
         var data;
         var selected = document.getElementById('brand');
@@ -300,7 +301,8 @@
         var selectCollection = document.getElementById('newcollection');
         selectCollection.options.length = 0;
         var option = document.createElement('option');
-        option.text= "Seleziona la collezione";
+        option.text = "Seleziona la collezione";
+        option.value = "";
         selectCollection.add(option);
         var data;
         var selected = document.getElementById('newbrand');
@@ -334,7 +336,8 @@
         var selectProduct = document.getElementById('product');
         selectProduct.options.length = 0;
         var option = document.createElement('option');
-        option.text= "Seleziona il prodotto";
+        option.text = "Seleziona il prodotto";
+        option.value = "";
         selectProduct.add(option);
         var data;
         var selected = document.getElementById('collection');
@@ -367,7 +370,8 @@
         var selectBanner = document.getElementById('banner');
         selectBanner.options.length = 0;
         var option = document.createElement('option');
-        option.text= "Seleziona il banner";
+        option.text = "Seleziona il banner";
+        option.value = "";
         selectBanner.add(option);
         var data;
         var selected = document.getElementById('collection');
@@ -400,7 +404,8 @@
         var selectOffer = document.getElementById('offer');
         selectOffer.options.length = 0;
         var option = document.createElement('option');
-        option.text= "Seleziona l'offerta";
+        option.text = "Seleziona l'offerta";
+        option.value = "";
         selectOffer.add(option);
         var data;
         var selected = document.getElementById('product');
@@ -437,7 +442,8 @@
             var selectCollection = document.getElementById('collection');
             selectCollection.options.length = 0;
             var option = document.createElement('option');
-            option.text= "Seleziona la collezione";
+            option.text = "Seleziona la collezione";
+            option.value = "";
             selectCollection.add(option);
             var data;
             var selected = document.getElementById('brand');
@@ -461,13 +467,44 @@
     </script>
 @endif
 
+@if(strpos(route::currentRouteName(),'Admin.Product.Restore')!== false)
+    <script>
+        function EditProductRestore(){
+            var selectProduct = document.getElementById('product');
+            selectProduct.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona il prodotto";
+            option.value = "";
+            selectProduct.add(option);
+            var data;
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetProduct') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    data=result;
+                    data.forEach(AddOptionProduct);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endif
+
 @if(strpos(route::currentRouteName(),'Admin.Banner.Restore')!== false)
     <script>
         function EditBannerRestore(){
             var selectBanner = document.getElementById('banner');
             selectBanner.options.length = 0;
             var option = document.createElement('option');
-            option.text= "Seleziona il banner";
+            option.text = "Seleziona il banner";
+            option.value = "";
             selectBanner.add(option);
             var data;
             var selected = document.getElementById('collection');
@@ -521,6 +558,35 @@
     </script>
 @endif
 
+@if(strpos(route::currentRouteName(),'Admin.Offer.Restore')!== false)
+    <script>
+        function EditOfferRestore(){
+            var selectOffer = document.getElementById('offer');
+            selectOffer.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona l'offerta";
+            option.value = "";
+            selectOffer.add(option);
+            var data;
+            var selected = document.getElementById('product');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetOffer') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    data=result;
+                    data.forEach(AddOptionBanner);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endif
 
 
 <!--

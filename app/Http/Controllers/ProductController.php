@@ -4,19 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
-use App\Collection;
 use App\Product;
 use App\Supplier;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use DB;
+
 
 class ProductController extends Controller
 {
     public function showListForm()
     {
-        $brands = Brand::withTrashed()->get();
-        return view('backend.product.list', ['brands' => $brands]);
+        $products = Product::withTrashed()->get();
+        return view('backend.product.list', ['products' => $products]);
     }
 
     public function showAddForm()
@@ -37,12 +35,20 @@ class ProductController extends Controller
 
     public function showDeleteForm()
     {
-        return view('backend.product.delete');
+        $brands = Brand::withoutTrashed()->get();
+        return view('backend.product.delete',['brands' => $brands]);
     }
 
     public function showRestoreForm()
     {
-        return view('backend.product.restore');
+        $brands = Brand::withoutTrashed()->get();
+        return view('backend.product.restore',['brands' => $brands]);
+    }
+
+    public function show($cod)
+    {
+        $product = Product::where('cod', $cod)->firstOrFail();
+        return view('product')->with(['product' => $product]);
     }
 
 
@@ -50,6 +56,13 @@ class ProductController extends Controller
     {
         $value = $request->get('value');
         $products = Product::withoutTrashed()->where('collection_id', $value)->get();
+        return $products;
+    }
+
+    function getProductRestore(Request $request)
+    {
+        $value = $request->get('value');
+        $products = Product::onlyTrashed()->where('collection_id', $value)->get();
         return $products;
     }
 
@@ -68,13 +81,6 @@ class ProductController extends Controller
 
         return redirect()->to('Admin/Product/List');
     }
-
-    public function show($cod)
-    {
-        $product = Product::where('cod', $cod)->firstOrFail();
-        return view('product')->with(['product' => $product]);
-    }
-
 
     /**
      * Update the specified resource in storage.
@@ -97,10 +103,10 @@ class ProductController extends Controller
 
     public function restore(Request $request)   //query senza nome
     {
-        $id = $request->get('collection');
-        Collection::where('id',$id)->restore();
+        $id = $request->get('product');
+        Product::where('id',$id)->restore();
 
-        return redirect()->to('Admin/Collection/List');
+        return redirect()->to('Admin/Product/List');
     }
 
     /**

@@ -46,8 +46,9 @@ class OfferController extends Controller{
 
     public function showRestoreForm()   //solo offerte da reispristnare?
     {
-        $brands = Brand::onlyTrashed()->get(); //
         /*
+        $brands = Brand::onlyTrashed()->get();
+
         if (sizeof($offers) == 0) {
             $this->EchoMessage("Non ci sono Offerte da ripristinare");
             return view('backend.index');
@@ -55,6 +56,7 @@ class OfferController extends Controller{
             return view('backend.offer.restore', ['offers' => $offers]);
         }
         */
+        $brands = Brand::withoutTrashed()->get();
         return view('backend.offer.restore', ['brands' => $brands]);
     }
 
@@ -94,8 +96,9 @@ class OfferController extends Controller{
             $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
         }
         return $output; */
+
         $value = $request->get('value');
-        $offers = Offer::onlyTrashed()->where('product_id', $value)->get();
+        $offers = Product::onlyTrashed()->find($value)->offers()->get();
         return $offers;
     }
 

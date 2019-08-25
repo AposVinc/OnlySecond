@@ -16,6 +16,7 @@
     @endcomponent
 
     <form action="{{route('Admin.Product.EditUpdate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+        @csrf
         <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-body card-block">
@@ -42,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control"> <!-- disabled="disabled" -->
+                        <select name="product" id="product" class="form-control">
                             <option value="">Seleziona il prodotto</option>
                         </select>
                     </div>
@@ -79,19 +80,19 @@
                     <div class="col col-md-9">
                         <div class="form-check-inline form-check">
                             <label for="inline-radio1" class="form-check-label ">
-                                <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input" required> M
+                                <input type="radio" id="inline-radio1" name="inline-radios" value="M" class="form-check-input" required> M
                             </label>
 
                             &emsp;
 
                             <label for="inline-radio2" class="form-check-label ">
-                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" required> F
+                                <input type="radio" id="inline-radio2" name="inline-radios" value="F" class="form-check-input" required> F
                             </label>
 
                             &emsp;
 
                             <label for="inline-radio2" class="form-check-label ">
-                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" required> Unisex
+                                <input type="radio" id="inline-radio2" name="inline-radios" value="U" class="form-check-input" required> Unisex
                             </label>
                         </div>
                     </div>
@@ -115,7 +116,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price" name="input3-group1" placeholder="00.00" class="form-control" required>
+                            <input type="text" id="price" name="input3-group1" step=".01" value="00.00" placeholder="00.00" class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -134,7 +135,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="other-photo" class=" form-control-label">Foto Aggiuntive (opzionali)</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="fother-photo" name="other-photo" multiple="" class="form-control-file"></div>
+                    <div class="col-12 col-md-9"><input type="file" id="other-photo" name="other-photo" multiple="" class="form-control-file"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="color-input" class=" form-control-label">Colore</label></div>

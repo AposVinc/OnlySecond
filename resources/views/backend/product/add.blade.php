@@ -16,7 +16,8 @@
     @endcomponent
 
     <form action="{{route('Admin.Product.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-        <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
+        @csrf
+    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-body card-block">
                 <div class="row form-group">
@@ -26,7 +27,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection" required>
+                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
@@ -47,15 +48,15 @@
                     <div class="col col-md-9">
                         <div class="form-check-inline form-check">
                             <label for="inline-radio1" class="form-check-label " >
-                                <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input" required> M
+                                <input type="radio" id="inline-radio1" name="inline-radios" value="M" class="form-check-input" required> M
                             </label>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <label for="inline-radio2" class="form-check-label ">
-                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" required> F
+                                <input type="radio" id="inline-radio2" name="inline-radios" value="F" class="form-check-input" required> F
                             </label>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <label for="inline-radio2" class="form-check-label ">
-                                <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" required> Unisex
+                                <input type="radio" id="inline-radio2" name="inline-radios" value="U" class="form-check-input" required> Unisex
                             </label>
                         </div>
                     </div>
@@ -79,7 +80,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price" name="input3-group1" placeholder="00.00" class="form-control" required>
+                            <input type="text" id="price" name="input3-group1" step=".01" value="00.00" placeholder="00.00" class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -98,11 +99,11 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="other-photo" class=" form-control-label">Foto Aggiuntive (opzionali)</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="fother-photo" name="other-photo" multiple="" class="form-control-file"></div>
+                    <div class="col-12 col-md-9"><input type="file" id="other-photo" name="other-photo" multiple="" class="form-control-file"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="color-input" class=" form-control-label">Colore</label></div>
-                    <div class="col-12 col-md-9"><input type="color" id="color-input" name="color-input" required><!--0class="form-control"--><small class="form-text text-muted">Scegliere il colore dell'orologio</small></div>
+                    <div class="col col-md-3"><label for="color" class=" form-control-label">Colore</label></div>
+                    <div class="col-12 col-md-9"><input type="color" id="color" name="color" required><!--0class="form-control"--><small class="form-text text-muted">Scegliere il colore dell'orologio</small></div>
                 </div>
                 &emsp;
                 <div class="row form-group">

@@ -35,12 +35,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($brands as $brand)
-                                    @foreach($brand->collections as $collection)
-                                        @foreach($collection->products as $product)
+                                    @foreach($products as $product)
                                         <tr>
-                                            <td>{{$brand->name}}</td>
-                                            <td>{{$collection->name}}</td>
+                                            <td>{{$product->collection->brand->name}}</td>
+                                            <td>{{$product->collection->name}}</td>
                                             <td>{{$product->cod}}</td>
                                             <td>{{$product->stock_availability}}</td>
                                             <td>{{$product->price}} €</td>
@@ -49,9 +47,6 @@
                                             <td>{{$product->deleted_at}}</td>
                                         </tr>
                                     @endforeach
-
-                                    @endforeach
-                                @endforeach
                                 </tbody>
                             </table>
                         </div>
