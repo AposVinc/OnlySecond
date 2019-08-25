@@ -516,7 +516,7 @@
             var rate = document.getElementById('rate');
             var pricerate = document.getElementById('price-rate');
 
-            pricerate.value = (price.value/100) * rate.value;
+            pricerate.value = Math.round( ((price.value/100)*rate.value) * 100) / 100;
         }
     </script>
 @endif

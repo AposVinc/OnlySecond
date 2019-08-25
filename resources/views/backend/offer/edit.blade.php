@@ -54,7 +54,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price" name="input3-group1" placeholder="00.00" class="form-control" disabled="disabled">
+                            <input type="text" id="price" name="price" step=".01" value="00.00" placeholder="00.00" class="form-control" disabled="disabled">
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price-rate" name="price-rate" placeholder="00.00" class="form-control" disabled="disabled">
+                            <input type="text" id="price-rate" name="price-rate" step=".01" value="00.00" placeholder="00.00" class="form-control" disabled="disabled">
                         </div>
                     </div>
                 </div>
