@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -12,13 +13,6 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function EchoMessage($msg)
-    {
-        echo '<script type="text/javascript">
-            alert("' . $msg . '")
-            </script>';
-    }
 
     public function showListForm()
     {
@@ -62,12 +56,32 @@ class BrandController extends Controller
      */
     public function create(Request $request)  //
     {
-        $input = $request->all();
-        $brand = new Brand();
-        $brand->name = $input['text-input'];
-        $brand->save();
-
-        return redirect()->to('Admin/Brand/List');
+        if ($request->hasFile('logo')) { //  se il file è presente nella request
+            if ($request->file('logo')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+                $path='public/Logo';
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $nameBrand=$request->get('newbrand');
+                $path.= '/'. $nameBrand;
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $filename= 'Logo_'. $nameBrand;
+                $path = $request->file('logo')->storeAs($path, $filename);
+                if($path!=""){
+                    $brand = new Brand();
+                    $brand->name = $nameBrand;
+                    $brand->path_logo = $path;
+                    $brand->save();
+                    return redirect()->to('Admin/Brand/List')->with('status','Caricamento avvenuto con successo!!');
+                }
+            }else{
+                return redirect()->to('Admin/Brand/List')->with('error','Errore durante il caricamento. Riprovare!!');
+            }
+        }else{
+            return redirect()->to('Admin/Brand/List')->with('error','File non trovato. Riprovare!!');
+        }
     }
 
     /**

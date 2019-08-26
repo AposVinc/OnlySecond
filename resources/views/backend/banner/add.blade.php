@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">Immagine Banner</label></div>
+                    <div class="col col-md-3"><label for="file" class=" form-control-label">Immagine Banner</label></div>
                     <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file" required></div>
                 </div>
                 <div class="row form-group">
