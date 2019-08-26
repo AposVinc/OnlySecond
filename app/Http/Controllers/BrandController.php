@@ -63,16 +63,13 @@ class BrandController extends Controller
                     Storage::makeDirectory($path);
                 }
                 $nameBrand=$request->get('newbrand');
-                $path.= '/'. $nameBrand;
-                if(!(Storage::exists($path))){
-                    Storage::makeDirectory($path);
-                }
                 $filename= 'Logo_'. $nameBrand;
+                $path_logo = 'storage/Logo/'. $filename;
                 $path = $request->file('logo')->storeAs($path, $filename);
                 if($path!=""){
                     $brand = new Brand();
                     $brand->name = $nameBrand;
-                    $brand->path_logo = $path;
+                    $brand->path_logo = $path_logo;
                     $brand->save();
                     return redirect()->to('Admin/Brand/List')->with('status','Caricamento avvenuto con successo!!');
                 }

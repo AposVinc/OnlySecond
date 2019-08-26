@@ -63,6 +63,10 @@ Route::get('/Favorite', function () {
     return view('frontend.favorite');
 })->name('Favorite');
 
+Route::get('/Login1', function () {
+    return view('login1');
+})->name('Login1');
+
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
 Route::get('Login', 'Auth\LoginController@showLoginForm')->name('user.login');
@@ -186,7 +190,6 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/Edit', 'BrandController@showEditForm')->name('Edit');
                     Route::post('/EditUpdate', 'BrandController@update')->name('EditUpdate');
 
-
                     Route::get('/Delete', 'BrandController@showDeleteForm')->name('Delete');
                     Route::post('/DeleteDestroy', 'BrandController@destroy')->name('DeleteDestroy');
 
@@ -231,7 +234,6 @@ Route::prefix('Admin')->group(function () {
 
                     Route::get('/Restore', 'ProductController@showRestoreForm')->name('Restore');
                     Route::post('/RestoreRestore', 'ProductController@restore')->name('RestoreRestore');
-
                 });
             });
 
