@@ -1248,7 +1248,6 @@ label.checkme {
     background-color: #fff;
 }
 
-
 /* ----------------------------------------------
 	2.5 Cart
 ----------------------------------------------- */
@@ -1317,6 +1316,12 @@ label.checkme {
 /* ----------------------------------------------
 	2.6 Header bottom
 ----------------------------------------------- */
+.cardCol{
+    color:#fa4251;
+}
+.cardCol:hover{
+    background-color:yellow;
+}
 
 .header-bottom-left {
     background: #f2f2f2 none repeat scroll 0 0;

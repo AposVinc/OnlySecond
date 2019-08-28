@@ -4,7 +4,7 @@
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
         <div class="row ">
-            <!-- =====  BANNER STRAT  ===== -->
+            <!-- =====  BANNER START  ===== -->
             <div class="col-sm-12">
                 <div class="breadcrumb ptb_20">
                     <h1>WishList</h1>

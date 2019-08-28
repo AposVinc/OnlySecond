@@ -524,7 +524,7 @@
                             </div>
 
                             <div class="buttons">
-                                <div class="pull-right mt_20">Ho letto e sono d'accordo con i <a class="agree" href="#"><b>Termini e le Condizioni</b></a>
+                                <div class="pull-right mt_20">Ho letto E Accetto I <a class="agree" href="#"><b>Termini E Le Condizioni</b></a>
                                     <input type="checkbox" value="1" name="agree"> &nbsp;
                                     <input type="button" class="btn" data-loading-text="Loading..." id="button-payment-method" value="Continua">
                                 </div>
