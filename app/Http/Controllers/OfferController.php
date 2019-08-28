@@ -12,21 +12,15 @@ use DB;
 
 class OfferController extends Controller{
 
-    public function EchoMessage($msg)
-    {
-        echo '<script type="text/javascript">
-                alert("', $msg, '")
-                    </script>';
-    }
     public function showListForm()
     {
         $offers= Offer::withTrashed()->with('product')->get();
-        return view('backend.offer.list', ['offer' => $offers]);
+        return view('backend.offer.list', ['offers' => $offers]);
     }
 
     public function showAddForm()
     {
-        $brands = Brand::withTrashed()->get();
+        $brands = Brand::all();
         return view('backend.offer.add',['brands' => $brands]);
     }
 
@@ -55,27 +49,10 @@ class OfferController extends Controller{
             return view('backend.offer.restore', ['offers' => $offers]);
         }
         */
-        $brands = Brand::withoutTrashed()->get();
+        $brands = Brand::all();
         return view('backend.offer.restore', ['brands' => $brands]);
     }
 
-
-    function getOffer(Request $request)
-    {
-        /*
-        $value = $request->get('value');
-        $data = Collection::withTrashed()->where('brand_id', $value)->get();
-        $output = '<option value="0">Seleziona la collezione</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output;
-        */
-        $value = $request->get('value');
-        $offers = Product::withoutTrashed()->find($value)->offers()->get();
-        return $offers;
-    }
 
     function getPrice(Request $request)
     {
@@ -84,31 +61,22 @@ class OfferController extends Controller{
         return $price;
     }
 
-    function getOfferRestore(Request $request)
+    function getRate(Request $request)
     {
-        /*
-        $value = $request->get('value');    //id del brand
-        $data = Collection::onlyTrashed('collections')->where('brand_id', $value)->get();
-        $output = '<option value="">Seleziona la collezione</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output; */
-
         $value = $request->get('value');
-        $offers = Product::onlyTrashed()->find($value)->offers()->get();
-        return $offers;
+        $rate = Product::withoutTrashed()->find($value)->offer->rate;
+        return $rate;
     }
 
 
     public function create(Request $request)
     {
+        $id = $request->product;
+        $product = Product::withoutTrashed()->find($id);
         $offer = new Offer();
         $offer->rate = $request->rate;
-        $offer->newprice = $request->pricerate;
+        $product->offer()->save($offer);
         $offer->save();
-
         return redirect()->to('Admin/Offer/List');
     }
 
@@ -120,29 +88,27 @@ class OfferController extends Controller{
 
     public function restore(Request $request)
     {
-        $id = $request->get('category');
-        Category::find($id)->restore();
+        $id = $request->get('offer');
+        Offer::find($id)->restore();
 
-        return redirect()->to('Admin/Category/List');
+        return redirect()->to('Admin/Offer/List');
 
     }
 
     public function update(Request $request)
     {
         $id = $request->get('offer');
-        $newname = $request->get('newname');
 
-        Offer::where('id', $id)->restore();
         Offer::where('id', $id)
-            ->update(['name' => $newname]);
+            ->update(['rate' => $request['rate']]);
 
         return redirect()->to('Admin/Offer/List');
     }
 
     public function destroy(Request $request)
     {
-        $id = $request->get('offer');
-        Offer::withTrashed()->find($id)->delete();
+        $id = $request->get('product');
+        Product::withoutTrashed()->find($id)->offer->delete();
 
         return redirect()->to('Admin/Offer/List');
     }

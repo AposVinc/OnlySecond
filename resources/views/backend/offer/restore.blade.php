@@ -34,7 +34,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" onchange="EditProduct()" required>
+                        <select name="collection" id="collection" class="form-control" onchange="EditProductWithOfferRestore()" required>
                             <option value="">Seleziona il collezione</option>
                         </select>
                     </div>
@@ -43,18 +43,41 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" onchange="EditOfferRestore()" required>
+                        <select name="product" id="product" class="form-control" onchange="EditPrice();EditRate();EditPriceRate();" required>
                             <option value="">Seleziona il prodotto</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="offer" class=" form-control-label">Offerta</label></div>
+                    <div class="col col-md-3"><label for="price" class=" form-control-label">Prezzo Non Scontato</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="offer" id="offer" class="form-control" required>
-                            <option value="">Seleziona l'offerta</option>
-                        </select>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                            <input type="text" id="price" name="price" step=".01" placeholder="00.00" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+
+                &emsp;
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="rate" class=" form-control-label">Sconto</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-percent"></i></div>
+                            <input type="text" id="rate" name="rate" placeholder="00" class="form-control" disabled="disabled" required >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="pricerate" class=" form-control-label">Prezzo Scontato</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-euro"></i></div>
+                            <input type="text" id="pricerate" name="pricerate" step=".01" placeholder="00.00" class="form-control" disabled="disabled" required >
+                        </div>
                     </div>
                 </div>
             </div>

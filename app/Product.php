@@ -26,7 +26,7 @@ class Product extends Model
 
 
     function collection() {
-        return $this->belongsTo('App\Collection');
+        return $this->belongsTo('App\Collection')->withTrashed();
     }
 
     public function categories()
@@ -60,7 +60,7 @@ class Product extends Model
     }
 
     public function offer(){
-        return $this->HasOne('App\Offer');
+        return $this->hasOne('App\Offer')->withTrashed();
     }
 
 

@@ -38,12 +38,12 @@
                                 <tbody>
                                 @foreach($offers as $offer)
                                     <tr>
-                                        <td>{{$offer->collection->brand->name}}</td>
-                                        <td>{{$offer->collection->name}}</td>
-                                        <td>{{$offer->product->name}}</td>
+                                        <td>{{$offer->product->collection->brand->name}}</td>
+                                        <td>{{$offer->product->collection->name}}</td>
+                                        <td>{{$offer->product->cod}}</td>
                                         <td>{{$offer->product->price}}</td>
                                         <td>{{$offer->rate}}</td>
-                                        <td>{{$offer->newprice}}</td>
+                                        <td>{{$offer->calculateDiscount()}}</td>
                                         <td>{{$offer->created_at}}</td>
                                         <td>{{$offer->updated_at}}</td>
                                         <td>{{$offer->deleted_at}}</td>

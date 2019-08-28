@@ -34,7 +34,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" onchange="EditProduct()" required>
+                        <select name="collection" id="collection" class="form-control" onchange="EditProductWithOffer()" required>
                             <option value="">Seleziona il collezione</option>
                         </select>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" onchange="EditPrice()" required>
+                        <select name="product" id="product" class="form-control" onchange="EditRate();EditPrice();" required>
                             <option value="">Seleziona il prodotto</option>
                         </select>
                     </div>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="pricerate" class=" form-control-label">Nuovo Prezzo Scontato</label></div>
+                    <div class="col col-md-3"><label for="pricerate" class="form-control-label">Nuovo Prezzo Scontato</label></div>
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
@@ -83,7 +83,7 @@
 
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-sm">
+                <button type="submit" onclick="EnablePriceRate()" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Modifica
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">

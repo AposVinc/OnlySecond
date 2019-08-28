@@ -39,13 +39,8 @@ class BrandController extends Controller
 
     public function showRestoreForm()
     {
-        $brands = Brand::onlyTrashed('brands')->get();
-        if(sizeof($brands)==0) {
-            $this->EchoMessage("Non ci sono Brand da ripristinare");
-            return view('backend.index');
-        }else {
-            return view('backend.brand.restore', ['brands' => $brands]);
-        }
+        $brands = Brand::onlyTrashed()->get();
+        return view('backend.brand.restore', ['brands' => $brands]);
     }
 
     /**

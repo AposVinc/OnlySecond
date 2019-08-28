@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Offer;
 use App\Product;
 use App\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 
 class ProductController extends Controller
@@ -19,7 +21,7 @@ class ProductController extends Controller
 
     public function showAddForm()
     {
-        $brands = Brand::withTrashed()->get();
+        $brands = Brand::all();
         $categories = Category::all();
         $suppliers = Supplier::all();
         return view('backend.product.add',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers]);
@@ -27,7 +29,7 @@ class ProductController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::withTrashed()->get();
+        $brands = Brand::all();
         $categories = Category::all();
         $suppliers = Supplier::all();
         return view('backend.product.edit',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers]);
@@ -35,13 +37,13 @@ class ProductController extends Controller
 
     public function showDeleteForm()
     {
-        $brands = Brand::withoutTrashed()->get();
+        $brands = Brand::all();
         return view('backend.product.delete',['brands' => $brands]);
     }
 
     public function showRestoreForm()
     {
-        $brands = Brand::withoutTrashed()->get();
+        $brands = Brand::all();
         return view('backend.product.restore',['brands' => $brands]);
     }
 
@@ -63,6 +65,36 @@ class ProductController extends Controller
     {
         $value = $request->get('value');
         $products = Product::onlyTrashed()->where('collection_id', $value)->get();
+        return $products;
+    }
+
+    function getProductWithOffer(Request $request)
+    {
+        $value = $request->get('value');
+        //$products = Product::withoutTrashed()->where('collection_id', $value)->has('offer')->get();
+        $products = new Collection();
+        $offers = Offer::withoutTrashed()->get();
+        foreach ($offers as $offer){
+            $product = $offer->product;
+            if ($product->collection_id == $value){
+                $products->push($product);
+            }
+        }
+        return $products;
+    }
+
+    function getProductRestoreWithOffer(Request $request)
+    {
+        $value = $request->get('value'); //id product
+        //$products = Product::withoutTrashed()->with('offer')->where('collection_id', $value)->get();
+        $products = new Collection();
+        $offers = Offer::onlyTrashed()->get();
+        foreach ($offers as $offer){
+            $product = $offer->product;
+            if ($product->collection_id == $value){
+                $products->push($product);
+            }
+        }
         return $products;
     }
 
@@ -97,6 +129,8 @@ class ProductController extends Controller
         Product::where('id',$id)->restore();
         Product::where('id',$id)
             ->update(['name' => $newname]);
+
+        //AGGIUìORNA IL PREZZO NELLE OFFERTE
 
         return redirect()->to('Admin/Product/List');
     }

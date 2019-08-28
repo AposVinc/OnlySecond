@@ -20,13 +20,21 @@ class Offer extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable =[
-        'rate',
+        'rate','product_id',
     ];
 
     public function product(){
-        return $this->belongsTo('App\Product');
+        return $this->belongsTo('App\Product')->withTrashed();
     }
 
+    public function calculateDiscount(){
+        $price = $this->product->price;
+        $rate = $this->rate;
 
+        $discount_value =  ($price / 100) * $rate;
+        $final_price = $price - $discount_value;
+
+        return number_format($final_price, 2);
+    }
 
 }

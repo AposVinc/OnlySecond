@@ -399,40 +399,6 @@
         selectBanner.add(option);
     }
 
-
-    function EditOffer(){
-        var selectOffer = document.getElementById('offer');
-        selectOffer.options.length = 0;
-        var option = document.createElement('option');
-        option.text = "Seleziona l'offerta";
-        option.value = "";
-        selectOffer.add(option);
-        var data;
-        var selected = document.getElementById('product');
-        var value = selected.options[selected.selectedIndex].value;
-
-        jQuery.ajax({
-            url:'{{ route('Admin.GetOffer') }}',
-            method:"POST",
-            dataType: "json",
-            data:{value:value, _token: "{{ csrf_token() }}"},
-            success:function(result) {
-                data=result;
-                data.forEach(AddOptionOffer);
-            },
-            error:function(xhr){
-                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-            }
-        });
-    }
-    function AddOptionOffer(item, index) {
-        var selectOffer = document.getElementById('offer');
-        var option = document.createElement('option');
-        option.text= item.id;
-        option.value= item.id;
-        selectOffer.add(option);
-    }
-
 </script>
 
 
@@ -494,6 +460,7 @@
                 }
             });
         }
+
     </script>
 @endif
 
@@ -527,9 +494,40 @@
     </script>
 @endif
 
-@if(strpos(route::currentRouteName(),'Admin.Offer.Add')!== false or strpos(route::currentRouteName(),'Admin.Offer.Edit')!== false)
-
+@if(strpos(route::currentRouteName(),'Admin.Offer')!== false)
     <script>
+        function EditProductWithOffer() {
+            var selectProduct = document.getElementById('product');
+            selectProduct.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona il prodotto";
+            option.value = "";
+            selectProduct.add(option);
+            var data;
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url: '{{ route('Admin.GetProductWithOffer') }}',
+                method: "POST",
+                dataType: "json",
+                data: {value: value, _token: "{{ csrf_token() }}"},
+                success: function (result) {
+                    data = result;
+                    data.forEach(AddOptionProduct);
+                },
+                error: function (xhr) {
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+        /**
+         * @return {number}
+         */
+        function CalculateDiscount(val, rate){
+            return (val - Math.round(((val / 100) * rate) * 100) / 100);
+        }
+
         function EditPrice(){
             var selected = document.getElementById('product');
             var price = document.getElementById('price');
@@ -554,40 +552,58 @@
             var rate = document.getElementById('rate');
             var pricerate = document.getElementById('pricerate');
 
-            pricerate.value = (price.value - Math.round( ((price.value/100)*rate.value) * 100) / 100);
-
+            pricerate.value = CalculateDiscount(price.value, rate.value);
         }
 
         function EnablePriceRate() {
             var pricerate = document.getElementById('pricerate');
             pricerate.removeAttribute('disabled');
         }
-    </script>
-@endif
 
-@if(strpos(route::currentRouteName(),'Admin.Offer.Restore')!== false)
-    <script>
-        function EditOfferRestore(){
-            var selectOffer = document.getElementById('offer');
-            selectOffer.options.length = 0;
-            var option = document.createElement('option');
-            option.text = "Seleziona l'offerta";
-            option.value = "";
-            selectOffer.add(option);
-            var data;
+        function EditRate(){
             var selected = document.getElementById('product');
+            var rate = document.getElementById('rate');
             var value = selected.options[selected.selectedIndex].value;
 
             jQuery.ajax({
-                url:'{{ route('Admin.RestoreGetOffer') }}',
+                url:'{{ route('Admin.GetRate') }}',
                 method:"POST",
                 dataType: "json",
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result) {
-                    data=result;
-                    data.forEach(AddOptionBanner);
+                    rate.value = result;
+                    EditPriceRate();
                 },
                 error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endif
+@if(strpos(route::currentRouteName(),'Admin.Offer.Restore')!== false)
+    <script>
+        function EditProductWithOfferRestore() {
+            var selectProduct = document.getElementById('product');
+            selectProduct.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona il prodotto";
+            option.value = "";
+            selectProduct.add(option);
+            var data;
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url: '{{ route('Admin.RestoreGetProductWithOffer') }}',
+                method: "POST",
+                dataType: "json",
+                data: {value: value, _token: "{{ csrf_token() }}"},
+                success: function (result) {
+                    data = result;
+                    data.forEach(AddOptionProduct);
+                },
+                error: function (xhr) {
                     alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                 }
             });
