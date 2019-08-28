@@ -24,8 +24,12 @@
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Nome Prodotto</th>
+                                    <th>Nome Brand</th>
+                                    <th>Nome Collezione</th>
+                                    <th>Cod Prodotto</th>
+                                    <th>Prezzo</th>
                                     <th>Sconto</th>
+                                    <th>Prezzo Scontato</th>
                                     <th>Creata il</th>
                                     <th>Modificata il</th>
                                     <th>Eliminata il</th>
@@ -34,8 +38,12 @@
                                 <tbody>
                                 @foreach($offers as $offer)
                                     <tr>
-                                        <td>{{$offer->brand->name}}</td>
-                                        <td>{{$offer->name}}</td>
+                                        <td>{{$offer->collection->brand->name}}</td>
+                                        <td>{{$offer->collection->name}}</td>
+                                        <td>{{$offer->product->name}}</td>
+                                        <td>{{$offer->product->price}}</td>
+                                        <td>{{$offer->rate}}</td>
+                                        <td>{{$offer->newprice}}</td>
                                         <td>{{$offer->created_at}}</td>
                                         <td>{{$offer->updated_at}}</td>
                                         <td>{{$offer->deleted_at}}</td>

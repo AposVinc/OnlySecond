@@ -18,19 +18,15 @@ class Offer extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = ['productsRel'];
 
     protected $fillable =[
         'rate',
     ];
 
-    public function products(){
-        return $this->belongsToMany('App\Product');
+    public function product(){
+        return $this->belongsTo('App\Product');
     }
 
-    public function productsRel()
-    {
-        return $this->hasMany('App\OfferProduct');
-    }
+
 
 }

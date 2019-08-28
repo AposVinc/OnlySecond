@@ -18,7 +18,7 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = ['images','specification','offersRel','reviews','categoriesRel'];
+    protected $softCascade = ['images','specification','offer','reviews','categoriesRel'];
 
     protected $fillable =[
         'cod', 'collection_id', 'price', 'producer_id', 'category_id',
@@ -59,14 +59,10 @@ class Product extends Model
         return $this->hasMany('App\Review');
     }
 
-    public function offers(){
-        return $this->belongsToMany('App\Offer');
+    public function offer(){
+        return $this->HasOne('App\Offer');
     }
 
-    public function offersRel()
-    {
-        return $this->hasMany('App\OfferProduct');
-    }
 
     public function orderhistories(){
 //ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,

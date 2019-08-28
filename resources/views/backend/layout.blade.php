@@ -528,6 +528,7 @@
 @endif
 
 @if(strpos(route::currentRouteName(),'Admin.Offer.Add')!== false or strpos(route::currentRouteName(),'Admin.Offer.Edit')!== false)
+
     <script>
         function EditPrice(){
             var selected = document.getElementById('product');
@@ -551,9 +552,11 @@
         function EditPriceRate(){
             var price = document.getElementById('price');
             var rate = document.getElementById('rate');
-            var pricerate = document.getElementById('price-rate');
+            var pricerate = document.getElementById('pricerate');
 
-            pricerate.value = Math.round( ((price.value/100)*rate.value) * 100) / 100;
+            pricerate.
+            pricerate.value = (price.value - Math.round( ((price.value/100)*rate.value) * 100) / 100);
+
         }
     </script>
 @endif

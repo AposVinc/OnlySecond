@@ -54,7 +54,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price" name="price" step=".01" value="00.00" placeholder="00.00" class="form-control" disabled="disabled">
+                            <input type="text" id="price" name="price" step=".01" placeholder="00.00" class="form-control" disabled="disabled">
                         </div>
                     </div>
                 </div>
@@ -66,20 +66,22 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-percent"></i></div>
-                            <input type="text" id="rate" name="rate" placeholder="00" class="form-control" oninput="EditPriceRate()" required>
+                            <input type="text" id="rate" name="rate" placeholder="00" class="form-control" oninput="EditPriceRate()" required >
                         </div>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="price-rate" class=" form-control-label">Prezzo Scontato</label></div>
+                    <div class="col col-md-3"><label for="pricerate" class=" form-control-label">Prezzo Scontato</label></div>
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price-rate" name="price-rate" step=".01" value="00.00" placeholder="00.00" class="form-control" disabled="disabled">
+                            <input type="text" id="pricerate" name="pricerate" step=".01" placeholder="00.00" class="form-control" disabled="" required >
                         </div>
                     </div>
                 </div>
+
+                <!-- https://formden.com/blog/date-picker -->
 
             </div>
             <div class="card-footer">

@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
     public function showRestoreForm()
     {
-        $categories = Category::onlyTrashed('categories')->get();
+        $categories = Category::onlyTrashed()->get();
         if (sizeof($categories) == 0) {
             $this->EchoMessage("Non ci sono Categorie da ripristinare");
             return view('backend.index');
@@ -67,7 +67,7 @@ class CategoryController extends Controller
     public function restore(Request $request)
     {
         $id = $request->get('category');
-        Category::find($id)->restore();
+        Category::where('id', $id)->restore();
 
         return redirect()->to('Admin/Category/List');
 
@@ -76,7 +76,7 @@ class CategoryController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('category');
-        Category::find($id)->delete();
+        Category::where('id', $id)->delete();
 
         return redirect()->to('Admin/Category/List');
     }
@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $id = $request->get('category');
         $newname = $request->get('newname');
 
-        Category::find($id)
+        Category::where('id', $id)
             ->update(['name' => $newname]);
 
         return redirect()->to('Admin/Category/List');

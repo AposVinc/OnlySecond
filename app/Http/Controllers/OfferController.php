@@ -20,9 +20,8 @@ class OfferController extends Controller{
     }
     public function showListForm()
     {
-        $offers= Offer::withTrashed()->with('collection')->get();
-        $collections=Collection::withTrashed()->with('brand')->get();
-        return view('backend.offer.list', ['offer' => $offers], ['collections'=>$collections]);
+        $offers= Offer::withTrashed()->with('product')->get();
+        return view('backend.offer.list', ['offer' => $offers]);
     }
 
     public function showAddForm()
@@ -106,7 +105,8 @@ class OfferController extends Controller{
     public function create(Request $request)
     {
         $offer = new Offer();
-        $offer->name=$request->nome;
+        $offer->rate = $request->rate;
+        $offer->newprice = $request->pricerate;
         $offer->save();
 
         return redirect()->to('Admin/Offer/List');
