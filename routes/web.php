@@ -67,6 +67,19 @@ Route::get('/Login1', function () {
     return view('login1');
 })->name('Login1');
 
+Route::get('/Payment', function () {
+    return view('frontend.payment');
+})->name('Payment');
+
+Route::get('/Review', function () {
+    return view('frontend.review');
+})->name('Review');
+
+Route::get('/Address', function () {
+    return view('frontend.address');
+})->name('Address');
+
+
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
 Route::get('Login', 'Auth\LoginController@showLoginForm')->name('user.login');
