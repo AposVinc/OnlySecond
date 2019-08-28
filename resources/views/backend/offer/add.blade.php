@@ -76,7 +76,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="pricerate" name="pricerate" step=".01" placeholder="00.00" class="form-control" disabled="" required >
+                            <input type="text" id="pricerate" name="pricerate" step=".01" placeholder="00.00" class="form-control" disabled="disabled" required >
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
 
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-sm">
+                <button type="submit" onclick="EnablePriceRate()" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Aggiungi
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">

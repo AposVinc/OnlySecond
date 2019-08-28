@@ -554,9 +554,13 @@
             var rate = document.getElementById('rate');
             var pricerate = document.getElementById('pricerate');
 
-            pricerate.
             pricerate.value = (price.value - Math.round( ((price.value/100)*rate.value) * 100) / 100);
 
+        }
+
+        function EnablePriceRate() {
+            var pricerate = document.getElementById('pricerate');
+            pricerate.removeAttribute('disabled');
         }
     </script>
 @endif
