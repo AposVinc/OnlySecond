@@ -21,8 +21,8 @@
             <div>
                 <div class="card-body card-block">
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nome Categoria</label></div>
-                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="nome" placeholder="Inserire il nome della Categoria da aggiungere" class="form-control" required></div>
+                        <div class="col col-md-3"><label for="nome" class=" form-control-label">Nome Categoria</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="nome" name="nome" placeholder="Inserire il nome della Categoria da aggiungere" class="form-control" required></div>
                     </div>
                 </div>
                 <div class="card-footer">

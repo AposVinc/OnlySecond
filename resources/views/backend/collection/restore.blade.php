@@ -23,15 +23,13 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control dynamic" data-dependent="collection" required>
+                        <select name="brand" id="brand" class="form-control" onchange="EditCollectionRestore()" required>
                             <option value="">Seleziona il brand</option>
+                        <!--
+                            VECCHIO CODICE IN COLLECTIONCONTROLLER
+                            -->
                             @foreach($brands as $data)
-                                    @foreach($collections as $collection)
-                                        @if($collection->brand_id == $data->id)
-                                            <option value="{{$data->id}}"> {{$data->name}} </option>
-                                            @break
-                                        @endif
-                                    @endforeach
+                                <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
                         </select>
                     </div>

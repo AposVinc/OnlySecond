@@ -226,18 +226,22 @@
 <script src="{{ URL::asset('vendor/backend/jqvmap/dist/jquery.vmap.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+
 <!--script tabella liste-->
-<script src="{{ URL::asset('vendor/backend/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/jszip/dist/jszip.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/pdfmake/build/pdfmake.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/pdfmake/build/vfs_fonts.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-<script src="{{ URL::asset('js/backend/init-scripts/data-table/datatables-init.js')}}"></script>
+@if(strpos(route::currentRouteName(),'.List')!== false)
+    <script src="{{ URL::asset('vendor/backend/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/jszip/dist/jszip.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/pdfmake/build/vfs_fonts.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+    <script src="{{ URL::asset('js/backend/init-scripts/data-table/datatables-init.js')}}"></script>
+@endif
+
 
 <script>
     (function($) {
@@ -257,211 +261,334 @@
     })(jQuery);
 </script>
 
-@if(route::currentRouteName('Admin.Product.Add'))
-    <script src="{{ URL::asset('vendor/backend/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ URL::asset('vendor/backend/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
-    <script src="{{ URL::asset('js/backend/main.js') }}"></script>
-    <script>
-        /* script per attivare, nell'add prodotto, il modello solo dopo aver scelto un brand*/
-        function activeModel() {
-            var x = document.getElementById("brand").value;
-            if (x == 0) {
-                document.getElementById('collezione').setAttribute('disabled','disabled');
-            } else {
-                document.getElementById('collezione').removeAttribute('disabled');
+<script>
+    function EditCollection(){
+        var selectCollection = document.getElementById('collection');
+        selectCollection.options.length = 0;
+        var option = document.createElement('option');
+        option.text = "Seleziona la collezione";
+        option.value = "";
+        selectCollection.add(option);
+        var data;
+        var selected = document.getElementById('brand');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetCollection') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result)
+            {
+                data=result;
+                data.forEach(AddOptionCollection);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
             }
+        });
+    }
+    function AddOptionCollection(item, index) {
+        var selectCollection = document.getElementById('collection');
+        var option = document.createElement('option');
+        option.text= item.name;
+        option.value= item.id;
+        selectCollection.add(option);
+    }
+
+
+    function EditNewCollection(){
+        var selectCollection = document.getElementById('newcollection');
+        selectCollection.options.length = 0;
+        var option = document.createElement('option');
+        option.text = "Seleziona la collezione";
+        option.value = "";
+        selectCollection.add(option);
+        var data;
+        var selected = document.getElementById('newbrand');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetCollection') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result)
+            {
+                data=result;
+                data.forEach(AddOptionNewCollection);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionNewCollection(item, index) {
+        var selectCollection = document.getElementById('newcollection');
+        var option = document.createElement('option');
+        option.text= item.name;
+        option.value= item.id;
+        selectCollection.add(option);
+    }
+
+
+    function EditProduct(){
+        var selectProduct = document.getElementById('product');
+        selectProduct.options.length = 0;
+        var option = document.createElement('option');
+        option.text = "Seleziona il prodotto";
+        option.value = "";
+        selectProduct.add(option);
+        var data;
+        var selected = document.getElementById('collection');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetProduct') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result) {
+                data=result;
+                data.forEach(AddOptionProduct);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionProduct(item, index) {
+        var selectProduct = document.getElementById('product');
+        var option = document.createElement('option');
+        option.text= item.cod;
+        option.value= item.id;
+        selectProduct.add(option);
+    }
+
+
+    function EditBanner(){
+        var selectBanner = document.getElementById('banner');
+        selectBanner.options.length = 0;
+        var option = document.createElement('option');
+        option.text = "Seleziona il banner";
+        option.value = "";
+        selectBanner.add(option);
+        var data;
+        var selected = document.getElementById('collection');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetBanner') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result) {
+                data=result;
+                data.forEach(AddOptionBanner);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionBanner(item, index) {
+        var selectBanner = document.getElementById('banner');
+        var option = document.createElement('option');
+        option.text= item.path_image;
+        option.value= item.id;
+        selectBanner.add(option);
+    }
+
+
+    function EditOffer(){
+        var selectOffer = document.getElementById('offer');
+        selectOffer.options.length = 0;
+        var option = document.createElement('option');
+        option.text = "Seleziona l'offerta";
+        option.value = "";
+        selectOffer.add(option);
+        var data;
+        var selected = document.getElementById('product');
+        var value = selected.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetOffer') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result) {
+                data=result;
+                data.forEach(AddOptionOffer);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionOffer(item, index) {
+        var selectOffer = document.getElementById('offer');
+        var option = document.createElement('option');
+        option.text= item.id;
+        option.value= item.id;
+        selectOffer.add(option);
+    }
+
+</script>
+
+
+@if(strpos(route::currentRouteName(),'Admin.Collection.Restore')!== false)
+    <script>
+        function EditCollectionRestore(){
+            var selectCollection = document.getElementById('collection');
+            selectCollection.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona la collezione";
+            option.value = "";
+            selectCollection.add(option);
+            var data;
+            var selected = document.getElementById('brand');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetCollection') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result)
+                {
+                    data=result;
+                    data.forEach(AddOptionCollection);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
         }
     </script>
 @endif
 
-@if(strpos(route::currentRouteName(),'Admin')!== false)
+@if(strpos(route::currentRouteName(),'Admin.Product.Restore')!== false)
     <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamic').change(function(){
-                if(jQuery(this).val() != '0') {
-                    let sel = document.getElementById('collection');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-                    var path = window.location.pathname;
+        function EditProductRestore(){
+            var selectProduct = document.getElementById('product');
+            selectProduct.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona il prodotto";
+            option.value = "";
+            selectProduct.add(option);
+            var data;
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
 
-                    jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.RestoreGetCollection') }}'): ('{{ route('Admin.GetCollection') }}')),
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result) {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetProduct') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    data=result;
+                    data.forEach(AddOptionProduct);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                 }
             });
-        });
-    </script>
-@endif
-
-@if(strpos(route::currentRouteName(),'Admin.Banner')!== false)
-    <!-- serve per prendere i banner  -->
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamicBanner').change(function(){
-                if(jQuery(this).val() != '0') {
-                    let sel = document.getElementById('banner');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-                    var path = window.location.pathname;
-
-                    jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.Banner.RestoreGetBanner') }}'): ('{{ route('Admin.Banner.GetBanner') }}')),
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result) {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
-                }
-            });
-        });
-    </script>
-
-    <script>
-        jQuery(document).ready(function() {
-            jQuery('.visualizza').change(function () {
-                let node = document.getElementById('prova');
-                if(node.childNodes.length>1){
-                    var img =document.getElementById("img");
-                    node.removeChild(img);
-                }
-                var image = this.options[this.selectedIndex].text;
-                if(image != 'Seleziona il banner'){
-                    var nodeadd=document.createElement('img');
-                    var url = "http://localhost/OnlySecond/public/../images/" + image;
-                    nodeadd.src=url;
-                    nodeadd.id="img";
-                    node.appendChild(nodeadd);
-                }
-            });
-        });
-    </script>
-
-@endif
-
-@if(strpos(route::currentRouteName(),'Admin.Image')!== false or strpos(route::currentRouteName(),'Admin.Product')!== false)
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamicProduct').change(function(){
-                if(jQuery(this).val() != '0') {
-                    let sel = document.getElementById('product');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-                    var path = window.location.pathname;
-
-                    jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.RestoreGetProduct') }}'): ('{{ route('Admin.GetProduct') }}')),
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result) {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
-                }
-            });
-        });
-    </script>
-@endif
-
-@if(strpos(route::currentRouteName(),'Admin.Image')!== false )
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamicImage').change(function(){
-                if(jQuery(this).val() != '0') {
-                    let sel = document.getElementById('image');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-                    var path = window.location.pathname;
-
-                    jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.Image.RestoreGetImage') }}'): ('{{ route('Admin.Image.GetImage') }}')),
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result) {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
-                }
-            });
-        });
-    </script>
-@endif
-
-@if(strpos(route::currentRouteName(),'Admin.Offer')!== false )
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('.dynamicOffer').change(function(){
-                if(jQuery(this).val() != '0') {
-                    let sel = document.getElementById('offer');
-                    for (i = sel.length - 1; i >= 0; i--) {
-                        if (i!=0) sel.remove(i);
-                    }
-                    var select = jQuery(this).attr("id");
-                    var value = jQuery(this).val();
-                    var dependent = jQuery(this).data('dependent');
-                    var _token = jQuery('input[name="_token"]').val();
-                    var path = window.location.pathname;
-
-                    jQuery.ajax({
-                        url:((path.includes('Restore')) ? ('{{ route('Admin.Offer.RestoreGetOffer') }}'): ('{{ route('Admin.Offer.GetOffer') }}')),
-                        method:"POST",
-                        data:{select:select, value:value, _token:_token, dependent:dependent},
-                        success:function(result) {
-                            jQuery('#'+dependent).html(result);
-                        }
-                    })
-                }
-            });
-        });
-    </script>
-@endif
-
-@if(strpos(route::currentRouteName(),'Admin.Banner.List')!== false or strpos(route::currentRouteName(),'Admin.Image.List')!== false)
-    <script>
-        jQuery("#click").click(function() {
-            var image = jQuery(event.target).text();
-            if(image.includes('png') || image.includes('jpg')){
-                var url = "http://localhost/OnlySecond/public/../images/" + image;
-                PopupCentrata(url);
-            }
-        });
-    </script>
-    <script type="text/javascript">
-        function PopupCentrata(url)
-        {
-            var w = 600;
-            var h = 450;
-            var l = Math.floor((screen.width-w)/2);
-            var t = Math.floor((screen.height-h)/2);
-            window.open(url,"","width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
         }
     </script>
 @endif
+
+@if(strpos(route::currentRouteName(),'Admin.Banner.Restore')!== false)
+    <script>
+        function EditBannerRestore(){
+            var selectBanner = document.getElementById('banner');
+            selectBanner.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona il banner";
+            option.value = "";
+            selectBanner.add(option);
+            var data;
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetBanner') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    data=result;
+                    data.forEach(AddOptionBanner);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Offer.Add')!== false or strpos(route::currentRouteName(),'Admin.Offer.Edit')!== false)
+    <script>
+        function EditPrice(){
+            var selected = document.getElementById('product');
+            var price = document.getElementById('price');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.GetPrice') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    price.value = result;
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+
+        function EditPriceRate(){
+            var price = document.getElementById('price');
+            var rate = document.getElementById('rate');
+            var pricerate = document.getElementById('price-rate');
+
+            pricerate.value = Math.round( ((price.value/100)*rate.value) * 100) / 100;
+        }
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Offer.Restore')!== false)
+    <script>
+        function EditOfferRestore(){
+            var selectOffer = document.getElementById('offer');
+            selectOffer.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona l'offerta";
+            option.value = "";
+            selectOffer.add(option);
+            var data;
+            var selected = document.getElementById('product');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetOffer') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    data=result;
+                    data.forEach(AddOptionBanner);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endif
+
+
 </body>
 
 </html>

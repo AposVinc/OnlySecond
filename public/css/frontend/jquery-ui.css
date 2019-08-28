@@ -660,11 +660,11 @@ button.ui-button::-moz-focus-inner {
     position: absolute;
     touch-action: none;
     width: 14px;
-    
+
 }
 .ui-slider .ui-slider-range {
 	position: absolute;
-	
+
 	font-size: .7em;
 	display: block;
 	border: 0;
@@ -690,7 +690,7 @@ button.ui-button::-moz-focus-inner {
 .ui-slider-horizontal .ui-slider-range {
 	top: 0;
 	height: 100%;
-	
+
 }
 .ui-slider-horizontal .ui-slider-range-min {
 	left: 0;
@@ -856,7 +856,7 @@ body .ui-tooltip {
 }
 .ui-widget-header {
 	border: 1px solid #e78f08;
-	background: #fa4251 ;
+	background: #ff6300;
 	color: #ffffff;
 	font-weight: bold;
 }
@@ -873,7 +873,7 @@ body .ui-tooltip {
 	background: #f6f6f6;
 	font-weight: bold;
 	color: #1c94c4;
-	
+
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -887,7 +887,7 @@ body .ui-tooltip {
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #fa4251;
+	border: 1px solid #ff6300;
 	background: #fff;
 	font-weight: bold;
 	color: #c77405;
@@ -900,13 +900,13 @@ body .ui-tooltip {
 .ui-state-focus a:hover,
 .ui-state-focus a:link,
 .ui-state-focus a:visited {
-	color: #fa4251;
+	color: #ff6300;
 	text-decoration: none;
 }
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #fa4251;
+	border: 1px solid #ff6300;
 	background: #ffffff;
 	font-weight: bold;
 	color: #eb8f00;

@@ -10,6 +10,8 @@ class Collection extends Model
 {
     use SoftDeletes, SoftCascadeTrait;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be mutated to dates.
      *
@@ -22,7 +24,6 @@ class Collection extends Model
         'name','brand_id',
     ];
 
-    protected $primaryKey = 'id';
 
     function brand(){
         return $this->belongsTo('App\Brand');

@@ -68,8 +68,10 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        User::where('id', $request['user'])->first()->syncRoles([$request['role']]);
-//MANCA LA MODIFICA DEL NOME, PASSWORD E AMAIL
+        $user = User::where('id', $request['user'])->first();
+        $user->syncRoles([$request['role']]);
+        $user->update(['name' => $request['name'], 'email' => $request['email'], 'password' => $request['password']]);
+
         return redirect()->route('Admin.User.List');
     }
 

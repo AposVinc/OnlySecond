@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
+
+    public function EchoMessage($msg)
+    {
+        echo '<script type="text/javascript">
+            alert("' . $msg . '")
+            </script>';
+    }
+
     public function showListForm()
     {
         $suppliers = Supplier::withTrashed()->get();

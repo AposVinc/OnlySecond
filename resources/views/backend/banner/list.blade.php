@@ -15,6 +15,12 @@
         Banner
     @endcomponent
 
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -42,7 +48,7 @@
                                             @endif
                                         @endforeach
                                         <td>{{$banner->collection->name}}</td>
-                                        <td><u><a href="{{route('Admin.Banner.Image',['id' => $banner->id])}}">{{$banner->image}}</a></u></td>
+                                        <td><u><a href="{{route('Admin.Banner.Image',['id' => $banner->id])}}">{{$banner->path_image}}</a></u></td>
                                         <td>{{$banner->created_at}}</td>
                                         <td>{{$banner->updated_at}}</td>
                                         <td>{{$banner->deleted_at}}</td>

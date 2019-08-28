@@ -10,6 +10,8 @@ class Review extends Model
 {
     use SoftDeletes,SoftCascadeTrait;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be mutated to dates.
      *

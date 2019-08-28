@@ -26,8 +26,7 @@ class CollectionController extends Controller
     public function showListForm()
     {
         $collections = Collection::withTrashed()->get();
-        $brands = Brand::withTrashed()->get();
-        return view('backend.collection.list', ['collections' => $collections, 'brands' => $brands]);
+        return view('backend.collection.list', ['collections' => $collections]);
     }
 
     public function showAddForm()
@@ -51,6 +50,7 @@ class CollectionController extends Controller
 
     function getCollectionRestore(Request $request)
     {
+        /*
         $value = $request->get('value');    //id del brand
         $data = Collection::onlyTrashed('collections')->where('brand_id', $value)->get();
         $output = '<option value="">Seleziona la collezione</option>';
@@ -58,7 +58,10 @@ class CollectionController extends Controller
         {
             $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
         }
-        return $output;
+        return $output; */
+        $value = $request->get('value');
+        $collections = Collection::onlyTrashed()->where('brand_id', $value)->get();
+        return $collections;
     }
 
     function getCollectionBanner(Request $request)
@@ -111,6 +114,7 @@ class CollectionController extends Controller
 
     public function showRestoreForm()
     {
+        /*
         $collections = Collection::onlyTrashed('collections')->get();
         $brands = Brand::withTrashed()->get();
         if(sizeof($collections)==0) {
@@ -119,6 +123,20 @@ class CollectionController extends Controller
         }else {
             return view('backend.collection.restore',['brands' => $brands,'collections' => $collections]);
         }
+        */
+        /*
+                                     @foreach($brands as $data)
+                                @foreach($collections as $collection)
+                                    @if($collection->brand_id == $data->id)
+                                        <option value="{{$data->id}}"> {{$data->name}} </option>
+                                                @break
+                                    @endif
+                                @endforeach
+                            @endforeach
+         */
+        $brands = Brand::withoutTrashed()->get();
+        return view('backend.collection.restore',['brands' => $brands]);
+
     }
 
     /**
@@ -145,9 +163,9 @@ class CollectionController extends Controller
      */
     public function update(Request $request)//Collection $collection
     {
-        $collection= $request->get('collection');
-        $newbrand= $request->get('newbrand');
-        $newcollectionname=$request->get('newcollectionname');
+        $collection = $request->get('collection');
+        $newbrand = $request->get('newbrand');
+        $newcollectionname = $request->get('newcollectionname');
 
         Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
 
@@ -180,7 +198,7 @@ class CollectionController extends Controller
      */
     public function destroy(Request $request)
     {
-        $collection=$request->get('collection');
+        $collection = $request->get('collection');
         Collection::withTrashed()->find($collection)->delete();
 
         return redirect()->to('Admin/Collection/List');

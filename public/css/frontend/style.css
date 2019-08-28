@@ -14,27 +14,27 @@ Created by: 	Lionode
 @import url("ionicons.min.css");
 /* -----  font awesome Font  -----*/
 @import url("font-awesome.min.css");
-/* =====  INDEX OF STYLES ===== 
+/* =====  INDEX OF STYLES =====
 01 ===== BASIC  =====
   1.1 General
-  1.2 Typography  
-  1.3 Spacing    
+  1.2 Typography
+  1.3 Spacing
   1.4 Button
   1.5 Elements
   1.6 Accordions
   1.7 Tabs
   1.8 Progress Bars
   1.9 Inputs
-  1.10 Newslatter popup 
-  
-02 ===== HEADER ===== 
+  1.10 Newslatter popup
+
+02 ===== HEADER =====
   2.1 Header
   2.2 Navbar
   2.3 Megamenu
   2.4 Search
   2.5 Cart
   2.6 Header bottom
-  
+
 03 ===== CONTANT =====
   3.1 Left column
   3.2 Right column
@@ -44,7 +44,7 @@ Created by: 	Lionode
   	3.2.4 Breadcrumb
   	3.2.5 Blog
   	3.2.6 Single Blog
-  	3.2.7 Product + Category Page 
+  	3.2.7 Product + Category Page
   	3.2.8 Client
   	3.2.9 Owl nav
   	3.2.10 About
@@ -54,14 +54,14 @@ Created by: 	Lionode
   	3.2.14 Login & register
   	3.2.15 Map
   	3.2.16 Brand
-  
+
 04 ===== FOOTER =====
 	4.1 Footer General
 	4.2 Scrollup
 
 ----------------------------------------------
 	BASIC
-	1.1 General  
+	1.1 General
 ----------------------------------------------- */
 body, html {
     height: 100%;
@@ -133,7 +133,7 @@ hr {
     padding: 5px 15px;
 }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-    background-color: #fa4251;
+    background-color: #ff6300;
     color: #fff;
 }
 ul {
@@ -166,7 +166,7 @@ ul {
 }
 
 /* ----------------------------------------------
-	1.2 Typography 
+	1.2 Typography
 ----------------------------------------------- */
 
 a {
@@ -238,7 +238,7 @@ h6 {
 }
 
 /* ----------------------------------------------
-	1.3 Spacing 
+	1.3 Spacing
 ----------------------------------------------- */
 
 .box {
@@ -489,7 +489,7 @@ h6 {
 }
 
 /* ----------------------------------------------
-	1.4 Button 
+	1.4 Button
 ----------------------------------------------- */
 
 .btn {
@@ -535,7 +535,7 @@ h6 {
 }
 
 /* ----------------------------------------------
-	1.5 Elements 
+	1.5 Elements
 ----------------------------------------------- */
 
 .alert {
@@ -584,7 +584,7 @@ i.right {
 }
 
 /* ----------------------------------------------
-	1.6 Accordian 
+	1.6 Accordian
 ----------------------------------------------- */
 
 .panel-default {
@@ -602,7 +602,7 @@ i.right {
 }
 
 /* ----------------------------------------------
-	1.7 Tabs 
+	1.7 Tabs
 ----------------------------------------------- */
 
 .nav>li>a {
@@ -612,7 +612,7 @@ i.right {
 }
 .nav>li>a:hover, .nav>li>a:focus {
     background: transparent;
-    color: #fa4251;
+    color: #ff6300;
 }
 #product-tab .nav li {
     display: inline-block;
@@ -845,7 +845,7 @@ input:focus, textarea:focus {
     letter-spacing: 0.5px;
 }
 .newsletters button:hover, .newsletters button.btn-default:focus {
-    background: #fa4251;
+    background: #ff6300;
     color: #fff;
     transition: 0.5s;
     box-shadow: none;
@@ -989,7 +989,7 @@ label.checkme {
     text-transform: uppercase;
 }
 .header-top-left .contact>a {
-    color: #fa4251;
+    color: #ff6300;
     font-size: 16px;
     font-weight: 500;
 }
@@ -1121,19 +1121,19 @@ label.checkme {
     text-transform: uppercase;
 }
 #menu>li>a:hover, #menu>li>a:focus {
-    background-color: #fa4251;
+    background-color: #ff6300;
     color: #fff;
 }
 #menu .mega-dropdown:hover>a, #menu .mega-dropdown>a:hover, #menu .mega-dropdown>a:focus, #menu .dropdown:hover>a {
-    background-color: #fa4251;
+    background-color: #ff6300;
     color: #fff;
 }
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
-    background-color: #fa4251;
+    background-color: #ff6300;
     color: #fff;
 }
 #menu>li>a::before {
-    background: #fa4251 none repeat scroll 0 0;
+    background: #ff6300 none repeat scroll 0 0;
     bottom: 0;
     content: "";
     display: block;
@@ -1365,7 +1365,7 @@ label.checkme {
     width: 100%;
 }
 .category {
-    background: #fa4251 none repeat scroll 0 0;
+    background: #ff6300 none repeat scroll 0 0;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -1424,7 +1424,7 @@ label.checkme {
 }
 
 .feature-i-left:hover h6 {
-    color: #fa4251;
+    color: #ff6300;
 }
 .left-cms ul>li {
     border-top: 3px solid #e5e5e5;
@@ -1436,7 +1436,7 @@ label.checkme {
 }
 input#amount {
     border: 0;
-    color: #fa4251;
+    color: #ff6300;
     font-weight: 700;
     font-size: 16px;
     width: 140px;
@@ -1479,7 +1479,7 @@ input#amount {
     padding: 8px 17px;
 }
 .Tags.left-sidebar-widget li:hover {
-    background: #fa4251 none repeat scroll 0 0;
+    background: #ff6300 none repeat scroll 0 0;
 }
 #left-blog .blog-item {
     display: inline-block;
@@ -1574,7 +1574,7 @@ input#amount {
     transition: all 0.5s ease 0s;
 }
 .sub-hover:hover .bannertext>p {
-    color: #fa4251;
+    color: #ff6300;
 }
 
 /* ----------------------------------------------
@@ -1633,7 +1633,7 @@ input#amount {
     display: inline-block;
 }
 .breadcrumb li.active {
-    color: #fa4251;
+    color: #ff6300;
 }
 .breadcrumb h1 {
     color: #fff;
@@ -1672,7 +1672,7 @@ input#amount {
 ----------------------------------------------- */
 .date-time {
     background: #fff none repeat scroll 0 0;
-    color: #fa4251;
+    color: #ff6300;
     float: right;
     font-size: 12px;
     left: 10px;
@@ -1718,8 +1718,8 @@ input#amount {
     font-size: 16px;
     letter-spacing: 1px;
 }
-#Blog .post-info h6 a:hover {    
-    color: #fa4251;
+#Blog .post-info h6 a:hover {
+    color: #ff6300;
 }
 #Blog .post-img:hover>a {
     opacity: 0.6;
@@ -1745,7 +1745,7 @@ input#amount {
     color: #808080;
 }
 .write-comment:hover a, .read-more:hover a{
-    color: #fa4251;
+    color: #ff6300;
 }
 
 .post-image-hover {
@@ -1776,11 +1776,11 @@ article, .author {
     margin-top: 0;
 }
 blockquote {
-    border-color: #fa4251;
+    border-color: #ff6300;
 }
 
 /* ----------------------------------------------
-	3.2.7 Product + Category Page 
+	3.2.7 Product + Category Page
 ----------------------------------------------- */
 
 #product-tab .product-thumb, .latest .product-thumb {
@@ -1979,7 +1979,7 @@ blockquote {
     width: 36px;
 }
 .pagination-nav ul li.active a {
-    background: #fa4251 none repeat scroll 0 0;
+    background: #ff6300 none repeat scroll 0 0;
     color: #fff;
 }
 .pagination-nav ul li {
@@ -2002,7 +2002,7 @@ blockquote {
     color: #b2b2b2;
 }
 .fa.fa-star.fa-stack-1x {
-    color: #fa4251;
+    color: #ff6300;
 }
 
 /* =====  left sidebar css  ===== */
@@ -2058,7 +2058,7 @@ blockquote {
     margin-top: 5px;
 }
 .client-designation {
-    color: #fa4251;
+    color: #ff6300;
 }
 /* ----------------------------------------------
 	3.2.9 Owl nav
@@ -2092,7 +2092,7 @@ blockquote {
     transition: 0.5s;
 }
 .owl-nav>div:hover {
-    border-color: #fa4251;
+    border-color: #ff6300;
 }
 .owl-item .client-avatar>img {
     border-radius: 50%;
@@ -2138,7 +2138,7 @@ blockquote {
 }
 .client .owl-dot.active>span {
     background: rgba(0, 0, 0, 0.0) none repeat scroll 0 0;
-    border: 2px solid #fa4251;
+    border: 2px solid #ff6300;
     border-radius: 50%;
     display: inline-block;
     height: 14px;
@@ -2319,7 +2319,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     color: #9E9E9E;
 }
 .footer-block a:hover {
-    color: #fa4251;
+    color: #ff6300;
 }
 .social-icon ul li a {
     border: 2px solid #afafaf;
@@ -2349,7 +2349,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     -o-transition: all 0.4s ease-in-out 0s;
 }
 .social_icon ul li a i.fa:hover {
-    color: #fa4251;
+    color: #ff6300;
 }
 .footer-bottom {
     background: #000;
@@ -2371,7 +2371,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 ----------------------------------------------- */
 
 #scrollup::before {
-    background: #fa4251 none repeat scroll 0 0;
+    background: #ff6300 none repeat scroll 0 0;
     bottom: 20px;
     color: #fff;
     content: "\f106";
@@ -2493,7 +2493,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 /*-----------------------------------*/
 
 @media (max-width: 767px) {
-    
+
     .header-top-left, .header-top-right {
         text-align: center;
     }
@@ -2604,7 +2604,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
         background:transparent;
     }
     .view-blog{
-        border-color: #ccc; 
+        border-color: #ccc;
     }
     .newsletter-popup-top {
         width: 50%;
@@ -2741,7 +2741,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
         padding: 0 10px;
     }
     .product-layout.product-grid, .related-pro .product-thumb  {
-        margin:0; 
+        margin:0;
         padding: 0 5px;
     }
     .nav>li>a {

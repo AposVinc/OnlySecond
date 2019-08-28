@@ -17,6 +17,8 @@ class CreateBannersTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->string('path_image');
             $table->unsignedBigInteger('collection_id');
+            $table->integer('counter'); //numero progressivo per creare path_image
+            $table->boolean('visible'); //indica se il banner viene visualizzato o meno nella home page
             $table->timestamps();
 
             $table->softDeletes();

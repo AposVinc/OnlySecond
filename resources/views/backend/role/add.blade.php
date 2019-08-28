@@ -34,37 +34,37 @@
                             <div class="form-check">
                                 <div class="checkbox">
                                     <label for="gest_utenti" class="form-check-label">
-                                        <input type="checkbox"  id="gest_utenti" name="gest_utenti" value="gest_utenti" class="form-check-input" >Utenti
+                                        <input type="checkbox" id="permissions" name="gest_utenti" value="gest_utenti" class="form-check-input">Utenti
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label for="gest_prodotti" class="form-check-label ">
-                                        <input type="checkbox" id="gest_prodotti" name="gest_prodotti" value="gest_prodotti" class="form-check-input"> Prodotti
+                                        <input type="checkbox" id="permissions" name="gest_prodotti" value="gest_prodotti" class="form-check-input"> Prodotti
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label for="gest_offerte" class="form-check-label ">
-                                        <input type="checkbox" id="gest_offerte" name="gest_offerte" value="gest_offerte" class="form-check-input"> Offerte
+                                        <input type="checkbox" id="permissions" name="gest_offerte" value="gest_offerte" class="form-check-input"> Offerte
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label for="gest_banner" class="form-check-label ">
-                                        <input type="checkbox" id="gest_banner" name="gest_banner" value="gest_banner" class="form-check-input"> Banner
+                                        <input type="checkbox" id="permissions" name="gest_banner" value="gest_banner" class="form-check-input"> Banner
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label for="gest_imgprod" class="form-check-label ">
-                                        <input type="checkbox" id="gest_imgprod" name="gest_imgprod" value="gest_imgprod" class="form-check-input"> Immagini Prodotti
+                                        <input type="checkbox" id="permissions" name="gest_imgprod" value="gest_imgprod" class="form-check-input"> Immagini Prodotti
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label for="gest_fornitori" class="form-check-label ">
-                                        <input type="checkbox" id="gest_fornitori" name="gest_fornitori" value="gest_fornitori" class="form-check-input"> Fornitori
+                                        <input type="checkbox" id="permissions" name="gest_fornitori" value="gest_fornitori" class="form-check-input"> Fornitori
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label for="gest_newsletter" class="form-check-label ">
-                                        <input type="checkbox" id="gest_newsletter" name="gest_newsletter" value="gest_newsletter" class="form-check-input"> Newsletter
+                                        <input type="checkbox" id="permissions" name="gest_newsletter" value="gest_newsletter" class="form-check-input"> Newsletter
                                     </label>
                                 </div>
                             </div>
@@ -84,5 +84,6 @@
         <!-- </div>-->
 
     </form>
+
 
 @endsection

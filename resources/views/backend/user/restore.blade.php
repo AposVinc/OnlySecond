@@ -29,7 +29,6 @@
                                 <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
                         </select>
-                        <small class="help-block form-text">Seleziona l'Utente da ripristinare</small>
                     </div>
                 </div>
             </div>

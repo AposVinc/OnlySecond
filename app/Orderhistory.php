@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orderhistory extends Model
 {
+    protected $primaryKey = 'id';
+
     protected $fillable =[
         'name',
     ];
