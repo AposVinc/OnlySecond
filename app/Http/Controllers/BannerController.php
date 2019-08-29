@@ -28,7 +28,7 @@ class BannerController extends Controller
 
     public function showImage($id)
     {
-        $banner = Banner::find($id)->get();
+        $banner = Banner::find($id)->first();
         return view('backend.banner.image', ['banner' => $banner]);
     }
 
@@ -151,10 +151,11 @@ class BannerController extends Controller
                 $counter=Banner::where('collection_id', $idCollection)->max('counter');
                 $counter +=1;
                 $filename= $nameBrand. '_'. $nameCollection. '_'. $counter;
+                $path_image = 'storage/Banner/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
                 $path = $request->file('file')->storeAs($path, $filename);
                 if($path!=""){
                     $banner = new Banner();
-                    $banner->path_image = $path;
+                    $banner->path_image = $path_image;
                     $banner->collection_id = $idCollection;
                     $banner->counter = $counter;
                     if($request->get('inline-radios')){

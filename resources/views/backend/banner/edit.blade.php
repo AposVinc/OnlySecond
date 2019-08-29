@@ -15,11 +15,6 @@
         Banner
     @endcomponent
 
-    <div class="error">
-        ATTENZIONE: Se il banner cercato non è presente, controlla attraverso la <u><a href="{{route('Admin.Banner.List')}}"> "Lista Banner"</a></u> se è stato eliminato.
-        Se lo è vai su <u><a href="{{route('Admin.Banner.Restore')}}"> "Ripristina Banner"</a></u>
-    </div>
-
     <form action="{{route('Admin.Banner.EditUpdate')}}" method="post" class="form-horizontal">
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
