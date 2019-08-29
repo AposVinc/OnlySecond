@@ -197,6 +197,7 @@ Route::prefix('Admin')->group(function () {
             Route::prefix('/Brand')->group(function () {
                 Route::name('Brand.')->group(function () {
                     Route::get('/List', 'BrandController@showListForm')->name('List');
+                    Route::get('/List/Image/{id}', 'BrandController@showImage')->name('Image');
 
                     Route::get('/Add', 'BrandController@showAddForm')->name('Add');
                     Route::post('/AddStore', 'BrandController@create')->name('AddCreate');

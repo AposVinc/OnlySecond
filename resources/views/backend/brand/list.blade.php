@@ -38,6 +38,7 @@
                                 <thead>
                                 <tr>
                                     <th>Nome</th>
+                                    <th>Logo</th>
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
                                     <th>Eliminato il</th>
@@ -47,6 +48,7 @@
                                 @foreach($brands as $brand)
                                     <tr>
                                         <td>{{$brand->name}}</td>
+                                        <td><u><a href="{{route('Admin.Brand.Image',['id' => $brand->id])}}">{{$brand->path_logo}}</a></u></td>
                                         <td>{{$brand->created_at}}</td>
                                         <td>{{$brand->updated_at}}</td>
                                         <td>{{$brand->deleted_at}}</td>
