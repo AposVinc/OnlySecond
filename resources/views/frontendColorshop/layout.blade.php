@@ -182,7 +182,7 @@
 
 </div>
 
-<script src="{{URL::asset("js/frontendColo/jquery-3.2.1.min.js")}}"></script>
+<script src="{{URL::asset("js/jquery-3.4.1.min.js")}}"></script>
 <script src="{{URL::asset("css/frontendColo/bootstrap4/popper.js")}}"></script>
 <script src="{{URL::asset("css/frontendColo/bootstrap4/bootstrap.min.js")}}"></script>
 <script src="{{URL::asset("plugins/frontendColo/Isotope/isotope.pkgd.min.js")}}"></script>
