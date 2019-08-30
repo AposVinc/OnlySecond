@@ -8,13 +8,6 @@ use Illuminate\Http\Request;
 class SupplierController extends Controller
 {
 
-    public function EchoMessage($msg)
-    {
-        echo '<script type="text/javascript">
-            alert("' . $msg . '")
-            </script>';
-    }
-
     public function showListForm()
     {
         $suppliers = Supplier::withTrashed()->get();
@@ -40,13 +33,9 @@ class SupplierController extends Controller
 
     public function showRestoreForm()
     {
-        $suppliers = Supplier::onlyTrashed('brands')->get();
-        if (sizeof($suppliers) == 0) {
-            $this->EchoMessage("Non ci sono Supplier da ripristinare");
-            return view('backend.index');
-        } else {
-            return view('backend.supplier.restore', ['suppliers' => $suppliers]);
-        }
+        $suppliers = Supplier::onlyTrashed()->get();
+        return view('backend.supplier.restore', ['suppliers' => $suppliers]);
+
     }
 
     /**
@@ -100,7 +89,7 @@ class SupplierController extends Controller
         $id = $request->get('supplier');
         Supplier::where('id', $id)->restore();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin.Supplier.List');
     }
 
     public function destroy(Request $request)
@@ -108,7 +97,7 @@ class SupplierController extends Controller
         $id = $request->get('supplier');
         Supplier::withTrashed()->find($id)->delete();
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin.Supplier.List');
     }
 
 }

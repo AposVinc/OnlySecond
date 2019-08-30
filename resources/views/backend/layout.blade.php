@@ -30,6 +30,7 @@
     <!--css tabella liste-->
     <link rel="stylesheet" href="{{ URL::asset('vendor/backend/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('vendor/backend/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
+
 </head>
 
 <body>
@@ -495,6 +496,13 @@
 @endif
 
 @if(strpos(route::currentRouteName(),'Admin.Offer')!== false)
+
+    <!--calendario-->
+    <script src="{{asset('js/backend/calendar/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('js/backend/calendar/moment-with-locales.js')}}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
     <script>
         function EditProductWithOffer() {
             var selectProduct = document.getElementById('product');
