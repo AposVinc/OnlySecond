@@ -63,6 +63,10 @@ class Product extends Model
         return $this->hasOne('App\Offer')->withTrashed();
     }
 
+    public function color()
+    {
+        return $this->belongsTo('App\Color');
+    }
 
     public function orderhistories(){
 //ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,

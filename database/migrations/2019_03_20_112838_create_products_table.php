@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->enum('genre',['M','F','U']);
             $table->longtext('long_desc')->nullable(); //forse non serve se c'è la tab specification?
             $table->unsignedBigInteger('supplier_id');
-            $table->string('color');    //da mettere nelle specifiche o si lascia?
+            $table->string('color_id');    //da mettere nelle specifiche o si lascia?
             $table->timestamps();
 
             $table->softDeletes();
