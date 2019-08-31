@@ -15,7 +15,7 @@
                                     <a href="#" class="active" id="login-form-link">Login</a>
                                 </div>
                                 <div class="col-xs-6">
-                                    <a href="#" id="register-form-link">Register</a>
+                                    <a href="#" id="register-form-link">Registrazione</a>
                                 </div>
                             </div>
                             <hr>
@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="form-group text-center">
                                             <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                            <label for="remember"> Remember Me</label>
+                                            <label for="remember"> Ricordami </label>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
@@ -47,7 +47,7 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="text-center">
-                                                        <a href="#" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                        <a href="#" tabindex="5" class="forgot-password">Password Dimenticata?</a>
                                                     </div>
                                                 </div>
                                             </div>
