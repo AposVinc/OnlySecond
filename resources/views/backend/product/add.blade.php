@@ -80,7 +80,7 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price" name="input3-group1" step=".01" value="00.00" placeholder="00.00" class="form-control" required>
+                            <input type="text" id="price" name="price" step=".01" value="00.00" placeholder="00.00" class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,14 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="color" class=" form-control-label">Colore</label></div>
-                    <div class="col-12 col-md-9"><input type="color" id="color" name="color" required><!--0class="form-control"--><small class="form-text text-muted">Scegliere il colore dell'orologio</small></div>
+                    <div class="col-12 col-md-9">
+                        <select name="color" id="color" class="form-control" required>
+                            <option value="">Seleziona il colore</option>
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 &emsp;
                 <div class="row form-group">

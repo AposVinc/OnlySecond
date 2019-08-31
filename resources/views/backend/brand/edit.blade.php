@@ -41,7 +41,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="logo" class=" form-control-label">Logo</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="logo" name="logo" class="form-control-file"></div>
+                    <div class="col-12 col-md-9"><input type="file" id="logo" name="logo" class="form-control-file" required></div>
                 </div>
             </div>
             <div class="card-footer">
