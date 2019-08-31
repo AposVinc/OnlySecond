@@ -81,29 +81,21 @@
                     </div>
                 </div>
 
-                <!-- https://formden.com/blog/date-picker -->
-
-                <div class="container">
-                    <div class="row">
-                        <div class='col-sm-6'>
-                            <div class="form-group">
-                                <div class='input-group date' id='datetimepicker2'>
-                                    <input type='text' class="form-control" />
-                                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                                </div>
-                            </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="datepicker" class=" form-control-label">Data</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            <input type="text" id="datepicker" class="form-control" name="datepicker" required >
                         </div>
-                        <script type="text/javascript">
-                            $(function () {
-                                $('#datetimepicker2').datetimepicker({
-                                    locale: 'en'
-                                });
-                            });
-                        </script>
                     </div>
                 </div>
+
+                <script>
+                    $( function() {
+                        $( "#datepicker" ).datepicker();
+                    } );
+                </script>
 
             </div>
             <div class="card-footer">
