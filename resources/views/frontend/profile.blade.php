@@ -13,16 +13,14 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 mtb_20">
+            <div class="col-lg-4 mt_20">
                 <a href="{{route('Chronology')}}">
                 <div class="content">
-                    <h1 class="header">I Miei Ordini</h1>
+                    <h2 class="header text-center">I Miei Ordini</h2>
                     <div class="small">
                         <div class="content">
-                           <div class="summary">
-                              <li> Cronologia di tutti gli ordini effettuati</li>
-                              <li> Cronologia di tutti gli ordini effettuati</li>
-                              <li> Cronologia di tutti gli ordini effettuati</li>
+                           <div class="summary text-center mt_10">
+                              <h5> In questa sezione vedrai tutti gli ordini effettuati con i dettagli per ogni prodotto </h5>
                            </div>
                         </div>
                     </div>
@@ -30,16 +28,14 @@
                 </a>
             </div>
 
-            <div class="col-lg-5 mtb_20">
+            <div class="col-lg-4 mt_20">
                 <a href="{{route('EditProfile')}}">
                     <div class="content">
-                        <h1 class="header">Modifica Del Profilo</h1>
+                        <h2 class="header text-center">Modifica Del Profilo</h2>
                         <div class="small">
                             <div class="content">
-                                <div class="summary">
-                                    <li> Modifica Nome, Cognome e il Numero di Cellulare</li>
-                                    <li> Modifica Nome, Cognome e il Numero di Cellulare</li>
-                                    <li> Modifica Nome, Cognome e il Numero di Cellulare</li>
+                                <div class="summary text-center mt_10">
+                                    <h5>In questa sezione puoi modificare nome, cognome, numero di cellulare e password</h5>
                                 </div>
                             </div>
                         </div>
@@ -47,16 +43,45 @@
                 </a>
             </div>
 
-            <div class="col-lg-2 mtb_20">
+            <div class="col-lg-4 mt_20">
                 <a href="{{route('Favorite')}}">
                     <div class="content">
-                        <h1 class="header">WishList</h1>
+                        <h2 class="header text-center">WishList</h2>
                         <div class="small">
                             <div class="content">
-                                <div class="summary">
-                                    <li>I Tuoi Prodotti Preferiti</li>
-                                    <li>I Tuoi Prodotti Preferiti</li>
-                                    <li>I Tuoi Prodotti Preferiti</li>
+                                <div class="summary text-center mt_10">
+                                    <h5>Entra qui per vedere la lista di orologi che desideri acquistare</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-lg-4 mtb_40">
+                <a href="{{route('Payment')}}">
+                    <div class="content">
+                        <h2 class="header text-center">Pagamento</h2>
+                        <div class="small">
+                            <div class="content">
+                                <div class="summary text-center mt_10">
+                                    <h5>In questa sezione puoi scegliere la modalità di pagamento che preferisci.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-4 mtb_40">
+                <a href="{{route('Address')}}">
+                    <div class="content">
+                        <h2 class="header text-center">Indirizzi</h2>
+                        <div class="small">
+                            <div class="content">
+                                <div class="summary text-center mt_10">
+                                    <h5>In questa sezione puoi inserire l'indirizzo di spedizione che preferisci</h5>
                                 </div>
                             </div>
                         </div>
@@ -67,47 +92,11 @@
             <div class="col-lg-4 mtb_40">
                 <a href="{{route('Review')}}">
                     <div class="content">
-                        <h1 class="header">Le Mie Recensioni</h1>
+                        <h2 class="header text-center">Le Mie Recensioni</h2>
                         <div class="small">
                             <div class="content">
-                                <div class="summary">
-                                    <li>Recensioni</li>
-                                    <li>Recensioni</li>
-                                    <li>Recensioni</li>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-5 mtb_40">
-                <a href="{{route('Payment')}}">
-                    <div class="content">
-                        <h1 class="header">Pagamento</h1>
-                        <div class="small">
-                            <div class="content">
-                                <div class="summary">
-                                    <li>Modifica e Aggiungi i Tuoi Metodi Di Pagamento</li>
-                                    <li>Modifica e Aggiungi i Tuoi Metodi Di Pagamento</li>
-                                    <li>Modifica e Aggiungi i Tuoi Metodi Di Pagamento</li>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-2 mtb_40">
-                <a href="{{route('Address')}}">
-                    <div class="content">
-                        <h1 class="header">Indirizzi</h1>
-                        <div class="small">
-                            <div class="content">
-                                <div class="summary">
-                                    <li>Indirizzi</li>
-                                    <li>Indirizzi</li>
-                                    <li>Indirizzi</li>
+                                <div class="summary text-center mt_10">
+                                    <h5>Entra qui per rileggere tutte le recensioni che hai pubblicato riguardanti gli orologi acquistati</h5>
                                 </div>
                             </div>
                         </div>
