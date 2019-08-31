@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <!-- Title -->
-                    <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="{{route('Home')}}"> <img alt="themini" src="{{url::asset('images/logo/lungo-O-bianca-Copia.png')}}"> </a> </div>
+                    <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="{{route('Home')}}"> <img alt="themini" src="{{url::asset('images/logo/logoP.png')}}"> </a> </div>
                     <div class="col-xs-6 col-sm-4 shopcart">
                         <div id="cart" class="btn-group btn-block mtb_40">
                             <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
