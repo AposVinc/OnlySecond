@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\CategoryProduct;
+use App\Color;
 use App\Offer;
 use App\Product;
 use App\Supplier;
+use App\Collection;
+use App\Image;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-
+//use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -24,7 +28,8 @@ class ProductController extends Controller
         $brands = Brand::all();
         $categories = Category::all();
         $suppliers = Supplier::all();
-        return view('backend.product.add',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers]);
+        $colors = Color::all();
+        return view('backend.product.add',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
     }
 
     public function showEditForm()
@@ -105,13 +110,62 @@ class ProductController extends Controller
      */
     public function create(Request $request)  //
     {
-        //$input = $request->all();
         $product = new Product();
-        $product->name=$request->nome;
-        //$product->name = $input['text-input'];
+        $product->cod=$request->get('cod');
+        $product->collection_id= $request->get('collection');
+        $product->price= $request->get('price');
+        $product->stock_availability= $request->get('quantity');
+        $product->genre= $request->get('inline-radios');
+        $product->long_desc= $request->get('desc');
+        $product->supplier_id= $request->get('supplier');
+        $product->color_id= $request->get('color');
         $product->save();
+        $idProduct= $product->id;
 
+        $this->saveMainImage($request,$idProduct);
         return redirect()->to('Admin/Product/List');
+    }
+
+    function saveMainImage($request,$idProduct)
+    {
+        if ($request->hasFile('main-photo')) { //  se il file è presente nella request
+            if ($request->file('main-photo')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+                $path='public/Orologi';
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $nameBrand=Brand::where('id', $request->get('brand'))->first()->name;
+                $path.= '/'. $nameBrand;
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $idCollection=$request->get('collection');
+                $nameCollection=Collection::where('id', $idCollection)->first()->name;
+                $path.= '/'. $nameCollection;
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+               /* $counter=Image::where('product_id', $idProduct)->max('counter');
+                $counter +=1;         . '_'. $counter*/
+                $filename= $nameBrand. '_'. $nameCollection;
+                $path_image = 'storage/Orologi/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
+                $path = $request->file('main-photo')->storeAs($path, $filename);
+                if($path!=""){
+                    $image = new Image();
+                    $image->path_image = $path_image;
+                    $image->product_id = $idProduct;
+                    $image->main = 1;
+                    //$banner->counter = $counter;
+                    $image->save();
+                    return "successo";
+                }
+            }else{
+                return "error";
+            }
+        }else{
+            return "error";
+        }
+
     }
 
     /**
