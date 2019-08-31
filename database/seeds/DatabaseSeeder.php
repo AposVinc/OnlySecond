@@ -1,6 +1,7 @@
 <?php
 
 use App\Category;
+use App\Color;
 use App\Image;
 use App\Supplier;
 use App\User;
@@ -71,6 +72,20 @@ class DatabaseSeeder extends Seeder
         $Sport = new Category(['name' => 'Sport']);
         $Sport->save();
 
+        /* Colori */
+        $bianco = new Color(['name'=>'Bianco' , 'hex' => '#ffffff']);
+        $bianco->save();
+
+        $nero = new Color(['name'=>'Nero' , 'hex' => '#000000']);
+        $nero->save();
+
+        $blu = new Color(['name'=>'Blu' , 'hex' => '#0033cc']);
+        $blu->save();
+
+        $rosa = new Color(['name'=>'Rosa' , 'hex' => '#ff99cc']);
+        $rosa->save();
+
+        /* Fornitori */
         $fornitore1 = new Supplier(['name'=>'fornitore1','email'=>'fornitore1@fornitore.it','phone'=>'1231231231','city'=>'Roma','address'=>'via Milano','zip'=>'00001','iban'=>'123123123123123']);
         $fornitore1->save();
         $fornitore2 = new Supplier(['name'=>'fornitore2','email'=>'fornitore2@fornitore.it','phone'=>'1231231232','city'=>'Milano','address'=>'via Roma','zip'=>'00002','iban'=>'123123123123124']);
@@ -94,32 +109,35 @@ class DatabaseSeeder extends Seeder
 
         /* Prodotti Fossil */
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
-            'genre' => 'F','long_desc' => 'long desc','color' => 'Bianco']);
+            'genre' => 'F','long_desc' => 'long desc']);
         $CarlieP1I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Bianco_1.jpg', 'main' => '1']);
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
+        $CarlieP1->color_id = $bianco->id;
         $CarlieP1->save();
         $CarlieP1->categories()->save($classic);
         $CarlieP1->images()->save($CarlieP1I1);
         $Carlie->products()->save($CarlieP1);
 
         $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
-            'genre' => 'F','long_desc' => 'long desc','color' => 'Rosa']);
+            'genre' => 'F','long_desc' => 'long desc']);
         $CarlieP2I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Rosa_1.jpg', 'main' => '1']);
         $CarlieP2->collection_id = $Carlie->id;
         $CarlieP2->supplier_id = $fornitore1->id;
+        $CarlieP2->color_id = $rosa->id;
         $CarlieP2->save();
         $CarlieP2->categories()->save($classic);
         $CarlieP2->images()->save($CarlieP2I1);
         $Carlie->products()->save($CarlieP2);
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '149', 'stock_availability' => '5',
-            'genre' => 'F','long_desc' => 'long desc','color' => 'Nero']);
+            'genre' => 'F','long_desc' => 'long desc']);
         $CarlieP3I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Nero_1.jpg', 'main' => '1']);
         $CarlieP3I2 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Nero_2.jpg', 'main' => '0']);
         $CarlieP3I3 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Nero_3.jpg', 'main' => '0']);
         $CarlieP3->collection_id = $Carlie->id;
         $CarlieP3->supplier_id = $fornitore1->id;
+        $CarlieP3->color_id = $nero->id;
         $CarlieP3->save();
         $CarlieP3->categories()->save($classic);
         $CarlieP3->images()->save($CarlieP3I1);
@@ -128,10 +146,11 @@ class DatabaseSeeder extends Seeder
         $Carlie->products()->save($CarlieP3);
 
         $Sport1P1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
-            'genre' => 'U','long_desc' => 'long desc','color' => 'Nero']);
+            'genre' => 'U','long_desc' => 'long desc']);
         $SportP1I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Sport_Nero_1.jpg', 'main' => '1']);
         $Sport1P1->collection_id = $Sport->id;
         $Sport1P1->supplier_id = $fornitore1->id;
+        $Sport1P1->color_id = $nero->id;
         $Sport1P1->save();
         $Sport1P1->categories()->save($smart);
         $Sport1P1->images()->save($SportP1I1);
@@ -151,10 +170,11 @@ class DatabaseSeeder extends Seeder
 
         /* Prodotti Lacoste */
         $Lacoste_12_12_P1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
-            'genre' => 'M','long_desc' => 'long desc','color' => 'Blu']);
+            'genre' => 'M','long_desc' => 'long desc']);
         $Lacoste_12_12_P1I1 = new Image(['path_image' => 'Lacoste/12.12/Lacoste_12.12_Blu_1.jpg', 'main' => '1']);
         $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
         $Lacoste_12_12_P1->supplier_id = $fornitore1->id;
+        $Lacoste_12_12_P1->color_id = $blu->id;
         $Lacoste_12_12_P1->save();
         $Lacoste_12_12_P1->categories()->save($classic);
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I1);
