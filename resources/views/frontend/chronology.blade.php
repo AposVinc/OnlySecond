@@ -21,7 +21,6 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <td class="text-left">N° Ordine</td>
                                 <td class="text-left">Codice Ordine</td>
                                 <td class="text-left">Data Ordine</td>
                                 <td class="text-left">N° Prodotti</td>
@@ -31,8 +30,10 @@
 
                             <tbody>
                             <tr>
-                                <td class="text-left">3</td>
-                                <td class="text-left">123456</td>
+                                <td class="text-left">123456
+                                    <li><a href="product.html">Breil </a> cat, coll, 250€</li>
+                                    <li><a href="product.html">Tissot </a> cat, coll, 250€</li>
+                                </td>
                                 <td class="text-left">12/34/56</td>
                                 <td class="text-left"> 3 </td>
                                 <td class="text-right">230.00€</td>
@@ -46,8 +47,11 @@
 
                             <tbody>
                             <tr>
-                                <td class="text-left">2</td>
-                                <td class="text-left">654321</td>
+
+                                <td class="text-left">654321
+                                    <li><a href="product.html">Breil </a> cat, coll, 250€</li>
+                                    <li><a href="product.html">Tissot </a> cat, coll, 250€</li>
+                                </td>
                                 <td class="text-left">13/25/86</td>
                                 <td class="text-left"> 1 </td>
                                 <td class="text-right">120.00€</td>
@@ -61,8 +65,11 @@
 
                             <tbody>
                             <tr>
-                                <td class="text-left">1</td>
-                                <td class="text-left">654321</td>
+
+                                <td class="text-left">654321
+                                    <li><a href="product.html">Breil </a> cat, coll, 250€</li>
+                                    <li><a href="product.html">Tissot </a> cat, coll, 250€</li>
+                                </td>
                                 <td class="text-left">13/25/86</td>
                                 <td class="text-left"> 1 </td>
                                 <td class="text-right">120.00€</td>

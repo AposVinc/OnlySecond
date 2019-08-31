@@ -37,6 +37,19 @@
                                 <td class="text-left">Categoria</td>
                                 <td class="text-left">Uomo</td>
                                 <td class="text-right">230.00€</td>
+                                <td>
+                                    <button><i class="fa fa-close"></i></button> <!--riga nascosta o cancellata?-->
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-center"><a href="#"><img src="images/product/70x84.jpg" alt="Breil Classic" title="Breil Classic"></a></td>
+                                <td class="text-left"><a href="product.html">Breil</a></td>
+                                <td class="text-left">Cod collezione</td>
+                                <td class="text-left">Categoria</td>
+                                <td class="text-left">Uomo</td>
+                                <td class="text-right">230.00€</td>
+                                <td><button><i class="fa fa-close"></i> </button></td>
                             </tr>
                             <tr>
                                 <td class="text-center"><a href="#"><img src="images/product/70x84.jpg" alt="Breil Classic" title="Breil Classic"></a></td>
@@ -45,14 +58,7 @@
                                 <td class="text-left">Categoria</td>
                                 <td class="text-left">Uomo</td>
                                 <td class="text-right">230.00€</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center"><a href="#"><img src="images/product/70x84.jpg" alt="Breil Classic" title="Breil Classic"></a></td>
-                                <td class="text-left"><a href="product.html">Breil</a></td>
-                                <td class="text-left">Cod collezione</td>
-                                <td class="text-left">Categoria</td>
-                                <td class="text-left">Uomo</td>
-                                <td class="text-right">230.00€</td>
+                                <td><button><i class="fa fa-close"></i> </button></td>
                             </tr>
                             </tbody>
                         </table>
