@@ -15,7 +15,7 @@
         Brand
     @endcomponent
 
-    <form action="{{route('Admin.Brand.EditUpdate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Brand.EditUpdate')}}" enctype="multipart/form-data" method="post" class="form-horizontal">
     @csrf
 
         <div class="card add">

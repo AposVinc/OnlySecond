@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class BrandController extends Controller
 {
@@ -66,8 +67,8 @@ class BrandController extends Controller
                 $nameBrand=$request->get('newbrand');
                 $filename= 'Logo_'. $nameBrand;
                 $path_logo = 'storage/Logo/'. $filename;
-                $path = $request->file('logo')->storeAs($path, $filename);
-                if($path!=""){
+                $pathnew = $request->file('logo')->storeAs($path, $filename);
+                if($pathnew!=""){
                     $brand = new Brand();
                     $brand->name = $nameBrand;
                     $brand->path_logo = $path_logo;
@@ -91,12 +92,31 @@ class BrandController extends Controller
     public function update(Request $request)
     {
         $id = $request->get('brand');
-        $newname = $request->get('newname');
+        $nameold = Brand::where('id',$id)->first()->name;
+        $path = "public/Logo/Logo_". $nameold;
+        Storage::delete($path);
 
-        Brand::where('id',$id)
-            ->update(['name' => $newname]);
-
-        return redirect()->to('Admin/Brand/List');
+        if ($request->hasFile('logo')) { //  se il file è presente nella request
+            if ($request->file('logo')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+                $path='public/Logo';
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $nameBrand=$request->get('newname');
+                $filename= 'Logo_'. $nameBrand;
+                $path_logo = 'storage/Logo/'. $filename;
+                $pathnew = $request->file('logo')->storeAs($path, $filename);
+                if($pathnew!=""){
+                    Brand::where('id',$id)
+                        ->update(['name' => $nameBrand, 'path_logo' => $path_logo]);
+                    return redirect()->to('Admin/Brand/List')->with('status','Modifiche avvenute con successo!!');
+                }
+            }else{
+                return redirect()->to('Admin/Brand/List')->with('error','Errore durante il caricamento. Riprovare!!');
+            }
+        }else{
+            return redirect()->to('Admin/Brand/List')->with('error','File non trovato. Riprovare!!');
+        }
     }
 
     /**
