@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Offer extends Model
 {
-    use SoftDeletes, SoftCascadeTrait;
 
     protected $primaryKey = 'id';
 

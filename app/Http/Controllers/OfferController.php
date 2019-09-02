@@ -3,18 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
-use App\Collection;
 use App\Offer;
 use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use DB;
+
 
 class OfferController extends Controller{
 
     public function showListForm()
     {
-        $offers= Offer::withTrashed()->with('product')->get();
+        $offers= Offer::with('product')->get();
         return view('backend.offer.list', ['offers' => $offers]);
     }
 
@@ -37,22 +35,6 @@ class OfferController extends Controller{
         return view('backend.offer.delete', ['brands' => $brands]);
     }
 
-    public function showRestoreForm()   //solo offerte da reispristnare?
-    {
-        /*
-        $brands = Brand::onlyTrashed()->get();
-
-        if (sizeof($offers) == 0) {
-            $this->EchoMessage("Non ci sono Offerte da ripristinare");
-            return view('backend.index');
-        } else {
-            return view('backend.offer.restore', ['offers' => $offers]);
-        }
-        */
-        $brands = Brand::all();
-        return view('backend.offer.restore', ['brands' => $brands]);
-    }
-
 
     function getPrice(Request $request)
     {
@@ -72,7 +54,7 @@ class OfferController extends Controller{
     public function create(Request $request)
     {
         $id = $request->product;
-        $product = Product::withoutTrashed()->find($id);
+        $product = Product::all()->find($id);
         $offer = new Offer();
         $offer->rate = $request->rate;
         $offer->end = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
@@ -87,34 +69,21 @@ class OfferController extends Controller{
         return view('offer')->with(['offer' => $offer]);
     }
 
-    public function restore(Request $request)
-    {
-        $id = $request->offer;
-        Offer::find($id)->restore();
-
-        return redirect()->to('Admin/Offer/List');
-    }
 
     public function update(Request $request)
     {
-        $id = $request->offer;
+        $id = $request->product;
         $newdata = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
 
-        Offer::where('id', $id)
-            ->update(['rate' => $request->rate , 'end' => $newdata]);
+        Product::find($id)->offer()->update(['rate' => $request->rate , 'end' => $newdata]);
 
-        return redirect()->to('Admin/Offer/List');
-
-
-        $product->offer()->save($offer);
-        $offer->save();
         return redirect()->to('Admin/Offer/List');
     }
 
     public function destroy(Request $request)
     {
         $id = $request->get('product');
-        Product::withoutTrashed()->find($id)->offer->delete();
+        Product::find($id)->offer->delete();
 
         return redirect()->to('Admin/Offer/List');
     }

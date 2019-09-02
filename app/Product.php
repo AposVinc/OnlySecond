@@ -60,7 +60,7 @@ class Product extends Model
     }
 
     public function offer(){
-        return $this->hasOne('App\Offer')->withTrashed();
+        return $this->hasOne('App\Offer');
     }
 
     public function color()

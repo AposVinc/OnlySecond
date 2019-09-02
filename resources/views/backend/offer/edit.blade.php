@@ -15,6 +15,9 @@
         Offerta
     @endcomponent
 
+    <div id="error">    <!-- errore gestito con JS-->
+    </div>
+
     <form action="{{route('Admin.Offer.EditUpdate')}}" method="post" class="form-horizontal">
         @csrf
         <div class="card add">
@@ -80,6 +83,21 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="datepicker" class=" form-control-label">Data di Fine Offerta</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            <input type="text" id="datepicker" class="form-control" name="datepicker" required >
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $( function() {
+                        $( "#datepicker" ).datepicker();
+                    } );
+                </script>
 
             </div>
             <div class="card-footer">

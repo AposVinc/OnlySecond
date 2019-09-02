@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
-use App\CategoryProduct;
 use App\Color;
 use App\Offer;
 use App\Product;
 use App\Supplier;
-use App\Collection;
 use App\Image;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -88,20 +86,6 @@ class ProductController extends Controller
         return $products;
     }
 
-    function getProductRestoreWithOffer(Request $request)
-    {
-        $value = $request->get('value'); //id product
-        //$products = Product::withoutTrashed()->with('offer')->where('collection_id', $value)->get();
-        $products = new Collection();
-        $offers = Offer::onlyTrashed()->get();
-        foreach ($offers as $offer){
-            $product = $offer->product;
-            if ($product->collection_id == $value){
-                $products->push($product);
-            }
-        }
-        return $products;
-    }
 
     /**
      * Show the form for creating a new resource.

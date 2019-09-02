@@ -33,7 +33,6 @@
                                     <th>Fine Offerta il</th>
                                     <th>Creata il</th>
                                     <th>Modificata il</th>
-                                    <th>Eliminata il</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +47,6 @@
                                         <td>{{$offer->end}}</td>
                                         <td>{{$offer->created_at}}</td>
                                         <td>{{$offer->updated_at}}</td>
-                                        <td>{{$offer->deleted_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

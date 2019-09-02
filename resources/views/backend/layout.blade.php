@@ -129,7 +129,6 @@
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Offer.Add')}}">Aggiungi</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Offer.Edit')}}">Modifica</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Offer.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Offer.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
                 @endcan
@@ -599,36 +598,6 @@
         }
     </script>
 @endif
-@if(strpos(route::currentRouteName(),'Admin.Offer.Restore')!== false)
-    <script>
-        function EditProductWithOfferRestore() {
-            var selectProduct = document.getElementById('product');
-            selectProduct.options.length = 0;
-            var option = document.createElement('option');
-            option.text = "Seleziona il prodotto";
-            option.value = "";
-            selectProduct.add(option);
-            var data;
-            var selected = document.getElementById('collection');
-            var value = selected.options[selected.selectedIndex].value;
-
-            jQuery.ajax({
-                url: '{{ route('Admin.RestoreGetProductWithOffer') }}',
-                method: "POST",
-                dataType: "json",
-                data: {value: value, _token: "{{ csrf_token() }}"},
-                success: function (result) {
-                    data = result;
-                    data.forEach(AddOptionProduct);
-                },
-                error: function (xhr) {
-                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-                }
-            });
-        }
-    </script>
-@endif
-
 
 </body>
 
