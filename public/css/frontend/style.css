@@ -179,7 +179,7 @@ a {
     -o-transition: all 0.25s ease 0s;
 }
 a:hover, a:focus {
-    color: #000;
+    color: #ff6300;
     text-decoration: none;
     transition: all 0.25s ease 0s;
     -moz-transition: all 0.25s ease 0s;
@@ -1197,7 +1197,7 @@ label.checkme {
     color: #424242;
 }
 .main-search .btn-lg:hover i {
-    color: #fa5460;
+    color: #ff6300;
 }
 .main-search .input-group-btn {
     display: block;
@@ -1492,7 +1492,7 @@ input#amount {
     color: #808080;
 }
 .blog-category a:hover {
-    color: #000;
+    color: #ff6300;
 }
 
 /* ----------------------------------------------
@@ -2181,7 +2181,7 @@ blockquote {
     width: 40px;
 }
 .team .social>li:hover a, .team_grid .social>li:hover a {
-    color: #000;
+    color: #ff6300;
 }
 .social li a i {
     margin: 12px;
@@ -2220,10 +2220,10 @@ a.thumbnails {
 }
 a.thumbnail {
     border: 0px;
-    background: #000;
+    background: #ff6300;
 }
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
-    border-color: #000;
+    border-color: #ff6300;
 }
 
 .price .price-tax {
@@ -2352,7 +2352,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     color: #ff6300;
 }
 .footer-bottom {
-    background: #000;
+    background: #ff6300;
     color: #808080;
 }
 .copyright-part{
