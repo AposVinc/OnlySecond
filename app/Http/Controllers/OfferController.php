@@ -75,6 +75,7 @@ class OfferController extends Controller{
         $product = Product::withoutTrashed()->find($id);
         $offer = new Offer();
         $offer->rate = $request->rate;
+        $offer->end = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
         $product->offer()->save($offer);
         $offer->save();
         return redirect()->to('Admin/Offer/List');
@@ -88,20 +89,25 @@ class OfferController extends Controller{
 
     public function restore(Request $request)
     {
-        $id = $request->get('offer');
+        $id = $request->offer;
         Offer::find($id)->restore();
 
         return redirect()->to('Admin/Offer/List');
-
     }
 
     public function update(Request $request)
     {
-        $id = $request->get('offer');
+        $id = $request->offer;
+        $newdata = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
 
         Offer::where('id', $id)
-            ->update(['rate' => $request['rate']]);
+            ->update(['rate' => $request->rate , 'end' => $newdata]);
 
+        return redirect()->to('Admin/Offer/List');
+
+
+        $product->offer()->save($offer);
+        $offer->save();
         return redirect()->to('Admin/Offer/List');
     }
 

@@ -78,7 +78,7 @@ class ProductController extends Controller
         $value = $request->get('value');
         //$products = Product::withoutTrashed()->where('collection_id', $value)->has('offer')->get();
         $products = new Collection();
-        $offers = Offer::withoutTrashed()->get();
+        $offers = Offer::all();
         foreach ($offers as $offer){
             $product = $offer->product;
             if ($product->collection_id == $value){

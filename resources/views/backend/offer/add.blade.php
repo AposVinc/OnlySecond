@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="datepicker" class=" form-control-label">Data</label></div>
+                    <div class="col col-md-3"><label for="datepicker" class=" form-control-label">Data di Fine Offerta</label></div>
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -90,7 +90,6 @@
                         </div>
                     </div>
                 </div>
-
                 <script>
                     $( function() {
                         $( "#datepicker" ).datepicker();

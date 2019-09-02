@@ -30,6 +30,7 @@
                                     <th>Prezzo</th>
                                     <th>Sconto</th>
                                     <th>Prezzo Scontato</th>
+                                    <th>Fine Offerta il</th>
                                     <th>Creata il</th>
                                     <th>Modificata il</th>
                                     <th>Eliminata il</th>
@@ -44,6 +45,7 @@
                                         <td>{{$offer->product->price}}</td>
                                         <td>{{$offer->rate}}</td>
                                         <td>{{$offer->calculateDiscount()}}</td>
+                                        <td>{{$offer->end}}</td>
                                         <td>{{$offer->created_at}}</td>
                                         <td>{{$offer->updated_at}}</td>
                                         <td>{{$offer->deleted_at}}</td>
