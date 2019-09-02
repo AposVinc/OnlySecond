@@ -270,6 +270,9 @@
 
 <script>
     function EditCollection(){
+        var divError = document.getElementById('error');
+        divError.innerText ="";
+        divError.classList.remove('alert','alert-danger');
         var selectCollection = document.getElementById('collection');
         selectCollection.options.length = 0;
         var option = document.createElement('option');
@@ -287,8 +290,11 @@
             data:{value:value, _token: "{{ csrf_token() }}"},
             success:function(result)
             {
-                data=result;
-                data.forEach(AddOptionCollection);
+                if(result.length === 0){
+                    Error("Non ci sono collezioni per il brand selezionato");
+                }else{
+                    result.forEach(AddOptionCollection);
+                }
             },
             error:function(xhr){
                 alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
@@ -303,6 +309,11 @@
         selectCollection.add(option);
     }
 
+    function Error(msg){
+        var divError= document.getElementById('error');
+        divError.innerText = msg;
+        divError.classList.add('alert', 'alert-danger');
+    }
 
     function EditNewCollection(){
         var selectCollection = document.getElementById('newcollection');

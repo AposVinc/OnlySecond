@@ -16,12 +16,6 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function EchoMessage($msg)
-    {
-        echo '<script type="text/javascript">
-            alert("' . $msg . '")
-            </script>';
-    }
 
     public function showListForm()
     {
@@ -37,8 +31,8 @@ class CollectionController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::withoutTrashed()->with('collections')->get();
-        return view('backend.collection.edit')->with('brands',$brands);
+        $brands = Brand::withoutTrashed()->get();
+        return view('backend.collection.edit',['brands' => $brands]);
     }
 
     function getCollection(Request $request)
@@ -151,7 +145,7 @@ class CollectionController extends Controller
         $collection->brand_id =  $request->get('brand');
         $collection->save();
 
-        return redirect()->to('Admin/Collection/List');
+        return redirect()->to('Admin/Collection/List')->with('status','Caricamento avvenuto con successo!!');
     }
 
     /**

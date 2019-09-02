@@ -14,6 +14,9 @@
         @endslot
         Collezione
     @endcomponent
+    <div id="error">
+
+    </div>
 
     <form action="{{route('Admin.Collection.EditUpdate')}}" method="post" class="form-horizontal">
         @csrf
@@ -54,7 +57,7 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="newcollectionname" class=" form-control-label">Nuovo Nome</label></div>
+                    <div class="col col-md-3"><label for="newcollectionname" class=" form-control-label">Nuova Collezione</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="newcollectionname" name="newcollectionname" placeholder="Inserire il nome della nuova Collezione" class="form-control" required></div>
                 </div>
             </div>
