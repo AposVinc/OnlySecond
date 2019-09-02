@@ -130,7 +130,7 @@ class BrandController extends Controller
         $id = $request->get('brand');
         Brand::where('id',$id)->restore();
 
-        return redirect()->to('Admin/Brand/List');
+        return redirect()->to('Admin/Brand/List')->with('status','Ripristino avvenuto con successo!!');
     }
 
     public function destroy(Request $request)
@@ -139,7 +139,7 @@ class BrandController extends Controller
 
         $brand = Brand::withTrashed()->find($id)->delete();
 
-        return redirect()->to('Admin/Brand/List');
+        return redirect()->to('Admin/Brand/List')->with('status','Eliminazione avvenuta con successo!!');
     }
 
 }

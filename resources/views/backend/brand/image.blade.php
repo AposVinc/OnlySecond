@@ -12,7 +12,7 @@
         @slot('op')
             Mostra
         @endslot
-        Brand
+        Logo Brand
     @endcomponent
 
     <form action="{{route('Admin.Brand.List')}}" class="form-horizontal">
