@@ -190,7 +190,9 @@ class ProductController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('product');
-        Product::withTrashed()->find($id)->delete();
+        $product = Product::find($id)->first();
+        $product->delete();
+        $product->offer->delete();
 
         return redirect()->to('Admin/Product/List');
     }
