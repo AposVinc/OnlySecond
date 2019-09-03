@@ -14,7 +14,7 @@
                     </ul>
                 </div>
             </div>
-
+<!--
             <div class="col-lg-12 mtb_20">
                 <form enctype="multipart/form-data" method="post" action="#">
                     <div class="table-responsive">
@@ -38,7 +38,7 @@
                                 <td class="text-left">Uomo</td>
                                 <td class="text-right">230.00€</td>
                                 <td>
-                                    <button><i class="fa fa-close"></i></button> <!--riga nascosta o cancellata?-->
+                                    <button><i class="fa fa-close"><a href="{"></a></i></button>
                                 </td>
                             </tr>
 
@@ -67,4 +67,36 @@
             </div>
         </div>
     </div>
-    @endsection
+    -->
+            <div class="content mt-3">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Immagine</th>
+                                            <th>Nome Prodotto</th>
+                                            <th>Collezione</th>
+                                            <th>Categoria</th>
+                                            <th>Genere</th>
+                                            <th>Prezzo</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($products as $product )
+
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

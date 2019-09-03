@@ -59,9 +59,9 @@ Route::get('/EditProfile', function () {
     return view('frontend.editprofile');
 })->name('EditProfile');
 
-Route::get('/Favorite', function () {
-    return view('frontend.favorite');
-})->name('Favorite');
+#Route::get('/Favorite', function () {
+#    return view('frontend.favorite');
+#})->name('Favorite');
 
 Route::get('/Login1', function () {
     return view('login1');
@@ -78,6 +78,11 @@ Route::get('/Review', function () {
 Route::get('/Address', function () {
     return view('frontend.address');
 })->name('Address');
+
+#wishlist
+Route::get('/Favorite', 'WishListController@showListForm')
+    ->name('Favorite.List');
+
 
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
@@ -151,6 +156,7 @@ Route::prefix('Admin')->group(function () {
         #route chiamata ajax per image
         Route::post('/GetImage', 'ImageController@getImage')->name('GetImage');
         Route::post('/RestoreGetImage', 'ImageController@getImageRestore')->name('RestoreGetImage');
+
 
         Route::group(['middleware' => ['permission:gest_utenti']], function () {
             #user
@@ -367,9 +373,14 @@ Route::prefix('Admin')->group(function () {
             });
         });
 
+
     });
 });
 
-Route::fallback(function () {
-    return view('frontend.404');
-});
+    Route::fallback(function () {
+        return view('frontend.404');
+    });
+
+
+
+

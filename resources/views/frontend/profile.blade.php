@@ -44,7 +44,7 @@
             </div>
 
             <div class="col-lg-4 mt_20">
-                <a href="{{route('Favorite')}}">
+                <a href="{{route('Favorite.List')}}">
                     <div class="content">
                         <h2 class="header text-center">WishList</h2>
                         <div class="small">

@@ -79,10 +79,10 @@
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-mail') }}</label>
+                                    <label for="email2" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-mail') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email">
+                                        <input id="email2" type="email" class="form-control @error('email') is-invalid @enderror" name="email2">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -93,10 +93,10 @@
 
                                 </div>
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Indirizzo E-mail') }}</label>
+                                    <label for="email2" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Indirizzo E-mail') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                                        <input id="email2" type="email" class="form-control @error('email') is-invalid @enderror" name="email2" value="{{ old('email') }}">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -111,7 +111,7 @@
 
 
                                     <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                                        <input id="password2" type="password" class="form-control @error('password') is-invalid @enderror" name="password2">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -121,10 +121,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
+                                    <label for="password2" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
+                                        <input id="password2" type="password" class="form-control @error('password') is-invalid @enderror" name="password2" >
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
