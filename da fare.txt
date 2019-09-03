@@ -8,6 +8,7 @@ messaggi errore
 sez prod BE
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
+*Mancano le immagini dei loghi dei brand presenti nel seeder nella giusta cartella con il giusto nome
 
 FE
 ---------
@@ -23,6 +24,22 @@ Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio pr
 ok
 --
 Calendario in Offer
+
+MESSAGGI DI ERRORE NEL BE
+BRAND:
+- Add:
+   1. errore nel salvataggio
+   2. già inserito
+- Edit:
+   1. errore nell'update
+   2. già inserito
+- Delete
+   1. errore nell'eliminazione
+   2. non c'è niente da eliminare
+- Restore
+   1. errore nel ripristino
+   2. non c'è niente da ripristinare
+
 
 
 
