@@ -31,7 +31,7 @@ class CollectionController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::withoutTrashed()->get();
+        $brands = Brand::all();
         return view('backend.collection.edit',['brands' => $brands]);
     }
 
@@ -108,26 +108,6 @@ class CollectionController extends Controller
 
     public function showRestoreForm()
     {
-        /*
-        $collections = Collection::onlyTrashed('collections')->get();
-        $brands = Brand::withTrashed()->get();
-        if(sizeof($collections)==0) {
-            $this->EchoMessage("Non ci sono Collezioni da ripristinare");
-            return view('backend.index');
-        }else {
-            return view('backend.collection.restore',['brands' => $brands,'collections' => $collections]);
-        }
-        */
-        /*
-                                     @foreach($brands as $data)
-                                @foreach($collections as $collection)
-                                    @if($collection->brand_id == $data->id)
-                                        <option value="{{$data->id}}"> {{$data->name}} </option>
-                                                @break
-                                    @endif
-                                @endforeach
-                            @endforeach
-         */
         $brands = Brand::withoutTrashed()->get();
         return view('backend.collection.restore',['brands' => $brands]);
 
@@ -163,7 +143,7 @@ class CollectionController extends Controller
 
         Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
 
-        return redirect()->to('Admin/Collection/List');
+        return redirect()->to('Admin/Collection/List')->with('status','Modifiche avvenute con successo!!');
     }
 
     /**
@@ -176,12 +156,9 @@ class CollectionController extends Controller
     public function restore(Request $request)   //query senza nome
     {
         $idcollection = $request->get('collection');
-        $idbrand= $request->get('brand');
-
-        Brand::where('id',$idbrand)->restore();
         Collection::where('id',$idcollection)->restore();
 
-        return redirect()->to('Admin/Collection/List');
+        return redirect()->to('Admin/Collection/List')->with('status','Ripristino avvenuto con successo!!');
     }
 
     /**
@@ -195,6 +172,6 @@ class CollectionController extends Controller
         $collection = $request->get('collection');
         Collection::withTrashed()->find($collection)->delete();
 
-        return redirect()->to('Admin/Collection/List');
+        return redirect()->to('Admin/Collection/List')->with('status','Eliminazione avvenuta con successo!!');
     }
 }

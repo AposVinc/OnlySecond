@@ -15,6 +15,10 @@
         Collezione
     @endcomponent
 
+    <div id="error">
+
+    </div>
+
     <form action="{{route('Admin.Collection.RestoreRestore')}}" method="post" class="form-horizontal">
         @csrf
 
@@ -25,9 +29,6 @@
                     <div class="col-12 col-md-9">
                         <select name="brand" id="brand" class="form-control" onchange="EditCollectionRestore()" required>
                             <option value="">Seleziona il brand</option>
-                        <!--
-                            VECCHIO CODICE IN COLLECTIONCONTROLLER
-                            -->
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
