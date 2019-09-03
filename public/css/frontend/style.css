@@ -2352,7 +2352,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     color: #ff6300;
 }
 .footer-bottom {
-    background: #ff6300;
+    background: #000;
     color: #808080;
 }
 .copyright-part{
