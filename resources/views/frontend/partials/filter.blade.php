@@ -63,7 +63,7 @@
                         @foreach($colors as $color)
                             <div class="checkbox">
                                 <label>
-                                    <input value="{{$color->color}}" type="checkbox"> {{$color->color}} </label>
+                                    <input value="{{$color->hex}}" type="checkbox"> {{$color->name}} </label>
                             </div>
                         @endforeach
                     </div>

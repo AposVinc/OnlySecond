@@ -7,6 +7,7 @@ namespace App\Http\Composers;
 use App\Brand;
 use App\Category;
 use App\Collection;
+use App\Color;
 use App\Offer;
 use App\Product;
 use App\Review;
@@ -21,8 +22,7 @@ class FilterComposer
         $categories = Category::withoutTrashed()->orderBy('name')->get();
         $all_materials = Specification::withoutTrashed()->orderBy('material')->get('material');
         $materials = $all_materials->unique('material');
-        $all_colors = Product::withoutTrashed()->orderBy('color')->get('color');        //https://en.wikipedia.org/wiki/Web_colors
-        $colors = $all_colors->unique('color');
+        $colors = Color::all();         //https://en.wikipedia.org/wiki/Web_colors
 
         //offerte satici
         //voti statici
