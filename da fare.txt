@@ -1,0 +1,28 @@
+BE
+---------
+tabelle/grafici BE (prima pg)
+messaggi errore
+    ripristina - non ci sono el da riprstinare
+    elimina - non ci sono el da eliminare
+    aggiunta - gia esiste
+sez prod BE
+required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
+cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
+
+FE
+---------
+shop - lista prod con img
+logica filtro
+Mostra Banner in home
+num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
+se num el in Filtro >6 inserire "Mostra altro"
+Brand Logo
+Grafica Login/Registraz/pass dimenticata
+Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
+
+ok
+--
+Calendario in Offer
+
+
+
