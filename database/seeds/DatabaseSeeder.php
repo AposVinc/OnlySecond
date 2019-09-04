@@ -110,7 +110,7 @@ class DatabaseSeeder extends Seeder
         /* Prodotti Fossil */
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
             'genre' => 'F','long_desc' => 'long desc']);
-        $CarlieP1I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Bianco_1.jpg', 'main' => '1']);
+        $CarlieP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Charlie/Fossil_Carlie_Bianco_1.jpg', 'main' => '1']);
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
         $CarlieP1->color_id = $bianco->id;
@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
 
         $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
             'genre' => 'F','long_desc' => 'long desc']);
-        $CarlieP2I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Rosa_1.jpg', 'main' => '1']);
+        $CarlieP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Charlie/Fossil_Carlie_Rosa_1.jpg', 'main' => '1']);
         $CarlieP2->collection_id = $Carlie->id;
         $CarlieP2->supplier_id = $fornitore1->id;
         $CarlieP2->color_id = $rosa->id;
@@ -132,9 +132,9 @@ class DatabaseSeeder extends Seeder
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '149', 'stock_availability' => '5',
             'genre' => 'F','long_desc' => 'long desc']);
-        $CarlieP3I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Nero_1.jpg', 'main' => '1']);
-        $CarlieP3I2 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Nero_2.jpg', 'main' => '0']);
-        $CarlieP3I3 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Carlie_Nero_3.jpg', 'main' => '0']);
+        $CarlieP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Charlie/Fossil_Carlie_Nero_1.jpg', 'main' => '1']);
+        $CarlieP3I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Charlie/Fossil_Carlie_Nero_2.jpg', 'main' => '0']);
+        $CarlieP3I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Charlie/Fossil_Carlie_Nero_3.jpg', 'main' => '0']);
         $CarlieP3->collection_id = $Carlie->id;
         $CarlieP3->supplier_id = $fornitore1->id;
         $CarlieP3->color_id = $nero->id;
@@ -147,7 +147,7 @@ class DatabaseSeeder extends Seeder
 
         $Sport1P1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
             'genre' => 'U','long_desc' => 'long desc']);
-        $SportP1I1 = new Image(['path_image' => 'Fossil/Charlie/Fossil_Sport_Nero_1.jpg', 'main' => '1']);
+        $SportP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Charlie/Fossil_Sport_Nero_1.jpg', 'main' => '1']);
         $Sport1P1->collection_id = $Sport->id;
         $Sport1P1->supplier_id = $fornitore1->id;
         $Sport1P1->color_id = $nero->id;
@@ -171,7 +171,7 @@ class DatabaseSeeder extends Seeder
         /* Prodotti Lacoste */
         $Lacoste_12_12_P1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
             'genre' => 'M','long_desc' => 'long desc']);
-        $Lacoste_12_12_P1I1 = new Image(['path_image' => 'Lacoste/12.12/Lacoste_12.12_Blu_1.jpg', 'main' => '1']);
+        $Lacoste_12_12_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_Blu_1.jpg', 'main' => '1']);
         $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
         $Lacoste_12_12_P1->supplier_id = $fornitore1->id;
         $Lacoste_12_12_P1->color_id = $blu->id;

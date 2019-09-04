@@ -64,8 +64,8 @@
                                 <div class="product-thumb clearfix mb_30">
                                     <div class="image product-imageblock">
                                         <a href="product_detail_page.html">
-                                            <img data-name="product_image" src="{{URL::to($product->images->where('main','1')->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
-                                            <img src="{{URL::to($product->images->where('main','1')->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
+                                            <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
+                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
                                         </a>
                                         <div class="button-group text-center">
                                             <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
