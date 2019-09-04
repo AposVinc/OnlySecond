@@ -21,6 +21,8 @@ class CreateBannersTable extends Migration
             $table->boolean('visible'); //indica se il banner viene visualizzato o meno nella home page
             $table->timestamps();
 
+            $table->softDeletes();
+
             $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade')->onUpdate('cascade');
         });
     }

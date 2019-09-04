@@ -4,15 +4,15 @@
 
     @component('backend.breadcrumbs')
         @slot('gest')
-            Immagini
+            Brand
         @endslot
         @slot('sez')
-            Banner
+            Brand
         @endslot
         @slot('op')
             Mostra
         @endslot
-        Immagine Banner
+        Brand
     @endcomponent
 
     <form action="{{route('Admin.Banner.List')}}" class="form-horizontal">
