@@ -17,13 +17,14 @@ logica filtro
 Mostra Banner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
-Brand Logo
 Grafica Login/Registraz/pass dimenticata
 Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
 
 ok
 --
 Calendario in Offer
+Brand Logo
+
 
 MESSAGGI DI ERRORE NEL BE
 BRAND e COLLECTION:

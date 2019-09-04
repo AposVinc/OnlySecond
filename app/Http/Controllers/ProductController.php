@@ -124,7 +124,7 @@ class ProductController extends Controller
                     Storage::makeDirectory($path);
                 }
                 $idCollection=$request->get('collection');
-                $nameCollection=Collection::where('id', $idCollection)->first()->name;
+                $nameCollection=\App\Collection::where('id', $idCollection)->first()->name;
                 $path.= '/'. $nameCollection;
                 if(!(Storage::exists($path))){
                     Storage::makeDirectory($path);
