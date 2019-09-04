@@ -15,10 +15,14 @@
         Banner
     @endcomponent
 
+    <div id="error">
+
+    </div>
+
     <form action="{{route('Admin.Banner.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
-    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+
+        <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
@@ -46,15 +50,14 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Visibilità</label></div>
                     <div class="col col-md-9">
-                        <div class="form-check-inline form-check">
-                            <label for="inline-radio1" class="form-check-label " >
-                                <input type="radio" id="inline-radio1" name="inline-radios" value="true" class="form-check-input">
-                                Visibile nella Home Page
-                            </label>
-                        </div>
+                        <label class="switch switch-3d switch-primary mr-3">
+                            <input type="checkbox" name="visible" class="switch-input" value="true" checked="false">
+                            <span class="switch-label"></span>
+                            <span class="switch-handle"></span>
+                        </label>
+                        Visibile nella Home Page
                     </div>
                 </div>
-
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
@@ -65,7 +68,7 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
 
 @endsection
