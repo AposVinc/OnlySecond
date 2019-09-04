@@ -65,7 +65,7 @@ class BrandController extends Controller
                     Storage::makeDirectory($path);
                 }
                 $nameBrand=$request->get('newbrand');
-                $filename= 'Logo_'. $nameBrand;
+                $filename= 'Logo_'. $nameBrand. '.png';
                 $path_logo = 'storage/Logo/'. $filename;
                 $pathnew = $request->file('logo')->storeAs($path, $filename);
                 if($pathnew!=""){
@@ -103,7 +103,7 @@ class BrandController extends Controller
                     Storage::makeDirectory($path);
                 }
                 $nameBrand=$request->get('newname');
-                $filename= 'Logo_'. $nameBrand;
+                $filename= 'Logo_'. $nameBrand. '.png';
                 $path_logo = 'storage/Logo/'. $filename;
                 $pathnew = $request->file('logo')->storeAs($path, $filename);
                 if($pathnew!=""){

@@ -94,7 +94,7 @@ class DatabaseSeeder extends Seeder
         /*------------------------------------------------------*/
 
         /* Fossil */
-        $Fossil = new Brand(['name' => 'Fossil','path_logo' => 'storage/Logo/Logo_Fossil']);
+        $Fossil = new Brand(['name' => 'Fossil','path_logo' => 'storage/Logo/Logo_Fossil.png']);
         $Fossil->save();
 
         /* Collezioni Fossil */
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
 
 
         /* Lacoste */
-        $Lacoste = new Brand(['name' => 'Lacoste','path_logo' => 'storage/Logo/Logo_Lacoste']);
+        $Lacoste = new Brand(['name' => 'Lacoste','path_logo' => 'storage/Logo/Logo_Lacoste.png']);
         $Lacoste->save();
 
         /* Collezioni Lacoste */
@@ -182,7 +182,7 @@ class DatabaseSeeder extends Seeder
 
 
         /* Tissot */
-        $Tissot = new Brand(['name' => 'Tissot','path_logo' => 'storage/Logo/Logo_Tissot']);
+        $Tissot = new Brand(['name' => 'Tissot','path_logo' => 'storage/Logo/Logo_Tissot.png']);
         $Tissot->save();
 
         /* Collezioni Tissot */
@@ -193,7 +193,7 @@ class DatabaseSeeder extends Seeder
         $Tissot->collections()->save($Chrono);
 
         /* Wellington */
-        $Wellington = new Brand(['name' => 'Wellington','path_logo' => 'storage/Logo/Logo_Wellington']);
+        $Wellington = new Brand(['name' => 'Wellington','path_logo' => 'storage/Logo/Logo_Wellington.png']);
         $Wellington->save();
 
         /* Collezioni Wellington */
@@ -207,7 +207,7 @@ class DatabaseSeeder extends Seeder
         $Wellington->collections()->save($Bayswater);
 
         /* Diesel */
-        $Diesel = new Brand(['name' => 'Diesel','path_logo' => 'storage/Logo/Logo_Diesel']);
+        $Diesel = new Brand(['name' => 'Diesel','path_logo' => 'storage/Logo/Logo_Diesel.png']);
         $Diesel->save();
 
         /* Collezioni Diesel */
