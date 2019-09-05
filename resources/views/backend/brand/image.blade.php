@@ -19,7 +19,7 @@
         <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
-                    <img src="{{asset($brand->path_logo)}}">
+                    <img src="{{asset($brand->path_logo)}}" style="background-color: black">
                 </div>
             </div>
             <div class="card-footer">

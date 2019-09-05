@@ -58,28 +58,32 @@ class BrandController extends Controller
      */
     public function create(Request $request)  //
     {
-        if ($request->hasFile('logo')) { //  se il file è presente nella request
-            if ($request->file('logo')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
-                $path='public/Logo';
-                if(!(Storage::exists($path))){
-                    Storage::makeDirectory($path);
-                }
-                $nameBrand=$request->get('newbrand');
-                $filename= 'Logo_'. $nameBrand. '.png';
-                $path_logo = 'storage/Logo/'. $filename;
-                $pathnew = $request->file('logo')->storeAs($path, $filename);
-                if($pathnew!=""){
-                    $brand = new Brand();
-                    $brand->name = $nameBrand;
-                    $brand->path_logo = $path_logo;
-                    $brand->save();
-                    return redirect()->to('Admin/Brand/List')->with('status','Caricamento avvenuto con successo!!');
+        if (Brand::where('name',$request->newbrand)->first()){
+            return redirect()->to('Admin/Brand/List')->with('error', 'Il Brand già esiste!!');
+        }else{
+            if ($request->hasFile('logo')) { //  se il file è presente nella request
+                if ($request->file('logo')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+                    $path='public/Logo';
+                    if(!(Storage::exists($path))){
+                        Storage::makeDirectory($path);
+                    }
+                    $nameBrand=$request->get('newbrand');
+                    $filename= 'Logo_'. $nameBrand. '.png';
+                    $path_logo = 'storage/Logo/'. $filename;
+                    $pathnew = $request->file('logo')->storeAs($path, $filename);
+                    if($pathnew!=""){
+                        $brand = new Brand();
+                        $brand->name = $nameBrand;
+                        $brand->path_logo = $path_logo;
+                        $brand->save();
+                        return redirect()->to('Admin/Brand/List')->with('success','Caricamento avvenuto con successo!!');
+                    }
+                }else{
+                    return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
                 }
             }else{
-                return redirect()->to('Admin/Brand/List')->with('error','Errore durante il caricamento. Riprovare!!');
+                return redirect()->to('Admin/Brand/List')->with('error','File non trovato. Riprovare!!');
             }
-        }else{
-            return redirect()->to('Admin/Brand/List')->with('error','File non trovato. Riprovare!!');
         }
     }
 
@@ -109,7 +113,7 @@ class BrandController extends Controller
                 if($pathnew!=""){
                     Brand::where('id',$id)
                         ->update(['name' => $nameBrand, 'path_logo' => $path_logo]);
-                    return redirect()->to('Admin/Brand/List')->with('status','Modifiche avvenute con successo!!');
+                    return redirect()->to('Admin/Brand/List')->with('success','Modifiche avvenute con successo!!');
                 }
             }else{
                 return redirect()->to('Admin/Brand/List')->with('error','Errore durante il caricamento. Riprovare!!');
@@ -128,9 +132,12 @@ class BrandController extends Controller
     public function restore(Request $request)   //query senza nome
     {
         $id = $request->get('brand');
-        Brand::where('id',$id)->restore();
+        //Brand::where('id',$id)->restore();
+        if (Brand::where('id',$id)->restore()){
+            return redirect()->to('Admin/Brand/List')->with('success','Ripristino avvenuto con successo!!');
+        }else{
 
-        return redirect()->to('Admin/Brand/List')->with('status','Ripristino avvenuto con successo!!');
+        }
     }
 
     public function destroy(Request $request)
@@ -139,7 +146,7 @@ class BrandController extends Controller
 
         $brand = Brand::withTrashed()->find($id)->delete();
 
-        return redirect()->to('Admin/Brand/List')->with('status','Eliminazione avvenuta con successo!!');
+        return redirect()->to('Admin/Brand/List')->with('success','Eliminazione avvenuta con successo!!');
     }
 
 }

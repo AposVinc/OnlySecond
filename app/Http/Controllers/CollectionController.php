@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Banner;
 use App\Brand;
 use App\Collection;
-use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
 class CollectionController extends Controller
 {
@@ -44,15 +42,6 @@ class CollectionController extends Controller
 
     function getCollectionRestore(Request $request)
     {
-        /*
-        $value = $request->get('value');    //id del brand
-        $data = Collection::onlyTrashed('collections')->where('brand_id', $value)->get();
-        $output = '<option value="">Seleziona la collezione</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output; */
         $value = $request->get('value');
         $collections = Collection::onlyTrashed()->where('brand_id', $value)->get();
         return $collections;
@@ -120,12 +109,16 @@ class CollectionController extends Controller
      */
     public function create(Request $request)
     {
-        $collection = new Collection();
-        $collection->name =  $request->get('text-input');
-        $collection->brand_id =  $request->get('brand');
-        $collection->save();
+        if (Collection::where('name',$request->name)->first()){
+            return redirect()->to('Admin/Brand/List')->with('error', 'La Collezione già esiste!!');
+        }else {
+            $collection = new Collection();
+            $collection->name = $request->name;
+            $collection->brand_id = $request->get('brand');
+            $collection->save();
 
-        return redirect()->to('Admin/Collection/List')->with('status','Caricamento avvenuto con successo!!');
+            return redirect()->to('Admin/Collection/List')->with('success', 'Caricamento avvenuto con successo!!');
+        }
     }
 
     /**

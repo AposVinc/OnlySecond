@@ -1,3 +1,5 @@
+eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini
+
 BE
 ---------
 tabelle/grafici BE (prima pg)
@@ -27,6 +29,11 @@ Brand Logo
 
 
 MESSAGGI DI ERRORE NEL BE
+controller
+return view(...)->withErrors(['message_login' => 'The email or password is incorrect, please try again'])
+blade
+@error('message_login') .... {{$message}}....@enderror
+
 BRAND e COLLECTION:
 - Add:
    1. errore nel salvataggio
