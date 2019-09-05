@@ -49,6 +49,9 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <h6><i><u><a href="{{route('Password_Resets')}}">Password Dimenticata?</a></u></i></h6>
+                                        </div>
                                     </div>
 
                                     <div class="form-group row mb-0">
@@ -57,6 +60,7 @@
                                                 {{ __('Login') }}
                                             </button>
 
+                                            <!-- non funziona questo if poichè le route non sono abilitate, ho messo un campo sopra-->
                                             @if (Route::has('password.request'))
                                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                                     {{ __('Hai Dimenticato La Password?') }}
