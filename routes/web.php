@@ -79,9 +79,13 @@ Route::get('/Address', function () {
     return view('frontend.address');
 })->name('Address');
 
+Route::get('/Password_Resets', function () {
+    return view('frontend.password_resets');
+})->name('Password_Resets');
+
+
 #wishlist
-Route::get('/Favorite', 'WishListController@showListForm')
-    ->name('Favorite.List');
+Route::get('/Favorite', 'WishListController@showListForm')->name('Favorite.List');
 
 
 

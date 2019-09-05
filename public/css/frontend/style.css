@@ -1323,6 +1323,10 @@ label.checkme {
     background-color:yellow;
 }
 
+.text-color{
+    color: #ff6300;
+}
+
 .header-bottom-left {
     background: #f2f2f2 none repeat scroll 0 0;
     padding: 15px 25px;
@@ -1519,7 +1523,7 @@ input#amount {
 }
 .main-banner .owl-dot.active>span {
     background: rgba(0, 0, 0, 0.0) none repeat scroll 0 0;
-    border: 2px solid #fb4250;
+    border: 2px solid #ff6300;
     border-radius: 50%;
     display: inline-block;
     height: 14px;
