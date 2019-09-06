@@ -110,7 +110,7 @@ class CollectionController extends Controller
     public function create(Request $request)
     {
         if (Collection::where('name',$request->name)->first()){
-            return redirect()->to('Admin/Brand/List')->with('error', 'La Collezione già esiste!!');
+            return redirect()->to('Admin/Collection/List')->with('error', 'La Collezione già esiste!!');
         }else {
             $collection = new Collection();
             $collection->name = $request->name;
@@ -128,15 +128,18 @@ class CollectionController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)//Collection $collection
+    public function update(Request $request)
     {
-        $collection = $request->get('collection');
-        $newbrand = $request->get('newbrand');
-        $newcollectionname = $request->get('newcollectionname');
+        if (Collection::where('name',$request->newcollectionname)->first()){
+            return redirect()->to('Admin/Collection/List')->with('error', 'La Collezione già esiste!!');
+        }else{
+            $collection = $request->get('collection');
+            $newbrand = $request->get('newbrand');
+            $newcollectionname = $request->get('newcollectionname');
+            Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
 
-        Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
-
-        return redirect()->to('Admin/Collection/List')->with('status','Modifiche avvenute con successo!!');
+            return redirect()->to('Admin/Collection/List')->with('success','Modifiche avvenute con successo!!');
+        }
     }
 
     /**
@@ -145,13 +148,15 @@ class CollectionController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-
     public function restore(Request $request)   //query senza nome
     {
         $idcollection = $request->get('collection');
-        Collection::where('id',$idcollection)->restore();
 
-        return redirect()->to('Admin/Collection/List')->with('status','Ripristino avvenuto con successo!!');
+        if (Collection::where('id',$idcollection)->restore()) {
+            return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
     }
 
     /**
@@ -163,8 +168,11 @@ class CollectionController extends Controller
     public function destroy(Request $request)
     {
         $collection = $request->get('collection');
-        Collection::withTrashed()->find($collection)->delete();
 
-        return redirect()->to('Admin/Collection/List')->with('status','Eliminazione avvenuta con successo!!');
+        if (Collection::withTrashed()->find($collection)->delete()) {
+            return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+        }
     }
 }
