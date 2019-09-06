@@ -36,12 +36,12 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="newname" class=" form-control-label">Nome Brand</label></div>
-                    <div class="col-12 col-md-9"><input value="" type="text" id="newname" name="newname" placeholder="Inserisci il nuovo nome del brand" class="form-control" required>
+                    <div class="col-12 col-md-9"><input type="text" id="newname" name="newname" placeholder="Inserisci il nuovo nome del brand" class="form-control">
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="logo" class=" form-control-label">Logo</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="logo" name="logo" class="form-control-file" required></div>
+                    <div class="col-12 col-md-9"><input type="file" id="logo" name="logo" class="form-control-file"></div>
                 </div>
             </div>
             <div class="card-footer">
