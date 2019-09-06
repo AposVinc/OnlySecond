@@ -93,7 +93,7 @@ class BrandController extends Controller
      * @param \App\Brand $brand
      * @return \Illuminate\Http\Response
      */
-    public function update2(Request $request)
+    public function update1(Request $request)
     {
         $id = $request->get('brand');
         $nameold = Brand::where('id', $id)->first()->name;
@@ -129,7 +129,7 @@ class BrandController extends Controller
      * @param \App\Brand $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update2(Request $request)
     {
         if ($request->has('newname')) {
             if (Brand::where('name', $request->newname)->first()) {
@@ -174,6 +174,70 @@ class BrandController extends Controller
                 Storage::move('public/Logo/Logo_'. $oldname. '.png', 'public/Logo/Logo_'. $request->newname. '.png');
                 return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
             }
+        }
+    }
+
+    public function update(Request $request)
+    {
+        if ($request->has('newname')) {
+            if (Brand::where('name', $request->newname)->first()) {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Esiste gia un Brand con il nome inserito!!');
+            }
+        }
+
+        $bool_name = false;
+        $bool_file = false;
+
+        $id = $request->brand;
+        $b = Brand::where('id', $id)->first();
+        $oldname = $b->name;
+
+        if ($request->has('newname')){
+            $b->name = $request->newname;
+            if ($b->update()) {
+                Storage::move('public/Logo/Logo_'. $oldname. '.png', 'public/Logo/Logo_'. $request->newname. '.png');
+                $bool_name = true;
+                //return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
+            }
+        }
+
+        if ($request->hasFile('logo')) { //  se il file è presente nella request
+            if ($request->file('logo')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+
+                if ($request->has('newname')) {
+                    $path = 'public/Logo/Logo_'. $request->newname;
+                    Storage::delete($path);
+                } else {
+                    $path = 'public/Logo/Logo_'. $oldname;
+                    Storage::delete($path);
+                }
+
+                $path = 'public/Logo';
+                if (!(Storage::exists($path))) {
+                    Storage::makeDirectory($path);
+                }
+                if ($request->has('newname')) {
+                    $nameBrand = $request->newname;
+                } else {
+                    $nameBrand = $oldname;
+                }
+                $filename = 'Logo_'. $nameBrand. '.png';
+                $path_logo = 'storage/Logo/'. $filename;
+                $pathnew = $request->file('logo')->storeAs($path, $filename);
+                if ($pathnew != "") {
+                    $b->name = $nameBrand;
+                    $b->path_logo = $path_logo;
+                    if ($b->update()) {
+                        $bool_file = true;
+                        //return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
+                    }
+                }
+            } else {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        }
+        if ($bool_file or $bool_name){
+            return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
         }
     }
 
