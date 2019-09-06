@@ -95,14 +95,14 @@ class BrandController extends Controller
      */
     public function update(Request $request)
     {
-
         if (Brand::where('name', $request->newname)->first()) {
             return redirect()->to('Admin/Brand/List')->with('error', 'Esiste gia un Brand con il nome inserito!!');
         }
 
-        $id = $request->get('brand');
-        $nameold = Brand::where('id', $id)->first()->name;
-        $path = "public/Logo/Logo_" . $nameold;
+        $id = $request->brand;
+        $b = Brand::where('id', $id)->first();
+        $oldname = $b->name;
+        $path = 'public/Logo/Logo_'. $oldname. '.png';
         Storage::delete($path);
 
         if ($request->hasFile('logo')) { //  se il file è presente nella request
