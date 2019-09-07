@@ -50,34 +50,47 @@ class OfferController extends Controller{
         return $rate;
     }
 
+    function getDate(Request $request)
+    {
+        $value = $request->get('value');
+        $date1 = Product::withoutTrashed()->find($value)->offer->end;
+        $date = date('m/d/Y', strtotime($date1));
+        return $date;
+    }
+
 
     public function create(Request $request)
     {
-        $id = $request->product;
-        $product = Product::all()->find($id);
+        if (Offer::where('product_id', $request->product)->first()) {
+            return redirect()->to('Admin/Offer/List')->with('error', 'Esiste gia un Offerta per il prodotto inserito!!');
+        }
+
+        $product = Product::all()->find($request->product);
         $offer = new Offer();
         $offer->rate = $request->rate;
-        $offer->end = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
+        $offer->end = date('Y-m-d', strtotime($request->datepicker). ' 23:59:59');
         $product->offer()->save($offer);
-        $offer->save();
-        return redirect()->to('Admin/Offer/List');
+        if($offer->save()){
+            return redirect()->to('Admin/Offer/List')->with('success', 'Caricamento avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Offer/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+        }
     }
-
-    public function show($cod)
-    {
-        $offer = Product::where('cod', $cod)->firstOrFail();
-        return view('offer')->with(['offer' => $offer]);
-    }
-
 
     public function update(Request $request)
     {
         $id = $request->product;
         $newdata = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
 
-        Product::find($id)->offer()->update(['rate' => $request->rate , 'end' => $newdata]);
+        $o = Product::all()->find($id)->offer()->first();
+        $o->rate = $request->rate;
+        $o->end = $newdata;
 
-        return redirect()->to('Admin/Offer/List');
+        if ($o->update()){
+            return redirect()->to('Admin/Offer/List')->with('success', 'Modifiche avvenute con successo!!');
+        }else{
+            return redirect()->to('Admin/Offer/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+        }
     }
 
     public function destroy(Request $request)

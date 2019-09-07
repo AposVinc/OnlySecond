@@ -154,6 +154,7 @@ Route::prefix('Admin')->group(function () {
         #route chiamata ajax per offer
         Route::post('/GetPrice', 'OfferController@getPrice')->name('GetPrice');
         Route::post('/GetRate', 'OfferController@getRate')->name('GetRate');
+        Route::post('/GetDate', 'OfferController@getDate')->name('GetDate');
         Route::post('/GetProductWithOffer', 'ProductController@getProductWithOffer')->name('GetProductWithOffer');
         Route::post('/RestoreGetProductWithOffer', 'ProductController@getProductRestoreWithOffer')->name('RestoreGetProductWithOffer');
 

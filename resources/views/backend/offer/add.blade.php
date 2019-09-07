@@ -86,8 +86,9 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                            <input type="text" id="datepicker" class="form-control" name="datepicker" required >
+                            <input type="text" id="datepicker" class="form-control" name="datepicker" placeholder="mm/gg/aaaa" required >
                         </div>
+                        <small>La data è nel formato inglese: Mese/Giorno/Anno </small>
                     </div>
                 </div>
                 <script>
