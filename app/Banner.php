@@ -16,7 +16,6 @@ class Banner extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
 
 
     protected $fillable =[
