@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Banner;
 use App\Collection;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,22 +12,13 @@ class BannerController extends Controller
 {
     public function showListForm()
     {
-        $banners = Banner::withTrashed()->with('collection')->get();
-        $collections=new \Illuminate\Database\Eloquent\Collection();
-        foreach ($banners as $banner){
-            $c=Collection::withTrashed()->where('name',$banner->collection->name)->with('brand')->get();
-            foreach ($c as $collection){
-                if(!($collections->contains($collection))){
-                    $collections->add($collection);
-                }
-            }
-        }
-        return view('backend.banner.list', ['banners' => $banners , 'collections'=> $collections]);
+        $banners = Banner::get();
+        return view('backend.banner.list', ['banners' => $banners]);
     }
 
     public function showImage($id)
     {
-        $banner = Banner::find($id)->first();
+        $banner = Banner::where('id',$id)->first();
         return view('backend.banner.image', ['banner' => $banner]);
     }
 
@@ -150,7 +140,7 @@ class BannerController extends Controller
                 }
                 $counter=Banner::where('collection_id', $idCollection)->max('counter');
                 $counter +=1;
-                $filename= $nameBrand. '_'. $nameCollection. '_'. $counter;
+                 $filename= $nameBrand. '_'. $nameCollection. '_'. $counter. '.jpg';
                 $path_image = 'storage/Banner/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
                 $path = $request->file('file')->storeAs($path, $filename);
                 if($path!=""){
@@ -158,7 +148,7 @@ class BannerController extends Controller
                     $banner->path_image = $path_image;
                     $banner->collection_id = $idCollection;
                     $banner->counter = $counter;
-                    if($request->get('inline-radios')){
+                    if($request->get('visible')){
                         $banner->visible = true;
                     }else{
                         $banner->visible = false;
