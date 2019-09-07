@@ -15,10 +15,6 @@
         Collezione
     @endcomponent
 
-    <div id="error">
-
-    </div>
-
     <form action="{{route('Admin.Collection.RestoreRestore')}}" method="post" class="form-horizontal">
         @csrf
 

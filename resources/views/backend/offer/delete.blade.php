@@ -15,9 +15,6 @@
         Offerta
     @endcomponent
 
-    <div id="error">    <!-- errore gestito con JS-->
-    </div>
-
     <form action="{{route('Admin.Offer.DeleteDestroy')}}" method="post" class="form-horizontal">
         @csrf
         <div class="card add">

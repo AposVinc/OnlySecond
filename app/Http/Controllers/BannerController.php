@@ -39,56 +39,19 @@ class BannerController extends Controller
     }
 
     public function showEditForm()
-    {/*
-        $banners = Banner::withoutTrashed()->with('collection')->get();
-        $brandsBanner=new \Illuminate\Database\Eloquent\Collection();
-        foreach ($banners as $banner){
-            $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
-            foreach ($b as $b1){
-                if(!($brandsBanner->contains($b1))){
-                    $brandsBanner->add($b1);
-                }
-            }
-        }
-        $brands=Brand::all();
-        return view('backend.banner.edit',['brandsBanner' => $brandsBanner, 'brands'=> $brands]);
-    */
+    {
         $brands = Brand::withTrashed()->get();
         return view('backend.banner.edit',['brands' => $brands]);
     }
 
     public function showDeleteForm()
     {
- /*       $banners = Banner::withoutTrashed()->with('collection')->get();
-        $brands = new \Illuminate\Database\Eloquent\Collection();
-        foreach ($banners as $banner){
-            $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
-            foreach ($b as $b1){
-                if(!($brands->contains($b1))){
-                    $brands->add($b1);
-                }
-            }
-        }
-        return view('backend.banner.delete',['brands' => $brands]);
-*/
         $brands = Brand::withTrashed()->get();
         return view('backend.banner.delete',['brands' => $brands]);
     }
 
     public function showRestoreForm()
     {
- /*       $banners = Banner::onlyTrashed()->with('collection')->get();
-        $brands=new \Illuminate\Database\Eloquent\Collection();
-        foreach ($banners as $banner){
-            $b=Brand::withTrashed()->where('id',$banner->collection->brand_id)->get();
-            foreach ($b as $b1){
-                if(!($brands->contains($b1))){
-                    $brands->add($b1);
-                }
-            }
-        }
-        return view('backend.banner.restore',['brands' => $brands]);
-*/
         $brands = Brand::withoutTrashed()->get();
         return view('backend.banner.restore',['brands' => $brands]);
     }
@@ -96,16 +59,6 @@ class BannerController extends Controller
 
     function getBanner(Request $request)
     {
-        /*
-        $value = $request->get('value');    //id della collection
-        $data=Banner::withoutTrashed()->where('collection_id',$value)->get();
-        $output ='<option value="0">Seleziona il banner</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
-        }
-        return $output;
-        */
         $value = $request->get('value');
         $banners = Banner::withoutTrashed()->where('collection_id', $value)->get();
         return $banners;
@@ -113,16 +66,6 @@ class BannerController extends Controller
 
     function getBannerRestore(Request $request)
     {
-        /*
-        $value = $request->get('value');    //id della collection
-        $data=Banner::onlyTrashed()->where('collection_id',$value)->get();
-        $output ='<option value="0">Seleziona il banner</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->image.'</option>';
-        }
-        return $output;
-    */
         $value = $request->get('value');
         $banners = Banner::onlyTrashed()->where('collection_id', $value)->get();
         return $banners;
@@ -163,16 +106,18 @@ class BannerController extends Controller
                     }else{
                         $banner->visible = false;
                     }
-                    $banner->save();
-                    return redirect()->to('Admin/Banner/List')->with('status','Caricamento avvenuto con successo!!');
+                    if ($banner->save()){
+                        return redirect()->to('Admin/Banner/List')->with('success','Caricamento avvenuto con successo!!');
+                    }else{
+                        return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
+                    }
                 }
             }else{
-                return redirect()->to('Admin/Banner/List')->with('status','Errore durante il caricamento. Riprovare!!');
+                return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
             }
         }else{
-            return redirect()->to('Admin/Banner/List')->with('status','File non trovato. Riprovare!!');
+            return redirect()->to('Admin/Banner/List')->with('error','File non trovato. Riprovare!!');
         }
-
     }
 
     public function update(Request $request)

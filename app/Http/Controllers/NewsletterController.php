@@ -29,6 +29,6 @@ class NewsletterController extends Controller
             Mail::to($newsletter->email)->send(new \App\Mail\Newsletter($input));
         }
 
-        return redirect()->to('Admin/Index');
+        return redirect()->to('Admin/Newsletter/List');
     }
-    }
+}

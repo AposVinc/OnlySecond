@@ -50,9 +50,11 @@ class CategoryController extends Controller
         }else {
             $category = new Category();
             $category->name=$request->name;
-            $category->save();
-
-            return redirect()->to('Admin/Category/List')->with('success', 'Caricamento avvenuto con successo!!');
+            if ($category->save()){
+                return redirect()->to('Admin/Category/List')->with('success', 'Caricamento avvenuto con successo!!');
+            }else{
+                return redirect()->to('Admin/Category/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
         }
     }
 
@@ -63,9 +65,11 @@ class CategoryController extends Controller
         }else {
             $id = $request->get('category');
             $newname = $request->get('newname');
-            Category::where('id', $id)->update(['name' => $newname]);
-
-            return redirect()->to('Admin/Category/List')->with('success', 'Modifiche avvenute con successo!!');
+            if (Category::where('id', $id)->update(['name' => $newname])){
+                return redirect()->to('Admin/Category/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/Category/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
         }
     }
 

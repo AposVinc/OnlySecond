@@ -14,9 +14,6 @@
         @endslot
         Collezione
     @endcomponent
-    <div id="error">
-
-    </div>
 
     <form action="{{route('Admin.Collection.EditUpdate')}}" method="post" class="form-horizontal">
         @csrf

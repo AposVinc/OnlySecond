@@ -45,7 +45,10 @@ class ImageController extends Controller
         $banner = new Image();
         $banner->image = $input['file-input'];
         $banner->product_id = $input['product'];
-        $banner->save();
-        return redirect()->to('Admin/Image/List');
+        if($banner->save()){
+            return redirect()->to('Admin/Image/List')->with('success', 'Caricamento avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Image/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+        }
     }
 }

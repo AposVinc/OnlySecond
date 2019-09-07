@@ -17,7 +17,6 @@
 
     <form action="{{route('Admin.Brand.EditUpdate')}}" enctype="multipart/form-data" method="post" class="form-horizontal">
     @csrf
-
         <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">

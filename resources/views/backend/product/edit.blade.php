@@ -15,9 +15,6 @@
         Prodotto
     @endcomponent
 
-    <div id="error">    <!-- errore gestito con JS-->
-    </div>
-
     <form action="{{route('Admin.Product.EditUpdate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         @csrf
         <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->

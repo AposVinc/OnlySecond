@@ -115,9 +115,11 @@ class CollectionController extends Controller
             $collection = new Collection();
             $collection->name = $request->name;
             $collection->brand_id = $request->get('brand');
-            $collection->save();
-
-            return redirect()->to('Admin/Collection/List')->with('success', 'Caricamento avvenuto con successo!!');
+            if ($collection->save()){
+                return redirect()->to('Admin/Collection/List')->with('success', 'Caricamento avvenuto con successo!!');
+            } else {
+                return redirect()->to('Admin/Collection/List')->with('error','Errore durante il caricamento. Riprovare!!');
+            }
         }
     }
 
@@ -136,9 +138,12 @@ class CollectionController extends Controller
             $collection = $request->get('collection');
             $newbrand = $request->get('newbrand');
             $newcollectionname = $request->get('newcollectionname');
-            Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand]);
 
-            return redirect()->to('Admin/Collection/List')->with('success','Modifiche avvenute con successo!!');
+            if (Collection::where('id',$collection)->update(['name' => $newcollectionname, 'brand_id' => $newbrand])){
+                return redirect()->to('Admin/Collection/List')->with('success','Modifiche avvenute con successo!!');
+            }else{
+                return redirect()->to('Admin/Collection/List')->with('error','Errore durante il caricamento. Riprovare!!');
+            }
         }
     }
 

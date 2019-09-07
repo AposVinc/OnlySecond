@@ -15,10 +15,6 @@
         Collezione
     @endcomponent
 
-    <div id="error">
-
-    </div>
-
     <form action="{{route('Admin.Collection.DeleteDestroy')}}" method="post" class="form-horizontal">
         @csrf
 

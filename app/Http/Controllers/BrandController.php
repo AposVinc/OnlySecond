@@ -75,8 +75,11 @@ class BrandController extends Controller
                         $brand = new Brand();
                         $brand->name = $nameBrand;
                         $brand->path_logo = $path_logo;
-                        $brand->save();
-                        return redirect()->to('Admin/Brand/List')->with('success', 'Caricamento avvenuto con successo!!');
+                        if($brand->save()){
+                            return redirect()->to('Admin/Brand/List')->with('success', 'Caricamento avvenuto con successo!!');
+                        }else{
+                            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                        }
                     }
                 } else {
                     return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
@@ -116,9 +119,11 @@ class BrandController extends Controller
                 $path_logo = 'storage/Logo/' . $filename;
                 $pathnew = $request->file('logo')->storeAs($path, $filename);
                 if ($pathnew != "") {
-                    Brand::where('id', $id)
-                        ->update(['name' => $nameBrand, 'path_logo' => $path_logo]);
-                    return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
+                    if (Brand::where('id', $id)->update(['name' => $nameBrand, 'path_logo' => $path_logo])){
+                        return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
+                    }else{
+                        return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+                    }
                 }
             } else {
                 return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');

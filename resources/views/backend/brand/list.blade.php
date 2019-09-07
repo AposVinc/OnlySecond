@@ -15,18 +15,6 @@
         Brand
     @endcomponent
 
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
