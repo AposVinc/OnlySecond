@@ -25,6 +25,10 @@
                                 <thead>
                                 <tr>
                                     <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Tel</th>
+                                    <th>Cap - Città - Indirizzo</th>
+                                    <th>IBAN</th>
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
                                     <th>Eliminato il</th>
@@ -34,6 +38,10 @@
                                 @foreach($suppliers as $supplier)
                                     <tr>
                                         <td>{{$supplier->name}}</td>
+                                        <td>{{$supplier->email}}</td>
+                                        <td>{{$supplier->phone}}</td>
+                                        <td>{{$supplier->zip}}<br>{{$supplier->city}}, {{$supplier->address}}</td>
+                                        <td>{{$supplier->iban}}</td>
                                         <td>{{$supplier->created_at}}</td>
                                         <td>{{$supplier->updated_at}}</td>
                                         <td>{{$supplier->deleted_at}}</td>
@@ -44,7 +52,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->

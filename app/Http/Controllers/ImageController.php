@@ -14,7 +14,7 @@ class ImageController extends Controller
     public function showListForm()
     {
         $images = Image::withTrashed()->with('product')->get();
-        $products=new Collection();
+        $products = new Collection();
         $collections = new Collection();
         foreach ($images as $image){
             $p=Product::withTrashed()->where('name',$image->product->name)->with('collection')->get();

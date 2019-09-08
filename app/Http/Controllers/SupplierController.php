@@ -25,18 +25,26 @@ class SupplierController extends Controller
         return view('backend.supplier.edit', ['suppliers' => $suppliers]);
     }
 
-    public function showDeleteForm()
-    {
-        $suppliers = Supplier::all(); //all() non mostrare brand gia eliminati
-        return view('backend.supplier.delete', ['suppliers' => $suppliers]);
-    }
-
     public function showRestoreForm()
     {
-        $suppliers = Supplier::onlyTrashed()->get();
-        return view('backend.supplier.restore', ['suppliers' => $suppliers]);
-
+        if (Supplier::onlyTrashed()->exists()){
+            $suppliers = Supplier::onlyTrashed()->get();
+            return view('backend.supplier.restore', ['suppliers' => $suppliers]);
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono elementi da ripristinare!!');
+        }
     }
+
+    public function showDeleteForm()
+    {
+        if (Supplier::withoutTrashed()->exists()){
+            $suppliers = Supplier::all();
+            return view('backend.supplier.delete', ['suppliers' => $suppliers]);
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono elementi da Eliminare!!');
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -46,6 +54,9 @@ class SupplierController extends Controller
      */
     public function create(Request $request)  //
     {
+        if (Supplier::where('name', $request->name)->first()) {
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Esiste già un Fornitore con il nome inserito!!');
+        }
         $input = $request->all();
 
         $supplier = new Supplier();
@@ -56,9 +67,12 @@ class SupplierController extends Controller
         $supplier->address = $input['address'];
         $supplier->zip = $input['zip'];
         $supplier->iban = $input['iban'];
-        $supplier->save();
+        if($supplier->save()){
+            return redirect()->to('Admin/Supplier/List')->with('success', 'Caricamento avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+        }
 
-        return redirect()->to('Admin/Index');
     }
 
     /**
@@ -69,13 +83,40 @@ class SupplierController extends Controller
      */
     public function update(Request $request)
     {
-        Supplier::where('id', $request['supplier'])->restore(); //se era stato eliminato viene ripristinato
+        $supplier = Supplier::where('id', $request->supplier)->first();
+        if ($supplier->name == $request->name) {
+            if ($this->updatebool($request,$supplier)){
+                return redirect()->to('Admin/Supplier/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        } else {
+            if (Supplier::where('name', $request->name)->first()) {
+                return redirect()->to('Admin/Supplier/List')->with('error', 'Esiste già un Fornitore con il nome inserito!!');
+            }
+            if ($this->updatebool($request,$supplier)){
+                return redirect()->to('Admin/Supplier/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        }
+    }
+    public function updatebool(Request $request, $supplier){
+        $input = $request->all();
 
-        Supplier::where('id', $request['supplier'])
-            ->update(['name' => $request['name'],'email'=>$request['email'], 'phone' => $request['phone'],
-                        'city' => $request['city'],'address' => $request['address'],'zip' => $request['zip'],'iban' => $request['iban']]);
+        $supplier->name = $input['name'];
+        $supplier->email = $input['email'];
+        $supplier->phone = $input['phone'];
+        $supplier->city = $input['city'];
+        $supplier->address = $input['address'];
+        $supplier->zip = $input['zip'];
+        $supplier->iban = $input['iban'];
 
-        return redirect()->route('Admin.Supplier.List');
+        if ($supplier->update()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -86,18 +127,20 @@ class SupplierController extends Controller
      */
     public function restore(Request $request)   //query senza nome
     {
-        $id = $request->get('supplier');
-        Supplier::where('id', $id)->restore();
-
-        return redirect()->to('Admin.Supplier.List');
+        if (Supplier::onlyTrashed()->find($request->supplier)->restore()) {
+            return redirect()->to('Admin/Supplier/List')->with('success', 'Ripristino avvenuto con successo!!');
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
     }
 
     public function destroy(Request $request)
     {
-        $id = $request->get('supplier');
-        Supplier::withTrashed()->find($id)->delete();
-
-        return redirect()->to('Admin.Supplier.List');
+        if (Supplier::withTrashed()->find($request->supplier)->delete()) {
+            return redirect()->to('Admin/Supplier/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+        }
     }
 
 }

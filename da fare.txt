@@ -3,14 +3,14 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 tabelle/grafici BE (prima pg)
-messaggi errore
-    ripristina - non ci sono el da riprstinare
-    elimina - non ci sono el da eliminare
-    aggiunta - gia esiste
 sez prod BE
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
 *Mancano le immagini dei loghi dei brand presenti nel seeder nella giusta cartella con il giusto nome
+Elimina img prodotto????
+
+EditDate() (js)
+errore se non ci sono brand nella sez edit collezioni
 
 FE
 ---------
@@ -26,6 +26,8 @@ ok
 --
 Calendario in Offer
 Brand Logo
+errore data offerte
+
 
 
 MESSAGGI DI ERRORE NEL BE
@@ -33,6 +35,11 @@ controller
 return view(...)->withErrors(['message_login' => 'The email or password is incorrect, please try again'])
 blade
 @error('message_login') .... {{$message}}....@enderror
+
+messaggi errore
+    ripristina - non ci sono el da riprstinare
+    elimina - non ci sono el da eliminare
+    aggiunta - gia esiste
 
 BRAND e COLLECTION:
 - Add:

@@ -43,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" onchange="EditPrice();EditRate();EditPriceRate();" required>
+                        <select name="product" id="product" class="form-control" onchange="EditPrice();EditRate();EditPriceRate();EditDate();" required>
                             <option value="">Seleziona il prodotto</option>
                         </select>
                     </div>
@@ -78,6 +78,17 @@
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
                             <input type="text" id="pricerate" name="pricerate" step=".01" placeholder="00.00" class="form-control" disabled="disabled" required >
                         </div>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="datepicker" class=" form-control-label">Data di Fine Offerta</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            <input type="text" id="datepicker" class="form-control" name="datepicker" placeholder="mm/gg/aaaa" disabled="disabled" >
+                        </div>
+                        <small>La data è nel formato inglese: Mese/Giorno/Anno </small>
                     </div>
                 </div>
             </div>

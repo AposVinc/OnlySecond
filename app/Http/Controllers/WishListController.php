@@ -12,12 +12,6 @@ namespace App\Http\Controllers;
 use App\Product;
 
 class WishListController extends Controller {
-    public function EchoMessage($msg)
-    {
-        echo '<script type="text/javascript">
-            alert("', $msg, '")
-                </script>';
-    }
 
     public function showListForm()
     {

@@ -26,22 +26,31 @@ class RoleController extends Controller
 
     public function showDeleteForm()
     {
-        $roles = Role::all(); //all() non mostrare brand gia eliminati
-        return view('backend.role.delete', ['roles' => $roles]);
+        if (Role::all()->isNotEmpty()){
+            $roles = Role::all();
+            return view('backend.role.delete', ['roles' => $roles]);
+        } else {
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da eliminare!!');
+        }
     }
 
 
-
-    public function create(Request $request)  //
+    public function create(Request $request)
     {
+        if (Role::where('name', $request->name)->first()) {
+            return redirect()->to('Admin/Role/List')->with('error', 'Esiste già un Ruolo con il nome inserito!!');
+        }
         $input = $request->except('_token','name');
         $role = new Role();
         $role->name = $request['name'];
         foreach ($input as $i){
             $role->givePermissionTo($i);
         }
-        $role->save();
-        return redirect()->route('Admin.Role.List');
+        if($role->save()){
+            return redirect()->route('Admin.Role.List')->with('success', 'Caricamento avvenuto con successo!!');
+        }else{
+            return redirect()->route('Admin.Role.List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+        }
     }
 
     /**
@@ -54,9 +63,25 @@ class RoleController extends Controller
     {
         $role = Role::findById($request['role']);
 
-        //if($request->has('name')){ //da errore
-            $role->update(['name' => $request['name']]);
-        //};
+        if (Role::findById($request->role)->name == $request->name) {
+            $this->changePermission($request);
+            return redirect()->to('Admin/Role/List')->with('success', 'Modifiche avvenute con successo!!');
+        } else {
+            if (Role::where('name', $request->name)->first()) {
+                return redirect()->to('Admin/Role/List')->with('error', 'Esiste già un Ruolo con il nome inserito!!');
+            }
+            $this->changePermission($request);
+            if ($role->update(['name' => $request->name])) {
+                return redirect()->to('Admin/Role/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/Role/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        }
+    }
+
+    public function changePermission(Request $request)
+    {
+        $role = Role::findById($request->role);
 
         if($request->has('gest_utenti')){
             $role->givePermissionTo('gest_utenti');
@@ -93,9 +118,8 @@ class RoleController extends Controller
         }else{
             $role->revokePermissionTo('gest_newsletter');
         };
-
-        return redirect()->route('Admin.Role.List');
     }
+
 
     public function destroy(Request $request)
     {

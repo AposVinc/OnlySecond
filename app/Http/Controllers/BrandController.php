@@ -38,17 +38,26 @@ class BrandController extends Controller
         return view('backend.brand.edit', ['brands' => $brands]);
     }
 
-    public function showDeleteForm()
-    {
-        $brands = Brand::all(); //all() non mostrare brand gia eliminati
-        return view('backend.brand.delete', ['brands' => $brands]);
-    }
-
     public function showRestoreForm()
     {
-        $brands = Brand::onlyTrashed()->get();
-        return view('backend.brand.restore', ['brands' => $brands]);
+        if (Brand::onlyTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.brand.restore',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da ripristinare!!');
+        }
     }
+
+    public function showDeleteForm()
+    {
+        if (Brand::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.brand.delete', ['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da Eliminare!!');
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -56,7 +65,7 @@ class BrandController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)  //
+    public function create(Request $request)
     {
         if (Brand::where('name', $request->newbrand)->first()) {
             return redirect()->to('Admin/Brand/List')->with('error', 'Il Brand già esiste!!');
@@ -98,10 +107,28 @@ class BrandController extends Controller
      */
     public function update(Request $request)
     {
-        if (Brand::where('name', $request->newname)->first()) {
-            return redirect()->to('Admin/Brand/List')->with('error', 'Esiste gia un Brand con il nome inserito!!');
+        //se brand e newname sono uguali ->effettua mod // altrimenti se new name gia esiste errore ma se non esite ok
+        if (Brand::where('id', $request->brand)->first()->name == $request->newname) {
+            //effettua mod
+            if ($this->saveFile($request)){
+                return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        } else {
+            if (Brand::where('name', $request->newname)->first()) {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Esiste già un Brand con il nome inserito!!');
+            }
+            if ($this->saveFile($request)){
+                return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
         }
+    }
 
+    public function saveFile(Request $request)
+    {
         $id = $request->brand;
         $b = Brand::where('id', $id)->first();
         $oldname = $b->name;
@@ -120,18 +147,17 @@ class BrandController extends Controller
                 $pathnew = $request->file('logo')->storeAs($path, $filename);
                 if ($pathnew != "") {
                     if (Brand::where('id', $id)->update(['name' => $nameBrand, 'path_logo' => $path_logo])){
-                        return redirect()->to('Admin/Brand/List')->with('success', 'Modifiche avvenute con successo!!');
+                        return true;
                     }else{
-                        return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+                        return false;
                     }
                 }
             } else {
-                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+                return false;
             }
-        } else {
-            return redirect()->to('Admin/Brand/List')->with('error', 'File non trovato. Riprovare!!');
         }
     }
+
 
 
     /**
@@ -143,9 +169,6 @@ class BrandController extends Controller
 
     public function restore(Request $request)   //query senza nome
     {
-        //$id = $request->get('brand');
-        //Brand::where('id',$id)->restore();
-        //Brand::onlyTrashed()->find($request->brand)->restore()
         if (Brand::onlyTrashed()->find($request->brand)->restore()) {
             return redirect()->to('Admin/Brand/List')->with('success', 'Ripristino avvenuto con successo!!');
         } else {

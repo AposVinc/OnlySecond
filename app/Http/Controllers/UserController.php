@@ -28,16 +28,24 @@ class UserController extends Controller
         return view('backend.user.edit', ['users' => $users, 'roles' => $roles]);
     }
 
-    public function showDeleteForm()
-    {
-        $users = User::all();
-        return view('backend.user.delete', ['users' => $users]);
-    }
-
     public function showRestoreForm()
     {
-        $users = User::onlyTrashed()->get();
-        return view('backend.user.restore', ['users' => $users]);
+        if (User::onlyTrashed()->exists()){
+            $users = User::onlyTrashed()->get();
+            return view('backend.user.restore', ['users' => $users]);
+        } else {
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da ripristinare!!');
+        }
+    }
+
+    public function showDeleteForm()
+    {
+        if (User::withoutTrashed()->exists()){
+            $users = User::all();
+            return view('backend.user.delete', ['users' => $users]);
+        } else {
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da Eliminare!!');
+        }
     }
 
     /**
@@ -48,6 +56,9 @@ class UserController extends Controller
      */
     public function create(Request $request)  //
     {
+        if (User::where('name', $request->name)->first()) {
+            return redirect()->to('Admin/User/List')->with('error', 'Esiste già un Utente con il nome inserito!!');
+        }
         $input = $request->all();
 
         $user = new User();
@@ -69,10 +80,24 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = User::where('id', $request['user'])->first();
-        $user->syncRoles([$request['role']]);
-        $user->update(['name' => $request['name'], 'email' => $request['email'], 'password' => $request['password']]);
-
-        return redirect()->route('Admin.User.List');
+        if ($user->name == $request->name) {
+            if ($user->update(['name' => $request['name'], 'email' => $request['email'], 'password' => $request['password']])){
+                $user->syncRoles([$request['role']]);
+                return redirect()->to('Admin/User/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        } else {
+            if (User::where('name', $request->name)->first()) {
+                return redirect()->to('Admin/User/List')->with('error', 'Esiste già un Utente con il nome inserito!!');
+            }
+            if ($user->update(['name' => $request['name'], 'email' => $request['email'], 'password' => $request['password']]) ){
+                $user->syncRoles([$request['role']]);
+                return redirect()->to('Admin/User/List')->with('success', 'Modifiche avvenute con successo!!');
+            } else {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        }
     }
 
     /**
@@ -83,18 +108,20 @@ class UserController extends Controller
      */
     public function restore(Request $request)   //query senza nome
     {
-        $id = $request->get('user');
-        User::where('id', $id)->restore();
-
-        return redirect()->route('Admin.User.List');
+        if (User::onlyTrashed()->find($request->user)->restore()) {
+            return redirect()->to('Admin/User/List')->with('success', 'Ripristino avvenuto con successo!!');
+        } else {
+            return redirect()->to('Admin/User/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
     }
 
     public function destroy(Request $request)
     {
-        $id = $request->get('user');
-        User::withTrashed()->find($id)->delete();
-
-        return redirect()->route('Admin.User.List');
+        if (User::withTrashed()->find($request->user)->delete()) {
+            return redirect()->to('Admin/User/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+        }
     }
 
 }

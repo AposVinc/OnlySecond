@@ -26,7 +26,9 @@
                         <select name="role" id="role" class="form-control" required>
                             <option value="" selected>Seleziona il ruolo</option>
                             @foreach($roles as $role)
-                                <option value="{{$role->id}}">{{$role->name}}</option>
+                                @if($role->name != 'cliente')
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                @endif
                             @endforeach
                         </select>
                         <small class="help-block form-text">Seleziona il ruolo da modificare</small>

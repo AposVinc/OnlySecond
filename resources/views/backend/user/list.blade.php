@@ -26,6 +26,7 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Ruolo</th>
+                                    <th>Email</th>
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
                                     <th>Eliminato il</th>
@@ -38,6 +39,7 @@
                                             <tr>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$role->name}}</td>
+                                                <td>{{$user->email}}</td>
                                                 <td>{{$user->created_at}}</td>
                                                 <td>{{$user->updated_at}}</td>
                                                 <td>{{$user->deleted_at}}</td>

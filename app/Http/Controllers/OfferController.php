@@ -24,15 +24,18 @@ class OfferController extends Controller{
 
     public function showEditForm()
     {
-       // $offers = Offer::withTrashed()->get();
         $brands = Brand::all();
         return view('backend.offer.edit', ['brands' => $brands]);
     }
 
     public function showDeleteForm()
     {
-        $brands = Brand::all();
-        return view('backend.offer.delete', ['brands' => $brands]);
+        if (Offer::all()->isNotEmpty()){
+            $brands = Brand::all();
+            return view('backend.offer.delete', ['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Offer/List')->with('error','Non ci sono elementi da eliminare!!');
+        }
     }
 
 
@@ -62,9 +65,8 @@ class OfferController extends Controller{
     public function create(Request $request)
     {
         if (Offer::where('product_id', $request->product)->first()) {
-            return redirect()->to('Admin/Offer/List')->with('error', 'Esiste gia un Offerta per il prodotto inserito!!');
+            return redirect()->to('Admin/Offer/List')->with('error', 'Esiste già un Offerta per il prodotto inserito!!');
         }
-
         $product = Product::all()->find($request->product);
         $offer = new Offer();
         $offer->rate = $request->rate;
@@ -95,9 +97,10 @@ class OfferController extends Controller{
 
     public function destroy(Request $request)
     {
-        $id = $request->get('product');
-        Product::find($id)->offer->delete();
-
-        return redirect()->to('Admin/Offer/List');
+        if (Product::find($request->product)->offer->delete()){
+            return redirect()->to('Admin/Offer/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        }else{
+            return redirect()->to('Admin/Offer/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+        }
     }
 }

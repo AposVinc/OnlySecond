@@ -89,18 +89,26 @@ class CollectionController extends Controller
         return $output;
     }
 
-    public function showDeleteForm()
-    {
-        $brands = Brand::all(); //all() non mostrare brand gia eliminati
-        return view('backend.collection.delete', ['brands' => $brands]);
-    }
-
     public function showRestoreForm()
     {
-        $brands = Brand::withoutTrashed()->get();
-        return view('backend.collection.restore',['brands' => $brands]);
-
+        if (Collection::onlyTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.collection.restore',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Collection/List')->with('error','Non ci sono elementi da ripristinare!!');
+        }
     }
+
+    public function showDeleteForm()
+    {
+        if (Collection::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.collection.delete',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Collection/List')->with('error','Non ci sono elementi da Eliminare!!');
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.

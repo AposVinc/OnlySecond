@@ -40,14 +40,22 @@ class ProductController extends Controller
 
     public function showDeleteForm()
     {
-        $brands = Brand::all();
-        return view('backend.product.delete',['brands' => $brands]);
+        if (Product::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.product.delete', ['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Product/List')->with('error','Non ci sono elementi da Eliminare!!');
+        }
     }
 
     public function showRestoreForm()
     {
-        $brands = Brand::all();
-        return view('backend.product.restore',['brands' => $brands]);
+        if (Product::onlyTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.product.restore', ['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Product/List')->with('error','Non ci sono elementi da ripristinare!!!!');
+        }
     }
 
     public function show($cod)

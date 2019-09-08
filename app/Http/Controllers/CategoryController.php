@@ -32,21 +32,29 @@ class CategoryController extends Controller
 
     public function showRestoreForm()
     {
-        $categories = Category::onlyTrashed()->get();
-        return view('backend.category.restore', ['categories' => $categories]);
+        if (Category::onlyTrashed()->exists()){
+            $categories = Category::all();
+            return view('backend.category.delete', ['categories' => $categories]);
+        } else {
+            return redirect()->to('Admin/Category/List')->with('error','Non ci sono elementi da ripristinare!!');
+        }
     }
 
     public function showDeleteForm()
     {
-        $categories = Category::all();
-        return view('backend.category.delete', ['categories' => $categories]);
+        if (Category::withoutTrashed()->exists()){
+            $categories = Category::all();
+            return view('backend.category.delete', ['categories' => $categories]);
+        } else {
+            return redirect()->to('Admin/Category/List')->with('error','Non ci sono elementi da Eliminare!!');
+        }
     }
 
 
     public function create(Request $request)
     {
         if (Category::where('name',$request->name)->first()){
-            return redirect()->to('Admin/Category/List')->with('error', 'La Collezione già esiste!!');
+            return redirect()->to('Admin/Category/List')->with('error', 'La Categoria già esiste!!');
         }else {
             $category = new Category();
             $category->name=$request->name;
@@ -61,7 +69,7 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
         if (Category::where('name',$request->newname)->first()){
-            return redirect()->to('Admin/Category/List')->with('error', 'La Collezione già esiste!!');
+            return redirect()->to('Admin/Category/List')->with('error', 'La Categoria già esiste!!');
         }else {
             $id = $request->get('category');
             $newname = $request->get('newname');
