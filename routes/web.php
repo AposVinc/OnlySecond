@@ -67,6 +67,11 @@ Route::get('/Login1', function () {
     return view('login1');
 })->name('Login1');
 
+Route::get('/Registrazione', function () {
+    return view('register1');
+})->name('Registrazione');
+
+
 Route::get('/Payment', function () {
     return view('frontend.payment');
 })->name('Payment');
@@ -97,6 +102,7 @@ Route::get('/Favorite', 'WishListController@showListForm')->name('Favorite.List'
 Route::get('Login', 'Auth\LoginController@showLoginForm')->name('user.login');
 Route::post('Login', 'Auth\LoginController@loginFE')->name('user.loginpost');
 Route::get('Logout', 'Auth\LoginController@logout')->name('user.logout');
+
 // Registration Routes...
 Route::get('Register', 'Auth\RegisterController@showRegistrationForm')->name('user.register');
 Route::post('Register', 'Auth\RegisterController@register')->name('user.registerpost');
@@ -111,7 +117,6 @@ Route::get('logout', 'Auth\LoginController@logoutex')->name('user.logout'); //er
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('user.register');
 Route::post('register', 'Auth\RegisterController@register');
 */
-/*  DA DEFINIRE
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -123,7 +128,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
-*/
+
 
 //ADMIN
 Route::prefix('Admin')->group(function () {
