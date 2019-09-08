@@ -68,7 +68,7 @@ class OfferController extends Controller{
         $product = Product::all()->find($request->product);
         $offer = new Offer();
         $offer->rate = $request->rate;
-        $offer->end = date('Y-m-d', strtotime($request->datepicker). ' 23:59:59');
+        $offer->end = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
         $product->offer()->save($offer);
         if($offer->save()){
             return redirect()->to('Admin/Offer/List')->with('success', 'Caricamento avvenuto con successo!!');
