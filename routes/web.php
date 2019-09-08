@@ -83,6 +83,9 @@ Route::get('/Password_Resets', function () {
     return view('frontend.password_resets');
 })->name('Password_Resets');
 
+Route::get('WorkInProgress', function () {
+    return view('frontend.workinprogress');
+})->name('WorkInProgress');
 
 #wishlist
 Route::get('/Favorite', 'WishListController@showListForm')->name('Favorite.List');
