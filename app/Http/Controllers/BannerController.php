@@ -40,27 +40,12 @@ class BannerController extends Controller
         return view('backend.banner.delete',['brands' => $brands]);
     }
 
-    public function showRestoreForm()
-    {
-        $brands = Brand::withoutTrashed()->get();
-        return view('backend.banner.restore',['brands' => $brands]);
-    }
-
-
     function getBanner(Request $request)
     {
         $value = $request->get('value');
-        $banners = Banner::withoutTrashed()->where('collection_id', $value)->get();
+        $banners = Banner::where('collection_id', $value)->get();
         return $banners;
     }
-
-    function getBannerRestore(Request $request)
-    {
-        $value = $request->get('value');
-        $banners = Banner::onlyTrashed()->where('collection_id', $value)->get();
-        return $banners;
-    }
-
 
     public function create(Request $request)
     {
@@ -83,7 +68,7 @@ class BannerController extends Controller
                 }
                 $counter=Banner::where('collection_id', $idCollection)->max('counter');
                 $counter +=1;
-                 $filename= $nameBrand. '_'. $nameCollection. '_'. $counter. '.jpg';
+                $filename= $nameBrand. '_'. $nameCollection. '_'. $counter. '.jpg';
                 $path_image = 'storage/Banner/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
                 $path = $request->file('file')->storeAs($path, $filename);
                 if($path!=""){
@@ -114,33 +99,75 @@ class BannerController extends Controller
     {
         $banner=$request->get('banner');
         $newcollection=$request->get('newcollection');
-        $newbanner=$request->get('newbanner');
 
-        if ($newcollection == ""){
+        $b = Banner::where('id', $banner)->first();
+        $pathold = $b->path_image;
+        $path = str_replace('storage', 'public', $pathold);
+        Storage::delete($path);
+
+        if ($request->hasFile('newbanner')) { //  se il file è presente nella request
+            if ($request->file('newbanner')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+                $path='public/Banner';
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $nameBrand=Brand::where('id', $request->get('newbrand'))->first()->name;
+                $path.= '/'. $nameBrand;
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $nameCollection=Collection::where('id', $newcollection)->first()->name;
+                $path.= '/'. $nameCollection;
+                if(!(Storage::exists($path))){
+                    Storage::makeDirectory($path);
+                }
+                $counter=Banner::where('collection_id', $newcollection)->max('counter');
+                $counter +=1;
+                $filename= $nameBrand. '_'. $nameCollection. '_'. $counter. '.jpg';
+                $path_image = 'storage/Banner/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
+                $path = $request->file('newbanner')->storeAs($path, $filename);
+                if($path!=""){
+                    if($request->get('visible')){
+                        $visible = true;
+                    }else{
+                        $visible = false;
+                    }
+                    if (Banner::where('id', $banner)->update(['collection_id' => $newcollection, 'path_image' => $path_image, 'visible' => $visible, 'counter' => $counter])){
+                        return redirect()->to('Admin/Banner/List')->with('success','Modifiche avvenute con successo!!');
+                    }else{
+                        return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
+                    }
+                }
+            }else{
+                return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
+            }
+        }else{
+            return redirect()->to('Admin/Banner/List')->with('error','File non trovato. Riprovare!!');
+        }
+
+        /*if ($newcollection == ""){
             Banner::where('id',$banner)
-                ->update(['image' => $newbanner]);
+                ->update(['path_image' => $newbanner]);
         } else if($newbanner=="") {
             Banner::where('id',$banner)
                 ->update(['collection_id' => $newcollection]);
         }else{
             Banner::where('id',$banner)
-                ->update(['image' => $newbanner,'collection_id' => $newcollection]);
+                ->update(['path_image' => $newbanner,'collection_id' => $newcollection]);
         }
 
-        return redirect()->to('Admin/Banner/List');
-    }
-
-    public function restore(Request $request)   //query senza nome
-    {
-        $id = $request->get('banner');
-        Banner::where('id',$id)->restore();
-
-        return redirect()->to('Admin/Banner/List');
+        return redirect()->to('Admin/Banner/List');*/
     }
 
     public function destroy(Request $request)
     {
         $banner=$request->get('banner');
+
+        $b = Banner::where('id', $banner)->first();
+        $pathold = $b->path_image;
+        $path = str_replace('storage', 'public', $pathold);
+        Storage::delete($path);
+
         Banner::where('id',$banner)->delete();
 
         return redirect()->to('Admin/Banner/List');

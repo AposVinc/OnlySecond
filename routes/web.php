@@ -375,13 +375,10 @@ Route::prefix('Admin')->group(function () {
                     Route::post('/EditUpdate', 'BannerController@update')->name('EditUpdate');
 
                     Route::post('/GetBanner', 'BannerController@getBanner')->name('GetBanner');
-                    Route::post('/RestoreGetBanner', 'BannerController@getBannerRestore')->name('RestoreGetBanner');
 
                     Route::get('/Delete', 'BannerController@showDeleteForm')->name('Delete');
                     Route::post('/DeleteDestroy', 'BannerController@destroy')->name('DeleteDestroy');
 
-                    Route::get('/Restore', 'BannerController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'BannerController@restore')->name('RestoreRestore');
                 });
             });
         });
