@@ -15,10 +15,10 @@
         Banner
     @endcomponent
 
-    <form action="{{route('Admin.Banner.EditUpdate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Banner.EditUpdate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
-    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+
+        <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
@@ -56,7 +56,6 @@
                     <div class="col col-md-3"><label for="newbrand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
                         <select name="newbrand" id="newbrand" class="form-control" onchange="EditNewCollection()" required>
-                            <!-- ho tolto dynamic perchè altrimenti si azzara il valore della collection scelta dal menù a tendina-->
                             <option value="">Seleziona il nuovo brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -78,6 +77,17 @@
                     <div class="col col-md-3"><label for="newbanner" class=" form-control-label">Immagine Banner</label></div>
                     <div class="col-12 col-md-9"><input type="file" id="newbanner" name="newbanner" class="form-control-file" required></div>
                 </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label">Visibilità</label></div>
+                    <div class="col col-md-9">
+                        <label class="switch switch-3d switch-primary mr-3">
+                            <input type="checkbox" name="visible" class="switch-input" value="true" checked="false">
+                            <span class="switch-label"></span>
+                            <span class="switch-handle"></span>
+                        </label>
+                        Visibile nella Home Page
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
@@ -88,7 +98,7 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
 
 @endsection

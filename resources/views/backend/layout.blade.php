@@ -143,7 +143,6 @@
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi</a></li>
                                 <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica</a></li>
                                 <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
-                                <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina</a></li>
                             </ul>
                         </li>
                     @endcan
@@ -151,9 +150,6 @@
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Immagine Prodotto</a>
                             <ul class="sub-menu children dropdown-menu">
-                            <!-- <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica</a></li>
-                            <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina</a></li>-->
                                 <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Image.List')}}">Lista</a></li>
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Image.Add')}}">Aggiungi</a></li>
                             </ul>
@@ -385,6 +381,9 @@
 
 
     function EditBanner(){
+        var divError = document.getElementById('error');
+        divError.innerText ="";
+        divError.classList.remove('alert','alert-danger');
         var selectBanner = document.getElementById('banner');
         selectBanner.options.length = 0;
         var option = document.createElement('option');
@@ -401,14 +400,18 @@
             dataType: "json",
             data:{value:value, _token: "{{ csrf_token() }}"},
             success:function(result) {
-                data=result;
-                data.forEach(AddOptionBanner);
+                if(result.length === 0){
+                    Error("Non ci sono banner per la collezione selezionata");
+                }else{
+                    result.forEach(AddOptionBanner);
+                }
             },
             error:function(xhr){
                 alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
             }
         });
     }
+
     function AddOptionBanner(item, index) {
         var selectBanner = document.getElementById('banner');
         var option = document.createElement('option');
@@ -485,36 +488,6 @@
             });
         }
 
-    </script>
-@endif
-
-@if(strpos(route::currentRouteName(),'Admin.Banner.Restore')!== false)
-    <script>
-        function EditBannerRestore(){
-            var selectBanner = document.getElementById('banner');
-            selectBanner.options.length = 0;
-            var option = document.createElement('option');
-            option.text = "Seleziona il banner";
-            option.value = "";
-            selectBanner.add(option);
-            var data;
-            var selected = document.getElementById('collection');
-            var value = selected.options[selected.selectedIndex].value;
-
-            jQuery.ajax({
-                url:'{{ route('Admin.RestoreGetBanner') }}',
-                method:"POST",
-                dataType: "json",
-                data:{value:value, _token: "{{ csrf_token() }}"},
-                success:function(result) {
-                    data=result;
-                    data.forEach(AddOptionBanner);
-                },
-                error:function(xhr){
-                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-                }
-            });
-        }
     </script>
 @endif
 
