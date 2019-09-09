@@ -2,21 +2,39 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 
 BE
 ---------
-tabelle/grafici BE (prima pg)
+?tabelle/grafici BE (prima pg)
+?subanner logica
+?minibanner
 sez prod BE
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
 *Mancano le immagini dei loghi dei brand presenti nel seeder nella giusta cartella con il giusto nome
-Elimina img prodotto????
+Elimina img prodotto
 
 EditDate() (js)
 errore se non ci sono brand nella sez edit collezioni
 
 FE
 ---------
+?cerca
+logica carrello
+coupon in carrello si tolgono
+in carrello eliminare in colonna sx "top category" e inserire (nuovi arrivi bestseller ecc) come top products, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+login checkout
 shop - lista prod con img
+riempire staticamente
 logica filtro
-Mostra Banner in home
+logica Ordini
+logica modifica
+logica wishlist
+pagamento
+iniirizzi
+mie recensioni
+add newsletters
+Chi siamo - spostare "perche comprere su onlysecond" sotto a Storia (senza grafica) - mettere al suo posto la mappa (cosi togliamo js delle statistiche)
+Contattaci - crea tabella db per i messaggi - toglierre mappa
+IN SCONTO - mostra shop con prod scontati
+Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
 Grafica Login/Registraz/pass dimenticata
