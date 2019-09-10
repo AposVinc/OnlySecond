@@ -12,6 +12,7 @@ cambiare la disposizione della homepage del frontend... tipo disposizione delle 
 Elimina img prodotto
 
 EditDate() (js)
+EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
 errore se non ci sono brand nella sez edit collezioni
 
 FE
@@ -34,7 +35,7 @@ IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
-logica pass dimenticata?? 
+logica pass dimenticata??
 Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
 
 ok

@@ -388,7 +388,7 @@
     }
 
     function EditSwitch(){
-        var visible = document.getElementsByName('visible');
+        var visible = document.getElementById('visible');
         var banner = document.getElementById('banner');
         var value = banner.options[selected.selectedIndex].value;
 
@@ -399,9 +399,13 @@
             data:{value:value, _token: "{{ csrf_token() }}"},
             success:function(result) {
                 if(result === 0){
+                    alert('0');
                     visible.setAttribute('checked','false');
+                    visible.style.position = "absolute";
                 }else{
+                    alert('1');
                     visible.setAttribute('checked','true');
+                    visible.style.position = "relative";
                 }
             },
             error:function(xhr){

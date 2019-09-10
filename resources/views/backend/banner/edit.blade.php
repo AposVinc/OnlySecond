@@ -51,7 +51,7 @@
                     <div class="col col-md-3"><label class=" form-control-label">Mostra nella<br>Home Page</label></div>
                     <div class="col col-md-9">
                         <label class="switch switch-3d switch-primary mr-3">
-                            <input type="checkbox" id="visible" name="visible" class="switch-input" value="true" checked="false">
+                            <input id="visible" type="checkbox" class="switch-input" value="true">
                             <span class="switch-label"></span>
                             <span class="switch-handle"></span>
                         </label>
