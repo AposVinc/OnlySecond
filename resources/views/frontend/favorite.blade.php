@@ -24,7 +24,7 @@
                                         <thead>
                                         <tr>
                                             <th>Immagine</th>
-                                            <th>Nome Prodotto</th>
+                                            <th>Brand</th>
                                             <th>Collezione</th>
                                             <th>Categoria</th>
                                             <th>Genere</th>
@@ -32,8 +32,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($products as $product )
-
+                                        @foreach($list as $element )
+                                            <tr>
+                                                <td>#</td>
+                                                <td>{{$element->product->collection->brand->name}}</td>
+                                                <td>{{$element->product->collection->name}}</td>
+                                                <td>{{$element->product->category->collection->brand->name}}</td>
+                                                <td>{{$element->product->genre}}</td>
+                                                <td>{{$element->product->price}}</td>
+                                            </tr>
                                         @endforeach
                                         </tbody>
                                     </table>

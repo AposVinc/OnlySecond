@@ -9,14 +9,15 @@
 namespace App\Http\Controllers;
 
 
-use App\Product;
+use App\Wishlist;
 
 class WishListController extends Controller {
 
     public function showListForm()
     {
-        $products = Product::withTrashed()->get();
-        return view('frontend.favorite', ['products' => $products]);
+        $list = Wishlist::withTrashed()->get();
+        return view('frontend.favorite', ['list' => $list]);
     }
+
 
 }
