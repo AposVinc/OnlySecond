@@ -26,7 +26,7 @@
                     <h2 class="main_title">Perchè acquistare su OnlySecond?</h2>
                 </div>
 
-                <div class="panel-group" id="accordion">
+                <div class="panel-group col-lg-10 col-sm-offset-1" id="accordion">
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
