@@ -4,32 +4,7 @@
 <!-- =====  CONTAINER START  ===== -->
 <div class="container mt_30">
     <div class="row ">
-        <!--<div id="column-left" class="col-sm-4 col-lg-3 hidden-xs">
-            <div id="category-menu" class="navbar collapse in mb_40" aria-expanded="true" style="" role="button">
-                <div class="nav-responsive">
-                    <div class="heading-part">
-                        <h2 class="main_title">Top Brands</h2>
-                    </div>
-                     pannello di sinistra lasciato così in modo da poter decidere insieme cosa metterci
-                    <ul class="nav  main-navigation collapse in">
-                        <li><a href="#">Breil</a></li>
-                        <li><a href="#">Tissot</a></li>
-                        <li><a href="#">Casio</a></li>
-                        <li><a href="#">Wellington</a></li>
-                        <li><a href="#">Swatch</a></li>
-                        <li><a href="#">okok</a></li>
-                        <li><a href="#">Apparel</a></li>
-                        <li><a href="#">Bags & Shoes</a></li>
-                        <li><a href="#">Toys & Hobbies</a></li>
-                        <li><a href="#">Watches & Jewelry</a></li>
-                        <li><a href="#">Home & Garden</a></li>
-                        <li><a href="#">Health & Beauty</a></li>
-                        <li><a href="#">Outdoors & Sports</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="left_banner left-sidebar-widget mt_30 mb_40"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
-        </div>-->
+
         <div class="col-sm-12 col-lg-auto mtb_20">
             <!-- contact  -->
             <div class="row">
@@ -68,7 +43,13 @@
                 </div>
             </div>
             <!-- map  -->
+
+
             <div class="row">
+                <div class="col-sm-10 left-panel">
+                    <h5><div class="text-color"> Dove Trovarci?</div></h5>
+                    <h6><i>Via Vetoio, 67100 L'Aquila AQ </i></h6>
+                </div>
                 <div class="col-xs-12 map mb_80">
                     <div id="map"></div>
                 </div>
