@@ -18,7 +18,7 @@ FE
 ---------
 ?cerca
 logica carrello
-coupon in carrello si tolgono
+
 in carrello eliminare in colonna sx "top category" e inserire (nuovi arrivi bestseller ecc) come top products, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 login checkout
 shop - lista prod con img
@@ -45,6 +45,7 @@ ok
 Calendario in Offer
 Brand Logo
 errore data offerte
+coupon in carrello si tolgono
 
 
 
