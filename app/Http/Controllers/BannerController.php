@@ -12,7 +12,7 @@ class BannerController extends Controller
 {
     public function showListForm()
     {
-        $banners = Banner::get();
+        $banners = Banner::all();
         return view('backend.banner.list', ['banners' => $banners]);
     }
 
@@ -30,15 +30,20 @@ class BannerController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::withTrashed()->get();
+        $brands = Brand::all();
         return view('backend.banner.edit',['brands' => $brands]);
     }
 
     public function showDeleteForm()
     {
-        $brands = Brand::withTrashed()->get();
-        return view('backend.banner.delete',['brands' => $brands]);
+        if (Banner::all()->isNotEmpty()){
+            $brands = Brand::all();
+            return view('backend.banner.delete', ['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Banner/List')->with('error','Non ci sono elementi da eliminare!!');
+        }
     }
+
 
     function getBanner(Request $request)
     {
@@ -90,8 +95,6 @@ class BannerController extends Controller
             }else{
                 return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
             }
-        }else{
-            return redirect()->to('Admin/Banner/List')->with('error','File non trovato. Riprovare!!');
         }
     }
 
@@ -101,8 +104,8 @@ class BannerController extends Controller
         $newcollection=$request->get('newcollection');
 
         $b = Banner::where('id', $banner)->first();
-        $pathold = $b->path_image;
-        $path = str_replace('storage', 'public', $pathold);
+        $oldpath = $b->path_image;
+        $path = str_replace('storage', 'public', $oldpath);
         Storage::delete($path);
 
         if ($request->hasFile('newbanner')) { //  se il file è presente nella request
@@ -164,13 +167,13 @@ class BannerController extends Controller
         $banner=$request->get('banner');
 
         $b = Banner::where('id', $banner)->first();
-        $pathold = $b->path_image;
-        $path = str_replace('storage', 'public', $pathold);
-        Storage::delete($path);
-
-        Banner::where('id',$banner)->delete();
-
-        return redirect()->to('Admin/Banner/List');
+        $oldpath = $b->path_image;
+        $path = str_replace('storage', 'public', $oldpath);
+        if (Storage::delete($path) and $b->delete()){
+            return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+        }
     }
 
 }

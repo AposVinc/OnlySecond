@@ -3,7 +3,7 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 ?tabelle/grafici BE (prima pg)
-?subanner logica
+?subanner logica - differenziare con enum (main, sub, mini)
 ?minibanner
 sez prod BE
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli

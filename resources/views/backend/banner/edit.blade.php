@@ -78,14 +78,13 @@
                     <div class="col-12 col-md-9"><input type="file" id="newbanner" name="newbanner" class="form-control-file" required></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Visibilità</label></div>
+                    <div class="col col-md-3"><label class=" form-control-label">Visibilità nella <br>Home Page</label></div>
                     <div class="col col-md-9">
                         <label class="switch switch-3d switch-primary mr-3">
                             <input type="checkbox" name="visible" class="switch-input" value="true" checked="false">
                             <span class="switch-label"></span>
                             <span class="switch-handle"></span>
                         </label>
-                        Visibile nella Home Page
                     </div>
                 </div>
             </div>
