@@ -2,12 +2,12 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 
 BE
 ---------
+?cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
 ?tabelle/grafici BE (prima pg)
 ?subanner logica - differenziare in db con enum (main, sub, mini)
 ?minibanner
 sez prod BE
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
-cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
 *Mancano le immagini dei loghi dei brand presenti nel seeder nella giusta cartella con il giusto nome
 Elimina img prodotto
 
