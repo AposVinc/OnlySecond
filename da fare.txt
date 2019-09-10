@@ -3,7 +3,7 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 ?tabelle/grafici BE (prima pg)
-?subanner logica
+?subanner logica - differenziare in db con enum (main, sub, mini)
 ?minibanner
 sez prod BE
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
@@ -29,7 +29,7 @@ pagamento
 iniirizzi
 mie recensioni
 add newsletters
-Contattaci - crea tabella db per i messaggi 
+Contattaci - crea tabella db per i messaggi
 IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)

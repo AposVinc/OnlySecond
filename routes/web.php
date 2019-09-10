@@ -157,6 +157,7 @@ Route::prefix('Admin')->group(function () {
 
         #route chiamata ajax per banner
         Route::post('/GetBanner', 'BannerController@getBanner')->name('GetBanner');
+        Route::post('/GetVisible', 'BannerController@getVisible')->name('GetVisible');
         Route::post('/RestoreGetBanner', 'BannerController@getBannerRestore')->name('RestoreGetBanner');
 
         #route chiamata ajax per offer
