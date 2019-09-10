@@ -5,11 +5,11 @@
         <div class="container">
 
             <div class="row justify-content-center">
-                <div class="col-md-10 center">
+                <div class="col-md-12 center">
                     <div class="card mt_20 ">
                         <h3 class="card-header text-center text-uppercase">{{ __('Login') }}</h3>
 
-                        <div class="card-body mt_20">
+                        <div class="card-body mt_20 col-lg-offset-3">
                                 <form method="POST" action="{{ route('user.loginpost') }}">
                                     @csrf
 
@@ -42,7 +42,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-md-6 offset-md-4">
+                                        <div class="col-md-2 col-md-offset-2">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -51,33 +51,36 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 offset-md-4">
+                                        <div class="col-md-4 col-md-offset-1">
                                             @if (Route::has('password.request'))
                                                 <h6><i><u><a href="{{ route('password.request') }}">{{ __('Password Dimenticata?') }}</a></u></i></h6>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 center">
-                                    <div class="form-group row mb-0">
-                                        <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
+
+                                    <div class="col-sm-8 col-sm-offset-3">
+
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-10 ">
+                                                <button type="submit" class="btn btn-primary">
                                                 {{ __('Login') }}
-                                            </button>
-
+                                                </button>
+                                             </div>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div class="col-sm-6 right">
-                                    <div class="form-group row mb-0">
-                                        <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="btn btn-secondary">
-                                                <a href="{{ route('Registrazione') }}"> {{ __('Registrati') }} </a>
-                                            </button>
 
-                                        </div>
-                                    </div>
-                                    </div>
                                 </form>
+                        </div>
+
+                        <div class="col-sm-8 col-lg-offset-10">
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-secondary">
+                                        <a href="{{ route('Registrazione') }}"> {{ __('Registrati') }} </a>
+                                    </button>
+
+                                </div>
+                            </div>
                         </div>
 
                     </div>
