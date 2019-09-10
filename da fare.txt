@@ -17,9 +17,7 @@ errore se non ci sono brand nella sez edit collezioni
 FE
 ---------
 ?cerca
-logica carrello
-
-in carrello eliminare in colonna sx "top category" e inserire (nuovi arrivi bestseller ecc) come top products, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 login checkout
 shop - lista prod con img
 riempire staticamente
@@ -46,6 +44,7 @@ Calendario in Offer
 Brand Logo
 errore data offerte
 coupon in carrello si tolgono
+in carrello eliminata colonna sx e inserita new products
 
 
 
