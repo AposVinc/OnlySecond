@@ -141,7 +141,7 @@
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista</a></li>
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi</a></li>
-                                <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Modifica</a></li>
+                                <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Mostra</a></li>
                                 <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
                             </ul>
                         </li>
@@ -218,7 +218,7 @@
 
 <!-- Right Panel -->
 
-<script src="{{ URL::asset('js/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ URL::asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/popper.js/dist/umd/popper.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/backend/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/backend/main.js') }}"></script>
@@ -311,41 +311,6 @@
         divError.classList.add('alert', 'alert-danger');
     }
 
-    function EditNewCollection(){
-        var selectCollection = document.getElementById('newcollection');
-        selectCollection.options.length = 0;
-        var option = document.createElement('option');
-        option.text = "Seleziona la collezione";
-        option.value = "";
-        selectCollection.add(option);
-        var data;
-        var selected = document.getElementById('newbrand');
-        var value = selected.options[selected.selectedIndex].value;
-
-        jQuery.ajax({
-            url:'{{ route('Admin.GetCollection') }}',
-            method:"POST",
-            dataType: "json",
-            data:{value:value, _token: "{{ csrf_token() }}"},
-            success:function(result)
-            {
-                data=result;
-                data.forEach(AddOptionNewCollection);
-            },
-            error:function(xhr){
-                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-            }
-        });
-    }
-    function AddOptionNewCollection(item, index) {
-        var selectCollection = document.getElementById('newcollection');
-        var option = document.createElement('option');
-        option.text= item.name;
-        option.value= item.id;
-        selectCollection.add(option);
-    }
-
-
     function EditProduct(){
         var selectProduct = document.getElementById('product');
         selectProduct.options.length = 0;
@@ -378,8 +343,10 @@
         option.value= item.id;
         selectProduct.add(option);
     }
+</script>
 
-
+@if(strpos(route::currentRouteName(),'Admin.Banner')!== false)
+<script>
     function EditBanner(){
         var divError = document.getElementById('error');
         divError.innerText ="";
@@ -420,9 +387,68 @@
         selectBanner.add(option);
     }
 
+    function EditSwitch(){
+        var visible = document.getElementsByName('visible');
+        var banner = document.getElementById('banner');
+        var value = banner.options[selected.selectedIndex].value;
+
+        jQuery.ajax({
+            url:'{{ route('Admin.GetVisible') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result) {
+                if(result === 0){
+                    visible.setAttribute('checked','false');
+                }else{
+                    visible.setAttribute('checked','true');
+                }
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
 </script>
+@endif
 
+@if(strpos(route::currentRouteName(),'Admin.Product.Edit')!== false)
+<script>
+    function EditNewCollection(){
+        var selectCollection = document.getElementById('newcollection');
+        selectCollection.options.length = 0;
+        var option = document.createElement('option');
+        option.text = "Seleziona la collezione";
+        option.value = "";
+        selectCollection.add(option);
+        var data;
+        var selected = document.getElementById('newbrand');
+        var value = selected.options[selected.selectedIndex].value;
 
+        jQuery.ajax({
+            url:'{{ route('Admin.GetCollection') }}',
+            method:"POST",
+            dataType: "json",
+            data:{value:value, _token: "{{ csrf_token() }}"},
+            success:function(result)
+            {
+                data=result;
+                data.forEach(AddOptionNewCollection);
+            },
+            error:function(xhr){
+                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+            }
+        });
+    }
+    function AddOptionNewCollection(item, index) {
+        var selectCollection = document.getElementById('newcollection');
+        var option = document.createElement('option');
+        option.text= item.name;
+        option.value= item.id;
+        selectCollection.add(option);
+    }
+</script>
+@endif
 @if(strpos(route::currentRouteName(),'Admin.Collection.Restore')!== false)
     <script>
         function EditCollectionRestore(){
