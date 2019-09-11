@@ -38,6 +38,8 @@ DatabaseSeeder extends Seeder
         Permission::create(['name'=>'gest_imgprod']);
         Permission::create(['name'=>'gest_fornitori']);
         Permission::create(['name'=>'gest_newsletter']);
+        Permission::create(['name'=>'gest_assistenza']);
+
 
         $cliente = Role::create(['name' => 'cliente']);
         $admin = Role::create(['name' => 'Admin'])->givePermissionTo(Permission::all());
@@ -46,6 +48,7 @@ DatabaseSeeder extends Seeder
                                                                             'gest_fornitori','gest_newsletter']);
         $designer = Role::create(['name' => 'Designer'])->givePermissionTo(['gest_banner','gest_imgprod']);
         $pubblicitario = Role::create(['name'=>'Pubblicitario'])->givePermissionTo(['gest_offerte','gest_banner','gest_newsletter']);
+        $assistenza = Role::create(['name'=>'Assistenza Clienti'])->givePermissionTo(['gest_assistenza']);
 
 
         $utente1 = new User(['name'=>'a', 'email'=>'a@a.it', 'password'=>'aaaaaaaa']);
@@ -55,7 +58,12 @@ DatabaseSeeder extends Seeder
         $utente2->assignRole($pubblicitario)->save();
 
         $utente3 = new User(['name'=>'c', 'email'=>'c@c.it', 'password'=>'cccccccc']);
-        $utente3->assignRole($cliente)->save();
+        $utente3->assignRole($assistenza)->save();
+
+        $utente4 = new User(['name'=>'d', 'email'=>'d@d.it', 'password'=>'dddddddd']);
+        $utente4->assignRole($cliente)->save();
+
+
 
         /* Categorie */
         $smart = new Category(['name' => 'Smart']);

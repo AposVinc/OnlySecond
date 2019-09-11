@@ -141,7 +141,7 @@
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Banner.List')}}">Lista</a></li>
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi</a></li>
-                                <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Banner.Edit')}}">Mostra</a></li>
+                                <li><i class="fa fa-eye"></i><a href="{{url::route('Admin.Banner.Edit')}}">Mostra in Home</a></li>
                                 <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
                             </ul>
                         </li>
@@ -176,6 +176,16 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Newsletter.List')}}">Lista Mail</a></li>
                             <li><i class="fa fa-mail-forward"></i><a href="{{url::route('Admin.Newsletter.SendMailForm')}}">Invia Mail</a></li>
+                        </ul>
+                    </li>
+                @endcan
+                @can('gest_assistenza')
+                    <h3 class="menu-title">Gestione Clienti</h3>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"> </i>Assistenza Clienti</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-list"></i><a href="{{url::route('Admin.ContactUS.List')}}">Lista Mail</a></li>
+                            <li><i class="fa fa-envelope"></i><a href="{{url::route('Admin.ContactUS.ShowMail')}}">Visiona Singola Mail</a></li>
                         </ul>
                     </li>
                 @endcan

@@ -30,8 +30,8 @@
                     <div id="contact_form">
                         <form id="contact_body" method="post" action="contact">
 
-                            <input class="full-with-form " type="text" name="name" placeholder="Nome" data-required="true" />
-                            <input class="full-with-form  mt_30" type="email" name="email" placeholder="Indirizzo Email" data-required="true" />
+                            <input class="full-with-form " type="text" name="name" placeholder="Il Tuo Nome" data-required="true" />
+                            <input class="full-with-form  mt_30" type="email" name="email" placeholder="Il Tuo Indirizzo Email" data-required="true" />
                             <input class="full-with-form  mt_30" type="text" name="phone1" placeholder="Numero Di Telefono" maxlength="15" data-required="true" />
                             <input class="full-with-form  mt_30" type="text" name="subject" placeholder="Oggetto" data-required="true">
                             <textarea class="full-with-form  mt_30" name="message" placeholder="Messaggio" data-required="true"></textarea>
