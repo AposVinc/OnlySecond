@@ -15,7 +15,7 @@
         Ruolo
     @endcomponent
 
-    <form action="{{route('Admin.Role.AddCreate')}}" method="post" class="form-horizontal"> <!-- enctype="multipart/form-data" -->
+    <form action="{{route('Admin.Role.AddPost')}}" method="post" class="form-horizontal"> <!-- enctype="multipart/form-data" -->
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->

@@ -15,7 +15,7 @@
         Banner
     @endcomponent
 
-    <form action="{{route('Admin.Banner.EditUpdate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{route('Admin.Banner.EditPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
         <div class="card add">
             <div class="card-body card-block">

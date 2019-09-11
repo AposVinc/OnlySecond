@@ -182,16 +182,16 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'UserController@showListForm')->name('List');
 
                     Route::get('/Add', 'UserController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'UserController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'UserController@create')->name('AddPost');
 
                     Route::get('/Edit', 'UserController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'UserController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'UserController@update')->name('EditPost');
 
                     Route::get('/Delete', 'UserController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'UserController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'UserController@destroy')->name('DeletePost');
 
                     Route::get('/Restore', 'UserController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'UserController@restore')->name('RestoreRestore');
+                    Route::post('/RestorePost', 'UserController@restore')->name('RestorePost');
                 });
             });
 
@@ -201,13 +201,13 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'RoleController@showListForm')->name('List');
 
                     Route::get('/Add', 'RoleController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'RoleController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'RoleController@create')->name('AddPost');
 
                     Route::get('/Edit', 'RoleController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'RoleController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'RoleController@update')->name('EditPost');
 
                     Route::get('/Delete', 'RoleController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'RoleController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'RoleController@destroy')->name('DeletePost');
 
                     //Ripristina non c'è perche non previsto da Spatie infatti non ha SoftDeletes
                 });
@@ -223,16 +223,16 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List/Image/{id}', 'BrandController@showImage')->name('Image');
 
                     Route::get('/Add', 'BrandController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'BrandController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'BrandController@create')->name('AddPost');
 
                     Route::get('/Edit', 'BrandController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'BrandController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'BrandController@update')->name('EditPost');
 
                     Route::get('/Delete', 'BrandController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'BrandController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'BrandController@destroy')->name('DeletePost');
 
                     Route::get('/Restore', 'BrandController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'BrandController@restore')->name('RestoreRestore');
+                    Route::post('/RestorePost', 'BrandController@restore')->name('RestorePost');
                 });
             });
 
@@ -242,16 +242,16 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'CollectionController@showListForm')->name('List');
 
                     Route::get('/Add', 'CollectionController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'CollectionController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'CollectionController@create')->name('AddPost');
 
                     Route::get('/Edit', 'CollectionController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'CollectionController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'CollectionController@update')->name('EditPost');
 
                     Route::get('/Delete', 'CollectionController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'CollectionController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'CollectionController@destroy')->name('DeletePost');
 
                     Route::get('/Restore', 'CollectionController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'CollectionController@restore')->name('RestoreRestore');
+                    Route::post('/RestorePost', 'CollectionController@restore')->name('RestorePost');
                 });
             });
 
@@ -262,16 +262,16 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'ProductController@showListForm')->name('List');
 
                     Route::get('/Add', 'ProductController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'ProductController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'ProductController@create')->name('AddPost');
 
                     Route::get('/Edit', 'ProductController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'ProductController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'ProductController@update')->name('EditPost');
 
                     Route::get('/Delete', 'ProductController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'ProductController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'ProductController@destroy')->name('DeletePost');
 
                     Route::get('/Restore', 'ProductController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'ProductController@restore')->name('RestoreRestore');
+                    Route::post('/RestorePost', 'ProductController@restore')->name('RestorePost');
                 });
             });
 
@@ -282,16 +282,16 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'CategoryController@showListForm')->name('List');
 
                     Route::get('/Add', 'CategoryController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'CategoryController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'CategoryController@create')->name('AddPost');
 
                     Route::get('/Edit', 'CategoryController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'CategoryController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'CategoryController@update')->name('EditPost');
 
                     Route::get('/Delete', 'CategoryController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'CategoryController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'CategoryController@destroy')->name('DeletePost');
 
                     Route::get('/Restore', 'CategoryController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'CategoryController@restore')->name('RestoreRestore');
+                    Route::post('/RestorePost', 'CategoryController@restore')->name('RestorePost');
                 });
             });
         });
@@ -303,16 +303,16 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'SupplierController@showListForm')->name('List');
 
                     Route::get('/Add', 'SupplierController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'SupplierController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'SupplierController@create')->name('AddPost');
 
                     Route::get('/Edit', 'SupplierController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'SupplierController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'SupplierController@update')->name('EditPost');
 
                     Route::get('/Delete', 'SupplierController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'SupplierController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'SupplierController@destroy')->name('DeletePost');
 
                     Route::get('/Restore', 'SupplierController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'SupplierController@restore')->name('RestoreRestore');
+                    Route::post('/RestorePost', 'SupplierController@restore')->name('RestorePost');
                 });
             });
         });
@@ -335,19 +335,16 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'OfferController@showListForm')->name('List');
 
                     Route::get('/Add', 'OfferController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'OfferController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'OfferController@create')->name('AddPost');
 
                     Route::get('/Edit', 'OfferController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'OfferController@update')->name('EditUpdate');
+                    Route::post('/EditPost', 'OfferController@update')->name('EditPost');
 
                     Route::get('/Delete', 'OfferController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'OfferController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'OfferController@destroy')->name('DeletePost');
 
                     Route::get('/Restore', 'OfferController@showRestoreForm')->name('Restore');
-                    Route::post('/RestoreRestore', 'OfferController@restore')->name('RestoreRestore');
-
-                    Route::post('/GetOffer', 'OfferController@getOffer')->name('GetOffer');
-                    Route::post('/RestoreGetOffer', 'OfferController@getOfferRestore')->name('RestoreGetOffer');
+                    Route::post('/RestorePost', 'OfferController@restore')->name('RestorePost');
                 });
             });
         });
@@ -360,7 +357,7 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List', 'ImageController@showListForm')->name('List');
 
                     Route::get('/Add', 'ImageController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'ImageController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'ImageController@create')->name('AddPost');
                 });
             });
         });
@@ -373,16 +370,24 @@ Route::prefix('Admin')->group(function () {
                     Route::get('/List/Image/{id}', 'BannerController@showImage')->name('Image');
 
                     Route::get('/Add', 'BannerController@showAddForm')->name('Add');
-                    Route::post('/AddStore', 'BannerController@create')->name('AddCreate');
+                    Route::post('/AddPost', 'BannerController@create')->name('AddPost');
 
                     Route::get('/Edit', 'BannerController@showEditForm')->name('Edit');
-                    Route::post('/EditUpdate', 'BannerController@update')->name('EditUpdate');
-
-                    Route::post('/GetBanner', 'BannerController@getBanner')->name('GetBanner');
+                    Route::post('/EditPost', 'BannerController@update')->name('EditPost');
 
                     Route::get('/Delete', 'BannerController@showDeleteForm')->name('Delete');
-                    Route::post('/DeleteDestroy', 'BannerController@destroy')->name('DeleteDestroy');
+                    Route::post('/DeletePost', 'BannerController@destroy')->name('DeletePost');
+                });
+            });
+        });
 
+        Route::group(['middleware' => ['permission:gest_assistenza']], function () {
+            #contact us
+            Route::prefix('/ContactUS')->group(function () {
+                Route::name('ContactUS.')->group(function () {
+                    Route::get('/List', 'ContactUSController@showListForm')->name('List');
+
+                    Route::get('/ShowMail', 'ContactUSController@showMail')->name('ShowMail');
                 });
             });
         });

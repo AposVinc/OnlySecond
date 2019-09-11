@@ -15,7 +15,7 @@
         Categoria
     @endcomponent
 
-    <form action="{{route('Admin.Category.RestoreRestore')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Category.RestorePost')}}" method="post" class="form-horizontal">
         @csrf
         <div class="card add">
             <div class="card-body card-block">

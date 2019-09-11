@@ -15,7 +15,7 @@
         Collezione
     @endcomponent
 
-    <form action="{{route('Admin.Collection.DeleteDestroy')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Collection.DeletePost')}}" method="post" class="form-horizontal">
         @csrf
 
         <div class="card add">

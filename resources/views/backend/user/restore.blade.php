@@ -15,7 +15,7 @@
         Utente
     @endcomponent
 
-    <form action="{{route('Admin.User.RestoreRestore')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.User.RestorePost')}}" method="post" class="form-horizontal">
     @csrf
     <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->

@@ -15,7 +15,7 @@
         Brand
     @endcomponent
 
-    <form action="{{route('Admin.Brand.RestoreRestore')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Brand.RestorePost')}}" method="post" class="form-horizontal">
     @csrf
 
         <div class="card add">

@@ -15,7 +15,7 @@
         Collezione
     @endcomponent
 
-    <form action="{{route('Admin.Collection.AddCreate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Collection.AddPost')}}" method="post" class="form-horizontal">
         @csrf
         <div class="card add">
             <div class="card-body card-block">

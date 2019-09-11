@@ -15,7 +15,7 @@
         Prodotto
     @endcomponent
 
-    <form action="{{route('Admin.Product.DeleteDestroy')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{route('Admin.Product.DeletePost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         @csrf
         <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->

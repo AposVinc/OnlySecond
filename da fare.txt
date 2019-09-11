@@ -6,6 +6,8 @@ BE
 ?tabelle/grafici BE (prima pg)
 ?subanner logica - differenziare in db con enum (main, sub, mini)
 ?minibanner
+?bottoni fine tabella (List)
+?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
 Inserire png Brand
 sez prod BE - descrizioni dei prodotti
 Elimina img prodotto
@@ -23,15 +25,15 @@ FE
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
-riempire staticamente
 logica filtro
 logica Ordini
 logica modifica
 logica wishlist
 pagamento
-iniirizzi
+inidirizzi
 mie recensioni
 Contattaci - crea tabella db per i messaggi
+riempire staticamente "chi siamo"
 IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)

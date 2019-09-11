@@ -15,7 +15,7 @@
         Banner
     @endcomponent
 
-    <form action="{{route('Admin.Banner.DeleteDestroy')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Banner.DeletePost')}}" method="post" class="form-horizontal">
     @csrf
 
         <div class="card add">

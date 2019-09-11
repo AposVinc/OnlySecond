@@ -15,7 +15,7 @@
         Collezione
     @endcomponent
 
-    <form action="{{route('Admin.Collection.RestoreRestore')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Collection.RestorePost')}}" method="post" class="form-horizontal">
         @csrf
 
         <div class="card add">

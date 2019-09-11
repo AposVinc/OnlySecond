@@ -15,7 +15,7 @@
         Brand
     @endcomponent
 
-    <form action="{{route('Admin.Brand.DeleteDestroy')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Brand.DeletePost')}}" method="post" class="form-horizontal">
     @csrf
 
         <div class="card add">

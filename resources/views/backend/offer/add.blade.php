@@ -15,7 +15,7 @@
         Offerta
     @endcomponent
 
-    <form action="{{route('Admin.Offer.AddCreate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Offer.AddPost')}}" method="post" class="form-horizontal">
     @csrf
         <div class="card add">
             <div class="card-body card-block">

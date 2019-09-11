@@ -15,7 +15,7 @@
         Categoria
     @endcomponent
 
-    <form action="{{route('Admin.Category.EditUpdate')}}" method="post" class="form-horizontal">
+    <form action="{{route('Admin.Category.EditPost')}}" method="post" class="form-horizontal">
     @csrf
         <div class="card add">
             <div class="card-body card-block">
