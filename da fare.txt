@@ -20,7 +20,7 @@ FE
 ?cerca
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 login checkout
-shop - lista prod con img
+shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 riempire staticamente
 logica filtro
 logica Ordini
@@ -48,6 +48,7 @@ in carrello eliminata colonna sx e inserita new products
 Chi siamo no statistiche
 contattaci indirizzo
 Grafica Login/Registraz/pass dimenticata
+img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
 
 
 MESSAGGI DI ERRORE NEL BE

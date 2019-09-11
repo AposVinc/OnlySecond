@@ -74,8 +74,8 @@ DatabaseSeeder extends Seeder
         $Sport->save();
 
         /* Colori */
-        $bianco = new Color(['name'=>'Bianco' , 'hex' => '#ffffff']);
-        $bianco->save();
+        $argento = new Color(['name'=>'Argento' , 'hex' => '#ffffff']);
+        $argento->save();
 
         $nero = new Color(['name'=>'Nero' , 'hex' => '#000000']);
         $nero->save();
@@ -111,10 +111,10 @@ DatabaseSeeder extends Seeder
         /* Prodotti Fossil */
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
             'genre' => 'F','long_desc' => 'long desc']);
-        $CarlieP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_Bianco_1.jpg', 'main' => '1']);
+        $CarlieP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_Argento_1.jpg', 'main' => '1']);
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
-        $CarlieP1->color_id = $bianco->id;
+        $CarlieP1->color_id = $argento->id;
         $CarlieP1->save();
         $CarlieP1->categories()->save($classic);
         $CarlieP1->images()->save($CarlieP1I1);
