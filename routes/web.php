@@ -59,9 +59,9 @@ Route::get('/EditProfile', function () {
     return view('frontend.editprofile');
 })->name('EditProfile');
 
-#Route::get('/Favorite', function () {
-#    return view('frontend.favorite');
-#})->name('Favorite');
+Route::get('/Favorite', function () {
+   return view('frontend.favorite');
+})->name('Favorite.List');
 
 Route::get('/Login1', function () {
     return view('login1');
@@ -70,7 +70,6 @@ Route::get('/Login1', function () {
 Route::get('/Registrazione', function () {
     return view('register1');
 })->name('Registrazione');
-
 
 Route::get('/Payment', function () {
     return view('frontend.payment');
@@ -92,8 +91,6 @@ Route::get('WorkInProgress', function () {
     return view('frontend.workinprogress');
 })->name('WorkInProgress');
 
-#wishlist
-Route::get('/Favorite', 'WishListController@showListForm')->name('Favorite.List');
 
 Route::post('/ContactUS/AddPost', 'ContactUSController@create')->name('ContactUS.AddPost');
 

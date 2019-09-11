@@ -32,14 +32,18 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($list as $element )
+                                        @foreach(auth()->User()->productsWishlist as $product )
                                             <tr>
                                                 <td>#</td>
-                                                <td>{{$element->product->collection->brand->name}}</td>
-                                                <td>{{$element->product->collection->name}}</td>
-                                                <td>{{$element->product->category->collection->brand->name}}</td>
-                                                <td>{{$element->product->genre}}</td>
-                                                <td>{{$element->product->price}}</td>
+                                                <td>{{$product->collection->brand->name}}</td>
+                                                <td>{{$product->collection->name}}</td>
+
+                                                <td>
+                                                    @foreach($product->categories as $category)
+                                                    {{$category->name}}
+                                                    @endforeach </td>
+                                                <td>{{$product->genre}}</td>
+                                                <td>{{$product->price}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>

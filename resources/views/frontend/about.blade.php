@@ -93,7 +93,7 @@
 
                 </div>
 
-             </div>
+                </div>
 
 
                 <div class="heading-part mb_10">
