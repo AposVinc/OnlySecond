@@ -13,30 +13,20 @@ class ImageController extends Controller
 {
     public function showListForm()
     {
-        $images = Image::withTrashed()->with('product')->get();
-        $products = new Collection();
-        $collections = new Collection();
-        foreach ($images as $image){
-            $p=Product::withTrashed()->where('name',$image->product->name)->with('collection')->get();
-            foreach ($p as $product){
-                if(!($products->contains($product))){
-                    $products->add($product);
-                }
-                $c=\App\Collection::withoutTrashed()->where('name',$product->collection->name)->with('brand')->get();
-                foreach ($c as $collection){
-                    if(!($collections->contains($collection))){
-                        $collections->add($collection);
-                    }
-                }
-            }
-        }
-        return view('backend.image.list', ['images' => $images , 'products'=> $products, 'collections'=> $collections]);
+        $images = Image::all();
+        return view('backend.image.list', ['images' => $images]);
     }
 
     public function showAddForm()
     {
         $brands = Brand::all();
-        return view('backend.image.add',['brands' => $brands]);
+        return view('backend.image.add', ['brands' => $brands]);
+    }
+
+    public function showImage($id)
+    {
+        $image = Image::where('id',$id)->first();
+        return view('backend.image.showimage', ['image' => $image]);
     }
 
     public function create()

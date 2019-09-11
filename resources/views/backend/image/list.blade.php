@@ -27,28 +27,24 @@
                                     <th>Nome Brand</th>
                                     <th>Nome Collezione</th>
                                     <th>Nome Prodotto</th>
-                                    <th>Immagine Prodotto</th>
+                                    <th>Path Prodotto</th>
+                                    <th>Img Principale</th>
                                     <th>Creato il</th>
-                                    <th>Ultima modifica</th>
-                                    <th>Eliminato il</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($images as $image)
                                     <tr>
-                                        @foreach($products as $product)
-                                            @foreach($collections as $collection)
-                                                @if($product->name == $image->product->name and $product->collection->name == $collection->name)
-                                                    <td>{{$collection->brand->name}}</td>
-                                                    <td>{{$product->collection->name}}</td>
-                                                @endif
-                                            @endforeach
-                                        @endforeach
-                                        <td>{{$image->product->name}}</td>
-                                        <td><u><a class="openimg">{{$image->image}}</a></u></td>
+                                        <td>{{$image->product->collection->brand->name}}</td>
+                                        <td>{{$image->product->collection->name}}</td>
+                                        <td>{{$image->product->cod}}</td>
+                                        <td><u><a href="{{route('Admin.Image.ShowImage',['id' => $image->id])}}">{{$image->path_image}}</a></u></td>
+                                        @if($image->main)
+                                            <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td>
+                                        @else
+                                            <td class="centre-text-cell"><i class="fa fa-square-o"></i></td>
+                                        @endif
                                         <td>{{$image->created_at}}</td>
-                                        <td>{{$image->updated_at}}</td>
-                                        <td>{{$image->deleted_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

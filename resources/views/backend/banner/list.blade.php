@@ -38,7 +38,7 @@
                                     <tr>
                                         <td>{{$banner->collection->brand->name}}</td>
                                         <td>{{$banner->collection->name}}</td>
-                                        <td><u><a href="{{route('Admin.Banner.Image',['id' => $banner->id])}}">{{$banner->path_image}}</a></u></td>
+                                        <td><u><a href="{{route('Admin.Banner.ShowImage',['id' => $banner->id])}}">{{$banner->path_image}}</a></u></td>
                                         @if($banner->visible)
                                             <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td>
                                         @else

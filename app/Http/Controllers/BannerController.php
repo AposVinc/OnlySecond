@@ -19,7 +19,7 @@ class BannerController extends Controller
     public function showImage($id)
     {
         $banner = Banner::where('id',$id)->first();
-        return view('backend.banner.image', ['banner' => $banner]);
+        return view('backend.banner.showimage', ['banner' => $banner]);
     }
 
     public function showAddForm()
