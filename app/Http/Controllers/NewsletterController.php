@@ -35,8 +35,9 @@ class NewsletterController extends Controller
 
     /*-------------------   FRONTEND   -------------------*/
 
-    public function Add(Request $request)  //
+    public function create(Request $request)
     {
+
         if (Newsletter::where('email', $request->email)->first()) {
             return back()->with('error', 'Esiste già un Offerta per il prodotto inserito!!');
         }
