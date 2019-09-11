@@ -182,9 +182,10 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="news-form pull-right">
-                            <form onsubmit="return validatemail();" method="post">
+                            <form action="{{route('Newsletter.Add')}}" method="post">
+                                @csrf
                                 <div class="form-group required">
-                                    <input name="email" id="email" placeholder="Inserisci la tua Email" class="form-control input-lg" required="" type="email">
+                                    <input name="email" id="email" placeholder="Inserisci la tua Email" class="form-control input-lg" type="email" required >
                                     <button type="submit" class="btn btn-default btn-lg">Iscriviti</button>
                                 </div>
                             </form>

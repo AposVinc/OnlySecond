@@ -1,3 +1,6 @@
+<div id="error"> <!-- errore gestito con JS-->
+</div>
+
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}

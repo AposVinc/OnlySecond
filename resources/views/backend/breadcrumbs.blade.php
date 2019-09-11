@@ -20,10 +20,6 @@
     </div>
 </div>
 
-
-<div id="error"> <!-- errore gestito con JS-->
-</div>
-
 @include('backend.alertmessage')
 
 

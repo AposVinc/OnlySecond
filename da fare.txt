@@ -6,14 +6,16 @@ BE
 ?tabelle/grafici BE (prima pg)
 ?subanner logica - differenziare in db con enum (main, sub, mini)
 ?minibanner
-sez prod BE
-required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
-*Mancano le immagini dei loghi dei brand presenti nel seeder nella giusta cartella con il giusto nome
+Inserire png Brand
+sez prod BE - descrizioni dei prodotti
 Elimina img prodotto
 
 EditDate() (js)
 EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
 errore se non ci sono brand nella sez edit collezioni
+required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
+
+
 
 FE
 ---------
@@ -29,7 +31,6 @@ logica wishlist
 pagamento
 iniirizzi
 mie recensioni
-add newsletters
 Contattaci - crea tabella db per i messaggi
 IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
@@ -38,8 +39,12 @@ se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata??
 Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
 
+add newsletters - errore da restituire
+
+
+
 ok
---
+----------
 Calendario in Offer
 Brand Logo
 errore data offerte
@@ -49,6 +54,8 @@ Chi siamo no statistiche
 contattaci indirizzo
 Grafica Login/Registraz/pass dimenticata
 img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
+
+
 
 
 MESSAGGI DI ERRORE NEL BE

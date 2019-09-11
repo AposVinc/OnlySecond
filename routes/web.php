@@ -95,6 +95,9 @@ Route::get('WorkInProgress', function () {
 #wishlist
 Route::get('/Favorite', 'WishListController@showListForm')->name('Favorite.List');
 
+Route::post('/Newsletter/Add', 'NewsletterController@Add')->name('Newsletter.Add');
+
+
 
 
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN

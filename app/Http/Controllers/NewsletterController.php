@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends Controller
 {
+    /*-------------------   BACKEND   -------------------*/
 
     public function showListForm()
     {
@@ -31,4 +32,25 @@ class NewsletterController extends Controller
 
         return redirect()->to('Admin/Newsletter/List');
     }
+
+    /*-------------------   FRONTEND   -------------------*/
+
+    public function Add(Request $request)  //
+    {
+        if (Newsletter::where('email', $request->email)->first()) {
+            return back()->with('error', 'Esiste già un Offerta per il prodotto inserito!!');
+        }
+
+        $n = new Newsletter();
+        $n->email = $request->email;
+
+        if($n->save()){
+            return back()->with('success', 'Caricamento avvenuto con successo!!');
+        }else{
+            return back()->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+        }
+    }
+
+
+
 }
