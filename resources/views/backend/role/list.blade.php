@@ -32,6 +32,7 @@
                                     <th>Gest Img Prodotti</th>
                                     <th>Gest Fornitori</th>
                                     <th>Gest Newsletter</th>
+                                    <th>Assistenza Clienti</th>
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
                                 </tr>
@@ -47,6 +48,7 @@
                                             @if($role->hasPermissionTo('gest_imgprod'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_fornitori'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_newsletter'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
+                                            @if($role->hasPermissionTo('gest_assistenza'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                         <td>{{$role->created_at}}</td>
                                         <td>{{$role->updated_at}}</td>
                                     </tr>

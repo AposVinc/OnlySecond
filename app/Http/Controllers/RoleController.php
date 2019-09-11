@@ -118,6 +118,12 @@ class RoleController extends Controller
         }else{
             $role->revokePermissionTo('gest_newsletter');
         };
+        if($request->has('gest_assistenza')){
+            $role->givePermissionTo('gest_assistenza');
+        }else{
+            $role->revokePermissionTo('gest_assistenza');
+        };
+
     }
 
 

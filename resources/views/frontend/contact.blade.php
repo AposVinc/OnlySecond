@@ -28,16 +28,22 @@
                 <div class="col-md-8 col-xs-12 contact-form mb_50">
                     <!-- Contact FORM -->
                     <div id="contact_form">
-                        <form id="contact_body" method="post" action="contact">
-
-                            <input class="full-with-form " type="text" name="name" placeholder="Il Tuo Nome" data-required="true" />
-                            <input class="full-with-form  mt_30" type="email" name="email" placeholder="Il Tuo Indirizzo Email" data-required="true" />
-                            <input class="full-with-form  mt_30" type="text" name="phone1" placeholder="Numero Di Telefono" maxlength="15" data-required="true" />
-                            <input class="full-with-form  mt_30" type="text" name="subject" placeholder="Oggetto" data-required="true">
-                            <textarea class="full-with-form  mt_30" name="message" placeholder="Messaggio" data-required="true"></textarea>
-                            <button class="btn mt_30" type="submit">Invia Il Messaggio</button>
+                        <form action="{{route('ContactUS.AddPost')}}" method="post">
+                            @csrf
+                            <div>
+                                <input class="full-with-form " type="text" id="name" name="name" placeholder="Il Tuo Nome" data-required="true" />
+                                <input class="full-with-form  mt_30" type="email" id="email" name="email" placeholder="Il Tuo Indirizzo Email" data-required="true" />
+                                <input class="full-with-form  mt_30" type="text" id="phone" name="phone" placeholder="Numero Di Telefono" maxlength="15" data-required="true" />
+                                <input class="full-with-form  mt_30" type="text" id="subject" name="subject" placeholder="Oggetto" data-required="true">
+                                <textarea class="full-with-form  mt_30" id="message" name="message" placeholder="Messaggio" data-required="true"></textarea>
+                                <button type="submit" class="btn mt_30">Invia Il Messaggio</button>
+                            </div>
                         </form>
-                        <div id="contact_results"></div>
+                        @if (session('success'))
+                            <div id="contact_results">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                     <!-- END Contact FORM -->
                 </div>

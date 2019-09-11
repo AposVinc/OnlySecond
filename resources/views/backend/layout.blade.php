@@ -148,7 +148,7 @@
                     @endcan
                     @can('gest_imgprod')
                         <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Immagine Prodotto</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Immagini Prodotti</a>
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Image.List')}}">Lista</a></li>
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Image.Add')}}">Aggiungi</a></li>
@@ -185,7 +185,6 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"> </i>Assistenza Clienti</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.ContactUS.List')}}">Lista Mail</a></li>
-                            <li><i class="fa fa-envelope"></i><a href="{{url::route('Admin.ContactUS.ShowMail')}}">Visiona Singola Mail</a></li>
                         </ul>
                     </li>
                 @endcan

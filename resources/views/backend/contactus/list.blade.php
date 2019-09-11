@@ -27,8 +27,7 @@
                                     <th>Email</th>
                                     <th>Cel.</th>
                                     <th>Oggetto</th>
-                                    <th>Creato il</th>
-                                    <th>Ultima modifica</th>
+                                    <th>Inviato il</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -36,10 +35,9 @@
                                     <tr>
                                         <td>{{$mail->name}}</td>
                                         <td>{{$mail->email}}</td>
-                                        <td>{{$mail->number}}</td>
-                                        <td>{{$mail->title}}</td>
+                                        <td>{{$mail->phone}}</td>
+                                        <td><u><a href="{{route('Admin.ContactUS.ShowMail',['id' => $mail->id])}}">{{$mail->subject}}</a></u></td>
                                         <td>{{$mail->created_at}}</td>
-                                        <td>{{$mail->updated_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

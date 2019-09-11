@@ -27,9 +27,9 @@ Route::get('/Shop', function () {
     return view('frontend.shop');
 })->name('Shop');
 
-Route::get('/Contact', function(){
+Route::get('/ContactUS', function(){
     return view('frontend.contact');
-})->name('Contact');
+})->name('ContactUS');
 
 Route::get('/About', function(){
     return view('frontend.about');
@@ -95,8 +95,9 @@ Route::get('WorkInProgress', function () {
 #wishlist
 Route::get('/Favorite', 'WishListController@showListForm')->name('Favorite.List');
 
-Route::post('/Newsletter/Add', 'NewsletterController@Add')->name('Newsletter.Add');
+Route::post('/ContactUS/AddPost', 'ContactUSController@create')->name('ContactUS.AddPost');
 
+Route::post('/Newsletter/AddPost', 'NewsletterController@create')->name('Newsletter.AddPost');
 
 
 
@@ -355,6 +356,7 @@ Route::prefix('Admin')->group(function () {
             Route::prefix('/Image')->group(function () {
                 Route::name('Image.')->group(function () {
                     Route::get('/List', 'ImageController@showListForm')->name('List');
+                    Route::get('/List/Image/{id}', 'ImageController@showImage')->name('ShowImage');
 
                     Route::get('/Add', 'ImageController@showAddForm')->name('Add');
                     Route::post('/AddPost', 'ImageController@create')->name('AddPost');
@@ -367,7 +369,7 @@ Route::prefix('Admin')->group(function () {
             Route::prefix('/Banner')->group(function () {
                 Route::name('Banner.')->group(function () {
                     Route::get('/List', 'BannerController@showListForm')->name('List');
-                    Route::get('/List/Image/{id}', 'BannerController@showImage')->name('Image');
+                    Route::get('/List/Image/{id}', 'BannerController@showImage')->name('ShowImage');
 
                     Route::get('/Add', 'BannerController@showAddForm')->name('Add');
                     Route::post('/AddPost', 'BannerController@create')->name('AddPost');
@@ -387,7 +389,7 @@ Route::prefix('Admin')->group(function () {
                 Route::name('ContactUS.')->group(function () {
                     Route::get('/List', 'ContactUSController@showListForm')->name('List');
 
-                    Route::get('/ShowMail', 'ContactUSController@showMail')->name('ShowMail');
+                    Route::get('/ShowMail/{id}', 'ContactUSController@showMail')->name('ShowMail');
                 });
             });
         });

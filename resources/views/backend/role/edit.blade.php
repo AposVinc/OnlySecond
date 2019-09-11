@@ -83,6 +83,11 @@
                                     <input type="checkbox" id="gest_newsletter" name="gest_newsletter" value="gest_newsletter" class="form-check-input"> Newsletter
                                 </label>
                             </div>
+                            <div class="checkbox">
+                                <label for="gest_assistenza" class="form-check-label ">
+                                    <input type="checkbox" id="permissions" name="gest_assistenza" value="gest_assistenza" class="form-check-input"> Assistenza Clienti
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>

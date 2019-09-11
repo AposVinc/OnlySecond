@@ -63,7 +63,7 @@
             </li>
 
             <li> <a href="{{route('About')}}">Chi siamo</a></li>
-            <li> <a href="{{route('Contact')}}">Contattaci</a>
+            <li> <a href="{{route('ContactUS')}}">Contattaci</a>
             <li> <a href="{{route('Discount')}}">In Sconto %</a>
 
         </ul>

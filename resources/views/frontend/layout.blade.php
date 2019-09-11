@@ -182,7 +182,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="news-form pull-right">
-                            <form action="{{route('Newsletter.Add')}}" method="post">
+                            <form action="{{route('Newsletter.AddPost')}}" method="post">
                                 @csrf
                                 <div class="form-group required">
                                     <input name="email" id="email" placeholder="Inserisci la tua Email" class="form-control input-lg" type="email" required >
@@ -201,7 +201,7 @@
                         <li><a href="#">Condizioni di vendita</a></li>
                         <li><a href="#">Informativa Privacy</a></li>
                         <li><a href="#">Termini e Condizioni</a></li>
-                        <li><a href="{{route('Contact')}}">Contatti</a></li>
+                        <li><a href="{{route('ContactUS')}}">Contatti</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">

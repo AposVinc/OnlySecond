@@ -32,7 +32,6 @@ logica wishlist
 pagamento
 inidirizzi
 mie recensioni
-Contattaci - crea tabella db per i messaggi
 riempire staticamente "chi siamo"
 IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
@@ -41,7 +40,8 @@ se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata??
 Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
 
-add newsletters - errore da restituire
+add newsletters - error/success da restituire
+Contattaci - Gestione Error/Succes Form
 
 
 
