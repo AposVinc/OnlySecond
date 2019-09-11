@@ -59,17 +59,9 @@ Route::get('/EditProfile', function () {
     return view('frontend.editprofile');
 })->name('EditProfile');
 
-Route::get('/Favorite', function () {
-   return view('frontend.favorite');
-})->name('Favorite.List');
-
-Route::get('/Login1', function () {
-    return view('login1');
-})->name('Login1');
-
-Route::get('/Registrazione', function () {
-    return view('register1');
-})->name('Registrazione');
+Route::get('/Wishlist', function () {
+   return view('frontend.wishlist');
+})->name('Wishlist');
 
 Route::get('/Payment', function () {
     return view('frontend.payment');

@@ -21,6 +21,8 @@ class CreateCategoryProductTable extends Migration
 
             $table->softDeletes();
 
+            $table->unique(['category_id', 'product_id']);
+
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });

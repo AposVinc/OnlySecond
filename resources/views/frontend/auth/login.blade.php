@@ -76,7 +76,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-secondary">
-                                        <a href="{{ route('Registrazione') }}"> {{ __('Registrati') }} </a>
+                                        <a href="{{ route('user.register') }}"> {{ __('Registrati') }} </a>
                                     </button>
 
                                 </div>

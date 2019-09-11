@@ -7,7 +7,7 @@
 
                 <div class="mt_20 col-md-6 col-md-offset-2">
                     <button><icon class="fa fa-backward"></icon>
-                        <a href="{{route('Login1')}}">Login</a></button>
+                        <a href="{{route('user.login')}}">Login</a></button>
                 </div>
 
                 <div class="col-md-10 col-lg-offset-3">
