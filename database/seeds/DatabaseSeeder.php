@@ -66,33 +66,23 @@ DatabaseSeeder extends Seeder
 
 
         /* Categorie */
-        $smart = new Category(['name' => 'Smart']);
-        $smart->save();
-
-        $water_resistence = new Category(['name' => 'Water Resistence']);
-        $water_resistence->save();
-
-        $classic = new Category(['name' => 'Classic']);
-        $classic->save();
-
-        $digital = new Category(['name' => 'Digital']);
-        $digital->save();
-
-        $Sport = new Category(['name' => 'Sport']);
-        $Sport->save();
+        $smart = new Category(['name' => 'Smart']);                         $smart->save();
+        $water_resistence = new Category(['name' => 'Water Resistence']);   $water_resistence->save();
+        $classic = new Category(['name' => 'Classic']);                     $classic->save();
+        $digital = new Category(['name' => 'Digital']);                     $digital->save();
+        $Sport = new Category(['name' => 'Sport']);                         $Sport->save();
 
         /* Colori */
-        $argento = new Color(['name'=>'Argento' , 'hex' => '#ffffff']);
-        $argento->save();
+        $argento = new Color(['name'=>'Argento' , 'hex' => '#c0c0c0']);     $argento->save();
+        $oro = new Color(['name'=>'Oro' , 'hex' => '#daa520']);             $oro->save();
+        $bianco = new Color(['name'=>'Bianco' , 'hex' => '#ffffff']);       $bianco->save();
+        $nero = new Color(['name'=>'Nero' , 'hex' => '#000000']);           $nero->save();
+        $grigio = new Color(['name'=>'Grigio' , 'hex' => '#808080']);       $grigio->save();
+        $rosa = new Color(['name'=>'Rosa' , 'hex' => '#ff99cc']);           $rosa->save();
+        $blu = new Color(['name'=>'Blu' , 'hex' => '#0033cc']);             $blu->save();
+        $verde = new Color(['name'=>'Verde' , 'hex' => '#15a813']) ;        $verde->save();
+        $marrone = new Color(['name'=>'Marrone' , 'hex' => '#8B4513']);     $marrone->save();
 
-        $nero = new Color(['name'=>'Nero' , 'hex' => '#000000']);
-        $nero->save();
-
-        $blu = new Color(['name'=>'Blu' , 'hex' => '#0033cc']);
-        $blu->save();
-
-        $rosa = new Color(['name'=>'Rosa' , 'hex' => '#ff99cc']);
-        $rosa->save();
 
         /* Fornitori */
         $fornitore1 = new Supplier(['name'=>'fornitore1','email'=>'fornitore1@fornitore.it','phone'=>'1231231231','city'=>'Roma','address'=>'via Milano','zip'=>'00001','iban'=>'123123123123123']);
@@ -101,6 +91,32 @@ DatabaseSeeder extends Seeder
         $fornitore2->save();
 
         /*------------------------------------------------------*/
+
+        /* Diesel */
+        $Diesel = new Brand(['name' => 'Diesel','path_logo' => 'storage/Logo/Logo_Diesel.png']);
+        $Diesel->save();
+
+        /* Collezioni Diesel */
+        $Double_Down_P44 = new Collection(['name' => 'Double Down P44']);
+        $Diesel->collections()->save($Double_Down_P44);
+
+        /* Prodotti Diesel */
+        $Double_Down_P44P1 = new Product(['cod' => 'DZ1436','price' => '89', 'stock_availability' => '10',
+            'genre' => 'U','long_desc' => 'long desc']);
+        $Double_Down_P44P1I1 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_Nero_1.jpg', 'main' => '1']);
+        $Double_Down_P44P1I2 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_Nero_2.jpg', 'main' => '0']);
+        $Double_Down_P44P1I3 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_Nero_3.jpg', 'main' => '0']);
+        $Double_Down_P44P1->collection_id = $Diesel->id;
+        $Double_Down_P44P1->supplier_id = $fornitore2->id;
+        $Double_Down_P44P1->color_id = $nero->id;
+        $Double_Down_P44P1->save();
+        $Double_Down_P44P1->categories()->save($classic);
+        $Double_Down_P44P1->images()->save($Double_Down_P44P1I1);
+        $Double_Down_P44P1->images()->save($Double_Down_P44P1I2);
+        $Double_Down_P44P1->images()->save($Double_Down_P44P1I3);
+        $Double_Down_P44->products()->save($Double_Down_P44P1);
+
+
 
         /* Fossil */
         $Fossil = new Brand(['name' => 'Fossil','path_logo' => 'storage/Logo/Logo_Fossil.png']);
@@ -154,16 +170,88 @@ DatabaseSeeder extends Seeder
         $CarlieP3->images()->save($CarlieP3I3);
         $Carlie->products()->save($CarlieP3);
 
-        $Sport1P1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
+        $SportP1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
             'genre' => 'U','long_desc' => 'long desc']);
         $SportP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_Nero_1.jpg', 'main' => '1']);
-        $Sport1P1->collection_id = $Sport->id;
-        $Sport1P1->supplier_id = $fornitore1->id;
-        $Sport1P1->color_id = $nero->id;
-        $Sport1P1->save();
-        $Sport1P1->categories()->save($smart);
-        $Sport1P1->images()->save($SportP1I1);
-        $Sport->products()->save($Sport1P1);
+        $SportP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_Nero_2.jpg', 'main' => '0']);
+        $SportP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_Nero_3.jpg', 'main' => '0']);
+        $SportP1->collection_id = $Sport->id;
+        $SportP1->supplier_id = $fornitore1->id;
+        $SportP1->color_id = $nero->id;
+        $SportP1->save();
+        $SportP1->categories()->save($smart);
+        $SportP1->images()->save($SportP1I1);
+        $SportP1->images()->save($SportP1I2);
+        $SportP1->images()->save($SportP1I3);
+        $Sport->products()->save($SportP1);
+
+        $SportP2 = new Product(['cod' => 'FT6028','price' => '249', 'stock_availability' => '2',
+            'genre' => 'U','long_desc' => 'long desc']);
+        $SportP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_Rosa_1.jpg', 'main' => '1']);
+        $SportP2I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_Rosa_2.jpg', 'main' => '0']);
+        $SportP2I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_Rosa_3.jpg', 'main' => '0']);
+        $SportP2->collection_id = $Sport->id;
+        $SportP2->supplier_id = $fornitore1->id;
+        $SportP2->color_id = $rosa->id;
+        $SportP2->save();
+        $SportP2->categories()->save($smart);
+        $SportP2->images()->save($SportP2I1);
+        $SportP2->images()->save($SportP2I2);
+        $SportP2->images()->save($SportP2I3);
+        $Sport->products()->save($SportP2);
+
+        $Q_ExploristP1 = new Product(['cod' => 'FT4012','price' => '239', 'stock_availability' => '16',
+            'genre' => 'U','long_desc' => 'long desc']);
+        $Q_ExploristP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Grigio_1.jpg', 'main' => '1']);
+        $Q_ExploristP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Grigio_2.jpg', 'main' => '0']);
+        $Q_ExploristP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Grigio_3.jpg', 'main' => '0']);
+        $Q_ExploristP1->collection_id = $Q_Explorist->id;
+        $Q_ExploristP1->supplier_id = $fornitore1->id;
+        $Q_ExploristP1->color_id = $grigio->id;
+        $Q_ExploristP1->save();
+        $Q_ExploristP1->categories()->save($smart);
+        $Q_ExploristP1->images()->save($Q_ExploristP1I1);
+        $Q_ExploristP1->images()->save($Q_ExploristP1I2);
+        $Q_ExploristP1->images()->save($Q_ExploristP1I3);
+        $Q_Explorist->products()->save($Q_ExploristP1);
+
+        $Q_ExploristP2 = new Product(['cod' => 'FT4015','price' => '239', 'stock_availability' => '4',
+            'genre' => 'U','long_desc' => 'long desc']);
+        $Q_ExploristP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Marrone_1.jpg', 'main' => '1']);
+        $Q_ExploristP2->collection_id = $Q_Explorist->id;
+        $Q_ExploristP2->supplier_id = $fornitore1->id;
+        $Q_ExploristP2->color_id = $marrone->id;
+        $Q_ExploristP2->save();
+        $Q_ExploristP2->categories()->save($smart);
+        $Q_ExploristP2->images()->save($Q_ExploristP2I1);
+        $Q_Explorist->products()->save($Q_ExploristP2);
+
+        $Q_ExploristP3 = new Product(['cod' => 'FT4016','price' => '239', 'stock_availability' => '5',
+            'genre' => 'U','long_desc' => 'long desc']);
+        $Q_ExploristP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Nero_1.jpg', 'main' => '1']);
+        $Q_ExploristP3->collection_id = $Q_Explorist->id;
+        $Q_ExploristP3->supplier_id = $fornitore1->id;
+        $Q_ExploristP3->color_id = $nero->id;
+        $Q_ExploristP3->save();
+        $Q_ExploristP3->categories()->save($smart);
+        $Q_ExploristP3->images()->save($Q_ExploristP3I1);
+        $Q_Explorist->products()->save($Q_ExploristP3);
+
+        $Q_ExploristP4 = new Product(['cod' => 'FT4019','price' => '239', 'stock_availability' => '6',
+            'genre' => 'U','long_desc' => 'long desc']);
+        $Q_ExploristP4I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Rosa_1.jpg', 'main' => '1']);
+        $Q_ExploristP4I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Rosa_2.jpg', 'main' => '0']);
+        $Q_ExploristP4I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_Rosa_3.jpg', 'main' => '0']);
+        $Q_ExploristP4->collection_id = $Q_Explorist->id;
+        $Q_ExploristP4->supplier_id = $fornitore1->id;
+        $Q_ExploristP4->color_id = $rosa->id;
+        $Q_ExploristP4->save();
+        $Q_ExploristP4->categories()->save($smart);
+        $Q_ExploristP4->images()->save($Q_ExploristP4I1);
+        $Q_ExploristP4->images()->save($Q_ExploristP4I2);
+        $Q_ExploristP4->images()->save($Q_ExploristP4I3);
+        $Q_Explorist->products()->save($Q_ExploristP4);
+
 
 
         /* Lacoste */
@@ -171,8 +259,8 @@ DatabaseSeeder extends Seeder
         $Lacoste->save();
 
         /* Collezioni Lacoste */
-        $Moon = new Collection(['name' => 'Moon']);
-        $Lacoste->collections()->save($Moon);
+        $Lacoste_Moon = new Collection(['name' => 'Moon']);
+        $Lacoste->collections()->save($Lacoste_Moon);
 
         $Lacoste_12_12 = new Collection(['name' => '12.12']);
         $Lacoste->collections()->save($Lacoste_12_12);
@@ -181,13 +269,79 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
             'genre' => 'M','long_desc' => 'long desc']);
         $Lacoste_12_12_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_Blu_1.jpg', 'main' => '1']);
+        $Lacoste_12_12_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_Blu_2.jpg', 'main' => '0']);
+        $Lacoste_12_12_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_Blu_3.jpg', 'main' => '0']);
         $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
-        $Lacoste_12_12_P1->supplier_id = $fornitore1->id;
+        $Lacoste_12_12_P1->supplier_id = $fornitore2->id;
         $Lacoste_12_12_P1->color_id = $blu->id;
         $Lacoste_12_12_P1->save();
         $Lacoste_12_12_P1->categories()->save($classic);
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I1);
+        $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I2);
+        $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I3);
         $Lacoste_12_12->products()->save($Lacoste_12_12_P1);
+
+        $Lacoste_12_12_P2 = new Product(['cod' => 'LC7907', 'price' => '99', 'stock_availability' => '8',
+            'genre' => 'M', 'long_desc' => 'long desc']);
+        $Lacoste_12_12_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_Verde_1.jpg', 'main' => '1']);
+        $Lacoste_12_12_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_Verde_2.jpg', 'main' => '0']);
+        $Lacoste_12_12_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_Verde_3.jpg', 'main' => '0']);
+        $Lacoste_12_12_P2->collection_id = $Lacoste_12_12->id;
+        $Lacoste_12_12_P2->supplier_id = $fornitore2->id;
+        $Lacoste_12_12_P2->color_id = $verde->id;
+        $Lacoste_12_12_P2->save();
+        $Lacoste_12_12_P2->categories()->save($classic);
+        $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I1);
+        $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I2);
+        $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I3);
+        $Lacoste_12_12->products()->save($Lacoste_12_12_P2);
+
+
+        $Lacoste_Moon_P1 = new Product(['cod' => 'LCM233', 'price' => '139', 'stock_availability' => '12',
+            'genre' => 'F', 'long_desc' => 'long desc']);
+        $Lacoste_Moon_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_1.jpg', 'main' => '1']);
+        $Lacoste_Moon_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_2.jpg', 'main' => '0']);
+        $Lacoste_Moon_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_3.jpg', 'main' => '0']);
+        $Lacoste_Moon_P1->collection_id = $Lacoste_Moon->id;
+        $Lacoste_Moon_P1->supplier_id = $fornitore2->id;
+        $Lacoste_Moon_P1->color_id = $blu->id;
+        $Lacoste_Moon_P1->save();
+        $Lacoste_Moon_P1->categories()->save($classic);
+        $Lacoste_Moon_P1->images()->save($Lacoste_Moon_P1I1);
+        $Lacoste_Moon_P1->images()->save($Lacoste_Moon_P1I2);
+        $Lacoste_Moon_P1->images()->save($Lacoste_Moon_P1I3);
+        $Lacoste_Moon->products()->save($Lacoste_Moon_P1);
+
+        $Lacoste_Moon_P2 = new Product(['cod' => 'LCM234', 'price' => '139', 'stock_availability' => '19',
+            'genre' => 'F', 'long_desc' => 'long desc']);
+        $Lacoste_Moon_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_1.jpg', 'main' => '1']);
+        $Lacoste_Moon_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_2.jpg', 'main' => '0']);
+        $Lacoste_Moon_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_3.jpg', 'main' => '0']);
+        $Lacoste_Moon_P2->collection_id = $Lacoste_Moon->id;
+        $Lacoste_Moon_P2->supplier_id = $fornitore2->id;
+        $Lacoste_Moon_P2->color_id = $nero->id;
+        $Lacoste_Moon_P2->save();
+        $Lacoste_Moon_P2->categories()->save($classic);
+        $Lacoste_Moon_P2->images()->save($Lacoste_Moon_P2I1);
+        $Lacoste_Moon_P2->images()->save($Lacoste_Moon_P2I2);
+        $Lacoste_Moon_P2->images()->save($Lacoste_Moon_P2I3);
+        $Lacoste_Moon->products()->save($Lacoste_Moon_P2);
+
+        $Lacoste_Moon_P3 = new Product(['cod' => 'LCM236', 'price' => '139', 'stock_availability' => '10',
+            'genre' => 'F', 'long_desc' => 'long desc']);
+        $Lacoste_Moon_P3I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_1.jpg', 'main' => '1']);
+        $Lacoste_Moon_P3I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_2.jpg', 'main' => '0']);
+        $Lacoste_Moon_P3I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_3.jpg', 'main' => '0']);
+        $Lacoste_Moon_P3->collection_id = $Lacoste_Moon->id;
+        $Lacoste_Moon_P3->supplier_id = $fornitore2->id;
+        $Lacoste_Moon_P3->color_id = $rosa->id;
+        $Lacoste_Moon_P3->save();
+        $Lacoste_Moon_P3->categories()->save($classic);
+        $Lacoste_Moon_P3->images()->save($Lacoste_Moon_P3I1);
+        $Lacoste_Moon_P3->images()->save($Lacoste_Moon_P3I2);
+        $Lacoste_Moon_P3->images()->save($Lacoste_Moon_P3I3);
+        $Lacoste_Moon->products()->save($Lacoste_Moon_P3);
+
 
 
         /* Tissot */
@@ -200,6 +354,8 @@ DatabaseSeeder extends Seeder
 
         $Chrono = new Collection(['name' => 'Chrono']);
         $Tissot->collections()->save($Chrono);
+
+
 
         /* Wellington */
         $Wellington = new Brand(['name' => 'Wellington','path_logo' => 'storage/Logo/Logo_Wellington.png']);
@@ -215,13 +371,7 @@ DatabaseSeeder extends Seeder
         $Bayswater = new Collection(['name' => 'Bayswater']);
         $Wellington->collections()->save($Bayswater);
 
-        /* Diesel */
-        $Diesel = new Brand(['name' => 'Diesel','path_logo' => 'storage/Logo/Logo_Diesel.png']);
-        $Diesel->save();
 
-        /* Collezioni Diesel */
-        $Double_Down_P44 = new Collection(['name' => 'Double Down P44']);
-        $Diesel->collections()->save($Double_Down_P44);
 
 
 /*
