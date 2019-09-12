@@ -1,5 +1,6 @@
 Finire SEEDER - sistemare categorie per ogni prod
-eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini
+eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini (Inserire png Brand ecc...)
+seeder aggiungere descrizioni prod
 
 
 BE
@@ -10,12 +11,11 @@ BE
 ?minibanner
 ?bottoni fine tabella (List)
 ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
-Inserire png Brand
 sez prod BE - descrizioni dei prodotti
 Elimina img prodotto
 
 EditDate() (js)
-EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
+?EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
 errore se non ci sono brand nella sez edit collezioni
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 
