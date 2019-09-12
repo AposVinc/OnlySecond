@@ -1,4 +1,6 @@
+Finire SEEDER - sistemare categorie per ogni prod
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini
+
 
 BE
 ---------
@@ -22,10 +24,11 @@ required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 FE
 ---------
 ?cerca
+shop - se si mette where('main',0) da errore sul path
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
-logica filtro
+logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
 logica Ordini
 logica modifica
 logica wishlist

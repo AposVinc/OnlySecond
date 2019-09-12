@@ -344,6 +344,16 @@ DatabaseSeeder extends Seeder
 
 
 
+        /* Swarovski */
+        $Swarovski = new Brand(['name' => 'Swarovski','path_logo' => 'storage/Logo/Logo_Swarovski.png']);
+        $Swarovski->save();
+
+        /* Collezioni Swarovski */
+        $Stella = new Collection(['name' => 'Stella']);
+        $Swarovski->collections()->save($Stella);
+
+
+
         /* Tissot */
         $Tissot = new Brand(['name' => 'Tissot','path_logo' => 'storage/Logo/Logo_Tissot.png']);
         $Tissot->save();
