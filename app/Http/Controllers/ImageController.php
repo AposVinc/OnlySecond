@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use App\Brand;
 use App\Image;
+use App\Brand;
+use App\Collection;
 use App\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
     public function showListForm()
     {
-        $images = Image::all();
-        return view('backend.image.list', ['images' => $images]);
+        $images = Image::get();
+        return view('backend.image.list', ['images' => $images ]);
     }
 
     public function showAddForm()
     {
         $brands = Brand::all();
-        return view('backend.image.add', ['brands' => $brands]);
+        return view('backend.image.add',['brands' => $brands]);
     }
 
     public function showImage($id)

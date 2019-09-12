@@ -17,8 +17,8 @@
 
     <form action="{{route('Admin.Product.AddPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         @csrf
-    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+
+        <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="cod" class=" form-control-label">Codice</label></div>
@@ -61,14 +61,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="row form-group">
+                <div id="divCheckError" class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Categoria di Orologi</label></div>
                     <div class="col col-md-9">
                         <div class="form-check">
                             @foreach($categories as $category)
                                 <div class="checkbox">
                                     <label for="{{$category->name}}" class="form-check-label">
-                                        <input type="checkbox" id="{{$category->id}}" name="category" value="{{$category->name}}" class="form-check-input">{{$category->name}}
+                                        <input type="checkbox" name="{{$category->id}}" value="{{$category->id}}" class="form-check-input">{{$category->name}}
                                     </label>
                                 </div>
                             @endforeach
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" id="checkBtn" class="btn btn-primary btn-sm">
+                <button type="button" id="checkBtn" class="btn btn-primary btn-sm" onclick="VerifyCheck()">
                     <i class="fa fa-dot-circle-o"></i> Aggiungi
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
@@ -134,8 +134,27 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
+    <script>
+        function VerifyCheck(){
+            var listCheck = document.getElementsByClassName('checkbox');
+            var check = false;
+            for(var i=0;i< listCheck.length;i++){
+                if(listCheck[i].children[0].children[0].checked){
+                    check = true;
+                }
+            }
+            if(check) {
+                var submit = document.getElementById('checkBtn');
+                submit.type="submit";
+            }else{
+                var div = document.getElementById('divCheckError');
+                div.style="border-style: solid; border-color: red;";
+                Error("Devi selezionare almeno una categoria");
+            }
+        }
+    </script>
 
 @endsection
 

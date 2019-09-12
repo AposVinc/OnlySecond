@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\CategoryProduct;
 use App\Color;
 use App\Offer;
 use App\Product;
@@ -102,6 +103,7 @@ class ProductController extends Controller
      */
     public function create(Request $request)  //
     {
+        //Save product
         $product = new Product();
         $product->cod=$request->get('cod');
         $product->collection_id= $request->get('collection');
@@ -112,9 +114,23 @@ class ProductController extends Controller
         $product->supplier_id= $request->get('supplier');
         $product->color_id= $request->get('color');
         $product->save();
+
         $idProduct= $product->id;
 
+        //Save main image
         $this->saveMainImage($request,$idProduct);
+
+        //Save category - product rel
+        $categories = Category::withoutTrashed()->get();
+        foreach ($categories as $category){
+            if($request->get($category->id)) {
+                $category_product = new CategoryProduct();
+                $category_product->category_id = $request->get($category->id);
+                $category_product->product_id = $idProduct;
+                $category_product->save();
+            }
+        }
+
         return redirect()->to('Admin/Product/List');
     }
 
@@ -137,9 +153,8 @@ class ProductController extends Controller
                 if(!(Storage::exists($path))){
                     Storage::makeDirectory($path);
                 }
-               /* $counter=Image::where('product_id', $idProduct)->max('counter');
-                $counter +=1;         . '_'. $counter*/
-                $filename= $nameBrand. '_'. $nameCollection;
+                $cod = $request->get('cod');
+                $filename= $nameBrand. '_'. $nameCollection. '_'. $cod. 'jpg';
                 $path_image = 'storage/Orologi/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
                 $path = $request->file('main-photo')->storeAs($path, $filename);
                 if($path!=""){
@@ -147,7 +162,7 @@ class ProductController extends Controller
                     $image->path_image = $path_image;
                     $image->product_id = $idProduct;
                     $image->main = 1;
-                    //$banner->counter = $counter;
+                    $image->counter = 0;
                     $image->save();
                     return "successo";
                 }
@@ -157,7 +172,6 @@ class ProductController extends Controller
         }else{
             return "error";
         }
-
     }
 
     /**

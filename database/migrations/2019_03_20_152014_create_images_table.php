@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->string('path_image');
             $table->boolean('main');
+            $table->integer('counter'); //numero progressivo per creare path_image
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 
