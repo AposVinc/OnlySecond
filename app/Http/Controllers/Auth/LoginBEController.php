@@ -42,13 +42,15 @@ class LoginBEController extends Controller
         if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
             //dd(auth()->guard('admin')->user());
             return redirect()->route('Admin.Index');
+        }else{
+            return redirect()->route('Admin.LoginForm');
         }
 
     }
 
-    public function logout()
+    public function logoutBE()
     {
-        \Auth::logout();
+        \Auth::guard('admin')->logout();
         return redirect()->route('Home');
     }
 }

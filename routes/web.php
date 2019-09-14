@@ -123,8 +123,15 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('Verifica
 //ADMIN
 Route::get('Admin/Login', 'Auth\LoginBEController@showLoginFormBE')->name('Admin.LoginForm');
 Route::post('Admin/LoginPost', 'Auth\LoginBEController@loginBE')->name('Admin.LoginPost');
+Route::get('Logout', 'Auth\LoginBEController@logoutBE')->name('Admin.Logout');
+
 
 Route::group(['middleware' => ['auth.admin']], function () {
+    Route::get('Admin/Prova', function () {
+        return view('backend.index');
+    });
+});
+
     Route::prefix('Admin')->group(function () {
         Route::name('Admin.')->group(function () {
 
@@ -382,7 +389,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
 
         });
     });
-});
+
 
     Route::fallback(function () {
         return view('frontend.404');

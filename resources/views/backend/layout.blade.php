@@ -209,7 +209,7 @@
             </div>
             <div class="col-sm-5">
                 <div>
-                    <a class="nav-link float-right" href="{{route('User.Logout')}}"><i class="fa fa-sign-in"></i> Logout</a>
+                    <a class="nav-link float-right" href="{{route('Admin.Logout')}}"><i class="fa fa-sign-in"></i> Logout</a>
                     <a class="nav-link float-right" href="{{route('Home')}}"><i class="fa fa-home"></i> Front End</a>
                 </div>
             </div>

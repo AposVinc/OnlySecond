@@ -20,5 +20,6 @@ class AdminAuth
         if (false == Auth::guard('admin')->check()) {
             return redirect()->route('Admin.LoginForm'); //redirect User to login page
         }
-        return $next($request);    }
+        return $next($request);
+    }
 }
