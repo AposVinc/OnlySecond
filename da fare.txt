@@ -24,6 +24,7 @@ required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 FE
 ---------
 ?cerca
+Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
 shop - se si mette where('main',0) da errore sul path
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -- VI --slider home

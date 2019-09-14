@@ -17,7 +17,7 @@
 
     <form action="{{route('Admin.User.DeletePost')}}" method="post" class="form-horizontal">
     @csrf
-        <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
+    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
         <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
             <div class="card-body card-block">
                 <div class="row form-group">
@@ -27,9 +27,7 @@
                             <option value="">Seleziona l'Utente</option>
                             @foreach($users as $user)
                                 @foreach($user->roles as $role)
-                                    @if($role->name != 'cliente'))
-                                        <option value="{{$user->id}}">{{$user->name}}</option>
-                                    @endif
+                                    <option value="{{$user->id}}">{{$user->name}} - {{$role->name}}</option>
                                 @endforeach
                             @endforeach
                         </select>
@@ -46,6 +44,6 @@
             </div>
         </div>
         <!-- </div>-->
-        </form>
+    </form>
 
 @endsection

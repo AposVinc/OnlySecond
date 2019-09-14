@@ -39,10 +39,8 @@
                         <div class="col-12 col-md-9">
                             <select name="role" id="role" class="form-control" required>
                                 <option value="">Seleziona il ruolo</option>
-                                @foreach($roles as$role)
-                                    @if($role->name != 'cliente'))
+                                @foreach($roles as $role)
                                     <option value="{{$role->id}}">{{$role->name}}</option>
-                                    @endif
                                 @endforeach
                             </select>
                         </div>
