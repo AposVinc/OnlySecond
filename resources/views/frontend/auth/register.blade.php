@@ -7,7 +7,7 @@
 
                 <div class="mt_20 col-md-6 col-md-offset-2">
                     <button><icon class="fa fa-backward"></icon>
-                        <a href="{{route('user.login')}}">Login</a></button>
+                        <a href="{{route('User.Login')}}">Login</a></button>
                 </div>
 
                 <div class="col-md-10 col-lg-offset-3">
@@ -18,7 +18,7 @@
                         <h3 class="card-header text-uppercase col-md-offset-2">{{ __('Registrazione') }}</h3>
 
                         <div class="card-body mt_20">
-                            <form method="POST" action="{{ route('user.registerpost') }}">
+                            <form method="POST" action="{{ route('User.RegisterPost') }}">
                                 @csrf
 
                                 <div class="form-group row">

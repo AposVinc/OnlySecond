@@ -11,11 +11,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function Index(){
-        if(auth()->user()->hasRole('cliente')){
-            return view('frontend.index');
-        }else{
-            return view('backend.index');
-        }
-    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin;
 use App\Category;
 use App\Color;
 use App\Image;
@@ -25,43 +26,43 @@ DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
+        $user1 = new User(['name'=>'d', 'email'=>'d@d.it', 'password'=>'dddddddd']);
+        $user1->save();
+
         $newsletter1 = new Newsletter(['email' => 'f14e48631f-f65fb0@inbox.mailtrap.io']);
         $newsletter1->save();
 
         $newsletter2 = new Newsletter(['email' => 'mail1@mail1.it']);
         $newsletter2->save();
 
-        Permission::create(['name'=>'gest_utenti']);
-        Permission::create(['name'=>'gest_prodotti']);
-        Permission::create(['name'=>'gest_offerte']);
-        Permission::create(['name'=>'gest_banner']);
-        Permission::create(['name'=>'gest_imgprod']);
-        Permission::create(['name'=>'gest_fornitori']);
-        Permission::create(['name'=>'gest_newsletter']);
-        Permission::create(['name'=>'gest_assistenza']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_utenti']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_prodotti']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_offerte']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_banner']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_imgprod']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_fornitori']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_newsletter']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_assistenza']);
 
 
-        $cliente = Role::create(['name' => 'cliente']);
-        $admin = Role::create(['name' => 'Admin'])->givePermissionTo(Permission::all());
-        $manager = Role::create(['name' => 'Manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
+        //$cliente = Role::create(['name' => 'cliente']);
+        $admin = Role::create(['guard_name' => 'admin','name' => 'Admin'])->givePermissionTo(Permission::all());
+        $manager = Role::create(['guard_name' => 'admin','name' => 'Manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
                                                                             'gest_banner','gest_imgprod',
                                                                             'gest_fornitori','gest_newsletter']);
-        $designer = Role::create(['name' => 'Designer'])->givePermissionTo(['gest_banner','gest_imgprod']);
-        $pubblicitario = Role::create(['name'=>'Pubblicitario'])->givePermissionTo(['gest_offerte','gest_banner','gest_newsletter']);
-        $assistenza = Role::create(['name'=>'Assistenza Clienti'])->givePermissionTo(['gest_assistenza']);
+        $designer = Role::create(['guard_name' => 'admin','name' => 'Designer'])->givePermissionTo(['gest_banner','gest_imgprod']);
+        $pubblicitario = Role::create(['guard_name' => 'admin','name'=>'Pubblicitario'])->givePermissionTo(['gest_offerte','gest_banner','gest_newsletter']);
+        $assistenza = Role::create(['guard_name' => 'admin','name'=>'Assistenza Clienti'])->givePermissionTo(['gest_assistenza']);
 
 
-        $utente1 = new User(['name'=>'a', 'email'=>'a@a.it', 'password'=>'aaaaaaaa']);
-        $utente1->assignRole($admin)->save();
+        $admin1 = new Admin(['name'=>'a', 'email'=>'a@a.it', 'password'=>'aaaaaaaa']);
+        $admin1->assignRole($admin)->save();
 
-        $utente2 = new User(['name'=>'b', 'email'=>'b@b.it', 'password'=>'bbbbbbbb']);
-        $utente2->assignRole($pubblicitario)->save();
+        $admin2 = new Admin(['name'=>'b', 'email'=>'b@b.it', 'password'=>'bbbbbbbb']);
+        $admin2->assignRole($pubblicitario)->save();
 
-        $utente3 = new User(['name'=>'c', 'email'=>'c@c.it', 'password'=>'cccccccc']);
-        $utente3->assignRole($assistenza)->save();
-
-        $utente4 = new User(['name'=>'d', 'email'=>'d@d.it', 'password'=>'dddddddd']);
-        $utente4->assignRole($cliente)->save();
+        $admin3 = new Admin(['name'=>'c', 'email'=>'c@c.it', 'password'=>'cccccccc']);
+        $admin3->assignRole($assistenza)->save();
 
 
 

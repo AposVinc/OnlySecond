@@ -20,12 +20,17 @@ errore se non ci sono brand nella sez edit collezioni
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 
 
+sistemare op admin (creaate ecc ecc)
+
+
 
 FE
 ---------
 ?cerca
 shop - se si mette where('main',0) da errore sul path
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+-- VI --slider home
+-- VI --- Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
@@ -41,7 +46,6 @@ Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata??
-Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
 
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form

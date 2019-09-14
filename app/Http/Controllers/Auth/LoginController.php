@@ -21,6 +21,8 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected $guard = 'user'; //?
+
     /**
      * Where to redirect users after login.
      *
@@ -43,22 +45,10 @@ class LoginController extends Controller
         return view('frontend.auth.login');
     }
 
-    public function showLoginFormBE()
-    {
-        return view('backend.login');
-    }
-
     public function loginFE(Request $request)
     {
         $this->login($request);
         return redirect()->route('Home');
-    }
-
-
-    public function loginBE(Request $request)
-    {
-        $this->login($request);
-        return redirect()->route('Admin.Index');
     }
 
     public function logout()

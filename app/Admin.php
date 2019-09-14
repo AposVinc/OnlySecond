@@ -2,19 +2,25 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
+    //https://pusher.com/tutorials/multiple-authentication-guards-laravel
+    //https://medium.com/@decodeweb/multi-guard-authentication-in-laravel-5-8-31c00b76e9de
+    //https://hdtuto.com/article/laravel-57-multiple-authentication-example
+
     use Notifiable;
+    use HasRoles;
+    use SoftDeletes;
 
     protected $primaryKey = 'id';
-    protected $guard = 'user';
+    protected $guard = 'admin';
 
-
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +29,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -49,15 +56,4 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
-
-    public function reviews()
-    {
-        return $this->hasMany('App\Review');
-    }
-
-    public function productsWishlist()
-    {
-        return $this->belongsToMany('App\Product', 'wishlists');
-    }
-
 }

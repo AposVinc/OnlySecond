@@ -56,7 +56,7 @@
                 <li class="active">
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
-                @can('gest_utenti')
+                @if(auth('admin')->user()->can('gest_utenti'))
                     <h3 class="menu-title">Gestione Utenti</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"> </i>Utenti</a>
@@ -77,8 +77,8 @@
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Role.Delete')}}">Elimina</a></li>
                         </ul>
                     </li>
-                @endcan
-                @can('gest_prodotti')
+                @endif
+                @if(auth('admin')->user()->can('gest_prodotti'))
                     <h3 class="menu-title">Gestione Brand</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-briefcase"> </i>Brand</a>
@@ -120,8 +120,8 @@
                             <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
-                @endcan
-                @can('gest_offerte')
+                @endif
+                @if(auth('admin')->user()->can('gest_offerte'))
                     <h3 class="menu-title">Gestione Offerte</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-percent"> </i>Offerte</a>
@@ -132,10 +132,10 @@
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Offer.Delete')}}">Elimina</a></li>
                         </ul>
                     </li>
-                @endcan
-                @if(auth()->user()->can('gest_banner') or auth()->user()->can('gest_imgprod'))
+                @endif
+                @if(auth('admin')->user()->can('gest_banner') or auth('admin')->user()->can('gest_imgprod'))
                     <h3 class="menu-title">Gestione Immagini</h3>
-                    @can('gest_banner')
+                    @if(auth('admin')->user()->can('gest_banner'))
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Banner</a>
                             <ul class="sub-menu children dropdown-menu">
@@ -145,8 +145,8 @@
                                 <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
                             </ul>
                         </li>
-                    @endcan
-                    @can('gest_imgprod')
+                    @endif
+                    @if(auth('admin')->user()->can('gest_imgprod'))
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"> </i>Immagini Prodotti</a>
                             <ul class="sub-menu children dropdown-menu">
@@ -154,9 +154,9 @@
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Image.Add')}}">Aggiungi</a></li>
                             </ul>
                         </li>
-                    @endcan
+                    @endif
                 @endif
-                @can('gest_fornitori')
+                @if(auth('admin')->user()->can('gest_fornitori'))
                     <h3 class="menu-title">Gestione Fornitori</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"> </i>Fornitori</a>
@@ -168,8 +168,8 @@
                             <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Supplier.Restore')}}">Ripristina</a></li>
                         </ul>
                     </li>
-                @endcan
-                @can('gest_newsletter')
+                @endif
+                @if(auth('admin')->user()->can('gest_newsletter'))
                     <h3 class="menu-title">Gestione Newsletters</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-envelope"> </i>Newsletters</a>
@@ -178,8 +178,8 @@
                             <li><i class="fa fa-mail-forward"></i><a href="{{url::route('Admin.Newsletter.SendMailForm')}}">Invia Mail</a></li>
                         </ul>
                     </li>
-                @endcan
-                @can('gest_assistenza')
+                @endif
+                @if(auth('admin')->user()->can('gest_assistenza'))
                     <h3 class="menu-title">Gestione Clienti</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"> </i>Assistenza Clienti</a>
@@ -187,7 +187,7 @@
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.ContactUS.List')}}">Lista Mail</a></li>
                         </ul>
                     </li>
-                @endcan
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -202,20 +202,14 @@
             <div class="col-sm-7">
                 <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                 <div class="header-left">
-                    @foreach(auth()->user()->roles as $role)
-                        @if($role->name != 'cliente')
-                            <a class="nav-link float-left">Ruolo: {{$role->name}}</a>
-                        @endif
+                    @foreach(auth('admin')->user()->roles as $role)
+                        <a class="nav-link float-left">Ruolo: {{$role->name}}</a>
                     @endforeach
                 </div>
             </div>
             <div class="col-sm-5">
                 <div>
-                    @auth
-                        <a class="nav-link float-right" href="{{route('user.logout')}}"><i class="fa fa-sign-in"></i> Logout</a>
-                    @else
-                        <a class="nav-link float-right" href="{{route('Admin.LoginForm')}}"><i class="fa fa-sign-out"></i> Login</a>
-                    @endauth
+                    <a class="nav-link float-right" href="{{route('User.Logout')}}"><i class="fa fa-sign-in"></i> Logout</a>
                     <a class="nav-link float-right" href="{{route('Home')}}"><i class="fa fa-home"></i> Front End</a>
                 </div>
             </div>
@@ -355,112 +349,112 @@
 </script>
 
 @if(strpos(route::currentRouteName(),'Admin.Banner')!== false)
-<script>
-    function EditBanner(){
-        var divError = document.getElementById('error');
-        divError.innerText ="";
-        divError.classList.remove('alert','alert-danger');
-        var selectBanner = document.getElementById('banner');
-        selectBanner.options.length = 0;
-        var option = document.createElement('option');
-        option.text = "Seleziona il banner";
-        option.value = "";
-        selectBanner.add(option);
-        var data;
-        var selected = document.getElementById('collection');
-        var value = selected.options[selected.selectedIndex].value;
+    <script>
+        function EditBanner(){
+            var divError = document.getElementById('error');
+            divError.innerText ="";
+            divError.classList.remove('alert','alert-danger');
+            var selectBanner = document.getElementById('banner');
+            selectBanner.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona il banner";
+            option.value = "";
+            selectBanner.add(option);
+            var data;
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
 
-        jQuery.ajax({
-            url:'{{ route('Admin.GetBanner') }}',
-            method:"POST",
-            dataType: "json",
-            data:{value:value, _token: "{{ csrf_token() }}"},
-            success:function(result) {
-                if(result.length === 0){
-                    Error("Non ci sono banner per la collezione selezionata");
-                }else{
-                    result.forEach(AddOptionBanner);
+            jQuery.ajax({
+                url:'{{ route('Admin.GetBanner') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    if(result.length === 0){
+                        Error("Non ci sono banner per la collezione selezionata");
+                    }else{
+                        result.forEach(AddOptionBanner);
+                    }
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                 }
-            },
-            error:function(xhr){
-                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-            }
-        });
-    }
+            });
+        }
 
-    function AddOptionBanner(item, index) {
-        var selectBanner = document.getElementById('banner');
-        var option = document.createElement('option');
-        option.text= item.path_image;
-        option.value= item.id;
-        selectBanner.add(option);
-    }
+        function AddOptionBanner(item, index) {
+            var selectBanner = document.getElementById('banner');
+            var option = document.createElement('option');
+            option.text= item.path_image;
+            option.value= item.id;
+            selectBanner.add(option);
+        }
 
-    function EditSwitch(){
-        var visible = document.getElementById('visible');
-        var banner = document.getElementById('banner');
-        var value = banner.options[selected.selectedIndex].value;
+        function EditSwitch(){
+            var visible = document.getElementById('visible');
+            var banner = document.getElementById('banner');
+            var value = banner.options[selected.selectedIndex].value;
 
-        jQuery.ajax({
-            url:'{{ route('Admin.GetVisible') }}',
-            method:"POST",
-            dataType: "json",
-            data:{value:value, _token: "{{ csrf_token() }}"},
-            success:function(result) {
-                if(result === 0){
-                    alert('0');
-                    visible.setAttribute('checked','false');
-                    visible.style.position = "absolute";
-                }else{
-                    alert('1');
-                    visible.setAttribute('checked','true');
-                    visible.style.position = "relative";
+            jQuery.ajax({
+                url:'{{ route('Admin.GetVisible') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    if(result === 0){
+                        alert('0');
+                        visible.setAttribute('checked','false');
+                        visible.style.position = "absolute";
+                    }else{
+                        alert('1');
+                        visible.setAttribute('checked','true');
+                        visible.style.position = "relative";
+                    }
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                 }
-            },
-            error:function(xhr){
-                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-            }
-        });
-    }
-</script>
+            });
+        }
+    </script>
 @endif
 
 @if(strpos(route::currentRouteName(),'Admin.Product.Edit')!== false)
-<script>
-    function EditNewCollection(){
-        var selectCollection = document.getElementById('newcollection');
-        selectCollection.options.length = 0;
-        var option = document.createElement('option');
-        option.text = "Seleziona la collezione";
-        option.value = "";
-        selectCollection.add(option);
-        var data;
-        var selected = document.getElementById('newbrand');
-        var value = selected.options[selected.selectedIndex].value;
+    <script>
+        function EditNewCollection(){
+            var selectCollection = document.getElementById('newcollection');
+            selectCollection.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona la collezione";
+            option.value = "";
+            selectCollection.add(option);
+            var data;
+            var selected = document.getElementById('newbrand');
+            var value = selected.options[selected.selectedIndex].value;
 
-        jQuery.ajax({
-            url:'{{ route('Admin.GetCollection') }}',
-            method:"POST",
-            dataType: "json",
-            data:{value:value, _token: "{{ csrf_token() }}"},
-            success:function(result)
-            {
-                data=result;
-                data.forEach(AddOptionNewCollection);
-            },
-            error:function(xhr){
-                alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-            }
-        });
-    }
-    function AddOptionNewCollection(item, index) {
-        var selectCollection = document.getElementById('newcollection');
-        var option = document.createElement('option');
-        option.text= item.name;
-        option.value= item.id;
-        selectCollection.add(option);
-    }
-</script>
+            jQuery.ajax({
+                url:'{{ route('Admin.GetCollection') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result)
+                {
+                    data=result;
+                    data.forEach(AddOptionNewCollection);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+        function AddOptionNewCollection(item, index) {
+            var selectCollection = document.getElementById('newcollection');
+            var option = document.createElement('option');
+            option.text= item.name;
+            option.value= item.id;
+            selectCollection.add(option);
+        }
+    </script>
 @endif
 @if(strpos(route::currentRouteName(),'Admin.Collection.Restore')!== false)
     <script>
