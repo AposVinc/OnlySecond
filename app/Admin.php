@@ -19,6 +19,7 @@ class Admin extends Authenticatable
 
     protected $primaryKey = 'id';
     protected $guard = 'admin';
+    protected $guard_name = 'admin';
 
     protected $dates = ['deleted_at'];
     /**

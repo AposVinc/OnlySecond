@@ -20,10 +20,6 @@ errore se non ci sono brand nella sez edit collezioni
 required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 
 
-sistemare op admin (creaate ecc ecc)
-collegamento area privata a admin/index
-
-
 
 FE
 ---------

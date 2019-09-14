@@ -127,11 +127,6 @@ Route::get('Logout', 'Auth\LoginBEController@logoutBE')->name('Admin.Logout');
 
 
 Route::group(['middleware' => ['auth.admin']], function () {
-    Route::get('Admin/Prova', function () {
-        return view('backend.index');
-    });
-});
-
     Route::prefix('Admin')->group(function () {
         Route::name('Admin.')->group(function () {
 
@@ -389,6 +384,8 @@ Route::group(['middleware' => ['auth.admin']], function () {
 
         });
     });
+
+});
 
 
     Route::fallback(function () {
