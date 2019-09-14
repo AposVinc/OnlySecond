@@ -26,7 +26,7 @@ DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-        $user1 = new User(['name'=>'d', 'email'=>'d@d.it', 'password'=>'dddddddd']);
+        $user1 = new User(['name'=>'u', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
         $user1->save();
 
         $newsletter1 = new Newsletter(['email' => 'f14e48631f-f65fb0@inbox.mailtrap.io']);
@@ -44,8 +44,8 @@ DatabaseSeeder extends Seeder
         Permission::create(['guard_name' => 'admin','name'=>'gest_newsletter']);
         Permission::create(['guard_name' => 'admin','name'=>'gest_assistenza']);
 
-
         //$cliente = Role::create(['name' => 'cliente']);
+
         $admin = Role::create(['guard_name' => 'admin','name' => 'Admin'])->givePermissionTo(Permission::all());
         $manager = Role::create(['guard_name' => 'admin','name' => 'Manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
                                                                             'gest_banner','gest_imgprod',

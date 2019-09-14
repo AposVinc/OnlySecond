@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\PermissionMiddlewareExtend;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -65,8 +66,9 @@ class Kernel extends HttpKernel
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 
-        'auth.user' => \App\Http\Middleware\UserAuth::class,
-        'auth.admin' => \App\Http\Middleware\AdminAuth::class,
+        'admin' => \App\Http\Middleware\AdminAuth::class,
+        'permission.extend' => \App\Http\Middleware\PermissionMiddlewareExtend::class,
+
     ];
 
     /**

@@ -64,7 +64,7 @@ Route::post('/ContactUS/AddPost', 'ContactUSController@create')->name('ContactUS
 
 Route::post('/Newsletter/AddPost', 'NewsletterController@create')->name('Newsletter.AddPost');
 
-Route::group(['middleware' => ['auth.user'] ], function () {
+Route::group(['middleware' => ['auth'] ], function () {
     Route::get('/Profile', function () {
         return view('frontend.profile');
     })->name('Profile');
@@ -126,7 +126,8 @@ Route::post('Admin/LoginPost', 'Auth\LoginBEController@loginBE')->name('Admin.Lo
 Route::get('Logout', 'Auth\LoginBEController@logoutBE')->name('Admin.Logout');
 
 
-Route::group(['middleware' => ['auth.admin']], function () {
+Route::group(['middleware' => ['admin']], function () {
+
     Route::prefix('Admin')->group(function () {
         Route::name('Admin.')->group(function () {
 
@@ -163,7 +164,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
             Route::post('/RestoreGetImage', 'ImageController@getImageRestore')->name('RestoreGetImage');
 
 
-            Route::group(['middleware' => ['permission:gest_utenti']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_utenti']], function () {
                 #user
                 Route::prefix('/User')->group(function () {
                     Route::name('User.')->group(function () {
@@ -203,7 +204,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
             });
 
 
-            Route::group(['middleware' => ['permission:gest_prodotti']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_prodotti']], function () {
                 #brand
                 Route::prefix('/Brand')->group(function () {
                     Route::name('Brand.')->group(function () {
@@ -284,7 +285,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
                 });
             });
 
-            Route::group(['middleware' => ['permission:gest_fornitori']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_fornitori']], function () {
                 #supplier
                 Route::prefix('/Supplier')->group(function () {
                     Route::name('Supplier.')->group(function () {
@@ -305,7 +306,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
                 });
             });
 
-            Route::group(['middleware' => ['permission:gest_newsletter']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_newsletter']], function () {
                 #newsletter
                 Route::prefix('/Newsletter')->group(function () {
                     Route::name('Newsletter.')->group(function () {
@@ -316,7 +317,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
                 });
             });
 
-            Route::group(['middleware' => ['permission:gest_offerte']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_offerte']], function () {
                 #offer
                 Route::prefix('/Offer')->group(function () {
                     Route::name('Offer.')->group(function () {
@@ -338,7 +339,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
             });
 
 
-            Route::group(['middleware' => ['permission:gest_imgprod']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_imgprod']], function () {
                 #image
                 Route::prefix('/Image')->group(function () {
                     Route::name('Image.')->group(function () {
@@ -351,7 +352,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
                 });
             });
 
-            Route::group(['middleware' => ['permission:gest_banner']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_banner']], function () {
                 #banner
                 Route::prefix('/Banner')->group(function () {
                     Route::name('Banner.')->group(function () {
@@ -370,7 +371,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
                 });
             });
 
-            Route::group(['middleware' => ['permission:gest_assistenza']], function () {
+            Route::group(['middleware' => ['permission.extend:gest_assistenza']], function () {
                 #contact us
                 Route::prefix('/ContactUS')->group(function () {
                     Route::name('ContactUS.')->group(function () {
@@ -381,16 +382,15 @@ Route::group(['middleware' => ['auth.admin']], function () {
                 });
             });
 
-
         });
-    });
 
+    });
 });
 
 
-    Route::fallback(function () {
-        return view('frontend.404');
-    });
+Route::fallback(function () {
+    return view('frontend.404');
+});
 
 
 
