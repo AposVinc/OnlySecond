@@ -76,15 +76,16 @@
                                     <li><a href="#">$ US Dollar</a></li>
                                 </ul>
                             </li>
-
-                            @auth
-                                <li class="account"> <a href="{{route('Admin.Index')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
+                            <!--
+                            <li class="account"> <a href="{{route('Admin.Index')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
+                            -->
+                            <li class="account"> <a href="{{route('Admin.LoginForm')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
+                        @auth
                                 <!-- Sostituire con pagina profilo -->
                                 <li class="account"><a href="{{route('Profile')}}"> Il Mio Profilo  </a><i class="fa fa-user"></i></li>
-                                <li class="account"><a href="{{route('user.logout')}}"> Logout  </a><i class="fa fa-sign-out"></i></li>
+                                <li class="account"><a href="{{route('User.Logout')}}"> Logout  </a><i class="fa fa-sign-out"></i></li>
                             @else
-                                <li class="account"> <a href="{{route('Admin.LoginForm')}}"> Area Privata  <i class="fa fa-lock"></i></a> </li>
-                                <li class="account"> <a href="{{route('user.login')}}"> Login  </a><i class="fa fa-sign-in"></i> </li>
+                                <li class="account"> <a href="{{route('User.Login')}}"> Login  </a><i class="fa fa-sign-in"></i> </li>
                             @endauth
                         </ul>
                     </div>

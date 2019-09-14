@@ -10,7 +10,7 @@
                         <h3 class="card-header text-center text-uppercase">{{ __('Login') }}</h3>
 
                         <div class="card-body mt_20 col-lg-offset-3">
-                                <form method="POST" action="{{ route('user.loginpost') }}">
+                                <form method="POST" action="{{ route('User.LoginPost') }}">
                                     @csrf
 
                                     <div class="form-group row">
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="col-md-4 col-md-offset-1">
                                             @if (Route::has('password.request'))
-                                                <h6><i><u><a href="{{ route('password.request') }}">{{ __('Password Dimenticata?') }}</a></u></i></h6>
+                                                <h6><i><u><a href="{{ route('Password.Request') }}">{{ __('Password Dimenticata?') }}</a></u></i></h6>
                                             @endif
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-secondary">
-                                        <a href="{{ route('user.register') }}"> {{ __('Registrati') }} </a>
+                                        <a href="{{ route('User.Register') }}"> {{ __('Registrati') }} </a>
                                     </button>
 
                                 </div>
