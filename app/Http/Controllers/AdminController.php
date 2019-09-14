@@ -47,6 +47,7 @@ class AdminController extends Controller
         }
     }
 
+
     public function create(Request $request)  //
     {
         if (Admin::where('name', $request->name)->first()) {

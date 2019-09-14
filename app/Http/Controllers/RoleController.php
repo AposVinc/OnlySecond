@@ -126,7 +126,6 @@ class RoleController extends Controller
 
     }
 
-
     public function destroy(Request $request)
     {
         Role::findById($request['role'])->delete();

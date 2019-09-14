@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
-
     public function showListForm()
     {
         $suppliers = Supplier::withTrashed()->get();
