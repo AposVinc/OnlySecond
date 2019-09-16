@@ -11,8 +11,7 @@ class ShopComposer
 {
     public  function compose(View $view){
         $products = Product::withoutTrashed()->with('collection')->with('images')->get();
-        $brands = Brand::withoutTrashed()->orderBy('name')->get();
 
-        $view->with('products', $products)->with('brands',$brands);
+        $view->with('products', $products);
     }
 }

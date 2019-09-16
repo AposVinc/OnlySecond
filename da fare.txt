@@ -30,10 +30,12 @@ required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 FE
 ---------
 ?cerca
+Pagina Dettaglio prodotto
 Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
 shop - se si mette where('main',0) da errore sul path
+shop - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
--- VI --slider home
+slider orizontali home
 colore fercce degli slider (prod e brand)
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)

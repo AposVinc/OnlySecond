@@ -382,12 +382,12 @@ Route::group(['middleware' => ['admin']], function () {
                 });
             });
 
-            
+
             Route::fallback(function () {
                 return view('backend.404');
             });
-        });
 
+        });
     });
 });
 
