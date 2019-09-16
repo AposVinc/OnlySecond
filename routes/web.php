@@ -382,6 +382,10 @@ Route::group(['middleware' => ['admin']], function () {
                 });
             });
 
+            
+            Route::fallback(function () {
+                return view('backend.404');
+            });
         });
 
     });
@@ -391,6 +395,7 @@ Route::group(['middleware' => ['admin']], function () {
 Route::fallback(function () {
     return view('frontend.404');
 });
+
 
 
 

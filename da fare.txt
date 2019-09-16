@@ -1,6 +1,10 @@
-Finire SEEDER - sistemare categorie per ogni prod
+SEEDER
+---------
+aggiungere descrizioni prod
+sistemare categorie per ogni prod
+almeno 5 offerte (slider offerte della settimana home)
+qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per slider (bestseller)
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini (Inserire png Brand ecc...)
-seeder aggiungere descrizioni prod
 
 
 BE
@@ -13,6 +17,8 @@ BE
 ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
 sez prod BE - descrizioni dei prodotti
 Elimina img prodotto
+x sara - saveimage in productController forse è da inserire in img controller e fare un unico metodo?
+            in saveimage in productController è estromesso il colore. è una dimenticanza o è fatto apposta? chiedo cosi da adattare i file/seeder
 
 EditDate() (js)
 ?EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
@@ -28,7 +34,7 @@ Operazione su User - modifica info utente su DB, Elimina utente se si vuole elim
 shop - se si mette where('main',0) da errore sul path
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -- VI --slider home
--- VI --- Middlewere per pagine che non sono raggiungibili se non si è loggati (il mio profilo non appare se non sono loggato ma se lo scrivo in URL si)
+colore fercce degli slider (prod e brand)
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
@@ -61,6 +67,7 @@ Chi siamo no statistiche
 contattaci indirizzo
 Grafica Login/Registraz/pass dimenticata
 img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
+Middlewere per pagine reindirizzamento se non si è loggati
 
 
 
