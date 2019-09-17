@@ -99,7 +99,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="other-photo" class=" form-control-label">Foto Aggiuntive (opzionali)</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="other-photo" name="other-photo" multiple="" class="form-control-file"></div>
+                    <div class="col-12 col-md-9"><input type="file" id="other-photo" name="other-photo[]" multiple class="form-control-file"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="color" class=" form-control-label">Colore</label></div>

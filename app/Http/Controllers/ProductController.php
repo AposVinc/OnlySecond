@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
 use App\Brand;
 use App\Category;
 use App\CategoryProduct;
@@ -131,7 +132,58 @@ class ProductController extends Controller
             }
         }
 
+        //Save other image
+        if ($request->hasFile('other-photo')) { //  se il file è presente nella request
+            $images = $request->file('other-photo');
+            foreach ($images as $image) {
+                $this->saveOtherImage($image, $request, $idProduct);
+            }
+        }else{
+            return redirect()->to('Admin/Product/List'); // Aggiungere errore
+        }
+
+        //Save specification
+
         return redirect()->to('Admin/Product/List');
+    }
+
+    function saveOtherImage($image,$request,$idProduct){
+        if ($image->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+            $path='public/Orologi';
+            if(!(Storage::exists($path))){
+                Storage::makeDirectory($path);
+            }
+            $nameBrand=Brand::where('id', $request->get('brand'))->first()->name;
+            $path.= '/'. $nameBrand;
+            if(!(Storage::exists($path))){
+                Storage::makeDirectory($path);
+            }
+            $idCollection=$request->get('collection');
+            $nameCollection=\App\Collection::where('id', $idCollection)->first()->name;
+            $path.= '/'. $nameCollection;
+            if(!(Storage::exists($path))){
+                Storage::makeDirectory($path);
+            }
+            $cod = $request->get('cod');
+            $color_id = $request->get('color');
+            $color = Color::where('id',$color_id)->first()->name;
+            $counter = Image::where('product_id',$idProduct)->max('counter');
+            $counter +=1;
+            $filename= $nameBrand. '_'. $nameCollection. '_'. $cod. '_'. $color. '_'. $counter. '.jpg';
+            $path_image = 'storage/Orologi/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
+            $path = $image->storeAs($path, $filename);
+            if($path!=""){
+                $image = new Image();
+                $image->path_image = $path_image;
+                $image->product_id = $idProduct;
+                $image->main = 0;
+                $image->counter = $counter;
+                $image->save();
+                echo "successo";
+            }
+        }else{
+            echo "Error";
+        }
     }
 
     function saveMainImage($request,$idProduct)
@@ -154,23 +206,25 @@ class ProductController extends Controller
                     Storage::makeDirectory($path);
                 }
                 $cod = $request->get('cod');
-                $filename= $nameBrand. '_'. $nameCollection. '_'. $cod. 'jpg';
+                $color_id = $request->get('color');
+                $color = Color::where('id',$color_id)->first()->name;
+                $filename= $nameBrand. '_'. $nameCollection. '_'. $cod. '_'. $color. '.jpg';
                 $path_image = 'storage/Orologi/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
                 $path = $request->file('main-photo')->storeAs($path, $filename);
                 if($path!=""){
                     $image = new Image();
                     $image->path_image = $path_image;
-                    $image->product_id = $idProduct;
                     $image->main = 1;
                     $image->counter = 0;
+                    $image->product_id = $idProduct;
                     $image->save();
-                    return "successo";
+                    echo "successo";
                 }
             }else{
-                return "error";
+                echo "Error";
             }
         }else{
-            return "error";
+            echo "Error";
         }
     }
 
