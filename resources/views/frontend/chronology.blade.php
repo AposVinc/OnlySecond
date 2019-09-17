@@ -29,20 +29,33 @@
                             </thead>
 
                             <tbody>
+                            @foreach(auth() -> User() -> orderHistories as $product )
                             <tr>
-                                <td class="text-left">123456
+                                <td>
+                                    @foreach($product->name as $name)
+                                        {{$name->name}}
+                                    @endforeach
+                                </td>
+                                    <!--più prodotti, manca il numero ordine
                                     <li><a href="product.html">Breil </a> cat, coll, 250€</li>
                                     <li><a href="product.html">Tissot </a> cat, coll, 250€</li>
+                                -->
                                 </td>
-                                <td class="text-left">12/34/56</td>
-                                <td class="text-left"> 3 </td>
-                                <td class="text-right">230.00€</td>
+                                <td>{{$product->orderHistories->date}}</td>
+                                <td> {{$product->orderHistories->quantity}}</td>
+
+                                <td class="text-right">
+                                    @foreach($product->price as $totalprice)
+                                        {{$totalprice->totalprice}}
+                                    @endforeach
+                                </td>
                                 <td class="text-right">
                                     <div style="max-width: 200px;">
                                         <button class="btn">Dettaglio Ordine</button>
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                             </tbody>
 
                             <tbody>

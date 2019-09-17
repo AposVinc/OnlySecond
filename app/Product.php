@@ -68,10 +68,5 @@ class Product extends Model
         return $this->belongsTo('App\Color');
     }
 
-    public function orderhistories(){
-//ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,
-// prendere in considerazione la possibilità di convertire il modello pivot in un modello Eloquent effettivo.
-        return $this->belongsToMany('App\Orderhistory')->using('App\OrderhistoryProduct')->withPivot('quantity');
-    }
 
 }
