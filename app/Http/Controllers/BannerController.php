@@ -107,8 +107,6 @@ class BannerController extends Controller
 
     public function update(Request $request)
     {
-        echo $request->visible;
-        /*
         $id=$request->get('banner');
         $banner = Banner::where('id', $id)->first();
         if($request->get('visible')){
@@ -118,9 +116,9 @@ class BannerController extends Controller
         }
         if ($banner->update()){
             return redirect()->to('Admin/Banner/List')->with('success','Modifiche avvenute con successo!!');
-        }else{
-            return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
-        }*/
+        }else {
+            return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+        }
     }
 
     public function destroy(Request $request)

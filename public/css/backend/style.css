@@ -349,7 +349,7 @@
       left: 18px; }
 
 .switch.switch-3d {
-  position: absolute; /*relative*/
+  position: relative;
   display: inline-block;
   vertical-align: top;
   width: 40px;
