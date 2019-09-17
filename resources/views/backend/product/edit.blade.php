@@ -17,14 +17,13 @@
 
     <form action="{{route('Admin.Product.EditPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         @csrf
-        <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+
+        <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
                         <select name="brand" id="brand" class="form-control" onchange="EditCollection()" data-dependent="collection" required>  <!-- onchange="activeModel();" -->
-                            <!-- activemodel serve per attivare il modello dopo aver scelto un brand -->
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
@@ -138,8 +137,15 @@
                     <div class="col-12 col-md-9"><input type="file" id="other-photo" name="other-photo" multiple="" class="form-control-file"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="color-input" class=" form-control-label">Colore</label></div>
-                    <div class="col-12 col-md-9"><input type="color" id="color-input" name="color-input" required><!--0class="form-control"--><small class="form-text text-muted">Scegliere il colore dell'orologio</small></div>
+                    <div class="col col-md-3"><label for="color" class=" form-control-label">Colore</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="color" id="color" class="form-control" required>
+                            <option value="">Seleziona il colore</option>
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 &emsp;

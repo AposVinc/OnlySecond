@@ -37,7 +37,8 @@ class ProductController extends Controller
         $brands = Brand::all();
         $categories = Category::all();
         $suppliers = Supplier::all();
-        return view('backend.product.edit',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers]);
+        $colors = Color::all();
+        return view('backend.product.edit',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
     }
 
     public function showDeleteForm()
