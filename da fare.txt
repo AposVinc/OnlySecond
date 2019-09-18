@@ -30,7 +30,7 @@ required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 FE
 ---------
 ?cerca
-Pagina Dettaglio prodotto
+Pagina Dettaglio prodotto - grafica
 Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
 shop - se si mette where('main',0) da errore sul path
 shop - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo

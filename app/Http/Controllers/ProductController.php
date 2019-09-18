@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    /*-------------------   BACKEND   -------------------*/
+
     public function showListForm()
     {
         $products = Product::withTrashed()->get();
@@ -59,12 +61,6 @@ class ProductController extends Controller
         } else {
             return redirect()->to('Admin/Product/List')->with('error','Non ci sono elementi da ripristinare!!!!');
         }
-    }
-
-    public function show($cod)
-    {
-        $product = Product::where('cod', $cod)->firstOrFail();
-        return view('product')->with(['product' => $product]);
     }
 
 
@@ -273,4 +269,19 @@ class ProductController extends Controller
 
         return redirect()->to('Admin/Product/List');
     }
+
+
+    /*-------------------   FRONTEND   -------------------*/
+
+    public function showProduct($cod)
+    {
+        if ($product = Product::where('cod', $cod)->first()) {
+            return view('frontend.product')->with('product', $product);
+        } else {
+            return view('frontend.404');
+        }
+    }
+
 }
+
+
