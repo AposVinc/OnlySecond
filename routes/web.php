@@ -23,9 +23,7 @@ Route::get('/Shop', function () {
     return view('frontend.shop');
 })->name('Shop');
 
-Route::get('/ContactUS', function(){
-    return view('frontend.contact');
-})->name('ContactUS');
+Route::get('/Product/{cod}', 'ProductController@showProduct')->name('Product');
 
 Route::get('/About', function(){
     return view('frontend.about');
@@ -39,18 +37,6 @@ Route::get('/Discount', function(){
     return view('frontend.discount');
 })->name('Discount');
 
-Route::get('/Chronology', function () {
-    return view('frontend.chronology');
-})->name('Chronology');
-
-Route::get('/EditProfile', function () {
-    return view('frontend.editprofile');
-})->name('EditProfile');
-
-Route::get('/Address', function () {
-    return view('frontend.address');
-})->name('Address');
-
 Route::get('/Password_Resets', function () {
     return view('frontend.password_resets');
 })->name('Password_Resets');
@@ -59,6 +45,9 @@ Route::get('WorkInProgress', function () {
     return view('frontend.workinprogress');
 })->name('WorkInProgress');
 
+Route::get('/ContactUS', function(){
+    return view('frontend.contact');
+})->name('ContactUS');
 
 Route::post('/ContactUS/AddPost', 'ContactUSController@create')->name('ContactUS.AddPost');
 
@@ -68,6 +57,18 @@ Route::group(['middleware' => ['auth'] ], function () {
     Route::get('/Profile', function () {
         return view('frontend.profile');
     })->name('Profile');
+
+    Route::get('/Chronology', function () {
+        return view('frontend.chronology');
+    })->name('Chronology');
+
+    Route::get('/EditProfile', function () {
+        return view('frontend.editprofile');
+    })->name('EditProfile');
+
+    Route::get('/Address', function () {
+        return view('frontend.address');
+    })->name('Address');
 
     Route::get('/Checkout', function(){
         return view('frontend.checkout');
@@ -385,7 +386,7 @@ Route::group(['middleware' => ['admin']], function () {
 
             Route::fallback(function () {
                 return view('backend.404');
-            });
+            })->name('404');
 
         });
     });
@@ -394,7 +395,7 @@ Route::group(['middleware' => ['admin']], function () {
 
 Route::fallback(function () {
     return view('frontend.404');
-});
+})->name('404');
 
 
 
