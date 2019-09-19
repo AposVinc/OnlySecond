@@ -41,12 +41,7 @@ class RoleController extends Controller
             return redirect()->to('Admin/Role/List')->with('error', 'Esiste già un Ruolo con il nome inserito!!');
         }
         $input = $request->except('_token','name');
-        $role = new Role();
-        $role->name = $request['name'];
-        foreach ($input as $i){
-            $role->givePermissionTo($i);
-        }
-        if($role->save()){
+        if($role = Role::create(['guard_name' => 'admin','name'=>$request->name])->givePermissionTo($input)){
             return redirect()->route('Admin.Role.List')->with('success', 'Caricamento avvenuto con successo!!');
         }else{
             return redirect()->route('Admin.Role.List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
@@ -61,9 +56,9 @@ class RoleController extends Controller
      */
     public function update(Request $request)
     {
-        $role = Role::findById($request['role']);
+        $role = Role::findById($request->role ,'admin');
 
-        if (Role::findById($request->role)->name == $request->name) {
+        if (Role::findById($request->role,'admin')->name == $request->name) {
             $this->changePermission($request);
             return redirect()->to('Admin/Role/List')->with('success', 'Modifiche avvenute con successo!!');
         } else {
@@ -81,7 +76,7 @@ class RoleController extends Controller
 
     public function changePermission(Request $request)
     {
-        $role = Role::findById($request->role);
+        $role = Role::findById($request->role ,'admin');
 
         if($request->has('gest_utenti')){
             $role->givePermissionTo('gest_utenti');
@@ -123,13 +118,15 @@ class RoleController extends Controller
         }else{
             $role->revokePermissionTo('gest_assistenza');
         };
-
     }
 
     public function destroy(Request $request)
     {
-        Role::findById($request['role'])->delete();
-
-        return redirect()->route('Admin.Role.List');
+        $role = Role::findById(strval( $request->role ),'admin');
+        if ($role->delete()) {
+            return redirect()->to('Admin/Role/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+        }
     }
 }
