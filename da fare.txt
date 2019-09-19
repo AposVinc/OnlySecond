@@ -36,7 +36,6 @@ shop - se si mette where('main',0) da errore sul path
 shop - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 checkout - se va a buon fine, incrementare quantity_sold dei prodotti
-slider orizontali home
 colore fercce degli slider (prod e brand)
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
@@ -59,18 +58,24 @@ Contattaci - Gestione Error/Succes Form
 
 
 
-ok
+ok BE
 ----------
 Calendario in Offer
 Brand Logo
 errore data offerte
+Middlewere per pagine reindirizzamento se non si è loggati
+
+
+ok FE
+----------
+slider orizontali home
 coupon in carrello si tolgono
 in carrello eliminata colonna sx e inserita new products
 Chi siamo no statistiche
 contattaci indirizzo
 Grafica Login/Registraz/pass dimenticata
 img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
-Middlewere per pagine reindirizzamento se non si è loggati
+
 
 
 
