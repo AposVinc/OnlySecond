@@ -9,12 +9,17 @@ class Address extends Model
     protected $primaryKey = 'id';
 
     protected $fillable =[
-        'via','numerocivico','citta','provincia','cap',
+        'address','civic_number','city','region','zip',
     ];
 
-    public function orderhistory()
+    public function user()
     {
-        return $this->belongsTo('App\Orderhistory');
+        return $this->belongsTo('App\User');
+    }
+
+    public function orderHistories()
+    {
+        return $this->hasMany('App\OrderHistory');
     }
 
 }

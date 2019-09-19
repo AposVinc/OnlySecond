@@ -23,8 +23,8 @@ class Courier extends Model
         'name',
     ];
 
-    public function orderhistory()
+    public function orderHistories()
     {
-        return $this->belongsTo('App\Orderhistory');
+        return $this->hasMany('App\OrderHistory');
     }
 }

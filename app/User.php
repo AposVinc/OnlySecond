@@ -50,6 +50,16 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    public function addresses()
+    {
+        return $this->hasMany('App\Address');
+    }
+
+    public function billingaddresses()
+    {
+        return $this->hasMany('App\BillingAddress');
+    }
+
     public function reviews()
     {
         return $this->hasMany('App\Review');
@@ -60,10 +70,9 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Product', 'wishlists');
     }
 
-    public function orderHistories(){
-//ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,
-// prendere in considerazione la possibilità di convertire il modello pivot in un modello Eloquent effettivo.
-        return $this->belongsToMany('App\Orderhistory')->using('App\OrderhistoryProduct')->withPivot('quantity');
+    public function orderHistories()
+    {
+        return $this->hasMany('App\OrderHistory');
     }
 
 }

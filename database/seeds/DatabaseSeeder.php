@@ -1,10 +1,15 @@
 <?php
 
+use App\Address;
 use App\Admin;
+use App\Billingaddress;
 use App\Category;
 use App\Color;
+use App\Courier;
 use App\Image;
 use App\Offer;
+use App\OrderHistory;
+use App\Payment;
 use App\Supplier;
 use App\User;
 use App\Brand;
@@ -26,18 +31,9 @@ DatabaseSeeder extends Seeder
     public function run()
     {   // $this->call(UsersTableSeeder::class);
 
-        /*---   CLIENTI REGISTRATI   -----------------------------------------------------*/
-
-        $user1 = new User(['name'=>'u', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
-        $user1->save();
-
-        /*---   NEWSLETTERS   -----------------------------------------------------*/
-
-        $newsletter1 = new Newsletter(['email' => 'f14e48631f-f65fb0@inbox.mailtrap.io']);
-        $newsletter1->save();
-
-        $newsletter2 = new Newsletter(['email' => 'mail1@mail1.it']);
-        $newsletter2->save();
+        ////////////////////////////////////////////////////////////////////
+        /*---   BE   -----------------------------------------------------*/
+        ////////////////////////////////////////////////////////////////////
 
         /*---   PERMESSI PER RUOLO   -----------------------------------------------------*/
 
@@ -70,8 +66,6 @@ DatabaseSeeder extends Seeder
 
         $admin3 = new Admin(['name'=>'c', 'email'=>'c@c.it', 'password'=>'cccccccc']);
         $admin3->assignRole($assistenza)->save();
-
-
 
         /*---   CATEGORIE   -----------------------------------------------------*/
 
@@ -395,6 +389,7 @@ DatabaseSeeder extends Seeder
 
 
         /*---   OFFERTE   -----------------------------------------------------*/
+
         $offer1 = new Offer(['rate'=>'10','end'=>date('Y-m-d', strtotime('tomorrow')). ' 23:59:59']);
         $CarlieP1->offer()->save($offer1);
         $offer1->save();
@@ -415,29 +410,114 @@ DatabaseSeeder extends Seeder
         $Moon_P1->offer()->save($offer5);
         $offer5->save();
 
-        /*
-                $brand2 = new Brand(['name' => 'Brand2']);
-                $brand2->save();
-                $collection1b2 = new Collection(['name' => 'Col1B2']);
-                $brand2->collections()->save($collection1b2);
+        ////////////////////////////////////////////////////////////////////
+        /*---   FE   -----------------------------------------------------*/
+        ////////////////////////////////////////////////////////////////////
 
-                $collection2b2 = new Collection(['name' => 'Col2B2']);
-                $brand2->collections()->save($collection2b2);
+        /*---   CLIENTI REGISTRATI   -----------------------------------------------------*/
 
-                $product1c1b2 = new Product(['cod' => '1234589','name' => 'p1c1b2','price' => '','stock_availability' => '',
-                                                'genere' => '','long_desc' => '','color' => '']);
-                $product1c1b2->collection($collection1b1);
-                $product1c1b2->categories();
-                $product1c1b2->supplier();
-                $collection1b2->products()->save($product1c1b2);
+        $user1 = new User(['name'=>'u', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
+        $user1->save();
 
-                $product2c1b2 = new Product(['cod' => '1234580','name' => 'p2c1b2','collection_id' => '','price' => '',
-                    'stock_availability' => '','genere' => '','long_desc' => '','category_id' => '','supplier_id' => '','color' => '']);
-                $collection1b2->products()->save($product2c1b2);
+        $user2 = new User(['name'=>'z', 'email'=>'z@z.it', 'password'=>'zzzzzzzz']);
+        $user2->save();
 
-                $product1c2b2 = new Product(['cod' => '1234581','name' => 'p1c2b2','collection_id' => '','price' => '',
-                    'stock_availability' => '','genere' => '','long_desc' => '','category_id' => '','supplier_id' => '','color' => '']);
-                $collection2b2->products()->save($product1c2b2);
-        */
+        /*---   INDIRIZZI   -----------------------------------------------------*/
+
+        $address1 = new Address(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147']);
+        $user1->addresses()->save($address1);
+        $address1->save();
+
+        $address2 = new Address(['address'=>'Via Isonzo', 'civic_number'=>'35', 'city'=>'Pescara', 'region'=>'PE', 'zip'=>'65123']);
+        $user1->addresses()->save($address2);
+        $address2->save();
+
+        $address3 = new Address(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124']);
+        $user2->addresses()->save($address3);
+        $address3->save();
+
+        /*---   INDIRIZZI DI FATTURAZIONE   -----------------------------------------------------*/
+
+        $billingaddress1 = new BillingAddress(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147']);
+        $user1->billingaddresses()->save($billingaddress1);
+        $billingaddress1->save();
+
+        $billingaddress2 = new BillingAddress(['address'=>'Via Isonzo', 'civic_number'=>'35', 'city'=>'Pescara', 'region'=>'PE', 'zip'=>'65123']);
+        $user1->billingaddresses()->save($billingaddress2);
+        $billingaddress2->save();
+
+        $billingaddress3 = new BillingAddress(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124']);
+        $user2->billingaddresses()->save($billingaddress3);
+        $billingaddress3->save();
+
+        /*---   PAGAMENTI   -----------------------------------------------------*/
+
+        $payment1 = new Payment(['name'=>'Carta di Credito']);      $payment1->save();
+        $payment2 = new Payment(['name'=>'Bonifico']);              $payment2->save();
+
+        /*---   CORRIERI   -----------------------------------------------------*/
+
+        $courier1 = new Courier(['name'=>'Bartolini', 'contact'=>'0277889966']);        $courier1->save();
+        $courier2 = new Courier(['name'=>'SDA', 'contact'=>'0277885646']);              $courier2->save();
+        $courier3 = new Courier(['name'=>'Poste Italiae', 'contact'=>'0233385622']);    $courier3->save();
+
+        /*---   STORICO ORDINI   -----------------------------------------------------*/
+
+        $order1 = new OrderHistory(['gift'=>'0', 'totalprice'=>'44']);
+        $order1->user_id = $user1->id;
+        $order1->payment_id = $payment1->id;
+        $order1->courier_id = $courier1->id;
+        $order1->address_id = $address1->id;
+        $order1->billing_address_id = $billingaddress1->id;
+        $order1->save();
+
+        $order2 = new OrderHistory(['gift'=>'0', 'totalprice'=>'80']);
+        $order2->user_id = $user1->id;
+        $order2->payment_id = $payment2->id;
+        $order2->courier_id = $courier1->id;
+        $order2->address_id = $address2->id;
+        $order2->billing_address_id = $billingaddress2->id;
+        $order2->save();
+
+        $order3 = new OrderHistory(['gift'=>'0', 'totalprice'=>'74']);
+        $order3->user_id = $user2->id;
+        $order3->payment_id = $payment1->id;
+        $order3->courier_id = $courier2->id;
+        $order3->address_id = $address3->id;
+        $order3->billing_address_id = $billingaddress3->id;
+        $order3->save();
+
+        $order4 = new OrderHistory(['gift'=>'0', 'totalprice'=>'84']);
+        $order4->user_id = $user2->id;
+        $order4->payment_id = $payment2->id;
+        $order4->courier_id = $courier3->id;
+        $order4->address_id = $address3->id;
+        $order4->billing_address_id = $billingaddress3->id;
+        $order4->save();
+
+        /*---   PRODOTTI PER OGNI STORICO   -----------------------------------------------------*/
+
+        $Moon_P1->orderHistories()->save($order1,['quantity' => 2]);
+        $CarlieP1->orderHistories()->save($order1,['quantity' => 4]);
+
+        $Lacoste_12_12_P1->orderHistories()->save($order2,['quantity' => 1]);
+        $CarlieP1->orderHistories()->save($order2,['quantity' => 3]);
+        $CarlieP3->orderHistories()->save($order2,['quantity' => 1]);
+
+        $Double_Down_P44P1->orderHistories()->save($order3,['quantity' => 2]);
+        $Q_ExploristP1->orderHistories()->save($order3,['quantity' => 1]);
+
+        $Moon_P2->orderHistories()->save($order4,['quantity' => 3]);
+        $CarlieP2->orderHistories()->save($order4,['quantity' => 1]);
+        $CarlieP1->orderHistories()->save($order4,['quantity' => 2]);
+        $SportP1->orderHistories()->save($order4,['quantity' => 1]);
+
+        /*---   NEWSLETTERS   -----------------------------------------------------*/
+
+        $newsletter1 = new Newsletter(['email' => 'f14e48631f-f65fb0@inbox.mailtrap.io']);
+        $newsletter1->save();
+
+        $newsletter2 = new Newsletter(['email' => 'mail1@mail1.it']);
+        $newsletter2->save();
     }
 }

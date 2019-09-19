@@ -4,13 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class BillingAddress extends Model
 {
+
     protected $primaryKey = 'id';
 
     protected $fillable =[
-        'name',
+        'address','civic_number','city','region','zip',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public function orderHistories()
     {

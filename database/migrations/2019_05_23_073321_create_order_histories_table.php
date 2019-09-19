@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderhistoriesTable extends Migration
+class CreateOrderHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,23 @@ class CreateOrderhistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderhistories', function (Blueprint $table) {
+        Schema::create('order_histories', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->date('date');
-            $table->boolean('gift');
-            $table->float('totalprice');
+            //$table->date('date');     //create_at
+            $table->boolean('gift');      //non serve?
+            $table->decimal('totalprice', 6, 2);    //si po calcolare (come fatto in Offer)
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('payment_id');
             $table->unsignedBigInteger('courier_id');
             $table->unsignedBigInteger('address_id');
-            $table->unsignedBigInteger('billingaddress_id');
+            $table->unsignedBigInteger('billing_address_id');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('courier_id')->references('id')->on('couriers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('billingaddress_id')->references('id')->on('billingaddresses')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('billing_address_id')->references('id')->on('billing_addresses')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -40,6 +40,6 @@ class CreateOrderhistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderhistories');
+        Schema::dropIfExists('order_histories');
     }
 }

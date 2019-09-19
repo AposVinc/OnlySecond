@@ -12,7 +12,7 @@
                     <div class="product-grid">
                         <div class="item">
                             <div class="product-thumb">
-                                <div class="image product-imageblock"> <a href="product_detail_page.html"> <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> </a>
+                                <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $offer->product->cod])}}"> <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> </a>
                                     <div class="button-group text-center">
                                         <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
                                         <div class="quickview"><a href="#"><span>Quick View</span></a></div>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class OrderhistoryProduct extends Pivot
+class OrderHistoryProduct extends Pivot
 {
     protected $primaryKey = 'id';
 
