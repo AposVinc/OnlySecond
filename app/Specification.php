@@ -28,4 +28,14 @@ class Specification extends Model
     {
         return $this->belongsTo('App\Product');
     }
+
+    public function dialColor()
+    {
+        return $this->belongsTo('App\Color','dial_color');
+    }
+
+    public function strapColor()
+    {
+        return $this->belongsTo('App\Color','strap_color');
+    }
 }

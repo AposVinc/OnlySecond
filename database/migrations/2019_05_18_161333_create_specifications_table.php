@@ -20,12 +20,11 @@ class CreateSpecificationsTable extends Migration
             $table->string('material');
             $table->string('case_thickness');//spessore cassa
             $table->string('glass');//Vetro minerale
-            $table->string('dial_color');//colore quadrante
+            $table->unsignedBigInteger('dial_color');//colore quadrante
             $table->string('strap_material');//materiale cinturino
-            $table->string('strap_color');
+            $table->unsignedBigInteger('strap_color');
             $table->string('closing');
             $table->string('movement');
-            $table->boolean('water_resistant');
             $table->string('warranty');//garanzia
             $table->boolean('battery_replacement');
             $table->timestamps();
@@ -33,6 +32,8 @@ class CreateSpecificationsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('dial_color')->references('id')->on('colors')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('strap_color')->references('id')->on('colors')->onDelete('cascade')->onUpdate('cascade');
         });
             //https://www.bluespirit.com/orologio-maserati-traguardo-r8871612003-P21308.html
     }
