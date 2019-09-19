@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->longtext('long_desc')->nullable(); //forse non serve se c'è la tab specification?
             $table->unsignedBigInteger('supplier_id');
             $table->string('color_id');    //da mettere nelle specifiche o si lascia?
+            $table->integer('quantity_sold')->default(0); //quantità venduta
             $table->timestamps();
 
             $table->softDeletes();

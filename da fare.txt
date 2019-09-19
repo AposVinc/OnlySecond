@@ -35,6 +35,7 @@ Operazione su User - modifica info utente su DB, Elimina utente se si vuole elim
 shop - se si mette where('main',0) da errore sul path
 shop - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+checkout - se va a buon fine, incrementare quantity_sold dei prodotti
 slider orizontali home
 colore fercce degli slider (prod e brand)
 login checkout

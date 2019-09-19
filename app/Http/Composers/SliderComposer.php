@@ -5,16 +5,19 @@ namespace App\Http\Composers;
 
 use App\Brand;
 use App\Offer;
+use App\OrderHistory;
 use App\Product;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 
 class SliderComposer
 {
     public  function composeProducts(View $view){
-        $products = Product::withoutTrashed()->with('collection')->with('images')->get();
-        $brands = Brand::withoutTrashed()->orderBy('name')->get();
+        $newarrivals = Product::all()->sortByDesc('updated_at')->take(8);
 
-        $view->with('products', $products)->with('brands',$brands);
+        $bestsellers = Product::all()->sortByDesc('quantity_sold')->take(8);
+
+        $view->with('newarrivals', $newarrivals)->with('bestsellers',$bestsellers);
     }
 
     public  function composeOffers(View $view){
