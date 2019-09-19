@@ -198,7 +198,6 @@
                         <li><a href="#">Condizioni di vendita</a></li>
                         <li><a href="#">Informativa Privacy</a></li>
                         <li><a href="#">Termini e Condizioni</a></li>
-                        <li><a href="{{route('ContactUS')}}">Contatti</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">
@@ -207,7 +206,7 @@
                         <li><a href="#">WishList</a></li>
                         <li><a href="#">Il Mio Profilo</a></li>
                         <li><a href="#">Cronologia Ordini</a></li>
-                        <li><a href="#">---</a></li>
+                        <li><a href="{{route('Review')}}">Recensioni</a></li>
                         <li><a href="#">---</a></li>
                     </ul>
                 </div>
@@ -215,8 +214,8 @@
                     <h6 class="footer-title ptb_20">Extra</h6>
                     <ul>
                         <li><a href="#">Brands</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                        <li><a href="#">Blognews</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">In Sconto</a></li>
                         <li><a href="#">----</a></li>
                         <li><a href="#">----</a></li>
                     </ul>
@@ -225,9 +224,7 @@
                     <h6 class="footer-title ptb_20">Contattaci</h6>
                     <ul>
                         <li>Shop Online</li>
-                        <li>12345 Street Only, Italia IT</li>
-                        <li>(+024) 666 888</li>
-                        <li>only.second@shop.it</li>
+                        <li>Via Vetoio, 67100 L'Aquila AQ </li>
                         <li><a href="http://www.lionode.com/">www.onlysecondshop.it</a></li>
                     </ul>
                 </div>
