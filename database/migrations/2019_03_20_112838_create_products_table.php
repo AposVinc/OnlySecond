@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->enum('genre',['M','F','U']);
             $table->longtext('long_desc')->nullable(); //forse non serve se c'è la tab specification?
             $table->unsignedBigInteger('supplier_id');
-            $table->string('color_id');    //da mettere nelle specifiche o si lascia?
+            $table->unsignedBigInteger('color_id');    //da mettere nelle specifiche o si lascia?
             $table->integer('quantity_sold')->default(0); //quantità venduta
             $table->timestamps();
 
@@ -30,6 +30,7 @@ class CreateProductsTable extends Migration
 
             $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade')->onUpdate('cascade');
         });
 
     }

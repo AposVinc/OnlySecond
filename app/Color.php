@@ -12,4 +12,14 @@ class Color extends Model
     {
         return $this->hasMany('App\Product');
     }
+
+    public function dials()
+    {
+        return $this->hasMany('App\Specification','dial_color');
+    }
+
+    public function straps()
+    {
+        return $this->hasMany('App\Specification','strap_color');
+    }
 }
