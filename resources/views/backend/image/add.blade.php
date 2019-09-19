@@ -15,7 +15,7 @@
         Immagine
     @endcomponent
 
-    <form action="{{route('Admin.Image.AddCreate')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{route('Admin.Image.AddPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
 
         <div class="card add">
