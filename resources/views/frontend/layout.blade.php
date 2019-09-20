@@ -207,7 +207,6 @@
                         <li><a href="#">Il Mio Profilo</a></li>
                         <li><a href="#">Cronologia Ordini</a></li>
                         <li><a href="{{route('Review')}}">Recensioni</a></li>
-                        <li><a href="#">---</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">
@@ -216,8 +215,7 @@
                         <li><a href="#">Brands</a></li>
                         <li><a href="#">FAQs</a></li>
                         <li><a href="#">In Sconto</a></li>
-                        <li><a href="#">----</a></li>
-                        <li><a href="#">----</a></li>
+
                     </ul>
                 </div>
                 <div class="col-md-3 footer-block">

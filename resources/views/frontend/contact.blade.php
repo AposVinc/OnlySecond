@@ -52,11 +52,11 @@
 
 
             <div class="row">
-                <div class="col-sm-10 left-panel">
+                <div class="col-sm-12 left-panel heading-part">
                     <h5><div class="text-color"> Dove Trovarci?</div></h5>
-                    <h6><i>Via Vetoio, 67100 L'Aquila AQ </i></h6>
+                    <h6><i> Via Vetoio, 67100 L'Aquila AQ </i></h6>
                 </div>
-                <div class="col-xs-12 map mb_80">
+                <div class="col-xs-12 map mtb_20">
                     <div id="map"></div>
                 </div>
             </div>
