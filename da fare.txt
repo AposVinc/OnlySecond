@@ -30,13 +30,14 @@ required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
 FE
 ---------
 ?cerca
-Vale - Pagina Dettaglio prodotto - grafica
+--Vale -- Pagina Dettaglio prodotto - grafica
 Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
+nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
 shop - se si mette where('main',0) da errore sul path
 shop - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 checkout - se va a buon fine, incrementare quantity_sold dei prodotti
-colore fercce degli slider (prod e brand)
+"perche acquistare su OS" in "CHI SIAMO" è spostato un po a sx?
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
@@ -45,7 +46,7 @@ logica modifica
 delete riga tabella wishlist
 pagamento
 inidirizzi
-mie recensioni
+--VI-- mie recensioni
 foto "chi siamo" statiche
 IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
@@ -76,6 +77,7 @@ contattaci indirizzo
 Grafica Login/Registraz/pass dimenticata
 img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
 logica wishlist
+colore fercce degli slider (prod e brand)
 
 
 

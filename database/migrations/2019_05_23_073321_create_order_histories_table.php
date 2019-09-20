@@ -16,8 +16,8 @@ class CreateOrderHistoriesTable extends Migration
         Schema::create('order_histories', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             //$table->date('date');     //create_at
-            $table->boolean('gift');      //non serve?
-            $table->decimal('totalprice', 6, 2);    //si po calcolare (come fatto in Offer)
+            $table->boolean('gift')->default(0);      //non serve?
+            $table->decimal('total_price', 6, 2);    //si po calcolare (come fatto in Offer)
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('payment_id');
             $table->unsignedBigInteger('courier_id');

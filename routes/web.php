@@ -54,36 +54,37 @@ Route::post('/ContactUS/AddPost', 'ContactUSController@create')->name('ContactUS
 Route::post('/Newsletter/AddPost', 'NewsletterController@create')->name('Newsletter.AddPost');
 
 Route::group(['middleware' => ['auth'] ], function () {
-    Route::get('/Profile', function () {
-        return view('frontend.profile');
-    })->name('Profile');
-
-    Route::get('/Chronology', function () {
-        return view('frontend.chronology');
-    })->name('Chronology');
-
-    Route::get('/EditProfile', function () {
-        return view('frontend.editprofile');
-    })->name('EditProfile');
-
-    Route::get('/Address', function () {
-        return view('frontend.address');
-    })->name('Address');
 
     Route::get('/Checkout', function(){
         return view('frontend.checkout');
     })->name('Checkout');
 
+    Route::get('/Profile', function () {
+        return view('frontend.profile.profile');
+    })->name('Profile');
+
+    Route::get('/Chronology', function () {
+        return view('frontend.profile.chronology');
+    })->name('Chronology');
+
+    Route::get('/EditProfile', function () {
+        return view('frontend.profile.editprofile');
+    })->name('EditProfile');
+
+    Route::get('/Address', function () {
+        return view('frontend.profile.address');
+    })->name('Address');
+
     Route::get('/Wishlist', function () {
-        return view('frontend.wishlist');
+        return view('frontend.profile.wishlist');
     })->name('Wishlist');
 
     Route::get('/Payment', function () {
-        return view('frontend.payment');
+        return view('frontend.profile.payment');
     })->name('Payment');
 
     Route::get('/Review', function () {
-        return view('frontend.review');
+        return view('frontend.profile.review');
     })->name('Review');
 });
 

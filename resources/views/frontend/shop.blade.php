@@ -4,16 +4,10 @@
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
         <div class="row ">
-            <!-- =====  BANNER START  ===== -->
-            <div class="col-sm-12">
-                <div class="breadcrumb ptb_20">
-                    <h1>Prodotti</h1>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Prodotti</li>
-                    </ul>
-                </div>
-            </div>
+
+            @component('frontend.partials.breadcrumbshome')
+                Prodotti
+            @endcomponent
 
             @include('frontend.partials.filter')
 

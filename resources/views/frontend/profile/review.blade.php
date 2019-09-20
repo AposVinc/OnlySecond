@@ -4,15 +4,10 @@
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="breadcrumb ptb_20">
-                    <h1>Le Mie Recensioni</h1>
-                    <ul>
-                        <li><a href="{{route('Profile')}}">Il Mio Profilo</a></li>
-                        <li class="active">Recensioni</li>
-                    </ul>
-                </div>
-            </div>
+
+            @component('frontend.partials.breadcrumbsprofile')
+                Le Mie Recenzioni
+            @endcomponent
 
             <div class="col-lg-12 mt_20">
                 <div class="category-page-wrapper mb_30">
