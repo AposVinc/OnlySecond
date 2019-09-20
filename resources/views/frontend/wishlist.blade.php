@@ -20,7 +20,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <table id="bootstrap-data-table-export" class="table table-bordered">
                                         <thead>
                                         <tr>
                                             <th>Immagine</th>
@@ -34,7 +34,7 @@
                                         <tbody>
                                         @foreach(auth()->User()->productsWishlist as $product )
                                             <tr>
-                                                <td>#</td>
+                                                <td><img src="{{asset($product->path_image)}}"></td>
                                                 <td>{{$product->collection->brand->name}}</td>
                                                 <td>{{$product->collection->name}}</td>
 
