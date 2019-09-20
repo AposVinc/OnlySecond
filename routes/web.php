@@ -123,9 +123,9 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('Verifica
 
 
 //ADMIN
-Route::get('Admin/Login', 'Auth\LoginBEController@showLoginFormBE')->name('Admin.LoginForm');
+Route::get('Admin/Login', 'Auth\LoginBEController@showLoginForm')->name('Admin.LoginForm');
 Route::post('Admin/LoginPost', 'Auth\LoginBEController@loginBE')->name('Admin.LoginPost');
-Route::get('Logout', 'Auth\LoginBEController@logoutBE')->name('Admin.Logout');
+Route::get('Admin/Logout', 'Auth\LoginBEController@logout')->name('Admin.Logout');
 
 
 Route::group(['middleware' => ['admin']], function () {

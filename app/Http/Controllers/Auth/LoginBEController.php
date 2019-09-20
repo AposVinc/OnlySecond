@@ -29,26 +29,21 @@ class LoginBEController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showLoginFormBE()
+    public function showLoginForm()
     {
         return view('backend.login');
     }
 
     public function loginBE(Request $request)
     {
-        //$this->login($request);
-        //return redirect()->route('Admin.Index');
-
         if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            //dd(auth()->guard('admin')->user());
             return redirect()->route('Admin.Index');
         }else{
             return redirect()->route('Admin.LoginForm');
         }
-
     }
 
-    public function logoutBE()
+    public function logout()
     {
         \Auth::guard('admin')->logout();
         return redirect()->route('Home');
