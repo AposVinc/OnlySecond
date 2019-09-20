@@ -1234,7 +1234,7 @@ label.checkme {
     -o-transition: all 0.4s ease 0s;
 }
 #search-overlay-btn {
-    background: transparent url("../images/sprite.png") no-repeat scroll -104px -549px;
+    background: transparent url(../../images/frontend/sprite.png) no-repeat scroll -104px -549px;
     border: medium none;
     display: block;
     height: 20px;
@@ -1817,7 +1817,7 @@ blockquote {
     float: none;
 }
 .product-thumb .button-group .wishlist, .product-thumb .button-group .quickview, .product-thumb .button-group .compare, .product-thumb .button-group .add-to-cart {
-    background: transparent url("../images/sprite.png") no-repeat scroll -13px -246px;
+    background: transparent url(../../images/frontend/sprite.png) no-repeat scroll -13px -246px;
     overflow: hidden;
     height: 36px;
     width: 36px;
@@ -1901,10 +1901,10 @@ blockquote {
     display: none;
 }
 .btn.btn-default.grid-view {
-    background: rgba(0, 0, 0, 0) url("../images/sprite.png") no-repeat scroll -146px -399px;
+    background: rgba(0, 0, 0, 0) url(../../images/frontend/sprite.png) no-repeat scroll -146px -399px;
 }
 .btn.btn-default.grid-view.active {
-    background: rgba(0, 0, 0, 0) url("../images/sprite.png") no-repeat scroll -146px -372px;
+    background: rgba(0, 0, 0, 0) url(../../images/frontend/sprite.png) no-repeat scroll -146px -372px;
 }
 .product-layout-right .product-list .product-thumb .image, .product-layout-left .product-list .product-thumb .image {
     margin: 0;
@@ -1944,10 +1944,10 @@ blockquote {
     display: block;
 }
 .btn.btn-default.list-view {
-    background: rgba(0, 0, 0, 0) url("../images/sprite.png") no-repeat scroll -180px -399px;
+    background: rgba(0, 0, 0, 0) url(../../images/frontend/sprite.png)) no-repeat scroll -180px -399px;
 }
 .btn.btn-default.list-view.active {
-    background: rgba(0, 0, 0, 0) url("../images/sprite.png") no-repeat scroll -180px -372px;
+    background: rgba(0, 0, 0, 0) url(../../images/frontend/sprite.png) no-repeat scroll -180px -372px;
 }
 .btn.btn-default.list-view, .btn.btn-default.grid-view {
     padding: 12px;
@@ -2089,7 +2089,7 @@ blockquote {
     width: 100%;
 }
 .owl-nav>div {
-    background: rgba(0,0,0,0) url("../images/sprite.png") no-repeat scroll -34px -374px;
+    background: rgba(0,0,0,0) url(../../images/frontend/sprite.png) no-repeat scroll -34px -374px;
     height: 23px;
     width: 17px;
     font-size: 0px;
