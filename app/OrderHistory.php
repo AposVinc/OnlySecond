@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class OrderHistory extends Model
 {
     protected $primaryKey = 'id';
-    //protected $dates = 'date';
-
 
     public function user()
     {

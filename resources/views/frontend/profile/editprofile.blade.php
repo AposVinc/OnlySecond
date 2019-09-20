@@ -18,7 +18,7 @@
             <div class="panel-body col-lg-12 mtb_20">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form id="login-form" action="{{route('user.loginpost')}}" method="post">
+                        <form id="login-form" action="{{route('User.LoginPost')}}" method="post">
                         @csrf
                             <div class="content">
                                 <h1 class="header">Modifica Dati Personali

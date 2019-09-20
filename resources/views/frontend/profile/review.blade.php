@@ -6,7 +6,7 @@
         <div class="row">
 
             @component('frontend.partials.breadcrumbsprofile')
-                Le Mie Recenzioni
+                Le Mie Recensioni
             @endcomponent
 
             <div class="col-lg-12 mt_20">
