@@ -15,7 +15,6 @@ BE
 ?minibanner
 ?bottoni fine tabella (List)
 ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
-sez prod BE - descrizioni dei prodotti
 Elimina img prodotto
 x sara - saveimage in productController forse è da inserire in img controller e fare un unico metodo?
             in saveimage in productController è estromesso il colore. è una dimenticanza o è fatto apposta? chiedo cosi da adattare i file/seeder
@@ -23,7 +22,7 @@ x sara - saveimage in productController forse è da inserire in img controller e
 EditDate() (js)
 ?EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
 errore se non ci sono brand nella sez edit collezioni
-required su checkbox (javascript) - Agg Prodotto & tutte sez di Ruoli
+required su checkbox (javascript) -  tutte sez di Ruoli
 
 
 
@@ -65,7 +64,8 @@ Calendario in Offer
 Brand Logo
 errore data offerte
 Middlewere per pagine reindirizzamento se non si è loggati
-
+sez prod BE - descrizioni dei prodotti
+required su checkbox (javascript) - Agg Prodotto
 
 ok FE
 ----------
