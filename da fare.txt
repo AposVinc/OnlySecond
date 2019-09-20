@@ -45,7 +45,7 @@ logica modifica
 logica wishlist
 pagamento
 inidirizzi
-mie recensioni
+--VI-- mie recensioni
 riempire staticamente "chi siamo"
 IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
