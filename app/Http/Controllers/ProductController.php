@@ -9,6 +9,7 @@ use App\CategoryProduct;
 use App\Color;
 use App\Offer;
 use App\Product;
+use App\Specification;
 use App\Supplier;
 use App\Image;
 use Illuminate\Http\Request;
@@ -101,47 +102,82 @@ class ProductController extends Controller
      */
     public function create(Request $request)  //
     {
-        //Save product
-        $product = new Product();
-        $product->cod=$request->get('cod');
-        $product->collection_id= $request->get('collection');
-        $product->price= $request->get('price');
-        $product->stock_availability= $request->get('quantity');
-        $product->genre= $request->get('inline-radios');
-        $product->long_desc= $request->get('desc');
-        $product->supplier_id= $request->get('supplier');
-        $product->color_id= $request->get('color');
-        $product->save();
-
-        $idProduct= $product->id;
-
-        //Save main image
-        $this->saveMainImage($request,$idProduct);
-
-        //Save category - product rel
-        $categories = Category::withoutTrashed()->get();
-        foreach ($categories as $category){
-            if($request->get($category->id)) {
-                $category_product = new CategoryProduct();
-                $category_product->category_id = $request->get($category->id);
-                $category_product->product_id = $idProduct;
-                $category_product->save();
-            }
-        }
-
-        //Save other image
-        if ($request->hasFile('other-photo')) { //  se il file è presente nella request
-            $images = $request->file('other-photo');
-            foreach ($images as $image) {
-                $this->saveOtherImage($image, $request, $idProduct);
-            }
+        if (Product::where('cod', $request->cod)->first()) {
+            return redirect()->to('Admin/Product/List')->with('error', 'Il Prodotto già esiste!!');
         }else{
-            return redirect()->to('Admin/Product/List'); // Aggiungere errore
+            //Save product
+            $product = new Product();
+            $product->cod=$request->get('cod');
+            $product->collection_id= $request->get('collection');
+            $product->price= $request->get('price');
+            $product->stock_availability= $request->get('quantity');
+            $product->genre= $request->get('inline-radios');
+            $product->long_desc= $request->get('desc');
+            $product->supplier_id= $request->get('supplier');
+            $product->color_id= $request->get('color');
+            if($product->save()){
+                $idProduct= $product->id;
+
+                //Save main image
+                $result = $this->saveMainImage($request,$idProduct);
+                if($result == "Success"){
+
+                    //Save category - product rel
+                    $categories = Category::withoutTrashed()->get();
+                    foreach ($categories as $category){
+                        if($request->get($category->id)) {
+                            $category_product = new CategoryProduct();
+                            $category_product->category_id = $request->get($category->id);
+                            $category_product->product_id = $idProduct;
+                            if(!($category_product->save())){
+                                return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                            }
+                        }
+                    }
+
+                    //Save other image
+                    if ($request->hasFile('other-photo')) { //  se il file è presente nella request
+                        $images = $request->file('other-photo');
+                        foreach ($images as $image) {
+                            $result = $this->saveOtherImage($image, $request, $idProduct);
+                            if($result == "Error"){
+                                return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                            }
+                        }
+                    }
+
+                    //Save specification
+                    $specification = new Specification();
+                    $specification->product_id = $idProduct;
+                    $specification->case_size = $request->get('case_size');
+                    $specification->material = $request->get('material');
+                    $specification->case_thickness = $request->get('case_thickness');
+                    $specification->glass = $request->get('glass');
+                    $specification->dial_color = $request->get('dial_color');
+                    $specification->strap_material = $request->get('strap_material');
+                    $specification->strap_color = $request->get('strap_color');
+                    $specification->closing = $request->get('closing');
+                    $specification->movement = $request->get('movement');
+                    $specification->warranty = $request->get('warranty');
+                    if($request->get('battery_replacement')){
+                        $specification->battery_replacement = true;
+                    }else{
+                        $specification->battery_replacement = false;
+                    }
+
+                    if($specification->save()){
+                        return redirect()->to('Admin/Product/List')->with('success', 'Caricamento avvenuto con successo!!');
+                    }else{
+                        return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                    }
+
+                }else{
+                    return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                }
+            }else{
+                return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+            }
         }
-
-        //Save specification
-
-        return redirect()->to('Admin/Product/List');
     }
 
     function saveOtherImage($image,$request,$idProduct){
@@ -176,10 +212,10 @@ class ProductController extends Controller
                 $image->main = 0;
                 $image->counter = $counter;
                 $image->save();
-                echo "successo";
+                return "Success";
             }
         }else{
-            echo "Error";
+            return "Error";
         }
     }
 
@@ -215,13 +251,13 @@ class ProductController extends Controller
                     $image->counter = 0;
                     $image->product_id = $idProduct;
                     $image->save();
-                    echo "successo";
+                    return "Success";
                 }
             }else{
-                echo "Error";
+                return "Error";
             }
         }else{
-            echo "Error";
+            return "Error";
         }
     }
 

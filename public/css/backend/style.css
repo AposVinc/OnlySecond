@@ -27,6 +27,12 @@
   width: 800px;
 }
 
+.addProd{
+  margin-left: 30px;
+  margin-top: 25px;
+  width: 800px;
+}
+
 .center { /* centrare il div nella lista banner per la visualizzazione delle immagini */
   margin: auto;
   width: 50%;

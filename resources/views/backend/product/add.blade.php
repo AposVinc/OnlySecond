@@ -18,7 +18,10 @@
     <form action="{{route('Admin.Product.AddPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         @csrf
 
-        <div class="card add">
+        <div class="card addProd">
+            <div class="card-header">
+                <strong class="card-title">Info Generali</strong>
+            </div>
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="cod" class=" form-control-label">Codice</label></div>
@@ -61,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="divCheckError" class="row form-group">
+                <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Categoria di Orologi</label></div>
                     <div class="col col-md-9">
                         <div class="form-check">
@@ -72,6 +75,7 @@
                                     </label>
                                 </div>
                             @endforeach
+                            <small id="divCheckError" style="display: none"></small>
                         </div>
                     </div>
                 </div>
@@ -80,11 +84,10 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-euro"></i></div>
-                            <input type="text" id="price" name="price" step=".01" value="00.00" placeholder="00.00" class="form-control" required>
+                            <input type="text" id="price" name="price" step=".01" placeholder="00.00" class="form-control" required>
                         </div>
                     </div>
                 </div>
-                <!-- POTREMMO METTERE UN ALTRO TEXT INPUT CON IL PREZZO (TASSE ESCLUSE) CHE VARIA IL NUMERO A SECONDA DI QUANTO SCRITTO NEL PRECEDENTE QUI SOPRA, E VICEVERSA -->
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="quantity" class=" form-control-label">Quantità disponibile in magazzino</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="quantity" name="quantity" placeholder="Inserire una quantità numerica" class="form-control" required></div>
@@ -102,7 +105,7 @@
                     <div class="col-12 col-md-9"><input type="file" id="other-photo" name="other-photo[]" multiple class="form-control-file"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="color" class=" form-control-label">Colore</label></div>
+                    <div class="col col-md-3"><label for="color" class=" form-control-label">Colore principale</label></div>
                     <div class="col-12 col-md-9">
                         <select name="color" id="color" class="form-control" required>
                             <option value="">Seleziona il colore</option>
@@ -110,9 +113,9 @@
                                 <option value="{{$color->id}}">{{$color->name}}</option>
                             @endforeach
                         </select>
+                        <small>Indicare un colore che verrà usato per i filtri di ricerca nel front end</small>
                     </div>
                 </div>
-                &emsp;
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
                     <div class="col-12 col-md-9">
@@ -125,8 +128,77 @@
                     </div>
                 </div>
             </div>
+            <div class="card-header" style="border-top: 1px solid rgba(0,0,0,.125);">
+                <strong class="card-title">Specifiche prodotto</strong>
+            </div>
+            <div class="card-body card-block">
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="case_size" class=" form-control-label">Dimensione della cassa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="case_size" name="case_size" placeholder="Inserisci la dimensione della cassa" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="material" class=" form-control-label">Materiale della cassa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="material" name="material" placeholder="Inserisci il materiale della cassa" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="case_thickness" class=" form-control-label">Spessore della cassa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="case_thickness" name="case_thickness" placeholder="Inserisci lo spessore della cassa" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="glass" class=" form-control-label">Vetro della cassa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="glass" name="glass" placeholder="Inserisci il vetro della cassa" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="dial_color" class=" form-control-label">Colore quadrante</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="dial_color" id="dial_color" class="form-control" required>
+                            <option value="">Inserisci il colore quadrante</option>
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="strap_material" class=" form-control-label">Materiale del cinturino</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="strap_material" name="strap_material" placeholder="Inserisci il materiale del cinturino" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="strap_color" class=" form-control-label">Colore del cinturino</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="strap_color" id="strap_color" class="form-control" required>
+                            <option value="">Inserisci il colore del cinturino</option>
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="closing" class=" form-control-label">Chiusura del cinturino</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="closing" name="closing" placeholder="Inserisci il tipo di chiusura del cinturino" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="movement" class=" form-control-label">Tipo di movimento</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="movement" name="movement" placeholder="Inserisci il tipo di movimento" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="warranty" class=" form-control-label">Garanzia</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="warranty" name="warranty" placeholder="Inserisci la garanzia" class="form-control" required></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label">Sostituzione batteria</label></div>
+                    <div class="col col-md-9">
+                        <label class="switch switch-3d switch-primary mr-3">
+                            <input type="checkbox" id="battery_replacement" name="battery_replacement" class="switch-input" value="true" checked="true">
+                            <span class="switch-label"></span>
+                            <span class="switch-handle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
             <div class="card-footer">
-                <button type="button" id="checkBtn" class="btn btn-primary btn-sm" onclick="VerifyCheck()">
+                <button type="submit" id="checkBtn" class="btn btn-primary btn-sm" onclick="VerifyCheck()">
                     <i class="fa fa-dot-circle-o"></i> Aggiungi
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
@@ -136,25 +208,6 @@
         </div>
 
     </form>
-    <script>
-        function VerifyCheck(){
-            var listCheck = document.getElementsByClassName('checkbox');
-            var check = false;
-            for(var i=0;i< listCheck.length;i++){
-                if(listCheck[i].children[0].children[0].checked){
-                    check = true;
-                }
-            }
-            if(check) {
-                var submit = document.getElementById('checkBtn');
-                submit.type="submit";
-            }else{
-                var div = document.getElementById('divCheckError');
-                div.style="border-style: solid; border-color: red;";
-                Error("Devi selezionare almeno una categoria");
-            }
-        }
-    </script>
 
 @endsection
 
