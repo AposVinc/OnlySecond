@@ -7,6 +7,7 @@ use App\Image;
 use App\Brand;
 use App\Collection;
 use App\Product;
+use App\Color;
 use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
@@ -29,16 +30,52 @@ class ImageController extends Controller
         return view('backend.image.showimage', ['image' => $image]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $input = Input::all();
-        $banner = new Image();
-        $banner->image = $input['file-input'];
-        $banner->product_id = $input['product'];
-        if($banner->save()){
-            return redirect()->to('Admin/Image/List')->with('success', 'Caricamento avvenuto con successo!!');
-        }else{
-            return redirect()->to('Admin/Image/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+        if ($request->hasFile('file')) { //  se il file è presente nella request
+            if ($request->file('file')->isValid()) { // verificare che non si siano verificati problemi durante il caricamento del file
+                $path = 'public/Orologi';
+                if (!(Storage::exists($path))) {
+                    Storage::makeDirectory($path);
+                }
+                $nameBrand = Brand::where('id', $request->get('brand'))->first()->name;
+                $path .= '/' . $nameBrand;
+                if (!(Storage::exists($path))) {
+                    Storage::makeDirectory($path);
+                }
+                $idCollection = $request->get('collection');
+                $nameCollection = Collection::where('id', $idCollection)->first()->name;
+                $path .= '/' . $nameCollection;
+                if (!(Storage::exists($path))) {
+                    Storage::makeDirectory($path);
+                }
+                $idproduct = $request->get('product');
+                $product = Product::where('id', $idproduct)->first();
+                $cod = $product->cod;
+                $color_id = $product->color_id;
+                $color = Color::where('id',$color_id)->first()->name;
+                $counter = Image::where('product_id', $idproduct)->max('counter');
+                $counter += 1;
+                $filename = $nameBrand. '_'. $nameCollection. '_'. $cod. '_'. $color. '_'. $counter. '.jpg';
+                $path_image = 'storage/Orologi/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
+                $path = $request->file('file')->storeAs($path, $filename);
+                if ($path != "") {
+                    $image = new Image();
+                    $image->path_image = $path_image;
+                    $image->product_id = $idproduct;
+                    $image->main = 0;
+                    $image->counter = $counter;
+                    if ($image->save()) {
+                        return redirect()->to('Admin/Image/List')->with('success', 'Caricamento avvenuto con successo!!');
+                    } else {
+                        return redirect()->to('Admin/Image/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+                    }
+                }
+            } else {
+                return redirect()->to('Admin/Image/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
+        } else {
+            return redirect()->to('Admin/Image/List')->with('error', 'File non trovato. Riprovare!!');
         }
     }
 }

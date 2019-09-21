@@ -75,7 +75,6 @@
                                     </label>
                                 </div>
                             @endforeach
-                            <small id="divCheckError" style="display: none"></small>
                         </div>
                     </div>
                 </div>
