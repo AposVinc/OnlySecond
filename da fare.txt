@@ -16,12 +16,9 @@ BE
 ?bottoni fine tabella (List)
 ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
 Elimina img prodotto
-x sara - saveimage in productController forse è da inserire in img controller e fare un unico metodo?
-            in saveimage in productController è estromesso il colore. è una dimenticanza o è fatto apposta? chiedo cosi da adattare i file/seeder
 
 EditDate() (js)
 ?EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
-errore se non ci sono brand nella sez edit collezioni
 required su checkbox (javascript) -  tutte sez di Ruoli
 
 
@@ -66,6 +63,9 @@ errore data offerte
 Middlewere per pagine reindirizzamento se non si è loggati
 sez prod BE - descrizioni dei prodotti
 required su checkbox (javascript) - Agg Prodotto
+IL COLORE è STATO INSERITO NEL METODO => in saveimage in productController è estromesso il colore. è una dimenticanza o è fatto apposta? chiedo cosi da adattare i file/seeder
+CI SONO DUE METODI DIVERSI UNO PER LA PRINCIPALE E UNO PER LE ALTRE IMG NON POSSONO ESSERE GENERALIZATI IN IMG CONTROLLER => x sara - saveimage in productController forse è da inserire in img controller e fare un unico metodo?
+errore se non ci sono brand nella sez edit collezioni FATTO E VIENE USATO NON SOLO NELL'EDIT COLLECTION
 
 ok FE
 ----------

@@ -34,8 +34,12 @@ class BrandController extends Controller
 
     public function showEditForm()
     {
-        $brands = Brand::all();
-        return view('backend.brand.edit', ['brands' => $brands]);
+        if (Brand::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.brand.edit',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Brand da modificare!!');
+        }
     }
 
     public function showRestoreForm()
