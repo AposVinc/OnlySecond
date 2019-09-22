@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use File;
 
 class BrandController extends Controller
 {
@@ -38,17 +37,17 @@ class BrandController extends Controller
             $brands = Brand::all();
             return view('backend.brand.edit',['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Brand da modificare!!');
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Brand da Modificare!!');
         }
     }
 
     public function showRestoreForm()
     {
         if (Brand::onlyTrashed()->exists()){
-            $brands = Brand::all();
+            $brands = Brand::onlyTrashed()->get();
             return view('backend.brand.restore',['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da ripristinare!!');
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Brand da Ripristinare!!');
         }
     }
 
@@ -58,7 +57,7 @@ class BrandController extends Controller
             $brands = Brand::all();
             return view('backend.brand.delete', ['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da Eliminare!!');
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Brand da Eliminare!!');
         }
     }
 
@@ -166,8 +165,6 @@ class BrandController extends Controller
         }
     }
 
-
-
     /**
      * Restore the specified resource from storage.
      *
@@ -189,7 +186,7 @@ class BrandController extends Controller
         if (Brand::withTrashed()->find($request->brand)->delete()) {
             return redirect()->to('Admin/Brand/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 }
