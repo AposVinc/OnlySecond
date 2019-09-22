@@ -24,8 +24,12 @@ class BannerController extends Controller
 
     public function showAddForm()
     {
-        $brands = Brand::all();
-        return view('backend.banner.add',['brands' => $brands]);
+        if (Brand::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.banner.add',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Collection/List')->with('error','Impossibile inserire una nuovo Banner. Inserire prima un Brand!!');
+        }
     }
 
     public function showEditForm()
@@ -98,6 +102,8 @@ class BannerController extends Controller
                     }else{
                         return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
                     }
+                }else{
+                    return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
                 }
             }else{
                 return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
