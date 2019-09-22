@@ -10,6 +10,7 @@ use App\Image;
 use App\Offer;
 use App\OrderHistory;
 use App\Payment;
+use App\Review;
 use App\Supplier;
 use App\User;
 use App\Brand;
@@ -524,6 +525,48 @@ DatabaseSeeder extends Seeder
         $user2->productsWishlist()->save($Q_ExploristP4);
         $user2->productsWishlist()->save($Moon_P2);
         $user2->productsWishlist()->save($SportP2);
+
+        /*---   REVIEW   -----------------------------------------------------*/
+
+        $review1 = new Review(['vote'=>'5', 'title'=>'Grande Acquisto', 'text'=>'Bell\'orologio, arrivato arrivato a casa in tempi brevissimi']);
+        $review1->product_id = $CarlieP1->id;
+        $user1->reviews()->save($review1);
+        $review1->save();
+
+        $review2 = new Review(['vote'=>'4', 'title'=>'Consiglio di applicare una pellicola antigraffio sul quadrante',
+                                            'text'=>'Ho aspettato un po\' prima di recensire questo orologio, devo dire che è perfetto per ogni tipo di outfit.
+                                                        Inoltre il quadrante gli dà un aspetto elegante all\'orologio. Durante il giorno si vede bene, non me lo aspettavo.
+                                                        Le funzioni che offre sono molto utili, un esempio è la sveglia o anche il timer..È arrivato con la garanzia di 24 mesi.
+                                                        Un buon prodotto che consiglio di acquistare insieme ad una qualche pellicola che protegga il vetro da graffi. Per questo do 4 stelle']);
+        $review2->product_id = $Q_ExploristP1->id;
+        $user1->reviews()->save($review2);
+        $review2->save();
+
+        $review3 = new Review(['vote'=>'4', 'title'=>'Non potevo scegliere di meglio', 'text'=>'Ho avuto problemi con l\'ordine, l\'assistenza mi ha aiutato a risolverli. Servizio ottimo']);
+        $review3->product_id = $Lacoste_12_12_P1->id;
+        $user1->reviews()->save($review3);
+        $review3->save();
+
+        $review4 = new Review(['vote'=>'4','title'=>'BELLO!!!!']);
+        $review4->product_id = $Double_Down_P44P1->id;
+        $user1->reviews()->save($review4);
+        $review4->save();
+
+        $review5 = new Review(['vote'=>'4', 'title'=>'Regalo', 'text'=>'Comprato per un regalo, al festeggiato è piaciuto molto']);
+        $review5->product_id = $CarlieP1->id;
+        $user2->reviews()->save($review5);
+        $review5->save();
+
+        $review6 = new Review(['vote'=>'5', 'title'=>'Consigliato', 'text'=>'Arrivato nei tempi previsti!!! Bello!!!']);
+        $review6->product_id = $SportP2->id;
+        $user2->reviews()->save($review6);
+        $review6->save();
+
+        $review7 = new Review(['vote'=>'5', 'title'=>'WOW!!', 'text'=>'Proprio come immaginavo']);
+        $review7->product_id = $Moon_P1->id;
+        $user2->reviews()->save($review7);
+        $review7->save();
+
 
         /*---   NEWSLETTERS   -----------------------------------------------------*/
 

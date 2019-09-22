@@ -46,50 +46,28 @@
                 </div>
             </div>
 
-            <div class="col-lg-12 mt_10">
-                <h4>Consiglio applicare pellicola antigraffio su quadro</h4>
-                <h6><div class="mt_10">21 ottobre 2017</div></h6>
-                <div class="mt_10">
-                    <h5><a href="product.html" class="fa fa-image">
-                        Breil, cat, coll, cod</a>
-                    </h5>
+            @foreach(auth()->user()->reviews as $review)
+                <div class="col-lg-12 mt_40">
+                    <div class="mt_10 col-md-2">
+                        <div class="image product-imageblock ">
+                            <a href="{{route('Product', ['cod' => $review->product->cod])}}">
+                                <img data-name="product_image" src="{{asset($review->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt_10 col-md-10">
+                        <h4>Prodotto: {{$review->product->collection->brand->name}} {{$review->product->collection->name}} {{$review->product->cod}}</h4>
+                        <div class="mt_10">
+                            <h5>Titolo: {{$review->title}}</h5>
+                            <h6>Voto: {{$review->vote}} &nbsp;&nbsp; Data: {{$review->created_at}}</h6>
+                        </div>
+                        <div class="mt_10">
+                            <span>{{$review->text}}</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-lg-12 mt_10">
-                    <span>Ho aspettato un po' prima di recensire questo orologio della casio, devo dire che è perfetto per ogni tipo di outfit.<br>Inoltre il quadro nero gli dà un aspetto elegante all'orologio.
-                        Durante il giorno il quadro di vede bene, la notte pure grazie alla retroilluminazione.<br>Buono presenti tutte le funzioni, sveglia, cronometro, timer, ecc..È arrivato con la garanzia Casio di 24 mesi.
-                        <br>Un ottimo acquisto, consiglio di acquistare una qualche pellicola che protegga il vetro del quadro da graffi, perché per il vetro non risulta essere molto antigraffio. Per questo do 4 stelle</span>
-            </div>
-
-
-            <div class="col-lg-12 mt_40">
-                <h4>Titolo Recensione</h4>
-                <h6><div class="mt_10">Data</div></h6>
-                <div class="mt_10">
-                    <h5><a href="product.html" class="fa fa-image">
-                            Breil, cat, coll, cod</a>
-                    </h5>
-                </div>
-            </div>
-
-            <div class="col-lg-12 mt_10">
-                <span>....................................................<br>.....................................................</span>
-            </div>
-
-            <div class="col-lg-12 mt_40">
-                <h4>Titolo Recensione</h4>
-                <h6><div class="mt_10">Data</div></h6>
-                <div class="mt_10">
-                    <h5><a href="product.html" class="fa fa-image">
-                            Breil, cat, coll, cod</a>
-                    </h5>
-                </div>
-            </div>
-
-            <div class="col-lg-12 mtb_10">
-                <span>....................................................<br>.....................................................</span>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 @endsection

@@ -55,14 +55,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Address');
     }
 
-    public function billingaddresses()
+    public function billingAddresses()
     {
         return $this->hasMany('App\BillingAddress');
     }
 
     public function reviews()
     {
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review')->withTrashed();
     }
 
     public function productsWishlist()
