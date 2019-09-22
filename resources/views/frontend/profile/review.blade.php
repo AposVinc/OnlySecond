@@ -3,7 +3,7 @@
 @section('content')
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <div class="row">
+        <div class="row  mb_60">
 
             @component('frontend.partials.breadcrumbsprofile')
                 Le Mie Recensioni
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="mt_10 col-md-10">
-                        <h4>Prodotto: {{$review->product->collection->brand->name}} {{$review->product->collection->name}} {{$review->product->cod}}</h4>
+                        <h4>Prodotto: {{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</h4>
                         <div class="mt_10">
                             <h5>Titolo: {{$review->title}}</h5>
                             <h6>Voto: {{$review->vote}} &nbsp;&nbsp; Data: {{$review->created_at}}</h6>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
             @endforeach
-            
+
         </div>
     </div>
 @endsection
