@@ -12,17 +12,17 @@
         @slot('op')
             Mostra
         @endslot
-        Banner
+        Banner in Home
     @endcomponent
 
-    <form action="{{route('Admin.Banner.EditPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{route('Admin.Banner.EditPost')}}" method="post" class="form-horizontal">
     @csrf
         <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" required>
+                        <select name="brand" id="brand" class="form-control" onchange="GetCollection()" required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $data)
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
@@ -34,7 +34,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" onchange="EditBanner()" required>
+                        <select name="collection" id="collection" class="form-control" onchange="GetBanner()" required>
                             <option value="">Seleziona la collezione </option>
                         </select>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="banner" class=" form-control-label">Banner</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="banner" id="banner" class="form-control" required>
+                        <select name="banner" id="banner" class="form-control" onchange="GetVisible()" required>
                             <option value="">Seleziona il banner </option>
                         </select>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="col col-md-3"><label class=" form-control-label">Mostra nella<br>Home Page</label></div>
                     <div class="col col-md-9">
                         <label class="switch switch-3d switch-primary mr-3">
-                            <input id="visible" name="visible" type="checkbox" class="switch-input" value="true" checked="false">
+                            <input id="visible" name="visible" type="checkbox" class="switch-input" value="true">
                             <span class="switch-label"></span>
                             <span class="switch-handle"></span>
                         </label>

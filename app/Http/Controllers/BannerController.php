@@ -28,14 +28,18 @@ class BannerController extends Controller
             $brands = Brand::all();
             return view('backend.banner.add',['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Collection/List')->with('error','Impossibile inserire una nuovo Banner. Inserire prima un Brand!!');
+            return redirect()->to('Admin/Banner/List')->with('error','Impossibile inserire una nuovo Banner. Inserire prima un Brand!!');
         }
     }
 
     public function showEditForm()
     {
-        $brands = Brand::all();
-        return view('backend.banner.edit',['brands' => $brands]);
+        if (Banner::where('hidden',false)->exists()){
+            $brands = Brand::all();
+            return view('backend.banner.edit',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Banner/List')->with('error','Non ci sono Banner da Modificare!!');
+        }
     }
 
     public function showDeleteForm()

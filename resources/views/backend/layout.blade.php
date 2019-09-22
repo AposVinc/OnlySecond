@@ -357,7 +357,7 @@
 
 @if(strpos(route::currentRouteName(),'Admin.Banner')!== false)
     <script>
-        function EditBanner(){
+        function GetBanner(){
             var divError = document.getElementById('error');
             divError.innerText ="";
             divError.classList.remove('alert','alert-danger');
@@ -367,7 +367,6 @@
             option.text = "Seleziona il banner";
             option.value = "";
             selectBanner.add(option);
-            var data;
             var selected = document.getElementById('collection');
             var value = selected.options[selected.selectedIndex].value;
 
@@ -378,7 +377,7 @@
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result) {
                     if(result.length === 0){
-                        Error("Non ci sono banner per la collezione selezionata");
+                        Error("Non ci sono Banner per la collezione selezionata");
                     }else{
                         result.forEach(AddOptionBanner);
                     }
@@ -397,10 +396,10 @@
             selectBanner.add(option);
         }
 
-        function EditSwitch(){
+        function GetVisible(){
             var visible = document.getElementById('visible');
             var banner = document.getElementById('banner');
-            var value = banner.options[selected.selectedIndex].value;
+            var value = banner.options[banner.selectedIndex].value;
 
             jQuery.ajax({
                 url:'{{ route('Admin.GetVisible') }}',
@@ -408,14 +407,10 @@
                 dataType: "json",
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result) {
-                    if(result === 0){
-                        alert('0');
-                        visible.setAttribute('checked','false');
-                        visible.style.position = "absolute";
-                    }else{
-                        alert('1');
+                    if(result){
                         visible.setAttribute('checked','true');
-                        visible.style.position = "relative";
+                    }else{
+                        visible.removeAttribute('checked');
                     }
                 },
                 error:function(xhr){
