@@ -23,14 +23,22 @@ class CollectionController extends Controller
 
     public function showAddForm()
     {
-        $brands = Brand::all();
-        return view('backend.collection.add',['brands' => $brands]);
+        if (Brand::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.collection.add',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Collection/List')->with('error','Impossibile inserire una nuova Collezione. Inserire prima un Brand!!');
+        }
     }
 
     public function showEditForm()
     {
-        $brands = Brand::all();
-        return view('backend.collection.edit',['brands' => $brands]);
+        if (Brand::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.collection.edit',['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Collection/List')->with('error','Non ci sono Collezioni da Modificare!!');
+        }
     }
 
     function getCollection(Request $request)
