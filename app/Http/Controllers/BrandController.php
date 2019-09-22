@@ -89,6 +89,8 @@ class BrandController extends Controller
                         }else{
                             return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
                         }
+                    }else{
+                        return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
                     }
                 } else {
                     return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
