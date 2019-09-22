@@ -17,11 +17,11 @@ class Banner extends Model
 
 
     protected $fillable =[
-        'image','collection_id',
+        'path_image','collection_id',
     ];
 
     function collection()
     {
-        return $this->belongsTo('App\Collection');
+        return $this->belongsTo('App\Collection')->withTrashed();
     }
 }
