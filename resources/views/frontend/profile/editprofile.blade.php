@@ -3,17 +3,11 @@
 @section('content')
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <div class="row ">
-            <!-- =====  BANNER START  ===== -->
-            <div class="col-sm-12">
-                <div class="breadcrumb ptb_20">
-                    <h1>Modifica Profilo</h1>
-                    <ul>
-                        <li><a href="{{route('Profile')}}">Il Mio Profilo</a></li>
-                        <li class="active">Modifica Profilo</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="row mb_60">
+
+            @component('frontend.partials.breadcrumbsprofile')
+                Modifica Profilo
+            @endcomponent
 
             <div class="panel-body col-lg-12 mtb_20">
                 <div class="row">

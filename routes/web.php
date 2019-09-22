@@ -86,6 +86,7 @@ Route::group(['middleware' => ['auth'] ], function () {
     Route::get('/Review', function () {
         return view('frontend.profile.review');
     })->name('Review');
+
 });
 
 
@@ -122,7 +123,7 @@ Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('Ver
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('Verification.Resend');
 
 
-//ADMIN
+// AUTH ADMIN
 Route::get('Admin/Login', 'Auth\LoginBEController@showLoginForm')->name('Admin.LoginForm');
 Route::post('Admin/LoginPost', 'Auth\LoginBEController@loginBE')->name('Admin.LoginPost');
 Route::get('Admin/Logout', 'Auth\LoginBEController@logout')->name('Admin.Logout');

@@ -3,17 +3,11 @@
 @section('content')
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <div class="row">
-            <!-- =====  BANNER START  ===== -->
-            <div class="col-sm-12">
-                <div class="breadcrumb ptb_20">
-                    <h1>Cronologia Ordini</h1>
-                    <ul>
-                        <li><a href="{{route('Profile')}}">Il Mio Profilo</a></li>
-                        <li class="active">Cronologia Ordini</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="row mb_60">
+
+            @component('frontend.partials.breadcrumbsprofile')
+                Cronologia Ordini
+            @endcomponent
 
             <div class="col-lg-12 mtb_20">
                 <form enctype="multipart/form-data" method="post" action="#">

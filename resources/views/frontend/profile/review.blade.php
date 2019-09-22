@@ -3,7 +3,7 @@
 @section('content')
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <div class="row  mb_60">
+        <div class="row mb_60">
 
             @component('frontend.partials.breadcrumbsprofile')
                 Le Mie Recensioni

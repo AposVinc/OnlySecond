@@ -77,7 +77,7 @@
             <div class="col-lg-4 mtb_40">
                 <a href="{{route('Address')}}">
                     <div class="content">
-                        <h2 class="header text-center">Indirizzi</h2>
+                        <h2 class="header text-center">I Miei Indirizzi</h2>
                         <div class="small">
                             <div class="content">
                                 <div class="summary text-center mt_10">

@@ -3,16 +3,11 @@
 @section('content')
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="breadcrumb ptb_20">
-                    <h1>I Miei Indirizzi</h1>
-                    <ul>
-                        <li><a href="{{route('Profile')}}">Il Mio Profilo</a></li>
-                        <li class="active">Indirizzi</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="row mb_60">
+
+            @component('frontend.partials.breadcrumbsprofile')
+                I Miei Indirizzi
+            @endcomponent
 
             <div class="panel-default col-sm-10">
                 <h1>Seleziona L'Indirizzo Di Spedizione Preferito</h1>
