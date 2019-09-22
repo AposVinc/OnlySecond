@@ -103,7 +103,7 @@ class CollectionController extends Controller
             $brands = Brand::all();
             return view('backend.collection.restore',['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Collection/List')->with('error','Non ci sono elementi da ripristinare!!');
+            return redirect()->to('Admin/Collection/List')->with('error','Non ci sono Collezioni da Ripristinare!!');
         }
     }
 
@@ -173,6 +173,12 @@ class CollectionController extends Controller
     {
         $idcollection = $request->get('collection');
 
+        $banners = Banner::where('collection_id', $idcollection)->get();
+        if(collect($banners)->isNotEmpty()){
+            if(!(Banner::where('collection_id', $idcollection)->update(['hidden' => false]))){
+                return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
         if (Collection::where('id',$idcollection)->restore()) {
             return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
         }else{

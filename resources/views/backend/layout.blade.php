@@ -502,7 +502,7 @@
 @endif
 @if(strpos(route::currentRouteName(),'Admin.Collection.Restore')!== false)
     <script>
-        function EditCollectionRestore(){
+        function GetCollectionRestore(){
             var divError = document.getElementById('error');
             divError.innerText ="";
             divError.classList.remove('alert','alert-danger');
@@ -512,7 +512,6 @@
             option.text = "Seleziona la collezione";
             option.value = "";
             selectCollection.add(option);
-            var data;
             var selected = document.getElementById('brand');
             var value = selected.options[selected.selectedIndex].value;
 
@@ -524,7 +523,7 @@
                 success:function(result)
                 {
                     if(result.length === 0){
-                        Error("Non ci sono collezioni da ripristinare per il brand selezionato");
+                        Error("Non ci sono Collezioni da ripristinare per il brand selezionato");
                     }else{
                         result.forEach(AddOptionCollection);
                     }
