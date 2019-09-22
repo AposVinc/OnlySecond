@@ -33,7 +33,7 @@ class CollectionController extends Controller
 
     public function showEditForm()
     {
-        if (Brand::withoutTrashed()->exists()){
+        if (Collection::withoutTrashed()->exists()){
             $brands = Brand::all();
             return view('backend.collection.edit',['brands' => $brands]);
         } else {
@@ -113,7 +113,7 @@ class CollectionController extends Controller
             $brands = Brand::all();
             return view('backend.collection.delete',['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Collection/List')->with('error','Non ci sono elementi da Eliminare!!');
+            return redirect()->to('Admin/Collection/List')->with('error','Non ci sono Collezioni da Eliminare!!');
         }
     }
 

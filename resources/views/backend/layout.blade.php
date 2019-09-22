@@ -152,6 +152,8 @@
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-list"></i><a href="{{url::route('Admin.Image.List')}}">Lista</a></li>
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Image.Add')}}">Aggiungi</a></li>
+                                <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Image.EditMain')}}">Modifica img principale</a></li>
+                                <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Image.Delete')}}">Elimina</a></li>
                             </ul>
                         </li>
                     @endif
@@ -268,7 +270,7 @@
 </script>
 
 <script>
-    function EditCollection(){
+    function GetCollection(){
         var divError = document.getElementById('error');
         divError.innerText ="";
         divError.classList.remove('alert','alert-danger');
@@ -278,7 +280,6 @@
         option.text = "Seleziona la collezione";
         option.value = "";
         selectCollection.add(option);
-        var data;
         var selected = document.getElementById('brand');
         var value = selected.options[selected.selectedIndex].value;
 
@@ -290,7 +291,7 @@
             success:function(result)
             {
                 if(result.length === 0){
-                    Error("Non ci sono collezioni per il brand selezionato");
+                    Error("Non ci sono Collezioni per il brand selezionato");
                 }else{
                     result.forEach(AddOptionCollection);
                 }

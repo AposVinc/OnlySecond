@@ -142,7 +142,7 @@ Route::group(['middleware' => ['admin']], function () {
             })->name('Index');
 
             #route chiamata ajax per collection
-            Route::post('/EditGetCollection', 'CollectionController@getCollection')->name('GetCollection');
+            Route::post('/GetCollection', 'CollectionController@getCollection')->name('GetCollection');
             Route::post('/RestoreGetCollection', 'CollectionController@getCollectionRestore')->name('RestoreGetCollection');
 
             #route chiamata ajax per collection
@@ -350,6 +350,12 @@ Route::group(['middleware' => ['admin']], function () {
 
                         Route::get('/Add', 'ImageController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'ImageController@create')->name('AddPost');
+
+                        Route::get('/EditMain', 'ImageController@showEditMainForm')->name('EditMain');
+                        Route::post('/EditMainPost', 'ImageController@updateMain')->name('EditMainPost');
+
+                        Route::get('/Delete', 'ImageController@showDeleteForm')->name('Delete');
+                        Route::post('/DeletePost', 'ImageController@destroy')->name('DeletePost');
                     });
                 });
             });
