@@ -157,6 +157,8 @@ class BrandController extends Controller
                     }else{
                         return false;
                     }
+                }else{
+                    return false;
                 }
             } else {
                 return false;
