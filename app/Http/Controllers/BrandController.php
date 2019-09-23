@@ -174,7 +174,7 @@ class BrandController extends Controller
 
     public function restore(Request $request)   //query senza nome
     {
-        if (Brand::onlyTrashed()->find($request->brand)->restore()) {
+        if (Brand::where('id',$request->brand)->restore()) {
             return redirect()->to('Admin/Brand/List')->with('success', 'Ripristino avvenuto con successo!!');
         } else {
             return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');

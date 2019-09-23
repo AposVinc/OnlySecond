@@ -22,7 +22,6 @@ required su checkbox (javascript) -  tutte sez di Ruoli
 
 
 
-
 FE
 ---------
 ?cerca
@@ -48,13 +47,16 @@ Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata??
-mie recensioni - lasciare ricerca sotto breadcrumbs
+mie recensioni - lasciare ricerca sotto breadcrumbs?
+
+                arancione titolo data voto - grassetto cod e brandname collection name
+                        voto vicino titolo
+                        grandezza caratteri graduale
+                        giustificato al text
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
-In sconto - aggiungere campo con scritto "In Sconto fino al..." ?
-           - un prodotto può avere piu percentuali? il prodotto A puo avere il 20% e scadere questa settimana ed avere un altra offerta del 30% che scade tra un mese?
-                ad oggi nel DB c'è un unique sul product_id, cio significa che un prod puo avere solo un offerta.
-                qualora passasse il tempo dell'offerta questa non verrà eliminata percio non si potrebbe aggiungere una nuova offerta per quel prodotto
+
+In sconto - aggiungere where oggi slider offer
 
 
 
@@ -115,5 +117,17 @@ BRAND e COLLECTION:
    2. non c'è niente da ripristinare
 
 
+
+
+primi errori - 5 set   ok
+
+
+errori collection category 6 set    no - pero ripristina
+
+
+error offer - 7 set     no - pero ripristina
+
+edit banner - 10 set    no
+immagini Prod - 11 set  no
 
 
