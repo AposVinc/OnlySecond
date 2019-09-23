@@ -50,6 +50,7 @@
                         <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                     </div>
                 </div>
+
                 <div class="row">
 
                     @foreach($products as $product)
@@ -81,6 +82,7 @@
                     @endforeach
 
                 </div>
+
                 <div class="pagination-nav text-center mt_50">
                     <ul>
                         <li><a href="#"><i class="fa fa-angle-left"></i></a></li>

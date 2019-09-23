@@ -32,7 +32,9 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer('frontend.partials.slideroffers', 'App\Http\Composers\SliderComposer@composeOffers');
         view()->composer('frontend.partials.sliderbrands', 'App\Http\Composers\SliderComposer@composeBrands');
 
-        view()->composer('frontend.shop', 'App\Http\Composers\ShopComposer@compose');
+        view()->composer('frontend.shop', 'App\Http\Composers\ShopComposer@composeShop');
+        view()->composer('frontend.discount', 'App\Http\Composers\ShopComposer@composeDiscount');
+
 
     }
 }

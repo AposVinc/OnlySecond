@@ -270,7 +270,6 @@
 <script src="{{ URL::asset('js/frontend/jquery.magnific-popup.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/custom.js') }}"></script>
 
-@if(strpos(route::currentRouteName(),'Shop')!== false)
     <!-- PRESI DALLA PAGINA category_page -->
     <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
     <script>
@@ -289,7 +288,7 @@
         });
     </script>
     <!-- PRESI DALLA PAGINA category_page END -->
-@endif
+
 
 <script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
 

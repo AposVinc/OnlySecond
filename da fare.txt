@@ -22,6 +22,7 @@ required su checkbox (javascript) -  tutte sez di Ruoli
 
 
 
+
 FE
 ---------
 ?cerca
@@ -50,6 +51,10 @@ logica pass dimenticata??
 mie recensioni - lasciare ricerca sotto breadcrumbs
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
+In sconto - aggiungere campo con scritto "In Sconto fino al..." ?
+           - un prodotto può avere piu percentuali? il prodotto A puo avere il 20% e scadere questa settimana ed avere un altra offerta del 30% che scade tra un mese?
+                ad oggi nel DB c'è un unique sul product_id, cio significa che un prod puo avere solo un offerta.
+                qualora passasse il tempo dell'offerta questa non verrà eliminata percio non si potrebbe aggiungere una nuova offerta per quel prodotto
 
 
 
