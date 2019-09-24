@@ -2757,3 +2757,23 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     }
 }
     /* =====  END RESPONSIVE CSS  =====*/
+
+#review h4{
+    font-weight: bold;
+}
+#review h6{
+    font-size: 13px;
+}
+
+#review h4>span{
+    font-weight: normal;
+    color: #ff711a;     /*#ff6300*/
+}
+#review h5>span{
+    color: #ff711a;
+}
+#review h6>span{
+    color: #ff711a;
+}
+
+

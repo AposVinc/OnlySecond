@@ -50,10 +50,11 @@ logica pass dimenticata??
 aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
 
 mie recensioni - lasciare ricerca sotto breadcrumbs?
-                arancione titolo data voto - grassetto cod e brandname collection name
-                        voto vicino titolo
-                        grandezza caratteri graduale
+                        arancione titolo data voto - grassetto cod e brandname collection name
+                        voto vicino titolo - non im piace, se titolo troppo lungo ...
+                        grandezza caratteri graduale -
                         giustificato al text
+
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
 

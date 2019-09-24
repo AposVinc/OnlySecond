@@ -3,7 +3,7 @@
 @section('content')
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <div class="row mb_60">
+        <div class="row mb_20">
 
             @component('frontend.partials.breadcrumbsprofile')
                 Le Mie Recensioni
@@ -47,7 +47,7 @@
             </div>
 
             @foreach(auth()->user()->reviews as $review)
-                <div class="col-lg-12 mt_40">
+                <div class="col-lg-12 mb_40">
                     <div class="mt_10 col-md-2">
                         <div class="image product-imageblock ">
                             <a href="{{route('Product', ['cod' => $review->product->cod])}}">
@@ -55,14 +55,14 @@
                             </a>
                         </div>
                     </div>
-                    <div class="mt_10 col-md-10">
-                        <h4>Prodotto: {{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</h4>
+                    <div id="review" class="mt_10 col-md-10">
+                        <h4><span>Prodotto:&ensp;</span>{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</h4>
                         <div class="mt_10">
-                            <h5>Titolo: {{$review->title}}</h5>
-                            <h6>Voto: {{$review->vote}} &nbsp;&nbsp; Data: {{$review->created_at}}</h6>
+                            <h5><span>Titolo:&ensp;&ensp;</span>{{$review->title}}</h5>
+                            <h6><span>Voto:&ensp;</span>{{$review->vote}} &nbsp;&nbsp; <span>Data: </span>{{$review->created_at}}</h6>
                         </div>
-                        <div class="mt_10">
-                            <span>{{$review->text}}</span>
+                        <div class="mt_10" style="text-align: justify">
+                            <span >{{$review->text}}</span>
                         </div>
                     </div>
                 </div>
