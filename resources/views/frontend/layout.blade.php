@@ -80,8 +80,13 @@
                                 <li class="account"> <a href="{{route('Profile')}}">Il Mio Profilo </a><i class="fa fa-user"></i></li>
                                 <li class="account"> <a href="{{route('User.Logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
                             @else
-                                <li class="account"> <a href="{{route('Admin.Index')}}">Area Privata <i class="fa fa-lock"></i></a> </li>
-                                <li class="account"> <a href="{{route('User.Login')}}">Login </a><i class="fa fa-sign-in"></i> </li>
+                               @auth('admin')
+                                    <li class="account"> <a href="{{route('Admin.Index')}}">Area Privata <i class="fa fa-lock"></i></a> </li>
+                                    <li class="account"> <a href="{{route('Admin.Logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
+                                @else
+                                    <li class="account"> <a href="{{route('Admin.Index')}}">Area Privata <i class="fa fa-lock"></i></a> </li>
+                                    <li class="account"> <a href="{{route('User.Login')}}">Login </a><i class="fa fa-sign-in"></i> </li>
+                               @endauth
                             @endauth
                         </ul>
                     </div>
@@ -270,6 +275,7 @@
 <script src="{{ URL::asset('js/frontend/jquery.magnific-popup.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/custom.js') }}"></script>
 
+@if(strpos(route::currentRouteName(),'Shop')!== false or strpos(route::currentRouteName(),'Discount')!== false )
     <!-- PRESI DALLA PAGINA category_page -->
     <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
     <script>
@@ -288,7 +294,7 @@
         });
     </script>
     <!-- PRESI DALLA PAGINA category_page END -->
-
+@endif
 
 <script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
 
@@ -319,7 +325,7 @@
     <!-- Maps da errore con le api, su forum ho letto che è a pagamento
     https://www.mtb-mag.com/forum/threads/questa-pagina-non-carica-correttamente-google-maps.369147/
 
-    OpenStreetMaps è un alternativa a Maps ma meno completa-->
+    OpenStreetMaps è un alternativa a Maps ma meno completa -->
 
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script>
