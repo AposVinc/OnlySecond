@@ -119,15 +119,4 @@ BRAND e COLLECTION:
 
 
 
-primi errori - 5 set   ok
-
-
-errori collection category 6 set    no - pero ripristina
-
-
-error offer - 7 set     no - pero ripristina
-
-edit banner - 10 set    no
-immagini Prod - 11 set  no
-
 
