@@ -47,16 +47,15 @@ Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata??
-mie recensioni - lasciare ricerca sotto breadcrumbs?
+aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
 
+mie recensioni - lasciare ricerca sotto breadcrumbs?
                 arancione titolo data voto - grassetto cod e brandname collection name
                         voto vicino titolo
                         grandezza caratteri graduale
                         giustificato al text
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
-
-In sconto - aggiungere where oggi slider offer
 
 
 

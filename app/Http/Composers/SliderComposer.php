@@ -21,8 +21,9 @@ class SliderComposer
     }
 
     public  function composeOffers(View $view){
-        $end_date =  date('Y-m-d H:i:s', strtotime('sunday this week'));       //https://stackoverflow.com/questions/53041191/get-current-week-start-end-date-with-dst
-        $offers = Offer::where('end','<=',$end_date)->with('product')->get();
+        $today = date('Y-m-d H:i:s', strtotime('now'));
+        $end_date = date('Y-m-d H:i:s', strtotime('sunday this week'));       //https://stackoverflow.com/questions/53041191/get-current-week-start-end-date-with-dst
+        $offers = Offer::where('end','>=',$today)->where('end','<=',$end_date)->with('product')->get();
 
         $view->with('offers', $offers);
     }

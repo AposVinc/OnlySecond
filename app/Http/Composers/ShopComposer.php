@@ -17,8 +17,8 @@ class ShopComposer
     }
 
     public  function composeDiscount(View $view){
-        $start_date =  date('Y-m-d H:i:s', strtotime('now'));
-        $offers = Offer::where('end','>=',$start_date)->with('product')->get();
+        $today =  date('Y-m-d H:i:s', strtotime('now'));
+        $offers = Offer::where('end','>=',$today)->with('product')->get();
 
         $view->with('offers', $offers);
     }
