@@ -7,6 +7,7 @@ qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per sli
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini (Inserire png Brand ecc...)
 
 
+
 BE
 ---------
 ?cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
@@ -49,12 +50,6 @@ se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata??
 aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
 
-mie recensioni - lasciare ricerca sotto breadcrumbs?
-                        arancione titolo data voto - grassetto cod e brandname collection name
-                        voto vicino titolo - non im piace, se titolo troppo lungo ...
-                        grandezza caratteri graduale -
-                        giustificato al text
-
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
 
@@ -84,7 +79,10 @@ Grafica Login/Registraz/pass dimenticata
 img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
 logica wishlist
 colore fercce degli slider (prod e brand)
-mie recensioni
+mie recensioni - lasciare ricerca sotto breadcrumbs?
+                        arancione titolo data voto, grassetto cod brandname collection name - grandezza caratteri graduale, giustificato al text
+                        voto vicino titolo (non im piace, se titolo troppo lungo ...)
+
 
 
 
