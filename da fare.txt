@@ -16,6 +16,7 @@ BE
 ?minibanner
 ?bottoni fine tabella (List)
 ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
+?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
 Elimina img prodotto
 
 EditDate() (js)
