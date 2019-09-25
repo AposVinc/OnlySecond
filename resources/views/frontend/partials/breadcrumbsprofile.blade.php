@@ -1,4 +1,4 @@
-<!-- =====  BANNER START  ===== -->
+<!-- =====  BREADCRUMB START  ===== -->
 <div class="col-sm-12">
     <div class="breadcrumb ptb_20">
         <h1>{{$slot}}</h1>
@@ -8,3 +8,4 @@
         </ul>
     </div>
 </div>
+<!-- =====  BREADCRUMB END  ===== -->

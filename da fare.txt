@@ -46,7 +46,7 @@ wishlist grafica    - decidere se aggiungere qualche altro campo
                         contollare il codice se scritto bene
 wishlist logica - azione aggiungi al carrello
                 - azione aggiunta alla wishlist - una volta che si riesce a mostrare le opzioni a comparsa del prodotto (view shop, in sconto e slider)
-metodi bottoni in wishlist e review sono post o get?
+metodi pulsanti in wishlist e review sono post o get?
 pagamento
 inidirizzi
 foto "chi siamo" statiche
@@ -56,6 +56,7 @@ num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata??
 aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
+url 404
 
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
