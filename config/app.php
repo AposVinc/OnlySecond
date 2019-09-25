@@ -177,6 +177,8 @@ return [
 
         App\Providers\ViewComposerServiceProvider::class,
 
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
         Spatie\Permission\PermissionServiceProvider::class,
     ],
 

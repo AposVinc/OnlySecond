@@ -46,11 +46,6 @@
 <!-- =====  LODER  ===== -->
 <div class="loder"></div>
 <div class="wrapper">
-    <!-- =====  POPUP START  ===== -->
-<!--
-        @include('frontend.partials.initialpopup')
-    -->
-    <!-- =====  POPUP END  ===== -->
     <!-- =====  HEADER START  ===== -->
     <header id="header">
         <div class="header-top riga">

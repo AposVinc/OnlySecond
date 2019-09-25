@@ -117,6 +117,7 @@ DatabaseSeeder extends Seeder
         $Double_Down_P44P1->color_id = $nero->id;
         $Double_Down_P44P1->save();
         $Double_Down_P44P1->categories()->save($classic);
+        $Double_Down_P44P1->categories()->save($water_resistence);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I1);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I2);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I3);
@@ -186,6 +187,7 @@ DatabaseSeeder extends Seeder
         $SportP1->color_id = $nero->id;
         $SportP1->save();
         $SportP1->categories()->save($smart);
+        $SportP1->categories()->save($water_resistence);
         $SportP1->images()->save($SportP1I1);
         $SportP1->images()->save($SportP1I2);
         $SportP1->images()->save($SportP1I3);
@@ -201,6 +203,7 @@ DatabaseSeeder extends Seeder
         $SportP2->color_id = $rosa->id;
         $SportP2->save();
         $SportP2->categories()->save($smart);
+        $SportP2->categories()->save($water_resistence);
         $SportP2->images()->save($SportP2I1);
         $SportP2->images()->save($SportP2I2);
         $SportP2->images()->save($SportP2I3);
@@ -216,6 +219,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP1->color_id = $grigio->id;
         $Q_ExploristP1->save();
         $Q_ExploristP1->categories()->save($smart);
+        $Q_ExploristP1->categories()->save($water_resistence);
         $Q_ExploristP1->images()->save($Q_ExploristP1I1);
         $Q_ExploristP1->images()->save($Q_ExploristP1I2);
         $Q_ExploristP1->images()->save($Q_ExploristP1I3);
@@ -229,6 +233,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP2->color_id = $marrone->id;
         $Q_ExploristP2->save();
         $Q_ExploristP2->categories()->save($smart);
+        $Q_ExploristP2->categories()->save($water_resistence);
         $Q_ExploristP2->images()->save($Q_ExploristP2I1);
         $Q_Explorist->products()->save($Q_ExploristP2);
 
@@ -240,6 +245,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP3->color_id = $nero->id;
         $Q_ExploristP3->save();
         $Q_ExploristP3->categories()->save($smart);
+        $Q_ExploristP3->categories()->save($water_resistence);
         $Q_ExploristP3->images()->save($Q_ExploristP3I1);
         $Q_Explorist->products()->save($Q_ExploristP3);
 
@@ -253,6 +259,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP4->color_id = $rosa->id;
         $Q_ExploristP4->save();
         $Q_ExploristP4->categories()->save($smart);
+        $Q_ExploristP4->categories()->save($water_resistence);
         $Q_ExploristP4->images()->save($Q_ExploristP4I1);
         $Q_ExploristP4->images()->save($Q_ExploristP4I2);
         $Q_ExploristP4->images()->save($Q_ExploristP4I3);

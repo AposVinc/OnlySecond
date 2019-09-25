@@ -56,7 +56,13 @@
                         </div>
                     </div>
                     <div id="review" class="mt_10 col-md-10">
-                        <h4><span>Prodotto:&ensp;</span>{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</h4>
+                        <div >
+                            <h4><span>Prodotto:&ensp;</span>{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</h4>
+                            <div style="position: absolute;top: 0;right: 0;">
+                                <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil"></a>
+                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" ></a>
+                            </div>
+                        </div>
                         <div class="mt_10">
                             <h5><span>Titolo:&ensp;&ensp;</span>{{$review->title}}</h5>
                             <h6><span>Voto:&ensp;</span>{{$review->vote}} &nbsp;&nbsp; <span>Data: </span>{{$review->created_at}}</h6>

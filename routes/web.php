@@ -11,6 +11,8 @@
 |
 */
 
+use App\Review;
+
 Route::get('/', function () {
     return view('frontend.index');
 });
@@ -79,6 +81,9 @@ Route::group(['middleware' => ['auth'] ], function () {
         return view('frontend.profile.wishlist');
     })->name('Wishlist');
 
+    Route::get('/Wishlist/Add/{cod}', 'ProductController@addToWishlist')->name('Wishlist.AddProduct');
+    Route::get('/Wishlist/Remove/{cod}', 'ProductController@removeByWishlist')->name('Wishlist.RemoveProduct');
+
     Route::get('/Payment', function () {
         return view('frontend.profile.payment');
     })->name('Payment');
@@ -86,6 +91,11 @@ Route::group(['middleware' => ['auth'] ], function () {
     Route::get('/Review', function () {
         return view('frontend.profile.review');
     })->name('Review');
+
+    Route::get('/Review/Remove/{id}', function ($id) {
+        Review::where('id',$id)->forceDelete();
+        return back();
+    })->name('Review.Remove');
 
 });
 

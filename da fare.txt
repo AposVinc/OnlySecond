@@ -40,7 +40,13 @@ shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
 logica Ordini
 logica modifica
-delete riga tabella wishlist
+wishlist grafica    - decidere se aggiungere qualche altro campo
+                    - decidere come fare i bottoni
+                    - se vuoto cosa fare?
+                        contollare il codice se scritto bene
+wishlist logica - azione aggiungi al carrello
+                - azione aggiunta alla wishlist - una volta che si riesce a mostrare le opzioni a comparsa del prodotto (view shop, in sconto e slider)
+metodi bottoni in wishlist e review sono post o get?
 pagamento
 inidirizzi
 foto "chi siamo" statiche

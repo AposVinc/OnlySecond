@@ -318,6 +318,25 @@ class ProductController extends Controller
         }
     }
 
+    public function addToWishlist($cod){
+        /*
+        $product = Product::where('cod', $cod)->first();
+        \Auth::user()->productsWishlist()->save($product);
+    */
+        if (\Auth::user()->productsWishlist()->where('cod', $cod)->first()){
+            return redirect()->back();
+        }else{
+             $product = Product::where('cod', $cod)->first();
+            \Auth::user()->productsWishlist()->save($product);
+            return redirect()->back();
+        }
+    }
+
+    public function removeByWishlist($cod){
+        $product = Product::where('cod', $cod)->first();
+        auth()->user()->productsWishlist()->detach($product);
+        return redirect()->back();
+    }
 }
 
 
