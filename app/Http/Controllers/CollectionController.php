@@ -173,12 +173,6 @@ class CollectionController extends Controller
     {
         $idcollection = $request->get('collection');
 
-        $banners = Banner::where('collection_id', $idcollection)->get();
-        if(collect($banners)->isNotEmpty()){
-            if(!(Banner::where('collection_id', $idcollection)->update(['hidden' => false]))){
-                return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
-            }
-        }
         if (Collection::where('id',$idcollection)->restore()) {
             return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
         }else{
@@ -196,12 +190,6 @@ class CollectionController extends Controller
     {
         $collection = $request->get('collection');
 
-        $banners = Banner::where('collection_id', $collection)->get();
-        if(collect($banners)->isNotEmpty()){
-            if(!(Banner::where('collection_id', $collection)->update(['hidden' => true]))){
-                return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
-            }
-        }
         if (Collection::withTrashed()->find($collection)->delete()) {
             return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
