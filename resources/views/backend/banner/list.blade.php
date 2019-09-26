@@ -31,7 +31,7 @@
                                         <th>Visibile</th>
                                         <th>Creato il</th>
                                         <th>Ultima modifica</th>
-                                        <th>Eliminato</th>
+                                        <th>Eliminato il</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,11 +47,7 @@
                                         @endif
                                         <td>{{$banner->created_at}}</td>
                                         <td>{{$banner->updated_at}}</td>
-                                        @if($banner->hidden)
-                                            <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td>
-                                        @else
-                                            <td class="centre-text-cell"><i class="fa fa-square-o"></i></td>
-                                        @endif
+                                        <td>{{$banner->deleted_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
