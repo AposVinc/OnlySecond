@@ -2,13 +2,10 @@
 
 namespace App;
 
-use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Offer extends Model
 {
-
     protected $primaryKey = 'id';
 
     /**
@@ -16,7 +13,6 @@ class Offer extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
 
     protected $fillable =[
         'rate','product_id',
