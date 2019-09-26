@@ -425,37 +425,49 @@ DatabaseSeeder extends Seeder
 
         /*---   CLIENTI REGISTRATI   -----------------------------------------------------*/
 
-        $user1 = new User(['name'=>'u', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
+        $user1 = new User(['name'=>'u','surname'=>'u', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
         $user1->save();
 
-        $user2 = new User(['name'=>'z', 'email'=>'z@z.it', 'password'=>'zzzzzzzz']);
+        $user2 = new User(['name'=>'z','surname'=>'z', 'email'=>'z@z.it', 'password'=>'zzzzzzzz']);
         $user2->save();
 
         /*---   INDIRIZZI   -----------------------------------------------------*/
 
-        $address1 = new Address(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147']);
+        $address1 = new Address(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147', 'favorite'=>1]);
+        $address1->name = $user1->name;
+        $address1->surname = $user1->surname;
         $user1->addresses()->save($address1);
         $address1->save();
 
         $address2 = new Address(['address'=>'Via Isonzo', 'civic_number'=>'35', 'city'=>'Pescara', 'region'=>'PE', 'zip'=>'65123']);
+        $address2->name = $user1->name;
+        $address2->surname = $user1->surname;
         $user1->addresses()->save($address2);
         $address2->save();
 
-        $address3 = new Address(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124']);
+        $address3 = new Address(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124','favorite'=>1]);
+        $address3->name = $user2->name;
+        $address3->surname = $user2->surname;
         $user2->addresses()->save($address3);
         $address3->save();
 
         /*---   INDIRIZZI DI FATTURAZIONE   -----------------------------------------------------*/
 
-        $billingaddress1 = new BillingAddress(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147']);
+        $billingaddress1 = new BillingAddress(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147','favorite'=>1]);
+        $billingaddress1->name = $user1->name;
+        $billingaddress1->surname = $user1->surname;
         $user1->billingaddresses()->save($billingaddress1);
         $billingaddress1->save();
 
         $billingaddress2 = new BillingAddress(['address'=>'Via Isonzo', 'civic_number'=>'35', 'city'=>'Pescara', 'region'=>'PE', 'zip'=>'65123']);
+        $billingaddress2->name = $user1->name;
+        $billingaddress2->surname = $user1->surname;
         $user1->billingaddresses()->save($billingaddress2);
         $billingaddress2->save();
 
-        $billingaddress3 = new BillingAddress(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124']);
+        $billingaddress3 = new BillingAddress(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124','favorite'=>1]);
+        $billingaddress3->name = $user2->name;
+        $billingaddress3->surname = $user2->surname;
         $user2->billingaddresses()->save($billingaddress3);
         $billingaddress3->save();
 

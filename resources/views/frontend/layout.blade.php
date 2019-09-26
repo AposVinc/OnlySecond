@@ -292,28 +292,29 @@
 
 <script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
 
+@if(strpos(route::currentRouteName(),'Address')!== false)
 <!-- checkout nuovo indirizzo-->
 <script type="text/javascript">
-    $('input[name=\'payment_address\']').on('change', function() {
+    $('input[name=\'select_address\']').on('change', function() {
         if (this.value == 'new') {
-            $('#payment-existing').hide();
-            $('#payment-new').show();
+            $('#address-existing').hide();
+            $('#address-new').show();
         } else {
-            $('#payment-existing').show();
-            $('#payment-new').hide();
+            $('#address-existing').show();
+            $('#address-new').hide();
         }
     });
-    $('input[name=\'shipping_address\']').on('change', function() {
-        if (this.value == 'new') {
-            $('#shipping-existing').hide();
-            $('#shipping-new').show();
+    $('input[name=\'select_billing_address\']').on('change', function() {
+        if (this.value == 'new_b') {
+            $('#billing-existing').hide();
+            $('#billing-new').show();
         } else {
-            $('#shipping-existing').show();
-            $('#shipping-new').hide();
+            $('#billing-existing').show();
+            $('#billing-new').hide();
         }
     });
 </script>
-
+@endif
 
 @if(strpos(route::currentRouteName(),'Contact')!== false)
     <!-- Maps da errore con le api, su forum ho letto che è a pagamento

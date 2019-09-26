@@ -48,7 +48,19 @@ wishlist logica - azione aggiungi al carrello
                 - azione aggiunta alla wishlist - una volta che si riesce a mostrare le opzioni a comparsa del prodotto (view shop, in sconto e slider)
 metodi pulsanti in wishlist e review sono post o get?
 pagamento
-inidirizzi
+logica inidirizzi - elimina indirizzo?
+                   -di solito si usa mettere "usare lo stesso indirizzo per la fatturazione?" (nel checkout però)
+                   -nel db conviene avere un unica entità address? - hanno la stessa struttura (possibile soluzione scritta dopo).
+                    posso lasciare le due relazioni?
+                   la fatturazione è chi paga, mentre la spedizione è chi riceve la merce
+                                la fatturazione percio puo esser fatta anche da una persona non registrato ma che appunto paga
+                   lo user_id rimarrebbe per permettere di mostrare tutti gli indirizzi
+
+                    come salvare i due tipi di indirizzi? metto due bool "mailing""billing"? c'è bisogno di un check? se si, come sarebbe?
+                  quando aggiungo il primo indirizzo di default =true, se aggiungo un altro di default=false
+                  se seleziono un indirizzo di spedizione preferito imposto tutti gli altri a 0 e solo quello a 1
+
+
 foto "chi siamo" statiche
 IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
