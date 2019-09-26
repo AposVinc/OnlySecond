@@ -19,8 +19,9 @@ class CreateBannersTable extends Migration
             $table->unsignedBigInteger('collection_id');
             $table->integer('counter'); //numero progressivo per creare path_image
             $table->boolean('visible'); //indica se il banner viene visualizzato o meno nella home page
-            $table->boolean('hidden')->default(false); //è true in caso in cui la collezione è eliminata
             $table->timestamps();
+
+            $table->softDeletes();
 
             $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade')->onUpdate('cascade');
         });
