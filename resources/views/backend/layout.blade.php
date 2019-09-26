@@ -400,6 +400,8 @@
             var visible = document.getElementById('visible');
             var banner = document.getElementById('banner');
             var value = banner.options[banner.selectedIndex].value;
+            var visible1 = document.getElementById('visible1');
+            var divVisible = document.getElementById('switchVisible');
 
             jQuery.ajax({
                 url:'{{ route('Admin.GetVisible') }}',
@@ -409,8 +411,12 @@
                 success:function(result) {
                     if(result){
                         visible.setAttribute('checked','true');
+                        visible1.setAttribute('checked','true');
+                        divVisible.style.removeProperty('display');
                     }else{
                         visible.removeAttribute('checked');
+                        visible1.removeAttribute('checked');
+                        divVisible.style.removeProperty('display');
                     }
                 },
                 error:function(xhr){

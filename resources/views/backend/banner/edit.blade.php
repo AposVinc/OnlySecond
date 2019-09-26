@@ -57,6 +57,16 @@
                         </label>
                     </div>
                 </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label">Mostra nella<br>Home Page</label></div>
+                    <div id="switchVisible" class="col col-md-9" style="display:none;">
+                        <label class="switch switch-3d switch-primary mr-3">
+                            <input id="visible1" name="visible1" type="checkbox" class="switch-input" value="true">
+                            <span class="switch-label"></span>
+                            <span class="switch-handle"></span>
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">

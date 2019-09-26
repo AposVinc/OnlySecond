@@ -34,7 +34,7 @@ class BannerController extends Controller
 
     public function showEditForm()
     {
-        if (Banner::where('hidden',false)->exists()){
+        if (Banner::withoutTrashed()->exists()){
             $brands = Brand::all();
             return view('backend.banner.edit',['brands' => $brands]);
         } else {
