@@ -395,35 +395,7 @@
             option.value= item.id;
             selectBanner.add(option);
         }
-
-        function GetVisible(){
-            var visible = document.getElementById('visible');
-            var banner = document.getElementById('banner');
-            var value = banner.options[banner.selectedIndex].value;
-            var visible1 = document.getElementById('visible1');
-            var divVisible = document.getElementById('switchVisible');
-
-            jQuery.ajax({
-                url:'{{ route('Admin.GetVisible') }}',
-                method:"POST",
-                dataType: "json",
-                data:{value:value, _token: "{{ csrf_token() }}"},
-                success:function(result) {
-                    if(result){
-                        visible.setAttribute('checked','true');
-                        visible1.setAttribute('checked','true');
-                        divVisible.style.removeProperty('display');
-                    }else{
-                        visible.removeAttribute('checked');
-                        visible1.removeAttribute('checked');
-                        divVisible.style.removeProperty('display');
-                    }
-                },
-                error:function(xhr){
-                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-                }
-            });
-        }
+        
     </script>
 @endif
 
