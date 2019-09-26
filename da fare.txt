@@ -46,6 +46,7 @@ wishlist grafica    - decidere se aggiungere qualche altro campo
                         contollare il codice se scritto bene
 wishlist logica - azione aggiungi al carrello
                 - azione aggiunta alla wishlist - una volta che si riesce a mostrare le opzioni a comparsa del prodotto (view shop, in sconto e slider)
+                - righe verticali tab da togliere?
 metodi pulsanti in wishlist e review sono post o get?
 pagamento
 logica inidirizzi - elimina indirizzo?
@@ -59,7 +60,8 @@ logica inidirizzi - elimina indirizzo?
                     come salvare i due tipi di indirizzi? metto due bool "mailing""billing"? c'è bisogno di un check? se si, come sarebbe?
                   quando aggiungo il primo indirizzo di default =true, se aggiungo un altro di default=false
                   se seleziono un indirizzo di spedizione preferito imposto tutti gli altri a 0 e solo quello a 1
-
+mie recensioni - lasciare ricerca sotto breadcrumbs?
+                - tooltip sui bottoni
 
 foto "chi siamo" statiche
 IN SCONTO - mostra shop con prod scontati
@@ -99,8 +101,7 @@ Grafica Login/Registraz/pass dimenticata
 img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
 logica wishlist
 colore fercce degli slider (prod e brand)
-mie recensioni - lasciare ricerca sotto breadcrumbs?
-                        arancione titolo data voto, grassetto cod brandname collection name - grandezza caratteri graduale, giustificato al text
+mie recensioni -        arancione titolo data voto, grassetto cod brandname collection name - grandezza caratteri graduale, giustificato al text
                         voto vicino titolo (non im piace, se titolo troppo lungo ...)
 
 

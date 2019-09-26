@@ -112,7 +112,9 @@ class BannerController extends Controller
             }else{
                 return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
             }
-        }
+         }else{
+             return redirect()->to('Admin/Banner/List')->with('error','Errore durante il caricamento. Riprovare!!');
+         }
     }
 
     public function update(Request $request)
