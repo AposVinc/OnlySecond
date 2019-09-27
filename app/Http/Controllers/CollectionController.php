@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Banner;
 use App\Brand;
 use App\Collection;
 use Illuminate\Http\Request;
@@ -53,48 +52,6 @@ class CollectionController extends Controller
         $value = $request->get('value');
         $collections = Collection::onlyTrashed()->where('brand_id', $value)->get();
         return $collections;
-    }
-
-    function getCollectionBanner(Request $request)
-    {
-        $value = $request->get('value');    //id del brand
-        $banners=Banner::withoutTrashed()->with('collection')->get();
-        $data=new \Illuminate\Database\Eloquent\Collection();
-        foreach ($banners as $banner){
-            $collections = Collection::withTrashed()->where('name',$banner->collection->name)->where('brand_id',$value)->get();
-            foreach ($collections as $collection){
-                if(!($data->contains($collection))){
-                    $data->add($collection);
-                }
-            }
-        }
-        $output = '<option value="0">Seleziona la collezione</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output;
-    }
-
-    function getCollectionBannerRestore(Request $request)
-    {
-        $value = $request->get('value');    //id del brand
-        $banners=Banner::onlyTrashed()->with('collection')->get();
-        $data=new \Illuminate\Database\Eloquent\Collection();
-        foreach ($banners as $banner){
-            $collections = Collection::withTrashed()->where('name',$banner->collection->name)->where('brand_id',$value)->get();
-            foreach ($collections as $collection){
-                if(!($data->contains($collection))){
-                    $data->add($collection);
-                }
-            }
-        }
-        $output = '<option value="0">Seleziona la collezione</option>';
-        foreach($data as $row)
-        {
-            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
-        }
-        return $output;
     }
 
     public function showRestoreForm()
