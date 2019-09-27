@@ -44,11 +44,11 @@ class BannerController extends Controller
 
     public function showDeleteForm()
     {
-        if (Banner::all()->isNotEmpty()){
+        if (Banner::withoutTrashed()->exists()){
             $brands = Brand::all();
             return view('backend.banner.delete', ['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Banner/List')->with('error','Non ci sono elementi da eliminare!!');
+            return redirect()->to('Admin/Banner/List')->with('error','Non ci sono Banner da Eliminare!!');
         }
     }
 
@@ -137,13 +137,12 @@ class BannerController extends Controller
     {
         $banner=$request->get('banner');
 
-        $b = Banner::where('id', $banner)->first();
-        $oldpath = $b->path_image;
+        $oldpath = Banner::where('id', $banner)->first()->path_image;
         $path = str_replace('storage', 'public', $oldpath);
-        if (Storage::delete($path) and $b->delete()){
+        if (Storage::delete($path) and Banner::where('id', $banner)->forceDelete()){
             return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
-            return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+            return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 

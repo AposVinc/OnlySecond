@@ -395,7 +395,7 @@
             option.value= item.id;
             selectBanner.add(option);
         }
-        
+
     </script>
 @endif
 
