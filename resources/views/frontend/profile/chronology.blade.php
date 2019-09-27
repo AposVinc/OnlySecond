@@ -9,89 +9,43 @@
                 Cronologia Ordini
             @endcomponent
 
-            <div class="col-lg-12 mtb_20">
-                <form enctype="multipart/form-data" method="post" action="#">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <td class="text-left">Codice Ordine</td>
-                                <td class="text-left">Data Ordine</td>
-                                <td class="text-left">N° Prodotti</td>
-                                <td class="text-right">Totale</td>
-                            </tr>
-                            </thead>
+            <div class="col-sm-12 col-lg-auto ">
 
-                            <tbody>
-                            @foreach(auth() -> User() -> orderHistories as $product )
-                            <tr>
-                                <td>
-                                    @foreach($product->name as $name)
-                                        {{$name->name}}
-                                    @endforeach
-                                </td>
-                                    <!--più prodotti, manca il numero ordine
-                                    <li><a href="product.html">Breil </a> cat, coll, 250€</li>
-                                    <li><a href="product.html">Tissot </a> cat, coll, 250€</li>
-                                -->
-                                </td>
-                                <td>{{$product->orderHistories->date}}</td>
-                                <td> {{$product->orderHistories->quantity}}</td>
+                @foreach(auth()->user()->orderHistories()->get() as $order )
 
-                                <td class="text-right">
-                                    @foreach($product->price as $totalprice)
-                                        {{$totalprice->totalprice}}
-                                    @endforeach
-                                </td>
-                                <td class="text-right">
-                                    <div style="max-width: 200px;">
-                                        <button class="btn">Dettaglio Ordine</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-
-                            <tbody>
-                            <tr>
-
-                                <td class="text-left">654321
-                                    <li><a href="product.html">Breil </a> cat, coll, 250€</li>
-                                    <li><a href="product.html">Tissot </a> cat, coll, 250€</li>
-                                </td>
-                                <td class="text-left">13/25/86</td>
-                                <td class="text-left"> 1 </td>
-                                <td class="text-right">120.00€</td>
-                                <td class="text-right">
-                                    <div style="max-width: 200px;">
-                                        <button class="btn">Dettaglio Ordine</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-
-                            <tbody>
-                            <tr>
-
-                                <td class="text-left">654321
-                                    <li><a href="product.html">Breil </a> cat, coll, 250€</li>
-                                    <li><a href="product.html">Tissot </a> cat, coll, 250€</li>
-                                </td>
-                                <td class="text-left">13/25/86</td>
-                                <td class="text-left"> 1 </td>
-                                <td class="text-right">120.00€</td>
-                                <td class="text-right">
-                                    <div style="max-width: 200px;">
-                                        <button class="btn">Dettaglio Ordine</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-
-                        </table>
+                    <div class="heading-part mt_20 mb_10">
+                        <div class="col-md-2 mr-md-2">
+                            <div class="sub_title">N° Ordine: &nbsp;</div>
+                            <div class="text_title">{{$order->id}}</div>
+                        </div>
+                        <div class="sub_title" style="font-style: italic; color: #fff;" >Data: &nbsp;</div>
+                        <div class="text_title">{{date('d-m-Y H:i', strtotime($order->created_at))}}</div>
                     </div>
-                </form>
+                    <div class="row">
+
+                        @foreach($order->products as $product)
+                            <div class="col-lg-12 mb_10">
+                                <div class="mt_10 col-md-2">
+                                    <div class="image product-imageblock ">
+                                        <a href="{{route('Product', ['cod' => $product->cod])}}">
+                                            <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="review" class="mt_10 col-md-10">
+                                    <div >
+                                        <h4><span>Prodotto:&ensp;</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</h4>
+                                    </div>
+                                </div>
+
+                                <!-- quantità venduta -->
+
+                            </div>
+                        @endforeach
+
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-    @endsection
+@endsection
