@@ -15,8 +15,8 @@
                         <form id="login-form" action="{{route('User.LoginPost')}}" method="post">
                         @csrf
                             <div class="content">
-                                <h1 class="header">Modifica Dati Personali
-                                </h1>
+                                <h3 class="header">Modifica Dati Personali
+                                </h3>
 
                                 <div class="table">
                                 <table class="table table-bordered">

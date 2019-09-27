@@ -10,7 +10,7 @@
             @endcomponent
 
             <div class="panel-default col-sm-10">
-                <h1>Seleziona Il Metodo Di Pagamento Preferito</h1>
+                <h3>Seleziona Il Metodo Di Pagamento Preferito</h3>
                 <div class="panel-body">
                     <p>Per favore seleziona il metodo di pagamento che preferisci utilizzare per quest'ordine</p>
 

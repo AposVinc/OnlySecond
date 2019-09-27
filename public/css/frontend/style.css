@@ -1599,6 +1599,26 @@ input#amount {
     margin-bottom: -3px;
     padding: 1px;
 }
+
+/*aggiunto da vinc*/
+.sub_title {
+    font-size: 18px;
+    float: left;
+    color: #ee5e11;
+    font-weight: 100;
+    line-height: 36px;
+}
+.text_title {
+    font-size: 16px;
+    font-style: italic;
+    float: left;
+    color: #808080;
+    font-weight: 100;
+    line-height: 36px;
+}
+
+/**/
+
 .heading-part {
     border-bottom: 2px solid #424242;
     display: inline-block;
