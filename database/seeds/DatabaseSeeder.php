@@ -250,7 +250,7 @@ DatabaseSeeder extends Seeder
         $Q_Explorist->products()->save($Q_ExploristP3);
 
         $Q_ExploristP4 = new Product(['cod' => 'FT4019','price' => '239', 'stock_availability' => '6',
-            'genre' => 'U','long_desc' => 'long desc']);
+            'genre' => 'U','long_desc' => 'long desc','quantity_sold' => 1]);
         $Q_ExploristP4I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa.jpg', 'main' => '1']);
         $Q_ExploristP4I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa_1.jpg', 'main' => '0']);
         $Q_ExploristP4I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa_2.jpg', 'main' => '0']);
@@ -433,43 +433,29 @@ DatabaseSeeder extends Seeder
 
         /*---   INDIRIZZI   -----------------------------------------------------*/
 
-        $address1 = new Address(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147', 'favorite'=>1]);
+        $address1 = new Address(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147', 'mailing'=>1]);
         $address1->name = $user1->name;
         $address1->surname = $user1->surname;
         $user1->addresses()->save($address1);
         $address1->save();
 
-        $address2 = new Address(['address'=>'Via Isonzo', 'civic_number'=>'35', 'city'=>'Pescara', 'region'=>'PE', 'zip'=>'65123']);
+        $address2 = new Address(['address'=>'Via Isonzo', 'civic_number'=>'35', 'city'=>'Pescara', 'region'=>'PE', 'zip'=>'65123', 'billing'=>1]);
         $address2->name = $user1->name;
         $address2->surname = $user1->surname;
         $user1->addresses()->save($address2);
         $address2->save();
 
-        $address3 = new Address(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124','favorite'=>1]);
+        $address3 = new Address(['address'=>'Via XX Settembre', 'civic_number'=>'9', 'city'=>'L\'Aquila', 'region'=>'AQ', 'zip'=>'67100']); //indirizzo per regalo
         $address3->name = $user2->name;
         $address3->surname = $user2->surname;
-        $user2->addresses()->save($address3);
+        $user1->addresses()->save($address3);
         $address3->save();
 
-        /*---   INDIRIZZI DI FATTURAZIONE   -----------------------------------------------------*/
-
-        $billingaddress1 = new BillingAddress(['address'=>'Via Meropia', 'civic_number'=>'24', 'city'=>'Roma', 'region'=>'RM', 'zip'=>'00147','favorite'=>1]);
-        $billingaddress1->name = $user1->name;
-        $billingaddress1->surname = $user1->surname;
-        $user1->billingaddresses()->save($billingaddress1);
-        $billingaddress1->save();
-
-        $billingaddress2 = new BillingAddress(['address'=>'Via Isonzo', 'civic_number'=>'35', 'city'=>'Pescara', 'region'=>'PE', 'zip'=>'65123']);
-        $billingaddress2->name = $user1->name;
-        $billingaddress2->surname = $user1->surname;
-        $user1->billingaddresses()->save($billingaddress2);
-        $billingaddress2->save();
-
-        $billingaddress3 = new BillingAddress(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124','favorite'=>1]);
-        $billingaddress3->name = $user2->name;
-        $billingaddress3->surname = $user2->surname;
-        $user2->billingaddresses()->save($billingaddress3);
-        $billingaddress3->save();
+        $address4 = new Address(['address'=>'Viale Tunisia', 'civic_number'=>'74', 'city'=>'Milano', 'region'=>'MI', 'zip'=>'20124', 'billing'=>1, 'mailing'=>1]);
+        $address4->name = $user2->name;
+        $address4->surname = $user2->surname;
+        $user2->addresses()->save($address4);
+        $address4->save();
 
         /*---   PAGAMENTI   -----------------------------------------------------*/
 
@@ -488,33 +474,41 @@ DatabaseSeeder extends Seeder
         $order1->user_id = $user1->id;
         $order1->payment_id = $payment1->id;
         $order1->courier_id = $courier1->id;
-        $order1->address_id = $address1->id;
-        $order1->billing_address_id = $billingaddress1->id;
+        $order1->mailing_address_id = $address1->id;
+        $order1->billing_address_id = $address1->id;
         $order1->save();
 
         $order2 = new OrderHistory(['gift'=>'0', 'total_price'=>'80']);
         $order2->user_id = $user1->id;
         $order2->payment_id = $payment2->id;
         $order2->courier_id = $courier1->id;
-        $order2->address_id = $address2->id;
-        $order2->billing_address_id = $billingaddress2->id;
+        $order2->mailing_address_id = $address2->id;
+        $order2->billing_address_id = $address1->id;
         $order2->save();
 
-        $order3 = new OrderHistory(['gift'=>'0', 'total_price'=>'74']);
-        $order3->user_id = $user2->id;
+        $order3 = new OrderHistory(['gift'=>'1', 'total_price'=>'74']);
+        $order3->user_id = $user1->id;
         $order3->payment_id = $payment1->id;
         $order3->courier_id = $courier2->id;
-        $order3->address_id = $address3->id;
-        $order3->billing_address_id = $billingaddress3->id;
+        $order3->mailing_address_id = $address3->id;
+        $order3->billing_address_id = $address1->id;
         $order3->save();
 
-        $order4 = new OrderHistory(['gift'=>'0', 'total_price'=>'84']);
+        $order4 = new OrderHistory(['gift'=>'0', 'total_price'=>'74']);
         $order4->user_id = $user2->id;
-        $order4->payment_id = $payment2->id;
-        $order4->courier_id = $courier3->id;
-        $order4->address_id = $address3->id;
-        $order4->billing_address_id = $billingaddress3->id;
+        $order4->payment_id = $payment1->id;
+        $order4->courier_id = $courier2->id;
+        $order4->mailing_address_id = $address4->id;
+        $order4->billing_address_id = $address4->id;
         $order4->save();
+
+        $order5 = new OrderHistory(['gift'=>'0', 'total_price'=>'84']);
+        $order5->user_id = $user2->id;
+        $order5->payment_id = $payment2->id;
+        $order5->courier_id = $courier3->id;
+        $order5->mailing_address_id = $address4->id;
+        $order5->billing_address_id = $address4->id;
+        $order5->save();
 
         /*---   PRODOTTI PER OGNI STORICO   -----------------------------------------------------*/
 
@@ -524,14 +518,16 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P1->orderHistories()->save($order2,['quantity' => 1]);
         $CarlieP3->orderHistories()->save($order2,['quantity' => 1]);
 
-        $Double_Down_P44P1->orderHistories()->save($order3,['quantity' => 2]);
-        $Q_ExploristP2->orderHistories()->save($order3,['quantity' => 1]);
-        $Moon_P2->orderHistories()->save($order3,['quantity' => 2]);
+        $Q_ExploristP4->orderHistories()->save($order3,['quantity' => 1]);
 
-        $Moon_P2->orderHistories()->save($order4,['quantity' => 1]);
-        $CarlieP2->orderHistories()->save($order4,['quantity' => 1]);
-        $CarlieP1->orderHistories()->save($order4,['quantity' => 2]);
-        $SportP1->orderHistories()->save($order4,['quantity' => 1]);
+        $Double_Down_P44P1->orderHistories()->save($order4,['quantity' => 2]);
+        $Q_ExploristP2->orderHistories()->save($order4,['quantity' => 1]);
+        $Moon_P2->orderHistories()->save($order4,['quantity' => 2]);
+
+        $Moon_P2->orderHistories()->save($order5,['quantity' => 1]);
+        $CarlieP2->orderHistories()->save($order5,['quantity' => 1]);
+        $CarlieP1->orderHistories()->save($order5,['quantity' => 2]);
+        $SportP1->orderHistories()->save($order5,['quantity' => 1]);
 
         /*---   WISHLIST   -----------------------------------------------------*/
 

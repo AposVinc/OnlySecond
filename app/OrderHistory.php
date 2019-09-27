@@ -28,10 +28,6 @@ class OrderHistory extends Model
         return $this->belongsTo('App\Address');
     }
 
-    public function billingAddress()
-    {
-        return $this->belongsTo('App\BillingAddress');
-    }
 
     public function products(){
 //ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,

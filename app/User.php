@@ -55,11 +55,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Address');
     }
 
-    public function billingAddresses()
-    {
-        return $this->hasMany('App\BillingAddress');
-    }
-
     public function reviews()
     {
         return $this->hasMany('App\Review')->withTrashed();

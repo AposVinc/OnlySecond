@@ -23,7 +23,8 @@ class CreateAddressesTable extends Migration
             $table->string('city'); //citta
             $table->string('region');   //provincia
             $table->string('zip');  //cap
-            $table->boolean('favorite')->default(0);
+            $table->boolean('mailing')->default(0);
+            $table->boolean('billing')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
