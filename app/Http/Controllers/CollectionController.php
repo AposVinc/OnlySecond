@@ -162,8 +162,10 @@ class CollectionController extends Controller
                 }
             }
             if($visible){
-                $countVisible = Banner::withoutTrashed()->where('visible', true)->count('visible');
-                if($countVisible>=2) {
+                $countVisibleTot = Banner::withoutTrashed()->where('visible', true)->count('visible');
+                $coutnVisibleCollection = Banner::withoutTrashed()->where('visible', true)->where('collection_id',$idcollection)->count('visible');
+                $countVisible = $countVisibleTot - $coutnVisibleCollection;
+                if($countVisible>=1) {
                     if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])) {
                         if ($collection->delete()) {
                             return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
