@@ -29,7 +29,7 @@
                                     <th>Logo</th>
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
-                                    <th>Eliminato il</th>
+                                    <th>Disattivato il</th>
                                 </tr>
                                 </thead>
                                 <tbody>

@@ -21,7 +21,7 @@
 
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-body" id="click">
+                        <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
@@ -31,7 +31,7 @@
                                         <th>Visibile</th>
                                         <th>Creato il</th>
                                         <th>Ultima modifica</th>
-                                        <th>Eliminato il</th>
+                                        <th>Disattivato il</th>
                                     </tr>
                                 </thead>
                                 <tbody>

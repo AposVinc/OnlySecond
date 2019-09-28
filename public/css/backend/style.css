@@ -20,6 +20,9 @@
  *
  * Copyright (c) 2018 Daniel Eden
  */
+.pt_24{
+  padding-top: 24px;
+}
 .add{ /* nuova classe creata per mettere dei margini al form*/
   margin-left: 30px;
   margin-top: 25px;

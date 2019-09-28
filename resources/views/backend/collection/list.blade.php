@@ -28,7 +28,7 @@
                                     <th>Nome Collezione</th>
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
-                                    <th>Eliminato il</th>
+                                    <th>Disattivato il</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -46,8 +46,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->

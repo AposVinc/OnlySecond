@@ -40,9 +40,7 @@
                     </div>
                 </div>
 
-                &emsp;
-
-                <div class="row form-group">
+                <div class="row form-group pt_24">
                     <div class="col col-md-3"><label for="newbrand" class=" form-control-label">Nuovo Brand</label></div>
                     <div class="col-12 col-md-9">
                         <select name="newbrand" id="newbrand" class="form-control" required>

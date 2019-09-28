@@ -42,7 +42,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="banner" class=" form-control-label">Banner</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="banner" id="banner" class="form-control"required>
+                        <select name="banner" id="banner" class="form-control" required>
                             <option value="">Seleziona il banner </option>
                         </select>
                     </div>

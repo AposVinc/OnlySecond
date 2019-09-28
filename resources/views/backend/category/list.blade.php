@@ -26,7 +26,7 @@
                                     <th>Nome</th>
                                     <th>Creata il</th>
                                     <th>Ultima Modifica</th>
-                                    <th>Eliminata il</th>
+                                    <th>Disattivata il</th>
                                 </tr>
                                 </thead>
                                 <tbody>

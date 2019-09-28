@@ -31,9 +31,7 @@
                     </div>
                 </div>
 
-                &emsp;
-
-                <div class="row form-group">
+                <div class="row form-group pt_24">
                     <div class="col col-md-3"><label for="newname" class=" form-control-label">Nome Categoria</label></div>
                     <div class="col-12 col-md-9"><input value="" type="text" id="newname" name="newname" placeholder="Inserisci il nuovo nome della categoria" class="form-control" required>
                     </div>
