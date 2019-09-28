@@ -137,13 +137,36 @@ class BannerController extends Controller
     {
         $banner=$request->get('banner');
 
+        if(Banner::where('id', $banner)->first()->visible){
+            $countVisible = Banner::withoutTrashed()->where('visible', true)->count('visible');
+            if($countVisible>=2){
+                $result = $this->removeBanner($banner);
+                if($result == "Success"){
+                    return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
+                }else{
+                    return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                }
+            }else{
+                return redirect()->to('Admin/Banner/List')->with('error', 'Attenzione!! Rendere visibile un altro banner per effettuare questa Eliminazione');
+            }
+        }else{
+            $result = $this->removeBanner($banner);
+            if($result == "Success"){
+                return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            }else{
+                return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+    }
+
+    function removeBanner($banner){
         $oldpath = Banner::where('id', $banner)->first()->path_image;
         $path = str_replace('storage', 'public', $oldpath);
 
         if (Storage::delete($path) and Banner::where('id', $banner)->forceDelete()){
-            return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            return "Success";
         } else {
-            return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            return "Error";
         }
     }
 
