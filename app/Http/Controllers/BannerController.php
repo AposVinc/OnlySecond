@@ -120,11 +120,17 @@ class BannerController extends Controller
     public function update(Request $request)
     {
         $id=$request->get('banner');
+
         $banner = Banner::where('id', $id)->first();
         if($request->get('visible')){
             $banner->visible = true;
         }else{
-            $banner->visible = false;
+            $countVisible = Banner::withoutTrashed()->where('visible', true)->count('visible');
+            if($countVisible>=2) {
+                $banner->visible = false;
+            }else{
+                return redirect()->to('Admin/Banner/List')->with('error', 'Attenzione!! Rendere visibile un altro banner per effettuare questa Modifica');
+            }
         }
         if ($banner->update()){
             return redirect()->to('Admin/Banner/List')->with('success','Modifiche avvenute con successo!!');
