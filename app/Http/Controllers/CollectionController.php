@@ -153,14 +153,43 @@ class CollectionController extends Controller
 
         $collection = Collection::withTrashed()->where('id',$idcollection)->first();
 
-        if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])) {
+        if(Banner::withoutTrashed()->where('collection_id', $idcollection)->exists()){
+            $visible = false;
+            $banners = Banner::withoutTrashed()->where('collection_id', $idcollection)->get();
+            foreach ($banners as $banner){
+                if($banner->visible){
+                    $visible = true;
+                }
+            }
+            if($visible){
+                $countVisible = Banner::withoutTrashed()->where('visible', true)->count('visible');
+                if($countVisible>=2) {
+                    if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])) {
+                        if ($collection->delete()) {
+                            return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
+                        } else {
+                            return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                        }
+                    }else{
+                        return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                    }
+                }else{
+                    return redirect()->to('Admin/Collection/List')->with('error', 'Attenzione!! Rendere visibile un altro Banner per effettuare questa Eliminazione');
+                }
+            }else{
+                if ($collection->delete()) {
+                    return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
+                } else {
+                    return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                }
+            }
+        }else{
             if ($collection->delete()) {
                 return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
             } else {
                 return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
             }
-        }else{
-            return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
+
 }
