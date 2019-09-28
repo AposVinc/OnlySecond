@@ -1607,6 +1607,7 @@ input#amount {
     color: #ee5e11;
     font-weight: 100;
     line-height: 36px;
+    margin-right: 5px;
 }
 .text_title {
     font-size: 16px;
@@ -1615,8 +1616,9 @@ input#amount {
     color: #808080;
     font-weight: 100;
     line-height: 36px;
-}
+    margin-right: 5px;
 
+}
 /**/
 
 .heading-part {
@@ -2778,22 +2780,52 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
     /* =====  END RESPONSIVE CSS  =====*/
 
-#review h4{
+
+
+
+/*aggiunto da vinc
+.sub_title {
+    font-size: 18px;
+    float: left;
+    color: #ee5e11;
+    font-weight: 100;
+    line-height: 36px;
+    margin-right: 5px;
+}
+.text_title {
+    font-size: 16px;
+    font-style: italic;
+    float: left;
+    color: #808080;
+    font-weight: 100;
+    line-height: 36px;
+    margin-right: 5px;
+
+}*/
+#review label{
+    font-weight: normal;
+}
+
+#review label>span{
+    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
+    margin-right: 5px;
+}
+
+#review .product-name{
+    font-size: 18px;
     font-weight: bold;
 }
-#review h6{
-    font-size: 13px;
-}
-
-#review h4>span{
+#review .product-name>span{
     font-weight: normal;
-    color: #ee5e11;     /*#ff6300   #ff711a     #e6641e     #ee5e11*/
-}
-#review h5>span{
-    color: #ee5e11;
-}
-#review h6>span{
-    color: #ee5e11;
+    margin-right: 7px;
 }
 
+#review .review-title{
+    font-size: 16px;
+    display: block;
+}
 
+#review .review-vote-date{
+    font-size: 13px;
+    display: block;
+}
