@@ -133,15 +133,12 @@ class CollectionController extends Controller
 
         $collection = Collection::withTrashed()->where('id',$idcollection)->first();
 
-        if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])){
-            if ($collection->restore()) {
-                return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
-            }else{
-                return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
-            }
+        if ($collection->restore()) {
+            return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
         }else{
             return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
         }
+
     }
 
     /**
@@ -152,11 +149,17 @@ class CollectionController extends Controller
      */
     public function destroy(Request $request)
     {
-        $collection = $request->get('collection');
+        $idcollection = $request->get('collection');
 
-        if (Collection::withTrashed()->find($collection)->delete()) {
-            return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
-        } else {
+        $collection = Collection::withTrashed()->where('id',$idcollection)->first();
+
+        if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])) {
+            if ($collection->delete()) {
+                return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }else{
             return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
