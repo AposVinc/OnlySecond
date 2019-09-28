@@ -19,6 +19,7 @@ BE
 ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
 ?cambiare ripristina con riattiva
 ?ordinamento campi checkbox nelle liste
+?rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
 Elimina img prodotto
 
 EditDate() (js)
