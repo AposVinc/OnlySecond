@@ -139,6 +139,7 @@ class BannerController extends Controller
 
         $oldpath = Banner::where('id', $banner)->first()->path_image;
         $path = str_replace('storage', 'public', $oldpath);
+
         if (Storage::delete($path) and Banner::where('id', $banner)->forceDelete()){
             return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {

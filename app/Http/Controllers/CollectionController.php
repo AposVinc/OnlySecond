@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
 use App\Brand;
 use App\Collection;
 use Illuminate\Http\Request;
@@ -130,8 +131,14 @@ class CollectionController extends Controller
     {
         $idcollection = $request->get('collection');
 
-        if (Collection::where('id',$idcollection)->restore()) {
-            return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
+        $collection = Collection::withTrashed()->where('id',$idcollection)->first();
+
+        if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])){
+            if ($collection->restore()) {
+                return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
+            }else{
+                return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+            }
         }else{
             return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
         }
