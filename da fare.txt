@@ -17,6 +17,8 @@ BE
 ?bottoni fine tabella (List)
 ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
 ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
+?cambiare ripristina con riattiva
+?ordinamento campi checkbox nelle liste
 Elimina img prodotto
 
 EditDate() (js)
