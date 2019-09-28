@@ -30,7 +30,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($categories as $category )
+                                @foreach($categories as $category)
                                     <tr>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->created_at}}</td>

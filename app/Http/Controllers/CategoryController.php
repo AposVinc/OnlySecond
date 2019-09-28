@@ -26,17 +26,21 @@ class CategoryController extends Controller
 
     public function showEditForm()
     {
-        $categories = Category::withoutTrashed()->get();
-        return view('backend.category.edit', ['categories' => $categories]);
+        if (Category::withoutTrashed()->exists()){
+            $categories = Category::all();
+            return view('backend.category.edit', ['categories' => $categories]);
+        } else {
+            return redirect()->to('Admin/Category/List')->with('error','Non ci sono Categorie da Modificare!!');
+        }
     }
 
     public function showRestoreForm()
     {
         if (Category::onlyTrashed()->exists()){
-            $categories = Category::all();
-            return view('backend.category.delete', ['categories' => $categories]);
+            $categories = Category::onlyTrashed()->get();
+            return view('backend.category.restore', ['categories' => $categories]);
         } else {
-            return redirect()->to('Admin/Category/List')->with('error','Non ci sono elementi da ripristinare!!');
+            return redirect()->to('Admin/Category/List')->with('error','Non ci sono Categorie da Ripristinare!!');
         }
     }
 
@@ -46,7 +50,7 @@ class CategoryController extends Controller
             $categories = Category::all();
             return view('backend.category.delete', ['categories' => $categories]);
         } else {
-            return redirect()->to('Admin/Category/List')->with('error','Non ci sono elementi da Eliminare!!');
+            return redirect()->to('Admin/Category/List')->with('error','Non ci sono Categorie da Eliminare!!');
         }
     }
 
@@ -85,7 +89,10 @@ class CategoryController extends Controller
     {
         $id = $request->get('category');
 
-        if (Category::where('id', $id)->restore()) {
+        $category = Category::withTrashed()->where('id', $id)->first();
+
+
+        if ($category->restore()) {
             return redirect()->to('Admin/Category/List')->with('success','Ripristino avvenuto con successo!!');
         }else{
             return redirect()->to('Admin/Category/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
@@ -96,10 +103,10 @@ class CategoryController extends Controller
     {
         $id = $request->get('category');
 
-        if (Category::where('id', $id)->delete()) {
+        if (Category::withTrashed()->find($id)->delete()) {
             return redirect()->to('Admin/Category/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
-            return redirect()->to('Admin/Category/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+            return redirect()->to('Admin/Category/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 
