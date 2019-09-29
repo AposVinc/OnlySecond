@@ -502,7 +502,7 @@ h6 {
     font-weight: 500;
 }
 .btn:hover, .btn:focus, .btn.focus {
-    background: #808080 none repeat scroll 0 0;
+    background: #ee5e11 none repeat scroll 0 0;
     color: #fff;
     text-decoration: none;
 }
@@ -2781,27 +2781,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     /* =====  END RESPONSIVE CSS  =====*/
 
 
-
-
-/*aggiunto da vinc
-.sub_title {
-    font-size: 18px;
-    float: left;
-    color: #ee5e11;
-    font-weight: 100;
-    line-height: 36px;
-    margin-right: 5px;
-}
-.text_title {
-    font-size: 16px;
-    font-style: italic;
-    float: left;
-    color: #808080;
-    font-weight: 100;
-    line-height: 36px;
-    margin-right: 5px;
-
-}*/
 #review label{
     font-weight: normal;
 }
