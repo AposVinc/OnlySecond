@@ -24,7 +24,7 @@ class RoleController extends Controller
             $roles = Role::all();
             return view('backend.role.edit', ['roles' => $roles]);
         }else{
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Ruoli da Modificare!!');
+            return redirect()->to('Admin/Role/List')->with('error','Non ci sono Ruoli da Modificare!!');
         }
     }
 
@@ -34,7 +34,7 @@ class RoleController extends Controller
             $roles = Role::all();
             return view('backend.role.delete', ['roles' => $roles]);
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Ruoli da Eliminare!!');
+            return redirect()->to('Admin/Role/List')->with('error','Non ci sono Ruoli da Eliminare!!');
         }
     }
 

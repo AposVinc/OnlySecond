@@ -16,15 +16,23 @@ class AdminController extends Controller
 
     public function showAddForm()
     {
-        $roles = Role::all();
-        return view('backend.user.add',['roles' => $roles]);
+        if (Role::all()->isNotEmpty()) {
+            $roles = Role::all();
+            return view('backend.user.add',['roles' => $roles]);
+        }else{
+            return redirect()->to('Admin/User/List')->with('error','Impossibile inserire un nuovo Utente. Inserire prima un Ruolo!!');
+        }
     }
 
     public function showEditForm()
     {
-        $users = Admin::withTrashed()->get();
-        $roles = Role::all();
-        return view('backend.user.edit', ['users' => $users, 'roles' => $roles]);
+        if (Admin::all()->isNotEmpty()) {
+            $users = Admin::withTrashed()->get();
+            $roles = Role::all();
+            return view('backend.user.edit', ['users' => $users, 'roles' => $roles]);
+        }else{
+            return redirect()->to('Admin/User/List')->with('error','Non ci sono Utenti da Modificare!!');
+        }
     }
 
     public function showRestoreForm()
@@ -33,7 +41,7 @@ class AdminController extends Controller
             $users = Admin::onlyTrashed()->get();
             return view('backend.user.restore', ['users' => $users]);
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da ripristinare!!');
+            return redirect()->to('Admin/User/List')->with('error','Non ci sono Utenti da Ripristinare!!');
         }
     }
 
@@ -43,15 +51,15 @@ class AdminController extends Controller
             $users = Admin::all();
             return view('backend.user.delete', ['users' => $users]);
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da Eliminare!!');
+            return redirect()->to('Admin/User/List')->with('error','Non ci sono Utenti da Eliminare!!');
         }
     }
 
 
     public function create(Request $request)  //
     {
-        if (Admin::where('name', $request->name)->first()) {
-            return redirect()->to('Admin/User/List')->with('error', 'Esiste già un Utente con il nome inserito!!');
+        if (Admin::where('email', $request->email)->first()) {
+            return redirect()->to('Admin/User/List')->with('error', 'Esiste già un Utente con l\'email inserita!!');
         }
 
         $user = new Admin();
@@ -61,16 +69,16 @@ class AdminController extends Controller
         $user->assignRole(Role::findById($request->role,'admin'));
 
         if($user->save()){
-            return redirect()->route('Admin.User.List');
+            return redirect()->route('Admin.User.List')->with('success', 'Caricamento avvenuto con successo!!');
         } else {
-            return redirect()->route('Admin.User.List');
+            return redirect()->route('Admin.User.List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
         }
     }
 
     public function update(Request $request)
     {
         $user = Admin::where('id', $request['user'])->first();
-        if ($user->name == $request->name) {
+        if ($user->email == $request->email) {
             if ($user->update(['name' => $request['name'], 'email' => $request['email'], 'password' => $request['password']])){
                 $user->syncRoles([$request['role']]);
                 return redirect()->to('Admin/User/List')->with('success', 'Modifiche avvenute con successo!!');
@@ -78,7 +86,7 @@ class AdminController extends Controller
                 return redirect()->to('Admin/User/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
             }
         } else {
-            if (Admin::where('name', $request->name)->first()) {
+            if (Admin::where('email', $request->email)->first()) {
                 return redirect()->to('Admin/User/List')->with('error', 'Esiste già un Utente con il nome inserito!!');
             }
             if ($user->update(['name' => $request['name'], 'email' => $request['email'], 'password' => $request['password']]) ){
@@ -110,7 +118,7 @@ class AdminController extends Controller
         if (Admin::withTrashed()->find($request->user)->delete()) {
             return redirect()->to('Admin/User/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
-            return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+            return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 }

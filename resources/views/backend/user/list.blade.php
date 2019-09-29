@@ -23,14 +23,14 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Ruolo</th>
-                                    <th>Email</th>
-                                    <th>Creato il</th>
-                                    <th>Ultima modifica</th>
-                                    <th>Eliminato il</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Ruolo</th>
+                                        <th>Email</th>
+                                        <th>Creato il</th>
+                                        <th>Ultima modifica</th>
+                                        <th>Disattivato il</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($users as $user)

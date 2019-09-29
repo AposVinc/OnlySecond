@@ -17,25 +17,22 @@
 
     <form action="{{route('Admin.User.EditPost')}}" method="post" class="form-horizontal">
     @csrf
-    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+
+        <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="user" class=" form-control-label">Utente</label></div>
                     <div class="col-12 col-md-9">
                         <select name="user" id="user" class="form-control" required>
-                            <option value="" selected>Seleziona l'Utente</option>
+                            <option value="" selected>Seleziona l'Utente da modififcare</option>
                             @foreach($users as $user)
                                 <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
                         </select>
-                        <small class="help-block form-text">Seleziona l'Utente da modificare</small>
                     </div>
                 </div>
 
-                &emsp;
-
-                <div class="row form-group">
+                <div class="row form-group pt_24">
                     <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nuovo nome" class="form-control" required></div>
                 </div>
@@ -69,7 +66,7 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
 
 @endsection
