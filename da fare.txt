@@ -28,6 +28,7 @@ FE
 ---------
 ?cerca
 --Vale -- Pagina Dettaglio prodotto - grafica
+bottoni sul sito, se si passa col cursore sopra cambiano colore
 Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
 nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
 shop - se si mette where('main',0) da errore sul path
@@ -39,7 +40,7 @@ login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
 grafica Storico Ordini
-logica modifica
+logica modifica -   all'inizio tutti disabilitati ed è presente solo tasto in basso "modifica"
 wishlist grafica    - decidere se aggiungere qualche altro campo
                     - decidere come fare i bottoni
                     - se vuoto cosa fare?
