@@ -16,7 +16,7 @@
 
     <form action="{{route('Admin.Newsletter.SendMail')}}" method="post" class="form-horizontal">
         @csrf
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+        <div class="card add">
             <div class="card-body card-block">
 
                 <div class="row form-group">
@@ -37,7 +37,7 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
 
 @endsection

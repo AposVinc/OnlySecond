@@ -38,7 +38,7 @@ class NewsletterController extends Controller
     public function create(Request $request)
     {
         if (Newsletter::where('email', $request->email)->first()) {
-            return back()->with('error', 'Esiste già un Offerta per il prodotto inserito!!');
+            return back()->with('error', 'Questa Email è già stata inserita!!');
         }
 
         $n = new Newsletter();
@@ -50,7 +50,5 @@ class NewsletterController extends Controller
             return back()->with('error', 'Errore durante il caricamento. Riprovare!!!!');
         }
     }
-
-
 
 }

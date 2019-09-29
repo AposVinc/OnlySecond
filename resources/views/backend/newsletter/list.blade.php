@@ -22,11 +22,11 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                <tr>
-                                    <th>Email</th>
-                                    <th>Creato il</th>
-                                    <th>Ultima modifica</th>
-                                </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Creato il</th>
+                                        <th>Ultima modifica</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($newsletters as $newsletter)
