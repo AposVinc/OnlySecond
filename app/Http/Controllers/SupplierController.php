@@ -20,8 +20,12 @@ class SupplierController extends Controller
 
     public function showEditForm()
     {
-        $suppliers = Supplier::withTrashed()->get();
-        return view('backend.supplier.edit', ['suppliers' => $suppliers]);
+        if (Supplier::withoutTrashed()->exists()){
+            $suppliers = Supplier::all();
+            return view('backend.supplier.edit', ['suppliers' => $suppliers]);
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono Fornitori da Modificare!!');
+        }
     }
 
     public function showRestoreForm()
@@ -30,7 +34,7 @@ class SupplierController extends Controller
             $suppliers = Supplier::onlyTrashed()->get();
             return view('backend.supplier.restore', ['suppliers' => $suppliers]);
         } else {
-            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono elementi da ripristinare!!');
+            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono Fornitori da Ripristinare!!');
         }
     }
 
@@ -40,7 +44,7 @@ class SupplierController extends Controller
             $suppliers = Supplier::all();
             return view('backend.supplier.delete', ['suppliers' => $suppliers]);
         } else {
-            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono elementi da Eliminare!!');
+            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono Fornitori da Eliminare!!');
         }
     }
 
@@ -53,8 +57,8 @@ class SupplierController extends Controller
      */
     public function create(Request $request)  //
     {
-        if (Supplier::where('name', $request->name)->first()) {
-            return redirect()->to('Admin/Supplier/List')->with('error', 'Esiste già un Fornitore con il nome inserito!!');
+        if (Supplier::where('email', $request->email)->first()) {
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Il fornitore già esiste!!');
         }
         $input = $request->all();
 
@@ -83,15 +87,15 @@ class SupplierController extends Controller
     public function update(Request $request)
     {
         $supplier = Supplier::where('id', $request->supplier)->first();
-        if ($supplier->name == $request->name) {
+        if ($supplier->email == $request->email) {
             if ($this->updatebool($request,$supplier)){
                 return redirect()->to('Admin/Supplier/List')->with('success', 'Modifiche avvenute con successo!!');
             } else {
                 return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
             }
         } else {
-            if (Supplier::where('name', $request->name)->first()) {
-                return redirect()->to('Admin/Supplier/List')->with('error', 'Esiste già un Fornitore con il nome inserito!!');
+            if (Supplier::where('email', $request->email)->first()) {
+                return redirect()->to('Admin/Supplier/List')->with('error', 'Il Fornitore già esiste!!');
             }
             if ($this->updatebool($request,$supplier)){
                 return redirect()->to('Admin/Supplier/List')->with('success', 'Modifiche avvenute con successo!!');
@@ -126,7 +130,7 @@ class SupplierController extends Controller
      */
     public function restore(Request $request)   //query senza nome
     {
-        if (Supplier::onlyTrashed()->find($request->supplier)->restore()) {
+        if (Supplier::onlyTrashed()->where('id',$request->supplier)->restore()) {
             return redirect()->to('Admin/Supplier/List')->with('success', 'Ripristino avvenuto con successo!!');
         } else {
             return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
@@ -138,7 +142,7 @@ class SupplierController extends Controller
         if (Supplier::withTrashed()->find($request->supplier)->delete()) {
             return redirect()->to('Admin/Supplier/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
-            return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 

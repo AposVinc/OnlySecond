@@ -17,8 +17,8 @@
 
     <form action="{{route('Admin.Supplier.RestorePost')}}" method="post" class="form-horizontal">
     @csrf
-    <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+
+        <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="supplier" class=" form-control-label">Fornitore</label></div>
@@ -29,7 +29,6 @@
                                 <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                             @endforeach
                         </select>
-                        <small class="help-block form-text">Seleziona il fornitore da ripristinare</small>
                     </div>
                 </div>
             </div>
@@ -42,7 +41,7 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
 
 @endsection
