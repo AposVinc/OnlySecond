@@ -17,8 +17,8 @@
 
     <form action="{{route('Admin.Role.EditPost')}}" method="post" class="form-horizontal">
     @csrf
-        <!--<div class="col-lg-6"> eliminato per togliere style che andavano in contrasto con i margini inseriti a riga 23-->
-        <div class="card add"> <!-- aggiunta class "add" per mettere dei margini al form-->
+
+        <div class="card add">
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="role" class=" form-control-label">Ruolo</label></div>
@@ -31,17 +31,14 @@
                                 @endif
                             @endforeach
                         </select>
-                        <small class="help-block form-text">Seleziona il ruolo da modificare</small>
                     </div>
                 </div>
 
-                <div class="row form-group" style="padding-bottom: 2%">
+                <div class="row form-group pt_24">
                     <div class="col col-md-3"><label for="name" class=" form-control-label">Nome</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nome" class="form-control" required>
-                    <small class="help-block form-text">Scrivere obbligatoriamente il nome del ruolo da modificare</small>
-                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Inserire il nuovo nome del ruolo" class="form-control" required></div>
                 </div>
-                <div class="row form-group">
+                <div class="row form-group pt_24">
                     <div class="col col-md-3"><label class=" form-control-label">Gestione</label></div>
 
                     <!-- SONO FISSI!!!-->
@@ -93,7 +90,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-sm">
+                <button type="submit" class="btn btn-primary btn-sm" onclick="VerifyCheckRole()">
                     <i class="fa fa-dot-circle-o"></i> Modifica
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
@@ -101,7 +98,7 @@
                 </button>
             </div>
         </div>
-        <!-- </div>-->
+
     </form>
 
 @endsection

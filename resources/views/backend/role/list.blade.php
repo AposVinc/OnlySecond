@@ -23,19 +23,19 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Gest Utenti</th>
-                                    <th>Gest Prodotti</th>
-                                    <th>Gest Offerte</th>
-                                    <th>Gest Banner</th>
-                                    <th>Gest Img Prodotti</th>
-                                    <th>Gest Fornitori</th>
-                                    <th>Gest Newsletter</th>
-                                    <th>Assistenza Clienti</th>
-                                    <th>Creato il</th>
-                                    <th>Ultima modifica</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Gest Utenti</th>
+                                        <th>Gest Prodotti</th>
+                                        <th>Gest Offerte</th>
+                                        <th>Gest Banner</th>
+                                        <th>Gest Img Prodotti</th>
+                                        <th>Gest Fornitori</th>
+                                        <th>Gest Newsletter</th>
+                                        <th>Assistenza Clienti</th>
+                                        <th>Creato il</th>
+                                        <th>Ultima modifica</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($roles as $role)
@@ -58,7 +58,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->

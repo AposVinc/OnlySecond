@@ -436,6 +436,43 @@
     </script>
 @endif
 
+@if(strpos(route::currentRouteName(),'Admin.Role')!== false)
+    <script>
+        function VerifyCheckRole(){
+            var listCheck = document.getElementsByClassName('checkbox');
+            var check = false;
+            for(var i=0;i< listCheck.length;i++){
+                if(listCheck[i].children[0].children[0].checked){
+                    check = true;
+                }
+            }
+            if(!check) {
+                var element = listCheck[0].children[0].children[0];
+                element.required = true;
+                element.oninvalid=function () {
+                    element.setCustomValidity('Seleziona almeno una gestione');
+                };
+                element.oninput= function () {
+                    element.setCustomValidity('');
+                }
+            }else{
+                var element = listCheck[0].children[0].children[0];
+                listCheck[0].children[0].removeChild(element);
+                var newElement = document.createElement('input');
+                newElement.type= "checkbox";
+                newElement.name="gest_utenti";
+                newElement.value="gest_utenti";
+                newElement.classList.add('form-check-input');
+                if(element.checked){
+                    newElement.checked = true;
+                }
+                var parent = listCheck[0].children[0];
+                parent.insertBefore(newElement, parent.firstChild);
+            }
+        }
+    </script>
+@endif
+
 @if(strpos(route::currentRouteName(),'Admin.Product.Edit')!== false)
     <script>
         function EditNewCollection(){

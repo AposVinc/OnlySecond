@@ -20,8 +20,12 @@ class RoleController extends Controller
 
     public function showEditForm()
     {
-        $roles = Role::all();
-        return view('backend.role.edit', ['roles' => $roles]);
+        if (Role::all()->isNotEmpty()) {
+            $roles = Role::all();
+            return view('backend.role.edit', ['roles' => $roles]);
+        }else{
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Ruoli da Modificare!!');
+        }
     }
 
     public function showDeleteForm()
@@ -30,7 +34,7 @@ class RoleController extends Controller
             $roles = Role::all();
             return view('backend.role.delete', ['roles' => $roles]);
         } else {
-            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono elementi da eliminare!!');
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Ruoli da Eliminare!!');
         }
     }
 
@@ -126,7 +130,7 @@ class RoleController extends Controller
         if ($role->delete()) {
             return redirect()->to('Admin/Role/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
-            return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+            return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 }

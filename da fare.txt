@@ -23,9 +23,6 @@ BE
 Elimina img prodotto
 
 EditDate() (js)
-required su checkbox (javascript) -  tutte sez di Ruoli
-
-
 
 FE
 ---------
@@ -92,6 +89,7 @@ IL COLORE è STATO INSERITO NEL METODO => in saveimage in productController è e
 CI SONO DUE METODI DIVERSI UNO PER LA PRINCIPALE E UNO PER LE ALTRE IMG NON POSSONO ESSERE GENERALIZATI IN IMG CONTROLLER => x sara - saveimage in productController forse è da inserire in img controller e fare un unico metodo?
 errore se non ci sono brand nella sez edit collezioni FATTO E VIENE USATO NON SOLO NELL'EDIT COLLECTION
 ?EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
+required su checkbox (javascript) -  tutte sez di Ruoli
 
 ok FE
 ----------
