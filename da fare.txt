@@ -28,7 +28,6 @@ FE
 ---------
 ?cerca
 --Vale -- Pagina Dettaglio prodotto - grafica
-bottoni sul sito, se si passa col cursore sopra cambiano colore
 Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
 nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
 shop - se si mette where('main',0) da errore sul path
@@ -106,6 +105,7 @@ colore fercce degli slider (prod e brand)
 mie recensioni -        arancione titolo data voto, grassetto cod brandname collection name - grandezza caratteri graduale, giustificato al text
                         voto vicino titolo (non im piace, se titolo troppo lungo ...)
 logica Storico Ordini
+bottoni sul sito, se si passa col cursore sopra cambiano colore
 
 
 
