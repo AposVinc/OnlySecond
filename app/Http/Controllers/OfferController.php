@@ -18,14 +18,22 @@ class OfferController extends Controller{
 
     public function showAddForm()
     {
-        $brands = Brand::all();
-        return view('backend.offer.add',['brands' => $brands]);
+        if(Product::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.offer.add',['brands' => $brands]);
+        }else{
+            return redirect()->to('Admin/Offer/List')->with('error','Impossibile inserire una nuova Offerta. Inserire prima un Prodotto!!');
+        }
     }
 
     public function showEditForm()
     {
-        $brands = Brand::all();
-        return view('backend.offer.edit', ['brands' => $brands]);
+        if(Offer::all()->isNotEmpty()){
+            $brands = Brand::all();
+            return view('backend.offer.edit', ['brands' => $brands]);
+        }else{
+            return redirect()->to('Admin/Offer/List')->with('error','Non ci sono Offerte da Modificare!!');
+        }
     }
 
     public function showDeleteForm()
@@ -34,10 +42,9 @@ class OfferController extends Controller{
             $brands = Brand::all();
             return view('backend.offer.delete', ['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Offer/List')->with('error','Non ci sono elementi da eliminare!!');
+            return redirect()->to('Admin/Offer/List')->with('error','Non ci sono Offerte da Eliminare!!');
         }
     }
-
 
     function getPrice(Request $request)
     {
@@ -61,17 +68,16 @@ class OfferController extends Controller{
         return $date;
     }
 
-
     public function create(Request $request)
     {
         if (Offer::where('product_id', $request->product)->first()) {
             return redirect()->to('Admin/Offer/List')->with('error', 'Esiste già un Offerta per il prodotto inserito!!');
         }
-        $product = Product::all()->find($request->product);
+
         $offer = new Offer();
         $offer->rate = $request->rate;
         $offer->end = date('Y-m-d', strtotime($request->datepicker)). ' 23:59:59';
-        $product->offer()->save($offer);
+        $offer->product_id = $request->product;
         if($offer->save()){
             return redirect()->to('Admin/Offer/List')->with('success', 'Caricamento avvenuto con successo!!');
         }else{

@@ -22,7 +22,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" required>
+                        <select name="brand" id="brand" class="form-control" onchange="GetCollection()" required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
@@ -34,7 +34,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" onchange="EditProductWithOffer()" required>
+                        <select name="collection" id="collection" class="form-control" onchange="GetProductWithOffer()" required>
                             <option value="">Seleziona il collezione</option>
                         </select>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" onchange="EditRate();EditPrice();EditDate();" required>
+                        <select name="product" id="product" class="form-control" onchange="GetPrice();GetRate();GetDate();" required>
                             <option value="">Seleziona il prodotto</option>
                         </select>
                     </div>
@@ -59,14 +59,12 @@
                     </div>
                 </div>
 
-                &emsp;
-
-                <div class="row form-group">
+                <div class="row form-group pt_24">
                     <div class="col col-md-3"><label for="rate" class=" form-control-label">Nuovo Sconto</label></div>
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-percent"></i></div>
-                            <input type="text" id="rate" name="rate" placeholder="00" class="form-control" onchange="EditPriceRate()" required>
+                            <input type="text" id="rate" name="rate" placeholder="00" class="form-control" onchange="GetPriceRate()" required>
                         </div>
                     </div>
                 </div>
@@ -86,20 +84,14 @@
                     <div class="col-12 col-md-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                            <input type="text" id="datepicker" class="form-control" name="datepicker" placeholder="mm/gg/aaaa" required >
+                            <input type="text" id="datepicker" class="form-control" name="datepicker" placeholder="mm/gg/aaaa" required>
                         </div>
                         <small>La data è nel formato inglese: Mese/Giorno/Anno </small>
                     </div>
                 </div>
-                <script>
-                    $( function() {
-                        $( "#datepicker" ).datepicker();
-                    } );
-                </script>
-
             </div>
             <div class="card-footer">
-                <button type="submit" onclick="EnablePriceRate()" class="btn btn-primary btn-sm">
+                <button type="submit" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Modifica
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">

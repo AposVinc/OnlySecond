@@ -23,17 +23,17 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                <tr>
-                                    <th>Nome Brand</th>
-                                    <th>Nome Collezione</th>
-                                    <th>Cod Prodotto</th>
-                                    <th>Prezzo</th>
-                                    <th>Sconto</th>
-                                    <th>Prezzo Scontato</th>
-                                    <th>Fine Offerta il</th>
-                                    <th>Creata il</th>
-                                    <th>Modificata il</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nome Brand</th>
+                                        <th>Nome Collezione</th>
+                                        <th>Cod Prodotto</th>
+                                        <th>Prezzo</th>
+                                        <th>Sconto</th>
+                                        <th>Prezzo Scontato</th>
+                                        <th>Fine Offerta il</th>
+                                        <th>Creata il</th>
+                                        <th>Modificata il</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($offers as $offer)
@@ -54,7 +54,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -24,11 +24,11 @@ class BannerController extends Controller
 
     public function showAddForm()
     {
-        if (Brand::withoutTrashed()->exists() && Collection::withoutTrashed()->exists()){
+        if (Collection::withoutTrashed()->exists()){
             $brands = Brand::all();
             return view('backend.banner.add',['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Banner/List')->with('error','Impossibile inserire una nuovo Banner. Inserire prima un Brand e/o Collezione!!');
+            return redirect()->to('Admin/Banner/List')->with('error','Impossibile inserire una nuovo Banner. Inserire prima una Collezione!!');
         }
     }
 

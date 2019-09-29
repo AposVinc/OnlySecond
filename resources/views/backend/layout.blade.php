@@ -315,7 +315,7 @@
         divError.classList.add('alert', 'alert-danger');
     }
 
-    function EditProduct(){
+    function GetProduct(){
         var divError = document.getElementById('error');
         divError.innerText ="";
         divError.classList.remove('alert','alert-danger');
@@ -325,7 +325,6 @@
         option.text = "Seleziona il prodotto";
         option.value = "";
         selectProduct.add(option);
-        var data;
         var selected = document.getElementById('collection');
         var value = selected.options[selected.selectedIndex].value;
 
@@ -579,14 +578,19 @@
 
 @if(strpos(route::currentRouteName(),'Admin.Offer')!== false)
     <script>
-        function EditProductWithOffer() {
+        $( "#datepicker" ).datepicker();
+    </script>
+    <script>
+        function GetProductWithOffer() {
+            var divError = document.getElementById('error');
+            divError.innerText ="";
+            divError.classList.remove('alert','alert-danger');
             var selectProduct = document.getElementById('product');
             selectProduct.options.length = 0;
             var option = document.createElement('option');
             option.text = "Seleziona il prodotto";
             option.value = "";
             selectProduct.add(option);
-            var data;
             var selected = document.getElementById('collection');
             var value = selected.options[selected.selectedIndex].value;
 
@@ -596,52 +600,54 @@
                 dataType: "json",
                 data: {value: value, _token: "{{ csrf_token() }}"},
                 success: function (result) {
-                    data = result;
-                    data.forEach(AddOptionProduct);
+                    if(result.length === 0){
+                        Error("Non ci sono Prodotti con Offerte per la collezione selezionata");
+                    }else{
+                        result.forEach(AddOptionProduct);
+                    }
                 },
                 error: function (xhr) {
                     alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                 }
             });
         }
-        /**
-         * @return {number}
-         */
-        function CalculateDiscount(val, rate){
+
+        function calculateDiscount(val, rate){
             return (val - Math.round(((val / 100) * rate) * 100) / 100);
         }
 
-        function EditPrice(){
+        function GetPrice(){
             var selected = document.getElementById('product');
             var price = document.getElementById('price');
             var value = selected.options[selected.selectedIndex].value;
-
-            jQuery.ajax({
-                url:'{{ route('Admin.GetPrice') }}',
-                method:"POST",
-                dataType: "json",
-                data:{value:value, _token: "{{ csrf_token() }}"},
-                success:function(result) {
-                    price.value = result;
-                },
-                error:function(xhr){
-                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-                }
-            });
+            if(value != ""){
+                jQuery.ajax({
+                    url:'{{ route('Admin.GetPrice') }}',
+                    method:"POST",
+                    dataType: "json",
+                    data:{value:value, _token: "{{ csrf_token() }}"},
+                    success:function(result) {
+                        price.value = result;
+                    },
+                    error:function(xhr){
+                        alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                    }
+                });
+            }else{
+                price.value = "";
+            }
         }
 
-        function EditDate(){
+        function GetDate(){
             var selected = document.getElementById('product');
-            var data = document.getElementById('datepicker');
             var value = selected.options[selected.selectedIndex].value;
 
             jQuery.ajax({
                 url:'{{ route('Admin.GetDate') }}',
                 method:"POST",
-                dataType: "json",
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result) {
-                    data.value = result;
+                    $('#datepicker').datepicker('setDate', result);
                 },
                 error:function(xhr){
                     alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
@@ -649,20 +655,15 @@
             });
         }
 
-        function EditPriceRate(){
+        function GetPriceRate(){
             var price = document.getElementById('price');
             var rate = document.getElementById('rate');
             var pricerate = document.getElementById('pricerate');
 
-            pricerate.value = CalculateDiscount(price.value, rate.value);
+            pricerate.value = calculateDiscount(price.value, rate.value);
         }
 
-        function EnablePriceRate() {
-            var pricerate = document.getElementById('pricerate');
-            pricerate.removeAttribute('disabled');
-        }
-
-        function EditRate(){
+        function GetRate(){
             var selected = document.getElementById('product');
             var rate = document.getElementById('rate');
             var value = selected.options[selected.selectedIndex].value;
@@ -674,7 +675,7 @@
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result) {
                     rate.value = result;
-                    EditPriceRate();
+                    GetPriceRate();
                 },
                 error:function(xhr){
                     alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);

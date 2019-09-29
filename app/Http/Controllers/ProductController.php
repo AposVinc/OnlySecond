@@ -82,7 +82,6 @@ class ProductController extends Controller
     function getProductWithOffer(Request $request)
     {
         $value = $request->get('value');
-        //$products = Product::withoutTrashed()->where('collection_id', $value)->has('offer')->get();
         $products = new Collection();
         $offers = Offer::all();
         foreach ($offers as $offer){
