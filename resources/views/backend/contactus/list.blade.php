@@ -22,13 +22,13 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Email</th>
-                                    <th>Cel.</th>
-                                    <th>Oggetto</th>
-                                    <th>Inviato il</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Cel.</th>
+                                        <th>Oggetto</th>
+                                        <th>Inviato il</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($mails as $mail)
