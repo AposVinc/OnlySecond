@@ -17,6 +17,7 @@ class CreateOrderHistoryProductTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
+            $table->decimal('price', 6, 2);
             $table->unsignedBigInteger('order_history_id');
             $table->timestamps();
 

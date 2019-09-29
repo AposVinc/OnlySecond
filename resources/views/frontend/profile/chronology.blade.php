@@ -15,10 +15,10 @@
 
                     <div class="heading-part mt_20 mb_10">
                         <div class="col-md-2 mr-md-2">
-                            <div class="sub_title">N° Ordine: &nbsp;</div>
-                            <div class="text_title">{{$order->id}}</div>
+                            <label class="sub_title">N° Ordine: </label>
+                            <label class="text_title">{{$order->id}}</label>
                         </div>
-                        <div class="sub_title" style="font-style: italic; color: #fff;" >Data: &nbsp;</div>
+                        <div class="sub_title" style="font-style: italic; color: #fff;" >Data: </div>
                         <div class="text_title">{{date('d-m-Y H:i', strtotime($order->created_at))}}</div>
                     </div>
                     <div class="row">
@@ -33,16 +33,39 @@
                                     </div>
                                 </div>
                                 <div id="review" class="mt_10 col-md-10">
-                                    <div >
-                                        <h4><span>Prodotto:&ensp;</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</h4>
+                                    <div>
+                                        <label class="product-name"><span>Prodotto:</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</label>
+                                    </div>
+                                    <div>
+                                        <label><span>Prezzo:</span>{{$product->pivot->price}}</label>
+                                    </div>
+                                    <div>
+                                        <label><span>Quantità Acquistata:</span>{{$product->pivot->quantity}}</label>
                                     </div>
                                 </div>
-
-                                <!-- quantità venduta -->
-
                             </div>
                         @endforeach
 
+                            qui sotto comuni a tutto l'ordine --- mettere visualizza altro?
+                            <div>
+                                <label><span>Metodo di Pagamento:</span>{{$order->payment->name}}</label>
+                            </div>
+                            <div>
+                                <label><span>Regalo:</span> @if($order->gift) Si @else No @endif
+                                </label>
+                            </div>
+                            <div>
+                                <label><span>Prezzo Totale:</span>{{$order->calculateTotalPrice()}}</label>
+                            </div>
+                            <div>
+                                <label><span>Indirizzo di Spedizione:</span>{{$order->mailingAddress->name}} {{$order->mailingAddress->surname}} - {{$order->mailingAddress->address}}, {{$order->mailingAddress->civic_number}} {{$order->mailingAddress->city}} {{'('. $order->mailingAddress->region. ')'}} CAP:{{$order->mailingAddress->zip}}</label>
+                            </div>
+                            <div>
+                                <label><span>Corriere:</span>{{$order->courier->name}}</label>
+                            </div>
+                            <div>
+                                <label><span>Indirizzo di Fatturazione:</span>{{$order->billingAddress->name}} {{$order->billingAddress->surname}} - {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}} {{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}} CAP:{{$order->billingAddress->zip}}</label>
+                            </div>
                     </div>
                 @endforeach
             </div>

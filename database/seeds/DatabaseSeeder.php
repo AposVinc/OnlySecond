@@ -470,7 +470,7 @@ DatabaseSeeder extends Seeder
 
         /*---   STORICO ORDINI   -----------------------------------------------------*/
 
-        $order1 = new OrderHistory(['gift'=>'0', 'total_price'=>'44']);
+        $order1 = new OrderHistory(['gift'=>'0']);
         $order1->user_id = $user1->id;
         $order1->payment_id = $payment1->id;
         $order1->courier_id = $courier1->id;
@@ -478,7 +478,7 @@ DatabaseSeeder extends Seeder
         $order1->billing_address_id = $address1->id;
         $order1->save();
 
-        $order2 = new OrderHistory(['gift'=>'0', 'total_price'=>'80']);
+        $order2 = new OrderHistory(['gift'=>'0']);
         $order2->user_id = $user1->id;
         $order2->payment_id = $payment2->id;
         $order2->courier_id = $courier1->id;
@@ -486,7 +486,7 @@ DatabaseSeeder extends Seeder
         $order2->billing_address_id = $address1->id;
         $order2->save();
 
-        $order3 = new OrderHistory(['gift'=>'1', 'total_price'=>'74']);
+        $order3 = new OrderHistory(['gift'=>'1']);
         $order3->user_id = $user1->id;
         $order3->payment_id = $payment1->id;
         $order3->courier_id = $courier2->id;
@@ -494,7 +494,7 @@ DatabaseSeeder extends Seeder
         $order3->billing_address_id = $address1->id;
         $order3->save();
 
-        $order4 = new OrderHistory(['gift'=>'0', 'total_price'=>'74']);
+        $order4 = new OrderHistory(['gift'=>'0']);
         $order4->user_id = $user2->id;
         $order4->payment_id = $payment1->id;
         $order4->courier_id = $courier2->id;
@@ -502,7 +502,7 @@ DatabaseSeeder extends Seeder
         $order4->billing_address_id = $address4->id;
         $order4->save();
 
-        $order5 = new OrderHistory(['gift'=>'0', 'total_price'=>'84']);
+        $order5 = new OrderHistory(['gift'=>'0']);
         $order5->user_id = $user2->id;
         $order5->payment_id = $payment2->id;
         $order5->courier_id = $courier3->id;
@@ -512,22 +512,22 @@ DatabaseSeeder extends Seeder
 
         /*---   PRODOTTI PER OGNI STORICO   -----------------------------------------------------*/
 
-        $Moon_P1->orderHistories()->save($order1,['quantity' => 2]);
-        $CarlieP1->orderHistories()->save($order1,['quantity' => 4]);
+        $Moon_P1->orderHistories()->save($order1,['quantity' => 2, 'price' => '139']);
+        $CarlieP1->orderHistories()->save($order1,['quantity' => 4, 'price' => '109']);
 
-        $Lacoste_12_12_P1->orderHistories()->save($order2,['quantity' => 1]);
-        $CarlieP3->orderHistories()->save($order2,['quantity' => 1]);
+        $Lacoste_12_12_P1->orderHistories()->save($order2,['quantity' => 1, 'price' => '99']);
+        $CarlieP3->orderHistories()->save($order2,['quantity' => 1, 'price' => '109']);
 
-        $Q_ExploristP4->orderHistories()->save($order3,['quantity' => 1]);
+        $Q_ExploristP4->orderHistories()->save($order3,['quantity' => 1, 'price' => '239']);
 
-        $Double_Down_P44P1->orderHistories()->save($order4,['quantity' => 2]);
-        $Q_ExploristP2->orderHistories()->save($order4,['quantity' => 1]);
-        $Moon_P2->orderHistories()->save($order4,['quantity' => 2]);
+        $Double_Down_P44P1->orderHistories()->save($order4,['quantity' => 2, 'price' => '89']);
+        $Q_ExploristP2->orderHistories()->save($order4,['quantity' => 1, 'price' => '239']);
+        $Moon_P2->orderHistories()->save($order4,['quantity' => 2, 'price' => '139']);
 
-        $Moon_P2->orderHistories()->save($order5,['quantity' => 1]);
-        $CarlieP2->orderHistories()->save($order5,['quantity' => 1]);
-        $CarlieP1->orderHistories()->save($order5,['quantity' => 2]);
-        $SportP1->orderHistories()->save($order5,['quantity' => 1]);
+        $Moon_P2->orderHistories()->save($order5,['quantity' => 1, 'price' => '139']);
+        $CarlieP2->orderHistories()->save($order5,['quantity' => 1, 'price' => '109']);
+        $CarlieP1->orderHistories()->save($order5,['quantity' => 2, 'price' => '109']);
+        $SportP1->orderHistories()->save($order5,['quantity' => 1, 'price' => '249']);
 
         /*---   WISHLIST   -----------------------------------------------------*/
 

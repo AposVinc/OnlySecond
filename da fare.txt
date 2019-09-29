@@ -38,7 +38,7 @@ checkout - se va a buon fine, incrementare quantity_sold dei prodotti
 login checkout
 shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
-logica Ordini
+grafica Storico Ordini
 logica modifica
 wishlist grafica    - decidere se aggiungere qualche altro campo
                     - decidere come fare i bottoni
@@ -104,6 +104,8 @@ logica wishlist
 colore fercce degli slider (prod e brand)
 mie recensioni -        arancione titolo data voto, grassetto cod brandname collection name - grandezza caratteri graduale, giustificato al text
                         voto vicino titolo (non im piace, se titolo troppo lungo ...)
+logica Storico Ordini
+
 
 
 
