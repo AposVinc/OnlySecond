@@ -20,6 +20,9 @@ BE
 ?cambiare ripristina con riattiva
 ?ordinamento campi checkbox nelle liste
 ?rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
+?disabilitare la prima riga di ogni select  "seleziona un elemento" con style="display:none;"
+
+
 
 FE
 ---------
