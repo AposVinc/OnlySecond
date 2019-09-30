@@ -44,6 +44,23 @@ class ImageController extends Controller
         }
     }
 
+    public function showDeleteForm()
+    {
+        if(Image::withoutTrashed()->where('main',0)->exists()){
+            $brands = Brand::all();
+            return view('backend.image.delete',['brands' => $brands]);
+        }else{
+            return redirect()->to('Admin/Image/List')->with('error','Non ci sono Immagini da Eliminare!!');
+        }
+    }
+
+    public function getImage(Request $request)
+    {
+        $value = $request->get('value');
+        $images = Image::withoutTrashed()->where('product_id', $value)->where('main',0)->get();
+        return $images;
+    }
+
     public function create(Request $request)
     {
         if ($request->hasFile('file')) { //  se il file è presente nella request
@@ -145,6 +162,23 @@ class ImageController extends Controller
             }
         }else{
             return redirect()->to('Admin/Image/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+        }
+    }
+
+    public function destroy(Request $request)
+    {
+        $image = Image::where('id', $request->get('image'))->first();
+        $oldpath = $image->path_image;
+        $path = str_replace('storage', 'public', $oldpath);
+
+        if(Storage::delete($path)){
+            if(Image::where('id', $request->get('image'))->forceDelete()){
+                return redirect()->to('Admin/Image/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            }else{
+                return redirect()->to('Admin/Image/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }else{
+            return redirect()->to('Admin/Image/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 }
