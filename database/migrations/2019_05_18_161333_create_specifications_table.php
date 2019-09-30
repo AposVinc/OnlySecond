@@ -29,8 +29,6 @@ class CreateSpecificationsTable extends Migration
             $table->boolean('battery_replacement');
             $table->timestamps();
 
-            $table->softDeletes();
-
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('dial_color')->references('id')->on('colors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('strap_color')->references('id')->on('colors')->onDelete('cascade')->onUpdate('cascade');
