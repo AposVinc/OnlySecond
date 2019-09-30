@@ -174,7 +174,6 @@ Route::group(['middleware' => ['admin']], function () {
 
             #route chiamata ajax per image
             Route::post('/GetImage', 'ImageController@getImage')->name('GetImage');
-            Route::post('/RestoreGetImage', 'ImageController@getImageRestore')->name('RestoreGetImage');
 
 
             Route::group(['middleware' => ['permission.extend:gest_utenti']], function () {
