@@ -10,12 +10,12 @@
             Immagine Prodotto
         @endslot
         @slot('op')
-            Aggiungi
+            Modifica img principale
         @endslot
         Immagine
     @endcomponent
 
-    <form action="{{route('Admin.Image.AddPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{route('Admin.Image.EditMainPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
 
         <div class="card add">
@@ -51,11 +51,10 @@
                     <div class="col col-md-3"><label for="file" class=" form-control-label">Immagine Prodotto</label></div>
                     <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file" required></div>
                 </div>
-
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Aggiungi
+                    <i class="fa fa-dot-circle-o"></i> Modifica
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
                     <i class="fa fa-ban"></i> Reset
