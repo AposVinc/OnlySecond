@@ -6,7 +6,7 @@
 <head>
     <!-- =====  BASIC PAGE NEEDS  ===== -->
     <meta charset="utf-8">
-    <title>Only Second E-Commerce </title>
+    <title>Only Second E-Commerce</title>
     <!-- =====  SEO MATE  ===== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="">
@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/font-awesome.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/bootstrap.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/style.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/custom.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/owl.carousel.css') }}">
     @if(strpos(route::currentRouteName(),'Shop')!== false)
@@ -296,21 +297,23 @@
 <!-- checkout nuovo indirizzo-->
 <script type="text/javascript">
     $('input[name=\'select_address\']').on('change', function() {
+        if (this.value == 'existing') {
+            $('#address-existing').show();
+            $('#address-new').hide();
+            $('#address-delete').hide();
+            $('#button-select_address').show();
+        }
         if (this.value == 'new') {
             $('#address-existing').hide();
             $('#address-new').show();
-        } else {
-            $('#address-existing').show();
-            $('#address-new').hide();
+            $('#address-delete').hide();
+            $('#button-select_address').hide();
         }
-    });
-    $('input[name=\'select_billing_address\']').on('change', function() {
-        if (this.value == 'new_b') {
-            $('#billing-existing').hide();
-            $('#billing-new').show();
-        } else {
-            $('#billing-existing').show();
-            $('#billing-new').hide();
+        if (this.value == 'delete') {
+            $('#address-existing').hide();
+            $('#address-new').hide();
+            $('#address-delete').show();
+            $('#button-select_address').hide();
         }
     });
 </script>
