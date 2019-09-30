@@ -2,13 +2,10 @@
 
 namespace App;
 
-use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Specification extends Model
 {
-    use SoftDeletes, SoftCascadeTrait;
 
     protected $primaryKey = 'id';
 
@@ -17,8 +14,6 @@ class Specification extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
-    protected $softCascade = [];
 
     protected $fillable =[
 
