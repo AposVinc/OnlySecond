@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Banner;
 use App\Brand;
 use App\Category;
 use App\CategoryProduct;
@@ -28,11 +27,16 @@ class ProductController extends Controller
 
     public function showAddForm()
     {
-        $brands = Brand::all();
-        $categories = Category::all();
-        $suppliers = Supplier::all();
-        $colors = Color::all();
-        return view('backend.product.add',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
+        if(\App\Collection::withoutTrashed()->exists() && Supplier::withoutTrashed()->exists() && Category::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            $categories = Category::all();
+            $suppliers = Supplier::all();
+            $colors = Color::all();
+            return view('backend.product.add',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
+        }else{
+            return redirect()->to('Admin/Product/List')->with('error','Impossibile inserire un nuovo Prodotto. Inserire prima una Collezione e/o un Fornitore e/o una Categoria!!');
+        }
+
     }
 
     public function showEditForm()

@@ -30,7 +30,7 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="EditCollection()" required>
+                        <select name="brand" id="brand" class="form-control" onchange="GetCollection()" required>
                             <option value="">Seleziona il brand</option>
                             @foreach($brands as $key => $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
@@ -50,15 +50,13 @@
                     <div class="col col-md-3"><label class=" form-control-label">Genere</label></div>
                     <div class="col col-md-9">
                         <div class="form-check-inline form-check">
-                            <label for="inline-radio1" class="form-check-label " >
+                            <label for="inline-radio1" class="form-check-label pr_20" >
                                 <input type="radio" id="inline-radio1" name="inline-radios" value="M" class="form-check-input" required> M
                             </label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <label for="inline-radio2" class="form-check-label ">
+                            <label for="inline-radio2" class="form-check-label pr_20">
                                 <input type="radio" id="inline-radio2" name="inline-radios" value="F" class="form-check-input" required> F
                             </label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <label for="inline-radio2" class="form-check-label ">
+                            <label for="inline-radio2" class="form-check-label">
                                 <input type="radio" id="inline-radio2" name="inline-radios" value="U" class="form-check-input" required> Unisex
                             </label>
                         </div>
@@ -127,7 +125,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-header" style="border-top: 1px solid rgba(0,0,0,.125);">
+            <div class="card-header borderHeader">
                 <strong class="card-title">Specifiche prodotto</strong>
             </div>
             <div class="card-body card-block">

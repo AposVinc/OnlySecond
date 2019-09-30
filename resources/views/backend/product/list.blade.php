@@ -23,16 +23,16 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                <tr>
-                                    <th>Nome Brand</th>
-                                    <th>Nome Collezione</th>
-                                    <th>Codice Prodotto</th>
-                                    <th>Disp. Magaz</th>
-                                    <th>Prezzo</th>
-                                    <th>Creato il</th>
-                                    <th>Ultima modifica</th>
-                                    <th>Eliminato il</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nome Brand</th>
+                                        <th>Nome Collezione</th>
+                                        <th>Codice Prodotto</th>
+                                        <th>Disp. Magaz</th>
+                                        <th>Prezzo</th>
+                                        <th>Creato il</th>
+                                        <th>Ultima modifica</th>
+                                        <th>Disattivato il</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($products as $product)
@@ -52,8 +52,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
