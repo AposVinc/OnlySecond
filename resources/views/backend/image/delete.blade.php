@@ -10,13 +10,13 @@
             Immagine Prodotto
         @endslot
         @slot('op')
-            Aggiungi
+            Elimina
         @endslot
         Immagine
     @endcomponent
 
-    <form action="{{route('Admin.Image.AddPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-    @csrf
+    <form action="{{route('Admin.Image.DeletePost')}}" method="post" class="form-horizontal">
+        @csrf
 
         <div class="card add">
             <div class="card-body card-block">
@@ -42,20 +42,23 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" required>
+                        <select name="product" id="product" class="form-control" onchange="GetImage()" required>
                             <option value="">Seleziona il prodotto </option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="file" class=" form-control-label">Immagine Prodotto</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file" required></div>
+                    <div class="col col-md-3"><label for="image" class=" form-control-label">Immagine</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="image" id="image" class="form-control" required>
+                            <option value="">Seleziona l'immagine </option>
+                        </select>
+                    </div>
                 </div>
-
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Aggiungi
+                    <i class="fa fa-dot-circle-o"></i> Elimina
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
                     <i class="fa fa-ban"></i> Reset

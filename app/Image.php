@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Image extends Model
 {
+    use SoftDeletes;
 
     protected $primaryKey = 'id';
 
@@ -15,6 +17,7 @@ class Image extends Model
      * @var array
      */
 
+    protected $dates = ['deleted_at'];
     protected $fillable =[
         'image', 'product_id',
     ];

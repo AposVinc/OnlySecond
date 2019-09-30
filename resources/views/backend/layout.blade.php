@@ -685,6 +685,50 @@
     </script>
 @endif
 
+@if(strpos(route::currentRouteName(),'Admin.Image.Delete')!== false)
+    <script>
+        function GetImage(){
+            var divError = document.getElementById('error');
+            divError.innerText ="";
+            divError.classList.remove('alert','alert-danger');
+            var selectBanner = document.getElementById('image');
+            selectBanner.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona l'immagine";
+            option.value = "";
+            selectBanner.add(option);
+            var selected = document.getElementById('product');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.GetImage') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result) {
+                    if(result.length === 0){
+                        Error("Non ci sono Immagine per il prodotto selezionato");
+                    }else{
+                        result.forEach(AddOptionImage);
+                    }
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
+
+        function AddOptionImage(item, index) {
+            var selectImage = document.getElementById('image');
+            var option = document.createElement('option');
+            option.text= item.path_image;
+            option.value= item.id;
+            selectImage.add(option);
+        }
+
+    </script>
+@endif
+
 </body>
 
 </html>

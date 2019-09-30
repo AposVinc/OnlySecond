@@ -23,14 +23,15 @@
                         <div class="card-body" id="click">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                <tr>
-                                    <th>Nome Brand</th>
-                                    <th>Nome Collezione</th>
-                                    <th>Nome Prodotto</th>
-                                    <th>Path Prodotto</th>
-                                    <th>Img Principale</th>
-                                    <th>Creato il</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nome Brand</th>
+                                        <th>Nome Collezione</th>
+                                        <th>Nome Prodotto</th>
+                                        <th>Path Prodotto</th>
+                                        <th>Img Principale</th>
+                                        <th>Creato il</th>
+                                        <th>Disattivato il</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($images as $image)
@@ -45,6 +46,7 @@
                                             <td class="centre-text-cell"><i class="fa fa-square-o"></i></td>
                                         @endif
                                         <td>{{$image->created_at}}</td>
+                                        <td>{{$image->deleted_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
