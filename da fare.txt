@@ -20,9 +20,6 @@ BE
 ?cambiare ripristina con riattiva
 ?ordinamento campi checkbox nelle liste
 ?rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
-Elimina img prodotto
-
-EditDate() (js)
 
 FE
 ---------
@@ -90,6 +87,8 @@ CI SONO DUE METODI DIVERSI UNO PER LA PRINCIPALE E UNO PER LE ALTRE IMG NON POSS
 errore se non ci sono brand nella sez edit collezioni FATTO E VIENE USATO NON SOLO NELL'EDIT COLLECTION
 ?EditSwitch() (js) - se un banner è visibile far cambiare lo switch nel EditBanner
 required su checkbox (javascript) -  tutte sez di Ruoli
+Elimina img prodotto
+EditDate() (js)
 
 ok FE
 ----------
