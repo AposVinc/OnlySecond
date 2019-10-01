@@ -65,7 +65,7 @@
                         </div>
                         <div class="mt_10">
                             <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
-                            <label class="review-vote-date"><span>Voto:</span>{{$review->vote}}<span style="margin-left: 10px;">Data:</span>{{$review->created_at}}</label>
+                            <label class="review-vote-date"><span>Voto:</span>{{$review->vote}}<span style="margin-left: 10px;">Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
                         </div>
                         <div style="margin-top:5px; text-align: justify;">
                             <span>{{$review->text}}</span>
