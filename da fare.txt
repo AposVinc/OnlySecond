@@ -30,22 +30,20 @@ FE
 --Vale -- Pagina Dettaglio prodotto - grafica
 Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
 nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
-shop - se si mette where('main',0) da errore sul path
-shop - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
+shop    - se si mette where('main',0) da errore sul path
+        - img per prod ne mostra solo 1 (in template originale ne mostra 2)
+        - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 checkout - se va a buon fine, incrementare quantity_sold dei prodotti
-"perche acquistare su OS" in "CHI SIAMO" è spostato un po a sx?
 login checkout
-shop - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
-grafica Storico Ordini
+grafica Storico Ordini - da ultimare dopo checkout
 logica modifica -   all'inizio tutti disabilitati ed è presente solo tasto in basso "modifica"
 wishlist grafica    - come risolvere il problema della virgola
                     - decidere se aggiungere qualche altro campo
-                    - aggiungere finestra indicazioni sui bottoni
+                    - tooltip sui bottoni
                     - se vuoto cosa fare?
 wishlist logica - azione aggiungi al carrello
-                - azione aggiunta alla wishlist - una volta che si riesce a mostrare le opzioni a comparsa del prodotto (view shop, in sconto e slider)
 logica pagamento
 mie recensioni - lasciare ricerca sotto breadcrumbs?
                 - tooltip sui bottoni
@@ -88,7 +86,7 @@ Chi siamo no statistiche
 contattaci indirizzo
 Grafica Login/Registraz/pass dimenticata
 img prodotti in shop si vedono (spostare contenuto "cartella img per inserimento" in storage/app/public)
-logica wishlist
+wishlist logica - azione aggiunta alla wishlist - una volta che si riesce a mostrare le opzioni a comparsa del prodotto (view shop, in sconto e slider)
 colore fercce degli slider (prod e brand)
 mie recensioni -        arancione titolo data voto, grassetto cod brandname collection name - grandezza caratteri graduale, giustificato al text
                         voto vicino titolo (non im piace, se titolo troppo lungo ...)

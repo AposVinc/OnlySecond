@@ -64,10 +64,10 @@
                                             <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
                                         </a>
                                         <div class="button-group text-center">
-                                            <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
-                                            <div class="quickview"><a href="#"><span>Quick View</span></a></div>
-                                            <div class="compare"><a href="#"><span>Compare</span></a></div>
-                                            <div class="add-to-cart"><a href="#"><span>Add to cart</span></a></div>
+                                            <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
+                                            <a href="#" class="quickview"><span>Quick View</span></a>
+                                            <a href="#" class="compare"><span>Compare</span></a>
+                                            <a href="#" class="add-to-cart"><span>Add to cart</span></a>
                                         </div>
                                     </div>
                                     <div class="caption product-detail text-center">

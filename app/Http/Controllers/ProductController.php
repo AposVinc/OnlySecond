@@ -284,7 +284,7 @@ class ProductController extends Controller
         if($cod != $product->cod && Product::where('cod',$cod)->first()){
             return redirect()->to('Admin/Product/List')->with('error', 'Il Prodotto già esiste!!');
         }else{
-            
+
             //Update product
             if($cod != $product->cod){
                 $product->cod=$cod;
@@ -432,7 +432,7 @@ class ProductController extends Controller
         }
     }
 
-    public function removeByWishlist($cod){
+    public function removeFromWishlist($cod){
         $product = Product::where('cod', $cod)->first();
         auth()->user()->productsWishlist()->detach($product);
         return redirect()->back();

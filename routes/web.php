@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth'] ], function () {
     })->name('Wishlist');
 
     Route::get('/Wishlist/Add/{cod}', 'ProductController@addToWishlist')->name('Wishlist.AddProduct');
-    Route::get('/Wishlist/Remove/{cod}', 'ProductController@removeByWishlist')->name('Wishlist.RemoveProduct');
+    Route::get('/Wishlist/Remove/{cod}', 'ProductController@removeFromWishlist')->name('Wishlist.RemoveProduct');
 
     Route::get('/Payment', function () {
         return view('frontend.profile.payment');
