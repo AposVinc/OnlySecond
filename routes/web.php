@@ -77,7 +77,9 @@ Route::group(['middleware' => ['auth'] ], function () {
         return view('frontend.profile.address');
     })->name('Address');
 
-    Route::post('/Address/Add', 'UserController@addAddress')->name('Address.AddPost');
+    Route::post('/Address/Favorite', 'UserController@favoriteAddress')->name('Address.Favorite');
+    Route::post('/Address/Add', 'UserController@addAddress')->name('Address.Add');
+    Route::post('/Address/Delete', 'UserController@deleteAddress')->name('Address.Delete');
 
     Route::get('/Wishlist', function () {
         return view('frontend.profile.wishlist');

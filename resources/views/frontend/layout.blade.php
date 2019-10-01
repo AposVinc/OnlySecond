@@ -301,19 +301,16 @@
             $('#address-existing').show();
             $('#address-new').hide();
             $('#address-delete').hide();
-            $('#button-select_address').show();
         }
         if (this.value == 'new') {
             $('#address-existing').hide();
             $('#address-new').show();
             $('#address-delete').hide();
-            $('#button-select_address').hide();
         }
         if (this.value == 'delete') {
             $('#address-existing').hide();
             $('#address-new').hide();
             $('#address-delete').show();
-            $('#button-select_address').hide();
         }
     });
 </script>

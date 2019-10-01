@@ -425,10 +425,10 @@ DatabaseSeeder extends Seeder
 
         /*---   CLIENTI REGISTRATI   -----------------------------------------------------*/
 
-        $user1 = new User(['name'=>'u','surname'=>'u', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
+        $user1 = new User(['name'=>'u', 'surname'=>'u', 'phone' =>'123456789', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
         $user1->save();
 
-        $user2 = new User(['name'=>'z','surname'=>'z', 'email'=>'z@z.it', 'password'=>'zzzzzzzz']);
+        $user2 = new User(['name'=>'z', 'surname'=>'z', 'phone' =>'123456789', 'email'=>'z@z.it', 'password'=>'zzzzzzzz']);
         $user2->save();
 
         /*---   INDIRIZZI   -----------------------------------------------------*/

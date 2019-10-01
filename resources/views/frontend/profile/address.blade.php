@@ -10,42 +10,50 @@
             @endcomponent
 
             <div class="panel-default col-sm-10">
-                <h3>Seleziona I Tuoi Indirizzi Preferiti</h3>
+                <h3>Gestisci I Tuoi Indirizzi Preferiti</h3>
                 <div class="panel-body">
                     <div class="radio">
-                        <label> <input type="radio" checked="checked" value="existing" name="select_address" data-id="address-existing"> Voglio utilizzare un indirizzo esistente </label>
+                        <label> <input type="radio" checked="checked" value="existing" name="select_address" data-id="address-existing">Seleziona i tuoi indirizzi preferiti</label>
                     </div>
-                    <div id="address-existing" class="form-horizontal">
-
-                        <div class="form-group">
-                            <label for="mailing_address" class="col-sm-3 control-label">Indirizzo di Spedizione</label>
-                            <div class="col-sm-9 pr_5">
-                                <select class="form-control" id="mailing_address" name="mailing_address">
-                                    @foreach(Auth::user()->addresses()->orderBy('mailing','desc')->get() as $address)
-                                        <option value="{{$address->id}}">{{$address->name}} {{$address->surname}} - {{$address->address}} n°{{$address->civic_number}}, {{$address->city}} {{'('. $address->region. ')'}}-CAP: {{$address->zip}}</option>
-                                    @endforeach
-                                </select>
+                    <form action="{{route('Address.Favorite')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        @csrf
+                        <div id="address-existing">
+                            <div class="form-group">
+                                <label for="mailing_address" class="col-sm-3 control-label">Indirizzo di Spedizione</label>
+                                <div class="col-sm-9 pr_5">
+                                    <select class="form-control" id="mailing_address" name="mailing_address">
+                                        @foreach(Auth::user()->addresses()->orderBy('mailing','desc')->get() as $address)
+                                            <option value="{{$address->id}}">{{$address->name}} {{$address->surname}} - {{$address->address}} n°{{$address->civic_number}}, {{$address->city}} {{'('. $address->region. ')'}}-CAP: {{$address->zip}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label for="billing_address" class="col-sm-3 control-label">Indirizzo di Fatturazione</label>
-                            <div class="col-sm-9 pr_5">
-                                <select class="form-control" id="billing_address" name="billing_address">
-                                    @foreach(Auth::user()->addresses()->orderBy('billing','desc')->get() as $address)
-                                        <option value="{{$address->id}}">{{$address->name}} {{$address->surname}} - {{$address->address}} n°{{$address->civic_number}}, {{$address->city}} {{'('. $address->region. ')'}}-CAP: {{$address->zip}}</option>
-                                    @endforeach
-                                </select>
+                                <div class="col-sm-9 pr_5">
+                                    <select class="form-control" id="billing_address" name="billing_address">
+                                        @foreach(Auth::user()->addresses()->orderBy('billing','desc')->get() as $address)
+                                            <option value="{{$address->id}}">{{$address->name}} {{$address->surname}} - {{$address->address}} n°{{$address->civic_number}}, {{$address->city}} {{'('. $address->region. ')'}}-CAP: {{$address->zip}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
+                            <div class="buttons clearfix">
+                                <div class="pull-right pr_5 mt_10">
+                                    <button type="submit" class="btn btn-primary btn-sm">Salva</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
                 <div class="panel-body">
                     <div class="radio">
-                        <label><input type="radio" value="new" name="select_address" data-id="address-new"> Voglio utilizzare un nuovo indirizzo </label>
+                        <label><input type="radio" value="new" name="select_address" data-id="address-new">Inserisci un nuovo indirizzo</label>
                     </div>
-                    <form action="{{route('Address.AddPost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="{{route('Address.Add')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
                         <div id="address-new" style="display: none;">
                             <div class="form-group required">
@@ -79,7 +87,7 @@
                                 <label for="region" class="col-sm-3 control-label">Provincia</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" id="region" name="region" required>
-                                        <option value=""> --- Seleziona --- </option>
+                                        <option value="" style="display: none;"> --- Seleziona --- </option>
                                         <option value="ag">Agrigento</option>
                                         <option value="al">Alessandria</option>
                                         <option value="an">Ancona</option>
@@ -210,34 +218,29 @@
 
                 <div class="panel-body">
                     <div class="radio">
-                        <label><input type="radio" value="delete" name="select_address" data-id="address-delete"> Voglio eliminare un indirizzo esistente</label>
+                        <label><input type="radio" value="delete" name="select_address" data-id="address-delete">Elimina un indirizzo esistente</label>
                     </div>
-                    <div id="address-delete" class="form-horizontal" style="display: none;">
-
-                        <div class="form-group">
-                            <label for="delete_address" class="col-sm-3 control-label">Indirizzo da eliminare</label>
-                            <div class="col-sm-9 pr_5">
-                                <select class="form-control" id="delete_address" name="delete_address">
-                                    @foreach(Auth::user()->addresses()->get() as $address)
-                                        <option value="{{$address->id}}">{{$address->name}} {{$address->surname}} - {{$address->address}} n°{{$address->civic_number}}, {{$address->city}} {{'('. $address->region. ')'}}-CAP: {{$address->zip}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="buttons clearfix">
-                                <div class="pull-right pr_10 mt_10">
-                                    <button type="submit" class="btn btn-primary btn-sm">Elimina</button>
+                    <form action="{{route('Address.Delete')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        @csrf
+                        <div id="address-delete" style="display: none;">
+                            <div class="form-group">
+                                <label for="delete_address" class="col-sm-3 control-label">Indirizzo da eliminare</label>
+                                <div class="col-sm-9 pr_5">
+                                    <select class="form-control" id="delete_address" name="delete_address">
+                                        @foreach(Auth::user()->addresses()->get() as $address)
+                                            <option value="{{$address->id}}">{{$address->name}} {{$address->surname}} - {{$address->address}} n°{{$address->civic_number}}, {{$address->city}} {{'('. $address->region. ')'}}-CAP: {{$address->zip}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="buttons clearfix">
+                                    <div class="pull-right pr_5 mt_10">
+                                        <button type="submit" class="btn btn-primary btn-sm">Elimina</button>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
-
-                    </div>
-                </div>
-
-                <div class="buttons clearfix">
-                    <div class="pull-right pr_25">
-                        <input type="button" class="btn" data-loading-text="Loading..." id="button-select_address" value="Salva">
-                    </div>
+                    </form>
                 </div>
 
             </div>
