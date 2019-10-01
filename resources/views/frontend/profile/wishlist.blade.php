@@ -11,61 +11,45 @@
 
             @if(auth()->User()->productsWishlist->isEmpty())
 
-
             @else
-
-                <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th>Immagine</th>
-                                                <th>Prodotto</th>
-                                                <th>Categoria</th>
-                                                <th>Genere</th>
-                                                <th>Prezzo</th>
-                                                <th>Azioni</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach(auth()->User()->productsWishlist as $product)
-                                                <tr>
-                                                    <td style="width:180px; height:180px;">
-                                                        <a href="{{route('Product', ['cod' => $product->cod])}}">
-                                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="product" >
-                                                        </a>
-                                                    </td>
-                                                    <td>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</td>
-                                                    <td>
-                                                        @foreach($product->categories as $category)
-                                                            {{$category->name}} <br>
-                                                        @endforeach
-                                                    </td>
-                                                    <td>{{$product->genre}}</td>
-                                                    <td>€ {{$product->price}}</td>
-                                                    <td style="width:180px; height:180px; vertical-align: middle">
-                                                        <div class="mb_10">
-                                                            <a href="" type="button" class="btn btn-outline-secondary" >Aggiungi a Carrello</a>
-                                                        </div>
-                                                        <div >
-                                                            <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline-danger">Rimuovi</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-
-                                    </div>
+                @foreach(auth()->User()->productsWishlist as $product)
+                    <div class="col-lg-12 mb_40">
+                        <div class="mt_10 col-md-2">
+                            <div class="image product-imageblock">
+                                <a href="{{route('Product', ['cod' => $product->cod])}}">
+                                    <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+                        <div id="review" class="col-md-10 mt_10">
+                            <div>
+                                <label class="product-name"><span>Prodotto:</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</label>
+                                <div style="position: absolute; top: 0; right: 10px;">
+                                    <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" ></a>
+                                    <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash"></a>
                                 </div>
+                            </div>
+                            <div class="mt_10">
+                                <label class="review-title"><span style="margin-right: 8px">Prezzo:</span>{{$product->price}}</label>
+                                <label class="review-vote-date"><span>Genere:</span>{{$product->genre}}</label>
+                                <label class="review-vote-date"><span>Categoria:</span>
+                                    @foreach($product->categories as $category)
+                                        {{$category->name}},
+                                    @endforeach
+                                    <!--
+                                        @if($product->categories()->count() > 1)
+                                            @foreach($product->categories as $category)
+                                                {{$category->name}},
+                                                @endforeach
+                                        @else
+                                            {{$product->categories()->first()->name}}
+                                        @endif
+                                    -->
+                                </label>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
             @endif
         </div>
