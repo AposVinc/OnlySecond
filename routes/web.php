@@ -96,6 +96,10 @@ Route::group(['middleware' => ['auth'] ], function () {
         return view('frontend.profile.review');
     })->name('Review');
 
+    Route::get('/Review2', function () {
+        return view('frontend.profile.review2');
+    })->name('Review2');
+
     Route::get('/Review/Remove/{id}', function ($id) {
         Review::where('id',$id)->forceDelete();
         return back();
