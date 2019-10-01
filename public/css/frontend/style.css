@@ -59,6 +59,10 @@ Created by: 	Lionode
 	4.1 Footer General
 	4.2 Scrollup
 
+05 ===== PAGES =====
+	5.1 Review
+	5.2 Address
+
 ----------------------------------------------
 	BASIC
 	1.1 General
@@ -2879,6 +2883,11 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     /* =====  END RESPONSIVE CSS  =====*/
 
 
+/*----------------------------------------------
+    PAGES
+    5.1 Review
+---------------------------------------------- */
+
 #review label{
     font-weight: normal;
 }
@@ -2906,3 +2915,15 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-size: 13px;
     display: block;
 }
+
+/* ----------------------------------------------
+	5.2 Address
+----------------------------------------------- */
+.label-radio-address{
+    font-size: 16px;
+}
+
+input[type="radio"]:checked + span {
+    color: #ee5e11;
+}
+

@@ -10,10 +10,9 @@
             @endcomponent
 
             <div class="panel-default col-sm-10">
-                <h3>Gestisci I Tuoi Indirizzi Preferiti</h3>
                 <div class="panel-body">
-                    <div class="radio">
-                        <label> <input type="radio" checked="checked" value="existing" name="select_address" data-id="address-existing">Seleziona i tuoi indirizzi preferiti</label>
+                    <div class="radio mb_20">
+                        <label class="label-radio-address"> <input type="radio" checked="checked" value="existing" name="select_address" data-id="address-existing"><span>Seleziona i tuoi indirizzi preferiti</span></label>
                     </div>
                     <form action="{{route('Address.Favorite')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
@@ -50,8 +49,8 @@
                     </form>
                 </div>
                 <div class="panel-body">
-                    <div class="radio">
-                        <label><input type="radio" value="new" name="select_address" data-id="address-new">Inserisci un nuovo indirizzo</label>
+                    <div class="radio mb_20">
+                        <label class="label-radio-address"><input type="radio" value="new" name="select_address" data-id="address-new"><span>Inserisci un nuovo indirizzo</span></label>
                     </div>
                     <form action="{{route('Address.Add')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
@@ -217,8 +216,8 @@
                 </div>
 
                 <div class="panel-body">
-                    <div class="radio">
-                        <label><input type="radio" value="delete" name="select_address" data-id="address-delete">Elimina un indirizzo esistente</label>
+                    <div class="radio mb_20">
+                        <label class="label-radio-address"><input type="radio" value="delete" name="select_address" data-id="address-delete"><span>Elimina un indirizzo esistente</span></label>
                     </div>
                     <form action="{{route('Address.Delete')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
