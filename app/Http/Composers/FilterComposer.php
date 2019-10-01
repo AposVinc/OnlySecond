@@ -20,8 +20,7 @@ class FilterComposer
         $brands = Brand::withoutTrashed()->orderBy('name')->get();
         $collections = Collection::withoutTrashed()->orderBy('name')->get();
         $categories = Category::withoutTrashed()->orderBy('name')->get();
-        $all_materials = Specification::withoutTrashed()->orderBy('material')->get('material');
-        $materials = $all_materials->unique('material');
+        $materials = Specification::all()->unique('material');
         $colors = Color::all();         //https://en.wikipedia.org/wiki/Web_colors
 
         //offerte satici
