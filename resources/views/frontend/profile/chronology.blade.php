@@ -9,7 +9,7 @@
                 Cronologia Ordini
             @endcomponent
 
-            <div class="col-sm-12 col-lg-auto ">
+            <div class="col-sm-12 col-lg-auto">
 
                 @foreach(auth()->user()->orderHistories()->get() as $order )
 

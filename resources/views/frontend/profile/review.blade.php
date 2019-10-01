@@ -49,7 +49,7 @@
             @foreach(auth()->user()->reviews as $review)
                 <div class="col-lg-12 mb_40">
                     <div class="mt_10 col-md-2">
-                        <div class="image product-imageblock ">
+                        <div class="image product-imageblock">
                             <a href="{{route('Product', ['cod' => $review->product->cod])}}">
                                 <img data-name="product_image" src="{{asset($review->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
                             </a>
