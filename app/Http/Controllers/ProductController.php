@@ -36,16 +36,19 @@ class ProductController extends Controller
         }else{
             return redirect()->to('Admin/Product/List')->with('error','Impossibile inserire un nuovo Prodotto. Inserire prima una Collezione e/o un Fornitore e/o una Categoria!!');
         }
-
     }
 
     public function showEditForm()
     {
-        $brands = Brand::all();
-        $categories = Category::all();
-        $suppliers = Supplier::all();
-        $colors = Color::all();
-        return view('backend.product.edit',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
+        if(Product::withoutTrashed()->exists()){
+            $brands = Brand::all();
+            $categories = Category::all();
+            $suppliers = Supplier::all();
+            $colors = Color::all();
+            return view('backend.product.edit',['brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
+        }else{
+            return redirect()->to('Admin/Product/List')->with('error','Non ci sono Prodotti da Modificare!!');
+        }
     }
 
     public function showDeleteForm()
@@ -271,18 +274,112 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $id = $request->get('product');
-        $newname = $request->get('newname');
+        $idProduct = $request->get('product');
+        $idCollectionOld = $request->get('collection');
+        $idCollectionNew = $request->get('newcollection');
+        $product = Product::where('id',$idProduct)->first();
+        $cod = $request->get('cod');
+        if($cod != $product->cod && Product::where('cod',$cod)->first()){
+            return redirect()->to('Admin/Product/List')->with('error', 'Il Prodotto già esiste!!');
+        }else{
+            
+            //Update product
+            if($cod != $product->cod){
+                $product->cod=$cod;
+            }
+            if($idCollectionOld != $idCollectionNew){
+                $product->collection_id= $idCollectionNew;
+            }
+            if($request->filled('price')){
+                $product->price= $request->get('price');
+            }
+            if($request->filled('quantity')){
+                $product->stock_availability= $request->get('quantity');
+            }
+            if($request->filled('inline-radios')){
+                $product->genre = $request->get('inline-radios');
+            }
+            if($request->filled('desc')){
+                $product->long_desc= $request->get('desc');
+            }
+            if($request->filled('supplier')){
+                $product->supplier_id= $request->get('supplier');
+            }
+            if($request->filled('color')){
+                $product->color_id= $request->get('color');
+            }
+            if ($product->save()){
 
-        Product::where('id',$id)->restore();
-        Product::where('id',$id)
-            ->update(['name' => $newname]);
+                //Update category - product rel
+                $categories = Category::withoutTrashed()->get();
+                foreach ($categories as $category){
+                    if($request->get($category->id)){
+                        if(!(CategoryProduct::where('product_id',$idProduct)->where('category_id',$category->id)->first())) {
+                            $category_product = new CategoryProduct();
+                            $category_product->category_id = $request->get($category->id);
+                            $category_product->product_id = $idProduct;
+                            if (!($category_product->save())) {
+                                return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                            }
+                        }
+                    }else{
+                        if(CategoryProduct::where('product_id',$idProduct)->where('category_id',$category->id)->first()) {
+                            if (!(CategoryProduct::where('product_id',$idProduct)->where('category_id',$category->id)->forceDelete())) {
+                                return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                            }
+                        }
+                    }
+                }
 
-        //AGGIUìORNA IL PREZZO NELLE OFFERTE
+                //Update specification
+                $specification = Specification::where('product_id',$idProduct)->first();
+                if($request->filled('case_size')){
+                    $specification->case_size= $request->get('case_size');
+                }
+                if($request->filled('material')){
+                    $specification->material = $request->get('material');
+                }
+                if($request->filled('case_thickness')){
+                    $specification->case_thickness = $request->get('case_thickness');
+                }
+                if($request->filled('glass')){
+                    $specification->glass = $request->get('glass');
+                }
+                if($request->filled('dial_color')){
+                    $specification->dial_color = $request->get('dial_color');
+                }
+                if($request->filled('strap_material')){
+                    $specification->strap_material = $request->get('strap_material');
+                }
+                if($request->filled('strap_color')){
+                    $specification->strap_color = $request->get('strap_color');
+                }
+                if($request->filled('closing')){
+                    $specification->closing = $request->get('closing');
+                }
+                if($request->filled('movement')){
+                    $specification->movement = $request->get('movement');
+                }
+                if($request->filled('warranty')){
+                    $specification->warranty = $request->get('warranty');
+                }
+                if ($request->get('battery_replacement')) {
+                    $specification->battery_replacement = true;
+                } else {
+                    $specification->battery_replacement = false;
+                }
+                if($specification->save()){
+                    return redirect()->to('Admin/Product/List')->with('success', 'Modifiche avvenute con successo!!');
+                }else{
+                    return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!!!');
+                }
+            } else {
+                return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il caricamento. Riprovare!!');
+            }
 
-        return redirect()->to('Admin/Product/List');
+        }
     }
 
     public function restore(Request $request)   //query senza nome

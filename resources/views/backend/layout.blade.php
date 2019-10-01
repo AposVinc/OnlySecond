@@ -474,14 +474,16 @@
 
 @if(strpos(route::currentRouteName(),'Admin.Product.Edit')!== false)
     <script>
-        function EditNewCollection(){
+        function GetNewCollection(){
+            var divError = document.getElementById('error');
+            divError.innerText ="";
+            divError.classList.remove('alert','alert-danger');
             var selectCollection = document.getElementById('newcollection');
             selectCollection.options.length = 0;
             var option = document.createElement('option');
             option.text = "Seleziona la collezione";
             option.value = "";
             selectCollection.add(option);
-            var data;
             var selected = document.getElementById('newbrand');
             var value = selected.options[selected.selectedIndex].value;
 
@@ -492,8 +494,11 @@
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result)
                 {
-                    data=result;
-                    data.forEach(AddOptionNewCollection);
+                    if(result.length === 0){
+                        Error("Non ci sono Collezioni per il brand selezionato");
+                    }else{
+                        result.forEach(AddOptionNewCollection);
+                    }
                 },
                 error:function(xhr){
                     alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
