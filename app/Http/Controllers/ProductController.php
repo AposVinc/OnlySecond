@@ -57,7 +57,7 @@ class ProductController extends Controller
             $brands = Brand::all();
             return view('backend.product.delete', ['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Product/List')->with('error','Non ci sono elementi da Eliminare!!');
+            return redirect()->to('Admin/Product/List')->with('error','Non ci sono Prodotti da Eliminare!!');
         }
     }
 
@@ -67,7 +67,7 @@ class ProductController extends Controller
             $brands = Brand::all();
             return view('backend.product.restore', ['brands' => $brands]);
         } else {
-            return redirect()->to('Admin/Product/List')->with('error','Non ci sono elementi da ripristinare!!!!');
+            return redirect()->to('Admin/Product/List')->with('error','Non ci sono Prodotti da Ripristinare!!!!');
         }
     }
 
@@ -385,9 +385,12 @@ class ProductController extends Controller
     public function restore(Request $request)   //query senza nome
     {
         $id = $request->get('product');
-        Product::where('id',$id)->restore();
-
-        return redirect()->to('Admin/Product/List');
+        $product = Product::withTrashed()->where('id',$id)->first();
+        if($product->restore()){
+            return redirect()->to('Admin/Product/List')->with('success', 'Ripristino avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
     }
 
     /**
@@ -399,11 +402,17 @@ class ProductController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->get('product');
-        $product = Product::find($id)->first();
-        $product->delete();
-        $product->offer->delete();
-
-        return redirect()->to('Admin/Product/List');
+        $product = Product::where('id',$id)->first();
+        if($product->offer) {
+            if (!($product->offer->delete())) {
+                return redirect()->to('Admin/Product/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+        if($product->delete()){
+            return redirect()->to('Admin/Product/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        }else{
+            return redirect()->to('Admin/Product/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+        }
     }
 
 

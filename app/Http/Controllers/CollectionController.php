@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Banner;
 use App\Brand;
 use App\Collection;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -131,14 +132,11 @@ class CollectionController extends Controller
     {
         $idcollection = $request->get('collection');
 
-        $collection = Collection::withTrashed()->where('id',$idcollection)->first();
-
-        if ($collection->restore()) {
+        if (Collection::withTrashed()->where('id',$idcollection)->restore()) {
             return redirect()->to('Admin/Collection/List')->with('success','Ripristino avvenuto con successo!!');
         }else{
             return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
         }
-
     }
 
     /**
@@ -152,6 +150,17 @@ class CollectionController extends Controller
         $idcollection = $request->get('collection');
 
         $collection = Collection::withTrashed()->where('id',$idcollection)->first();
+
+        if(Product::withoutTrashed()->where('collection_id', $idcollection)->exists()){
+            $products = Product::withoutTrashed()->where('collection_id', $idcollection)->get();
+            foreach ($products as $product){
+                if($product->offer) {
+                    if (!($product->offer->delete())) {
+                        return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                    }
+                }
+            }
+        }
 
         if(Banner::withoutTrashed()->where('collection_id', $idcollection)->exists()){
             $visible = false;

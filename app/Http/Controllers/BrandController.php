@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Collection;
 use App\Banner;
+use App\Product;
 
 class BrandController extends Controller
 {
@@ -191,6 +192,18 @@ class BrandController extends Controller
             $countVisibleCollections = 0;
             $collections = Collection::withoutTrashed()->where('brand_id',$brand)->get();
             foreach ($collections as $collection){
+
+                if(Product::withoutTrashed()->where('collection_id', $collection->id)->exists()){
+                    $products = Product::withoutTrashed()->where('collection_id', $collection->id)->get();
+                    foreach ($products as $product){
+                        if($product->offer) {
+                            if (!($product->offer->delete())) {
+                                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                            }
+                        }
+                    }
+                }
+
                 if(Banner::withoutTrashed()->where('collection_id', $collection->id)->exists()){
                     $countVisibleCol = Banner::withoutTrashed()->where('visible', true)->where('collection_id',$collection->id)->count('visible');
                     $countVisibleCollections += $countVisibleCol;

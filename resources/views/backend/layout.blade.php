@@ -552,14 +552,16 @@
 
 @if(strpos(route::currentRouteName(),'Admin.Product.Restore')!== false)
     <script>
-        function EditProductRestore(){
+        function GetProductRestore(){
+            var divError = document.getElementById('error');
+            divError.innerText ="";
+            divError.classList.remove('alert','alert-danger');
             var selectProduct = document.getElementById('product');
             selectProduct.options.length = 0;
             var option = document.createElement('option');
             option.text = "Seleziona il prodotto";
             option.value = "";
             selectProduct.add(option);
-            var data;
             var selected = document.getElementById('collection');
             var value = selected.options[selected.selectedIndex].value;
 
@@ -569,8 +571,11 @@
                 dataType: "json",
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result) {
-                    data=result;
-                    data.forEach(AddOptionProduct);
+                    if(result.length === 0){
+                        Error("Non ci sono Prodotti da ripristinare per la collezione selezionata");
+                    }else{
+                        result.forEach(AddOptionProduct);
+                    }
                 },
                 error:function(xhr){
                     alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);

@@ -18,7 +18,7 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = ['images','specification','reviews','categoriesRel'];
+    protected $softCascade = ['categoriesRel','images'];
 
     protected $fillable =[
         'cod', 'collection_id', 'price', 'producer_id', 'category_id',

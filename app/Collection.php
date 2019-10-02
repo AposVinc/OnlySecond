@@ -18,7 +18,7 @@ class Collection extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $softCascade = ['banners']; //products
+    protected $softCascade = ['banners','products'];
 
     protected $fillable =[
         'name','brand_id',
