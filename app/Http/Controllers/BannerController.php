@@ -52,10 +52,27 @@ class BannerController extends Controller
         }
     }
 
+    public function showRestoreForm()
+    {
+        if (Banner::onlyTrashed()->exists()){
+            $brands = Brand::all();
+            return view('backend.banner.restore', ['brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Banner/List')->with('error','Non ci sono Banner da Ripristinare!!');
+        }
+    }
+
     function getBanner(Request $request)
     {
         $value = $request->get('value');
-        $banners = Banner::where('collection_id', $value)->get();
+        $banners = Banner::withoutTrashed()->where('collection_id', $value)->get();
+        return $banners;
+    }
+
+    function getBannerRestore(Request $request)
+    {
+        $value = $request->get('value');
+        $banners = Banner::onlyTrashed()->where('collection_id', $value)->get();
         return $banners;
     }
 
@@ -173,6 +190,15 @@ class BannerController extends Controller
             return "Success";
         } else {
             return "Error";
+        }
+    }
+
+    public function restore(Request $request){
+
+        if(Banner::where('id', $request->get('banner'))->restore()){
+            return redirect()->to('Admin/Banner/List')->with('success', 'Ripristino avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
         }
     }
 

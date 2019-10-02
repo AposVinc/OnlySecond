@@ -143,6 +143,7 @@
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi</a></li>
                                 <li><i class="fa fa-eye"></i><a href="{{url::route('Admin.Banner.Edit')}}">Mostra in Home</a></li>
                                 <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
+                                <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina</a></li>
                             </ul>
                         </li>
                     @endif
@@ -395,6 +396,42 @@
             selectBanner.add(option);
         }
 
+    </script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Admin.Banner.Restore')!== false)
+    <script>
+        function GetBannerRestore(){
+            var divError = document.getElementById('error');
+            divError.innerText ="";
+            divError.classList.remove('alert','alert-danger');
+            var selectBanner = document.getElementById('banner');
+            selectBanner.options.length = 0;
+            var option = document.createElement('option');
+            option.text = "Seleziona il banner";
+            option.value = "";
+            selectBanner.add(option);
+            var selected = document.getElementById('collection');
+            var value = selected.options[selected.selectedIndex].value;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.RestoreGetBanner') }}',
+                method:"POST",
+                dataType: "json",
+                data:{value:value, _token: "{{ csrf_token() }}"},
+                success:function(result)
+                {
+                    if(result.length === 0){
+                        Error("Non ci sono Banner da ripristinare per la collezione selezionata");
+                    }else{
+                        result.forEach(AddOptionBanner);
+                    }
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+        }
     </script>
 @endif
 

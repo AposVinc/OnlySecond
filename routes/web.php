@@ -393,6 +393,9 @@ Route::group(['middleware' => ['admin']], function () {
 
                         Route::get('/Delete', 'BannerController@showDeleteForm')->name('Delete');
                         Route::post('/DeletePost', 'BannerController@destroy')->name('DeletePost');
+
+                        Route::get('/Restore', 'BannerController@showRestoreForm')->name('Restore');
+                        Route::post('/RestorePost', 'BannerController@restore')->name('RestorePost');
                     });
                 });
             });
