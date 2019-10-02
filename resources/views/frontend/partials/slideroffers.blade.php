@@ -17,7 +17,7 @@
                                     <div class="product-thumb">
                                         <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $offer->product->cod])}}"> <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> </a>
                                             <div class="button-group text-center">
-                                                <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
+                                                <a href="{{route('Wishlist.AddProduct', ['cod' => $offer->product->cod])}}"  class="wishlist"><span>wishlist</span></a>
                                                 <a href="#" class="quickview"><span>Quick View</span></a>
                                                 <a href="#" class="compare"><span>Compare</span></a>
                                                 <a href="#" class="add-to-cart"><span>Add to cart</span></a>

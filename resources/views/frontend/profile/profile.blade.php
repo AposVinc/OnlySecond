@@ -3,15 +3,13 @@
 @section('content')
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="breadcrumb ptb_20">
-                    <h1>Profilo</h1>
-                    <ul>
-                        <li class="active">Il Mio Profilo</li>
-                    </ul>
-                </div>
-            </div>
+
+        <div class="row mb_60">
+
+            @component('frontend.partials.breadcrumbshome')
+                Il Mio Profilo
+            @endcomponent
+            <!--    track-->
 
             <div class="col-lg-4 mt_20">
                 <a href="{{route('Chronology')}}">
