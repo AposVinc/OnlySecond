@@ -455,6 +455,17 @@ h6 {
     margin-right: 100px;
 }
 
+/* =====  margin right left ===== */
+
+.mrl_0 {
+    margin-right: 0;
+    margin-left: 0;
+}
+.mrl_10 {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 /* =====  padding  ===== */
 
 .no-padding {
@@ -574,6 +585,12 @@ h6 {
 
 .pl_0 {
     padding-left: 0;
+}
+.pl_5 {
+    padding-left: 5px;
+}
+.pl_10 {
+    padding-left: 10px;
 }
 
 /* =====  padding right ===== */

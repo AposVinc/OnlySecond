@@ -293,29 +293,6 @@
 
 <script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
 
-@if(strpos(route::currentRouteName(),'Address')!== false)
-<!-- checkout nuovo indirizzo-->
-<script type="text/javascript">
-    $('input[name=\'select_address\']').on('change', function() {
-        if (this.value == 'existing') {
-            $('#address-existing').show();
-            $('#address-new').hide();
-            $('#address-delete').hide();
-        }
-        if (this.value == 'new') {
-            $('#address-existing').hide();
-            $('#address-new').show();
-            $('#address-delete').hide();
-        }
-        if (this.value == 'delete') {
-            $('#address-existing').hide();
-            $('#address-new').hide();
-            $('#address-delete').show();
-        }
-    });
-</script>
-@endif
-
 @if(strpos(route::currentRouteName(),'Contact')!== false)
     <!-- Maps da errore con le api, su forum ho letto che è a pagamento
     https://www.mtb-mag.com/forum/threads/questa-pagina-non-carica-correttamente-google-maps.369147/
@@ -340,6 +317,38 @@
     </script>
     <script src="{{URL::asset('js/frontend/map.js')}}"></script>
     <script src="{{URL::asset('js/frontend/mail.js')}}"></script>
+@endif
+
+@if(strpos(route::currentRouteName(),'EditProfile')!== false)
+<!-- checkout nuovo indirizzo-->
+<script>
+    function ActiveForm(){
+
+    }
+</script>
+@endif
+
+@if(strpos(route::currentRouteName(),'Address')!== false)
+    <!-- checkout nuovo indirizzo-->
+    <script type="text/javascript">
+        $('input[name=\'select_address\']').on('change', function() {
+            if (this.value == 'existing') {
+                $('#address-existing').show();
+                $('#address-new').hide();
+                $('#address-delete').hide();
+            }
+            if (this.value == 'new') {
+                $('#address-existing').hide();
+                $('#address-new').show();
+                $('#address-delete').hide();
+            }
+            if (this.value == 'delete') {
+                $('#address-existing').hide();
+                $('#address-new').hide();
+                $('#address-delete').show();
+            }
+        });
+    </script>
 @endif
 
 

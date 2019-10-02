@@ -45,7 +45,8 @@ wishlist grafica    - come risolvere il problema della virgola
                     - se vuoto cosa fare?
 wishlist logica - azione aggiungi al carrello
 logica pagamento
-mie recensioni - lasciare ricerca sotto breadcrumbs?
+mie recensioni  - se non si possono fare azioni sulle recensioni perche abbiamo la sez dedicata?
+                - lasciare ricerca sotto breadcrumbs?
                 - tooltip sui bottoni
 foto "chi siamo" statiche
 IN SCONTO - mostra shop con prod scontati

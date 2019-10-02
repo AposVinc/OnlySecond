@@ -36,15 +36,6 @@
                                     @foreach($product->categories as $category)
                                         {{$category->name}},
                                     @endforeach
-                                    <!--
-                                        @if($product->categories()->count() > 1)
-                                            @foreach($product->categories as $category)
-                                                {{$category->name}},
-                                                @endforeach
-                                        @else
-                                            {{$product->categories()->first()->name}}
-                                        @endif
-                                    -->
                                 </label>
                             </div>
                         </div>
