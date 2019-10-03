@@ -76,45 +76,52 @@
                                     <label>Codice Prodotto:</label>
                                     <span>{{$product->cod}}</span>
                                 </li>
+                                <li>
+                                    <label>Materiale:</label>
+                                    <span></span>
+                                </li>
+                                <li>
+                                    <label>Disponibilità:</label>
+                                    <span>{{$product->stock_availability}}</span>
+                                </li>
+
                             </ul>
                             <hr>
-                            <p class="product-desc mtb_30"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go. Cover Flow. Browse through your music collection by flipping..</p>
-                            <!--
+                            <label>Descrizione:</label>
+                            <p class="product-desc mtb_10">{{$product->long_desc}}</p>
+
                             <div id="product">
                                 <div class="form-group">
+                                    <hr>
                                     <div class="row">
-                                        <div class="Sort-by col-md-6">
-                                            <label>Sort by</label>
-                                            <select name="product_size" id="select-by-size" class="selectpicker form-control">
-                                                <option>Small</option>
-                                                <option>Medium</option>
-                                                <option>Large</option>
+
+                                        <div class="Color col-md-4">
+                                            <label>Colore</label>
+                                            <select name="product_color" id="select-by-color" class="selectpicker form-control mt_10">
+                                                <option>
+                                                @foreach($product->color() as $color)
+                                                    {{$color->name}}
+                                                @endforeach
+                                                </option>
+                                                <option>rosso</option>
                                             </select>
                                         </div>
-                                        <div class="Color col-md-6">
-                                            <label>Color</label>
-                                            <select name="product_color" id="select-by-color" class="selectpicker form-control">
-                                                <option>Blue</option>
-                                                <option>Green</option>
-                                                <option>Orange</option>
-                                                <option>White</option>
-                                            </select>
+                                        <div class="col-md-4 qty form-group2">
+                                            <label>Quantità</label>
+                                            <input name="product_quantity" min="1" value="1" type="number" class="mt_10">
+                                        </div>
+
+                                        <div class="button-group mt_30 col-md-4">
+                                            <div class="add-to-cart"><a href="#"><span>Add to cart</span></a></div>
+                                            <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
+                                            <div class="compare"><a href="#"><span>Compare</span></a></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="qty mt_30 form-group2">
-                                    <label>Qty</label>
-                                    <input name="product_quantity" min="1" value="1" type="number">
-                                </div>
-                                <div class="button-group mt_30">
-                                    <div class="add-to-cart"><a href="#"><span>Add to cart</span></a></div>
-                                    <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
-                                    <div class="compare"><a href="#"><span>Compare</span></a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-md-12">
                             <div id="exTab5" class="mtb_30">
                                 <ul class="nav nav-tabs">
@@ -167,8 +174,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>-->
+                        </div>-->
+                    </div>
                 </div>
 
     </div>
