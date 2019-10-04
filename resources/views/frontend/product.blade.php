@@ -17,7 +17,7 @@
                             <div id="product-thumbnail" class="owl-carousel owl-theme ml_100 mt_10">
                                 <div class="item">
                                     <div class="image-additional mr_10">
-                                        <a href="{{route('Product', ['cod' => $product->cod])}}"  data-fancybox="group1">
+                                        <a href="{{route('Product', ['cod' => $product->cod])}}"  data-fancybox="group1"> <!--	href non necessario, non c'è bisogno di riaprire di nuovo la pagina-->
                                             <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="">
                                         </a>
                                     </div>
