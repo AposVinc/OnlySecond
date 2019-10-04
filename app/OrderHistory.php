@@ -47,7 +47,7 @@ class OrderHistory extends Model
     public function calculateTotalPrice(){
         $totalprice = 0.00;
         foreach ($this->products as $product){
-            $totalprice += $product->pivot->price;
+            $totalprice += ($product->pivot->price * $product->pivot->quantity);
         }
         return number_format($totalprice, 2);
     }

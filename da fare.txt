@@ -44,6 +44,8 @@ wishlist grafica    - come risolvere il problema della virgola
                     - tooltip sui bottoni
                     - se vuoto cosa fare?
 wishlist logica - azione aggiungi al carrello
+		- se prod in offerta mostra il prezzo scontato e lo sconto
+in sconto 	- mostra il prezzo scontato e lo sconto, non è stato fatto
 logica pagamento
 mie recensioni  - se non si possono fare azioni sulle recensioni perche abbiamo la sez dedicata?
                 - lasciare ricerca sotto breadcrumbs?
