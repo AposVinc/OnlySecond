@@ -38,31 +38,31 @@
                                     <input type="email" class="form-control" id="email" placeholder="Indirizzo Email" value="{{auth()->user()->email}}" name="email" disabled required>
                                 </div>
                             </div>
-                            <div class="form-group required">
-                                <label for="password" class="col-sm-3 control-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="password" placeholder="Password" value="********" name="password" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group required" id="conf-psw" style="display: none">
-                                <label for="password-confirm" class="col-sm-3 control-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="password-confirm" placeholder="Password" value="" name="password-confirm">
+
+                            <div id="divRadio"></div>
+
+
+                            <div id="password">
+                                <div class="form-group required">
+                                    <label for="old-password" id="label-old-password" class="col-sm-3 control-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="old-password" placeholder="Vecchia Password" value="**********" name="old-password" disabled>
+                                    </div>
                                 </div>
                             </div>
                             <div class="buttons clearfix">
                                 <div class="pull-left pl_10 mt_10">
-                                    <a href="{{route('Profile')}}" type="button" class="btn btn-primary btn-sm">Indietro</a>
+                                    <a href="{{route('Profile')}}" type="button" id="buttonBack" class="btn btn-primary btn-sm">Indietro</a>
                                 </div>
                                 <div class="pull-right pr_10 mt_10">
-                                    <a type="button" class="btn btn-primary btn-sm" onclick="ActiveForm()">Modifica</a>
+                                    <a type="button" id="buttonEdit" class="btn btn-primary btn-sm" onclick="ActiveForm()">Modifica</a>
                                 </div>
 
                                 <div class="pull-left pl_10 mt_10">
-                                    <a type="button" class="btn btn-primary btn-sm" style="display: none">Annulla</a>
+                                    <a type="button" id="buttonReset" class="btn btn-primary btn-sm" onclick="DisabledForm()" style="display: none">Annulla</a>
                                 </div>
                                 <div class="pull-right pr_10 mt_10">
-                                    <button type="submit" class="btn btn-primary btn-sm" style="display: none">Salva</button>
+                                    <button type="submit" id="buttonSave" class="btn btn-primary btn-sm" style="display: none">Salva</button>
                                 </div>
                             </div>
                         </form>

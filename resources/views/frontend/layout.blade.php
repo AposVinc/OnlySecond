@@ -323,13 +323,43 @@
 <!-- checkout nuovo indirizzo-->
 <script>
     function ActiveForm(){
+        var radio = $('<div class="radio mb_20">\n' +
+            '                        <input type="radio" value="true" name="change_psw" data-id="address-existing"><span>Vuoi Cambiare PSW</span>\n' +
+            '                    </div>');
+        $('#password').hide();
+        radio.appendTo('#divRadio');
 
+        $('input').prop('disabled',false);
+        $('#buttonBack').hide();
+        $('#buttonEdit').hide();
+        $('#buttonReset').show();
+        $('#buttonSave').show();
     }
+
+    $('input[name=\'change_psw\']').on('click',function () {
+        $('#label-old-password').text("Vecchia Password");
+        $('#old-password').val('');
+        var new_password = $('<div class="form-group required">\n' +
+            '                                    <label for="new-password" id="label-new-password" class="col-sm-3 control-label">Password</label>\n' +
+            '                                    <div class="col-sm-9">\n' +
+            '                                        <input type="password" class="form-control" id="new-password" placeholder="Nuova Password" value="" name="new-password">\n' +
+            '                                    </div>\n' +
+            '                                </div>'    );
+        var confirm_new_password = $('<div class="form-group required">\n' +
+            '                                    <label for="confirm-new-password" id="label-confirm-new-password" class="col-sm-3 control-label">Password</label>\n' +
+            '                                    <div class="col-sm-9">\n' +
+            '                                        <input type="password" class="form-control" id="confirm-new-password" placeholder="Conferma Nuova Password" value="" name="confirm-new-password">\n' +
+            '                                    </div>\n' +
+            '                                </div>'    );
+        new_password.appendTo('#password');
+        confirm_new_password.appendTo('#password');
+    });
+
 </script>
 @endif
 
 @if(strpos(route::currentRouteName(),'Address')!== false)
-    <!-- checkout nuovo indirizzo-->
+    <!-- checkout nuovo indirizzo -->
     <script type="text/javascript">
         $('input[name=\'select_address\']').on('change', function() {
             if (this.value == 'existing') {
