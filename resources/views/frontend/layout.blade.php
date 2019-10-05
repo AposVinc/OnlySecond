@@ -324,7 +324,7 @@
 <script>
     function ActiveForm(){
         var radio = $('<div class="radio mb_20">\n' +
-            '                        <input type="radio" value="true" name="change_psw" data-id="address-existing"><span>Vuoi Cambiare PSW</span>\n' +
+            '                        <input type="radio" value="true" id="change_psw" name="change_psw" data-id="address-existing"><span>Vuoi Cambiare PSW</span>\n' +
             '                    </div>');
         $('#password').hide();
         radio.appendTo('#divRadio');
