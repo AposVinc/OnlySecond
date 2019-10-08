@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -28,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'Home';
 
     /**
      * Create a new controller instance.
@@ -42,13 +43,17 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('frontend.auth.login');
+        return view('frontend.login');
     }
 
     public function loginFE(Request $request)
     {
-        $this->login($request);
-        return redirect()->route('Home');
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('Home');
+        } else {
+            return back();
+        }
     }
 
     public function logout()
@@ -56,5 +61,4 @@ class LoginController extends Controller
         \Auth::logout();
         return redirect()->route('Home');
     }
-
 }

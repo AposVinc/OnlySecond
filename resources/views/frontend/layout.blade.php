@@ -354,7 +354,6 @@
         new_password.appendTo('#password');
         confirm_new_password.appendTo('#password');
     });
-
 </script>
 @endif
 
