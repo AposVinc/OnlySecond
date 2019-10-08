@@ -43,7 +43,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('frontend.login');
+        return view('frontend.auth');
     }
 
     public function loginFE(Request $request)
