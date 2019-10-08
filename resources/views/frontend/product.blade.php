@@ -95,17 +95,6 @@
                                     <hr>
                                     <div class="row">
 
-                                        <div class="Color col-md-4">
-                                            <label>Colore</label>
-                                            <select name="product_color" id="select-by-color" class="selectpicker form-control mt_10">
-                                                <option>
-                                                @foreach($product->color() as $color)
-                                                    {{$color->name}}
-                                                @endforeach
-                                                </option>
-                                                <option>rosso</option>
-                                            </select>
-                                        </div>
                                         <div class="col-md-4 qty form-group2">
                                             <label>Quantità</label>
                                             <input name="product_quantity" min="1" value="1" type="number" class="mt_10">
@@ -154,13 +143,6 @@
                                                         <td><span>{{$product->genre}}</span></td>
                                                     </tr>
 
-                                                    <tr class="even-row"><td><strong>Colore</strong></td>
-                                                        <td> @foreach($product->color() as $color)
-                                                                {{$color->name}}
-                                                            @endforeach
-                                                        </td>
-                                                    </tr>
-
                                                     <tr><td><strong>Codice</strong></td>
                                                         <td><span>{{$product->cod}}</span></td>
                                                     </tr>
@@ -170,7 +152,6 @@
                                     </div>
 
                                     <div class="tab-pane" id="2c">
-                                        <form>
                                         @foreach($product->reviews() as $review)
                                             <div class="col-lg-12 mb_40">
 
@@ -186,8 +167,7 @@
                                                     </div>
                                             </div>
                                         @endforeach
-                                        </form>
-
+<!--
                                         <form class="form-horizontal col-lg-12">
                                             <div id="review">
                                                 <h4 class="mtb_20">Scrivi una recensione</h4>
@@ -204,11 +184,10 @@
                                                 </div>
                                             </div>
 
-                                                <form action="#">
-                                                    <input class="btn pull-right mt_30" type="submit" value="Invia" />
-                                                </form>
-                                            </div>
-                                        </form>
+                                                   <input class="btn pull-right mt_30" type="submit" value="Invia" />
+
+                                               </div>
+                                        </form>-->
                                     </div>
 
                                 </div>
