@@ -28,11 +28,18 @@ FE
 ---------
 ?cerca
 --Vale -- Pagina Dettaglio prodotto - grafica
-Operazione su User - modifica info utente su DB, 
+Operazione su User - modifica info utente su DB,
 
-shop    - se si mette where('main',0) da errore sul path
-        - img per prod ne mostra solo 1 (in template originale ne mostra 2)
-        -Vincenzo- se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
+shop        - se si mette where('main',0) da errore sul path
+            - img per prod ne mostra solo 1 (in template originale ne mostra 2)
+-Vincenzo   - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
+
+-Vincenzo   wishlist - se prod in offerta mostra il prezzo scontato e lo sconto
+-Vincenzo   in sconto - mostra il prezzo scontato e lo sconto, non è stato fatto
+
+-Vincenzo   aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
+
+
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
 -Sara-login checkout
@@ -41,18 +48,14 @@ grafica Storico Ordini - da ultimare dopo checkout
 
 wishlist grafica    - come risolvere il problema della virgola
                     - tooltip sui bottoni
-                    
-wishlist logica - azione aggiungi al carrello
-		-Vincenzo- se prod in offerta mostra il prezzo scontato e lo sconto
-in sconto 	-Vincenzo- mostra il prezzo scontato e lo sconto, non è stato fatto
 
+wishlist logica - azione aggiungi al carrello
 mie recensioni - tooltip sui bottoni
 foto "chi siamo" statiche
 Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata?? - error se email non c'è
--Vincenzo-aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
 
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
@@ -108,7 +111,7 @@ recensioni - mettere solo elimina e togliere modifica
            - lasciare ricerca sotto breadcrumbs?
 
 DOMANDE DA FARE AL PROF
-1. C'è bisogno di realizzare l'email generata per il cambio password 
+1. C'è bisogno di realizzare l'email generata per il cambio password
 2. Eliminazione account utente
 
 
