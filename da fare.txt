@@ -28,41 +28,40 @@ FE
 ---------
 ?cerca
 --Vale -- Pagina Dettaglio prodotto - grafica
-Operazione su User - modifica info utente su DB, Elimina utente se si vuole eliminare account
-nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
+Operazione su User - modifica info utente su DB, 
+
 shop    - se si mette where('main',0) da errore sul path
         - img per prod ne mostra solo 1 (in template originale ne mostra 2)
-        - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
-login checkout
-logica filtro - in filtro il nome della colezione va affiancato al nome del brand? (es. Fossil Carlie oppure Swarovski Stella ecc)
+        -Vincenzo- se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
+-Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+-Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
+-Sara-login checkout
+
 grafica Storico Ordini - da ultimare dopo checkout
-logica modifica -   all'inizio tutti disabilitati ed è presente solo tasto in basso "modifica"
+
 wishlist grafica    - come risolvere il problema della virgola
-                    - decidere se aggiungere qualche altro campo
                     - tooltip sui bottoni
-                    - se vuoto cosa fare?
+                    
 wishlist logica - azione aggiungi al carrello
-		- se prod in offerta mostra il prezzo scontato e lo sconto
-in sconto 	- mostra il prezzo scontato e lo sconto, non è stato fatto
-logica pagamento
-mie recensioni  - se non si possono fare azioni sulle recensioni perche abbiamo la sez dedicata?
-                - lasciare ricerca sotto breadcrumbs?
-                - tooltip sui bottoni
+		-Vincenzo- se prod in offerta mostra il prezzo scontato e lo sconto
+in sconto 	-Vincenzo- mostra il prezzo scontato e lo sconto, non è stato fatto
+
+mie recensioni - tooltip sui bottoni
 foto "chi siamo" statiche
-IN SCONTO - mostra shop con prod scontati
 Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
-logica pass dimenticata??
-aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
-url 404
+logica pass dimenticata?? - error se email non c'è
+-Vincenzo-aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
 
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
 
-
+Login - div error se non va a buon fine registrazione
+      - no login diretto se registrazione andata a buon fine ma messaggio??
+      - email già usata div error con messaggio
+      - tooltip errori campi (dimensione password e conferma password, password = conferma password)
+      - password errata, email non presente nel db
 
 ok BE
 ----------
@@ -96,39 +95,22 @@ mie recensioni -        arancione titolo data voto, grassetto cod brandname coll
 logica Storico Ordini
 bottoni sul sito, se si passa col cursore sopra cambiano colore
 logica inidirizzi
+logica modifica -   all'inizio tutti disabilitati ed è presente solo tasto in basso "modifica"
 
 
 
+DA DISCUTERE
+Elimina utente se si vuole eliminare account
+nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
+wishlist grafica   - decidere se aggiungere qualche altro campo
+                   - se vuoto cosa fare?
+recensioni - mettere solo elimina e togliere modifica
+           - lasciare ricerca sotto breadcrumbs?
 
+DOMANDE DA FARE AL PROF
+1. C'è bisogno di realizzare l'email generata per il cambio password 
+2. Eliminazione account utente
 
-
-
-
-
-MESSAGGI DI ERRORE NEL BE
-controller
-return view(...)->withErrors(['message_login' => 'The email or password is incorrect, please try again'])
-blade
-@error('message_login') .... {{$message}}....@enderror
-
-messaggi errore
-    ripristina - non ci sono el da riprstinare
-    elimina - non ci sono el da eliminare
-    aggiunta - gia esiste
-
-BRAND e COLLECTION:
-- Add:
-   1. errore nel salvataggio
-   2. già inserito
-- Edit:
-   1. errore nell'update
-   2. già inserito
-- Delete
-   1. errore nell'eliminazione
-   2. non c'è niente da eliminare
-- Restore
-   1. errore nel ripristino
-   2. non c'è niente da ripristinare
 
 
 
