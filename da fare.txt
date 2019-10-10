@@ -37,9 +37,6 @@ shop        - se si mette where('main',0) da errore sul path
 -Vincenzo   wishlist - se prod in offerta mostra il prezzo scontato e lo sconto
 -Vincenzo   in sconto - mostra il prezzo scontato e lo sconto, non è stato fatto
 
--Vincenzo   aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
-
-
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
 -Sara-login checkout
@@ -99,6 +96,8 @@ logica Storico Ordini
 bottoni sul sito, se si passa col cursore sopra cambiano colore
 logica inidirizzi
 logica modifica -   all'inizio tutti disabilitati ed è presente solo tasto in basso "modifica"
+aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
+
 
 
 
@@ -109,6 +108,7 @@ wishlist grafica   - decidere se aggiungere qualche altro campo
                    - se vuoto cosa fare?
 recensioni - mettere solo elimina e togliere modifica
            - lasciare ricerca sotto breadcrumbs?
+se media recensione è 3,8 si deve dare mezza stella o si inserisce la 4a?
 
 DOMANDE DA FARE AL PROF
 1. C'è bisogno di realizzare l'email generata per il cambio password
