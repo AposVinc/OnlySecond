@@ -4,34 +4,32 @@
     <div class="container">
 
                 @component('frontend.partials.breadcrumbshome')
-                 <label class="product-name"><span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</span></label>
+                 <label>Prodotto</label>
                 @endcomponent
                 <div class="col-lg-12 ">
                         <div class="col-md-5">
                             <div class="ml_10">
-                                <a href="{{route('Product', ['cod' => $product->cod])}}">
-                                    <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="" />
-                                </a>
+                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="" />
                             </div>
 
                             <div id="product-thumbnail" class="owl-carousel owl-theme ml_100 mt_10">
                                 <div class="item">
                                     <div class="image-additional mr_10">
-                                        <a href="{{route('Product', ['cod' => $product->cod])}}"  data-fancybox="group1"> <!--	href non necessario, non c'è bisogno di riaprire di nuovo la pagina-->
+                                        <a data-fancybox="group1">
                                             <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="image-additional mr_10">
-                                        <a href="{{route('Product', ['cod' => $product->cod])}}"  data-fancybox="group1">
+                                        <a  data-fancybox="group2">
                                             <img src="{{asset($product->images->where('main',0)->first()->path_image)}}" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="image-additional mr_10">
-                                        <a href="{{route('Product', ['cod' => $product->cod])}}"  data-fancybox="group1">
+                                        <a data-fancybox="group3">
                                             <img src="{{asset($product->images->where('main',0)->first()->path_image)}}" alt="">
                                         </a>
                                     </div>
@@ -41,16 +39,21 @@
                         </div>
 
                         <div class="col-md-7 prodetail caption product-thumb">
-                            <div id="review" class="text-left">
-                                <div>
+                            <div class="row">
+                            <div id="review" class="text-left col-sm-8">
                                     <label class="product-name"><span><h2>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</h2></span></label>
-                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div><a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"><i class="fa fa-heart"><label>Aggiungi alla Wishlist!!</label></i></a></div>
+                            </div>
                             </div>
 
                             <div class="original_price">
                                 <h3><span class="price"><span class="currencySymbol">€</span>{{$product->price}}</span></h3>
                             </div>
+
                             <hr>
+
                             <ul class="list-unstyled product_info mtb_20">
                                 <li>
                                     <label>Brand:</label>
@@ -86,9 +89,6 @@
                                 </li>
 
                             </ul>
-                            <hr>
-                            <label>Descrizione:</label>
-                            <p class="product-desc mtb_10">{{$product->long_desc}}</p>
 
                             <div id="product">
                                 <div class="form-group">
@@ -100,11 +100,15 @@
                                             <input name="product_quantity" min="1" value="1" type="number" class="mt_10">
                                         </div>
 
-                                        <div class="button-group mt_30 col-md-4">
-                                            <div class="add-to-cart"><a href="#"><span>Add to cart</span></a></div>
-                                            <div><a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}" class="wishlist"><span>wishlist</span></a></div>
-                                        </div>
+
+                                    <div class="mt_40 ml_40">
+                                        <button>
+                                        <a href="#"><h4><i class="fa fa-shopping-cart">Aggiungi al Carrello</i></h4></a>
+                                        </button>
                                     </div>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -113,15 +117,20 @@
                         <div class="col-md-12">
                             <div id="exTab5" class="mtb_30">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"> <a href="#1c" data-toggle="tab">Specifiche</a> </li>
-                                    <li><a href="#2c" data-toggle="tab">Recensioni</a> </li>
+                                    <li class="active"> <a href="#1c" data-toggle="tab">Descrizione</a> </li>
+                                    <li><a href="#2c" data-toggle="tab">Specifiche</a> </li>
+                                    <li><a href="#3c" data-toggle="tab">Recensioni</a> </li>
                                 </ul>
                                 <div class="tab-content ">
-                                    <div class="tab-pane active pt_20" id="1c">
+                                    <div class="tab-pane active pt_10" id="1c">
+                                        <p class="product-desc mtb_10">{{$product->long_desc}}</p>
+                                    </div>
+
+                                    <div class="tab-pane pt_10" id="2c">
                                             <div class="specs_specifications active ">
                                                 <table width="100%" class="all-specs">
                                                     <tbody>
-                                                    <tr class="heading mb_15">
+                                                    <tr class="heading mt_20">
                                                         <th colspan="2"><h3>Info generali</h3></th>
                                                     </tr>
                                                     <tr class="even-row"><td><strong>Marca</strong></td>
@@ -151,7 +160,7 @@
                                             </div>
                                     </div>
 
-                                    <div class="tab-pane" id="2c">
+                                    <div class="tab-pane" id="3c">
                                         @foreach($product->reviews() as $review)
                                             <div class="col-lg-12 mb_40">
 
