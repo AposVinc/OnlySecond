@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
             $table->string('title');
-            $table->enum('vote',['1','2','3','4','5']);
+            $table->enum('vote',[1,2,3,4,5]);
             $table->text('text')->nullable();
             $table->timestamps();
 

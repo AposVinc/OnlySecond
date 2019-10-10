@@ -59,6 +59,21 @@ class Product extends Model
         return $this->hasMany('App\Review')->withTrashed();
     }
 
+    public function CalculateAverageVote(){
+        $reviews = $this->reviews()->get();
+        $total_vote = 0;
+        foreach ($reviews as $review){
+            $total_vote = $total_vote + $review->vote;
+        }
+        $count = $reviews->count();
+        if ($count == 0){
+            return $count;
+        }else{
+            return $total_vote/$count;
+        }
+
+    }
+
     public function offer(){
         return $this->hasOne('App\Offer');
     }
@@ -67,7 +82,6 @@ class Product extends Model
     {
         return $this->belongsTo('App\Color');
     }
-
 
     public function orderHistories(){
 //ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,

@@ -24,7 +24,7 @@
 
     <!-- =====  CSS  ===== -->
 
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/font-awesome.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset("plugins/frontend/font-awesome-4.7.0/css/font-awesome.min.css") }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/bootstrap.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/style.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/custom.css') }}" >
@@ -33,8 +33,6 @@
     @if(strpos(route::currentRouteName(),'Shop')!== false)
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/jquery-ui.css') }}">
     @endif
-
-    <link rel="stylesheet" type="text/css" href="{{URL::asset("plugins/frontend/font-awesome-4.7.0/css/font-awesome.min.css")}}">
 
     <link rel="shortcut icon" href="{{URL::asset("images/icon/rosa.ico")}}">
     <link rel="apple-touch-icon" href="{{URL::asset("images/icon/rosa.png")}}">

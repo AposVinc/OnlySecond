@@ -2153,6 +2153,13 @@ blockquote {
     color: #ee5e11;
 }
 
+.fa.fa-star-half-o.fa-stack-1x, .fa.fa-star-half.fa-stack-x {
+    color: #b2b2b2;
+}
+.fa.fa-star-half.fa-stack-1x {
+    color: #ee5e11;
+    width: 0;
+}
 /* =====  left sidebar css  ===== */
 
 .left-special.left-sidebar-widget li {
@@ -2933,6 +2940,10 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 #review .review-vote-date{
     font-size: 13px;
     display: block;
+}
+
+#review .fa{
+    bottom: 1px;
 }
 
 /* ----------------------------------------------

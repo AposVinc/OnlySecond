@@ -65,7 +65,17 @@
                         </div>
                         <div class="mt_10">
                             <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
-                            <label class="review-vote-date"><span>Voto:</span>{{$review->vote}}<span style="margin-left: 10px;">Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
+                            <label class="review-vote-date">
+                                <span>Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}
+                                <span style="margin-left: 25px;">Voto:</span>
+                                @for ($i = 1; $i < 6; $i++)
+                                    @if($i <= $review->vote)
+                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                                    @else
+                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                    @endif
+                                @endfor
+                            </label>
                         </div>
                         <div style="margin-top:5px; text-align: justify;">
                             <span>{{$review->text}}</span>
