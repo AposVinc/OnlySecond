@@ -33,9 +33,17 @@
                                 <label class="review-title"><span style="margin-right: 8px">Prezzo:</span>{{$product->price}}</label>
                                 <label class="review-vote-date"><span>Genere:</span>{{$product->genre}}</label>
                                 <label class="review-vote-date"><span>Categoria:</span>
-                                    @foreach($product->categories as $category)
-                                        {{$category->name}},
-                                    @endforeach
+                                    @php
+                                        $stringa = "";
+                                        foreach($product->categories as $category){
+                                            if($stringa==""){
+                                                $stringa = $stringa. $category->name;
+                                            }else{
+                                                $stringa = $stringa. ", ". $category->name;
+                                            }
+                                        }
+                                        echo $stringa;
+                                    @endphp
                                 </label>
                             </div>
                         </div>
