@@ -37,12 +37,12 @@ class NewsletterController extends Controller
 
     public function create(Request $request)
     {
-        if (Newsletter::where('email', $request->email)->first()) {
+        if (Newsletter::where('email', $request->newsletterEmail)->first()) {
             return back()->with('error', 'Questa Email è già stata inserita!!');
         }
 
         $n = new Newsletter();
-        $n->email = $request->email;
+        $n->email = $request->newsletterEmail;
 
         if($n->save()){
             return back()->with('success', 'Caricamento avvenuto con successo!!');

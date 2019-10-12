@@ -180,7 +180,7 @@
                             <form action="{{route('Newsletter.AddPost')}}" method="post">
                                 @csrf
                                 <div class="form-group required">
-                                    <input name="email" id="email" placeholder="Inserisci la tua Email" class="form-control input-lg" type="email" required >
+                                    <input name="newsletterEmail" id="newsletterEmail" placeholder="Inserisci la tua Email" class="form-control input-lg" type="email" required >
                                     <button type="submit" class="btn btn-default btn-lg">Iscriviti</button>
                                 </div>
                             </form>
