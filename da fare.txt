@@ -63,6 +63,8 @@ Login - div error se non va a buon fine registrazione
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
 
+Tooltip bottoni come in recensioni ecc. (aggiungere title al tag)
+
 ok BE
 ----------
 Calendario in Offer
