@@ -39,14 +39,14 @@
                                 </div>
                             </div>
 
-                            <div id="divRadio"></div>
+                            <div id="divCheckbox"></div>
 
 
                             <div id="password">
                                 <div class="form-group required">
-                                    <label for="old-password" id="label-old-password" class="col-sm-3 control-label">Password</label>
+                                    <label for="old-password" id="labelOldPassword" class="col-sm-3 control-label">Password</label>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="old-password" placeholder="Vecchia Password" value="**********" name="old-password" disabled>
+                                        <input type="password" class="form-control" id="oldPassword" placeholder="Vecchia Password" value="**********" name="old-password" disabled>
                                     </div>
                                 </div>
                             </div>

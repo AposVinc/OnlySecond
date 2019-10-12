@@ -2953,7 +2953,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-size: 16px;
 }
 
-input[type="radio"]:checked + span {
+input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
     color: #ee5e11;
 }
 
