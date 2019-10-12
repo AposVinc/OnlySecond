@@ -31,19 +31,14 @@
                             <form action="{{route('ContactUS.AddPost')}}" method="post">
                                 @csrf
                                 <div>
-                                    <input class="full-with-form " type="text" id="name" name="name" placeholder="Il Tuo Nome" data-required="true" />
-                                    <input class="full-with-form  mt_30" type="email" id="email" name="email" placeholder="Il Tuo Indirizzo Email" data-required="true" />
-                                    <input class="full-with-form  mt_30" type="text" id="phone" name="phone" placeholder="Numero Di Telefono" maxlength="15" data-required="true" />
-                                    <input class="full-with-form  mt_30" type="text" id="subject" name="subject" placeholder="Oggetto" data-required="true">
-                                    <textarea class="full-with-form  mt_30" id="message" name="message" placeholder="Messaggio" data-required="true"></textarea>
+                                    <input class="full-with-form " type="text" id="name" name="name" placeholder="Il Tuo Nome" data-required="true" required/>
+                                    <input class="full-with-form  mt_30" type="email" id="email" name="email" placeholder="Il Tuo Indirizzo Email" data-required="true" required/>
+                                    <input class="full-with-form  mt_30" type="text" id="phone" name="phone" placeholder="Numero Di Telefono" maxlength="15" data-required="true" required/>
+                                    <input class="full-with-form  mt_30" type="text" id="subject" name="subject" placeholder="Oggetto" data-required="true" required />
+                                    <textarea class="full-with-form  mt_30" id="message" name="message" placeholder="Messaggio" data-required="true" required></textarea>
                                     <button type="submit" class="btn mt_30">Invia Il Messaggio</button>
                                 </div>
                             </form>
-                            @if (session('success'))
-                                <div id="contact_results">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
                         </div>
                         <!-- END Contact FORM -->
                     </div>

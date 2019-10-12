@@ -27,6 +27,7 @@ BE
 FE
 ---------
 ?cerca
+?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- Pagina Dettaglio prodotto - grafica
 Operazione su User - modifica info utente su DB,
 
