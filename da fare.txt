@@ -110,6 +110,7 @@ recensioni - mettere solo elimina e togliere modifica
            - lasciare ricerca sotto breadcrumbs?
 se media recensione è 3,8 si deve dare mezza stella o si inserisce la 4a?
 
+
 DOMANDE DA FARE AL PROF
 1. C'è bisogno di realizzare l'email generata per il cambio password
 2. Eliminazione account utente
