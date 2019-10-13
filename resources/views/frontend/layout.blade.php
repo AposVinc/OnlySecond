@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <title>Only Second E-Commerce</title>
     <!-- =====  SEO MATE  ===== -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="distribution" content="global">
@@ -25,7 +25,7 @@
     <!-- =====  CSS  ===== -->
 
     <link rel="stylesheet" type="text/css" href="{{ URL::asset("plugins/frontend/font-awesome-4.7.0/css/font-awesome.min.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/bootstrap.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/bootstrap.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/style.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/custom.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" >
@@ -52,18 +52,28 @@
                 <div class="row ">
                     <div class="col-xs-12 col-sm-4">
                         <div class="header-top-left">
-                            <div class="contact"><span class="hidden-xs hidden-sm hidden-md">Spedizione gratuita con ordini superiori ai 150€</span></div>
+                            <div class="contact">
+                                <span class="hidden-xs hidden-sm hidden-md">
+                                    Spedizione gratuita con ordini superiori ai 250€
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-8">
                         <ul class="header-top-right text-right">
-                            <li class="language dropdown"> <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Lingua <span class="caret"></span> </span>
+                            <li class="language dropdown">
+                                <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                    Lingua <span class="caret"></span>
+                                </span>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><a href="#">Italiano</a></li>
                                     <li><a href="#">Inglese</a></li>
                                 </ul>
                             </li>
-                            <li class="currency dropdown"> <span class="dropdown-toggle" id="dropdownMenu12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Moneta <span class="caret"></span> </span>
+                            <li class="currency dropdown">
+                                <span class="dropdown-toggle" id="dropdownMenu12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                    Moneta <span class="caret"></span>
+                                </span>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu12">
                                     <li><a href="#">€ Euro</a></li>
                                     <li><a href="#">£ Pound Sterling</a></li>
@@ -98,9 +108,12 @@
                         </div>
                     </div>
                     <!-- Title -->
-                    <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="{{route('Home')}}"> <img alt="themini" src="{{url::asset('images/logo/logoP.png')}}"> </a> </div>
+                    <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="{{route('Home')}}"> <img alt="OnlySecond" src="{{url::asset('images/logo/logoP.png')}}"> </a> </div>
                     <div class="col-xs-6 col-sm-4 shopcart">
                         <div id="cart" class="btn-group btn-block mtb_40">
+                            <a href="{{route('Wishlist')}}" id="wishlist">
+                                <i class="fa fa-heart-o pt_3" aria-hidden="true" title="Wishlist"></i>
+                            </a>
                             <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
                                 <span id="shippingcart">Carrello</span>
                                 <span id="cart-total">Prodotti (0)</span>

@@ -34,6 +34,7 @@ Created by: 	Lionode
   2.4 Search
   2.5 Cart
   2.6 Header bottom
+  2.7 Wishlist
 
 03 ===== CONTANT =====
   3.1 Left column
@@ -477,6 +478,9 @@ h6 {
 
 /* =====  padding top ===== */
 
+.pt_3{
+    padding-top: 3px;
+}
 .pt_10 {
     padding-top: 10px;
 }
@@ -1532,6 +1536,19 @@ label.checkme {
 #category-menu-responsive .nav>li:last-child, #column-left .nav>li:last-child {
     border: none;
 }
+
+/* ----------------------------------------------
+	2.7 Wishlist
+----------------------------------------------- */
+#wishlist{
+    color: white;
+    font-size: 32px;
+    margin-left: 180px;
+}
+#wishlist :hover{
+    color: #ee5e11;
+}
+
 
 /* ----------------------------------------------
 	CONTANT
