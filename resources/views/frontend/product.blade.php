@@ -301,11 +301,11 @@
                                                     </div>
                                         </div>
 
-                                        @foreach($product->reviews() as $review)
+                                        @foreach($product->reviews as $review)
                                             <div class="col-lg-12 mb_40">
 
                                                 <div>
-                                                    <label class="product-name"><span>Nome utente:</span>{{$review->user()->name}}</label>
+                                                    <label class="product-name"><span>Nome utente:</span>{{$review->user->name}}</label>
                                                 </div>
                                                 <div class="mt_10">
                                                     <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
