@@ -117,7 +117,11 @@
                             </a>
                             <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
                                 <span id="shippingcart">Carrello</span>
-                                <span id="cart-total">Prodotti (0)</span>
+                                @if(auth()->User()->products->isEmpty())
+                                    <span id="cart-total">Prodotti (0)</span>
+                                @else
+                                    <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
+                                @endif
                             </button>
                         </div>
                         <div id="cart-dropdown" class="cart-menu collapse">

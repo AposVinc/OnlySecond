@@ -2,18 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Cart extends Model
+class Cart extends Pivot
 {
 
     protected $primaryKey = 'id';
 
     protected $fillable =[
-        'name',
+        'quantity',
     ];
 
-    public function products(){
-        return $this->belongsToMany('App\Product');
-    }
 }

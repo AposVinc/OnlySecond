@@ -1406,6 +1406,7 @@ label.checkme {
 }
 #cart>.btn:hover {
     background-position: -15px -152px;
+    color:#ee5e11;
 }
 #cart.open>.btn {
     box-shadow: none;
