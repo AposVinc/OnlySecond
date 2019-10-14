@@ -1542,12 +1542,12 @@ label.checkme {
 /* ----------------------------------------------
 	2.7 Wishlist
 ----------------------------------------------- */
-#wishlist{
+#wishlistButtonNav{
     color: white;
     font-size: 32px;
     margin-left: 180px;
 }
-#wishlist :hover{
+#wishlistButtonNav :hover{
     color: #ee5e11;
 }
 
@@ -2978,6 +2978,55 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     bottom: 1px;
 }
 
+
+/* ----------------------------------------------
+	5.2 Wishlist
+----------------------------------------------- */
+#wishlist label{
+    font-weight: normal;
+}
+
+#wishlist label>span{
+    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
+    margin-right: 5px;
+}
+
+#wishlist .product-name{
+    font-size: 18px;
+    font-weight: bold;
+}
+#wishlist .product-name>span{
+    font-weight: normal;
+    margin-right: 7px;
+}
+
+#wishlist .product-title{
+    font-size: 16px;
+    display: block;
+    font-weight: bold;
+
+}
+.product-title span{
+    font-weight: normal;
+    margin-right: 8px;
+}
+.product-title del{
+    font-weight: normal;
+
+    font-size: 14px;
+    margin-right: 12px;
+}
+
+#wishlist .product-desc{
+    font-size: 13px;
+    display: block;
+}
+
+#wishlist .fa{
+    bottom: 1px;
+}
+
+
 /* ----------------------------------------------
 	5.3 Chronology
 ----------------------------------------------- */
@@ -3028,5 +3077,26 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 
 input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
     color: #ee5e11;
+}
+
+/* ----------------------------------------------
+	5.5 Carousel Logo Brand
+----------------------------------------------- */
+
+.logoBrand{
+    text-align: center;
+    margin: 1em 0;
+
+    height: 190px;
+    width: 170px;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.logoBrand img{
+    vertical-align: middle;
 }
 

@@ -330,6 +330,7 @@
                                                     <div style="margin-top:5px; text-align: justify;">
                                                         <span>{{$review->text}}</span>
                                                     </div>
+
                                                 </div>
                                              @endforeach
                                         </div>

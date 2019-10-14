@@ -30,7 +30,7 @@ FE
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- Pagina Dettaglio prodotto - grafica
 Operazione su User - modifica info utente su DB,
-
+slider brand - allineare verticalmente img loghi
 shop        - se si mette where('main',0) da errore sul path
             - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 
@@ -40,8 +40,7 @@ shop        - se si mette where('main',0) da errore sul path
 
 grafica Storico Ordini - da ultimare dopo checkout
 
-wishlist grafica    - come risolvere il problema della virgola
-                    - tooltip sui bottoni
+wishlist    - tooltip sui bottoni
 
 wishlist logica - azione aggiungi al carrello
 mie recensioni - tooltip sui bottoni
@@ -117,11 +116,14 @@ wishlist grafica   - decidere se aggiungere qualche altro campo
 recensioni - mettere solo elimina e togliere modifica
            - lasciare ricerca sotto breadcrumbs?
 se media recensione è 3,8 si deve dare mezza stella o si inserisce la 4a?
+wishlist grafica    - come risolvere il problema della virgola
+
 
 
 DOMANDE DA FARE AL PROF
 1. C'è bisogno di realizzare l'email generata per il cambio password
 2. Eliminazione account utente
+cosa far apparire come prima pag del BE
 
 
 
