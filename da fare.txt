@@ -29,7 +29,9 @@ FE
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- Pagina Dettaglio prodotto - grafica
-Operazione su User - modifica info utente su DB,
+edit profile - modifica info utente su DB
+prezzo originale sopra a prezzo offert
+
 slider brand - allineare verticalmente img loghi
 shop        - se si mette where('main',0) da errore sul path
             - img per prod ne mostra solo 1 (in template originale ne mostra 2)

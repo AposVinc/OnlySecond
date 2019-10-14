@@ -117,11 +117,15 @@
                             </a>
                             <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
                                 <span id="shippingcart">Carrello</span>
-                                @if(auth()->User()->products->isEmpty())
-                                    <span id="cart-total">Prodotti (0)</span>
+                                @auth()
+                                    @if(auth()->User()->products->isEmpty())
+                                        <span id="cart-total">Prodotti (0)</span>
+                                    @else
+                                        <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
+                                    @endif
                                 @else
-                                    <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
-                                @endif
+                                    <span id="cart-total">Prodotti (0)</span>
+                                @endauth
                             </button>
                         </div>
                         <div id="cart-dropdown" class="cart-menu collapse">
@@ -376,6 +380,17 @@
             }else{
                 $('#password').hide();
             }
+        }
+
+        function DisableForm(){
+            $('.checkbox').remove();
+            $('#password').show();
+
+            $('input').prop('disabled',true);
+            $('#buttonBack').show();
+            $('#buttonEdit').show();
+            $('#buttonReset').hide();
+            $('#buttonSave').hide();
         }
     </script>
 @endif

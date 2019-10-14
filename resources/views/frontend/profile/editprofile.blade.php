@@ -59,7 +59,7 @@
                                 </div>
 
                                 <div class="pull-left pl_10 mt_10">
-                                    <a type="button" id="buttonReset" class="btn btn-primary btn-sm" onclick="DisabledForm()" style="display: none">Annulla</a>
+                                    <a type="button" id="buttonReset" class="btn btn-primary btn-sm" onclick="DisableForm()" style="display: none">Annulla</a>
                                 </div>
                                 <div class="pull-right pr_10 mt_10">
                                     <button type="submit" id="buttonSave" class="btn btn-primary btn-sm" style="display: none">Salva</button>

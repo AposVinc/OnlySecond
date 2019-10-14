@@ -582,6 +582,9 @@ DatabaseSeeder extends Seeder
         $user2->reviews()->save($review7);
         $review7->save();
 
+        /*---   CARTS   -----------------------------------------------------*/
+
+
 
         /*---   NEWSLETTERS   -----------------------------------------------------*/
 
