@@ -112,7 +112,7 @@
                     <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="{{route('Home')}}"> <img alt="OnlySecond" src="{{url::asset('images/logo/logoP.png')}}"> </a> </div>
                     <div class="col-xs-6 col-sm-4 shopcart">
                         <div id="cart" class="btn-group btn-block mtb_40">
-                            <a href="{{route('Wishlist')}}" id="wishlist">
+                            <a href="{{route('Wishlist')}}" id="wishlistButtonNav">
                                 <i class="fa fa-heart-o pt_3" aria-hidden="true" title="Wishlist"></i>
                             </a>
                             <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
