@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -107,6 +108,24 @@ class UserController extends Controller
             }
         }else{
             return back()->with('error','Prima di eliminare questo indirizzo aggiungine un altro');
+        }
+    }
+
+
+    /*-------------------   REVIEW   -------------------*/
+
+    public function addReview(Request $request)
+    {
+        $review = new Review();
+        $review->title = $request->title;
+        $review->review = $request->review;
+
+        Auth::user()->reviews()->save($review);
+
+        if ($review->save()){
+            return back()->with('success', 'Caricamento avvenuto con successo!!');
+        } else {
+            return back()->with('error','Errore durante il caricamento. Riprovare!!');
         }
     }
 

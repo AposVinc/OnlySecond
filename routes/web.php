@@ -96,6 +96,8 @@ Route::group(['middleware' => ['auth'] ], function () {
         return view('frontend.profile.review');
     })->name('Review');
 
+    Route::post('/Product/Review/Add', 'UserController@addReview')->name('Review.Add');
+
     Route::get('/Review/Remove/{id}', function ($id) {
         Review::where('id',$id)->forceDelete();
         return back();

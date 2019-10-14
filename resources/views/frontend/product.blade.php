@@ -13,7 +13,7 @@
                             </div>
 
                             <div id="product-thumbnail" class="owl-carousel owl-theme ml_100 mt_10">
-                                <div class="item">
+                                <div class="item border">
                                     <div class="image-additional mr_10">
                                         <a data-fancybox="group1">
                                             <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="">
@@ -121,82 +121,201 @@
                                     <li><a href="#2c" data-toggle="tab">Specifiche</a> </li>
                                     <li><a href="#3c" data-toggle="tab">Recensioni</a> </li>
                                 </ul>
-                                <div class="tab-content ">
+                                <div class="tab-content">
+
                                     <div class="tab-pane active pt_10" id="1c">
                                         <p class="product-desc mtb_10">{{$product->long_desc}}</p>
                                     </div>
 
                                     <div class="tab-pane pt_10" id="2c">
-                                            <div class="specs_specifications active ">
-                                                <table width="100%" class="all-specs">
-                                                    <tbody>
-                                                    <tr class="heading mt_20">
-                                                        <th colspan="2"><h3>Info generali</h3></th>
-                                                    </tr>
-                                                    <tr class="even-row"><td><strong>Marca</strong></td>
-                                                        <td><span>{{$product->collection->brand->name}}</span></td></tr>
-                                                    <tr><td><strong>Collezione</strong></td>
-                                                        <td><span>{{$product->collection->name}}</span></td></tr>
-                                                    <tr class="even-row"><td><strong>Categorie</strong></td>
-                                                        <td><span>
-                                                                @foreach($product->categories as $category)
-                                                                    {{$category->name}}
-                                                                @endforeach
-                                                            </span></td>
-                                                    </tr>
-                                                    <tr><td><strong>Materiale</strong></td>
-                                                        <td><span></span></td>
-                                                    </tr>
 
-                                                    <tr><td><strong>Genere</strong></td>
-                                                        <td><span>{{$product->genre}}</span></td>
-                                                    </tr>
+                                        <div class="specifications active ">
+                                            <div class="row mt_30">
+                                                <div class="col-sm-6">
+                                                    <h3>Info Generali</h3>
+                                                    <hr>
 
-                                                    <tr><td><strong>Codice</strong></td>
-                                                        <td><span>{{$product->cod}}</span></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                                    <table class="mt_20">
+
+                                                        <tbody>
+                                                        <tr class="row">
+                                                            <td><strong>Marca</strong></td>
+
+                                                            <td><span>{{$product->collection->brand->name}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Collezione</strong></td>
+                                                            <td><span>{{$product->collection->name}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Categoria</strong></td>
+
+                                                            <td><span>
+                                                                    @foreach($product->categories as $category)
+                                                                        {{$category->name}}
+                                                                    @endforeach</span>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Genere</strong></td>
+                                                            <td>
+                                                                <span>{{$product->genre}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Codice</strong></td>
+                                                            <td><span>{{$product->cod}}</span></td>
+                                                        </tr>
+
+                                                        </tbody>
+
+
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <h3>Info Quadrante</h3>
+                                                    <hr>
+                                                    <table class="mt_20">
+
+                                                        <tbody>
+                                                        <tr class="row">
+                                                            <td><strong>Dimensioni </strong></td>
+
+                                                            <td><span>{{$product->collection->brand->name}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Materiale</strong></td>
+                                                            <td><span>{{$product->collection->name}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Spessore</strong></td>
+
+                                                            <td><span>{{$product->collection->name}}</span>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Vetro</strong></td>
+                                                            <td>
+                                                                <span>{{$product->genre}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Colore</strong></td>
+                                                            <td><span>{{$product->cod}}</span></td>
+                                                        </tr>
+
+                                                        </tbody>
+
+
+                                                    </table>
+                                                </div>
                                             </div>
+
+                                            <div class="row mt_60">
+                                                <div class="col-sm-6">
+                                                    <h3>Info Cinturino</h3>
+                                                    <hr>
+                                                    <table class="mt_20">
+
+                                                        <tbody>
+                                                        <tr class="row">
+                                                            <td><strong>Materiale</strong></td>
+
+                                                            <td><span>{{$product->collection->brand->name}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Colore</strong></td>
+                                                            <td><span>{{$product->collection->name}}</span></td>
+                                                        </tr>
+
+
+                                                        </tbody>
+
+
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <h3>Altre Info</h3>
+                                                    <hr>
+                                                    <table class="mt_20">
+
+                                                        <tbody>
+                                                        <tr class="row">
+                                                            <td><strong>Movimento</strong></td>
+
+                                                            <td><span>{{$product->collection->brand->name}}</span></td>
+                                                        </tr>
+
+                                                        <tr class="row">
+                                                            <td><strong>Garanzia</strong></td>
+                                                            <td><span>{{$product->collection->name}}</span></td>
+                                                        </tr>
+
+
+                                                        </tbody>
+
+
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="tab-pane" id="3c">
+                                    <div class="tab-pane pt_10" id="3c">
+
+                                        <div class="col-md-12">
+                                            <label data-toggle="collapse" data-target="#content"><div class="fa fa-plus">  Scrivi una recensione </div></label>
+
+                                                    <div class="collapse" id="content">
+
+                                                        <form action="{{route('Review.Add')}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
+                                                            @csrf
+
+                                                                <div class="form-group required">
+                                                                    <div class="col-sm-12">
+                                                                        <label class="control-label" for="input-name">Titolo Recensione</label>
+                                                                        <input name="name" value="" id="input-title" class="form-control" type="text">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group required">
+                                                                    <div class="col-sm-12">
+                                                                        <label class="control-label" for="input-review">la Tua Recensione</label>
+                                                                        <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="buttons clearfix">
+                                                                    <div class="pull-right pr_10 mt_10">
+                                                                        <button type="submit" class="btn btn-primary btn-sm">Invia</button>
+                                                                    </div>
+                                                                </div>
+                                                        </form>
+                                                    </div>
+                                        </div>
+
                                         @foreach($product->reviews() as $review)
                                             <div class="col-lg-12 mb_40">
 
-                                                    <div>
-                                                        <label class="product-name"><span>Nome utente:</span>{{$review->user()->name}}</label>
-                                                    </div>
-                                                    <div class="mt_10">
-                                                        <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
-                                                        <label class="review-vote-date"><span>Voto:</span>{{$review->vote}}<span style="margin-left: 10px;">Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
-                                                    </div>
-                                                    <div style="margin-top:5px; text-align: justify;">
-                                                        <span>{{$review->text}}</span>
-                                                    </div>
+                                                <div>
+                                                    <label class="product-name"><span>Nome utente:</span>{{$review->user()->name}}</label>
+                                                </div>
+                                                <div class="mt_10">
+                                                    <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
+                                                    <label class="review-vote-date"><span>Voto:</span>{{$review->vote}}<span style="margin-left: 10px;">Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
+                                                </div>
+                                                <div style="margin-top:5px; text-align: justify;">
+                                                    <span>{{$review->text}}</span>
+                                                </div>
                                             </div>
                                         @endforeach
-<!--
-                                        <form class="form-horizontal col-lg-12">
-                                            <div id="review">
-                                                <h4 class="mtb_20">Scrivi una recensione</h4>
-                                            <div class="form-group required">
-                                                <div class="col-sm-12">
-                                                    <label class="control-label" for="input-name">Il Tuo Nome</label>
-                                                    <input name="name" value="" id="input-name" class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="form-group required">
-                                                <div class="col-sm-12">
-                                                    <label class="control-label" for="input-review">la Tua Recensione</label>
-                                                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-
-                                                   <input class="btn pull-right mt_30" type="submit" value="Invia" />
-
-                                               </div>
-                                        </form>-->
                                     </div>
 
                                 </div>
