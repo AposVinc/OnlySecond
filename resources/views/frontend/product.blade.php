@@ -40,12 +40,15 @@
 
                         <div class="col-md-7 prodetail caption product-thumb">
                             <div class="row">
-                            <div id="review" class="text-left col-sm-8">
-                                    <label class="product-name"><span><h2>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</h2></span></label>
-                            </div>
-                            <div class="col-sm-4">
-                                <div><a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"><i class="fa fa-heart"><label>Aggiungi alla Wishlist!!</label></i></a></div>
-                            </div>
+                                <div id="review" class="text-left col-md-7">
+                                        <label class="product-name"><span><h2>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</h2></span></label>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}" id="wishlist">
+                                        <i class="fa fa-heart " aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Aggiungi alla Wishlist!"></i>
+                                    </a>
+                                </div>
+
                             </div>
 
                             <div class="original_price">
@@ -301,21 +304,36 @@
                                                     </div>
                                         </div>
 
-                                        @foreach($product->reviews() as $review)
-                                            <div class="col-lg-12 mb_40">
+                                        <div class="mtb_40">
+                                            @foreach($product->reviews as $review)
 
-                                                <div>
-                                                    <label class="product-name"><span>Nome utente:</span>{{$review->user()->name}}</label>
+                                                <div id="review" class="col-lg-12 mb_40">
+
+                                                    <label class="product-name"><span>Nome utente:
+                                                            </span>{{$review->user->name}}</label>
+
+                                                    <div class="mt_10">
+                                                        <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
+
+                                                        <label class="review-vote-date">
+                                                            <span>Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}
+                                                            <span style="margin-left: 25px;">Voto:</span>
+                                                            @for ($i = 1; $i < 6; $i++)
+                                                                @if($i <= $review->vote)
+                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                                                                @else
+                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                @endif
+                                                            @endfor
+                                                        </label>
+                                                    </div>
+                                                    <div style="margin-top:5px; text-align: justify;">
+                                                        <span>{{$review->text}}</span>
+                                                    </div>
                                                 </div>
-                                                <div class="mt_10">
-                                                    <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
-                                                    <label class="review-vote-date"><span>Voto:</span>{{$review->vote}}<span style="margin-left: 10px;">Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
-                                                </div>
-                                                <div style="margin-top:5px; text-align: justify;">
-                                                    <span>{{$review->text}}</span>
-                                                </div>
-                                            </div>
-                                        @endforeach
+                                             @endforeach
+                                        </div>
+
                                     </div>
 
                                 </div>
