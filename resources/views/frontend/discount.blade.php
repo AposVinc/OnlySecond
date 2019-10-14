@@ -60,6 +60,7 @@
                                             <a href="#" class="compare"><span>Compare</span></a>
                                             <a href="#" class="add-to-cart"><span>Add to cart</span></a>
                                         </div>
+                                        <div class="ribbon orangeOS"><span>{{$offer->rate}}%</span></div>
                                     </div>
                                     <div class="caption product-detail text-center">
                                         <h6 data-name="product_name" class="product-name mt_20"><a href="#" title="Casual Shirt With Ruffle Hem">{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}}<br>{{$offer->product->cod}}, {{$offer->product->color->name}}</a></h6>
@@ -76,7 +77,10 @@
                                                 @endif
                                             @endfor
                                         </div>
-                                        <span class="price"><span class="amount"><span class="currencySymbol">€</span>{{$offer->product->price}}</span></span>
+                                        <div>
+                                            <span class="oldPrice"><span class="amount"><span class="currencySymbol">€</span>{{$offer->product->price}}</span></span>
+                                            <span class="price"><span class="amount"><span class="currencySymbol">€</span>{{$offer->calculateDiscount()}}</span></span>
+                                        </div>
                                         <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
                                     </div>
                                 </div>

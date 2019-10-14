@@ -33,10 +33,6 @@ Operazione su User - modifica info utente su DB,
 
 shop        - se si mette where('main',0) da errore sul path
             - img per prod ne mostra solo 1 (in template originale ne mostra 2)
--Vincenzo   - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
-
--Vincenzo   wishlist - se prod in offerta mostra il prezzo scontato e lo sconto
--Vincenzo   in sconto - mostra il prezzo scontato e lo sconto, non è stato fatto
 
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
@@ -100,11 +96,20 @@ bottoni sul sito, se si passa col cursore sopra cambiano colore
 logica inidirizzi
 logica modifica -   all'inizio tutti disabilitati ed è presente solo tasto in basso "modifica"
 aggiungere il voto medio e le relative stelline per ogni prod in slider, shop e in sconto
+in sconto    - mostra il prezzo scontato e lo sconto, non è stato fatto
+             (ribbon offerte           https://www.bootdey.com/snippets/view/div-ribbons)
+shop        - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
+wishlist    - se prod in offerta mostra il prezzo scontato e lo sconto
+
+
+
 
 
 
 
 DA DISCUTERE
+dove mettere simbolo €, prima o dopo?
+confrontare font del prezzo in shop con quello di wishlist e decidere se lasciare cosi o cambiare qualcosa
 Elimina utente se si vuole eliminare account
 nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
 wishlist grafica   - decidere se aggiungere qualche altro campo

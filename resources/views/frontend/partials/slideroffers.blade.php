@@ -22,6 +22,7 @@
                                                 <a href="#" class="compare"><span>Compare</span></a>
                                                 <a href="#" class="add-to-cart"><span>Add to cart</span></a>
                                             </div>
+                                            <div class="ribbon orangeOS"><span>{{$offer->rate}}%</span></div>
                                         </div>
                                         <div class="caption product-detail text-center">
                                             <div class="rating">
@@ -38,6 +39,8 @@
                                                 @endfor
                                             </div>
                                             <h6 data-name="product_name" class="product-name"><a href="#" title="Casual Shirt With Ruffle Hem">{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}}<br>{{$offer->product->cod}}, {{$offer->product->color->name}}</a></h6>
+
+                                            <span class="oldPrice"><span class="amount"><span class="currencySymbol">€</span>{{$offer->product->price}}</span></span>
                                             <span class="price"><span class="amount"><span class="currencySymbol">€</span>{{$offer->calculateDiscount()}}</span> </span>
                                         </div>
                                     </div>

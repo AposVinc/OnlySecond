@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/custom.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/owl.carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/ribbons/ribbons.css') }}">
     @if(strpos(route::currentRouteName(),'Shop')!== false)
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/jquery-ui.css') }}">
     @endif
@@ -89,7 +90,7 @@
                                     <li class="account"> <a href="{{route('Admin.Logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
                                 @else
                                     <li class="account"> <a href="{{route('User.Login')}}">Login </a><i class="fa fa-sign-in"></i> </li>
-                               @endauth
+                                @endauth
                             @endauth
                         </ul>
                     </div>
@@ -331,48 +332,48 @@
 @endif
 
 @if(strpos(route::currentRouteName(),'EditProfile')!== false)
-<!-- checkout nuovo indirizzo-->
-<script>
-    function ActiveForm(){
-        var checkbox = $('<div class="checkbox mb_20">\n' +
-            '                        <input type="checkbox" value="true" id="change_psw" name="change_psw" onclick="changePassword()"><span>Vuoi Cambiare Password?</span>\n' +
-            '                    </div>');
-        $('#password').hide();
-        checkbox.appendTo('#divCheckbox');
-
-        $('input').prop('disabled',false);
-        $('#buttonBack').hide();
-        $('#buttonEdit').hide();
-        $('#buttonReset').show();
-        $('#buttonSave').show();
-    }
-
-    function changePassword() {
-        if($('#change_psw').is(':checked')){
-            if($('#password').children().length != 3){
-                $('#label-old-password').text("Vecchia Password");
-                $('#old-password').val('');
-                var new_password = $('<div class="form-group required">\n' +
-                    '                                    <label for="new-password" id="label-new-password" class="col-sm-3 control-label">Password</label>\n' +
-                    '                                    <div class="col-sm-9">\n' +
-                    '                                        <input type="password" class="form-control" id="new-password" placeholder="Nuova Password" value="" name="new-password">\n' +
-                    '                                    </div>\n' +
-                    '                                </div>'    );
-                var confirm_new_password = $('<div class="form-group required">\n' +
-                    '                                    <label for="confirm-new-password" id="label-confirm-new-password" class="col-sm-3 control-label">Password</label>\n' +
-                    '                                    <div class="col-sm-9">\n' +
-                    '                                        <input type="password" class="form-control" id="confirm-new-password" placeholder="Conferma Nuova Password" value="" name="confirm-new-password">\n' +
-                    '                                    </div>\n' +
-                    '                                </div>'    );
-                new_password.appendTo('#password');
-                confirm_new_password.appendTo('#password');
-            }
-            $('#password').show();
-        }else{
+    <!-- checkout nuovo indirizzo-->
+    <script>
+        function ActiveForm(){
+            var checkbox = $('<div class="checkbox mb_20">\n' +
+                '                        <input type="checkbox" value="true" id="change_psw" name="change_psw" onclick="changePassword()"><span>Vuoi Cambiare Password?</span>\n' +
+                '                    </div>');
             $('#password').hide();
+            checkbox.appendTo('#divCheckbox');
+
+            $('input').prop('disabled',false);
+            $('#buttonBack').hide();
+            $('#buttonEdit').hide();
+            $('#buttonReset').show();
+            $('#buttonSave').show();
         }
-    }
-</script>
+
+        function changePassword() {
+            if($('#change_psw').is(':checked')){
+                if($('#password').children().length != 3){
+                    $('#label-old-password').text("Vecchia Password");
+                    $('#old-password').val('');
+                    var new_password = $('<div class="form-group required">\n' +
+                        '                                    <label for="new-password" id="label-new-password" class="col-sm-3 control-label">Password</label>\n' +
+                        '                                    <div class="col-sm-9">\n' +
+                        '                                        <input type="password" class="form-control" id="new-password" placeholder="Nuova Password" value="" name="new-password">\n' +
+                        '                                    </div>\n' +
+                        '                                </div>'    );
+                    var confirm_new_password = $('<div class="form-group required">\n' +
+                        '                                    <label for="confirm-new-password" id="label-confirm-new-password" class="col-sm-3 control-label">Password</label>\n' +
+                        '                                    <div class="col-sm-9">\n' +
+                        '                                        <input type="password" class="form-control" id="confirm-new-password" placeholder="Conferma Nuova Password" value="" name="confirm-new-password">\n' +
+                        '                                    </div>\n' +
+                        '                                </div>'    );
+                    new_password.appendTo('#password');
+                    confirm_new_password.appendTo('#password');
+                }
+                $('#password').show();
+            }else{
+                $('#password').hide();
+            }
+        }
+    </script>
 @endif
 
 @if(strpos(route::currentRouteName(),'Address')!== false)

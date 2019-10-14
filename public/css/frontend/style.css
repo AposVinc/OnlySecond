@@ -13,7 +13,9 @@ Created by: 	Lionode
 /* -----  ionicons Font  -----*/
 @import url("ionicons.min.css");
 /* -----  font awesome Font  -----*/
-@import url("font-awesome.min.css");
+/*-- @import url("font-awesome.min.css"); --*/
+@import url(../../plugins/frontend/font-awesome-4.7.0/css/font-awesome.min.css);
+
 /* =====  INDEX OF STYLES =====
 01 ===== BASIC  =====
   1.1 General
@@ -2044,6 +2046,19 @@ blockquote {
     margin-top: 5px;
     vertical-align: middle;
 }
+/*agg da vinc*/
+.product-thumb .oldPrice {
+    position: absolute;
+    left: 25px;
+    margin-top: 7px;
+    text-decoration: line-through;
+    font: 100 16px/16px "Roboto";
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+}
+/* fine agg da vinc*/
+
 .caption.product-detail {
     position: relative;
 }
@@ -2964,7 +2979,48 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 
 /* ----------------------------------------------
-	5.2 Address
+	5.3 Chronology
+----------------------------------------------- */
+#chronology label{
+    font-weight: normal;
+}
+
+#chronology label>span{
+    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
+    margin-right: 5px;
+}
+
+#chronology .product-name{
+    font-size: 18px;
+    font-weight: bold;
+}
+#chronology .product-name>span{
+    font-weight: normal;
+    margin-right: 7px;
+}
+
+#chronology .product-title{
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+}
+.product-title span{
+    font-weight: normal;
+    margin-right: 8px;
+}
+
+#chronology .product-desc{
+    font-size: 13px;
+    display: block;
+}
+
+#chronology .fa{
+    bottom: 1px;
+}
+
+
+/* ----------------------------------------------
+	5.4 Address
 ----------------------------------------------- */
 .label-radio-address{
     font-size: 16px;

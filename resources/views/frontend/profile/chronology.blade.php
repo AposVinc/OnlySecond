@@ -35,7 +35,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 mb_20">
-                            <div id="review" class="mt_10 mr_5 col-md-3 pull-right" style="text-align: right">
+                            <div id="chronology" class="mt_10 mr_5 col-md-3 pull-right" style="text-align: right">
                                 <div>
                                     <label><span>Indirizzo di Fatturazione:</span><br>{{$order->billingAddress->name}} {{$order->billingAddress->surname}} <br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}}<br>{{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}} CAP:{{$order->billingAddress->zip}}</label>
                                 </div>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             @foreach($order->products as $product)
-                                <div id="review" class="mb_10 col-md-8">
+                                <div id="chronology" class="mb_10 col-md-8">
 
                                     <div class="mt_10 pl_0 col-md-3">
                                         <div class="image product-imageblock">
@@ -65,14 +65,13 @@
                                             <label class="product-name"><span>Prodotto:</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</label>
                                         </div>
                                         <div>
-                                            <label><span>Prezzo:</span>{{$product->pivot->price}} €</label>
+                                            <label class="product-title"><span>Prezzo:</span>{{$product->pivot->price}} €</label>
                                         </div>
                                         <div>
                                             <label><span>Quantità Acquistata:</span>{{$product->pivot->quantity}}</label>
                                         </div>
                                     </div>
                                 </div>
-
                             @endforeach
 
                         </div>
