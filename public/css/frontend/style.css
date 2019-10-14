@@ -3030,3 +3030,24 @@ input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
     color: #ee5e11;
 }
 
+/* ----------------------------------------------
+	5.5 Carousel Logo Brand
+----------------------------------------------- */
+
+.logoBrand{
+    text-align: center;
+    margin: 1em 0;
+
+    height: 190px;
+    width: 170px;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.logoBrand img{
+    vertical-align: middle;
+}
+
