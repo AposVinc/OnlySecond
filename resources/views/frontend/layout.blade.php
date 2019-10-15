@@ -358,25 +358,33 @@
 
         function changePassword() {
             if($('#change_psw').is(':checked')){
-                if($('#password').children().length != 3){
-                    $('#label-old-password').text("Vecchia Password");
-                    $('#old-password').val('');
+                if($('#password').children().length != 4){
+                    var old_password = $(' <div class="form-group required">\n' +
+                        '                                    <label for="old-password" id="labelOldPassword" class="col-sm-3 control-label">Vecchia Password</label>\n' +
+                        '                                    <div class="col-sm-9">\n' +
+                        '                                        <input type="password" class="form-control" id="oldPassword" placeholder="Vecchia Password" value="" name="old-password">\n' +
+                        '                                    </div>\n' +
+                        '                                </div>');
                     var new_password = $('<div class="form-group required">\n' +
-                        '                                    <label for="new-password" id="label-new-password" class="col-sm-3 control-label">Password</label>\n' +
+                        '                                    <label for="new-password" id="label-new-password" class="col-sm-3 control-label">Nuova Password</label>\n' +
                         '                                    <div class="col-sm-9">\n' +
                         '                                        <input type="password" class="form-control" id="new-password" placeholder="Nuova Password" value="" name="new-password">\n' +
                         '                                    </div>\n' +
                         '                                </div>'    );
                     var confirm_new_password = $('<div class="form-group required">\n' +
-                        '                                    <label for="confirm-new-password" id="label-confirm-new-password" class="col-sm-3 control-label">Password</label>\n' +
+                        '                                    <label for="confirm-new-password" id="label-confirm-new-password" class="col-sm-3 control-label">Conferma Nuova Password</label>\n' +
                         '                                    <div class="col-sm-9">\n' +
                         '                                        <input type="password" class="form-control" id="confirm-new-password" placeholder="Conferma Nuova Password" value="" name="confirm-new-password">\n' +
                         '                                    </div>\n' +
                         '                                </div>'    );
+                    old_password.appendTo('#password');
                     new_password.appendTo('#password');
                     confirm_new_password.appendTo('#password');
+                }else{
+                    $('#password').children().show();
                 }
                 $('#password').show();
+                $('#password').children().eq(0).hide();
             }else{
                 $('#password').hide();
             }
@@ -384,6 +392,9 @@
 
         function DisableForm(){
             $('.checkbox').remove();
+
+            $('#password').children().hide();
+            $('#password').children().eq(0).show();
             $('#password').show();
 
             $('input').prop('disabled',true);
