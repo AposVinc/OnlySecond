@@ -30,8 +30,9 @@ FE
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- Pagina Dettaglio prodotto - grafica
-edit profile - modifica info utente su DB
-prezzo originale sopra a prezzo offert
+--Vincenzo--    edit profile - modifica info utente su DB
+--Vincenzo--    prezzo originale sopra a prezzo offert
+--Vincenzo--    prezzo in sez profile devono essere Roboto
 slider brand - allineare verticalmente img loghi
 shop        - se si mette where('main',0) da errore sul path
             - img per prod ne mostra solo 1 (in template originale ne mostra 2)
@@ -43,10 +44,9 @@ shop        - se si mette where('main',0) da errore sul path
 grafica Storico Ordini - da ultimare dopo checkout
 
 wishlist    - tooltip sui bottoni
-
-wishlist logica - azione aggiungi al carrello
+            - azione aggiungi al carrello
 mie recensioni - tooltip sui bottoni
-foto "chi siamo" statiche
+foto "chi siamo" dinamiche (si potrebbe evitare)
 Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"

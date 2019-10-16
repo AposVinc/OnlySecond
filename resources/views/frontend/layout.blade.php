@@ -35,10 +35,10 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/jquery-ui.css') }}">
     @endif
 
-    <link rel="shortcut icon" href="{{URL::asset("images/icon/rosa.ico")}}">
-    <link rel="apple-touch-icon" href="{{URL::asset("images/icon/rosa.png")}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{URL::asset("images/icon/rosa.png")}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{URL::asset("images/icon/rosa.png")}}">
+    <link rel="shortcut icon" href="{{URL::asset("images/icon/arancione.ico")}}">
+    <link rel="apple-touch-icon" href="{{URL::asset("images/icon/arancione.png")}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{URL::asset("images/icon/arancione.png")}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{URL::asset("images/icon/arancione.png")}}">
 
 </head>
 
