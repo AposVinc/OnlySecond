@@ -107,13 +107,25 @@ wishlist    - se prod in offerta mostra il prezzo scontato e lo sconto
 
 
 
+DA DISCUTERE
+dove mettere simbolo €, prima o dopo?
+confrontare font del prezzo in shop con quello di wishlist e decidere se lasciare cosi o cambiare qualcosa
+Elimina utente se si vuole eliminare account
+nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
+wishlist grafica   - decidere se aggiungere qualche altro campo
+                   - se vuoto cosa fare?
+recensioni - mettere solo elimina e togliere modifica
+           - lasciare ricerca sotto breadcrumbs?
+se media recensione è 3,8 si deve dare mezza stella o si inserisce la 4a?
+wishlist grafica    - come risolvere il problema della virgola
+
+
 
 DOMANDE DA FARE AL PROF
-1. appello
-2. grafica BE
-3. C'è bisogno di realizzare l'email generata per il cambio password
-4. Eliminazione account utente
-5. Cosa far apparire come prima pag del BE
+1. appello      quando vogliamo
+2. grafica BE e Index BE        non ha dato una risposta
+3. C'è bisogno di realizzare l'email generata per il cambio password        NO
+4. Eliminazione account utente          NO
 
 
 

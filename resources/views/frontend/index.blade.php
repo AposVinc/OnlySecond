@@ -4,8 +4,8 @@
     <!-- =====  BANNER START  ===== -->
     <div class="banner">
         <div class="main-banner owl-carousel">
-            <div class="item"><a href="#"><img src="{{asset('images/frontend/banner/Misfit-Vapor.png')}}" alt="Main Banner" class="img-responsive" /></a></div>
-            <div class="item"><a href="#"><img src="{{asset('images/frontend/banner/edifice-radio.png')}}" alt="Main Banner" class="img-responsive" /></a></div>
+            <div class="item"><a href="#"><img src="{{asset('storage/main_banner1.jpg')}}" alt="Main Banner" class="img-responsive" /></a></div>
+            <div class="item"><a href="#"><img src="{{asset('storage/main_banner1.jpg')}}" alt="Main Banner" class="img-responsive" /></a></div>
         </div>
     </div>
     <!-- =====  BANNER END  ===== -->
@@ -49,7 +49,7 @@
             <div class="cms_banner">
                 <div class="col-xs-12 mt_60">
                     <div id="subbanner4" class="sub-hover">
-                        <div class="sub-img"><a href="#"><img src="images/sub5.jpg" alt="Sub Banner5" class="img-responsive"></a></div>
+                        <div class="sub-img"><a href="#"><img src="{{asset('storage/sub5.jpg')}}" alt="Sub Banner5" class="img-responsive"></a></div>
                     </div>
                 </div>
             </div>

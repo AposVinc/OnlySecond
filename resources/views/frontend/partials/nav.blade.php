@@ -47,11 +47,11 @@
                         <ul>
                             <li id="myCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    <div class="item active"> <a href="#"><img src="/public/images/frontend/menu-banner1.jpg" class="img-responsive" alt="Banner1"></a></div>
+                                    <div class="item active"> <a href="#"><img src="{{asset('storage/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a></div>
                                     <!-- End Item -->
-                                    <div class="item"> <a href="#"><img src="/public/images/frontend/menu-banner2.jpg" class="img-responsive" alt="Banner1"></a></div>
+                                    <div class="item"> <a href="#"><img src="{{asset('storage/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a></div>
                                     <!-- End Item -->
-                                    <div class="item"> <a href="#"><img src="/public/images/frontend/menu-banner3.jpg" class="img-responsive" alt="Banner1"></a></div>
+                                    <div class="item"> <a href="#"><img src="{{asset('storage/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a></div>
                                     <!-- End Item -->
                                 </div>
                                 <!-- End Carousel Inner -->
