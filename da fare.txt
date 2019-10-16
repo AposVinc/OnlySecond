@@ -32,7 +32,6 @@ FE
 --Vale -- Pagina Dettaglio prodotto - grafica
 edit profile - modifica info utente su DB
 prezzo originale sopra a prezzo offert
-
 slider brand - allineare verticalmente img loghi
 shop        - se si mette where('main',0) da errore sul path
             - img per prod ne mostra solo 1 (in template originale ne mostra 2)
@@ -118,6 +117,9 @@ recensioni - mettere solo elimina e togliere modifica
            - lasciare ricerca sotto breadcrumbs?
 se media recensione è 3,8 si deve dare mezza stella o si inserisce la 4a?
 wishlist grafica    - come risolvere il problema della virgola
+Togliere compare e quickview dali bottoni dei prod
+aggiugere sconto superiore a 10 20 30 40 % in filtraggio
+paginazione dello shop
 
 
 
