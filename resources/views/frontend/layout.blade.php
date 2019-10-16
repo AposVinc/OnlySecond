@@ -100,7 +100,7 @@
         <div class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-4">
+                    <div class="col-xs-12 col-sm-4" style="display: inline-block;">
                         <div class="main-search mt_40">
                             <input id="search-input" name="search" value="" placeholder="Cerca" class="form-control input-lg" autocomplete="off" type="text">
                             <span class="input-group-btn">
@@ -109,8 +109,12 @@
                         </div>
                     </div>
                     <!-- Title -->
-                    <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="{{route('Home')}}"> <img alt="OnlySecond" src="{{url::asset('images/logo/logoP.png')}}"> </a> </div>
-                    <div class="col-xs-6 col-sm-4 shopcart">
+                    <div class="navbar-header col-xs-6 col-sm-4">
+                        <a class="navbar-brand mt_6" href="{{route('Home')}}">
+                            <img alt="OnlySecond" src="{{url::asset('images/logo/lungo-O-bianca.png')}}">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 shopcart"  style="display: inline-block;">
                         <div id="cart" class="btn-group btn-block mtb_40">
                             <a href="{{route('Wishlist')}}" id="wishlistButtonNav">
                                 <i class="fa fa-heart-o pt_3" aria-hidden="true" title="Wishlist"></i>

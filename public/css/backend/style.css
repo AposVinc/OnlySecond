@@ -1351,7 +1351,7 @@ header.fixed-top {
   position: inherit; }
 
 .menutoggle {
-  background: #e74c3c;
+  background: #ee5e11;
   border-radius: 50%;
   color: #fff !important;
   cursor: pointer;
@@ -2501,3 +2501,15 @@ header .form-inline {
         .right-panel .content #bootstrap-data-table_wrapper .table th {
           padding: 5px; } }
 
+
+
+
+.logoBE{
+    height: 50px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: 20%;
+    display: block;
+}
