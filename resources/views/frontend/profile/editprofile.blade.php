@@ -12,7 +12,7 @@
             <div class="panel-default col-lg-12 mb_20">
                 <div class="panel-body">
                     <div class="row col-md-6 col-md-offset-3">
-                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{{route('EditProfilePost')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
                             <div class="form-group required">
                                 <label for="name" class="col-sm-3 control-label">Nome</label>
@@ -41,12 +41,11 @@
 
                             <div id="divCheckbox"></div>
 
-
                             <div id="password">
                                 <div class="form-group required">
                                     <label for="psw" id="label-psw" class="col-sm-3 control-label">Password</label>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="psw" placeholder="Password" value="**********" name="psw" disabled>
+                                        <input type="password" class="form-control" id="psw" placeholder="Password" value="********" name="psw" disabled>
                                     </div>
                                 </div>
                             </div>

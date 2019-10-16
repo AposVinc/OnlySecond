@@ -360,9 +360,9 @@
             if($('#change_psw').is(':checked')){
                 if($('#password').children().length != 4){
                     var old_password = $(' <div class="form-group required">\n' +
-                        '                                    <label for="old-password" id="labelOldPassword" class="col-sm-3 control-label">Vecchia Password</label>\n' +
+                        '                                    <label for="old-password" id="label-old-password" class="col-sm-3 control-label">Vecchia Password</label>\n' +
                         '                                    <div class="col-sm-9">\n' +
-                        '                                        <input type="password" class="form-control" id="oldPassword" placeholder="Vecchia Password" value="" name="old-password">\n' +
+                        '                                        <input type="password" class="form-control" id="old-password" placeholder="Vecchia Password" value="" name="old-password">\n' +
                         '                                    </div>\n' +
                         '                                </div>');
                     var new_password = $('<div class="form-group required">\n' +

@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth'] ], function () {
     Route::get('/EditProfile', function () {
         return view('frontend.profile.editprofile');
     })->name('EditProfile');
+    Route::post('/EditProfilePost', 'UserController@edit')->name('EditProfilePost');
 
     Route::get('/Address', function () {
         return view('frontend.profile.address');

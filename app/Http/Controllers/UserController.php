@@ -5,15 +5,39 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Review;
 use App\User;
+use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use function Sodium\add;
 
 class UserController extends Controller
 {
-    public function update(Request $request)
+    public function edit(Request $request)
     {
+        if (Auth::user()->email == $request->email){    //se mail è la stessa del utente loggato allora ok
+            $user = User::where('email',$request->email)->first();
+            $user->name = $request->name;
+            $user->surname = $request->surname;
+            $user->phone = $request->phone;
 
+            //tutti e 3 gli input sono stati inseriti    //nuova psw e conf sono uguali
+            if($request->has('old-password') and $request->has('new-password') and $request->has('confirm-new-password')
+                    and ($request->has('new-password') == $request->has('confirm-new-password'))){
+                if (Hash::check($request->get('old-password'), $user->password)){     //vecchia psw è uguale a quella salvata
+                    $user->password = $request->get('new-password');
+                }
+            }
+            if ($user->save()){ //fare direttamente la login?
+                return redirect()->route('EditProfile')->with('success', 'Modifica avvenuta con successo!!');
+            } else {
+                return redirect()->route('EditProfile')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+            }
+        }else{  //email è diversa da quella dell'utente loggato
+            if (User::where('email',$request->email)->first()){ //controlla se gia esiste e se non esiste permetti mod
+
+            }else{
+
+            }
+        }
     }
 
 
