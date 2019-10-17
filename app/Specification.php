@@ -16,7 +16,7 @@ class Specification extends Model
      */
 
     protected $fillable =[
-
+        'case_size', 'material', 'case_thickness', 'glass', 'strap_material',
     ];
 
     public function product()

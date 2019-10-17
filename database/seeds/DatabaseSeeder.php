@@ -2,7 +2,7 @@
 
 use App\Address;
 use App\Admin;
-use App\Billingaddress;
+use App\Specification;
 use App\Category;
 use App\Color;
 use App\Courier;
@@ -108,10 +108,14 @@ DatabaseSeeder extends Seeder
 
         /* Prodotti Diesel */
         $Double_Down_P44P1 = new Product(['cod' => 'DZ1436','price' => '89', 'stock_availability' => '10',
-            'genre' => 'U','long_desc' => 'long desc','quantity_sold' => 2]);
+            'genre' => 'U','long_desc' => 'Orologio Di Diesel Da Unisex Della Collezione Double Down 44. Questo Modello Ha Cassa Della Dimensione Di 52 X 44 Mm Ed È Realizzata In Policarbonato Con Finitura Opaca Di Colore Nero E Di Forma Rotonda, 
+            Con Spessore Di 14Mm. Il Vetro Di Questo Modello È Trasparente E Il Quadrante È Di Colore Nero. 
+            La Ghiera Di Questo Modello Di Orologio È In Nylon Con Finitura Lucida Di Colore Nero. 
+            Le Anse Hanno Distanza Di 24Mm E Il Cinturino È Realizzato In Silicone Con Finitura Opaca Ed È Di Colore Nero. Questo Modello È Di Tipo Quarzo / 3 Sfere Ed Ha Una Resistenza All\'Acqua Di 5 Atm.','quantity_sold' => 2]);
         $Double_Down_P44P1I1 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero.png', 'main' => '1']);
         $Double_Down_P44P1I2 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero_1.png', 'main' => '0']);
         $Double_Down_P44P1I3 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero_2.png', 'main' => '0']);
+        $Double_Down_P4S = new Specification(['case_size' => '47mm', 'material' => 'Inox Colorato', 'case_thickness' => '13mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbia', 'movement' => 'Digitale Smart', 'warranty' => '1 anno']);
         $Double_Down_P44P1->collection_id = $Diesel->id;
         $Double_Down_P44P1->supplier_id = $fornitore2->id;
         $Double_Down_P44P1->color_id = $nero->id;
@@ -121,6 +125,7 @@ DatabaseSeeder extends Seeder
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I1);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I2);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I3);
+        $Double_Down_P44P1->specifications()->save($Double_Down_P4S);
         $Double_Down_P44->products()->save($Double_Down_P44P1);
 
 
@@ -141,25 +146,33 @@ DatabaseSeeder extends Seeder
 
         /* Prodotti Fossil */
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
-            'genre' => 'F','long_desc' => 'long desc','quantity_sold' => 5]);
+            'genre' => 'F','long_desc' => 'Questo orologio Fossil ha una cassa in acciaio inox con un diametro di 29 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 5]);
         $CarlieP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4432_Argento.png', 'main' => '1']);
+        $CarlieP1S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
         $CarlieP1->color_id = $argento->id;
         $CarlieP1->save();
         $CarlieP1->categories()->save($classic);
         $CarlieP1->images()->save($CarlieP1I1);
+        $CarlieP1->specifications()->save($CarlieP1S);
         $Carlie->products()->save($CarlieP1);
 
         $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
-            'genre' => 'F','long_desc' => 'long desc','quantity_sold' => 1]);
+            'genre' => 'F','long_desc' => 'Questo orologio Fossil ha una cassa in acciaio inox oro rosa con un diametro di 29 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $CarlieP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4433_Rosa.png', 'main' => '1']);
+        $CarlieP2S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $CarlieP2->collection_id = $Carlie->id;
         $CarlieP2->supplier_id = $fornitore1->id;
         $CarlieP2->color_id = $rosa->id;
         $CarlieP2->save();
         $CarlieP2->categories()->save($classic);
         $CarlieP2->images()->save($CarlieP2I1);
+        $CarlieP2->specifications()->save($CarlieP2S);
         $Carlie->products()->save($CarlieP2);
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '109', 'stock_availability' => '5',
@@ -167,6 +180,7 @@ DatabaseSeeder extends Seeder
         $CarlieP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero.png', 'main' => '1']);
         $CarlieP3I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero_1.png', 'main' => '0']);
         $CarlieP3I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero_2.png', 'main' => '0']);
+        $CarlieP3S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $CarlieP3->collection_id = $Carlie->id;
         $CarlieP3->supplier_id = $fornitore1->id;
         $CarlieP3->color_id = $nero->id;
@@ -175,13 +189,15 @@ DatabaseSeeder extends Seeder
         $CarlieP3->images()->save($CarlieP3I1);
         $CarlieP3->images()->save($CarlieP3I2);
         $CarlieP3->images()->save($CarlieP3I3);
+        $CarlieP3->specifications()->save($CarlieP3S);
         $Carlie->products()->save($CarlieP3);
 
         $SportP1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
-            'genre' => 'U','long_desc' => 'long desc','quantity_sold' => 1]);
+            'genre' => 'U','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.','quantity_sold' => 1]);
         $SportP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero.png', 'main' => '1']);
         $SportP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_1.png', 'main' => '0']);
         $SportP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_2.png', 'main' => '0']);
+        $SportP1S = new Specification(['case_size' => '41mm', 'material' => 'Alluminio', 'case_thickness' => '12mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => '', 'warranty' => '1 anno']);
         $SportP1->collection_id = $Sport->id;
         $SportP1->supplier_id = $fornitore1->id;
         $SportP1->color_id = $nero->id;
@@ -191,13 +207,15 @@ DatabaseSeeder extends Seeder
         $SportP1->images()->save($SportP1I1);
         $SportP1->images()->save($SportP1I2);
         $SportP1->images()->save($SportP1I3);
+        $SportP1->specifications()->save($SportP1S);
         $Sport->products()->save($SportP1);
 
         $SportP2 = new Product(['cod' => 'FT6028','price' => '249', 'stock_availability' => '2',
-            'genre' => 'U','long_desc' => 'long desc']);
+            'genre' => 'F','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.']);
         $SportP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa.png', 'main' => '1']);
         $SportP2I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_1.png', 'main' => '0']);
         $SportP2I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_2.png', 'main' => '0']);
+        $SportP2S = new Specification(['case_size' => '41mm', 'material' => 'Alluminio', 'case_thickness' => '12mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => '', 'warranty' => '1 anno']);
         $SportP2->collection_id = $Sport->id;
         $SportP2->supplier_id = $fornitore1->id;
         $SportP2->color_id = $rosa->id;
@@ -207,13 +225,26 @@ DatabaseSeeder extends Seeder
         $SportP2->images()->save($SportP2I1);
         $SportP2->images()->save($SportP2I2);
         $SportP2->images()->save($SportP2I3);
+        $SportP2->specifications()->save($SportP2S);
         $Sport->products()->save($SportP2);
 
         $Q_ExploristP1 = new Product(['cod' => 'FT4012','price' => '239', 'stock_availability' => '16',
-            'genre' => 'U','long_desc' => 'long desc']);
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
+            ✓ cardiofrequenzimetro
+            ✓ GPS
+            ✓ Scegli la tua interfaccia preferita
+            ✓ Contapassi
+            ✓ Impermeabile pe ril nuoto 
+            e molto altro..
+            Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Scegli smart e fashion. Scegli lo smartwatch Fossil.']);
         $Q_ExploristP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4012_Grigio.png', 'main' => '1']);
         $Q_ExploristP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4012_Grigio_1.png', 'main' => '0']);
         $Q_ExploristP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4012_Grigio_2.png', 'main' => '0']);
+        $Q_ExploristP1S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP1->collection_id = $Q_Explorist->id;
         $Q_ExploristP1->supplier_id = $fornitore1->id;
         $Q_ExploristP1->color_id = $grigio->id;
@@ -223,11 +254,24 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP1->images()->save($Q_ExploristP1I1);
         $Q_ExploristP1->images()->save($Q_ExploristP1I2);
         $Q_ExploristP1->images()->save($Q_ExploristP1I3);
+        $Q_ExploristP1->specifications()->save($Q_ExploristP1S);
         $Q_Explorist->products()->save($Q_ExploristP1);
 
         $Q_ExploristP2 = new Product(['cod' => 'FT4015','price' => '239', 'stock_availability' => '4',
-            'genre' => 'U','long_desc' => 'long desc','quantity_sold' => 1]);
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
+            ✓ cardiofrequenzimetro
+            ✓ GPS
+            ✓ Scegli la tua interfaccia preferita
+            ✓ Contapassi
+            ✓ Impermeabile pe ril nuoto 
+            e molto altro..
+            Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Scegli smart e fashion. Scegli lo smartwatch Fossil.','quantity_sold' => 1]);
         $Q_ExploristP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4015_Marrone.png', 'main' => '1']);
+        $Q_ExploristP2S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP2->collection_id = $Q_Explorist->id;
         $Q_ExploristP2->supplier_id = $fornitore1->id;
         $Q_ExploristP2->color_id = $marrone->id;
@@ -235,11 +279,24 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP2->categories()->save($smart);
         $Q_ExploristP2->categories()->save($water_resistence);
         $Q_ExploristP2->images()->save($Q_ExploristP2I1);
+        $Q_ExploristP2->specifications()->save($Q_ExploristP2S);
         $Q_Explorist->products()->save($Q_ExploristP2);
 
         $Q_ExploristP3 = new Product(['cod' => 'FT4016','price' => '239', 'stock_availability' => '5',
-            'genre' => 'U','long_desc' => 'long desc']);
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
+            ✓ cardiofrequenzimetro
+            ✓ GPS
+            ✓ Scegli la tua interfaccia preferita
+            ✓ Contapassi
+            ✓ Impermeabile pe ril nuoto 
+            e molto altro..
+            Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Scegli smart e fashion. Scegli lo smartwatch Fossil.']);
         $Q_ExploristP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4016_Nero.png', 'main' => '1']);
+        $Q_ExploristP3S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP3->collection_id = $Q_Explorist->id;
         $Q_ExploristP3->supplier_id = $fornitore1->id;
         $Q_ExploristP3->color_id = $nero->id;
@@ -247,13 +304,26 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP3->categories()->save($smart);
         $Q_ExploristP3->categories()->save($water_resistence);
         $Q_ExploristP3->images()->save($Q_ExploristP3I1);
+        $Q_ExploristP3->specifications()->save($Q_ExploristP3S);
         $Q_Explorist->products()->save($Q_ExploristP3);
 
         $Q_ExploristP4 = new Product(['cod' => 'FT4019','price' => '239', 'stock_availability' => '6',
-            'genre' => 'U','long_desc' => 'long desc','quantity_sold' => 1]);
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
+            ✓ cardiofrequenzimetro
+            ✓ GPS
+            ✓ Scegli la tua interfaccia preferita
+            ✓ Contapassi
+            ✓ Impermeabile pe ril nuoto 
+            e molto altro..
+            Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Scegli smart e fashion. Scegli lo smartwatch Fossil.','quantity_sold' => 1]);
         $Q_ExploristP4I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa.png', 'main' => '1']);
         $Q_ExploristP4I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa_1.png', 'main' => '0']);
         $Q_ExploristP4I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa_2.png', 'main' => '0']);
+        $Q_ExploristP4S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP4->collection_id = $Q_Explorist->id;
         $Q_ExploristP4->supplier_id = $fornitore1->id;
         $Q_ExploristP4->color_id = $rosa->id;
@@ -263,6 +333,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP4->images()->save($Q_ExploristP4I1);
         $Q_ExploristP4->images()->save($Q_ExploristP4I2);
         $Q_ExploristP4->images()->save($Q_ExploristP4I3);
+        $Q_ExploristP4->specifications()->save($Q_ExploristP4S);
         $Q_Explorist->products()->save($Q_ExploristP4);
 
 
@@ -280,10 +351,13 @@ DatabaseSeeder extends Seeder
 
         /* Prodotti Lacoste */
         $Lacoste_12_12_P1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
-            'genre' => 'M','long_desc' => 'long desc','quantity_sold' => 1]);
+            'genre' => 'M','long_desc' => 'Questo orologio Lacoste ha una cassa in Gomma con un diametro di 42 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $Lacoste_12_12_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu.png', 'main' => '1']);
         $Lacoste_12_12_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_1.png', 'main' => '0']);
         $Lacoste_12_12_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_2.png', 'main' => '0']);
+        $Lacoste_12_12_P1S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
         $Lacoste_12_12_P1->supplier_id = $fornitore2->id;
         $Lacoste_12_12_P1->color_id = $blu->id;
@@ -292,13 +366,17 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I1);
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I2);
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I3);
+        $Lacoste_12_12_P1->specifications($Lacoste_12_12_P1S);
         $Lacoste_12_12->products()->save($Lacoste_12_12_P1);
 
         $Lacoste_12_12_P2 = new Product(['cod' => 'LC7907', 'price' => '99', 'stock_availability' => '8',
-            'genre' => 'M', 'long_desc' => 'long desc']);
+            'genre' => 'M', 'long_desc' => 'Questo orologio Lacoste ha una cassa in plastica con un diametro di 42 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.']);
         $Lacoste_12_12_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde.png', 'main' => '1']);
         $Lacoste_12_12_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_1.png', 'main' => '0']);
         $Lacoste_12_12_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_2.png', 'main' => '0']);
+        $Lacoste_12_12_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Lacoste_12_12_P2->collection_id = $Lacoste_12_12->id;
         $Lacoste_12_12_P2->supplier_id = $fornitore2->id;
         $Lacoste_12_12_P2->color_id = $verde->id;
@@ -307,15 +385,18 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I1);
         $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I2);
         $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I3);
+        $Lacoste_12_12_P2->specifications($Lacoste_12_12_P2S);
         $Lacoste_12_12->products()->save($Lacoste_12_12_P2);
 
 
 
         $Moon_P1 = new Product(['cod' => 'LCM233', 'price' => '139', 'stock_availability' => '12',
-            'genre' => 'F', 'long_desc' => 'long desc','quantity_sold' => 2]);
+            'genre' => 'F', 'long_desc' => 'Questo orologio Lacoste ha una cassa in acciaio inox con un diametro di 35 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 2]);
         $Moon_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_1.png', 'main' => '1']);
         $Moon_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_2.png', 'main' => '0']);
         $Moon_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_3.png', 'main' => '0']);
+        $Moon_P1S = new Specification(['case_size' => '35mm', 'material' => 'Inox', 'case_thickness' => '6.3mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Moon_P1->collection_id = $Lacoste_Moon->id;
         $Moon_P1->supplier_id = $fornitore2->id;
         $Moon_P1->color_id = $blu->id;
@@ -324,13 +405,16 @@ DatabaseSeeder extends Seeder
         $Moon_P1->images()->save($Moon_P1I1);
         $Moon_P1->images()->save($Moon_P1I2);
         $Moon_P1->images()->save($Moon_P1I3);
+        $Moon_P1->specifications()->save($Moon_P1S);
         $Lacoste_Moon->products()->save($Moon_P1);
 
         $Moon_P2 = new Product(['cod' => 'LCM234', 'price' => '139', 'stock_availability' => '19',
-            'genre' => 'F', 'long_desc' => 'long desc', 'quantity_sold' => 3]);
+            'genre' => 'F', 'long_desc' => 'Questo orologio Lacoste ha una cassa in acciaio inox con un diametro di 35 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
         $Moon_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_1.png', 'main' => '1']);
         $Moon_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_2.png', 'main' => '0']);
         $Moon_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_3.png', 'main' => '0']);
+        $Moon_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plastica / Resina', 'case_thickness' => '11.3mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Moon_P2->collection_id = $Lacoste_Moon->id;
         $Moon_P2->supplier_id = $fornitore2->id;
         $Moon_P2->color_id = $nero->id;
@@ -339,13 +423,16 @@ DatabaseSeeder extends Seeder
         $Moon_P2->images()->save($Moon_P2I1);
         $Moon_P2->images()->save($Moon_P2I2);
         $Moon_P2->images()->save($Moon_P2I3);
+        $Moon_P2->specifications()->save($Moon_P2S);
         $Lacoste_Moon->products()->save($Moon_P2);
 
         $Moon_P3 = new Product(['cod' => 'LCM236', 'price' => '139', 'stock_availability' => '10',
-            'genre' => 'F', 'long_desc' => 'long desc']);
+            'genre' => 'F', 'long_desc' => 'Questo orologio Lacoste ha una cassa in acciaio inox con un diametro di 35 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.']);
         $Moon_P3I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_1.png', 'main' => '1']);
         $Moon_P3I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_2.png', 'main' => '0']);
         $Moon_P3I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_3.png', 'main' => '0']);
+        $Moon_P3S1 = new Specification(['case_size' => '42mm', 'material' => 'Silicone Rubber', 'case_thickness' => '12mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Moon_P3->collection_id = $Lacoste_Moon->id;
         $Moon_P3->supplier_id = $fornitore2->id;
         $Moon_P3->color_id = $rosa->id;
@@ -354,6 +441,7 @@ DatabaseSeeder extends Seeder
         $Moon_P3->images()->save($Moon_P3I1);
         $Moon_P3->images()->save($Moon_P3I2);
         $Moon_P3->images()->save($Moon_P3I3);
+        $Moon_P3->specifications()->save($Moon_P3S1);
         $Lacoste_Moon->products()->save($Moon_P3);
 
 

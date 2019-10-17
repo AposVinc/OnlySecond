@@ -49,7 +49,7 @@ class Product extends Model
         return $this->belongsTo('App\Supplier');
     }
 
-    public function specification()
+    public function specifications()
     {
         return $this->hasOne('App\Specification');
     }

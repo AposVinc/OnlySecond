@@ -16,17 +16,17 @@ class CreateSpecificationsTable extends Migration
         Schema::create('specifications', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->unsignedBigInteger('product_id');
-            $table->string('case_size');//dimensione cassa
+            $table->string('case_size')->nullable();//dimensione cassa
             $table->string('material');
             $table->string('case_thickness');//spessore cassa
-            $table->string('glass');//Vetro minerale
+            $table->string('glass')->nullable();//Vetro minerale
             $table->unsignedBigInteger('dial_color');//colore quadrante
             $table->string('strap_material');//materiale cinturino
-            $table->unsignedBigInteger('strap_color');
+            $table->unsignedBigInteger('strap_color')->nullable();
             $table->string('closing');
             $table->string('movement');
             $table->string('warranty');//garanzia
-            $table->boolean('battery_replacement');
+            $table->boolean('battery_replacement')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');

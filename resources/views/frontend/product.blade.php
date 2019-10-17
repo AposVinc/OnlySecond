@@ -138,85 +138,106 @@
                                                     <h3>Info Generali</h3>
                                                     <hr>
 
-                                                    <table class="mt_20">
-
-                                                        <tbody>
-                                                        <tr class="row">
-                                                            <td><strong>Marca</strong></td>
-
-                                                            <td><span>{{$product->collection->brand->name}}</span></td>
-                                                        </tr>
-
-                                                        <tr class="row">
-                                                            <td><strong>Collezione</strong></td>
-                                                            <td><span>{{$product->collection->name}}</span></td>
-                                                        </tr>
-
-                                                        <tr class="row">
-                                                            <td><strong>Categoria</strong></td>
-
-                                                            <td><span>
+                                                    <div class="mt_20">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Marca</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->collection->brand->name}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Collezione</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->collection->name}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Categoria</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>
                                                                     @foreach($product->categories as $category)
                                                                         {{$category->name}}
-                                                                    @endforeach</span>
-                                                            </td>
-                                                        </tr>
+                                                                    @endforeach
+                                                                </span>
+                                                            </div>
 
-                                                        <tr class="row">
-                                                            <td><strong>Genere</strong></td>
-                                                            <td>
-                                                                <span>{{$product->genre}}</span></td>
-                                                        </tr>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Genere</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->genre}}</span>
+                                                            </div>
 
-                                                        <tr class="row">
-                                                            <td><strong>Codice</strong></td>
-                                                            <td><span>{{$product->cod}}</span></td>
-                                                        </tr>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Codice</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->cod}}</span>
+                                                            </div>
 
-                                                        </tbody>
+                                                        </div>
+                                                    </div>
 
-
-                                                    </table>
                                                 </div>
+
                                                 <div class="col-sm-6">
                                                     <h3>Info Quadrante</h3>
                                                     <hr>
-                                                    <table class="mt_20">
 
-                                                        <tbody>
-                                                        <tr class="row">
-                                                            <td><strong>Dimensioni </strong></td>
+                                                    <div class="mt_20">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Dimensioni</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->case_size}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Materiale</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->material}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Spessore</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->case_thickness}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Vetro</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->glass}}</span>
+                                                            </div>
 
-                                                            <td><span>{{$product->collection->brand->name}}</span></td>
-                                                        </tr>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Colore</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->dialColor->name}}</span>
+                                                            </div>
 
-                                                        <tr class="row">
-                                                            <td><strong>Materiale</strong></td>
-                                                            <td><span>{{$product->collection->name}}</span></td>
-                                                        </tr>
-
-                                                        <tr class="row">
-                                                            <td><strong>Spessore</strong></td>
-
-                                                            <td><span>{{$product->collection->name}}</span>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr class="row">
-                                                            <td><strong>Vetro</strong></td>
-                                                            <td>
-                                                                <span>{{$product->genre}}</span></td>
-                                                        </tr>
-
-                                                        <tr class="row">
-                                                            <td><strong>Colore</strong></td>
-                                                            <td><span>{{$product->cod}}</span></td>
-                                                        </tr>
-
-                                                        </tbody>
-
-
-                                                    </table>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -224,48 +245,50 @@
                                                 <div class="col-sm-6">
                                                     <h3>Info Cinturino</h3>
                                                     <hr>
-                                                    <table class="mt_20">
 
-                                                        <tbody>
-                                                        <tr class="row">
-                                                            <td><strong>Materiale</strong></td>
+                                                    <div class="mt_20">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Materiale</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->strap_material}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Colore</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->strapColor->name}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                                            <td><span>{{$product->collection->brand->name}}</span></td>
-                                                        </tr>
-
-                                                        <tr class="row">
-                                                            <td><strong>Colore</strong></td>
-                                                            <td><span>{{$product->collection->name}}</span></td>
-                                                        </tr>
-
-
-                                                        </tbody>
-
-
-                                                    </table>
                                                 </div>
+
                                                 <div class="col-sm-6">
                                                     <h3>Altre Info</h3>
                                                     <hr>
-                                                    <table class="mt_20">
 
-                                                        <tbody>
-                                                        <tr class="row">
-                                                            <td><strong>Movimento</strong></td>
-
-                                                            <td><span>{{$product->collection->brand->name}}</span></td>
-                                                        </tr>
-
-                                                        <tr class="row">
-                                                            <td><strong>Garanzia</strong></td>
-                                                            <td><span>{{$product->collection->name}}</span></td>
-                                                        </tr>
-
-
-                                                        </tbody>
-
-
-                                                    </table>
+                                                    <div class="mt_20">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Movimento</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->movement}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <strong>Garanzia</strong>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span>{{$product->specifications->warranty}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
