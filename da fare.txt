@@ -62,6 +62,8 @@ Login - div error se non va a buon fine registrazione
       - password errata, email non presente nel db
 
 Tooltip bottoni come in recensioni ecc. (aggiungere title al tag)
+carello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo nel db quando ci si logga
+
 
 ok BE
 ----------
