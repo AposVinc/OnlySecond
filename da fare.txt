@@ -127,7 +127,7 @@ paginazione dello shop
 
 DOMANDE DA FARE AL PROF
 1. appello      quando vogliamo
-2. grafica BE e Index BE        non ha dato una risposta
+2. grafica BE e Index BE        grafica ok, non ha dato una risposta
 3. C'è bisogno di realizzare l'email generata per il cambio password        NO
 4. Eliminazione account utente          NO
 
