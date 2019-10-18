@@ -128,7 +128,7 @@
                                         <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
                                     @endif
                                 @else
-                                    <span id="cart-total">Prodotti (0)</span>
+                                    <span id="cart-total">Prodotti (0)</span> <!-- Usare la sessione-->
                                 @endauth
                             </button>
                         </div>
@@ -137,42 +137,67 @@
                                 <li>
                                     <table class="table table-striped">
                                         <tbody>
-                                        <tr>
-                                            <td class="text-center"><a href="#"><img src="/public/images/frontend/product/70x84.jpg" alt="iPod Classic" title="iPod Classic"></a></td>
-                                            <td class="text-left product-name"><a href="#">MacBook Pro</a> <span class="text-left price">$20.00</span>
-                                                <input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
-                                            </td>
-                                            <td class="text-center"><a class="close-cart"><i class="fa fa-times-circle"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><a href="#"><img src="/public/images/frontend/product/70x84.jpg" alt="iPod Classic" title="iPod Classic"></a></td>
-                                            <td class="text-left product-name"><a href="#">MacBook Pro</a> <span class="text-left price">$20.00</span>
-                                                <input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
-                                            </td>
-                                            <td class="text-center"><a class="close-cart"><i class="fa fa-times-circle"></i></a></td>
-                                        </tr>
+                                            @auth()
+                                                @foreach(auth()->User()->products as $product)
+                                                    <tr>
+                                                        <td class="text-center" style="width: 80px;">
+                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-left product-name">
+                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                                <span class="text-left price">{{$product->cod}}</span>
+                                                                <span class="text-left price pt_10">{{$product->price}}€</span>
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a href="#">
+                                                                <i class="fa fa-times-circle"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @endauth
                                         </tbody>
                                     </table>
                                 </li>
                                 <li>
                                     <table class="table">
                                         <tbody>
-                                        <tr>
-                                            <td class="text-right"><strong>Sub-Totale</strong></td>
-                                            <td class="text-right">460.00€</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>Tassa(iva 5%)</strong></td>
-                                            <td class="text-right">23.00€</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>Totale</strong></td>
-                                            <td class="text-right">483,00€</td>
-                                        </tr>
+                                            @auth()
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <strong>Sub-Totale</strong>
+                                                        <span class="spanIva">(Iva inclusa)</span>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        {{auth()->User()->calculateTotalPrice()}} €
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <strong>Costo di spedizione</strong>
+                                                    </td>
+                                                    @if(auth()->User()->calculateTotalPrice()>250)
+                                                        <td class="text-right">Gratuita</td>
+                                                    @else
+                                                        <td class="text-right">5.00/10.00 €</td>
+                                                    @endif
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <strong>Totale</strong>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        {{auth()->User()->calculateTotalPrice() + 5.00}}/{{auth()->User()->calculateTotalPrice() + 10.00}} €
+                                                    </td>
+                                                </tr>
+                                            @endauth
                                         </tbody>
                                     </table>
                                 </li>
-
                                 <li>
                                     <form action="{{route('CartPage')}}">
                                         <input class="btn pull-right mt_10" value="Riepilogo" type="submit">

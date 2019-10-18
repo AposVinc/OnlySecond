@@ -76,4 +76,12 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Product','carts')->withPivot('quantity');
     }
 
+    public function calculateTotalPrice(){
+        $totalprice = 0.00;
+        foreach ($this->products as $product){
+            $totalprice += ($product->price * $product->pivot->quantity);
+        }
+        return number_format($totalprice, 2);
+    }
+
 }

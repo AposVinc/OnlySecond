@@ -1445,6 +1445,9 @@ label.checkme {
 #cart-dropdown .table>tbody>tr>td {
     padding: 10px 0;
 }
+.spanIva{
+    font-size: 10px;
+}
 
 /* ----------------------------------------------
 	2.6 Header bottom

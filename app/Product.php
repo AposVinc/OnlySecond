@@ -88,4 +88,11 @@ class Product extends Model
 // prendere in considerazione la possibilità di convertire il modello pivot in un modello Eloquent effettivo.
         return $this->belongsToMany('App\OrderHistory')->using('App\OrderHistoryProduct')->withPivot('quantity');
     }
+
+    public function users(){
+//ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,
+// prendere in considerazione la possibilità di convertire il modello pivot in un modello Eloquent effettivo.
+        return $this->belongsToMany('App\User')->using('App\Cart')->withPivot('quantity');
+    }
+
 }
