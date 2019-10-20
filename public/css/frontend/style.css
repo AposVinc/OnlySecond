@@ -2995,7 +2995,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-weight: normal;
 }
 
-#wishlist label>span{
+#wishlist label>span, p>span{
     color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
     margin-right: 5px;
 }
@@ -3009,28 +3009,31 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     margin-right: 7px;
 }
 
-#wishlist .product-title{
-    font-size: 16px;
+#wishlist .product-price{
     display: block;
-    font-weight: bold;
-
+    font: 700 16px/16px "Roboto";
 }
-.product-title span{
+.product-price span{
+    line-height: 24px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
     font-weight: normal;
     margin-right: 8px;
 }
-.product-title del{
+.product-price del{
     font-weight: normal;
-
     font-size: 14px;
     margin-right: 12px;
 }
-
-#wishlist .product-desc{
+#wishlist .product-attr{
     font-size: 13px;
     display: block;
 }
-
+#wishlist .product-desc{
+    font-size: 13px;
+    display: block;
+    text-align: justify;
+}
 #wishlist .fa{
     bottom: 1px;
 }

@@ -35,9 +35,8 @@ FE
 --Vincenzo--    prezzo originale sopra a prezzo offert
 --Vincenzo--    prezzo in sez profile devono essere Roboto
 --Vincenzo--    shop - se si cambia da griglia a lista la grafica non è corretta
---Vincenzo--    mettere ROBOTO in cronologia
+--Vincenzo--    mettere ROBOTO in cronologia wishlist
 --Vincenzo--    togliere compare e quick view
---Vincenzo--
 
 payments
 slider brand - allineare verticalmente img loghi

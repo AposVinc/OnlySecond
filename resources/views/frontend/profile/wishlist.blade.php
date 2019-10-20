@@ -33,7 +33,7 @@
                                         </div>
                                     </div>
                                     <div class="mt_10">
-                                        <label class="product-title"><span>Prezzo:</span><del>{{$product->price}}€</del>{{$product->offer->calculateDiscount()}} €</label>
+                                        <label class="product-price"><span>Prezzo:</span><del>{{$product->price}}€</del>{{$product->offer->calculateDiscount()}} €</label>
                                         <label class="product-desc"><span>Genere:</span>{{$product->genre}}</label>
                                         <label class="product-desc"><span>Categoria:</span>
                                             @php
@@ -48,6 +48,7 @@
                                                 echo $stringa;
                                             @endphp
                                         </label>
+                                        <label class="product-desc"><span>Descrizione:</span>{{$product->long_desc}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -69,9 +70,9 @@
                                     </div>
                                 </div>
                                 <div class="mt_10">
-                                    <label class="product-title"><span>Prezzo:</span>{{$product->price}} €</label>
-                                    <label class="product-desc"><span>Genere:</span>{{$product->genre}}</label>
-                                    <label class="product-desc"><span>Categoria:</span>
+                                    <label class="product-price"><span>Prezzo:</span>{{$product->price}} €</label>
+                                    <label class="product-attr"><span>Genere:</span>{{$product->genre}}</label>
+                                    <label class="product-attr"><span>Categoria:</span>
                                         @php
                                             $stringa = "";
                                             foreach($product->categories as $category){
@@ -84,6 +85,7 @@
                                             echo $stringa;
                                         @endphp
                                     </label>
+                                    <p class="product-desc"><span>Descrizione:</span>{{$product->long_desc}}</p>
                                 </div>
                             </div>
                         </div>
