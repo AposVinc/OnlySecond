@@ -84,4 +84,9 @@ class User extends Authenticatable
         return number_format($totalprice, 2);
     }
 
+    public function calculatepriceQuantityProduct($product){
+        $total = $product->pivot->quantity * $product->price;
+        return number_format($total, 2);
+    }
+
 }

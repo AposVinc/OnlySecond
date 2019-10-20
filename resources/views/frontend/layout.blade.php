@@ -43,274 +43,270 @@
 </head>
 
 <body>
-<!-- =====  LODER  ===== -->
-<div class="loder"></div>
-<div class="wrapper">
-    <!-- =====  HEADER START  ===== -->
-    <header id="header">
-        <div class="header-top riga">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="header-top-left">
-                            <div class="contact">
-                                <span class="hidden-xs hidden-sm hidden-md">
-                                    Spedizione gratuita con ordini superiori ai 250€
-                                </span>
-                            </div>
+<!-- =====  HEADER START  ===== -->
+<header id="header">
+    <div class="header-top riga">
+        <div class="container">
+            <div class="row ">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="header-top-left">
+                        <div class="contact">
+                            <span class="hidden-xs hidden-sm hidden-md">
+                                Spedizione gratuita con ordini superiori ai 250€
+                            </span>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-8">
-                        <ul class="header-top-right text-right">
-                            <li class="language dropdown">
-                                <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                    Lingua <span class="caret"></span>
-                                </span>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Italiano</a></li>
-                                    <li><a href="#">Inglese</a></li>
-                                </ul>
-                            </li>
-                            <li class="currency dropdown">
-                                <span class="dropdown-toggle" id="dropdownMenu12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                    Moneta <span class="caret"></span>
-                                </span>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu12">
-                                    <li><a href="#">€ Euro</a></li>
-                                    <li><a href="#">£ Pound Sterling</a></li>
-                                    <li><a href="#">$ US Dollar</a></li>
-                                </ul>
-                            </li>
-                            @auth
-                                <li class="account"> <a href="{{route('Profile')}}">Il Mio Profilo </a><i class="fa fa-user"></i></li>
-                                <li class="account"> <a href="{{route('User.Logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                    <ul class="header-top-right text-right">
+                        <li class="language dropdown">
+                            <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                Lingua <span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Italiano</a></li>
+                                <li><a href="#">Inglese</a></li>
+                            </ul>
+                        </li>
+                        <li class="currency dropdown">
+                            <span class="dropdown-toggle" id="dropdownMenu12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                Moneta <span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu12">
+                                <li><a href="#">€ Euro</a></li>
+                                <li><a href="#">£ Pound Sterling</a></li>
+                                <li><a href="#">$ US Dollar</a></li>
+                            </ul>
+                        </li>
+                        @auth
+                            <li class="account"> <a href="{{route('Profile')}}">Il Mio Profilo </a><i class="fa fa-user"></i></li>
+                            <li class="account"> <a href="{{route('User.Logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
+                        @else
+                            <li class="account"> <a href="{{route('Admin.Index')}}">Area Privata <i class="fa fa-lock"></i></a> </li>
+                            @auth('admin')
+                                <li class="account"> <a href="{{route('Admin.Logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
                             @else
-                                <li class="account"> <a href="{{route('Admin.Index')}}">Area Privata <i class="fa fa-lock"></i></a> </li>
-                                @auth('admin')
-                                    <li class="account"> <a href="{{route('Admin.Logout')}}">Logout </a><i class="fa fa-sign-out"></i></li>
-                                @else
-                                    <li class="account"> <a href="{{route('User.Login')}}">Login </a><i class="fa fa-sign-in"></i> </li>
-                                @endauth
+                                <li class="account"> <a href="{{route('User.Login')}}">Login </a><i class="fa fa-sign-in"></i> </li>
                             @endauth
+                        @endauth
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4" style="display: inline-block;">
+                    <div class="main-search mt_40">
+                        <input id="search-input" name="search" value="" placeholder="Cerca" class="form-control input-lg" autocomplete="off" type="text">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <!-- Title -->
+                <div class="navbar-header col-xs-6 col-sm-4">
+                    <a class="navbar-brand mt_6" href="{{route('Home')}}">
+                        <img alt="OnlySecond" src="{{url::asset('images/logo/lungo-O-bianca.png')}}">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-4 shopcart"  style="display: inline-block;">
+                    <div id="cart" class="btn-group btn-block mtb_40">
+                        <a href="{{route('Wishlist')}}" id="wishlistButtonNav">
+                            <i class="fa fa-heart-o pt_3" aria-hidden="true" title="Wishlist"></i>
+                        </a>
+                        <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
+                            <span id="shippingcart">Carrello</span>
+                            @auth()
+                                @if(auth()->User()->products->isEmpty())
+                                    <span id="cart-total">Prodotti (0)</span>
+                                @else
+                                    <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
+                                @endif
+                            @else
+                                <span id="cart-total">Prodotti (0)</span> <!-- Usare la sessione-->
+                            @endauth
+                        </button>
+                    </div>
+                    <div id="cart-dropdown" class="cart-menu collapse">
+                        <ul>
+                            <li>
+                                <table class="table table-striped">
+                                    <tbody>
+                                    @auth()
+                                        @foreach(auth()->User()->products as $product)
+                                            <tr>
+                                                <td class="text-center" style="width: 80px;">
+                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                        <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
+                                                    </a>
+                                                </td>
+                                                <td class="text-left product-name">
+                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                        <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                        <span class="text-left price">{{$product->cod}}</span>
+                                                        <span class="text-left price pt_10">{{$product->price}}€</span>
+                                                    </a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="#">
+                                                        <i class="fa fa-times-circle"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endauth
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <table class="table">
+                                    <tbody>
+                                    @auth()
+                                        <tr>
+                                            <td class="text-left">
+                                                <strong>Sub-Totale</strong>
+                                                <span class="spanIva">(Iva inclusa)</span>
+                                            </td>
+                                            <td class="text-right">
+                                                {{auth()->User()->calculateTotalPrice()}} €
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">
+                                                <strong>Costo di spedizione</strong>
+                                            </td>
+                                            @if(auth()->User()->calculateTotalPrice()>250)
+                                                <td class="text-right">Gratuita</td>
+                                            @else
+                                                <td class="text-right">5.00/10.00 €</td>
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">
+                                                <strong>Totale</strong>
+                                            </td>
+                                            <td class="text-right">
+                                                {{auth()->User()->calculateTotalPrice() + 5.00}}/{{auth()->User()->calculateTotalPrice() + 10.00}} €
+                                            </td>
+                                        </tr>
+                                    @endauth
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <form action="{{route('CartPage')}}">
+                                    <input class="btn pull-right mt_10" value="Riepilogo" type="submit">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @include('frontend.partials.nav')
+        </div>
+    </div>
+</header>
+<!-- =====  HEADER END  ===== -->
+
+@yield('content')
+
+<!-- =====  FOOTER START  ===== -->
+<div class="footer pt_60">
+    <div class="container">
+        <div class="newsletters mt_30 mb_50">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="news-head pull-left">
+                        <h2>Segui i nostri aggiornamenti!</h2>
+                        <div class="new-desc">Scrivici per conoscere i nuovi arrivi e molto altro!</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="news-form pull-right">
+                        <form action="{{route('Newsletter.AddPost')}}" method="post">
+                            @csrf
+                            <div class="form-group required">
+                                <input name="newsletterEmail" id="newsletterEmail" placeholder="Inserisci la tua Email" class="form-control input-lg" type="email" required>
+                                <button type="submit" class="btn btn-default btn-lg">Iscriviti</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 footer-block">
+                <h6 class="footer-title ptb_20">Informazioni</h6>
+                <ul>
+                    <li><a href="{{route('About')}}">Chi siamo</a></li>
+                    <li><a href="#">Condizioni di vendita</a></li>
+                    <li><a href="#">Informativa Privacy</a></li>
+                    <li><a href="#">Termini e Condizioni</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-block">
+                <h6 class="footer-title ptb_20">Servizi</h6>
+                <ul>
+                    <li><a href="{{route('Wishlist')}}">WishList</a></li>
+                    <li><a href="{{route('Profile')}}">Il Mio Profilo</a></li>
+                    <li><a href="{{route('Chronology')}}">Cronologia Ordini</a></li>
+                    <li><a href="{{route('Review')}}">Recensioni</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-block">
+                <h6 class="footer-title ptb_20">Extra</h6>
+                <ul>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">In Sconto</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-3 footer-block">
+                <h6 class="footer-title ptb_20">Contattaci</h6>
+                <ul>
+                    <li>Shop Online</li>
+                    <li>Via Vetoio, 67100 L'Aquila AQ </li>
+                    <li><a href="http://www.lionode.com/">www.onlysecondshop.it</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom mt_60 ptb_20">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="social_icon">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="copyright-part text-center">@ 2019 Tutti I Diritti Sono Riservati Only Second</div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="payment-icon text-right">
+                        <ul>
+                            <li><i class="fa fa-cc-paypal "></i></li>
+                            <li><i class="fa fa-cc-visa"></i></li>
+                            <li><i class="fa fa-cc-discover"></i></li>
+                            <li><i class="fa fa-cc-mastercard"></i></li>
+                            <li><i class="fa fa-cc-amex"></i></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4" style="display: inline-block;">
-                        <div class="main-search mt_40">
-                            <input id="search-input" name="search" value="" placeholder="Cerca" class="form-control input-lg" autocomplete="off" type="text">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Title -->
-                    <div class="navbar-header col-xs-6 col-sm-4">
-                        <a class="navbar-brand mt_6" href="{{route('Home')}}">
-                            <img alt="OnlySecond" src="{{url::asset('images/logo/lungo-O-bianca.png')}}">
-                        </a>
-                    </div>
-                    <div class="col-xs-6 col-sm-4 shopcart"  style="display: inline-block;">
-                        <div id="cart" class="btn-group btn-block mtb_40">
-                            <a href="{{route('Wishlist')}}" id="wishlistButtonNav">
-                                <i class="fa fa-heart-o pt_3" aria-hidden="true" title="Wishlist"></i>
-                            </a>
-                            <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
-                                <span id="shippingcart">Carrello</span>
-                                @auth()
-                                    @if(auth()->User()->products->isEmpty())
-                                        <span id="cart-total">Prodotti (0)</span>
-                                    @else
-                                        <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
-                                    @endif
-                                @else
-                                    <span id="cart-total">Prodotti (0)</span> <!-- Usare la sessione-->
-                                @endauth
-                            </button>
-                        </div>
-                        <div id="cart-dropdown" class="cart-menu collapse">
-                            <ul>
-                                <li>
-                                    <table class="table table-striped">
-                                        <tbody>
-                                            @auth()
-                                                @foreach(auth()->User()->products as $product)
-                                                    <tr>
-                                                        <td class="text-center" style="width: 80px;">
-                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-left product-name">
-                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                                <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
-                                                                <span class="text-left price">{{$product->cod}}</span>
-                                                                <span class="text-left price pt_10">{{$product->price}}€</span>
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <a href="#">
-                                                                <i class="fa fa-times-circle"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            @endauth
-                                        </tbody>
-                                    </table>
-                                </li>
-                                <li>
-                                    <table class="table">
-                                        <tbody>
-                                            @auth()
-                                                <tr>
-                                                    <td class="text-left">
-                                                        <strong>Sub-Totale</strong>
-                                                        <span class="spanIva">(Iva inclusa)</span>
-                                                    </td>
-                                                    <td class="text-right">
-                                                        {{auth()->User()->calculateTotalPrice()}} €
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-left">
-                                                        <strong>Costo di spedizione</strong>
-                                                    </td>
-                                                    @if(auth()->User()->calculateTotalPrice()>250)
-                                                        <td class="text-right">Gratuita</td>
-                                                    @else
-                                                        <td class="text-right">5.00/10.00 €</td>
-                                                    @endif
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-left">
-                                                        <strong>Totale</strong>
-                                                    </td>
-                                                    <td class="text-right">
-                                                        {{auth()->User()->calculateTotalPrice() + 5.00}}/{{auth()->User()->calculateTotalPrice() + 10.00}} €
-                                                    </td>
-                                                </tr>
-                                            @endauth
-                                        </tbody>
-                                    </table>
-                                </li>
-                                <li>
-                                    <form action="{{route('CartPage')}}">
-                                        <input class="btn pull-right mt_10" value="Riepilogo" type="submit">
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                @include('frontend.partials.nav')
-            </div>
-        </div>
-    </header>
-    <!-- =====  HEADER END  ===== -->
-
-@yield('content')
-
-<!-- =====  FOOTER START  ===== -->
-    <div class="footer pt_60">
-        <div class="container">
-            <div class="newsletters mt_30 mb_50">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="news-head pull-left">
-                            <h2>Segui i nostri aggiornamenti!</h2>
-                            <div class="new-desc">Scrivici per conoscere i nuovi arrivi e molto altro!</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="news-form pull-right">
-                            <form action="{{route('Newsletter.AddPost')}}" method="post">
-                                @csrf
-                                <div class="form-group required">
-                                    <input name="newsletterEmail" id="newsletterEmail" placeholder="Inserisci la tua Email" class="form-control input-lg" type="email" required >
-                                    <button type="submit" class="btn btn-default btn-lg">Iscriviti</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 footer-block">
-                    <h6 class="footer-title ptb_20">Informazioni</h6>
-                    <ul>
-                        <li><a href="{{route('About')}}">Chi siamo</a></li>
-                        <li><a href="#">Condizioni di vendita</a></li>
-                        <li><a href="#">Informativa Privacy</a></li>
-                        <li><a href="#">Termini e Condizioni</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 footer-block">
-                    <h6 class="footer-title ptb_20">Servizi</h6>
-                    <ul>
-                        <li><a href="#">WishList</a></li>
-                        <li><a href="#">Il Mio Profilo</a></li>
-                        <li><a href="#">Cronologia Ordini</a></li>
-                        <li><a href="{{route('Review')}}">Recensioni</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 footer-block">
-                    <h6 class="footer-title ptb_20">Extra</h6>
-                    <ul>
-                        <li><a href="#">Brands</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">In Sconto</a></li>
-
-                    </ul>
-                </div>
-                <div class="col-md-3 footer-block">
-                    <h6 class="footer-title ptb_20">Contattaci</h6>
-                    <ul>
-                        <li>Shop Online</li>
-                        <li>Via Vetoio, 67100 L'Aquila AQ </li>
-                        <li><a href="http://www.lionode.com/">www.onlysecondshop.it</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom mt_60 ptb_20">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="social_icon">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="copyright-part text-center">@ 2019 Tutti I Diritti Sono Riservati Only Second</div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="payment-icon text-right">
-                            <ul>
-                                <li><i class="fa fa-cc-paypal "></i></li>
-                                <li><i class="fa fa-cc-visa"></i></li>
-                                <li><i class="fa fa-cc-discover"></i></li>
-                                <li><i class="fa fa-cc-mastercard"></i></li>
-                                <li><i class="fa fa-cc-amex"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <!-- =====  FOOTER END  ===== -->
 </div>
+<!-- =====  FOOTER END  ===== -->
 <a id="scrollup"></a>
 
 <script src="{{ URL::asset('js/jquery-3.4.1.js') }}"></script>
@@ -457,8 +453,5 @@
         });
     </script>
 @endif
-
-
 </body>
-
 </html>
