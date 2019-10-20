@@ -200,7 +200,7 @@
                                                                 <strong>Dimensioni</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->case_size}}</span>
+                                                                <span>{{$product->specification->case_size}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -208,7 +208,7 @@
                                                                 <strong>Materiale</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->material}}</span>
+                                                                <span>{{$product->specification->material}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -216,7 +216,7 @@
                                                                 <strong>Spessore</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->case_thickness}}</span>
+                                                                <span>{{$product->specification->case_thickness}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -224,7 +224,7 @@
                                                                 <strong>Vetro</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->glass}}</span>
+                                                                <span>{{$product->specification->glass}}</span>
                                                             </div>
 
                                                         </div>
@@ -233,7 +233,7 @@
                                                                 <strong>Colore</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->dialColor->name}}</span>
+                                                                <span>{{$product->specification->dialColor->name}}</span>
                                                             </div>
 
                                                         </div>
@@ -252,7 +252,7 @@
                                                                 <strong>Materiale</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->strap_material}}</span>
+                                                                <span>{{$product->specification->strap_material}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -260,7 +260,7 @@
                                                                 <strong>Colore</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->strapColor->name}}</span>
+                                                                <span>{{$product->specification->strapColor->name}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -277,7 +277,7 @@
                                                                 <strong>Movimento</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->movement}}</span>
+                                                                <span>{{$product->specification->movement}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -285,7 +285,7 @@
                                                                 <strong>Garanzia</strong>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <span>{{$product->specifications->warranty}}</span>
+                                                                <span>{{$product->specification->warranty}}</span>
                                                             </div>
                                                         </div>
                                                     </div>

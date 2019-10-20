@@ -116,18 +116,19 @@ DatabaseSeeder extends Seeder
         $Double_Down_P44P1I1 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero.png', 'main' => '1']);
         $Double_Down_P44P1I2 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero_1.png', 'main' => '0']);
         $Double_Down_P44P1I3 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero_2.png', 'main' => '0']);
-        $Double_Down_P4S = new Specification(['case_size' => '47mm', 'material' => 'Inox Colorato', 'case_thickness' => '13mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbia', 'movement' => 'Digitale Smart', 'warranty' => '1 anno']);
-        $Double_Down_P4S->dial_color = $nero->id;
         $Double_Down_P44P1->collection_id = $Diesel->id;
         $Double_Down_P44P1->supplier_id = $fornitore2->id;
         $Double_Down_P44P1->color_id = $nero->id;
         $Double_Down_P44P1->save();
+        $Double_Down_P4S = new Specification(['case_size' => '47mm', 'material' => 'Inox Colorato', 'case_thickness' => '13mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbia', 'movement' => 'Digitale Smart', 'warranty' => '1 anno']);
+        $Double_Down_P4S->dial_color = $nero->id;
+        $Double_Down_P4S->strap_color = $nero->id;
         $Double_Down_P44P1->categories()->save($classic);
         $Double_Down_P44P1->categories()->save($water_resistence);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I1);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I2);
         $Double_Down_P44P1->images()->save($Double_Down_P44P1I3);
-        $Double_Down_P44P1->specifications()->save($Double_Down_P4S);
+        $Double_Down_P44P1->specification()->save($Double_Down_P4S);
         $Double_Down_P44->products()->save($Double_Down_P44P1);
 
 
@@ -154,13 +155,14 @@ DatabaseSeeder extends Seeder
         $CarlieP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4432_Argento.png', 'main' => '1']);
         $CarlieP1S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $CarlieP1S->dial_color = $argento->id;
+        $CarlieP1S->strap_color = $argento->id;
         $CarlieP1->collection_id = $Carlie->id;
         $CarlieP1->supplier_id = $fornitore1->id;
         $CarlieP1->color_id = $argento->id;
         $CarlieP1->save();
         $CarlieP1->categories()->save($classic);
         $CarlieP1->images()->save($CarlieP1I1);
-        $CarlieP1->specifications()->save($CarlieP1S);
+        $CarlieP1->specification()->save($CarlieP1S);
         $Carlie->products()->save($CarlieP1);
 
         $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
@@ -170,13 +172,14 @@ DatabaseSeeder extends Seeder
         $CarlieP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4433_Rosa.png', 'main' => '1']);
         $CarlieP2S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $CarlieP2S->dial_color = $rosa->id;
+        $CarlieP2S->strap_color = $rosa->id;
         $CarlieP2->collection_id = $Carlie->id;
         $CarlieP2->supplier_id = $fornitore1->id;
         $CarlieP2->color_id = $rosa->id;
         $CarlieP2->save();
         $CarlieP2->categories()->save($classic);
         $CarlieP2->images()->save($CarlieP2I1);
-        $CarlieP2->specifications()->save($CarlieP2S);
+        $CarlieP2->specification()->save($CarlieP2S);
         $Carlie->products()->save($CarlieP2);
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '109', 'stock_availability' => '5',
@@ -186,6 +189,7 @@ DatabaseSeeder extends Seeder
         $CarlieP3I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero_2.png', 'main' => '0']);
         $CarlieP3S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $CarlieP3S->dial_color = $nero->id;
+        $CarlieP3S->strap_color = $nero->id;
         $CarlieP3->collection_id = $Carlie->id;
         $CarlieP3->supplier_id = $fornitore1->id;
         $CarlieP3->color_id = $nero->id;
@@ -194,7 +198,7 @@ DatabaseSeeder extends Seeder
         $CarlieP3->images()->save($CarlieP3I1);
         $CarlieP3->images()->save($CarlieP3I2);
         $CarlieP3->images()->save($CarlieP3I3);
-        $CarlieP3->specifications()->save($CarlieP3S);
+        $CarlieP3->specification()->save($CarlieP3S);
         $Carlie->products()->save($CarlieP3);
 
         $SportP1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
@@ -204,6 +208,7 @@ DatabaseSeeder extends Seeder
         $SportP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_2.png', 'main' => '0']);
         $SportP1S = new Specification(['case_size' => '41mm', 'material' => 'Alluminio', 'case_thickness' => '12mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => '', 'warranty' => '1 anno']);
         $SportP1S->dial_color = $nero->id;
+        $SportP1S->strap_color = $nero->id;
         $SportP1->collection_id = $Sport->id;
         $SportP1->supplier_id = $fornitore1->id;
         $SportP1->color_id = $nero->id;
@@ -213,7 +218,7 @@ DatabaseSeeder extends Seeder
         $SportP1->images()->save($SportP1I1);
         $SportP1->images()->save($SportP1I2);
         $SportP1->images()->save($SportP1I3);
-        $SportP1->specifications()->save($SportP1S);
+        $SportP1->specification()->save($SportP1S);
         $Sport->products()->save($SportP1);
 
         $SportP2 = new Product(['cod' => 'FT6028','price' => '249', 'stock_availability' => '2',
@@ -223,6 +228,7 @@ DatabaseSeeder extends Seeder
         $SportP2I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_2.png', 'main' => '0']);
         $SportP2S = new Specification(['case_size' => '41mm', 'material' => 'Alluminio', 'case_thickness' => '12mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => '', 'warranty' => '1 anno']);
         $SportP2S->dial_color = $rosa->id;
+        $SportP2S->strap_color = $rosa->id;
         $SportP2->collection_id = $Sport->id;
         $SportP2->supplier_id = $fornitore1->id;
         $SportP2->color_id = $rosa->id;
@@ -232,7 +238,7 @@ DatabaseSeeder extends Seeder
         $SportP2->images()->save($SportP2I1);
         $SportP2->images()->save($SportP2I2);
         $SportP2->images()->save($SportP2I3);
-        $SportP2->specifications()->save($SportP2S);
+        $SportP2->specification()->save($SportP2S);
         $Sport->products()->save($SportP2);
 
         $Q_ExploristP1 = new Product(['cod' => 'FT4012','price' => '239', 'stock_availability' => '16',
@@ -253,6 +259,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4012_Grigio_2.png', 'main' => '0']);
         $Q_ExploristP1S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP1S->dial_color = $grigio->id;
+        $Q_ExploristP1S->strap_color = $grigio->id;
         $Q_ExploristP1->collection_id = $Q_Explorist->id;
         $Q_ExploristP1->supplier_id = $fornitore1->id;
         $Q_ExploristP1->color_id = $grigio->id;
@@ -262,7 +269,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP1->images()->save($Q_ExploristP1I1);
         $Q_ExploristP1->images()->save($Q_ExploristP1I2);
         $Q_ExploristP1->images()->save($Q_ExploristP1I3);
-        $Q_ExploristP1->specifications()->save($Q_ExploristP1S);
+        $Q_ExploristP1->specification()->save($Q_ExploristP1S);
         $Q_Explorist->products()->save($Q_ExploristP1);
 
         $Q_ExploristP2 = new Product(['cod' => 'FT4015','price' => '239', 'stock_availability' => '4',
@@ -281,6 +288,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4015_Marrone.png', 'main' => '1']);
         $Q_ExploristP2S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP2S->dial_color = $marrone->id;
+        $Q_ExploristP2S->strap_color = $marrone->id;
         $Q_ExploristP2->collection_id = $Q_Explorist->id;
         $Q_ExploristP2->supplier_id = $fornitore1->id;
         $Q_ExploristP2->color_id = $marrone->id;
@@ -288,7 +296,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP2->categories()->save($smart);
         $Q_ExploristP2->categories()->save($water_resistence);
         $Q_ExploristP2->images()->save($Q_ExploristP2I1);
-        $Q_ExploristP2->specifications()->save($Q_ExploristP2S);
+        $Q_ExploristP2->specification()->save($Q_ExploristP2S);
         $Q_Explorist->products()->save($Q_ExploristP2);
 
         $Q_ExploristP3 = new Product(['cod' => 'FT4016','price' => '239', 'stock_availability' => '5',
@@ -307,6 +315,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4016_Nero.png', 'main' => '1']);
         $Q_ExploristP3S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP3S->dial_color = $nero->id;
+        $Q_ExploristP3S->strap_color = $nero->id;
         $Q_ExploristP3->collection_id = $Q_Explorist->id;
         $Q_ExploristP3->supplier_id = $fornitore1->id;
         $Q_ExploristP3->color_id = $nero->id;
@@ -314,7 +323,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP3->categories()->save($smart);
         $Q_ExploristP3->categories()->save($water_resistence);
         $Q_ExploristP3->images()->save($Q_ExploristP3I1);
-        $Q_ExploristP3->specifications()->save($Q_ExploristP3S);
+        $Q_ExploristP3->specification()->save($Q_ExploristP3S);
         $Q_Explorist->products()->save($Q_ExploristP3);
 
         $Q_ExploristP4 = new Product(['cod' => 'FT4019','price' => '239', 'stock_availability' => '6',
@@ -335,6 +344,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP4I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa_2.png', 'main' => '0']);
         $Q_ExploristP4S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
         $Q_ExploristP4S->dial_color = $rosa->id;
+        $Q_ExploristP4S->strap_color = $rosa->id;
         $Q_ExploristP4->collection_id = $Q_Explorist->id;
         $Q_ExploristP4->supplier_id = $fornitore1->id;
         $Q_ExploristP4->color_id = $rosa->id;
@@ -344,7 +354,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP4->images()->save($Q_ExploristP4I1);
         $Q_ExploristP4->images()->save($Q_ExploristP4I2);
         $Q_ExploristP4->images()->save($Q_ExploristP4I3);
-        $Q_ExploristP4->specifications()->save($Q_ExploristP4S);
+        $Q_ExploristP4->specification()->save($Q_ExploristP4S);
         $Q_Explorist->products()->save($Q_ExploristP4);
 
 
@@ -370,6 +380,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_2.png', 'main' => '0']);
         $Lacoste_12_12_P1S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Lacoste_12_12_P1S->dial_color = $blu->id;
+        $Lacoste_12_12_P1S->strap_color = $blu->id;
         $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
         $Lacoste_12_12_P1->supplier_id = $fornitore2->id;
         $Lacoste_12_12_P1->color_id = $blu->id;
@@ -378,7 +389,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I1);
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I2);
         $Lacoste_12_12_P1->images()->save($Lacoste_12_12_P1I3);
-        $Lacoste_12_12_P1->specifications($Lacoste_12_12_P1S);
+        $Lacoste_12_12_P1->specification()->save($Lacoste_12_12_P1S);
         $Lacoste_12_12->products()->save($Lacoste_12_12_P1);
 
         $Lacoste_12_12_P2 = new Product(['cod' => 'LC7907', 'price' => '99', 'stock_availability' => '8',
@@ -390,6 +401,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_2.png', 'main' => '0']);
         $Lacoste_12_12_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Lacoste_12_12_P2S->dial_color = $verde->id;
+        $Lacoste_12_12_P2S->strap_color = $verde->id;
         $Lacoste_12_12_P2->collection_id = $Lacoste_12_12->id;
         $Lacoste_12_12_P2->supplier_id = $fornitore2->id;
         $Lacoste_12_12_P2->color_id = $verde->id;
@@ -398,7 +410,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I1);
         $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I2);
         $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I3);
-        $Lacoste_12_12_P2->specifications($Lacoste_12_12_P2S);
+        $Lacoste_12_12_P2->specification()->save($Lacoste_12_12_P2S);
         $Lacoste_12_12->products()->save($Lacoste_12_12_P2);
 
 
@@ -411,6 +423,7 @@ DatabaseSeeder extends Seeder
         $Moon_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_3.png', 'main' => '0']);
         $Moon_P1S = new Specification(['case_size' => '35mm', 'material' => 'Inox', 'case_thickness' => '6.3mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
         $Moon_P1S->dial_color = $blu->id;
+        $Moon_P1S->strap_color = $blu->id;
         $Moon_P1->collection_id = $Lacoste_Moon->id;
         $Moon_P1->supplier_id = $fornitore2->id;
         $Moon_P1->color_id = $blu->id;
@@ -419,16 +432,18 @@ DatabaseSeeder extends Seeder
         $Moon_P1->images()->save($Moon_P1I1);
         $Moon_P1->images()->save($Moon_P1I2);
         $Moon_P1->images()->save($Moon_P1I3);
-        $Moon_P1->specifications()->save($Moon_P1S);
+        $Moon_P1->specification()->save($Moon_P1S);
         $Lacoste_Moon->products()->save($Moon_P1);
 
-       /* $Moon_P2 = new Product(['cod' => 'LCM234', 'price' => '139', 'stock_availability' => '19',
+        $Moon_P2 = new Product(['cod' => 'LCM234', 'price' => '139', 'stock_availability' => '19',
             'genre' => 'F', 'long_desc' => 'Questo orologio Lacoste ha una cassa in acciaio inox con un diametro di 35 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
         $Moon_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_1.png', 'main' => '1']);
         $Moon_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_2.png', 'main' => '0']);
         $Moon_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_3.png', 'main' => '0']);
         $Moon_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plastica / Resina', 'case_thickness' => '11.3mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $Moon_P2S->dial_color = $nero->id;
+        $Moon_P2S->strap_color = $nero->id;
         $Moon_P2->collection_id = $Lacoste_Moon->id;
         $Moon_P2->supplier_id = $fornitore2->id;
         $Moon_P2->color_id = $nero->id;
@@ -437,7 +452,7 @@ DatabaseSeeder extends Seeder
         $Moon_P2->images()->save($Moon_P2I1);
         $Moon_P2->images()->save($Moon_P2I2);
         $Moon_P2->images()->save($Moon_P2I3);
-        $Moon_P2->specifications()->save($Moon_P2S);
+        $Moon_P2->specification()->save($Moon_P2S);
         $Lacoste_Moon->products()->save($Moon_P2);
 
         $Moon_P3 = new Product(['cod' => 'LCM236', 'price' => '139', 'stock_availability' => '10',
@@ -446,7 +461,9 @@ DatabaseSeeder extends Seeder
         $Moon_P3I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_1.png', 'main' => '1']);
         $Moon_P3I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_2.png', 'main' => '0']);
         $Moon_P3I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_3.png', 'main' => '0']);
-        $Moon_P3S1 = new Specification(['case_size' => '42mm', 'material' => 'Silicone Rubber', 'case_thickness' => '12mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $Moon_P3S = new Specification(['case_size' => '42mm', 'material' => 'Silicone Rubber', 'case_thickness' => '12mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $Moon_P3S->dial_color = $rosa->id;
+        $Moon_P3S->strap_color = $rosa->id;
         $Moon_P3->collection_id = $Lacoste_Moon->id;
         $Moon_P3->supplier_id = $fornitore2->id;
         $Moon_P3->color_id = $rosa->id;
@@ -455,10 +472,10 @@ DatabaseSeeder extends Seeder
         $Moon_P3->images()->save($Moon_P3I1);
         $Moon_P3->images()->save($Moon_P3I2);
         $Moon_P3->images()->save($Moon_P3I3);
-        $Moon_P3->specifications()->save($Moon_P3S1);
+        $Moon_P3->specification()->save($Moon_P3S);
         $Lacoste_Moon->products()->save($Moon_P3);
 
-*/
+
 
         /* Swarovski */
         $Swarovski = new Brand(['name' => 'Swarovski','path_logo' => 'storage/Logo/Logo_Swarovski.png']);

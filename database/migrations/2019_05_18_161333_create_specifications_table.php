@@ -22,7 +22,7 @@ class CreateSpecificationsTable extends Migration
             $table->string('glass')->nullable();//Vetro minerale
             $table->unsignedBigInteger('dial_color');//colore quadrante
             $table->string('strap_material');//materiale cinturino
-            $table->unsignedBigInteger('strap_color')->nullable();
+            $table->unsignedBigInteger('strap_color');
             $table->string('closing');
             $table->string('movement');
             $table->string('warranty');//garanzia
