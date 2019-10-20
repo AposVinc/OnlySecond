@@ -33,7 +33,7 @@
                                         </div>
                                     </div>
                                     <div class="mt_10">
-                                        <label class="product-title"><span>Prezzo:</span><del>{{$product->price}}€</del>{{$product->offer->calculateDiscount()}}€</label>
+                                        <label class="product-title"><span>Prezzo:</span><del>{{$product->price}}€</del>{{$product->offer->calculateDiscount()}} €</label>
                                         <label class="product-desc"><span>Genere:</span>{{$product->genre}}</label>
                                         <label class="product-desc"><span>Categoria:</span>
                                             @php
@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                                 <div class="mt_10">
-                                    <label class="product-title"><span>Prezzo:</span>{{$product->price}}€</label>
+                                    <label class="product-title"><span>Prezzo:</span>{{$product->price}} €</label>
                                     <label class="product-desc"><span>Genere:</span>{{$product->genre}}</label>
                                     <label class="product-desc"><span>Categoria:</span>
                                         @php

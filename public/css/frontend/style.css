@@ -270,6 +270,9 @@ h6 {
 .mt_0 {
     margin-top: 0;
 }
+.mt_5 {
+    margin-top: 5px;
+}
 .mt_6 {
     margin-top: 6px;
 }
@@ -2050,18 +2053,16 @@ blockquote {
     color: #fff;
     display: inline-block;
     font: 700 20px/20px "Roboto";
-    margin-top: 5px;
+    margin-top: 15px;
     vertical-align: middle;
 }
 /*agg da vinc*/
 .product-thumb .oldPrice {
     position: absolute;
-    left: 25px;
-    margin-top: 7px;
-    text-decoration: line-through;
-    font: 100 16px/16px "Roboto";
-    color: #fff;
     display: inline-block;
+    text-decoration: line-through;
+    font: 100 14px/14px "Roboto";
+    color: #d9d9d9;
     vertical-align: middle;
 }
 /* fine agg da vinc*/
@@ -2175,7 +2176,7 @@ blockquote {
 }
 .rating {
     line-height: 1;
-    margin: 15px 0 10px;
+    margin: 10px 0 10px;
 }
 .fa-stack {
     height: 12px;
