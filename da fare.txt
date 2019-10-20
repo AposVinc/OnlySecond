@@ -26,8 +26,6 @@ NO ?ordinamento campi checkbox nelle liste
 
 
 
-
-
 FE
 ---------
 ?cerca
@@ -36,6 +34,12 @@ FE
 --Vincenzo--    edit profile - modifica info utente su DB
 --Vincenzo--    prezzo originale sopra a prezzo offert
 --Vincenzo--    prezzo in sez profile devono essere Roboto
+--Vincenzo--    shop - se si cambia da griglia a lista la grafica non è corretta
+--Vincenzo--    mettere ROBOTO in cronologia
+--Vincenzo--    togliere compare e quick view
+--Vincenzo--
+
+payments
 slider brand - allineare verticalmente img loghi
 shop        - se si mette where('main',0) da errore sul path
             - img per prod ne mostra solo 1 (in template originale ne mostra 2)
@@ -54,7 +58,6 @@ Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
 logica pass dimenticata?? - error se email non c'è
-
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
 
@@ -113,20 +116,20 @@ wishlist    - se prod in offerta mostra il prezzo scontato e lo sconto
 
 DA DISCUTERE
 dove mettere simbolo €, prima o dopo?           DOPO
-confrontare font del prezzo in shop con quello di wishlist e decidere se lasciare cosi o cambiare qualcosa? metto ROBOTO in chronologia- da valutare dopo
+confrontare font del prezzo in shop con quello di wishlist e decidere se lasciare cosi o cambiare qualcosa? mettere ROBOTO in cronologia- da valutare dopo
 nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
                 - collegare pagamenti a user
                 - bonifico -> pagamento in contrassegno
                 - aggiungere tab relaz con i campi fav , num carta, data scadenza, cvc
 wishlist grafica   - decidere se aggiungere qualche altro campo         -spostare spazio bottoni sotto a slash e allungarli
-                                                                        -aggiustare review2
-                   - se vuoto cosa fare?                                - usare pag 404 con scritte opportune (oppure riquadro lungo quanto a scritte nav)?
+                                                                        -aggiustare review2 e importare la grafica
+                   - se vuoto cosa fare?                                -usare pag 404 con scritte opportune (oppure riquadro lungo quanto a scritte nav)?
 recensioni - mettere solo elimina e togliere modifica           NO
 se media recensione è 3,8 si deve dare mezza stella o si inserisce la 4a?          NO
 wishlist grafica    - come risolvere il problema della virgola      risolto
 Togliere compare e quickview dali bottoni dei prod          SI
 aggiugere sconto superiore a 10 20 30 40 % in filtraggio    --- solo superiori a 10 25 50
-paginazione dello shop          da vedere
+paginazione dello shop          da fare
 
 
 
