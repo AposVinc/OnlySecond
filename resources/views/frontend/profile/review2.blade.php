@@ -1,4 +1,3 @@
-@@ -0,0 +1,78 @@
 @extends('frontend.layout')
 
 @section('content')
