@@ -2059,9 +2059,11 @@ blockquote {
 }
 /*agg da vinc*/
 .product-thumb .oldPrice {
-    position: absolute;
-    display: inline-block;
     text-decoration: line-through;
+    position: absolute;
+    display: block;
+    left: 50%;
+    transform: translate(-50%);
     font: 100 14px/14px "Roboto";
     color: #d9d9d9;
     vertical-align: middle;

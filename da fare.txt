@@ -32,7 +32,6 @@ FE
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- Pagina Dettaglio prodotto - grafica
 --Vincenzo--    edit profile - modifica info utente su DB
---Vincenzo--    prezzo originale sopra a prezzo offert
 --Vincenzo--    prezzo in sez profile devono essere Roboto
 --Vincenzo--    shop - se si cambia da griglia a lista la grafica non è corretta
 --Vincenzo--    mettere ROBOTO in cronologia wishlist
@@ -109,6 +108,8 @@ in sconto    - mostra il prezzo scontato e lo sconto, non è stato fatto
 shop        - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
 wishlist    - se prod in offerta mostra il prezzo scontato e lo sconto
             - limitare puntini nella desc di wishlist
+prezzo originale sopra a prezzo offert
+
 
 
 
