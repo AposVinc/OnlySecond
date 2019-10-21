@@ -66,8 +66,6 @@
                                             </a>
                                             <div class="button-group text-center">
                                                 <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                                <a href="#" class="quickview"><span>Quick View</span></a>
-                                                <a href="#" class="compare"><span>Compare</span></a>
                                                 <a href="#" class="add-to-cart"><span>Add to cart</span></a>
                                             </div>
                                             <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
@@ -87,9 +85,11 @@
                                                     @endif
                                                 @endfor
                                             </div>
-                                            <span class="oldPrice"><span class="amount"><span class="currencySymbol">€</span>{{$product->price}}</span></span>
-                                            <span class="price"><span class="amount"><span class="currencySymbol">€</span>{{$product->offer->calculateDiscount()}}</span></span>
+                                            <div >
+                                            <span class="oldPrice"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
+                                            <span class="price"><span class="amount">{{$product->offer->calculateDiscount()}}<span class="currencySymbol">€</span></span></span>
                                             <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -106,8 +106,6 @@
                                             </a>
                                             <div class="button-group text-center">
                                                 <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                                <a href="#" class="quickview"><span>Quick View</span></a>
-                                                <a href="#" class="compare"><span>Compare</span></a>
                                                 <a href="#" class="add-to-cart"><span>Add to cart</span></a>
                                             </div>
                                         </div>
@@ -126,7 +124,7 @@
                                                     @endif
                                                 @endfor
                                             </div>
-                                            <span class="price"><span class="amount"><span class="currencySymbol">€</span>{{$product->price}}</span></span>
+                                            <span class="price"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
                                             <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
                                         </div>
                                     </div>

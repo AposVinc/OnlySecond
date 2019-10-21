@@ -56,8 +56,6 @@
                                         </a>
                                         <div class="button-group text-center">
                                             <a href="{{route('Wishlist.AddProduct', ['cod' => $offer->product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                            <a href="#" class="quickview"><span>Quick View</span></a>
-                                            <a href="#" class="compare"><span>Compare</span></a>
                                             <a href="#" class="add-to-cart"><span>Add to cart</span></a>
                                         </div>
                                         <div class="ribbon orangeOS"><span>{{$offer->rate}}%</span></div>

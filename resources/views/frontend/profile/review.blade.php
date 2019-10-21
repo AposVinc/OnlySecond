@@ -60,7 +60,7 @@
                             <label class="product-name"><span>Prodotto:</span>{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</label>
                             <div style="position: absolute; top: 0; right: 10px;">
                                 <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica Recensione"></a>
-                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash"></a>
+                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina Recensione"></a>
                             </div>
                         </div>
                         <div class="mt_10">
