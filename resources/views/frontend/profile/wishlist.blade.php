@@ -25,7 +25,7 @@
                                         <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
                                     </a>
                                 </div>
-                                <div class="ribbon ribbonWishlist orangeOS"><span>{{$product->offer->rate}}%</span></div>
+                                <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
 
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
