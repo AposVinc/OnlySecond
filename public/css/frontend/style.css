@@ -1770,6 +1770,15 @@ input#amount {
     line-height: 36px;
     margin-right: 5px;
 }
+.heading-part .product-info{
+    font-size: 16px;
+    font-style: normal;
+    float: left;
+    color:#9E9E9E;
+    font-weight: bold;
+    line-height: 36px;
+    margin-right: 5px;
+}
 /**/
 
 .heading-part {
@@ -2983,6 +2992,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 #review .review-vote-date{
     font-size: 13px;
     display: block;
+}
+#review .review-text{
+    margin-top:5px; text-align: justify;
 }
 
 #review .fa{

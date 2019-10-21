@@ -11,22 +11,24 @@
 
             @foreach(auth()->user()->reviews as $review)
                 <div class="col-lg-12 mb_40">
+                    <div class="heading-part mt_0 mb_10">
+                        <label class="sub_title"><span>Prodotto:</span></label>
+                        <div class="product-info">{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</div>
+                    </div>
+
                     <div class="mt_10 col-md-2">
-                        <div class="image product-imageblock">
+                        <div class="image product-imageblock ">
                             <a href="{{route('Product', ['cod' => $review->product->cod])}}">
                                 <img data-name="product_image" src="{{asset($review->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
                             </a>
                         </div>
                     </div>
                     <div id="review" class="col-md-10 mt_10">
-                        <div>
-                            <label class="product-name"><span>Prodotto:</span>{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}</label>
-                            <div style="position: absolute; top: 0; right: 10px;">
-                                <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica Recensione"></a>
-                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina Recensione"></a>
-                            </div>
+                        <div style="position: absolute; top: 0; right: 10px;">
+                            <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica Recensione"></a>
+                            <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash"></a>
                         </div>
-                        <div class="mt_10">
+                        <div >
                             <label class="review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
                             <label class="review-vote-date">
                                 <span>Data:</span>{{date('d-m-Y H:i', strtotime($review->created_at))}}
@@ -40,7 +42,7 @@
                                 @endfor
                             </label>
                         </div>
-                        <div style="margin-top:5px; text-align: justify;">
+                        <div class="review-text">
                             <span>{{$review->text}}</span>
                         </div>
                     </div>

@@ -15,10 +15,6 @@
                 @foreach(auth()->User()->productsWishlist as $product)
                     @if($product->offer()->exists())
                         <div class="col-lg-12 mb_40">
-                            <div class="heading-part mt_0 mb_10">
-                                <label class="sub_title"><span>Prodotto:</span></label>
-                                <div class="product-info">{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</div>
-                            </div>
                             <div class="mt_10 col-md-2">
                                 <div class="image product-imageblock">
                                     <a href="{{route('Product', ['cod' => $product->cod])}}">
@@ -30,6 +26,7 @@
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
                                 <div>
+                                    <label class="product-name"><span>Prodotto:</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</label>
                                     <div style="position: absolute; top: 0; right: 10px;">
                                         <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" ></a>
                                         <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash"></a>
@@ -57,10 +54,6 @@
                         </div>
                     @else
                         <div class="col-lg-12 mb_40">
-                            <div class="heading-part mt_0 mb_10">
-                                <label class="sub_title"><span>Prodotto:</span></label>
-                                <div class="product-info">{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</div>
-                            </div>
                             <div class="mt_10 col-md-2">
                                 <div class="image product-imageblock">
                                     <a href="{{route('Product', ['cod' => $product->cod])}}">
@@ -70,12 +63,13 @@
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
                                 <div>
+                                    <label class="product-name"><span>Prodotto:</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</label>
                                     <div style="position: absolute; top: 0; right: 10px;">
                                         <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" ></a>
                                         <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash"></a>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="mt_10">
                                     <label class="product-price"><span>Prezzo:</span>{{$product->price}} €</label>
                                     <label class="product-attr"><span>Genere:</span>{{$product->genre}}</label>
                                     <label class="product-attr"><span>Categoria:</span>
@@ -91,7 +85,7 @@
                                             echo $stringa;
                                         @endphp
                                     </label>
-                                    <p class="product-desc"><span>Descrizione:</span>{{Str::limit($product->long_desc,550)}}</p>
+                                    <p class="product-desc"><span>Descrizione:</span>{{Str::limit($product->long_desc,410)}}</p>
                                 </div>
                             </div>
                         </div>
