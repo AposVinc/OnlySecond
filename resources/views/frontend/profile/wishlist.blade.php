@@ -34,8 +34,8 @@
                                     </div>
                                     <div class="mt_10">
                                         <label class="product-price"><span>Prezzo:</span><del>{{$product->price}}€</del>{{$product->offer->calculateDiscount()}} €</label>
-                                        <label class="product-desc"><span>Genere:</span>{{$product->genre}}</label>
-                                        <label class="product-desc"><span>Categoria:</span>
+                                        <label class="product-attr"><span>Genere:</span>{{$product->genre}}</label>
+                                        <label class="product-attr"><span>Categoria:</span>
                                             @php
                                                 $stringa = "";
                                                 foreach($product->categories as $category){
@@ -48,7 +48,7 @@
                                                 echo $stringa;
                                             @endphp
                                         </label>
-                                        <label class="product-desc"><span>Descrizione:</span>{{$product->long_desc}}</label>
+                                        <p class="product-desc">{{Str::limit($product->long_desc,410)}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                             echo $stringa;
                                         @endphp
                                     </label>
-                                    <p class="product-desc"><span>Descrizione:</span>{{$product->long_desc}}</p>
+                                    <p class="product-desc"><span>Descrizione:</span>{{Str::limit($product->long_desc,410)}}</p>
                                 </div>
                             </div>
                         </div>

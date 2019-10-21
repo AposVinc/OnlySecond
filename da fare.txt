@@ -108,6 +108,7 @@ in sconto    - mostra il prezzo scontato e lo sconto, non è stato fatto
              (ribbon offerte           https://www.bootdey.com/snippets/view/div-ribbons)
 shop        - se prodotto è in offerta si deve mostrare sconto e nuovo prezzo
 wishlist    - se prod in offerta mostra il prezzo scontato e lo sconto
+            - limitare puntini nella desc di wishlist
 
 
 
