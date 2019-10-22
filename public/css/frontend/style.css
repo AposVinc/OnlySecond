@@ -63,6 +63,7 @@ Created by: 	Lionode
 	4.2 Scrollup
 
 05 ===== PAGES =====
+    5.0 CSS Product
 	5.1 Review
     5.2 Wishlist
     5.3 Chronology
@@ -2963,69 +2964,30 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 
 /*----------------------------------------------
     PAGES
-    5.1 Review
+    5.0 CSS Product
 ---------------------------------------------- */
 
-#review label{
-    font-weight: normal;
-}
-
-#review label>span{
-    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
-    margin-right: 5px;
-}
-
-#review .product-name{
+.product-name{
     font-size: 18px;
     font-weight: bold;
 }
-#review .product-name>span{
+.product-name>span{
     font-weight: normal;
     margin-right: 7px;
 }
 
-#review .review-title{
+.product-title{
     font-size: 16px;
-    display: block;
-}
-
-#review .review-vote-date{
-    font-size: 13px;
-    display: block;
-}
-#review .review-text{
-    margin-top:5px; text-align: justify;
-}
-
-#review .fa{
-    bottom: 1px;
-}
-
-
-/* ----------------------------------------------
-	5.2 Wishlist
------------------------------------------------ */
-#wishlist label{
-    font-weight: normal;
-}
-
-#wishlist label>span, p>span{
-    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
-    margin-right: 5px;
-}
-
-#wishlist .product-name{
-    font-size: 18px;
     font-weight: bold;
-}
-#wishlist .product-name>span{
-    font-weight: normal;
-    margin-right: 7px;
-}
-
-#wishlist .product-price{
     display: block;
-    font: 700 16px/16px "Roboto";
+}
+.product-title span{
+    font-weight: normal;
+    margin-right: 8px;
+}
+.product-price{
+    display: block;
+    font: 900 16px/16px "Roboto";
 }
 .product-price span{
     line-height: 24px;
@@ -3039,14 +3001,51 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-size: 14px;
     margin-right: 12px;
 }
-#wishlist .product-attr{
-    font-size: 13px;
-    display: block;
-}
-#wishlist .product-desc{
+.product-desc{
     font-size: 13px;
     display: block;
     text-align: justify;
+
+}
+.product-attr{
+    font-size: 13px;
+    font-weight: normal;
+    display: block;
+}
+
+/*----------------------------------------------
+    5.1 Review
+---------------------------------------------- */
+
+#review label{
+    font-weight: normal;
+}
+#review label>span{
+    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
+    margin-right: 5px;
+}
+#review .review-title{
+    font-size: 16px;
+    display: block;
+}
+#review .review-vote-date{
+    font-size: 13px;
+    display: block;
+}
+#review .review-text{
+    margin-top:5px; text-align: justify;
+}
+#review .fa{
+    bottom: 1px;
+}
+
+
+/* ----------------------------------------------
+	5.2 Wishlist
+----------------------------------------------- */
+#wishlist label>span, p>span{
+    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
+    margin-right: 5px;
 }
 #wishlist .fa{
     bottom: 1px;
@@ -3056,43 +3055,50 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 /* ----------------------------------------------
 	5.3 Chronology
 ----------------------------------------------- */
-#chronology label{
-    font-weight: normal;
-}
-
-#chronology label>span{
+#chronology span{
     color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
     margin-right: 5px;
-}
-
-#chronology .product-name{
-    font-size: 18px;
-    font-weight: bold;
-}
-#chronology .product-name>span{
     font-weight: normal;
-    margin-right: 7px;
 }
-
-#chronology .product-title{
-    font-size: 16px;
-    font-weight: bold;
-    display: block;
-}
-.product-title span{
-    font-weight: normal;
-    margin-right: 8px;
-}
-
-#chronology .product-desc{
-    font-size: 13px;
-    display: block;
-}
-
 #chronology .fa{
     bottom: 1px;
 }
 
+#order-attr{
+    text-align: right;
+}
+#order-attr label{
+    font-weight: normal;
+}
+#order-attr label>span{
+    color: #ee5e11;
+}
+
+.heading-part .order-info{
+    font-size: 16px;
+    font-style: italic;
+    float: left;
+    color: #808080;
+    font-weight: 100;
+    line-height: 36px;
+    margin-right: 5px;
+}
+.heading-part .label-order-info{
+    font-size: 18px;
+    float: left;
+    color: #ee5e11;
+    font-weight: 100;
+    line-height: 36px;
+    margin-right: 5px;
+}
+.heading-part .order-price{
+    font: 700 18px/18px "Roboto";
+    font-style: italic;
+    float: left;
+    color: #808080;
+    line-height: 36px;
+    margin-right: 5px;
+}
 
 /* ----------------------------------------------
 	5.4 Address

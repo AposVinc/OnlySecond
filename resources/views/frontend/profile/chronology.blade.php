@@ -16,26 +16,26 @@
                     <div class="heading-part mb_10">
                         <div class="col-md-12">
                             <div class="pl_0 col-md-2 ">
-                                <label class="sub_title">N° Ordine: </label>
-                                <label class="text_title">{{$order->id}}</label>
+                                <label class="label-order-info">N° Ordine: </label>
+                                <label class="order-info">{{$order->id}}</label>
                             </div>
                             <div class="pl_0 col-md-3">
-                                <div class="text_title" style="color: #fff;" >Data: </div>
-                                <div class="text_title">{{date('d-m-Y H:i', strtotime($order->created_at))}}</div>
+                                <div class="order-info" style="color: #fff;" >Data: </div>
+                                <div class="order-info">{{date('d-m-Y H:i', strtotime($order->created_at))}}</div>
                             </div>
                             <div class="col-md-offset-2 col-md-2">
-                                <label class="text_title" style="color: #fff;">Regalo: </label>
-                                <label class="text_title">@if($order->gift) Si @else No @endif</label>
+                                <label class="order-info" style="color: #fff;">Regalo: </label>
+                                <label class="order-info">@if($order->gift) Si @else No @endif</label>
                             </div>
                             <div class="pull-right">
-                                <label class="sub_title">Prezzo Totale: </label>
-                                <label class="text_title">{{$order->calculateTotalPrice()}} €</label>
+                                <label class="label-order-info">Prezzo Totale: </label>
+                                <label class="order-price">{{$order->calculateTotalPrice()}} €</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 mb_20">
-                            <div id="chronology" class="mt_10 mr_5 col-md-3 pull-right" style="text-align: right">
+                            <div id="order-attr" class="mt_10 mr_5 col-md-3 pull-right">
                                 <div>
                                     <label><span>Indirizzo di Fatturazione:</span><br>{{$order->billingAddress->name}} {{$order->billingAddress->surname}} <br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}}<br>{{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}} CAP:{{$order->billingAddress->zip}}</label>
                                 </div>
@@ -52,7 +52,6 @@
                             </div>
                             @foreach($order->products as $product)
                                 <div id="chronology" class="mb_10 col-md-8">
-
                                     <div class="mt_10 pl_0 col-md-3">
                                         <div class="image product-imageblock">
                                             <a href="{{route('Product', ['cod' => $product->cod])}}">
@@ -60,15 +59,15 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div id="review" class="mt_10 pl_0 col-md-8">
+                                    <div class="mt_10 pl_0 col-md-8">
                                         <div>
                                             <label class="product-name"><span>Prodotto:</span>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</label>
                                         </div>
                                         <div>
-                                            <label class="product-title"><span>Prezzo:</span>{{$product->pivot->price}} €</label>
+                                            <label class="product-price"><span>Prezzo:</span>{{$product->pivot->price}} €</label>
                                         </div>
                                         <div>
-                                            <label><span>Quantità Acquistata:</span>{{$product->pivot->quantity}}</label>
+                                            <label class="product-attr"><span>Quantità Acquistata:</span>{{$product->pivot->quantity}}</label>
                                         </div>
                                     </div>
                                 </div>
