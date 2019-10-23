@@ -15,7 +15,7 @@
                         @foreach(auth()->User()->products as $product)
                             <div class="heading-part mb_10"></div>
                             <div class="mb_10 col-md-12">
-                                <div class="mt_10 pl_0 col-md-2">
+                                <div class="mtb_10 pl_0 col-md-2">
                                     <div class="image product-imageblock">
                                         <a href="{{route('Product', ['cod' => $product->cod])}}">
                                             <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}" class="img-responsive" height="175" width="175">
