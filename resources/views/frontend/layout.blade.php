@@ -42,7 +42,7 @@
 
 </head>
 
-<body>
+<>
 <!-- =====  HEADER START  ===== -->
 <header id="header">
     <div class="header-top riga">
@@ -308,12 +308,13 @@
 </div>
 <!-- =====  FOOTER END  ===== -->
 <a id="scrollup"></a>
-
+<script src="{{ URL::asset('js/frontend/jQuery_v3.1.1.min.js')}}"></script>
 <script src="{{ URL::asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/owl.carousel.min.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/jquery.magnific-popup.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/custom.js') }}"></script>
+
 
 @if(strpos(route::currentRouteName(),'Shop')!== false or strpos(route::currentRouteName(),'Discount')!== false )
     <!-- PRESI DALLA PAGINA category_page -->

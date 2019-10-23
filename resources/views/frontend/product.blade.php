@@ -11,29 +11,17 @@
                             <div class="ml_10">
                                 <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="" />
                             </div>
-
                             <div id="product-thumbnail" class="owl-carousel owl-theme ml_100 mt_10">
+                                @foreach($product->images as $image)
                                 <div class="item border">
                                     <div class="image-additional mr_10">
                                         <a data-fancybox="group1">
-                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="">
+                                            <img src="{{asset($image->path_image)}}" alt="">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="image-additional mr_10">
-                                        <a  data-fancybox="group2">
-                                            <img src="{{asset($product->images->where('main',0)->first()->path_image)}}" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-additional mr_10">
-                                        <a data-fancybox="group3">
-                                            <img src="{{asset($product->images->where('main',0)->first()->path_image)}}" alt="">
-                                        </a>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
 
                         </div>
@@ -100,11 +88,11 @@
 
                                         <div class="col-md-4 qty form-group2">
                                             <label>Quantità</label>
-                                            <input name="product_quantity" min="1" value="1" type="number" class="mt_10">
+                                            <input type="number" name="product_quantity" min="1" max="{{$product->stock_availability}}" class="mt_20">
                                         </div>
 
 
-                                    <div class="mt_40 ml_40">
+                                    <div class="mt_30 ml_40">
                                         <button>
                                         <a href="#"><h4><i class="fa fa-shopping-cart">Aggiungi al Carrello</i></h4></a>
                                         </button>

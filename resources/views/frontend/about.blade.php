@@ -76,7 +76,7 @@
                             </div>
                             <div id="collapseFive" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p>Hai fatto la tua scelta nella nostra grande gamma? Qualsiasi ordine sopra i € 150 sarà spedito gratuitamente. Cosa aspetti?</p>
+                                    <p>Hai fatto la tua scelta nella nostra grande gamma? Qualsiasi ordine sopra i 250€ sarà spedito gratuitamente. Cosa aspetti?</p>
                                 </div>
                             </div>
                         </div>
