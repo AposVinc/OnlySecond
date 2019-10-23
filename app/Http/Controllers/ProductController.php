@@ -446,6 +446,12 @@ class ProductController extends Controller
         auth()->user()->productsWishlist()->detach($product);
         return redirect()->back();
     }
+
+    public function removeFromCart($cod){
+        $product = Product::where('cod', $cod)->first();
+        auth()->user()->products()->detach($product);
+        return redirect()->back();
+    }
 }
 
 

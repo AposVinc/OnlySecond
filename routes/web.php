@@ -35,6 +35,8 @@ Route::get('/CartPage', function(){
     return view('frontend.cartpage');
 })->name('CartPage');
 
+Route::get('/Cart/Remove/{cod}', 'ProductController@removeFromCart')->name('Cart.RemoveProduct');
+
 Route::get('/Discount', function(){
     return view('frontend.discount');
 })->name('Discount');

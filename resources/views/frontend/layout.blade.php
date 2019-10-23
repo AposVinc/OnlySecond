@@ -42,7 +42,7 @@
 
 </head>
 
-<>
+<body>
 <!-- =====  HEADER START  ===== -->
 <header id="header">
     <div class="header-top riga">
@@ -135,26 +135,30 @@
                                 <table class="table table-striped">
                                     <tbody>
                                     @auth()
-                                        @foreach(auth()->User()->products as $product)
-                                            <tr>
-                                                <td class="text-center" style="width: 80px;">
-                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                        <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
-                                                    </a>
-                                                </td>
-                                                <td class="text-left product-name">
-                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                        <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
-                                                        <span class="text-left price">{{$product->cod}}</span>
-                                                        <span class="text-left price pt_10">{{$product->price}}€</span>
-                                                    </a>
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#">
-                                                        <i class="fa fa-times-circle"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                        @foreach(auth()->User()->products->sortBy('created_at') as $product)
+                                            @if($loop->iteration > 3)
+                                                @break
+                                            @else
+                                                <tr>
+                                                    <td class="text-center" style="width: 80px;">
+                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-left product-name">
+                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                            <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                            <span class="text-left price">{{$product->cod}}</span>
+                                                            <span class="text-left price pt_10">{{$product->price}}€</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
+                                                            <i class="fa fa-times-circle"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endif
                                         @endforeach
                                     @endauth
                                     </tbody>
@@ -174,22 +178,16 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-left">
-                                                <strong>Costo di spedizione</strong>
-                                            </td>
                                             @if(auth()->User()->calculateTotalPrice()>250)
+                                                <td class="text-left">
+                                                    <strong>Costo di spedizione:</strong>
+                                                </td>
                                                 <td class="text-right">Gratuita</td>
                                             @else
-                                                <td class="text-right">5.00/10.00 €</td>
+                                                <td class="text-left">
+                                                    <strong> + Costo di spedizione</strong>
+                                                </td>
                                             @endif
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">
-                                                <strong>Totale</strong>
-                                            </td>
-                                            <td class="text-right">
-                                                {{auth()->User()->calculateTotalPrice() + 5.00}}/{{auth()->User()->calculateTotalPrice() + 10.00}} €
-                                            </td>
                                         </tr>
                                     @endauth
                                     </tbody>
@@ -308,6 +306,7 @@
 </div>
 <!-- =====  FOOTER END  ===== -->
 <a id="scrollup"></a>
+
 <script src="{{ URL::asset('js/frontend/jQuery_v3.1.1.min.js')}}"></script>
 <script src="{{ URL::asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/owl.carousel.min.js') }}"></script>
