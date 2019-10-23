@@ -15,26 +15,51 @@
                         @foreach(auth()->User()->products as $product)
                             <div class="heading-part mb_10"></div>
                             <div class="mb_10 col-md-12">
-                                <div class="mtb_10 pl_0 col-md-2">
-                                    <div class="image product-imageblock">
-                                        <a href="{{route('Product', ['cod' => $product->cod])}}">
-                                            <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}" class="img-responsive" height="175" width="175">
-                                        </a>
+                                @if($product->offer()->exists())
+                                    <div class="mtb_10 pl_0 col-md-2">
+                                        <div class="image product-imageblock">
+                                            <a href="{{route('Product', ['cod' => $product->cod])}}">
+                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}" class="img-responsive" height="175" width="175">
+                                            </a>
+                                        </div>
+                                        <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
                                     </div>
-                                </div>
-                                <div class="mt_10 col-md-4">
-                                    <div class="productName">
-                                        <span>Prodotto:</span>
-                                        <label>
-                                            {{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}
-                                        </label>
+                                    <div class="mt_10 col-md-4">
+                                        <div class="productName">
+                                            <span>Prodotto:</span>
+                                            <label>
+                                                {{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}
+                                            </label>
+                                        </div>
+                                        <div class="productPrice">
+                                            <span>Prezzo:</span>
+                                            <label>
+                                                <del>{{$product->price}}€</del>
+                                                {{$product->price}} €
+                                            </label>
+                                        </div>
+                                @else
+                                    <div class="mtb_10 pl_0 col-md-2">
+                                        <div class="image product-imageblock">
+                                            <a href="{{route('Product', ['cod' => $product->cod])}}">
+                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}" class="img-responsive" height="175" width="175">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="productPrice">
-                                        <span>Prezzo:</span>
-                                        <label>
-                                            {{$product->price}} €
-                                        </label>
-                                    </div>
+                                    <div class="mt_10 col-md-4">
+                                        <div class="productName">
+                                            <span>Prodotto:</span>
+                                            <label>
+                                                {{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}
+                                            </label>
+                                        </div>
+                                        <div class="productPrice">
+                                            <span>Prezzo:</span>
+                                            <label>
+                                                {{$product->price}} €
+                                            </label>
+                                        </div>
+                                @endif
                                     <div class="productField">
                                         <span>Categoria:</span>
                                         <label>
