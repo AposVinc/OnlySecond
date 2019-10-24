@@ -1771,15 +1771,7 @@ input#amount {
     line-height: 36px;
     margin-right: 5px;
 }
-.heading-part .product-info{
-    font-size: 16px;
-    font-style: normal;
-    float: left;
-    color:#9E9E9E;
-    font-weight: bold;
-    line-height: 36px;
-    margin-right: 5px;
-}
+
 /**/
 
 .heading-part {
@@ -1804,6 +1796,17 @@ input#amount {
 #product-thumbnail .owl-nav .owl-prev {
     left: 0;
 }
+/*      aggiunto da vin*/
+.heading-part .product-info{
+    font-size: 16px;
+    font-style: normal;
+    float: left;
+    color:#9E9E9E;
+    font-weight: bold;
+    line-height: 36px;
+    margin-right: 5px;
+}
+/**/
 
 /* ----------------------------------------------
 	3.2.4 Breadcrumb
@@ -2966,16 +2969,13 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     PAGES
     5.0 CSS Product
 ---------------------------------------------- */
-
 .product-name{
     font-size: 18px;
     font-weight: bold;
 }
-.product-name>span{
+.product-name span{
     font-weight: normal;
-    margin-right: 7px;
 }
-
 .product-title{
     font-size: 16px;
     font-weight: bold;
@@ -2983,7 +2983,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 .product-title span{
     font-weight: normal;
-    margin-right: 8px;
 }
 .product-price{
     display: block;
@@ -2994,18 +2993,15 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-family: 'Poppins', sans-serif;
     letter-spacing: 0.5px;
     font-weight: normal;
-    margin-right: 8px;
 }
 .product-price del{
     font-weight: normal;
     font-size: 14px;
-    margin-right: 12px;
 }
 .product-desc{
     font-size: 13px;
     display: block;
     text-align: justify;
-
 }
 .product-attr{
     font-size: 13px;
@@ -3013,27 +3009,36 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     display: block;
 }
 
+.button-right{
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
 /*----------------------------------------------
     5.1 Review
 ---------------------------------------------- */
-
-#review label{
+#review span{
     font-weight: normal;
-}
-#review label>span{
     color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
-    margin-right: 5px;
 }
 #review .review-title{
     font-size: 16px;
-    display: block;
+    font-weight: normal;
 }
+#review .review-title label{
+    font-weight: normal;
+}
+
 #review .review-vote-date{
     font-size: 13px;
-    display: block;
+}
+#review .review-vote-date label{
+    font-weight: normal;
 }
 #review .review-text{
-    margin-top:5px; text-align: justify;
+    margin-top:5px;
+    text-align: justify;
 }
 #review .fa{
     bottom: 1px;
@@ -3057,7 +3062,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 ----------------------------------------------- */
 #chronology span{
     color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
-    margin-right: 5px;
     font-weight: normal;
 }
 #chronology .fa{
@@ -3070,20 +3074,20 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 #order-attr label{
     font-weight: normal;
 }
-#order-attr label>span{
+#order-attr span{
+    font-weight: normal;
     color: #ee5e11;
 }
 
-.heading-part .order-info{
+.heading-part .order-info label{
     font-size: 16px;
     font-style: italic;
     float: left;
     color: #808080;
     font-weight: 100;
     line-height: 36px;
-    margin-right: 5px;
 }
-.heading-part .label-order-info{
+.heading-part .order-info span{
     font-size: 18px;
     float: left;
     color: #ee5e11;
@@ -3091,13 +3095,12 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     line-height: 36px;
     margin-right: 5px;
 }
-.heading-part .order-price{
+.heading-part .order-info .order-price{
     font: 700 18px/18px "Roboto";
     font-style: italic;
     float: left;
     color: #808080;
     line-height: 36px;
-    margin-right: 5px;
 }
 
 /* ----------------------------------------------
