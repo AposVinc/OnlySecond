@@ -170,7 +170,7 @@ DatabaseSeeder extends Seeder
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $CarlieP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4433_Rosa.png', 'main' => '1']);
-        $CarlieP2S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $CarlieP2S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $CarlieP2S->dial_color = $rosa->id;
         $CarlieP2S->strap_color = $rosa->id;
         $CarlieP2->collection_id = $Carlie->id;
@@ -183,11 +183,13 @@ DatabaseSeeder extends Seeder
         $Carlie->products()->save($CarlieP2);
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '109', 'stock_availability' => '5',
-            'genre' => 'F','long_desc' => 'long desc','quantity_sold' => 1]);
+            'genre' => 'F','long_desc' => 'Questo orologio Fossil ha una cassa in acciaio inox nero con un diametro di 28 mm ed è dotato di un cinturino in Acciaio. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $CarlieP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero.png', 'main' => '1']);
         $CarlieP3I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero_1.png', 'main' => '0']);
         $CarlieP3I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero_2.png', 'main' => '0']);
-        $CarlieP3S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $CarlieP3S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $CarlieP3S->dial_color = $nero->id;
         $CarlieP3S->strap_color = $nero->id;
         $CarlieP3->collection_id = $Carlie->id;
@@ -358,7 +360,6 @@ DatabaseSeeder extends Seeder
         $Q_Explorist->products()->save($Q_ExploristP4);
 
 
-
         /* Lacoste */
         $Lacoste = new Brand(['name' => 'Lacoste','path_logo' => 'storage/Logo/Logo_Lacoste.png']);
         $Lacoste->save();
@@ -378,7 +379,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu.png', 'main' => '1']);
         $Lacoste_12_12_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_1.png', 'main' => '0']);
         $Lacoste_12_12_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_2.png', 'main' => '0']);
-        $Lacoste_12_12_P1S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $Lacoste_12_12_P1S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Lacoste_12_12_P1S->dial_color = $blu->id;
         $Lacoste_12_12_P1S->strap_color = $blu->id;
         $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
@@ -399,7 +400,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde.png', 'main' => '1']);
         $Lacoste_12_12_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_1.png', 'main' => '0']);
         $Lacoste_12_12_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_2.png', 'main' => '0']);
-        $Lacoste_12_12_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $Lacoste_12_12_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Lacoste_12_12_P2S->dial_color = $verde->id;
         $Lacoste_12_12_P2S->strap_color = $verde->id;
         $Lacoste_12_12_P2->collection_id = $Lacoste_12_12->id;
@@ -421,7 +422,7 @@ DatabaseSeeder extends Seeder
         $Moon_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_1.png', 'main' => '1']);
         $Moon_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_2.png', 'main' => '0']);
         $Moon_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Blu_3.png', 'main' => '0']);
-        $Moon_P1S = new Specification(['case_size' => '35mm', 'material' => 'Inox', 'case_thickness' => '6.3mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $Moon_P1S = new Specification(['case_size' => '35mm', 'material' => 'Inox', 'case_thickness' => '6.3mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Moon_P1S->dial_color = $blu->id;
         $Moon_P1S->strap_color = $blu->id;
         $Moon_P1->collection_id = $Lacoste_Moon->id;
@@ -441,7 +442,7 @@ DatabaseSeeder extends Seeder
         $Moon_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_1.png', 'main' => '1']);
         $Moon_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_2.png', 'main' => '0']);
         $Moon_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Nero_3.png', 'main' => '0']);
-        $Moon_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plastica / Resina', 'case_thickness' => '11.3mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
+        $Moon_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plastica / Resina', 'case_thickness' => '11.3mm', 'glass' => 'Minerale', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Moon_P2S->dial_color = $nero->id;
         $Moon_P2S->strap_color = $nero->id;
         $Moon_P2->collection_id = $Lacoste_Moon->id;
@@ -457,7 +458,7 @@ DatabaseSeeder extends Seeder
 
         $Moon_P3 = new Product(['cod' => 'LCM236', 'price' => '139', 'stock_availability' => '10',
             'genre' => 'F', 'long_desc' => 'Questo orologio Lacoste ha una cassa in acciaio inox con un diametro di 35 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.']);
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
         $Moon_P3I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_1.png', 'main' => '1']);
         $Moon_P3I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_2.png', 'main' => '0']);
         $Moon_P3I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/Moon/Lacoste_Moon_Rosa_3.png', 'main' => '0']);
@@ -482,7 +483,8 @@ DatabaseSeeder extends Seeder
         $Swarovski->save();
 
         /* Collezioni Swarovski */
-        $Stella = new Collection(['name' => 'Stella']);
+        $Stella = new Collection(['name' => 'Stella', 'price' => '249', 'stock_availability' => '15', 'genre' => 'F', 'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox con un diametro di 29 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
+        L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 5]);
         $Swarovski->collections()->save($Stella);
 
 

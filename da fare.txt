@@ -1,6 +1,6 @@
 SEEDER
 ---------
-aggiungere descrizioni prod
+Vale - aggiungere descrizioni prod, specifiche
 sistemare categorie per ogni prod
 almeno 5 offerte (slider offerte della settimana home)
 qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per slider (bestseller)
@@ -30,7 +30,7 @@ FE
 ---------
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
---Vale -- Pagina Dettaglio prodotto - grafica
+--Vale -- immagini carousel pag prodotto, aggiungi al carrello
 --Vincenzo--    edit profile - modifica info utente su DB
 --Vincenzo--    prezzo in sez profile devono essere Roboto
 --Vincenzo--    shop - se si cambia da griglia a lista la grafica non è corretta
@@ -109,6 +109,7 @@ wishlist    - se prod in offerta mostra il prezzo scontato e lo sconto
             - limitare puntini nella desc di wishlist
 prezzo originale sopra a prezzo offert
 togliere compare e quick view
+grafica pagina prodotto.
 
 
 

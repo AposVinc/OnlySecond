@@ -71,10 +71,6 @@
                                     <span>{{$product->cod}}</span>
                                 </li>
                                 <li>
-                                    <label>Materiale:</label>
-                                    <span></span>
-                                </li>
-                                <li>
                                     <label>Disponibilità:</label>
                                     <span>{{$product->stock_availability}}</span>
                                 </li>
@@ -94,7 +90,7 @@
 
                                     <div class="mt_30 ml_40">
                                         <button>
-                                        <a href="#"><h4><i class="fa fa-shopping-cart">Aggiungi al Carrello</i></h4></a>
+                                            <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="cart"><h4><i class="fa fa-shopping-cart">Aggiungi al Carrello</i></h4></a>
                                         </button>
                                     </div>
 

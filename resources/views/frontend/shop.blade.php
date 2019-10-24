@@ -62,7 +62,7 @@
                                             <a href="{{route('Product', ['cod' => $product->cod])}}">
                                                 <!-- aggiungere materiale e qualche altra informazione -->
                                                 <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
-                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
+                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="" title="" class="img-responsive" />
                                             </a>
                                             <div class="button-group text-center">
                                                 <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
