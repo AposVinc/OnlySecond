@@ -2979,13 +2979,11 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .product-title{
     font-size: 16px;
     font-weight: bold;
-    display: block;
 }
 .product-title span{
     font-weight: normal;
 }
 .product-price{
-    display: block;
     font: 900 16px/16px "Roboto";
 }
 .product-price span{
@@ -2995,18 +2993,16 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-weight: normal;
 }
 .product-price del{
-    font-weight: normal;
     font-size: 14px;
+    font-weight: normal;
 }
-.product-desc{
+.product-desc, .product-desc span+label{
     font-size: 13px;
-    display: block;
     text-align: justify;
 }
-.product-attr{
+.product-attr, .product-attr span+label{
     font-size: 13px;
     font-weight: normal;
-    display: block;
 }
 
 .button-right{
@@ -3048,9 +3044,8 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 /* ----------------------------------------------
 	5.2 Wishlist
 ----------------------------------------------- */
-#wishlist label>span, p>span{
+#wishlist span{
     color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
-    margin-right: 5px;
 }
 #wishlist .fa{
     bottom: 1px;
