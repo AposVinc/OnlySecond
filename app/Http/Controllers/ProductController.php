@@ -447,6 +447,15 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    public function addToCart($cod){
+        if (\Auth::user()->productsCart()->where('cod', $cod)->first()){
+            return redirect()->back();
+        }else{
+            $product = Product::where('cod', $cod)->first();
+            \Auth::user()->productsCart()->save($product);
+            return redirect()->back();
+        }
+    }
     public function removeFromCart($cod){
         $product = Product::where('cod', $cod)->first();
         auth()->user()->products()->detach($product);

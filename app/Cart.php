@@ -10,7 +10,7 @@ class Cart extends Pivot
     protected $primaryKey = 'id';
 
     protected $fillable =[
-        'quantity',
+        'quantity', 'product_id', 'user_id',
     ];
 
 }
