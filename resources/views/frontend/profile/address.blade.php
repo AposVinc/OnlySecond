@@ -41,7 +41,7 @@
 
                             <div class="buttons clearfix">
                                 <div class="pull-right pr_5 mt_10">
-                                    <button type="submit" class="btn btn-primary btn-sm">Salva</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" title="Salva i tuoi indirizzi preferiti">Salva</button>
                                 </div>
                             </div>
 
@@ -208,7 +208,7 @@
                             </div>
                             <div class="buttons clearfix">
                                 <div class="pull-right pr_10 mt_10">
-                                    <button type="submit" class="btn btn-primary btn-sm">Aggiungi</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" title="Aggiungi l'indirizzo">Aggiungi</button>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +233,7 @@
                                 </div>
                                 <div class="buttons clearfix">
                                     <div class="pull-right pr_5 mt_10">
-                                        <button type="submit" class="btn btn-primary btn-sm">Elimina</button>
+                                        <button type="submit" class="btn btn-primary btn-sm" title="Elimina l'indirizzo">Elimina</button>
                                     </div>
                                 </div>
                             </div>

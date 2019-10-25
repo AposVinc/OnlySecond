@@ -22,17 +22,16 @@
                             <div class="mt_10 col-md-2">
                                 <div class="image product-imageblock">
                                     <a href="{{route('Product', ['cod' => $product->cod])}}">
-                                        <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
+                                        <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
-
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
-                                    <div class="button-right">
-                                        <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" ></a>
-                                        <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash"></a>
-                                    </div>
+                                <div class="button-right">
+                                    <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
+                                    <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina dalla wishlist"></a>
+                                </div>
                                 <div class="mt_10">
                                     <div class="product-price">
                                         <span>Prezzo:</span>
@@ -77,15 +76,15 @@
                             <div class="mt_10 col-md-2">
                                 <div class="image product-imageblock">
                                     <a href="{{route('Product', ['cod' => $product->cod])}}">
-                                        <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
+                                        <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
-                                    <div class="button-right">
-                                        <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" ></a>
-                                        <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash"></a>
-                                    </div>
+                                <div class="button-right">
+                                    <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
+                                    <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina dalla wishlist"></a>
+                                </div>
                                 <div>
                                     <div class="product-price">
                                         <span>Prezzo:</span>

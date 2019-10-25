@@ -51,17 +51,17 @@
                             </div>
                             <div class="buttons clearfix">
                                 <div class="pull-left pl_10 mt_10">
-                                    <a href="{{route('Profile')}}" type="button" id="buttonBack" class="btn btn-primary btn-sm">Indietro</a>
+                                    <a href="{{route('Profile')}}" type="button" id="buttonBack" class="btn btn-primary btn-sm" title="Torna alla pagina precedente">Indietro</a>
                                 </div>
                                 <div class="pull-right pr_10 mt_10">
-                                    <a type="button" id="buttonEdit" class="btn btn-primary btn-sm" onclick="ActiveForm()">Modifica</a>
+                                    <a type="button" id="buttonEdit" class="btn btn-primary btn-sm" onclick="ActiveForm()" title="Abilita le modifiche">Modifica</a>
                                 </div>
 
                                 <div class="pull-left pl_10 mt_10">
-                                    <a type="button" id="buttonReset" class="btn btn-primary btn-sm" onclick="DisableForm()" style="display: none">Annulla</a>
+                                    <a type="button" id="buttonReset" class="btn btn-primary btn-sm" onclick="DisableForm()" style="display: none" title="Annulla le modifiche">Annulla</a>
                                 </div>
                                 <div class="pull-right pr_10 mt_10">
-                                    <button type="submit" id="buttonSave" class="btn btn-primary btn-sm" style="display: none">Salva</button>
+                                    <button type="submit" id="buttonSave" class="btn btn-primary btn-sm" style="display: none" title="Salva le modifiche">Salva</button>
                                 </div>
                             </div>
                         </form>

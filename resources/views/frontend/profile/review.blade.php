@@ -19,14 +19,14 @@
                     <div class="mt_10 col-md-2">
                         <div class="image product-imageblock ">
                             <a href="{{route('Product', ['cod' => $review->product->cod])}}">
-                                <img data-name="product_image" src="{{asset($review->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
+                                <img data-name="product_image" src="{{asset($review->product->images->where('main',1)->first()->path_image)}}" alt="{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}" title="{{$review->product->collection->brand->name}} {{$review->product->collection->name}} - {{$review->product->cod}}" class="img-responsive">
                             </a>
                         </div>
                     </div>
                     <div id="review" class="col-md-10 mt_10">
                         <div class="button-right">
-                            <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica Recensione"></a>
-                            <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash"></a>
+                            <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica la recensione"></a>
+                            <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" title="Rimuovi la recensione"></a>
                         </div>
                         <div class="review-title">
                             <span>Titolo:</span>

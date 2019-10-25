@@ -59,7 +59,7 @@
                                     <div class="mt_10 pl_0 col-md-3">
                                         <div class="image product-imageblock">
                                             <a href="{{route('Product', ['cod' => $product->cod])}}">
-                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" height="175" width="175">
+                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" height="175" width="175">
                                             </a>
                                         </div>
                                     </div>
