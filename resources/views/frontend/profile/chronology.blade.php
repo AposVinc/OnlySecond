@@ -24,7 +24,7 @@
                                 <label>{{date('d-m-Y H:i', strtotime($order->created_at))}}</label>
                             </div>
                             <div class="col-md-offset-2 col-md-2 order-info">
-                                <label class="mr_5" style="color: #fff;">Regalo:</label>
+                                <label style="color: #fff;">Regalo:</label>
                                 <label>@if($order->gift) Si @else No @endif</label>
                             </div>
                             <div class="pull-right order-info">

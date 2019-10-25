@@ -42,7 +42,8 @@
                                         </label>
                                     </div>
                                     <div class="product-attr">
-                                        <span>Genere:</span><label>{{$product->genre}}</label>
+                                        <span>Genere:</span>
+                                        <label>{{$product->genre}}</label>
                                     </div>
                                     <div class="product-attr">
                                         <span>Categoria:</span>
@@ -61,6 +62,7 @@
                                         </label>
                                     </div>
                                     <div class="product-desc">
+                                        <span>Descrizione:</span>
                                         <p>{{Str::limit($product->long_desc,410)}}</p>
                                     </div>
                                 </div>
@@ -86,7 +88,8 @@
                                     </div>
                                 <div>
                                     <div class="product-price">
-                                        <span>Prezzo:</span><label>{{$product->price}}€</label>
+                                        <span>Prezzo:</span>
+                                        <label>{{$product->price}}€</label>
                                     </div>
                                     <div class="product-attr">
                                         <span>Genere:</span>

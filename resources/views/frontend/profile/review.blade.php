@@ -33,7 +33,9 @@
                             <label>{{$review->title}}</label>
                         </div>
                         <div class="review-vote-date">
-                            <span class="mr_5">Data:</span><label>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
+                            <span>Data:</span>
+                            <label>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
+
                             <span style="margin-left: 25px;">Voto:</span>
                             @for ($i = 1; $i < 6; $i++)
                                 @if($i <= $review->vote)

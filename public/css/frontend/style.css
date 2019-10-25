@@ -2996,9 +2996,10 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-size: 14px;
     font-weight: normal;
 }
-.product-desc, .product-desc span+label{
+.product-desc, .product-desc span+p{
     font-size: 13px;
     text-align: justify;
+    display: inline;
 }
 .product-attr, .product-attr span+label{
     font-size: 13px;
