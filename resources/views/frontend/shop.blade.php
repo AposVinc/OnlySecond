@@ -52,7 +52,6 @@
                 </div>
 
                 <div class="row">
-
                     @foreach($products as $product)
                         @if($product->offer()->exists())
                             <div class="product-layout product-grid col-md-4 col-xs-6 ">
@@ -61,12 +60,12 @@
                                         <div class="image product-imageblock">
                                             <a href="{{route('Product', ['cod' => $product->cod])}}">
                                                 <!-- aggiungere materiale e qualche altra informazione -->
-                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
-                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="" title="" class="img-responsive" />
+                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" />
+                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" />
                                             </a>
                                             <div class="button-group text-center">
-                                                <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                                <a href="#" class="add-to-cart"><span>Add to cart</span></a>
+                                                <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}" class="wishlist" title="Aggiungi a wishlist"><span>Wishlist</span></a>
+                                                <a href="#" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
                                             </div>
                                             <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
                                         </div>
@@ -85,10 +84,10 @@
                                                     @endif
                                                 @endfor
                                             </div>
-                                            <div >
+                                            <div>
                                             <span class="oldPrice"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
                                             <span class="price"><span class="amount">{{$product->offer->calculateDiscount()}}<span class="currencySymbol">€</span></span></span>
-                                            <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
+                                            <p class="product-desc mt_20">{{Str::limit($product->long_desc,400)}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -101,12 +100,12 @@
                                         <div class="image product-imageblock">
                                             <a href="{{route('Product', ['cod' => $product->cod])}}">
                                                 <!-- aggiungere materiale e qualche altra informazione -->
-                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
-                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
+                                                <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" />
+                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" />
                                             </a>
                                             <div class="button-group text-center">
-                                                <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                                <a href="#" class="add-to-cart"><span>Add to cart</span></a>
+                                                <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}" class="wishlist" title="Aggiungi a wishlist"><span>Wishlist</span></a>
+                                                <a href="#" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
                                             </div>
                                         </div>
                                         <div class="caption product-detail text-center">
@@ -125,7 +124,7 @@
                                                 @endfor
                                             </div>
                                             <span class="price"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
-                                            <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
+                                            <p class="product-desc mt_20">{{Str::limit($product->long_desc,400)}}</p>
                                         </div>
                                     </div>
                                 </div>

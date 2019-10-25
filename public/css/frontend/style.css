@@ -3180,3 +3180,32 @@ input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
 .productPriceTotal span{
     color: #ee5e11;
 }
+
+
+/* ----------------------------------------------
+	5.7 Shop
+----------------------------------------------- */
+
+.product-list .product-thumb .caption {
+    float: left;
+    margin: 0 ;
+    padding: 0;
+    text-align: left;
+    width: 65%;
+}
+.product-list .product-thumb .image {
+    background: none repeat scroll 0 0;
+    float: left;
+    margin: 0 20px 40px 0;
+    width: 32%;
+}
+
+.product-list .product-thumb .caption .oldPrice {
+    text-decoration: line-through;
+    position: absolute;
+    display: block;
+    left: 0;
+    transform: translate(0);
+    font: 100 14px/14px "Roboto";
+    color: #d9d9d9;
+}

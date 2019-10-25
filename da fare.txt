@@ -32,7 +32,6 @@ FE
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- immagini carousel pag prodotto, aggiungi al carrello
 --Vincenzo--    edit profile - modifica info utente su DB
---Vincenzo--    shop - se si cambia da griglia a lista la grafica non è corretta
 
 payments
 slider brand - allineare verticalmente img loghi
@@ -109,6 +108,7 @@ prezzo originale sopra a prezzo offert
 togliere compare e quick view
 grafica pagina prodotto.
 prezzo in sez profile devono essere Roboto
+shop - se si cambia da griglia a lista la grafica non è corretta        ORA OK
 
 
 
