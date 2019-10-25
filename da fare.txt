@@ -32,9 +32,7 @@ FE
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- immagini carousel pag prodotto, aggiungi al carrello
 --Vincenzo--    edit profile - modifica info utente su DB
---Vincenzo--    prezzo in sez profile devono essere Roboto
 --Vincenzo--    shop - se si cambia da griglia a lista la grafica non è corretta
---Vincenzo--    mettere ROBOTO in cronologia wishlist
 
 payments
 slider brand - allineare verticalmente img loghi
@@ -110,6 +108,8 @@ wishlist    - se prod in offerta mostra il prezzo scontato e lo sconto
 prezzo originale sopra a prezzo offert
 togliere compare e quick view
 grafica pagina prodotto.
+prezzo in sez profile devono essere Roboto
+
 
 
 
