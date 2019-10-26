@@ -44,14 +44,12 @@ shop        - se si mette where('main',0) da errore sul path
 
 grafica Storico Ordini - da ultimare dopo checkout
 
-wishlist    - tooltip sui bottoni
-            - azione aggiungi al carrello
-mie recensioni - tooltip sui bottoni
+wishlist    - azione aggiungi al carrello
+
 foto "chi siamo" dinamiche (si potrebbe evitare)
 Mostra Banner e ?subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 se num el in Filtro >6 inserire "Mostra altro"
-logica pass dimenticata?? - error se email non c'è
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
 
@@ -61,7 +59,6 @@ Login - div error se non va a buon fine registrazione
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
 
-Tooltip bottoni come in recensioni ecc. (aggiungere title al tag)
 carello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo nel db quando ci si logga
 
 
@@ -109,6 +106,7 @@ togliere compare e quick view
 grafica pagina prodotto.
 prezzo in sez profile devono essere Roboto
 shop - se si cambia da griglia a lista la grafica non è corretta        ORA OK
+tooltip nella sez profile               OK
 
 
 
