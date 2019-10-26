@@ -368,9 +368,10 @@
     <!-- checkout nuovo indirizzo-->
     <script>
         function ActiveForm(){
-            var checkbox = $('<div class="checkbox mb_20">\n' +
-                '                        <input type="checkbox" value="true" id="change_psw" name="change_psw" onclick="changePassword()"><span>Vuoi Cambiare Password?</span>\n' +
-                '                    </div>');
+            var checkbox = $('<div class="checkbox col-sm-9 col-md-offset-3" style="left: 25px;">\n' +
+                '               <input type="checkbox" value="true" id="change_psw" name="change_psw" onclick="changePassword()"><span>Vuoi Cambiare Password?</span>\n' +
+                '             </div>');
+            $('#divCheckbox').addClass('form-group required');
             $('#password').hide();
             checkbox.appendTo('#divCheckbox');
 
@@ -416,6 +417,7 @@
         }
 
         function DisableForm(){
+            $('#divCheckbox').removeClass('form-group required');
             $('.checkbox').remove();
 
             $('#password').children().hide();

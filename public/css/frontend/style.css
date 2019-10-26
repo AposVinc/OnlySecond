@@ -3181,9 +3181,18 @@ input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
     color: #ee5e11;
 }
 
+/* ----------------------------------------------
+	5.7 EditProfile
+----------------------------------------------- */
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+    left: 15px;
+}
 
 /* ----------------------------------------------
-	5.7 Shop
+	5.8 Shop
 ----------------------------------------------- */
 
 .product-list .product-thumb .caption {

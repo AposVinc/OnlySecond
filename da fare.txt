@@ -34,9 +34,8 @@ FE
 --Vincenzo--    edit profile - modifica info utente su DB
 
 payments
+
 slider brand - allineare verticalmente img loghi
-shop        - se si mette where('main',0) da errore sul path
-            - img per prod ne mostra solo 1 (in template originale ne mostra 2)
 
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti

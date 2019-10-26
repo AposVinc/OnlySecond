@@ -39,7 +39,7 @@
                                 </div>
                             </div>
 
-                            <div id="divCheckbox"></div>
+                            <div id="divCheckbox" ></div>
 
                             <div id="password">
                                 <div class="form-group required">
@@ -57,10 +57,10 @@
                                     <a type="button" id="buttonEdit" class="btn btn-primary btn-sm" onclick="ActiveForm()" title="Abilita le modifiche">Modifica</a>
                                 </div>
 
-                                <div class="pull-left pl_10 mt_10">
+                                <div class="pull-left pl_0 mt_10">
                                     <a type="button" id="buttonReset" class="btn btn-primary btn-sm" onclick="DisableForm()" style="display: none" title="Annulla le modifiche">Annulla</a>
                                 </div>
-                                <div class="pull-right pr_10 mt_10">
+                                <div class="pull-right pr_0 mt_10">
                                     <button type="submit" id="buttonSave" class="btn btn-primary btn-sm" style="display: none" title="Salva le modifiche">Salva</button>
                                 </div>
                             </div>
