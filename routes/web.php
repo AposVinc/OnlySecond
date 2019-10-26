@@ -233,6 +233,20 @@ Route::group(['middleware' => ['admin']], function () {
             });
 
 
+            Route::group(['middleware' => ['permission.extend:gest_sito']], function () {
+                #page
+                Route::prefix('/Page')->group(function () {
+                    Route::name('Page.')->group(function () {
+                        Route::get('/About', 'PageController@showAboutForm')->name('About');
+                        Route::post('/AboutPost', 'PageController@editAbout')->name('AboutPost');
+
+                        Route::get('/ContactUS', 'PageController@showContactUSForm')->name('ContactUS');
+                        Route::post('/ContactUSPost', 'PageController@editContactUS')->name('ContactUSPost');
+                    });
+                });
+            });
+
+
             Route::group(['middleware' => ['permission.extend:gest_prodotti']], function () {
                 #brand
                 Route::prefix('/Brand')->group(function () {
@@ -272,7 +286,6 @@ Route::group(['middleware' => ['admin']], function () {
                         Route::post('/RestorePost', 'CollectionController@restore')->name('RestorePost');
                     });
                 });
-
 
                 #product
                 Route::prefix('/Product')->group(function () {

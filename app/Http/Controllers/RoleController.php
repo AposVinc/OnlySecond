@@ -87,6 +87,11 @@ class RoleController extends Controller
         }else{
             $role->revokePermissionTo('gest_utenti');
         };
+        if($request->has('gest_sito')){
+            $role->givePermissionTo('gest_sito');
+        }else{
+            $role->revokePermissionTo('gest_sito');
+        };
         if($request->has('gest_prodotti')){
             $role->givePermissionTo('gest_prodotti');
         }else{

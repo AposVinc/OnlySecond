@@ -78,6 +78,16 @@
                         </ul>
                     </li>
                 @endif
+                @if(auth('admin')->user()->can('gest_sito'))
+                    <h3 class="menu-title">Gestione Sito</h3>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info"> </i>Pagine</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-gears"></i><a href="{{url::route('Admin.Page.About')}}">Chi Siamo</a></li>
+                            <li><i class="fa fa-gears"></i><a href="{{url::route('Admin.Page.ContactUS')}}">Contattaci</a></li>
+                        </ul>
+                    </li>
+                @endif
                 @if(auth('admin')->user()->can('gest_prodotti'))
                     <h3 class="menu-title">Gestione Brand</h3>
                     <li class="menu-item-has-children dropdown">
@@ -185,7 +195,7 @@
                 @if(auth('admin')->user()->can('gest_assistenza'))
                     <h3 class="menu-title">Gestione Clienti</h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"> </i>Assistenza Clienti</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-headphones"> </i>Assistenza Clienti</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{url::route('Admin.ContactUS.List')}}">Lista Mail</a></li>
                         </ul>

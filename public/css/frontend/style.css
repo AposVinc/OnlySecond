@@ -2374,7 +2374,7 @@ blockquote {
 }
 .about-text>p::first-letter {
     font-size: 18px;
-    color: #000;
+    /*color: #000;*/
 }
 
 /* ----------------------------------------------

@@ -7,7 +7,6 @@ qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per sli
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini (Inserire png Brand ecc...)
 
 
-
 BE
 ---------
 permettere al admin di modificare Contattaci e chi siamo
@@ -23,7 +22,6 @@ NO ?bottoni fine tabella (List)
 NO ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
 NO ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
 NO ?ordinamento campi checkbox nelle liste
-
 
 
 FE

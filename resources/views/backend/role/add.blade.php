@@ -37,6 +37,11 @@
                                 </label>
                             </div>
                             <div class="checkbox">
+                                <label for="gest_sito" class="form-check-label">
+                                    <input type="checkbox" id="permissions" name="gest_sito" value="gest_sito" class="form-check-input">Sito
+                                </label>
+                            </div>
+                            <div class="checkbox">
                                 <label for="gest_prodotti" class="form-check-label ">
                                     <input type="checkbox" id="permissions" name="gest_prodotti" value="gest_prodotti" class="form-check-input"> Prodotti
                                 </label>

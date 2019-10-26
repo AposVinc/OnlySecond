@@ -23,25 +23,27 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Gest Utenti</th>
-                                        <th>Gest Prodotti</th>
-                                        <th>Gest Offerte</th>
-                                        <th>Gest Banner</th>
-                                        <th>Gest Img Prodotti</th>
-                                        <th>Gest Fornitori</th>
-                                        <th>Gest Newsletter</th>
-                                        <th>Assistenza Clienti</th>
-                                        <th>Creato il</th>
-                                        <th>Ultima modifica</th>
-                                    </tr>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Gest Utenti</th>
+                                    <th>Gest Sito</th>
+                                    <th>Gest Prodotti</th>
+                                    <th>Gest Offerte</th>
+                                    <th>Gest Banner</th>
+                                    <th>Gest Img Prodotti</th>
+                                    <th>Gest Fornitori</th>
+                                    <th>Gest Newsletter</th>
+                                    <th>Assistenza Clienti</th>
+                                    <th>Creato il</th>
+                                    <th>Ultima modifica</th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($roles as $role)
                                     <tr>
                                         <td>{{$role->name}}</td>
-                                        @if($role->hasPermissionTo('gest_utenti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
+                                            @if($role->hasPermissionTo('gest_utenti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
+                                            @if($role->hasPermissionTo('gest_sito'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_prodotti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_offerte'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_banner'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif

@@ -82,7 +82,7 @@
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">6. Un anno di garanzia HWG extra!</a> </h4>
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">6. Un anno di garanzia extra!</a> </h4>
                             </div>
                             <div id="collapseSix" class="panel-collapse collapse">
                                 <div class="panel-body">

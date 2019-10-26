@@ -40,6 +40,7 @@ DatabaseSeeder extends Seeder
         /*---   PERMESSI PER RUOLO   -----------------------------------------------------*/
 
         Permission::create(['guard_name' => 'admin','name'=>'gest_utenti']);
+        Permission::create(['guard_name' => 'admin','name'=>'gest_sito']);
         Permission::create(['guard_name' => 'admin','name'=>'gest_prodotti']);
         Permission::create(['guard_name' => 'admin','name'=>'gest_offerte']);
         Permission::create(['guard_name' => 'admin','name'=>'gest_banner']);
@@ -51,9 +52,8 @@ DatabaseSeeder extends Seeder
         /*---   RUOLI ADMIN   -----------------------------------------------------*/
 
         $admin = Role::create(['guard_name' => 'admin','name' => 'Admin'])->givePermissionTo(Permission::all());
-        $manager = Role::create(['guard_name' => 'admin','name' => 'Manager'])->givePermissionTo(['gest_prodotti','gest_offerte',
-                                                                            'gest_banner','gest_imgprod',
-                                                                            'gest_fornitori','gest_newsletter']);
+        $manager = Role::create(['guard_name' => 'admin','name' => 'Manager'])->givePermissionTo(['gest_prodotti','gest_sito','gest_offerte',
+                                                                            'gest_banner','gest_imgprod','gest_fornitori','gest_newsletter']);
         $designer = Role::create(['guard_name' => 'admin','name' => 'Designer'])->givePermissionTo(['gest_banner','gest_imgprod']);
         $pubblicitario = Role::create(['guard_name' => 'admin','name'=>'Pubblicitario'])->givePermissionTo(['gest_offerte','gest_banner','gest_newsletter']);
         $assistenza = Role::create(['guard_name' => 'admin','name'=>'Assistenza Clienti'])->givePermissionTo(['gest_assistenza']);

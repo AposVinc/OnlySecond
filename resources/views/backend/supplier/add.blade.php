@@ -29,7 +29,7 @@
                     <div class="col-12 col-md-9"><input type="email" id="email" name="email" placeholder="Inserire la email del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="phone" class=" form-control-label">Phone</label></div>
+                    <div class="col col-md-3"><label for="phone" class=" form-control-label">Cell.</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" placeholder="Inserire il numero del Fornitore" class="form-control" required></div>
                 </div>
                 <div class="row form-group">
