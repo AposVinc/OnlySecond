@@ -31,10 +31,8 @@ FE
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale -- immagini carousel pag prodotto, aggiungi al carrello
---Vincenzo--    edit profile - modifica info utente su DB
 
 payments
-
 slider brand - allineare verticalmente img loghi
 
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
@@ -42,7 +40,6 @@ slider brand - allineare verticalmente img loghi
 -Sara-login checkout
 
 grafica Storico Ordini - da ultimare dopo checkout
-
 wishlist    - azione aggiungi al carrello
 
 foto "chi siamo" dinamiche (si potrebbe evitare)
@@ -106,6 +103,7 @@ grafica pagina prodotto.
 prezzo in sez profile devono essere Roboto
 shop - se si cambia da griglia a lista la grafica non è corretta        ORA OK
 tooltip nella sez profile               OK
+edit profile - modifica info utente su DB
 
 
 
