@@ -47,16 +47,15 @@
                     @foreach($offers as $offer)
                         <div class="product-layout product-grid col-md-4 col-xs-6 ">
                             <div class="item">
-                                <div class="product-thumb clearfix mb_30">
+                                <div class="product-thumb clearfix mb_50">
                                     <div class="image product-imageblock">
                                         <a href="{{route('Product', ['cod' => $offer->product->cod])}}">
-                                            <!-- aggiungere materiale e qualche altra informazione -->
-                                            <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
-                                            <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
+                                            <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" title="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" class="img-responsive" />
+                                            <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" title="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" class="img-responsive" />
                                         </a>
                                         <div class="button-group text-center">
-                                            <a href="{{route('Wishlist.AddProduct', ['cod' => $offer->product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                            <a href="#" class="add-to-cart"><span>Add to cart</span></a>
+                                            <a href="{{route('Wishlist.AddProduct', ['cod' => $offer->product->cod])}}" class="wishlist" title="Aggiungi a wishlist"><span>Wishlist</span></a>
+                                            <a href="#" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
                                         </div>
                                         <div class="ribbon orangeOS"><span>{{$offer->rate}}%</span></div>
                                     </div>
@@ -75,11 +74,9 @@
                                                 @endif
                                             @endfor
                                         </div>
-                                        <div>
-                                            <span class="oldPrice"><span class="amount"><span class="currencySymbol">€</span>{{$offer->product->price}}</span></span>
-                                            <span class="price"><span class="amount"><span class="currencySymbol">€</span>{{$offer->calculateDiscount()}}</span></span>
-                                        </div>
-                                        <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
+                                        <span class="oldPrice"><span class="amount"><span class="currencySymbol">€</span>{{$offer->product->price}}</span></span>
+                                        <span class="price"><span class="amount"><span class="currencySymbol">€</span>{{$offer->calculateDiscount()}}</span></span>
+                                        <p class="product-desc mt_20">{{Str::limit($offer->product->long_desc,400)}}</p>
                                     </div>
                                 </div>
                             </div>

@@ -56,7 +56,7 @@
                         @if($product->offer()->exists())
                             <div class="product-layout product-grid col-md-4 col-xs-6 ">
                                 <div class="item">
-                                    <div class="product-thumb clearfix mb_30">
+                                    <div class="product-thumb clearfix mb_50">
                                         <div class="image product-imageblock">
                                             <a href="{{route('Product', ['cod' => $product->cod])}}">
                                                 <!-- aggiungere materiale e qualche altra informazione -->
@@ -84,11 +84,9 @@
                                                     @endif
                                                 @endfor
                                             </div>
-                                            <div>
                                             <span class="oldPrice"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
                                             <span class="price"><span class="amount">{{$product->offer->calculateDiscount()}}<span class="currencySymbol">€</span></span></span>
                                             <p class="product-desc mt_20">{{Str::limit($product->long_desc,400)}}</p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +94,7 @@
                         @else
                             <div class="product-layout product-grid col-md-4 col-xs-6 ">
                                 <div class="item">
-                                    <div class="product-thumb clearfix mb_30">
+                                    <div class="product-thumb clearfix mb_50">
                                         <div class="image product-imageblock">
                                             <a href="{{route('Product', ['cod' => $product->cod])}}">
                                                 <!-- aggiungere materiale e qualche altra informazione -->
