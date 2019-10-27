@@ -40,7 +40,7 @@ DatabaseSeeder extends Seeder
         DB::table('pages')->insert(
             [
                 'about' => 1,
-                'ab_path_img_storia' => '',
+                'ab_path_img_storia' => 'storage/Page/main-photo.jpg',
                 'ab_desc_storia' => 'OnlySecond è specializzato nella vendita online di orologi. Trovare consigli su un orologio, poter confrontare differenti orologi, ordinare subito, trovare un cinturino di ricambio per il tuo orologio: tutto è possibile su OnlySecond! OnlySecond lo specialista degli orologi.',
                 'ab_why_tit_1'=>'Lo specialista degli orologi',
                 'ab_why_txt_1'=>'Grazie alle opportunità offerte dalla Rete Internet, siamo in grado di occuparci della vendita delle più conosciute marche di orologi. Siamo costantemente alla ricerca di nuove occasioni per sorprendervi.',
@@ -54,13 +54,13 @@ DatabaseSeeder extends Seeder
                 'ab_why_txt_5'=>'Hai fatto la tua scelta nella nostra grande gamma? Qualsiasi ordine sopra i 250€ sarà spedito gratuitamente. Cosa aspetti?',
                 'ab_why_tit_6'=>'Un anno di garanzia extra!',
                 'ab_why_txt_6'=>'Oltre garanzia internazionale della durata due anni obbligatoria per legge, avrai un altro anno di garanzia!',
-                'ab_team_path_1'=>'',
+                'ab_team_path_1'=>'storage/Page/first-member-photo.jpg',
                 'ab_team_name_1'=>'Sara Di Berardino',
                 'ab_team_desc_1'=>'Descrizione',
-                'ab_team_path_2'=>'',
+                'ab_team_path_2'=>'storage/Page/second-member-photo.jpg',
                 'ab_team_name_2'=>'Vincenzo Apostolo',
                 'ab_team_desc_2'=>'Descrizione',
-                'ab_team_path_3'=>'',
+                'ab_team_path_3'=>'storage/Page/third-member-photo.jpg',
                 'ab_team_name_3'=>'Valentina Rampa',
                 'ab_team_desc_3'=>'Descrizione'
             ]
