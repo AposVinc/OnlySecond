@@ -121,7 +121,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="second-member-desc" class=" form-control-label">Descrizione</label></div>
-                        <div class="col-12 col-md-9"><textarea name="first-member-desc" id="second-member-desc" rows="2" placeholder="Inserisci una descrizione..." class="form-control" required>{{$fields->ab_team_desc_2}}</textarea></div>
+                        <div class="col-12 col-md-9"><textarea name="second-member-desc" id="second-member-desc" rows="2" placeholder="Inserisci una descrizione..." class="form-control" required>{{$fields->ab_team_desc_2}}</textarea></div>
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="second-member-photo" class=" form-control-label">Foto</label></div>
