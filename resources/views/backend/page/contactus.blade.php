@@ -20,23 +20,23 @@
             <div class="card-body card-block">
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="phone1" class=" form-control-label">1° contatto Telefonico</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="phone1" name="phone1" placeholder="Inserire il numero per farsi contattare dal cliente" class="form-control" required></div>
+                    <div class="col-12 col-md-9"><input type="text" id="phone1" name="phone1" placeholder="Inserire il numero per farsi contattare dal cliente" class="form-control" value="{{$fields->cus_tel_1}}" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="phone2" class=" form-control-label">2° contatto Telefonico</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="phone2" name="phone2" placeholder="Inserire il numero per farsi contattare dal cliente" class="form-control" required></div>
+                    <div class="col-12 col-md-9"><input type="text" id="phone2" name="phone2" placeholder="Inserire il numero per farsi contattare dal cliente" class="form-control" value="{{$fields->cus_tel_2}}" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="email1" class=" form-control-label">Email di contatto</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="email1" name="email1" placeholder="Inserire la email da fornire all'utente" class="form-control" required></div>
+                    <div class="col-12 col-md-9"><input type="email" id="email1" name="email1" placeholder="Inserire la email da fornire al cliente" class="form-control" value="{{$fields->cus_email_contatti}}" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="email2" class=" form-control-label">Email d'aiuto</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="email2" name="email2" placeholder="Inserire la email da fornire all'utente per Assistenza" class="form-control" required></div>
+                    <div class="col-12 col-md-9"><input type="email" id="email2" name="email2" placeholder="Inserire la email da fornire al cliente per Assistenza" class="form-control" value="{{$fields->cus_email_aiuto}}" required></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="address" class=" form-control-label">Indirizzo del Negozio</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="address" name="address" placeholder="Inserire l'indirizzo da fornire al cliente" class="form-control" required></div>
+                    <div class="col-12 col-md-9"><input type="text" id="address" name="address" placeholder="Inserire l'indirizzo da fornire al cliente" class="form-control" value="{{$fields->cus_indirizzo}}" required></div>
                 </div>
             </div>
             <div class="card-footer">
