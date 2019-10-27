@@ -9,7 +9,6 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 
 BE
 ---------
-permettere al admin di modificare Contattaci e chi siamo
 NO ?cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
 tabelle/grafici BE (prima pg)
 subanner logica - differenziare in db con enum (main, sub, mini)
@@ -71,6 +70,7 @@ errore se non ci sono brand nella sez edit collezioni FATTO E VIENE USATO NON SO
 required su checkbox (javascript) -  tutte sez di Ruoli
 Elimina img prodotto
 EditDate() (js)
+permettere al admin di modificare Contattaci e chi siamo
 
 ok FE
 ----------
