@@ -34,6 +34,51 @@ DatabaseSeeder extends Seeder
     {   // $this->call(UsersTableSeeder::class);
 
         ////////////////////////////////////////////////////////////////////
+        /*---   PAGES   --------------------------------------------------*/
+        ////////////////////////////////////////////////////////////////////
+
+        DB::table('pages')->insert(
+            [
+                'about' => 1,
+                'ab_path_img_storia' => '',
+                'ab_desc_storia' => 'OnlySecond è specializzato nella vendita online di orologi. Trovare consigli su un orologio, poter confrontare differenti orologi, ordinare subito, trovare un cinturino di ricambio per il tuo orologio: tutto è possibile su OnlySecond! OnlySecond lo specialista degli orologi.',
+                'ab_why_tit_1'=>'Lo specialista degli orologi',
+                'ab_why_txt_1'=>'Grazie alle opportunità offerte dalla Rete Internet, siamo in grado di occuparci della vendita delle più conosciute marche di orologi. Siamo costantemente alla ricerca di nuove occasioni per sorprendervi.',
+                'ab_why_tit_2'=>'Sicurezza',
+                'ab_why_txt_2'=>'OS è membro di E-commerce Europe ed offre un metodo di acquisto affidabile e sicuro. Pagare il tuo ordine è facile coni nostri metodi di pagamento, come Carta di Credito e PayPal.',
+                'ab_why_tit_3'=>'Resi gratuiti',
+                'ab_why_txt_3'=>'Restituisci gratuitamente il pacco a OnlySecond con il nostro Servizio Resi gratuito alla tua sede locale per il ritiro. Non paghi nulla per il reso del tuo pacco!',
+                'ab_why_tit_4'=>'Garanzia restituzione del denaro!',
+                'ab_why_txt_4'=>'Con HWG hai 30 giorni di tempo per cambiare idea. Non sei completamente soddisfatto del tuo acquisto? Restituisci il prodotto e riceverai indietro l\'importo dell\'acquisto una volta che il pacco sarà arrivato alla nostra sede.',
+                'ab_why_tit_5'=>'Spedizione gratuita',
+                'ab_why_txt_5'=>'Hai fatto la tua scelta nella nostra grande gamma? Qualsiasi ordine sopra i 250€ sarà spedito gratuitamente. Cosa aspetti?',
+                'ab_why_tit_6'=>'Un anno di garanzia extra!',
+                'ab_why_txt_6'=>'Oltre garanzia internazionale della durata due anni obbligatoria per legge, avrai un altro anno di garanzia!',
+                'ab_team_path_1'=>'',
+                'ab_team_name_1'=>'Sara Di Berardino',
+                'ab_team_desc_1'=>'Descrizione',
+                'ab_team_path_2'=>'',
+                'ab_team_name_2'=>'Vincenzo Apostolo',
+                'ab_team_desc_2'=>'Descrizione',
+                'ab_team_path_3'=>'',
+                'ab_team_name_3'=>'Valentina Rampa',
+                'ab_team_desc_3'=>'Descrizione'
+            ]
+        );
+
+        DB::table('pages')->insert(
+            [
+                'contactus' => 1,
+                'cus_tel_1' => '0861254897',
+                'cus_tel_2' => '3339568744',
+                'cus_email_contatti' => 'info@onlysecond.com',
+                'cus_email_aiuto' => 'help@onlysecond.com',
+                'cus_indirizzo' => 'Via Vetoio, 67100 L\'Aquila AQ'
+            ]
+        );
+
+
+        ////////////////////////////////////////////////////////////////////
         /*---   BE   -----------------------------------------------------*/
         ////////////////////////////////////////////////////////////////////
 
