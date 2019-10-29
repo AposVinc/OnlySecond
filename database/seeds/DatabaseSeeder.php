@@ -2,6 +2,7 @@
 
 use App\Address;
 use App\Admin;
+use App\Banner;
 use App\Specification;
 use App\Category;
 use App\Color;
@@ -723,6 +724,41 @@ DatabaseSeeder extends Seeder
         $Bayswater = new Collection(['name' => 'Bayswater']);
         $Wellington->collections()->save($Bayswater);
 
+
+        /*---   BANNER   -----------------------------------------------------*/
+
+        $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Diesel/Double Down P44/Diesel_Double Down P44_1.jpg','counter'=>1,'visible'=>0]);
+        $Double_Down_P44->banners()->save($Double_Down_P44_B1);
+
+        $Sport_B1 = new Banner(['path_image'=>'storage/Banner/Fossil/Sport/Fossil_Sport_1.jpg','counter'=>1,'visible'=>0]);
+        $Sport->banners()->save($Sport_B1);
+
+        $Lacoste_Moon_B1 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>1,'visible'=>0]);
+        $Lacoste_Moon->banners()->save($Lacoste_Moon_B1);
+
+        $Lacoste_Moon_B2 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>2,'visible'=>0]);
+        $Lacoste_Moon->banners()->save($Lacoste_Moon_B2);
+
+        $Lacoste_Moon_B3 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>3,'visible'=>0]);
+        $Lacoste_Moon->banners()->save($Lacoste_Moon_B3);
+
+        $Gent_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_1.jpg','counter'=>1,'visible'=>0]);
+        $Gent->banners()->save($Gent_B1);
+
+        $Gent_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_2.jpg','counter'=>2,'visible'=>0]);
+        $Gent->banners()->save($Gent_B2);
+
+        $Gent_B3 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_3.jpg','counter'=>3,'visible'=>0]);
+        $Gent->banners()->save($Gent_B3);
+
+        $Lovely_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_1.jpg','counter'=>1,'visible'=>0]);
+        $Lovely->banners()->save($Lovely_B1);
+
+        $Lovely_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_2.jpg','counter'=>2,'visible'=>0]);
+        $Lovely->banners()->save($Lovely_B2);
+
+        $Lovely_B3 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_3.jpg','counter'=>3,'visible'=>0]);
+        $Lovely->banners()->save($Lovely_B3);
 
 
         /*---   OFFERTE   -----------------------------------------------------*/
