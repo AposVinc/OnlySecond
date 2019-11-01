@@ -1,5 +1,5 @@
 
-<div id="brand_carouse" class="ptb_30 text-center">
+<div id="brand_carouse" class="pt_30 text-center">
     <div class="type-01">
         <div class="heading-part mb_10 ">
             <h2 class="main_title">Brand Logo</h2>

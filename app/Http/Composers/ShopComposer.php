@@ -12,7 +12,6 @@ class ShopComposer
 {
     public  function composeShop(View $view){
         $products = Product::withoutTrashed()->with('collection')->with('images')->get();
-
         $view->with('products', $products);
     }
 

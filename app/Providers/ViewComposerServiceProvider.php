@@ -35,6 +35,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer('frontend.shop', 'App\Http\Composers\ShopComposer@composeShop');
         view()->composer('frontend.discount', 'App\Http\Composers\ShopComposer@composeDiscount');
 
+        view()->composer('frontend.index', 'App\Http\Composers\PageComposer@composeIndex');
         view()->composer('frontend.about', 'App\Http\Composers\PageComposer@composeAbout');
         view()->composer('frontend.contact', 'App\Http\Composers\PageComposer@composeContactUS');
     }
