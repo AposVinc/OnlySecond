@@ -538,13 +538,13 @@ DatabaseSeeder extends Seeder
         $Stella_P1 = new Product(['cod' => 'SW5376','price' => '249', 'stock_availability' => '15', 'genre' => 'F',
             'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox con un diametro di 29 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
         L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 5]);
-        $Stella_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Stella_P1I1 = new Image(['path_image' => 'storage/Orologi/Swarosvki/Stella/Swarosvki_Stella_Argento_1.png', 'main' => '1']);
         $Stella_P1S = new Specification(['case_size' => '29mm', 'material' => 'Inox', 'case_thickness' => '7.5mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
         $Stella_P1S->dial_color = $argento->id;
         $Stella_P1S->strap_color = $bianco->id;
         $Stella_P1->collection_id = $Stella->id;
         $Stella_P1->supplier_id = $fornitore1->id;
-        $Stella_P1->color_id = $bianco->id;
+        $Stella_P1->color_id = $argento->id;
         $Stella_P1->save();
         $Stella_P1->categories()->save($classic);
         $Stella_P1->images()->save($Stella_P1I1);
@@ -556,7 +556,7 @@ DatabaseSeeder extends Seeder
             All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
-        $Stella_P2I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Stella_P2I1 = new Image(['path_image' => 'storage/Orologi/Swarosvki/Stella/Swarosvki_Stella_Rosa_1.png', 'main' => '1']);
         $Stella_P2S = new Specification(['case_size' => '37mm', 'material' => 'Inox Oro Rosso', 'case_thickness' => '9,7mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Fibbia Decorata', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
         $Stella_P2S->dial_color = $bianco->id;
         $Stella_P2S->strap_color = $oro_rosa->id;
@@ -573,7 +573,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox placcato oro con un diametro di 29 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
-        $Stella_P3I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Stella_P3I1 = new Image(['path_image' => 'storage/Orologi/Swarosvki/Stella/Swarosvki_Stella_Viola_1.png', 'main' => '1']);
         $Stella_P3S = new Specification(['case_size' => '29mm', 'material' => 'Inox Oro', 'case_thickness' => '7.5mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Nessuno', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
         $Stella_P3S->dial_color = $oro_rosa->id;
         $Stella_P3S->strap_color = $viola->id;
@@ -611,7 +611,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox con un diametro di 42 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
             L\'orologio è impermeabile a 10ATM. Questo significa che l\'orologio è adatto al nuoto. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 9]);
-        $Gent_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Gent_P1I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Gent XL/Tissot_Gent XL_Nero_1.png', 'main' => '1']);
         $Gent_P1S = new Specification(['case_size' => '42mm', 'material' => 'Inox', 'case_thickness' => '9.8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Pelle', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Gent_P1S->dial_color = $nero->id;
         $Gent_P1S->strap_color = $nero->id;
@@ -628,7 +628,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox con un diametro di 42 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
             L\'orologio è impermeabile a 10ATM. Questo significa che l\'orologio è adatto al nuoto. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
-        $Gent_P2I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Gent_P2I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Gent XL/Tissot_Gent XL_Blu_1.png', 'main' => '1']);
         $Gent_P2S = new Specification(['case_size' => '42mm', 'material' => 'Inox', 'case_thickness' => '9.8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Pelle', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Gent_P2S->dial_color = $blu->id;
         $Gent_P2S->strap_color = $marrone->id;
@@ -645,7 +645,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox con un diametro di 20 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 6]);
-        $Lovely_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Lovely_P1I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Lovely/Tissot_Lovely_Argento_1.png', 'main' => '1']);
         $Lovely_P1S = new Specification(['case_size' => '20mm', 'material' => 'Inox', 'case_thickness' => '8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Lovely_P1S->dial_color = $argento->id;
         $Lovely_P1S->strap_color = $argento->id;
@@ -662,7 +662,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox placcato oro con un diametro di 20 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
-        $Lovely_P2I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Lovely_P2I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Lovely/Tissot_Lovely_Oro_1.png', 'main' => '1']);
         $Lovely_P2S = new Specification(['case_size' => '20mm', 'material' => 'Inox', 'case_thickness' => '8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Lovely_P2S->dial_color = $argento->id;
         $Lovely_P2S->strap_color = $oro->id;
@@ -679,7 +679,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox con un diametro di 45 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
             L\'orologio è impermeabile a 30ATM. Questo significa che l\'orologio è adatto a immersioni profonde.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 12]);
-        $Seastar_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Seastar_P1I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Seastar/Tissot_Seastar_Arancione_1.png', 'main' => '1']);
         $Seastar_P1S = new Specification(['case_size' => '45mm', 'material' => 'Inox', 'case_thickness' => '13.5mm', 'glass' => 'Zaffiro', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
         $Seastar_P1S->dial_color = $nero->id;
         $Seastar_P1S->strap_color = $arancione->id;
@@ -696,7 +696,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Tissot ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 45 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
             L\'orologio è impermeabile a 30ATM. Questo significa che l\'orologio è adatto a immersioni profonde. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
-        $Seastar_P2I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Seastar_P2I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Seastar/Tissot_Seastar_Nero_1.png', 'main' => '1']);
         $Seastar_P2S = new Specification(['case_size' => '45mm', 'material' => 'Inox', 'case_thickness' => '13.5mm', 'glass' => 'Zaffiro', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
         $Seastar_P2S->dial_color = $nero->id;
         $Seastar_P2S->strap_color = $nero->id;
