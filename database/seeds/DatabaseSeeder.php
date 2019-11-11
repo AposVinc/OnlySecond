@@ -538,7 +538,7 @@ DatabaseSeeder extends Seeder
         $Stella_P1 = new Product(['cod' => 'SW5376','price' => '249', 'stock_availability' => '15', 'genre' => 'F',
             'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox con un diametro di 29 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
         L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 5]);
-        $Stella_P1I1 = new Image(['path_image' => 'storage/Orologi/Swarosvki/Stella/Swarosvki_Stella_Argento_1.png', 'main' => '1']);
+        $Stella_P1I1 = new Image(['path_image' => 'storage/Orologi/Swarovski/Stella/Swarovski_Stella_Argento_1.png', 'main' => '1']);
         $Stella_P1S = new Specification(['case_size' => '29mm', 'material' => 'Inox', 'case_thickness' => '7.5mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
         $Stella_P1S->dial_color = $argento->id;
         $Stella_P1S->strap_color = $bianco->id;
@@ -556,7 +556,7 @@ DatabaseSeeder extends Seeder
             All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
-        $Stella_P2I1 = new Image(['path_image' => 'storage/Orologi/Swarosvki/Stella/Swarosvki_Stella_Rosa_1.png', 'main' => '1']);
+        $Stella_P2I1 = new Image(['path_image' => 'storage/Orologi/Swarovski/Stella/Swarovski_Stella_Rosa_1.png', 'main' => '1']);
         $Stella_P2S = new Specification(['case_size' => '37mm', 'material' => 'Inox Oro Rosso', 'case_thickness' => '9,7mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Fibbia Decorata', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
         $Stella_P2S->dial_color = $bianco->id;
         $Stella_P2S->strap_color = $oro_rosa->id;
@@ -573,7 +573,7 @@ DatabaseSeeder extends Seeder
             'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox placcato oro con un diametro di 29 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
-        $Stella_P3I1 = new Image(['path_image' => 'storage/Orologi/Swarosvki/Stella/Swarosvki_Stella_Viola_1.png', 'main' => '1']);
+        $Stella_P3I1 = new Image(['path_image' => 'storage/Orologi/Swarovski/Stella/Swarovski_Stella_Viola_1.png', 'main' => '1']);
         $Stella_P3S = new Specification(['case_size' => '29mm', 'material' => 'Inox Oro', 'case_thickness' => '7.5mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Nessuno', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
         $Stella_P3S->dial_color = $oro_rosa->id;
         $Stella_P3S->strap_color = $viola->id;
