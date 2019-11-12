@@ -492,25 +492,30 @@
         $this.parent().remove();
         var DivShowLess = $('<div class="show-less">\n' +
             '                                <i class="fa fa-angle-up"></i>\n' +
-            '                                <a class="ml_7">Mostra Meno</a>\n' +
+            '                                <a class="ml_7" onClick="CompactList()">Mostra Meno</a>\n' +
             '                            </div>');
         DivShowLess.appendTo($content);
         $content.switchClass("hideContent", "showContent", 400);
     });
 
+    /*
     $('.show-less a').on("click", function() {
         console.log('aaaa');
-        /*
         var $this = $(this);
         var $content = $this.parents('.content');
         $this.parent().remove();
         $content.removeClass("content hideContent");
         AddShowMore($content);
-    */
     });
 
-
-
+     */
+function CompactList(){
+    console.log(this);
+    var $content = a.parents('.content');
+    a.parent().remove();
+    $content.removeClass("content showContent");
+    AddShowMore($content);
+}
 
 </script>
 
