@@ -455,5 +455,65 @@
         });
     </script>
 @endif
+
+
+<script>
+    //$(document).ready(function(){
+        console.log('start');
+
+        var filterGroup = $('#filter-group-brands');
+        if ($('#filter-group-brands .checkbox').length > 6) AddShowMore(filterGroup);
+
+        var filterGroup = $('#filter-group-collections');
+        if ($('#filter-group-collections .checkbox').length > 6) AddShowMore(filterGroup);
+
+        var filterGroup = $('#filter-group-colors');
+        if ($('#filter-group-colors .checkbox').length > 6) AddShowMore(filterGroup);
+
+        var filterGroup = $('#filter-group-materials');
+        if ($('#filter-group-materials .checkbox').length > 6) AddShowMore(filterGroup);
+
+        console.log('end');
+    //});
+
+    function AddShowMore(gen){
+        gen.parent().switchClass('mb_10','mb_15');  //poiche viene aggiunto "mostra altro", i div sono troppo appiccicati
+        var DivShowMore = $('<div class="show-more">\n' +
+            '                                <i class="fa fa-angle-down"></i>\n' +
+            '                                <a class="ml_7">Mostra Altro</a>\n' +
+            '                            </div>');
+        gen.addClass("content hideContent"); //aggiungo la classe solo a quelli >6
+        gen.children(':eq(5)').after(DivShowMore);
+    }
+
+    $('.show-more a').on("click", function() {
+        var $this = $(this);
+        var $content = $this.parents('.content');
+        $this.parent().remove();
+        var DivShowLess = $('<div class="show-less">\n' +
+            '                                <i class="fa fa-angle-up"></i>\n' +
+            '                                <a class="ml_7">Mostra Meno</a>\n' +
+            '                            </div>');
+        DivShowLess.appendTo($content);
+        $content.switchClass("hideContent", "showContent", 400);
+    });
+
+    $('.show-less a').on("click", function() {
+        console.log('aaaa');
+        /*
+        var $this = $(this);
+        var $content = $this.parents('.content');
+        $this.parent().remove();
+        $content.removeClass("content hideContent");
+        AddShowMore($content);
+    */
+    });
+
+
+
+
+</script>
+
+
 </body>
 </html>
