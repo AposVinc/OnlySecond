@@ -39,8 +39,7 @@ grafica Storico Ordini - da ultimare dopo checkout
 wishlist    - azione aggiungi al carrello
 
 ?Mostra subbanner in home
-num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
-se num el in Filtro >6 inserire "Mostra altro"
+num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       - si puo evitare?
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
 
@@ -104,6 +103,7 @@ foto "chi siamo" dinamiche
 Mostra Banner in home
 immagini multiple pagina prodotto
 Aggiunte descrizioni e specifiche nei seed
+se num el in Filtro >6 inserire "Mostra altro"
 
 
 
