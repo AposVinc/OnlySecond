@@ -1,9 +1,8 @@
 SEEDER
 ---------
-Vale - aggiungere descrizioni prod, specifiche
-sistemare categorie per ogni prod
+Vale-sistemare categorie per ogni prod
 almeno 5 offerte (slider offerte della settimana home)
-qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per slider (bestseller)
+Vale-qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per slider (bestseller)
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini (Inserire png Brand ecc...)
 
 
@@ -104,7 +103,7 @@ edit profile - modifica info utente su DB
 foto "chi siamo" dinamiche
 Mostra Banner in home
 immagini multiple pagina prodotto
-
+Aggiunte descrizioni e specifiche nei seed
 
 
 
