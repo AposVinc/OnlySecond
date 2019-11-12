@@ -393,6 +393,12 @@ h6 {
 .ml_0 {
     margin-left: 0;
 }
+.ml_5 {
+    margin-left: 5px;
+}
+.ml_7 {
+    margin-left: 7px;
+}
 .ml_10 {
     margin-left: 10px;
 }
@@ -3219,4 +3225,18 @@ input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
     transform: translate(0);
     font: 100 14px/14px "Roboto";
     color: #d9d9d9;
+}
+
+/* ----------------------------------------------
+	5.8 Filter
+----------------------------------------------- */
+
+.hideContent {
+    overflow: hidden;
+    height: 210px;
+}
+
+.showContent {
+    overflow: visible;
+    height: auto;
 }
