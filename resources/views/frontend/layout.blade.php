@@ -458,27 +458,22 @@
 
 
 <script>
-    //$(document).ready(function(){
-        console.log('start');
 
-        var filterGroup = $('#filter-group-brands');
-        if ($('#filter-group-brands .checkbox').length > 6) AddShowMore(filterGroup);
+    var filterGroup = $('#filter-group-brands');
+    if ($('#filter-group-brands .checkbox').length > 6) AddShowMore(filterGroup);
 
-        var filterGroup = $('#filter-group-collections');
-        if ($('#filter-group-collections .checkbox').length > 6) AddShowMore(filterGroup);
+    var filterGroup = $('#filter-group-collections');
+    if ($('#filter-group-collections .checkbox').length > 6) AddShowMore(filterGroup);
 
-        var filterGroup = $('#filter-group-colors');
-        if ($('#filter-group-colors .checkbox').length > 6) AddShowMore(filterGroup);
+    var filterGroup = $('#filter-group-colors');
+    if ($('#filter-group-colors .checkbox').length > 6) AddShowMore(filterGroup);
 
-        var filterGroup = $('#filter-group-materials');
-        if ($('#filter-group-materials .checkbox').length > 6) AddShowMore(filterGroup);
-
-        console.log('end');
-    //});
+    var filterGroup = $('#filter-group-materials');
+    if ($('#filter-group-materials .checkbox').length > 6) AddShowMore(filterGroup);
 
     function AddShowMore(gen){
         gen.parent().switchClass('mb_10','mb_15');  //poiche viene aggiunto "mostra altro", i div sono troppo appiccicati
-        var DivShowMore = $('<div class="show-more">\n' +
+        var DivShowMore = $('<div class="showMore">\n' +
             '                                <i class="fa fa-angle-down"></i>\n' +
             '                                <a class="ml_7">Mostra Altro</a>\n' +
             '                            </div>');
@@ -486,36 +481,25 @@
         gen.children(':eq(5)').after(DivShowMore);
     }
 
-    $('.show-more a').on("click", function() {
-        var $this = $(this);
-        var $content = $this.parents('.content');
-        $this.parent().remove();
-        var DivShowLess = $('<div class="show-less">\n' +
+    $(document).on('click', '.showMore a', function(){
+        var elementClick = $(this);
+        var divContent = elementClick.parents('.content');
+        elementClick.parent().remove();
+        var DivShowLess = $('<div class="showLess">\n' +
             '                                <i class="fa fa-angle-up"></i>\n' +
-            '                                <a class="ml_7" onClick="CompactList()">Mostra Meno</a>\n' +
+            '                                <a class="ml_7">Mostra Meno</a>\n' +
             '                            </div>');
-        DivShowLess.appendTo($content);
-        $content.switchClass("hideContent", "showContent", 400);
+        DivShowLess.appendTo(divContent);
+        divContent.switchClass("hideContent", "showContent",400);
     });
 
-    /*
-    $('.show-less a').on("click", function() {
-        console.log('aaaa');
-        var $this = $(this);
-        var $content = $this.parents('.content');
-        $this.parent().remove();
-        $content.removeClass("content hideContent");
+    $(document).on('click', '.showLess a', function(){
+        var elementClick = $(this);
+        var $content = elementClick.parents('.content');
+        elementClick.parent().remove();
+        $content.removeClass("content showContent");
         AddShowMore($content);
     });
-
-     */
-function CompactList(){
-    console.log(this);
-    var $content = a.parents('.content');
-    a.parent().remove();
-    $content.removeClass("content showContent");
-    AddShowMore($content);
-}
 
 </script>
 
