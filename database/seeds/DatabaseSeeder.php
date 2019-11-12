@@ -125,18 +125,19 @@ DatabaseSeeder extends Seeder
 
         /*---   COLORI   -----------------------------------------------------*/
 
-        $argento = new Color(['name'=>'Argento' , 'hex' => '#c0c0c0']);     $argento->save();
-        $oro = new Color(['name'=>'Oro' , 'hex' => '#daa520']);             $oro->save();
-        $bianco = new Color(['name'=>'Bianco' , 'hex' => '#ffffff']);       $bianco->save();
-        $nero = new Color(['name'=>'Nero' , 'hex' => '#000000']);           $nero->save();
-        $grigio = new Color(['name'=>'Grigio' , 'hex' => '#808080']);       $grigio->save();
-        $rosa = new Color(['name'=>'Rosa' , 'hex' => '#ff99cc']);           $rosa->save();
-        $blu = new Color(['name'=>'Blu' , 'hex' => '#0033cc']);             $blu->save();
-        $verde = new Color(['name'=>'Verde' , 'hex' => '#15a813']) ;        $verde->save();
-        $marrone = new Color(['name'=>'Marrone' , 'hex' => '#8B4513']);     $marrone->save();
-        $oro_rosa = new Color(['name'=>'Oro Rosa', 'hex' => '#ffd9b3']);    $oro_rosa->save();
-        $viola = new Color(['name'=>'Viola', 'hex' => '#8f246b']);          $viola->save();
-        $arancione= new Color(['name'=> 'Arancione', 'hex'=> '#ff6600']);   $arancione->save();
+        $argento = new Color(['name'=>'Argento' , 'hex' => '#c0c0c0']);         $argento->save();
+        $oro = new Color(['name'=>'Oro' , 'hex' => '#daa520']);                 $oro->save();
+        $bianco = new Color(['name'=>'Bianco' , 'hex' => '#ffffff']);           $bianco->save();
+        $nero = new Color(['name'=>'Nero' , 'hex' => '#000000']);               $nero->save();
+        $grigio = new Color(['name'=>'Grigio' , 'hex' => '#808080']);           $grigio->save();
+        $rosa = new Color(['name'=>'Rosa' , 'hex' => '#ff99cc']);               $rosa->save();
+        $blu = new Color(['name'=>'Blu' , 'hex' => '#0033cc']);                 $blu->save();
+        $verde = new Color(['name'=>'Verde' , 'hex' => '#15a813']) ;            $verde->save();
+        $marrone = new Color(['name'=>'Marrone' , 'hex' => '#8B4513']);         $marrone->save();
+        $oro_rosa = new Color(['name'=>'Oro Rosa', 'hex' => '#ffd9b3']);        $oro_rosa->save();
+        $viola = new Color(['name'=>'Viola', 'hex' => '#8f246b']);              $viola->save();
+        $arancione= new Color(['name'=> 'Arancione', 'hex'=> '#ff6600']);       $arancione->save();
+        $rosso_rubino=new Color(['name'=>'Rosso Rubino', 'hex'=> '#d01635']);   $rosso_rubino->save();
 
         /*---   FORNITORI   -----------------------------------------------------*/
 
@@ -146,6 +147,38 @@ DatabaseSeeder extends Seeder
         $fornitore2->save();
 
         /*---   PRODOTTI   -----------------------------------------------------*/
+
+        /* Breil */
+        $Breil = new Brand(['name' => 'Breil', 'path_logo' => '']);
+        $Breil->save();
+
+        /* Collezioni Breil */
+        $Six_3_Nine= new Collection(['name'=> 'Six 3 Nine']);
+        $Breil->collections()->save($Six_3_Nine);
+
+        /* Prodotti Breil */
+        $Six_3_Nine_P1 = new Product(['cod' => 'BS3N01','price' => '220', 'stock_availability' => '13',
+            'genre' => 'U','long_desc' => 'Questo orologio Breil ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 44 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Hardlex Crystal.
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 2]);
+        $Six_3_Nine_P1I1 = new Image(['path_image' => '', 'main' => '1']);
+        $Six_3_Nine_P1I2 = new Image(['path_image' => '', 'main' => '2']);
+        $Six_3_Nine_P1I3 = new Image(['path_image' => '', 'main' => '3']);
+        $Six_3_Nine_P1->collection_id = $Breil->id;
+        $Six_3_Nine_P1->supplier_id = $fornitore1->id;
+        $Six_3_Nine_P1->color_id = $nero->id;
+        $Six_3_Nine_P1->save();
+        $Six_3_Nine_P1S = new Specification(['case_size' => '44mm', 'material' => 'Inox Colorato', 'case_thickness' => '10mm', 'glass' => 'Hardlex Crystal', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
+        $Six_3_Nine_P1S->dial_color = $nero->id;
+        $Six_3_Nine_P1S->strap_color = $nero->id;
+        $Six_3_Nine_P1->categories()->save($classic);
+        $Six_3_Nine_P1->images()->save($Six_3_Nine_P1I1);
+        $Six_3_Nine_P1->images()->save($Six_3_Nine_P1I2);
+        $Six_3_Nine_P1->images()->save($Six_3_Nine_P1I3);
+        $Six_3_Nine_P1->specification()->save($Six_3_Nine_P1S);
+        $Six_3_Nine->products()->save($Six_3_Nine_P1);
+
+
 
         /* Diesel */
         $Diesel = new Brand(['name' => 'Diesel','path_logo' => 'storage/Logo/Logo_Diesel.png']);
@@ -406,6 +439,71 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP4->images()->save($Q_ExploristP4I3);
         $Q_ExploristP4->specification()->save($Q_ExploristP4S);
         $Q_Explorist->products()->save($Q_ExploristP4);
+
+
+
+        /* Guess */
+        $Guess = new Brand(['name' => 'Brand', 'path_logo' => '']);
+        $Guess->save();
+
+        /* Collezioni Guess */
+        $Atlas = new Collection(['name' => 'Atlas', 'path_logo' => '']);
+        $Guess->collections()->save($Atlas);
+
+        /* Prodotti Guess */
+        $Atlas_P1 = new Product(['cod' => 'GAW668','price' => '199', 'stock_availability' => '10',
+            'genre' => 'M','long_desc' => 'Questo orologio Guess ha una cassa in acciaio inox con un diametro di 45 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
+        $Atlas_P1I1 = new Image(['path_image' => '', 'main' => '1']);
+        $Atlas_P1I2 = new Image(['path_image' => '', 'main' => '2']);
+        $Atlas_P1I3 = new Image(['path_image' => '', 'main' => '3']);
+        $Atlas_P1S = new Specification(['case_size' => '45mm', 'material' => 'Inox', 'case_thickness' => '12.3mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Chiusura pieghevole con pulsanti', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
+        $Atlas_P1S->dial_color = $argento->id;
+        $Atlas_P1S->strap_color = $argento->id;
+        $Atlas_P1->collection_id = $Atlas->id;
+        $Atlas_P1->supplier_id = $fornitore2->id;
+        $Atlas_P1->color_id = $argento->id;
+        $Atlas_P1->save();
+        $Atlas_P1->categories()->save($classic);
+        $Atlas_P1->images()->save($Atlas_P1I1);
+        $Atlas_P1->images()->save($Atlas_P1I2);
+        $Atlas_P1->images()->save($Atlas_P1I3);
+        $Atlas_P1->specification()->save($Atlas_P1S);
+        $Atlas->products()->save($Atlas_P1);
+
+
+
+        /* Hugo Boss */
+        $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => '']);
+        $Hugo_Boss->save();
+
+        /* Collezioni Hugo Boss */
+        $Exist = new Collection(['name' => 'Exist']);
+        $Hugo_Boss->collections()->save($Exist);
+
+        /* Prodotti Hugo Boss */
+        $Exist_P1 = new Product(['cod' => 'HBE152','price' => '199', 'stock_availability' => '8',
+            'genre' => 'M','long_desc' => 'Questo orologio Hugo ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 41 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
+            L\'orologio è fornito con 2 anni di garanzia in tutto il mondo..','quantity_sold' => 1]);
+        $Exist_P1I1 = new Image(['path_image' => '', 'main' => '1']);
+        $Exist_P1I2 = new Image(['path_image' => '', 'main' => '2']);
+        $Exist_P1I3 = new Image(['path_image' => '', 'main' => '3']);
+        $Exist_P1S = new Specification(['case_size' => '40.5mm', 'material' => 'Inox Colorato', 'case_thickness' => '6.2mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
+        $Exist_P1S->dial_color = $blu->id;
+        $Exist_P1S->strap_color = $blu->id;
+        $Exist_P1->collection_id = $Exist->id;
+        $Exist_P1->supplier_id = $fornitore1->id;
+        $Exist_P1->color_id = $blu->id;
+        $Exist_P1->save();
+        $Exist_P1->categories()->save($classic);
+        $Exist_P1->images()->save($Exist_P1I1);
+        $Exist_P1->images()->save($Exist_P1I2);
+        $Exist_P1->images()->save($Exist_P1I3);
+        $Exist_P1->specification()->save($Exist_P1S);
+        $Exist->products()->save($Exist_P1);
+
 
 
         /* Lacoste */
@@ -724,6 +822,45 @@ DatabaseSeeder extends Seeder
         $Bayswater = new Collection(['name' => 'Bayswater']);
         $Wellington->collections()->save($Bayswater);
 
+        /*Prodotti Wellington */
+        $Roselyn_P1 = new Product(['cod' => 'DWR001','price' => '139', 'stock_availability' => '8', 'genre' => 'F',
+            'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro famoso cinturino NATO in versione rosso rubino, Classic Roselyn è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
+        $Roselyn_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Roselyn_P1I2 = new Image(['path_image' => '#', 'main' => '2']);
+        $Roselyn_P1I3 = new Image(['path_image' => '#', 'main' => '3']);
+        $Roselyn_P1S = new Specification(['case_size' => '10mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
+        $Roselyn_P1S->dial_color = $rosso_rubino->id;
+        $Roselyn_P1S->strap_color = $oro_rosa->id;
+        $Roselyn_P1->collection_id = $Roselyn->id;
+        $Roselyn_P1->supplier_id = $fornitore2->id;
+        $Roselyn_P1->color_id = $rosso_rubino->id;
+        $Roselyn_P1->save();
+        $Roselyn_P1->categories()->save($classic);
+        $Roselyn_P1->images()->save($Roselyn_P1I1);
+        $Roselyn_P1->images()->save($Roselyn_P1I2);
+        $Roselyn_P1->images()->save($Roselyn_P1I3);
+        $Roselyn_P1->specification()->save($Roselyn_P1S);
+        $Roselyn->products()->save($Roselyn_P1);
+
+        $Bayswater_P1 = new Product(['cod' => 'DWB011','price' => '139', 'stock_availability' => '5', 'genre' => 'U',
+            'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro storico cinturino NATO in versione blu notte, Classic Bayswater è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
+        $Bayswater_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
+        $Bayswater_P1I2 = new Image(['path_image' => '#', 'main' => '2']);
+        $Bayswater_P1I3 = new Image(['path_image' => '#', 'main' => '3']);
+        $Bayswater_P1S = new Specification(['case_size' => '12mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox Con Doppia Placcatura(316L', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
+        $Bayswater_P1S->dial_color = $argento->id;
+        $Bayswater_P1S->strap_color = $blu->id;
+        $Bayswater_P1->collection_id = $Bayswater->id;
+        $Bayswater_P1->supplier_id = $fornitore2->id;
+        $Bayswater_P1->color_id = $blu->id;
+        $Bayswater_P1->save();
+        $Bayswater_P1->categories()->save($classic);
+        $Bayswater_P1->images()->save($Bayswater_P1I1);
+        $Bayswater_P1->images()->save($Bayswater_P1I2);
+        $Bayswater_P1->images()->save($Bayswater_P1I3);
+        $Bayswater_P1->specification()->save($Bayswater_P1S);
+        $Bayswater->products()->save($Bayswater_P1);
+
 
         /*---   BANNER   -----------------------------------------------------*/
 
@@ -904,7 +1041,7 @@ DatabaseSeeder extends Seeder
 
         /*---   REVIEW   -----------------------------------------------------*/
 
-        $review1 = new Review(['vote'=>'5', 'title'=>'Grande Acquisto', 'text'=>'Bell\'orologio, arrivato arrivato a casa in tempi brevissimi']);
+        $review1 = new Review(['vote'=>'5', 'title'=>'Grande Acquisto', 'text'=>'Bell\'orologio, arrivato a casa in tempi brevissimi']);
         $review1->product_id = $CarlieP1->id;
         $user1->reviews()->save($review1);
         $review1->save();
@@ -923,7 +1060,12 @@ DatabaseSeeder extends Seeder
         $user1->reviews()->save($review3);
         $review3->save();
 
-        $review4 = new Review(['vote'=>'4','title'=>'BELLO!!!!']);
+        $review4 = new Review(['vote'=>'4','title'=>'Grande, bello e preciso',
+            'text'=> 'Spedizione velocissima, imballaggio perfetto, custodia funzionale ed elegantissima, pellicole di protezione presenti, ottimo orologio grande e molto bello. 
+                       Morbidissimo e molto curato nel dettaglio il cinturino in silicone, l\'orologio è quindi anche piacevole da tenere al polso.
+                       Arrivato con batteria carica ed orario correttamente impostato.
+                       Unica nota: la tipologia ed il colore del modello (lancette grigio scuro su quadrante nero) 
+                       non permettono una visione ottimale dell\'ora quando non c\'è tanta luce ma a me piaceva molto proprio questa caratteristica estetica.']);
         $review4->product_id = $Double_Down_P44P1->id;
         $user1->reviews()->save($review4);
         $review4->save();
@@ -933,15 +1075,23 @@ DatabaseSeeder extends Seeder
         $user2->reviews()->save($review5);
         $review5->save();
 
-        $review6 = new Review(['vote'=>'5', 'title'=>'Consigliato', 'text'=>'Arrivato nei tempi previsti!!! Bello!!!']);
+        $review6 = new Review(['vote'=>'5', 'title'=>'Consigliato',
+            'text'=>'Sono molto contenta di questo smartwatch, la parte smart a mio avviso funziona benissimo. 
+                     Per alcuni sport, esempio il nuoto, serve scaricare app di terze parti che non sempre funzionano a dovere, ma per le mie esigenze è perfetto, contapassi e cardio sembrano affidabili.
+                     Comodo e leggero da indossare.']);
         $review6->product_id = $SportP2->id;
         $user2->reviews()->save($review6);
         $review6->save();
 
         $review7 = new Review(['vote'=>'5', 'title'=>'WOW!!', 'text'=>'Proprio come immaginavo']);
         $review7->product_id = $Moon_P1->id;
-        $user2->reviews()->save($review7);
+        $user1->reviews()->save($review7);
         $review7->save();
+
+        $review8 = new Review(['vote'=>'', 'title'=>'', 'text'=>'']);
+        $review8->product_id = $Lacoste_12_12->id;
+        $user1->reviews()->save($review8);
+        $review8->save();
 
         /*---   CARTS   -----------------------------------------------------*/
 

@@ -27,7 +27,7 @@ FE
 ---------
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
---Vale -- immagini carousel pag prodotto, aggiungi al carrello
+--Vale - aggiungi al carrello
 
 payments
 slider brand - allineare verticalmente img loghi
@@ -103,7 +103,7 @@ tooltip nella sez profile               OK
 edit profile - modifica info utente su DB
 foto "chi siamo" dinamiche
 Mostra Banner in home
-
+immagini multiple pagina prodotto
 
 
 
