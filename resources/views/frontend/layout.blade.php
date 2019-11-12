@@ -495,10 +495,10 @@
 
     $(document).on('click', '.showLess a', function(){
         var elementClick = $(this);
-        var $content = elementClick.parents('.content');
+        var divContent = elementClick.parents('.content');
         elementClick.parent().remove();
-        $content.removeClass("content showContent");
-        AddShowMore($content);
+        divContent.removeClass("content showContent");
+        AddShowMore(divContent);
     });
 
 </script>
