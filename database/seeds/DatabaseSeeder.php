@@ -161,8 +161,8 @@ DatabaseSeeder extends Seeder
             'genre' => 'U','long_desc' => 'Questo orologio Breil ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 44 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Hardlex Crystal.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 2]);
-        $Six_3_Nine_P1I1 = new Image(['path_image' => 'storage/Orologi/Breil/Breil_Six_3_Nine_1.png', 'main' => '1']);
-        $Six_3_Nine_P1I2 = new Image(['path_image' => 'storage/Orologi/Breil/Breil_Six_3_Nine_2.png', 'main' => '2']);
+        $Six_3_Nine_P1I1 = new Image(['path_image' => 'storage/Orologi/Breil/Six3Nine/Breil_Six_3_Nine_1.png', 'main' => '1']);
+        $Six_3_Nine_P1I2 = new Image(['path_image' => 'storage/Orologi/Breil/Six3Nine/Breil_Six_3_Nine_2.png', 'main' => '0']);
         $Six_3_Nine_P1->collection_id = $Breil->id;
         $Six_3_Nine_P1->supplier_id = $fornitore1->id;
         $Six_3_Nine_P1->color_id = $nero->id;
@@ -448,7 +448,7 @@ DatabaseSeeder extends Seeder
 
         /* Guess */
 
-        $Guess = new Brand(['name' => 'Brand', 'path_logo' => 'storage/Logo/Logo_Guess.png']);
+        $Guess = new Brand(['name' => 'Guess', 'path_logo' => 'storage/Logo/Logo_Guess.png']);
         $Guess->save();
 
         /* Collezioni Guess */
@@ -460,9 +460,9 @@ DatabaseSeeder extends Seeder
             'genre' => 'M','long_desc' => 'Questo orologio Guess ha una cassa in acciaio inox con un diametro di 45 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
-        $Atlas_P1I1 = new Image(['path_image' => 'Orologi\Guess\Atlas\Guess_Atlas_1.png', 'main' => '1']);
-        $Atlas_P1I2 = new Image(['path_image' => 'Orologi\Guess\Atlas\Guess_Atlas_2.png', 'main' => '2']);
-        $Atlas_P1I3 = new Image(['path_image' => 'Orologi\Guess\Atlas\Guess_Atlas_3.png', 'main' => '3']);
+        $Atlas_P1I1 = new Image(['path_image' => 'storage/Orologi/Guess/Atlas/Guess_Atlas_1.png', 'main' => '1']);
+        $Atlas_P1I2 = new Image(['path_image' => 'storage/Orologi/Guess/Atlas/Guess_Atlas_2.png', 'main' => '0']);
+        $Atlas_P1I3 = new Image(['path_image' => 'storage/Orologi/Guess/Atlas/Guess_Atlas_3.png', 'main' => '0']);
         $Atlas_P1S = new Specification(['case_size' => '45mm', 'material' => 'Inox', 'case_thickness' => '12.3mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Chiusura pieghevole con pulsanti', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
         $Atlas_P1S->dial_color = $argento->id;
         $Atlas_P1S->strap_color = $argento->id;
@@ -480,7 +480,6 @@ DatabaseSeeder extends Seeder
 
 
         /* Hugo Boss */
-
         $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => 'storage/Logo/Logo_Hugo_Boss.png']);
         $Hugo_Boss->save();
 
@@ -494,8 +493,8 @@ DatabaseSeeder extends Seeder
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo..','quantity_sold' => 1]);
         $Exist_P1I1 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_1.png', 'main' => '1']);
-        $Exist_P1I2 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_2.png', 'main' => '2']);
-        $Exist_P1I3 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_3.png', 'main' => '3']);
+        $Exist_P1I2 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_2.png', 'main' => '0']);
+        $Exist_P1I3 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_3.png', 'main' => '0']);
         $Exist_P1S = new Specification(['case_size' => '40.5mm', 'material' => 'Inox Colorato', 'case_thickness' => '6.2mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Exist_P1S->dial_color = $blu->id;
         $Exist_P1S->strap_color = $blu->id;
@@ -531,7 +530,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu.png', 'main' => '1']);
         $Lacoste_12_12_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_1.png', 'main' => '0']);
         $Lacoste_12_12_P1I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_2.png', 'main' => '0']);
-        $Lacoste_12_12_P1S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
+        $Lacoste_12_12_P1S = new Specification(['case_size' => '42mm', 'material' => 'Plastica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Lacoste_12_12_P1S->dial_color = $blu->id;
         $Lacoste_12_12_P1S->strap_color = $blu->id;
         $Lacoste_12_12_P1->collection_id = $Lacoste_12_12->id;
@@ -552,7 +551,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde.png', 'main' => '1']);
         $Lacoste_12_12_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_1.png', 'main' => '0']);
         $Lacoste_12_12_P2I3 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_2.png', 'main' => '0']);
-        $Lacoste_12_12_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plsstica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
+        $Lacoste_12_12_P2S = new Specification(['case_size' => '42mm', 'material' => 'Plastica / Resina', 'case_thickness' => '11.1mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Lacoste_12_12_P2S->dial_color = $verde->id;
         $Lacoste_12_12_P2S->strap_color = $verde->id;
         $Lacoste_12_12_P2->collection_id = $Lacoste_12_12->id;
@@ -565,7 +564,6 @@ DatabaseSeeder extends Seeder
         $Lacoste_12_12_P2->images()->save($Lacoste_12_12_P2I3);
         $Lacoste_12_12_P2->specification()->save($Lacoste_12_12_P2S);
         $Lacoste_12_12->products()->save($Lacoste_12_12_P2);
-
 
 
         $Moon_P1 = new Product(['cod' => 'LCM233', 'price' => '139', 'stock_availability' => '12',
@@ -833,9 +831,9 @@ DatabaseSeeder extends Seeder
         /*Prodotti Wellington */
         $Roselyn_P1 = new Product(['cod' => 'DWR001','price' => '139', 'stock_availability' => '8', 'genre' => 'F',
             'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro famoso cinturino NATO in versione rosso rubino, Classic Roselyn è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
-        $Roselyn_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
-        $Roselyn_P1I2 = new Image(['path_image' => '#', 'main' => '2']);
-        $Roselyn_P1I3 = new Image(['path_image' => '#', 'main' => '3']);
+        $Roselyn_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_1.png', 'main' => '1']);
+        $Roselyn_P1I2 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_2.png', 'main' => '0']);
+        $Roselyn_P1I3 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_3.png', 'main' => '0']);
         $Roselyn_P1S = new Specification(['case_size' => '10mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
         $Roselyn_P1S->dial_color = $rosso_rubino->id;
         $Roselyn_P1S->strap_color = $oro_rosa->id;
@@ -852,9 +850,9 @@ DatabaseSeeder extends Seeder
 
         $Bayswater_P1 = new Product(['cod' => 'DWB011','price' => '139', 'stock_availability' => '5', 'genre' => 'U',
             'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro storico cinturino NATO in versione blu notte, Classic Bayswater è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
-        $Bayswater_P1I1 = new Image(['path_image' => '#', 'main' => '1']);
-        $Bayswater_P1I2 = new Image(['path_image' => '#', 'main' => '2']);
-        $Bayswater_P1I3 = new Image(['path_image' => '#', 'main' => '3']);
+        $Bayswater_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Bayswater/Wellington_Bayswater_1.png', 'main' => '1']);
+        $Bayswater_P1I2 = new Image(['path_image' => 'storage/Orologi/Wellington/Bayswater/Wellington_Bayswater_2.png', 'main' => '0']);
+        $Bayswater_P1I3 = new Image(['path_image' => 'storage/Orologi/Wellington/Bayswater/Wellington_Bayswater_3.png', 'main' => '0']);
         $Bayswater_P1S = new Specification(['case_size' => '12mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox Con Doppia Placcatura(316L', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
         $Bayswater_P1S->dial_color = $argento->id;
         $Bayswater_P1S->strap_color = $blu->id;
@@ -870,9 +868,6 @@ DatabaseSeeder extends Seeder
         $Bayswater->products()->save($Bayswater_P1);
 
 
-        /* Wellington */
-        $Welli = new Brand(['name' => 'Welli','path_logo' => 'storage/Logo/Logo_Wellington.png']);
-        $Welli->save();
 
 
         /*---   BANNER   -----------------------------------------------------*/
