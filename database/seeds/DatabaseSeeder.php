@@ -149,7 +149,7 @@ DatabaseSeeder extends Seeder
         /*---   PRODOTTI   -----------------------------------------------------*/
 
         /* Breil */
-        $Breil = new Brand(['name' => 'Breil', 'path_logo' => '']);
+        $Breil = new Brand(['name' => 'Breil', 'path_logo' => 'storage/Logo/Logo_Breil.png']);
         $Breil->save();
 
         /* Collezioni Breil */
@@ -161,9 +161,8 @@ DatabaseSeeder extends Seeder
             'genre' => 'U','long_desc' => 'Questo orologio Breil ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 44 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Hardlex Crystal.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 2]);
-        $Six_3_Nine_P1I1 = new Image(['path_image' => '', 'main' => '1']);
-        $Six_3_Nine_P1I2 = new Image(['path_image' => '', 'main' => '2']);
-        $Six_3_Nine_P1I3 = new Image(['path_image' => '', 'main' => '3']);
+        $Six_3_Nine_P1I1 = new Image(['path_image' => 'storage/Orologi/Breil/Breil_Six_3_Nine_1.png', 'main' => '1']);
+        $Six_3_Nine_P1I2 = new Image(['path_image' => 'storage/Orologi/Breil/Breil_Six_3_Nine_2.png', 'main' => '2']);
         $Six_3_Nine_P1->collection_id = $Breil->id;
         $Six_3_Nine_P1->supplier_id = $fornitore1->id;
         $Six_3_Nine_P1->color_id = $nero->id;
@@ -174,7 +173,6 @@ DatabaseSeeder extends Seeder
         $Six_3_Nine_P1->categories()->save($classic);
         $Six_3_Nine_P1->images()->save($Six_3_Nine_P1I1);
         $Six_3_Nine_P1->images()->save($Six_3_Nine_P1I2);
-        $Six_3_Nine_P1->images()->save($Six_3_Nine_P1I3);
         $Six_3_Nine_P1->specification()->save($Six_3_Nine_P1S);
         $Six_3_Nine->products()->save($Six_3_Nine_P1);
 
@@ -298,6 +296,7 @@ DatabaseSeeder extends Seeder
         $SportP1->save();
         $SportP1->categories()->save($smart);
         $SportP1->categories()->save($water_resistence);
+        $SportP1->categories()->save($sport);
         $SportP1->images()->save($SportP1I1);
         $SportP1->images()->save($SportP1I2);
         $SportP1->images()->save($SportP1I3);
@@ -318,6 +317,7 @@ DatabaseSeeder extends Seeder
         $SportP2->save();
         $SportP2->categories()->save($smart);
         $SportP2->categories()->save($water_resistence);
+        $SportP2->categories()->save($sport);
         $SportP2->images()->save($SportP2I1);
         $SportP2->images()->save($SportP2I2);
         $SportP2->images()->save($SportP2I3);
@@ -349,6 +349,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP1->save();
         $Q_ExploristP1->categories()->save($smart);
         $Q_ExploristP1->categories()->save($water_resistence);
+        $Q_ExploristP1->categories()->save($sport);
         $Q_ExploristP1->images()->save($Q_ExploristP1I1);
         $Q_ExploristP1->images()->save($Q_ExploristP1I2);
         $Q_ExploristP1->images()->save($Q_ExploristP1I3);
@@ -378,6 +379,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP2->save();
         $Q_ExploristP2->categories()->save($smart);
         $Q_ExploristP2->categories()->save($water_resistence);
+        $Q_ExploristP2->categories()->save($sport);
         $Q_ExploristP2->images()->save($Q_ExploristP2I1);
         $Q_ExploristP2->specification()->save($Q_ExploristP2S);
         $Q_Explorist->products()->save($Q_ExploristP2);
@@ -405,6 +407,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP3->save();
         $Q_ExploristP3->categories()->save($smart);
         $Q_ExploristP3->categories()->save($water_resistence);
+        $Q_ExploristP3->categories()->save($sport);
         $Q_ExploristP3->images()->save($Q_ExploristP3I1);
         $Q_ExploristP3->specification()->save($Q_ExploristP3S);
         $Q_Explorist->products()->save($Q_ExploristP3);
@@ -434,6 +437,7 @@ DatabaseSeeder extends Seeder
         $Q_ExploristP4->save();
         $Q_ExploristP4->categories()->save($smart);
         $Q_ExploristP4->categories()->save($water_resistence);
+        $Q_ExploristP4->categories()->save($sport);
         $Q_ExploristP4->images()->save($Q_ExploristP4I1);
         $Q_ExploristP4->images()->save($Q_ExploristP4I2);
         $Q_ExploristP4->images()->save($Q_ExploristP4I3);
@@ -443,11 +447,11 @@ DatabaseSeeder extends Seeder
 
 
         /* Guess */
-        $Guess = new Brand(['name' => 'Brand', 'path_logo' => '']);
+        $Guess = new Brand(['name' => 'Brand', 'path_logo' => 'storage/Logo/Logo_Guess.png']);
         $Guess->save();
 
         /* Collezioni Guess */
-        $Atlas = new Collection(['name' => 'Atlas', 'path_logo' => '']);
+        $Atlas = new Collection(['name' => 'Atlas']);
         $Guess->collections()->save($Atlas);
 
         /* Prodotti Guess */
@@ -455,9 +459,9 @@ DatabaseSeeder extends Seeder
             'genre' => 'M','long_desc' => 'Questo orologio Guess ha una cassa in acciaio inox con un diametro di 45 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
-        $Atlas_P1I1 = new Image(['path_image' => '', 'main' => '1']);
-        $Atlas_P1I2 = new Image(['path_image' => '', 'main' => '2']);
-        $Atlas_P1I3 = new Image(['path_image' => '', 'main' => '3']);
+        $Atlas_P1I1 = new Image(['path_image' => 'Orologi\Guess\Atlas\Guess_Atlas_1.png', 'main' => '1']);
+        $Atlas_P1I2 = new Image(['path_image' => 'Orologi\Guess\Atlas\Guess_Atlas_2.png', 'main' => '2']);
+        $Atlas_P1I3 = new Image(['path_image' => 'Orologi\Guess\Atlas\Guess_Atlas_3.png', 'main' => '3']);
         $Atlas_P1S = new Specification(['case_size' => '45mm', 'material' => 'Inox', 'case_thickness' => '12.3mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Chiusura pieghevole con pulsanti', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
         $Atlas_P1S->dial_color = $argento->id;
         $Atlas_P1S->strap_color = $argento->id;
@@ -475,7 +479,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Hugo Boss */
-        $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => '']);
+        $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => 'storage/Logo/Logo_Hugo_Boss.png']);
         $Hugo_Boss->save();
 
         /* Collezioni Hugo Boss */
@@ -487,9 +491,9 @@ DatabaseSeeder extends Seeder
             'genre' => 'M','long_desc' => 'Questo orologio Hugo ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 41 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo..','quantity_sold' => 1]);
-        $Exist_P1I1 = new Image(['path_image' => '', 'main' => '1']);
-        $Exist_P1I2 = new Image(['path_image' => '', 'main' => '2']);
-        $Exist_P1I3 = new Image(['path_image' => '', 'main' => '3']);
+        $Exist_P1I1 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_1.png', 'main' => '1']);
+        $Exist_P1I2 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_2.png', 'main' => '2']);
+        $Exist_P1I3 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_3.png', 'main' => '3']);
         $Exist_P1S = new Specification(['case_size' => '40.5mm', 'material' => 'Inox Colorato', 'case_thickness' => '6.2mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Exist_P1S->dial_color = $blu->id;
         $Exist_P1S->strap_color = $blu->id;
@@ -718,6 +722,7 @@ DatabaseSeeder extends Seeder
         $Gent_P1->color_id = $nero->id;
         $Gent_P1->save();
         $Gent_P1->categories()->save($classic);
+        $Gent_P1->categories()->save($sport);
         $Gent_P1->images()->save($Gent_P1I1);
         $Gent_P1->specification()->save($Gent_P1S);
         $Gent->products()->save($Gent_P1);
@@ -735,6 +740,7 @@ DatabaseSeeder extends Seeder
         $Gent_P2->color_id = $nero->id;
         $Gent_P2->save();
         $Gent_P2->categories()->save($classic);
+        $Gent_P2->categories()->save($sport);
         $Gent_P2->images()->save($Gent_P2I1);
         $Gent_P2->specification()->save($Gent_P2S);
         $Gent->products()->save($Gent_P2);
