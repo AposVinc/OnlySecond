@@ -125,7 +125,11 @@
                                     <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
                                 @endif
                             @else
-                                <span id="cart-total">Prodotti (0)</span> <!-- Usare la sessione-->
+                                @if(Session::has('user.products'))
+                                    <span id="cart-total">Prodotti ({{count(Session::get('user.products'))}})</span>
+                                @else
+                                    <span id="cart-total">Prodotti (0)</span>
+                                @endif
                             @endauth
                         </button>
                     </div>
@@ -135,31 +139,101 @@
                                 <table class="table table-striped">
                                     <tbody>
                                     @auth()
-                                        @foreach(auth()->User()->products->sortBy('created_at') as $product)
-                                            @if($loop->iteration > 3)
-                                                @break
-                                            @else
-                                                <tr>
-                                                    <td class="text-center" style="width: 80px;">
-                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-left product-name">
-                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                            <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
-                                                            <span class="text-left price">{{$product->cod}}</span>
-                                                            <span class="text-left price pt_10">{{$product->price}}€</span>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
-                                                            <i class="fa fa-times-circle"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endif
-                                        @endforeach
+                                        @if(auth()->User()->products->isEmpty())
+                                            @foreach(auth()->User()->products->sortBy('created_at') as $product)
+                                                @if($loop->iteration > 3)
+                                                    @break
+                                                @else
+                                                    <tr>
+                                                        @if($product->offer()->exists())
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div class="col-md-12">
+                                                                    <div class="image product-imageblock">
+                                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
+                                                                </div>
+                                                            </td>
+                                                        @else
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div>
+                                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                        <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        @endif
+                                                        <td class="text-left product-name">
+                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                                <span class="text-left price">{{$product->cod}}</span>
+                                                                <span class="text-left price pt_10">{{$product->price}}€</span>
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
+                                                                <i class="fa fa-times-circle"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td class="text-center" style="border: none;">
+                                                    <span style="font-size: 18px;">Il tuo carrello è vuoto</span>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @else
+                                        @if(Session::has('user.products'))
+                                            @foreach(Session::get('user.products') as $product)
+                                                @if($loop->iteration > 3)
+                                                    @break
+                                                @else
+                                                    <tr>
+                                                        @if($product->offer()->exists())
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div class="image product-imageblock">
+                                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                        <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
+                                                            </td>
+                                                        @else
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div class="image product-imageblock">
+                                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                        <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        @endif
+                                                        <td class="text-left product-name">
+                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                                <span class="text-left price">{{$product->cod}}</span>
+                                                                <span class="text-left price pt_10">{{$product->price}}€</span>
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
+                                                                <i class="fa fa-times-circle"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td class="text-center" style="border: none;">
+                                                    <span style="font-size: 18px;">Il tuo carrello è vuoto</span>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endauth
                                     </tbody>
                                 </table>

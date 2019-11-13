@@ -13,6 +13,7 @@ use App\Supplier;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -447,15 +448,22 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function addToCart($cod){
-        if (\Auth::user()->productsCart()->where('cod', $cod)->first()){
-            return redirect()->back();
+    public function addToCart(Request $request, $cod){
+        if(\Auth::check()){
+            if (\Auth::user()->productsCart()->where('cod', $cod)->first()){
+                return redirect()->back();
+            }else{
+                $product = Product::where('cod', $cod)->first();
+                \Auth::user()->productsCart()->save($product);
+                return redirect()->back();
+            }
         }else{
             $product = Product::where('cod', $cod)->first();
-            \Auth::user()->productsCart()->save($product);
+            $request->session()->push('user.products', $product);
             return redirect()->back();
         }
     }
+
     public function removeFromCart($cod){
         $product = Product::where('cod', $cod)->first();
         auth()->user()->products()->detach($product);
