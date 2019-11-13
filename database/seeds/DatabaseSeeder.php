@@ -492,9 +492,11 @@ DatabaseSeeder extends Seeder
             'genre' => 'M','long_desc' => 'Questo orologio Hugo ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 41 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo..','quantity_sold' => 1]);
+
         $Exist_P1I1 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_1.png', 'main' => '1']);
         $Exist_P1I2 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_2.png', 'main' => '0']);
         $Exist_P1I3 = new Image(['path_image' => 'Orologi\Hugo Boss\Exist\Hugo_Boss_Exist_3.png', 'main' => '0']);
+
         $Exist_P1S = new Specification(['case_size' => '40.5mm', 'material' => 'Inox Colorato', 'case_thickness' => '6.2mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Exist_P1S->dial_color = $blu->id;
         $Exist_P1S->strap_color = $blu->id;
