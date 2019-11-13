@@ -443,11 +443,11 @@ DatabaseSeeder extends Seeder
 
 
         /* Guess */
-        $Guess = new Brand(['name' => 'Brand', 'path_logo' => '']);
+        $Guess = new Brand(['name' => 'Brand', 'path_logo' => '#']);
         $Guess->save();
 
         /* Collezioni Guess */
-        $Atlas = new Collection(['name' => 'Atlas', 'path_logo' => '']);
+        $Atlas = new Collection(['name' => 'Atlas']);
         $Guess->collections()->save($Atlas);
 
         /* Prodotti Guess */
@@ -475,7 +475,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Hugo Boss */
-        $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => '']);
+        $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => '#']);
         $Hugo_Boss->save();
 
         /* Collezioni Hugo Boss */
@@ -790,7 +790,7 @@ DatabaseSeeder extends Seeder
         $Seastar_P1->specification()->save($Seastar_P1S);
         $Seastar->products()->save($Seastar_P1);
 
-        $Seastar_P2 = new Product(['cod' => 'TS1205','price' => '595', 'stock_availability' => '15', 'genre' => 'M',
+        $Seastar_P2 = new Product(['cod' => 'TS1205','price' => '490', 'stock_availability' => '15', 'genre' => 'M',
             'long_desc' => 'Questo orologio Tissot ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 45 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
             L\'orologio è impermeabile a 30ATM. Questo significa che l\'orologio è adatto a immersioni profonde. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
@@ -860,6 +860,11 @@ DatabaseSeeder extends Seeder
         $Bayswater_P1->images()->save($Bayswater_P1I3);
         $Bayswater_P1->specification()->save($Bayswater_P1S);
         $Bayswater->products()->save($Bayswater_P1);
+
+
+        /* Wellington */
+        $Welli = new Brand(['name' => 'Welli','path_logo' => 'storage/Logo/Logo_Wellington.png']);
+        $Welli->save();
 
 
         /*---   BANNER   -----------------------------------------------------*/
@@ -1088,7 +1093,7 @@ DatabaseSeeder extends Seeder
         $user1->reviews()->save($review7);
         $review7->save();
 
-        $review8 = new Review(['vote'=>'', 'title'=>'', 'text'=>'']);
+        $review8 = new Review(['vote'=>'2', 'title'=>'#', 'text'=>'#']);
         $review8->product_id = $Lacoste_12_12->id;
         $user1->reviews()->save($review8);
         $review8->save();
