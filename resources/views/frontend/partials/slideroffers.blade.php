@@ -15,7 +15,7 @@
                             <div class="product-grid">
                                 <div class="item">
                                     <div class="product-thumb">
-                                        <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $offer->product->cod])}}"> <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="iPod Classic" title="iPod Classic" class="img-responsive"> </a>
+                                        <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $offer->product->cod])}}"> <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" title="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} -{{$offer->product->cod}}" class="img-responsive"> <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" title="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" class="img-responsive"> </a>
                                             <div class="button-group text-center">
                                                 <a href="{{route('Wishlist.AddProduct', ['cod' => $offer->product->cod])}}"  class="wishlist"><span>wishlist</span></a>
                                                 <a href="#" class="add-to-cart"><span>Add to cart</span></a>
@@ -36,7 +36,7 @@
                                                     @endif
                                                 @endfor
                                             </div>
-                                            <h6 data-name="product_name" class="product-name"><a href="#" title="Casual Shirt With Ruffle Hem">{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}}<br>{{$offer->product->cod}}, {{$offer->product->color->name}}</a></h6>
+                                            <h6 data-name="product_name" class="product-name"><a href="{{route('Product', ['cod' => $offer->product->cod])}}">{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}}<br>{{$offer->product->cod}}, {{$offer->product->color->name}}</a></h6>
                                             <span class="oldPrice"><span class="amount">{{$offer->product->price}}<span class="currencySymbol">€</span></span></span>
                                             <span class="price"><span class="amount">{{$offer->calculateDiscount()}}<span class="currencySymbol">€</span></span></span>
                                         </div>
