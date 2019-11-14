@@ -1,6 +1,5 @@
 SEEDER
 ---------
-almeno 5 offerte (slider offerte della settimana home)
 Vale-qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per slider (bestseller)
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini
 
@@ -105,7 +104,7 @@ Aggiunte descrizioni e specifiche nei seed
 se num el in Filtro >6 inserire "Mostra altro"
 Categorie prodotti seed
 loghi brand 195px
-
+almeno 5 offerte
 
 
 DA DISCUTERE

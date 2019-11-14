@@ -23,29 +23,29 @@
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
                     <div class="icon-right Shipping"></div>
-                    <h6>Free Shipping</h6>
-                    <p>Free dedlivery worldwide</p>
+                    <h6>Spedizione Gratuita</h6>
+                    <p>Spedizione Gratuita sopra i 250€</p>
                 </div>
             </div>
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
-                    <div class="icon-right Order"></div>
-                    <h6>Order Online</h6>
-                    <p>Hours : 8am - 11pm</p>
+                    <div class="icon-right Star"></div>
+                    <h6>Recensisci i Prodotti</h6>
+                    <p>Lascia la recensione dei prodotti acquistati</p>
                 </div>
             </div>
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
                     <div class="icon-right Save"></div>
-                    <h6>Shop And Save</h6>
-                    <p>For All Spices & Herbs</p>
+                    <h6>Registrati e Compra</h6>
+                    <p>Salva i tuoi prodotti preferiti</p>
                 </div>
             </div>
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
                     <div class="icon-right Safe"></div>
-                    <h6>Safe Shoping</h6>
-                    <p>Ensure genuine 100%</p>
+                    <h6>Shopping Sicuro</h6>
+                    <p>Acquista in totale sicurezza</p>
                 </div>
             </div>
         </div>
