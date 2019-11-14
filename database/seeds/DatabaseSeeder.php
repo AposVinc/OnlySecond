@@ -149,7 +149,7 @@ DatabaseSeeder extends Seeder
         /*---   PRODOTTI   -----------------------------------------------------*/
 
         /* Breil */
-        $Breil = new Brand(['name' => 'Breil', 'path_logo' => 'storage/Logo/Logo195/Breil.png']);
+        $Breil = new Brand(['name' => 'Breil', 'path_logo' => 'storage/Logo/Logo_Breil.png']);
         $Breil->save();
 
         /* Collezioni Breil */
@@ -179,7 +179,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Diesel */
-        $Diesel = new Brand(['name' => 'Diesel','path_logo' => 'storage/Logo/Logo195/Diesel.png']);
+        $Diesel = new Brand(['name' => 'Diesel','path_logo' => 'storage/Logo/Logo_Diesel.png']);
         $Diesel->save();
 
         /* Collezioni Diesel */
@@ -213,7 +213,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Fossil */
-        $Fossil = new Brand(['name' => 'Fossil','path_logo' => 'storage/Logo/Logo195/Fossil.png']);
+        $Fossil = new Brand(['name' => 'Fossil','path_logo' => 'storage/Logo/Logo_Fossil.png']);
         $Fossil->save();
 
         /* Collezioni Fossil */
@@ -448,7 +448,7 @@ DatabaseSeeder extends Seeder
 
         /* Guess */
 
-        $Guess = new Brand(['name' => 'Guess', 'path_logo' => 'storage/Logo/Logo195/Guess.png']);
+        $Guess = new Brand(['name' => 'Guess', 'path_logo' => 'storage/Logo/Logo_Guess.png']);
         $Guess->save();
 
         /* Collezioni Guess */
@@ -480,7 +480,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Hugo Boss */
-        $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => 'storage/Logo/Logo195/Boss.png']);
+        $Hugo_Boss = new Brand(['name' => 'Hugo Boss', 'path_logo' => 'storage/Logo/Logo_Hugo Boss.png']);
         $Hugo_Boss->save();
 
         /* Collezioni Hugo Boss */
@@ -492,9 +492,9 @@ DatabaseSeeder extends Seeder
             'genre' => 'M','long_desc' => 'Questo orologio Hugo ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 41 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo..','quantity_sold' => 1]);
-        $Exist_P1I1 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo_Boss_Exist_1.png', 'main' => '1']);
-        $Exist_P1I2 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo_Boss_Exist_2.png', 'main' => '0']);
-        $Exist_P1I3 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo_Boss_Exist_3.png', 'main' => '0']);
+        $Exist_P1I1 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo Boss_Exist_1.png', 'main' => '1']);
+        $Exist_P1I2 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo Boss_Exist_2.png', 'main' => '0']);
+        $Exist_P1I3 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo Boss_Exist_3.png', 'main' => '0']);
         $Exist_P1S = new Specification(['case_size' => '40.5mm', 'material' => 'Inox Colorato', 'case_thickness' => '6.2mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Exist_P1S->dial_color = $blu->id;
         $Exist_P1S->strap_color = $blu->id;
@@ -512,7 +512,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Lacoste */
-        $Lacoste = new Brand(['name' => 'Lacoste','path_logo' => 'storage/Logo/Logo195/Lacoste.png']);
+        $Lacoste = new Brand(['name' => 'Lacoste','path_logo' => 'storage/Logo/Logo_Lacoste.png']);
         $Lacoste->save();
 
         /* Collezioni Lacoste */
@@ -629,7 +629,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Swarovski */
-        $Swarovski = new Brand(['name' => 'Swarovski','path_logo' => 'storage/Logo/Logo195/Swarovski.png']);
+        $Swarovski = new Brand(['name' => 'Swarovski','path_logo' => 'storage/Logo/Logo_Swarovski.png']);
         $Swarovski->save();
 
         /* Collezioni Swarovski */
@@ -691,7 +691,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Tissot */
-        $Tissot = new Brand(['name' => 'Tissot','path_logo' => 'storage/Logo/Logo195/Tissot.png']);
+        $Tissot = new Brand(['name' => 'Tissot','path_logo' => 'storage/Logo/Logo_Tissot.png']);
         $Tissot->save();
 
         /* Collezioni Tissot */
@@ -815,7 +815,7 @@ DatabaseSeeder extends Seeder
 
 
         /* Wellington */
-        $Wellington = new Brand(['name' => 'Wellington','path_logo' => 'storage/Logo/Logo195/Wellington.png']);
+        $Wellington = new Brand(['name' => 'Wellington','path_logo' => 'storage/Logo/Logo_Wellington.png']);
         $Wellington->save();
 
         /* Collezioni Wellington */

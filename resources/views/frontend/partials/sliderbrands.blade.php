@@ -6,7 +6,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <div class="brand owl-carousel ptb_20">
+                <div class="brand owl-carousel pb_20">
                     @foreach($brands as $brand)
                         <div class="logoBrand item text-center">
                             <a href="#" class="helper">
