@@ -465,6 +465,9 @@
     var filterGroup = $('#filter-group-collections');
     if ($('#filter-group-collections .checkbox').length > 6) AddShowMore(filterGroup);
 
+    var filterGroup = $('#filter-group-categories');
+    if ($('#filter-group-categories .checkbox').length > 6) AddShowMore(filterGroup);
+
     var filterGroup = $('#filter-group-colors');
     if ($('#filter-group-colors .checkbox').length > 6) AddShowMore(filterGroup);
 
@@ -500,6 +503,49 @@
         divContent.removeClass("content showContent");
         AddShowMore(divContent);
     });
+
+</script>
+
+<script>
+$(document).ready(function(){
+    $('.navBrand').on('click', function () {
+        var brand = $(this).text();
+        var filterBrands = $('#filter-group-brands').children();
+        for(var i=0; i < filterBrands.length; i++){
+            var e = filterBrands[i].children[0];
+            if(e.innerText === brand){
+                e.children[0].toggleAttribute('checked');
+            }
+        }
+        parseProducts(brand);
+    })
+});
+
+    function filtering() {
+        var products = $('#listProducts').children();
+        var genreCheck = [];
+        var genre = $('#filter-group-genres').children();
+        for(var i=0; i < genre.length; i++){
+            var e = genre[i].children[0].children[0];
+            if(e.checked){
+                genreCheck.push(e.value);
+            }
+        }
+        for(var i=0; i < products.length; i++){
+            if(!genreCheck.includes(products[i].getAttribute('genre'))){
+                products[i].style = "display: none;";
+            }
+        }
+    }
+
+    function parseProducts(brand){
+        var products = $('#listProducts').children();
+        for(var i=0; i < products.length; i++){
+            if(!brand === products[i].getAttribute('brand')){
+                products[i].style = "display: none;";
+            }
+        }
+    }
 
 </script>
 

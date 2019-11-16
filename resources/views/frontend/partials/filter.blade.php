@@ -21,7 +21,7 @@
             <div class="list-group">
                 <div class="list-group-item mb_10">
                     <label>Genere</label>
-                    <div id="filter-group">
+                    <div id="filter-group-genres">
                         <div class="checkbox">
                             <label>
                                 <input value="M" type="checkbox"> Uomo </label>
@@ -30,7 +30,7 @@
                             <label>
                                 <input value="F" type="checkbox"> Donna </label>
                         </div>
-                        <div class="checkbox ">
+                        <div class="checkbox">
                             <label>
                                 <input value="U" type="checkbox"> Unisex </label>
                         </div>
@@ -59,6 +59,17 @@
                     </div>
                 </div>
                 <div class="list-group-item mb_10">
+                    <label>Categorie</label>
+                    <div id="filter-group-categories" class="filter-group">
+                        @foreach($categories as $category)
+                            <div class="checkbox">
+                                <label>
+                                    <input value="{{$category->id}}" type="checkbox"> {{$category->name}}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="list-group-item mb_10">
                     <label>Colore</label>
                     <div id="filter-group-colors" class="filter-group">
                         @foreach($colors as $color)
@@ -80,7 +91,7 @@
                         @endforeach
                     </div>
                 </div>
-                <button type="button" class="btn">Filtra</button>
+                <button onclick="filtering()" type="button" class="btn">Filtra</button>
             </div>
         </div>
     </div>

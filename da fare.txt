@@ -25,7 +25,7 @@ FE
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale - aggiungi al carrello
-
+--Vinc - categorie nel filtro
 payments
 slider brand - allineare verticalmente img loghi
 
