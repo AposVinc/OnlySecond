@@ -25,9 +25,8 @@ FE
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 --Vale - aggiungi al carrello
---Vinc - categorie nel filtro
+--Vin  - logica filtro
 payments
-slider brand - allineare verticalmente img loghi
 
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
@@ -105,6 +104,9 @@ se num el in Filtro >6 inserire "Mostra altro"
 Categorie prodotti seed
 loghi brand 195px
 almeno 5 offerte
+categorie nel filtro
+slider brand - allineare verticalmente img loghi
+
 
 
 DA DISCUTERE
