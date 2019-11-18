@@ -65,7 +65,7 @@
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.User.Add')}}">Aggiungi</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.User.Edit')}}">Modifica</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.User.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.User.Restore')}}">Ripristina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.User.Restore')}}">Riattiva</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -97,7 +97,7 @@
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Brand.Add')}}">Aggiungi</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Brand.Edit')}}">Modifica</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Brand.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Brand.Restore')}}">Ripristina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Brand.Restore')}}">Riattiva</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -107,7 +107,7 @@
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Collection.Add')}}">Aggiungi</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Collection.Edit')}}">Modifica</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Collection.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Collection.Restore')}}">Ripristina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Collection.Restore')}}">Riattiva</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -117,7 +117,7 @@
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Category.Add')}}">Aggiungi</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Category.Edit')}}">Modifica</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Category.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Category.Restore')}}">Ripristina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Category.Restore')}}">Riattiva</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -127,7 +127,7 @@
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Product.Add')}}">Aggiungi</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Product.Edit')}}">Modifica</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Product.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Ripristina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Product.Restore')}}">Riattiva</a></li>
                         </ul>
                     </li>
                 @endif
@@ -153,7 +153,7 @@
                                 <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Banner.Add')}}">Aggiungi</a></li>
                                 <li><i class="fa fa-eye"></i><a href="{{url::route('Admin.Banner.Edit')}}">Mostra in Home</a></li>
                                 <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Banner.Delete')}}">Elimina</a></li>
-                                <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Ripristina</a></li>
+                                <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Banner.Restore')}}">Riattiva</a></li>
                             </ul>
                         </li>
                     @endif
@@ -178,7 +178,7 @@
                             <li><i class="fa fa-plus-square-o"></i><a href="{{url::route('Admin.Supplier.Add')}}">Aggiungi</a></li>
                             <li><i class="fa fa-edit"></i><a href="{{url::route('Admin.Supplier.Edit')}}">Modifica</a></li>
                             <li><i class="fa fa-minus-square-o"></i><a href="{{url::route('Admin.Supplier.Delete')}}">Elimina</a></li>
-                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Supplier.Restore')}}">Ripristina</a></li>
+                            <li><i class="fa fa-refresh"></i><a href="{{url::route('Admin.Supplier.Restore')}}">Riattiva</a></li>
                         </ul>
                     </li>
                 @endif
@@ -432,7 +432,7 @@
                 success:function(result)
                 {
                     if(result.length === 0){
-                        Error("Non ci sono Banner da ripristinare per la collezione selezionata");
+                        Error("Non ci sono Banner da Riattivare per la collezione selezionata");
                     }else{
                         result.forEach(AddOptionBanner);
                     }
@@ -584,7 +584,7 @@
                 success:function(result)
                 {
                     if(result.length === 0){
-                        Error("Non ci sono Collezioni da ripristinare per il brand selezionato");
+                        Error("Non ci sono Collezioni da Riattivare per il brand selezionato");
                     }else{
                         result.forEach(AddOptionCollection);
                     }
@@ -619,7 +619,7 @@
                 data:{value:value, _token: "{{ csrf_token() }}"},
                 success:function(result) {
                     if(result.length === 0){
-                        Error("Non ci sono Prodotti da ripristinare per la collezione selezionata");
+                        Error("Non ci sono Prodotti da Riattivare per la collezione selezionata");
                     }else{
                         result.forEach(AddOptionProduct);
                     }
