@@ -459,19 +459,21 @@
 
 <script>
 
-    var filterGroup = $('#filter-group-brands');
+    var filterGroup;
+
+    filterGroup = $('#filter-group-brands');
     if ($('#filter-group-brands .checkbox').length > 6) AddShowMore(filterGroup);
 
-    var filterGroup = $('#filter-group-collections');
+    filterGroup = $('#filter-group-collections');
     if ($('#filter-group-collections .checkbox').length > 6) AddShowMore(filterGroup);
 
-    var filterGroup = $('#filter-group-categories');
+    filterGroup = $('#filter-group-categories');
     if ($('#filter-group-categories .checkbox').length > 6) AddShowMore(filterGroup);
 
-    var filterGroup = $('#filter-group-colors');
+    filterGroup = $('#filter-group-colors');
     if ($('#filter-group-colors .checkbox').length > 6) AddShowMore(filterGroup);
 
-    var filterGroup = $('#filter-group-materials');
+    filterGroup = $('#filter-group-materials');
     if ($('#filter-group-materials .checkbox').length > 6) AddShowMore(filterGroup);
 
     function AddShowMore(gen){
@@ -504,41 +506,23 @@
         AddShowMore(divContent);
     });
 
-</script>
 
-<script>
-$(document).ready(function(){
-    $('.navBrand').on('click', function () {
-        var brand = $(this).text();
-        var filterBrands = $('#filter-group-brands').children();
-        for(var i=0; i < filterBrands.length; i++){
-            var e = filterBrands[i].children[0];
-            if(e.innerText === brand){
-                e.children[0].toggleAttribute('checked');
+    /*
+    $(document).ready(function(){
+        $('.navBrand').on('click', function () {
+            var brand = $(this).text();
+            var filterBrands = $('#filter-group-brands').children();
+            for(var i=0; i < filterBrands.length; i++){
+                var e = filterBrands[i].children[0];
+                if(e.innerText === brand){
+                    e.children[0].toggleAttribute('checked');
+                }
             }
-        }
-        parseProducts(brand);
-    })
-});
+            parseProductsProva(brand);
+        })
+    });
 
-    function filtering() {
-        var products = $('#listProducts').children();
-        var genreCheck = [];
-        var genre = $('#filter-group-genres').children();
-        for(var i=0; i < genre.length; i++){
-            var e = genre[i].children[0].children[0];
-            if(e.checked){
-                genreCheck.push(e.value);
-            }
-        }
-        for(var i=0; i < products.length; i++){
-            if(!genreCheck.includes(products[i].getAttribute('genre'))){
-                products[i].style = "display: none;";
-            }
-        }
-    }
-
-    function parseProducts(brand){
+    function parseProductsProva(brand){
         var products = $('#listProducts').children();
         for(var i=0; i < products.length; i++){
             if(!brand === products[i].getAttribute('brand')){
@@ -546,6 +530,101 @@ $(document).ready(function(){
             }
         }
     }
+*/
+    function filtering() {
+        var e,i,arrCheckboxes,fGroup;
+        var products = $('#listProducts').children();
+
+        arrCheckboxes = [];
+        fGroup = $('#filter-group-genres').children();
+        for(i=0; i < fGroup.length; i++){
+            e = fGroup[i].children[0].children[0];
+            if(e.checked){
+                arrCheckboxes.push(e.value);
+            }
+        }
+        if(arrCheckboxes.length){
+            parseProducts(products, fGroup, arrCheckboxes, 'genre');
+        }
+
+        arrCheckboxes = [];
+        fGroup = $('#filter-group-brands').children();
+        for(i=0; i < fGroup.length; i++){
+            if(!fGroup[i].classList.contains('showMore')){
+                e = fGroup[i].children[0].children[0];
+                if(e.checked){
+                    arrCheckboxes.push(e.value);
+                }
+            }
+        }
+        if(arrCheckboxes.length) {
+            parseProducts(products, fGroup, arrCheckboxes, 'brand');
+        }
+
+        arrCheckboxes = [];
+        fGroup = $('#filter-group-collections').children();
+        for(i=0; i < fGroup.length - 1; i++){
+            if(!fGroup[i].classList.contains('showMore')){
+                e = fGroup[i].children[0].children[0];
+                if(e.checked){
+                    arrCheckboxes.push(e.value);
+                }
+            }
+        }
+        if(arrCheckboxes.length) {
+            parseProducts(products, fGroup, arrCheckboxes, 'collection');
+        }
+
+        fGroup = $('#filter-group-categories').children();
+        for(i=0; i < fGroup.length; i++){
+            if(!fGroup[i].classList.contains('showMore')){
+                e = fGroup[i].children[0].children[0];
+                if(e.checked){
+                    arrCheckboxes.push(e.value);
+                }
+            }
+        }
+        if(arrCheckboxes.length){
+            parseProducts(products, fGroup, arrCheckboxes, '');
+        }
+
+        fGroup = $('#filter-group-colors').children();
+        for(i=0; i < fGroup.length; i++){
+            if(!fGroup[i].classList.contains('showMore')){
+                e = fGroup[i].children[0].children[0];
+                if(e.checked){
+                    arrCheckboxes.push(e.value);
+                }
+            }
+        }
+        if(arrCheckboxes.length){
+            parseProducts(products, fGroup, arrCheckboxes, 'color');
+        }
+
+        fGroup = $('#filter-group-materials').children();
+        for(i=0; i < fGroup.length; i++){
+            if(!fGroup[i].classList.contains('showMore')){
+                e = fGroup[i].children[0].children[0];
+                if(e.checked){
+                    arrCheckboxes.push(e.value);
+                }
+            }
+        }
+        if(arrCheckboxes.length){
+            parseProducts(products, fGroup, arrCheckboxes, 'material');
+        }
+    }
+
+    function parseProducts(products, fGroup, arrCheckboxes, attr) {
+        for(var i=0; i < products.length; i++){
+            if(!arrCheckboxes.includes(products[i].getAttribute(attr))){
+                products[i].style = "display: none;";
+            } else {
+                products[i].removeAttribute('style');
+            }
+        }
+    }
+
 
 </script>
 
