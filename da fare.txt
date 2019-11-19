@@ -1,6 +1,5 @@
 SEEDER
 ---------
-Vale-qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per slider (bestseller)
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini
 
 
@@ -106,7 +105,7 @@ loghi brand 195px
 almeno 5 offerte
 categorie nel filtro
 slider brand - allineare verticalmente img loghi
-
+acquisti effettuati con stessi prodotti da due utenti diversi cosi da fare conteggio per slider (bestseller)
 
 
 DA DISCUTERE

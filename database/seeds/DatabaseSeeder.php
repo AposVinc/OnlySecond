@@ -161,8 +161,8 @@ DatabaseSeeder extends Seeder
             'genre' => 'U','long_desc' => 'Questo orologio Breil ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 44 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Hardlex Crystal.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 2]);
-        $Six_3_Nine_P1I1 = new Image(['path_image' => 'storage/Orologi/Breil/Six3Nine/Breil_Six_3_Nine_1.png', 'main' => '1']);
-        $Six_3_Nine_P1I2 = new Image(['path_image' => 'storage/Orologi/Breil/Six3Nine/Breil_Six_3_Nine_2.png', 'main' => '0']);
+        $Six_3_Nine_P1I1 = new Image(['path_image' => 'storage/Orologi/Breil/Six 3 Nine/Breil_Six_3_Nine_1.png', 'main' => '1']);
+        $Six_3_Nine_P1I2 = new Image(['path_image' => 'storage/Orologi/Breil/Six 3 Nine/Breil_Six_3_Nine_2.png', 'main' => '0']);
         $Six_3_Nine_P1->collection_id = $Breil->id;
         $Six_3_Nine_P1->supplier_id = $fornitore1->id;
         $Six_3_Nine_P1->color_id = $nero->id;
@@ -737,7 +737,7 @@ DatabaseSeeder extends Seeder
         $Gent_P2S->strap_color = $marrone->id;
         $Gent_P2->collection_id = $Gent->id;
         $Gent_P2->supplier_id = $fornitore2->id;
-        $Gent_P2->color_id = $nero->id;
+        $Gent_P2->color_id = $marrone->id;
         $Gent_P2->save();
         $Gent_P2->categories()->save($classic);
         $Gent_P2->categories()->save($sport);
@@ -996,8 +996,8 @@ DatabaseSeeder extends Seeder
         $order3->user_id = $user1->id;
         $order3->payment_id = $payment1->id;
         $order3->courier_id = $courier2->id;
-        $order3->mailing_address_id = $address3->id;
-        $order3->billing_address_id = $address1->id;
+        $order3->mailing_address_id = $address1->id;
+        $order3->billing_address_id = $address2->id;
         $order3->save();
 
         $order4 = new OrderHistory(['gift'=>'0']);
@@ -1016,6 +1016,14 @@ DatabaseSeeder extends Seeder
         $order5->billing_address_id = $address4->id;
         $order5->save();
 
+        $order6 = new OrderHistory(['gift'=>'1']);
+        $order6->user_id = $user2->id;
+        $order6->payment_id = $payment1->id;
+        $order6->courier_id = $courier1->id;
+        $order6->mailing_address_id = $address3->id;
+        $order6->billing_address_id = $address3->id;
+        $order6->save();
+
         /*---   PRODOTTI PER OGNI STORICO   -----------------------------------------------------*/
 
         $Moon_P1->orderHistories()->save($order1,['quantity' => 2, 'price' => '139']);
@@ -1033,7 +1041,12 @@ DatabaseSeeder extends Seeder
         //$Moon_P2->orderHistories()->save($order5,['quantity' => 1, 'price' => '139']);
         $CarlieP2->orderHistories()->save($order5,['quantity' => 1, 'price' => '109']);
         $CarlieP1->orderHistories()->save($order5,['quantity' => 2, 'price' => '109']);
-        $SportP1->orderHistories()->save($order5,['quantity' => 1, 'price' => '249']);
+        $CarlieP1->orderHistories()->save($order5,['quantity' => 1, 'price' => '109']);
+
+        $Moon_P1->orderHistories()->save($order6,['quantity' => 1, 'price' => '139']);
+        $SportP1->orderHistories()->save($order6,['quantity' => 1, 'price' => '249']);
+        $Q_ExploristP4->orderHistories()->save($order6,['quantity' => 2, 'price' => '239']);
+
 
         /*---   WISHLIST   -----------------------------------------------------*/
 
