@@ -32,8 +32,6 @@ Login - div error se non va a buon fine registrazione
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
 
-carello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo nel db quando ci si logga
-
 
 ok BE
 ----------
@@ -95,7 +93,7 @@ categorie nel filtro
 slider brand - allineare verticalmente img loghi
 acquisti effettuati con stessi prodotti da due utenti diversi cosi da fare conteggio per slider (bestseller)
 wishlist    - azione aggiungi al carrello
-
+carrello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo nel db quando ci si logga
 
 
 
