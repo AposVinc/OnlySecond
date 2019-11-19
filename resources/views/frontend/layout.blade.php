@@ -535,6 +535,10 @@
         var e,i,arrCheckboxes,fGroup;
         var products = $('#listProducts').children();
 
+        for(i=0; i < products.length; i++){
+            products[i].style.display = "block";
+        }
+
         arrCheckboxes = [];
         fGroup = $('#filter-group-genres').children();
         for(i=0; i < fGroup.length; i++){
@@ -620,10 +624,12 @@
 
     function parseProducts(products, arrCheckboxes, attr) {
         for(var i=0; i < products.length; i++){
-            if(arrCheckboxes.includes(products[i].getAttribute(attr))){
-                products[i].style.display = "block";
-            } else {
-                products[i].style.display = "none";
+            if(products[i].style.display !== "none"){
+                if(arrCheckboxes.includes(products[i].getAttribute(attr))){
+                    products[i].style.display = "block";
+                } else {
+                    products[i].style.display = "none";
+                }
             }
         }
     }
