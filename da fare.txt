@@ -10,7 +10,6 @@ NO ?cambiare la disposizione della homepage del frontend... tipo disposizione de
 tabelle/grafici BE (prima pg)
 subanner logica - differenziare in db con enum (main, sub, mini)
 
-
 ?fine   -rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
 ?fine   -disabilitare la prima riga di ogni select  "seleziona un elemento" con style="display:none;"
 
@@ -25,7 +24,7 @@ FE
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 -Sara-aggiungi al carrello
---Vin  - logica filtro
+--Vin  - logica filtro - manca categorie
 payments
 
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
@@ -126,6 +125,8 @@ wishlist grafica    - come risolvere il problema della virgola      risolto
 Togliere compare e quickview dali bottoni dei prod          SI
 aggiugere sconto superiore a 10 20 30 40 % in filtraggio    --- solo superiori a 10 25 50
 paginazione dello shop          da fare
+
+? riattiva --> "Attiva/Disattiva"
 
 
 
