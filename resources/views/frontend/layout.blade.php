@@ -125,79 +125,243 @@
                                     <span id="cart-total">Prodotti ({{auth()->User()->products->count()}})</span>
                                 @endif
                             @else
-                                <span id="cart-total">Prodotti (0)</span> <!-- Usare la sessione-->
+                                @if(Session::has('products'))
+                                    <span id="cart-total">Prodotti ({{count(Session::get('products'))}})</span>
+                                @else
+                                    <span id="cart-total">Prodotti (0)</span>
+                                @endif
                             @endauth
                         </button>
                     </div>
                     <div id="cart-dropdown" class="cart-menu collapse">
                         <ul>
-                            <li>
-                                <table class="table table-striped">
-                                    <tbody>
-                                    @auth()
-                                        @foreach(auth()->User()->products->sortBy('created_at') as $product)
-                                            @if($loop->iteration > 3)
-                                                @break
-                                            @else
+                            @auth()
+                                @if(auth()->User()->products->isEmpty())
+                                    <li>
+                                        <table class="table table-striped">
+                                            <tbody>
                                                 <tr>
-                                                    <td class="text-center" style="width: 80px;">
-                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->cod}}" title="{{$product->cod}}">
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-left product-name">
-                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                            <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
-                                                            <span class="text-left price">{{$product->cod}}</span>
-                                                            <span class="text-left price pt_10">{{$product->price}}€</span>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
-                                                            <i class="fa fa-times-circle"></i>
-                                                        </a>
+                                                    <td class="text-center tdCartEmpty">
+                                                        <span style="font-size: 18px;">
+                                                            Il tuo carrello è vuoto.
+                                                        </span>
+                                                        <br>
+                                                        <small>
+                                                            Per aggiungere articoli al tuo carrello, quando trovi un articolo che ti interessa, clicca su "Aggiungi al carrello"
+                                                            o sull'icona " <i class="fa fa-shopping-cart"></i> "
+                                                        </small>
                                                     </td>
                                                 </tr>
-                                            @endif
-                                        @endforeach
-                                    @endauth
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <table class="table">
-                                    <tbody>
-                                    @auth()
-                                        <tr>
-                                            <td class="text-left">
-                                                <strong>Sub-Totale</strong>
-                                                <span class="spanIva">(Iva inclusa)</span>
-                                            </td>
-                                            <td class="text-right">
-                                                {{auth()->User()->calculateTotalPrice()}} €
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            @if(auth()->User()->calculateTotalPrice()>250)
-                                                <td class="text-left">
-                                                    <strong>Costo di spedizione:</strong>
-                                                </td>
-                                                <td class="text-right">Gratuita</td>
-                                            @else
-                                                <td class="text-left">
-                                                    <strong> + Costo di spedizione</strong>
-                                                </td>
-                                            @endif
-                                        </tr>
-                                    @endauth
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <form action="{{route('CartPage')}}">
-                                    <input class="btn pull-right mt_10" value="Riepilogo" type="submit">
-                                </form>
-                            </li>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                @else
+                                    <li>
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                @foreach(auth()->User()->products->sortBy('created_at') as $product)
+                                                    @if($loop->iteration > 3)
+                                                        @break
+                                                    @else
+                                                        <tr>
+                                                            @if($product->offer()->exists())
+                                                                <td class="text-center" style="width: 80px;">
+                                                                    <div style="position:absolute; width: 80px;">
+                                                                        <div class="image product-imageblock">
+                                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="ribbon orangeOSCart"><span>{{$product->offer->rate}}%</span></div>
+                                                                    </div>
+                                                                </td>
+                                                            @else
+                                                                <td class="text-center" style="width: 80px;">
+                                                                    <div>
+                                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            @endif
+                                                            <td class="text-left product-name">
+                                                                <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                    <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                                    <span class="text-left price">{{$product->cod}}</span>
+                                                                    <span class="text-left price">qnt: {{$product->pivot->quantity}}</span>
+                                                                    @if($product->offer()->exists())
+                                                                        <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
+                                                                        <span class="price">{{$product->offer->calculateDiscount()}}€</span>
+                                                                    @else
+                                                                        <span class="text-left price">{{$product->price}}€</span>
+                                                                    @endif
+                                                                </a>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
+                                                                    <i class="fa fa-times-circle"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <strong>Sub-Totale</strong>
+                                                        <span class="spanIva">(Iva inclusa)</span>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        {{auth()->User()->calculateTotalPrice()}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    @if(auth()->User()->calculateTotalPrice()>250)
+                                                        <td class="text-left">
+                                                            <small>Costo di spedizione:</small>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <small>Gratuita</small>
+                                                        </td>
+                                                    @else
+                                                        <td colspan="2">
+                                                            <small> + Costo di spedizione</small>
+                                                        </td>
+                                                    @endif
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('Checkout')}}" class="btn mt_10" style="float: left;">
+                                            Checkout
+                                        </a>
+                                        <a href="{{route('CartPage')}}" class="btn pull-right mt_10" style="float: right;">
+                                            Riepilogo
+                                        </a>
+                                    </li>
+                                @endif
+                            @else
+                                @if(Session::has('products'))
+                                    <li>
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                @foreach(Session::get('products') as $product)
+                                                    @if($loop->iteration > 3)
+                                                        @break
+                                                    @else
+                                                        <tr>
+                                                            @if($product->offer()->exists())
+                                                                <td class="text-center" style="width: 80px;">
+                                                                    <div style="position:absolute; width: 80px;">
+                                                                        <div class="image product-imageblock">
+                                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="ribbon orangeOSCart"><span>{{$product->offer->rate}}%</span></div>
+                                                                    </div>
+                                                                </td>
+                                                            @else
+                                                                <td class="text-center" style="width: 80px;">
+                                                                    <div class="image product-imageblock">
+                                                                        <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                            <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            @endif
+                                                            <td class="text-left product-name">
+                                                                <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                    <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                                    <span class="text-left price">{{$product->cod}}</span>
+                                                                    @if(Session::has('quantity'))
+                                                                        <span class="text-left price">qnt: {{Session::get('quantity')[$loop->index] }}</span>
+                                                                    @endif
+                                                                    @if($product->offer()->exists())
+                                                                        <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
+                                                                        <span class="price">{{$product->offer->calculateDiscount()}}€</span>
+                                                                    @else
+                                                                        <span class="text-left price">{{$product->price}}€</span>
+                                                                    @endif
+                                                                </a>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
+                                                                    <i class="fa fa-times-circle"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table class="table">
+                                            <tbody>
+                                                @if(Session::has('TotalPrice'))
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <strong>Sub-Totale</strong>
+                                                            <span class="spanIva">(Iva inclusa)</span>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            {{Session::get('TotalPrice')}} €
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        @if(Session::get('TotalPrice')>250)
+                                                            <td class="text-left">
+                                                                <small>Costo di spedizione:</small>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <small>Gratuita</small>
+                                                            </td>
+                                                        @else
+                                                            <td colspan="2">
+                                                                <small> + Costo di spedizione</small>
+                                                            </td>
+                                                        @endif
+                                                    </tr>
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('Checkout')}}" class="btn mt_10" style="float: left;">
+                                            Checkout
+                                        </a>
+                                        <a href="{{route('CartPage')}}" class="btn pull-right mt_10" style="float: right;">
+                                            Riepilogo
+                                        </a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <span style="font-size: 18px;">
+                                                            Il tuo carrello è vuoto.
+                                                        </span>
+                                                        <br>
+                                                        <small>
+                                                            Per aggiungere articoli al tuo carrello, quando trovi un articolo che ti interessa, clicca su "Aggiungi al carrello"
+                                                            o sull'icona " <i class="fa fa-shopping-cart"></i> "
+                                                        </small>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                @endif
+                            @endauth
                         </ul>
                     </div>
                 </div>
