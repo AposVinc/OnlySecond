@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Cart;
 use App\Category;
 use App\CategoryProduct;
 use App\Color;
@@ -448,17 +449,17 @@ class ProductController extends Controller
     }
 
     public function addToCart(Request $request, $cod){
+        $product = Product::where('cod', $cod)->first();
         if(\Auth::check()){
             if (\Auth::user()->products()->where('cod', $cod)->first()){
-                // update quantity
+                $cart = Cart::where('product_id', $product->id)->where('user_id', \Auth::id())->first();
+                \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $cart->quantity +1]);
                 return redirect()->back();
             }else{
-                $product = Product::where('cod', $cod)->first();
                 \Auth::user()->products()->save($product, ['quantity' => 1]);
                 return redirect()->back();
             }
         }else{
-            $product = Product::where('cod', $cod)->first();
             $products = $request->session()->get('products');
             $quantity = $request->session()->get('quantity');
             if(empty($products)){

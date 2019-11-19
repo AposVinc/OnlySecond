@@ -189,7 +189,12 @@
                                                                     <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
                                                                     <span class="text-left price">{{$product->cod}}</span>
                                                                     <span class="text-left price">qnt: {{$product->pivot->quantity}}</span>
-                                                                    <span class="text-left price">{{$product->price}}€</span>
+                                                                    @if($product->offer()->exists())
+                                                                        <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
+                                                                        <span class="price">{{$product->offer->calculateDiscount()}}€</span>
+                                                                    @else
+                                                                        <span class="text-left price">{{$product->price}}€</span>
+                                                                    @endif
                                                                 </a>
                                                             </td>
                                                             <td class="text-center">
@@ -278,7 +283,12 @@
                                                                     @if(Session::has('quantity'))
                                                                         <span class="text-left price">qnt: {{Session::get('quantity')[$loop->index] }}</span>
                                                                     @endif
-                                                                    <span class="text-left price">{{$product->price}} €</span>
+                                                                    @if($product->offer()->exists())
+                                                                        <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
+                                                                        <span class="price">{{$product->offer->calculateDiscount()}}€</span>
+                                                                    @else
+                                                                        <span class="text-left price">{{$product->price}}€</span>
+                                                                    @endif
                                                                 </a>
                                                             </td>
                                                             <td class="text-center">
