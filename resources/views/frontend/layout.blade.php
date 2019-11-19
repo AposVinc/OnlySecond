@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/ribbons/ribbons.css') }}">
-    @if(strpos(route::currentRouteName(),'Shop')!== false)
+    @if(strpos(route::currentRouteName(),'Shop')!== false or strpos(route::currentRouteName(),'Discount')!== false )
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/frontend/jquery-ui.css') }}">
     @endif
 
