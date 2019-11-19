@@ -2,21 +2,10 @@ SEEDER
 ---------
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini
 
-
 BE
 ---------
-NO ?cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
 tabelle/grafici BE (prima pg)
 subanner logica - differenziare in db con enum (main, sub, mini)
-
-?fine   -rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
-?fine   -disabilitare la prima riga di ogni select  "seleziona un elemento" con style="display:none;"
-
-NO ?bottoni fine tabella (List)
-NO ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
-NO ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
-NO ?ordinamento campi checkbox nelle liste
-
 
 FE
 ---------
@@ -33,7 +22,7 @@ payments
 grafica Storico Ordini - da ultimare dopo checkout
 wishlist    - azione aggiungi al carrello
 
-?Mostra subbanner in home
+Mostra subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       - si puo evitare?
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
@@ -108,7 +97,36 @@ slider brand - allineare verticalmente img loghi
 acquisti effettuati con stessi prodotti da due utenti diversi cosi da fare conteggio per slider (bestseller)
 
 
-DA DISCUTERE
+
+
+
+
+------------------------------------------------
+DOMANDE DA FARE AL PROF
+1. appello      quando vogliamo
+2. grafica BE e Index BE        grafica ok, non ha dato una risposta
+
+
+-----------------------------------------------------------------
+
+NO:
+
+NO ?cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
+NO ?bottoni fine tabella (List)
+NO ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
+NO ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
+NO ?ordinamento campi checkbox nelle liste
+?fine   -rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
+?fine   -disabilitare la prima riga di ogni select  "seleziona un elemento" con style="display:none;"
+
+
+3. C'è bisogno di realizzare l'email generata per il cambio password        NO
+4. Eliminazione account utente          NO
+
+---------------------------------------
+
+DISCUSSO:
+
 dove mettere simbolo €, prima o dopo?           DOPO
 confrontare font del prezzo in shop con quello di wishlist e decidere se lasciare cosi o cambiare qualcosa? mettere ROBOTO in cronologia- da valutare dopo
 nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
@@ -126,17 +144,3 @@ aggiugere sconto superiore a 10 20 30 40 % in filtraggio    --- solo superiori a
 paginazione dello shop          da fare
 
 ? riattiva --> "Attiva/Disattiva"
-
-
-
-DOMANDE DA FARE AL PROF
-1. appello      quando vogliamo
-2. grafica BE e Index BE        grafica ok, non ha dato una risposta
-3. C'è bisogno di realizzare l'email generata per il cambio password        NO
-4. Eliminazione account utente          NO
-
-
-
-
-
-
