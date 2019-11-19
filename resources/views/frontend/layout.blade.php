@@ -544,7 +544,7 @@
             }
         }
         if(arrCheckboxes.length){
-            parseProducts(products, fGroup, arrCheckboxes, 'genre');
+            parseProducts(products, arrCheckboxes, 'genre');
         }
 
         arrCheckboxes = [];
@@ -558,12 +558,12 @@
             }
         }
         if(arrCheckboxes.length) {
-            parseProducts(products, fGroup, arrCheckboxes, 'brand');
+            parseProducts(products, arrCheckboxes, 'brand');
         }
 
         arrCheckboxes = [];
         fGroup = $('#filter-group-collections').children();
-        for(i=0; i < fGroup.length - 1; i++){
+        for(i=0; i < fGroup.length; i++){
             if(!fGroup[i].classList.contains('showMore')){
                 e = fGroup[i].children[0].children[0];
                 if(e.checked){
@@ -572,9 +572,10 @@
             }
         }
         if(arrCheckboxes.length) {
-            parseProducts(products, fGroup, arrCheckboxes, 'collection');
+            parseProducts(products, arrCheckboxes, 'collection');
         }
 
+        arrCheckboxes = [];
         fGroup = $('#filter-group-categories').children();
         for(i=0; i < fGroup.length; i++){
             if(!fGroup[i].classList.contains('showMore')){
@@ -585,9 +586,10 @@
             }
         }
         if(arrCheckboxes.length){
-            parseProducts(products, fGroup, arrCheckboxes, '');
+            parseProducts(products, arrCheckboxes, 'categories');
         }
 
+        arrCheckboxes = [];
         fGroup = $('#filter-group-colors').children();
         for(i=0; i < fGroup.length; i++){
             if(!fGroup[i].classList.contains('showMore')){
@@ -598,9 +600,10 @@
             }
         }
         if(arrCheckboxes.length){
-            parseProducts(products, fGroup, arrCheckboxes, 'color');
+            parseProducts(products, arrCheckboxes, 'color');
         }
 
+        arrCheckboxes = [];
         fGroup = $('#filter-group-materials').children();
         for(i=0; i < fGroup.length; i++){
             if(!fGroup[i].classList.contains('showMore')){
@@ -611,16 +614,16 @@
             }
         }
         if(arrCheckboxes.length){
-            parseProducts(products, fGroup, arrCheckboxes, 'material');
+            parseProducts(products, arrCheckboxes, 'material');
         }
     }
 
-    function parseProducts(products, fGroup, arrCheckboxes, attr) {
+    function parseProducts(products, arrCheckboxes, attr) {
         for(var i=0; i < products.length; i++){
-            if(!arrCheckboxes.includes(products[i].getAttribute(attr))){
-                products[i].style = "display: none;";
+            if(arrCheckboxes.includes(products[i].getAttribute(attr))){
+                products[i].style.display = "block";
             } else {
-                products[i].removeAttribute('style');
+                products[i].style.display = "none";
             }
         }
     }
