@@ -346,7 +346,7 @@
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-center">
+                                                    <td class="text-center tdCartEmpty">
                                                         <span style="font-size: 18px;">
                                                             Il tuo carrello è vuoto.
                                                         </span>
