@@ -20,7 +20,6 @@ payments
 -Sara-login checkout
 
 grafica Storico Ordini - da ultimare dopo checkout
-wishlist    - azione aggiungi al carrello
 
 Mostra subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       - si puo evitare?
@@ -95,6 +94,7 @@ almeno 5 offerte
 categorie nel filtro
 slider brand - allineare verticalmente img loghi
 acquisti effettuati con stessi prodotti da due utenti diversi cosi da fare conteggio per slider (bestseller)
+wishlist    - azione aggiungi al carrello
 
 
 

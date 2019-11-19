@@ -29,7 +29,7 @@
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
                                 <div class="button-right">
-                                    <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
+                                    <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
                                     <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina dalla wishlist"></a>
                                 </div>
                                 <div class="mt_10">
@@ -82,7 +82,7 @@
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
                                 <div class="button-right">
-                                    <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
+                                    <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
                                     <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina dalla wishlist"></a>
                                 </div>
                                 <div>
