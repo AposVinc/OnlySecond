@@ -1431,7 +1431,6 @@ label.checkme {
 #cart-dropdown {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #e5e5e5;
-    min-width: 285px;
     position: absolute;
     right: 0;
     top:90px;
@@ -1460,6 +1459,10 @@ label.checkme {
 }
 .spanIva{
     font-size: 10px;
+}
+.tdCartEmpty{
+    border: none !important;
+    width:202px;
 }
 
 /* ----------------------------------------------

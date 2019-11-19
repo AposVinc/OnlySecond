@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Product;
 
 class LoginController extends Controller
 {
@@ -50,6 +51,14 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            if($request->session()->has('products')){
+                $quantity = $request->session()->get('quantity');
+                foreach ($request->session()->get('products') as $k => $p){
+                    $product = Product::where('cod', $p->cod)->first();
+                    \Auth::user()->products()->save($product, ['quantity'=> $quantity[$k]]);
+                }
+            }
+            $request->session()->forget('products', 'quantity', 'TotalPrice');
             return redirect()->route('Home');
         } else {
             return back();

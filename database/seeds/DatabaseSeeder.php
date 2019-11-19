@@ -1105,10 +1105,10 @@ DatabaseSeeder extends Seeder
 
         /*---   CARTS   -----------------------------------------------------*/
 
-        $user1->products()->save($CarlieP1,['quantity'=>2]);
+        /*$user1->products()->save($CarlieP1,['quantity'=>2]);
         $user1->products()->save($SportP2,['quantity'=>1]);
         $user1->products()->save($Moon_P1,['quantity'=>1]);
-        $user1->products()->save($Lacoste_12_12_P1,['quantity'=>1]);
+        $user1->products()->save($Lacoste_12_12_P1,['quantity'=>1]);*/
 
         /*---   NEWSLETTERS   -----------------------------------------------------*/
 
