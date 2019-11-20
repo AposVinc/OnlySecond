@@ -103,15 +103,17 @@ class BannerController extends Controller
                 if(!(Storage::exists($path))){
                     Storage::makeDirectory($path);
                 }
+                $type=$request->type;
                 $counter=Banner::where('collection_id', $idCollection)->max('counter');
                 $counter +=1;
-                $filename= $nameBrand. '_'. $nameCollection. '_'. $counter. '.jpg';
+                $filename= $nameBrand. '_'. $nameCollection. '_'. $type. '_'. $counter. '.jpg';
                 $path_image = 'storage/Banner/'. $nameBrand. '/'. $nameCollection. '/'. $filename;
                 $path = $request->file('file')->storeAs($path, $filename);
                 if($path!=""){
                     $banner = new Banner();
                     $banner->path_image = $path_image;
                     $banner->collection_id = $idCollection;
+                    $banner->type = $type;
                     $banner->counter = $counter;
                     if($request->get('visible')){
                         $banner->visible = true;
@@ -137,12 +139,12 @@ class BannerController extends Controller
     public function update(Request $request)
     {
         $id=$request->get('banner');
-
         $banner = Banner::where('id', $id)->first();
+        $type = $banner->type;
         if($request->get('visible')){
             $banner->visible = true;
         }else{
-            $countVisible = Banner::withoutTrashed()->where('visible', true)->count('visible');
+            $countVisible = Banner::withoutTrashed()->where('type',$type)->where('visible', true)->count('visible');
             if($countVisible>=2) {
                 $banner->visible = false;
             }else{
@@ -159,9 +161,9 @@ class BannerController extends Controller
     public function destroy(Request $request)
     {
         $banner=$request->get('banner');
-
+        $type = Banner::where('id', $banner)->first()->type;
         if(Banner::where('id', $banner)->first()->visible){
-            $countVisible = Banner::withoutTrashed()->where('visible', true)->count('visible');
+            $countVisible = Banner::withoutTrashed()->where('type',$type)->where('visible', true)->count('visible');
             if($countVisible>=2){
                 $result = $this->removeBanner($banner);
                 if($result == "Success"){
@@ -170,7 +172,7 @@ class BannerController extends Controller
                     return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
                 }
             }else{
-                return redirect()->to('Admin/Banner/List')->with('error', 'Attenzione!! Rendere visibile un altro banner per effettuare questa Eliminazione');
+                return redirect()->to('Admin/Banner/List')->with('error', 'Attenzione!! Rendere visibile un altro banner (dello stesso tipo) per effettuare questa Eliminazione');
             }
         }else{
             $result = $this->removeBanner($banner);

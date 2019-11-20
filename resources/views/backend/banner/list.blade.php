@@ -28,6 +28,7 @@
                                         <th>Nome Brand</th>
                                         <th>Nome Collezione</th>
                                         <th>Immagine Banner</th>
+                                        <th>Tipo</th>
                                         <th>Visibile</th>
                                         <th>Creato il</th>
                                         <th>Ultima modifica</th>
@@ -40,6 +41,7 @@
                                         <td>{{$banner->collection->brand->name}}</td>
                                         <td>{{$banner->collection->name}}</td>
                                         <td><u><a href="{{route('Admin.Banner.ShowImage',['id' => $banner->id])}}">{{$banner->path_image}}</a></u></td>
+                                        <td>{{$banner->type}}</td>
                                         @if($banner->visible)
                                             <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td>
                                         @else

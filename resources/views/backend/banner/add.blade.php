@@ -48,6 +48,17 @@
                     <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file" required></div>
                 </div>
                 <div class="row form-group">
+                    <div class="col col-md-3"><label for="type" class=" form-control-label" >Tipo</label></div>
+                    <div class="col-12 col-md-9">
+                        <select name="type" id="type" class="form-control" required>
+                            <option value="">Seleziona la collezione </option>
+                            <option value="Main">Main Banner (1903x650)px</option>
+                            <option value="Sub">Sub Banner (1180x300)px</option>
+                            <option value="Mini">Mini Banner (295x320)px</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3"><label class=" form-control-label">Mostra nella<br>Home Page</label></div>
                     <div class="col col-md-9">
                         <label class="switch switch-3d switch-primary mr-3">

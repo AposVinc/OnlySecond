@@ -5,7 +5,8 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 tabelle/grafici BE (prima pg)
-subanner logica - differenziare in db con enum (main, sub, mini)
+--Vin  subanner logica - differenziare in db con enum (main, sub, mini)
+        -controllare il numero dei banner
 
 FE
 ---------

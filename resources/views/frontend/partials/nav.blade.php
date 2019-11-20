@@ -47,12 +47,13 @@
                         <ul>
                             <li id="myCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    <div class="item active"> <a href="#"><img src="{{asset('storage/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a></div>
-                                    <!-- End Item -->
-                                    <div class="item"> <a href="#"><img src="{{asset('storage/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a></div>
-                                    <!-- End Item -->
-                                    <div class="item"> <a href="#"><img src="{{asset('storage/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a></div>
-                                    <!-- End Item -->
+                                    @foreach ($mini_banners as $mini_banner)
+                                        @if ($loop->first)
+                                            <div class="item active"> <a href="#"><img src="{{asset($mini_banner->path_image)}}" class="img-responsive" alt="Mini Banner"></a></div>
+                                            @continue
+                                        @endif
+                                        <div class="item"> <a href="#"><img src="{{asset($mini_banner->path_image)}}" class="img-responsive" alt="Mini Banner"></a></div>
+                                    @endforeach
                                 </div>
                                 <!-- End Carousel Inner -->
                             </li>

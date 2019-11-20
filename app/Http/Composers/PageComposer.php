@@ -10,8 +10,9 @@ use Illuminate\View\View;
 class PageComposer
 {
     public  function composeIndex(View $view){
-        $banners = Banner::where('visible',1)->get();
-        $view->with('banners', $banners);
+        $banners = Banner::where('visible',1)->where('type','Main')->get();
+        $sub_banners = Banner::where('visible',1)->where('type','Sub')->get();
+        $view->with('banners', $banners)->with('sub_banners', $sub_banners);
     }
 
     public  function composeAbout(View $view){
