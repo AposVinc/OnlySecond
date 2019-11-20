@@ -12,7 +12,9 @@ FE
 ?cerca
 ?gestire messaggio di errore newsletter e contact us (con sessione?)
 -Sara-aggiungi al carrello
---Vin  - logica filtro - manca categorie
+- logica filtro - manca categorie
+si deve mettere un massimo alle quantità che si possono aggiungere (dipende dalla disponbilità in magazzino)
+se quantità in magazzino è 0 si elimina il prodotto(disattiva    )
 payments
 
 -Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
@@ -21,7 +23,6 @@ payments
 
 grafica Storico Ordini - da ultimare dopo checkout
 
-Mostra subbanner in home
 num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       - si puo evitare?
 add newsletters - error/success da restituire
 Contattaci - Gestione Error/Succes Form
@@ -94,6 +95,7 @@ slider brand - allineare verticalmente img loghi
 acquisti effettuati con stessi prodotti da due utenti diversi cosi da fare conteggio per slider (bestseller)
 wishlist    - azione aggiungi al carrello
 carrello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo nel db quando ci si logga
+Mostra subbanner in home
 
 
 
