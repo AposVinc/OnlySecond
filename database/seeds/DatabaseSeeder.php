@@ -875,10 +875,10 @@ DatabaseSeeder extends Seeder
         $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Diesel/Double Down P44/Diesel_Double Down P44_1.jpg','counter'=>1,'visible'=>0]);
         $Double_Down_P44->banners()->save($Double_Down_P44_B1);
 
-        $Sport_B1 = new Banner(['path_image'=>'storage/Banner/Fossil/Sport/Fossil_Sport_1.jpg','counter'=>1,'visible'=>1,'choice'=> 'main']);
+        $Sport_B1 = new Banner(['path_image'=>'storage/Banner/Fossil/Sport/Fossil_Sport_1.jpg','counter'=>1,'visible'=>1]);
         $Sport->banners()->save($Sport_B1);
 
-        $Lacoste_Moon_B1 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>1,'visible'=>1, 'choice'=> 'main']);
+        $Lacoste_Moon_B1 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>1,'visible'=>1]);
         $Lacoste_Moon->banners()->save($Lacoste_Moon_B1);
 
         $Lacoste_Moon_B2 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>2,'visible'=>0]);
@@ -887,7 +887,7 @@ DatabaseSeeder extends Seeder
         $Lacoste_Moon_B3 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>3,'visible'=>0]);
         $Lacoste_Moon->banners()->save($Lacoste_Moon_B3);
 
-        $Gent_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_1.jpg','counter'=>1,'visible'=>1, 'choice'=> 'main']);
+        $Gent_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_1.jpg','counter'=>1,'visible'=>1]);
         $Gent->banners()->save($Gent_B1);
 
         $Gent_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_2.jpg','counter'=>2,'visible'=>0]);
@@ -896,7 +896,7 @@ DatabaseSeeder extends Seeder
         $Gent_B3 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_3.jpg','counter'=>3,'visible'=>0]);
         $Gent->banners()->save($Gent_B3);
 
-        $Lovely_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_1.jpg','counter'=>1,'visible'=>1, 'choice'=> 'main']);
+        $Lovely_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_1.jpg','counter'=>1,'visible'=>1]);
         $Lovely->banners()->save($Lovely_B1);
 
         $Lovely_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_2.jpg','counter'=>2,'visible'=>0]);
@@ -1116,12 +1116,10 @@ DatabaseSeeder extends Seeder
 
         /*---   CARTS   -----------------------------------------------------*/
 
-        $user1->products()->save($CarlieP1,['quantity'=>2]);
+        /*$user1->products()->save($CarlieP1,['quantity'=>2]);
         $user1->products()->save($SportP2,['quantity'=>1]);
         $user1->products()->save($Moon_P1,['quantity'=>1]);
-        $user1->products()->save($Lacoste_12_12_P1,['quantity'=>1]);
-
-        $user2->products()->save($SportP2,['quantity'=>1]);
+        $user1->products()->save($Lacoste_12_12_P1,['quantity'=>1]);*/
 
         /*---   NEWSLETTERS   -----------------------------------------------------*/
 
