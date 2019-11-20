@@ -18,7 +18,7 @@
                                         <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $offer->product->cod])}}"> <img data-name="product_image" src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" title="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} -{{$offer->product->cod}}" class="img-responsive"> <img src="{{asset($offer->product->images->where('main',1)->first()->path_image)}}" alt="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" title="{{$offer->product->collection->brand->name}} {{$offer->product->collection->name}} - {{$offer->product->cod}}" class="img-responsive"> </a>
                                             <div class="button-group text-center">
                                                 <a href="{{route('Wishlist.AddProduct', ['cod' => $offer->product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                                <a href="#" class="add-to-cart"><span>Add to cart</span></a>
+                                                <a href="{{route('Cart.AddProduct', ['cod' => $offer->product->cod])}}" class="add-to-cart"><span>Add to cart</span></a>
                                             </div>
                                             <div class="ribbon orangeOS"><span>{{$offer->rate}}%</span></div>
                                         </div>
