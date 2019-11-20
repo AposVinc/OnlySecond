@@ -18,7 +18,7 @@
     <!-- =====  BANNER END  ===== -->
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <!-- =====  SUB BANNER  STRAT ===== -->
+        <!-- =====  SUB BANNER  START ===== -->
         <div class="row">
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">

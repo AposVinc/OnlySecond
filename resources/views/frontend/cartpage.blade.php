@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="mt_10 col-md-3">
                                     <div class="productPriceTotal pt_8 floatR">
-                                        <span>Prezzo x Qt:</span>
+                                        <span>Prezzo per Qt:</span>
                                         <label>{{auth()->User()->calculatepriceQuantityProduct($product)}} €</label>
                                     </div>
                                 </div>
