@@ -447,7 +447,6 @@ DatabaseSeeder extends Seeder
 
 
         /* Guess */
-
         $Guess = new Brand(['name' => 'Guess', 'path_logo' => 'storage/Logo/Logo_Guess.png']);
         $Guess->save();
 
@@ -848,7 +847,6 @@ DatabaseSeeder extends Seeder
         $Bayswater_P1->specification()->save($Bayswater_P1S);
         $Bayswater->products()->save($Bayswater_P1);
 
-
         $Roselyn_P1 = new Product(['cod' => 'DWR001','price' => '139', 'stock_availability' => '8', 'genre' => 'F',
             'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro famoso cinturino NATO in versione rosso rubino, Classic Roselyn è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
         $Roselyn_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_1.png', 'main' => '1']);
@@ -914,7 +912,11 @@ DatabaseSeeder extends Seeder
         $Roselyn_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>1]);
         $Roselyn->banners()->save($Roselyn_B1);
 
-        
+        $Roselyn_B2 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Mini_2.jpg','type'=>'Mini','counter'=>2,'visible'=>1]);
+        $Roselyn->banners()->save($Roselyn_B2);
+
+
+
         /*---   OFFERTE   -----------------------------------------------------*/
 
         $offer1 = new Offer(['rate'=>'10','end'=>date('Y-m-d', strtotime('tomorrow')). ' 23:59:59']);
@@ -936,6 +938,8 @@ DatabaseSeeder extends Seeder
         $offer5 = new Offer(['rate'=>'5','end'=>date('Y-m-d', strtotime('tomorrow')). ' 23:59:59']);
         $Moon_P1->offer()->save($offer5);
         $offer5->save();
+
+
 
         ////////////////////////////////////////////////////////////////////
         /*---   FE   -----------------------------------------------------*/
@@ -1048,9 +1052,9 @@ DatabaseSeeder extends Seeder
 
         $Double_Down_P44P1->orderHistories()->save($order4,['quantity' => 2, 'price' => '89']);
         $Q_ExploristP2->orderHistories()->save($order4,['quantity' => 1, 'price' => '239']);
-        //$Moon_P2->orderHistories()->save($order4,['quantity' => 2, 'price' => '139']);
+        $Moon_P2->orderHistories()->save($order4,['quantity' => 2, 'price' => '139']);
 
-        //$Moon_P2->orderHistories()->save($order5,['quantity' => 1, 'price' => '139']);
+        $Moon_P2->orderHistories()->save($order5,['quantity' => 1, 'price' => '139']);
         $CarlieP2->orderHistories()->save($order5,['quantity' => 1, 'price' => '109']);
         $CarlieP1->orderHistories()->save($order5,['quantity' => 2, 'price' => '109']);
         $CarlieP1->orderHistories()->save($order5,['quantity' => 1, 'price' => '109']);
@@ -1059,17 +1063,16 @@ DatabaseSeeder extends Seeder
         $SportP1->orderHistories()->save($order6,['quantity' => 1, 'price' => '249']);
         $Q_ExploristP4->orderHistories()->save($order6,['quantity' => 2, 'price' => '239']);
 
-
         /*---   WISHLIST   -----------------------------------------------------*/
 
         $user1->productsWishlist()->save($Q_ExploristP3);
-        //$user1->productsWishlist()->save($Moon_P3);
+        $user1->productsWishlist()->save($Moon_P3);
         $user1->productsWishlist()->save($SportP2);
         $user1->productsWishlist()->save($CarlieP1);
         $user1->productsWishlist()->save($Double_Down_P44P1);
 
         $user2->productsWishlist()->save($Q_ExploristP4);
-        //$user2->productsWishlist()->save($Moon_P2);
+        $user2->productsWishlist()->save($Moon_P2);
         $user2->productsWishlist()->save($SportP2);
 
         /*---   REVIEW   -----------------------------------------------------*/
