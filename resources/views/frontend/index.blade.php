@@ -52,24 +52,16 @@
 
         @include('frontend.partials.sliderproducts')
 
-<!--
         <div class="row">
             <div class="cms_banner">
                 <div class="col-xs-12 mt_60">
-                    <div id="subbanner4" class="sub-hover owl-carousel">
+                    <div id="subbanner4" class="main-banner owl-carousel"> <!--class=sub-hover-->
                         @foreach($sub_banners as $sub_banner)
                             <div class="item sub-img"><a href="#"><img src="{{asset($sub_banner->path_image)}}" alt="Sub Banner5" class="img-responsive"></a></div>
                         @endforeach
                     </div>
                 </div>
             </div>
-        </div>
--->
-        
-        <div class="main-banner owl-carousel">
-            @foreach($sub_banners as $banner)
-                <div class="item"><a href="#"><img src="{{asset($banner->path_image)}}" alt="Sub Banner" class="img-responsive" /></a></div>
-            @endforeach
         </div>
 
         <!-- =====  SUB BANNER END  ===== -->
