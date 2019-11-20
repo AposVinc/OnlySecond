@@ -9,29 +9,31 @@ tabelle/grafici BE (prima pg)
 
 FE
 ---------
-?cerca
-?gestire messaggio di errore newsletter e contact us (con sessione?)
--Sara   -aggiungi al carrello
--Vincenzo   -logica filtro - manca categorie
+cerca
 si deve mettere un massimo alle quantità che si possono aggiungere (dipende dalla disponbilità in magazzino)
-se quantità in magazzino è 0 si elimina il prodotto(disattiva    )
+se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 payments
-
--Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
--Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
--Sara-login checkout
-
 grafica Storico Ordini - da ultimare dopo checkout
-
-num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       - si puo evitare?
-add newsletters - error/success da restituire
-Contattaci - Gestione Error/Succes Form
+img prodotti come fossil carlie o Tissot Seastar - TS1204
 
 Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
       - email già usata div error con messaggio
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
+
+-Sara   -aggiungi al carrello
+-Sara	-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+-Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
+-Sara	-login checkout
+
+-Vincenzo   -logica filtro - manca categorie
+
+- si puo evitare?
+	? num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       
+	? add newsletters - error/success da restituire
+	? Contattaci - Gestione Error/Succes Form
+
 
 
 ok BE
