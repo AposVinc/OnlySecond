@@ -872,8 +872,8 @@ DatabaseSeeder extends Seeder
 
         /*---   BANNER   -----------------------------------------------------*/
 
-        $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Breil/Six 3 Nine/Breil_Six 3 Nine_Mini_1.jpg','type'=>'Mini','counter'=>1,'visible'=>1]);
-        $Double_Down_P44->banners()->save($Double_Down_P44_B1);
+        $Six_3_Nine_B1 = new Banner(['path_image'=>'storage/Banner/Breil/Six 3 Nine/Breil_Six 3 Nine_Mini_1.jpg','type'=>'Mini','counter'=>1,'visible'=>1]);
+        $Six_3_Nine->banners()->save($Six_3_Nine_B1);
 
         $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Diesel/Double Down P44/Diesel_Double Down P44_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>0]);
         $Double_Down_P44->banners()->save($Double_Down_P44_B1);
@@ -914,8 +914,7 @@ DatabaseSeeder extends Seeder
         $Roselyn_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>1]);
         $Roselyn->banners()->save($Roselyn_B1);
 
-
-
+        
         /*---   OFFERTE   -----------------------------------------------------*/
 
         $offer1 = new Offer(['rate'=>'10','end'=>date('Y-m-d', strtotime('tomorrow')). ' 23:59:59']);
