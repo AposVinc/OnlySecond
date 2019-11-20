@@ -44,19 +44,42 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="file" class=" form-control-label">Immagine Banner</label></div>
+                    <div class="col col-md-3"><label for="file" class=" form-control-label">Immagine</label></div>
                     <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file" required></div>
                 </div>
-                <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Mostra nella<br>Home Page</label></div>
-                    <div class="col col-md-9">
-                        <label class="switch switch-3d switch-primary mr-3">
-                            <input type="checkbox" id="visible" name="visible" class="switch-input" value="true">
-                            <span class="switch-label"></span>
-                            <span class="switch-handle"></span>
-                        </label>
+                <div class="row form-group mt_20">
+                    <div class="col-lg-5">
+                        <div class="col col-md-5"><label class=" form-control-label">Mostra nella<br>Home Page</label></div>
+                        <div class="col col-md-7">
+                            <label class="switch switch-3d switch-primary mr-3">
+                                <input type="checkbox" id="visible" name="visible" class="switch-input" value="true">
+                                <span class="switch-label"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="col col-md-5"><label class="form-control-label">Banner</label></div>
+                        <div class="col col-md-7">
+                            <label class="switch switch-3d switch-primary mr-3">
+                                <input type="checkbox" id="visible" name="visible" class="switch-input" value="true">
+                                <span class="switch-label"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col col-md-8"><label class="form-control-label">Sub Banner</label></div>
+                        <div class="col col-md-4">
+                            <label class="switch switch-3d switch-primary mr-3">
+                                <input type="checkbox" id="visible" name="visible" class="switch-input" value="true">
+                                <span class="switch-label"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
