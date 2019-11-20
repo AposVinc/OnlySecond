@@ -872,6 +872,9 @@ DatabaseSeeder extends Seeder
 
         /*---   BANNER   -----------------------------------------------------*/
 
+        $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Breil/Six 3 Nine/Breil_Six 3 Nine_Mini_1.jpg','type'=>'Mini','counter'=>1,'visible'=>1]);
+        $Double_Down_P44->banners()->save($Double_Down_P44_B1);
+
         $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Diesel/Double Down P44/Diesel_Double Down P44_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>0]);
         $Double_Down_P44->banners()->save($Double_Down_P44_B1);
 
