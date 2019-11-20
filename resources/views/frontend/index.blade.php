@@ -29,7 +29,7 @@
             </div>
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
-                    <div class="icon-right Star"></div>
+                    <div class="icon-right Order"></div>
                     <h6>Recensisci i Prodotti</h6>
                     <p>Lascia la recensione dei prodotti acquistati</p>
                 </div>
