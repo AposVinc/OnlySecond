@@ -30,7 +30,7 @@ Login - div error se non va a buon fine registrazione
 -Vincenzo   -logica filtro - manca categorie
 
 - si puo evitare?
-	? num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       
+	? num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
 	? add newsletters - error/success da restituire
 	? Contattaci - Gestione Error/Succes Form
 
@@ -148,4 +148,3 @@ Togliere compare e quickview dali bottoni dei prod          SI
 aggiugere sconto superiore a 10 20 30 40 % in filtraggio    --- solo superiori a 10 25 50
 paginazione dello shop          da fare
 
-? riattiva --> "Attiva/Disattiva"
