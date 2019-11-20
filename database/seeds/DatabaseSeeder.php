@@ -905,10 +905,10 @@ DatabaseSeeder extends Seeder
         $Lovely_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_Main_2.jpg','type'=>'Main','counter'=>2,'visible'=>0]);
         $Lovely->banners()->save($Lovely_B2);
 
-        $Bayswater_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Bayswater/Wellington_Bayswater_Sub_1.png','type'=>'Sub','counter'=>1,'visible'=>0]);
+        $Bayswater_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Bayswater/Wellington_Bayswater_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>0]);
         $Bayswater->banners()->save($Bayswater_B1);
 
-        $Roselyn_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Sub_1.png','type'=>'Sub','counter'=>1,'visible'=>1]);
+        $Roselyn_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>1]);
         $Roselyn->banners()->save($Roselyn_B1);
 
 
