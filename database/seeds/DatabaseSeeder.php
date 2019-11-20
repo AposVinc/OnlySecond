@@ -829,25 +829,6 @@ DatabaseSeeder extends Seeder
         $Wellington->collections()->save($Bayswater);
 
         /*Prodotti Wellington */
-        $Roselyn_P1 = new Product(['cod' => 'DWR001','price' => '139', 'stock_availability' => '8', 'genre' => 'F',
-            'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro famoso cinturino NATO in versione rosso rubino, Classic Roselyn è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
-        $Roselyn_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_1.png', 'main' => '1']);
-        $Roselyn_P1I2 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_2.png', 'main' => '0']);
-        $Roselyn_P1I3 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_3.png', 'main' => '0']);
-        $Roselyn_P1S = new Specification(['case_size' => '10mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
-        $Roselyn_P1S->dial_color = $rosso_rubino->id;
-        $Roselyn_P1S->strap_color = $oro_rosa->id;
-        $Roselyn_P1->collection_id = $Roselyn->id;
-        $Roselyn_P1->supplier_id = $fornitore2->id;
-        $Roselyn_P1->color_id = $rosso_rubino->id;
-        $Roselyn_P1->save();
-        $Roselyn_P1->categories()->save($classic);
-        $Roselyn_P1->images()->save($Roselyn_P1I1);
-        $Roselyn_P1->images()->save($Roselyn_P1I2);
-        $Roselyn_P1->images()->save($Roselyn_P1I3);
-        $Roselyn_P1->specification()->save($Roselyn_P1S);
-        $Roselyn->products()->save($Roselyn_P1);
-
         $Bayswater_P1 = new Product(['cod' => 'DWB011','price' => '139', 'stock_availability' => '5', 'genre' => 'U',
             'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro storico cinturino NATO in versione blu notte, Classic Bayswater è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
         $Bayswater_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Bayswater/Wellington_Bayswater_1.png', 'main' => '1']);
@@ -868,6 +849,25 @@ DatabaseSeeder extends Seeder
         $Bayswater->products()->save($Bayswater_P1);
 
 
+        $Roselyn_P1 = new Product(['cod' => 'DWR001','price' => '139', 'stock_availability' => '8', 'genre' => 'F',
+            'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro famoso cinturino NATO in versione rosso rubino, Classic Roselyn è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
+        $Roselyn_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_1.png', 'main' => '1']);
+        $Roselyn_P1I2 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_2.png', 'main' => '0']);
+        $Roselyn_P1I3 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_3.png', 'main' => '0']);
+        $Roselyn_P1S = new Specification(['case_size' => '10mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
+        $Roselyn_P1S->dial_color = $rosso_rubino->id;
+        $Roselyn_P1S->strap_color = $oro_rosa->id;
+        $Roselyn_P1->collection_id = $Roselyn->id;
+        $Roselyn_P1->supplier_id = $fornitore2->id;
+        $Roselyn_P1->color_id = $rosso_rubino->id;
+        $Roselyn_P1->save();
+        $Roselyn_P1->categories()->save($classic);
+        $Roselyn_P1->images()->save($Roselyn_P1I1);
+        $Roselyn_P1->images()->save($Roselyn_P1I2);
+        $Roselyn_P1->images()->save($Roselyn_P1I3);
+        $Roselyn_P1->specification()->save($Roselyn_P1S);
+        $Roselyn->products()->save($Roselyn_P1);
+
 
 
         /*---   BANNER   -----------------------------------------------------*/
@@ -887,6 +887,9 @@ DatabaseSeeder extends Seeder
         $Lacoste_Moon_B3 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_Main_3.jpg','type'=>'Main','counter'=>3,'visible'=>0]);
         $Lacoste_Moon->banners()->save($Lacoste_Moon_B3);
 
+        $Stella_B1 = new Banner(['path_image'=>'storage/Banner/Swarovski/Stella/Swarovski_Stella_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>1]);
+        $Stella->banners()->save($Stella_B1);
+
         $Gent_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>1]);
         $Gent->banners()->save($Gent_B1);
 
@@ -901,6 +904,13 @@ DatabaseSeeder extends Seeder
 
         $Lovely_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_Main_2.jpg','type'=>'Main','counter'=>2,'visible'=>0]);
         $Lovely->banners()->save($Lovely_B2);
+
+        $Bayswater_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Bayswater/Wellington_Bayswater_Sub_1.png','type'=>'Sub','counter'=>1,'visible'=>0]);
+        $Bayswater->banners()->save($Bayswater_B1);
+
+        $Roselyn_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Sub_1.png','type'=>'Sub','counter'=>1,'visible'=>1]);
+        $Roselyn->banners()->save($Roselyn_B1);
+
 
 
         /*---   OFFERTE   -----------------------------------------------------*/
