@@ -289,7 +289,7 @@ class BrandController extends Controller
                         $coutnVisibleCollection = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->where('collection_id',$collection->id)->count('visible');
                         $countVisible = $countVisibleTot - $coutnVisibleCollection;
                         if($countVisible<=1) {
-                            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione. Almeno un Banner di Tipo'. $type. 'deve rimanere Visiile dopo l\'eliminazione!!');
+                            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione. Almeno un Banner di Tipo '. $type. ' deve rimanere Visiile dopo l\'eliminazione!!');
                         }
                     }
                     if(! Banner::withTrashed()->where('collection_id',$collection->id)->update(['visible' => false])) {
