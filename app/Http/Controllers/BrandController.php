@@ -184,7 +184,7 @@ class BrandController extends Controller
         }
     }
 
-    public function destroy(Request $request)
+    public function destroy2(Request $request)
     {
         $brand = $request->get('brand');
 
@@ -239,6 +239,68 @@ class BrandController extends Controller
                 } else {
                     return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
                 }
+            }
+        }else{
+            if (Brand::withTrashed()->find($brand)->delete()) {
+                return redirect()->to('Admin/Brand/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+    }
+
+    public function destroy(Request $request)
+    {
+        $brand = $request->get('brand');
+
+        if(Collection::withoutTrashed()->where('brand_id',$brand)->exists()){
+            $collections = Collection::withoutTrashed()->where('brand_id',$brand)->get();
+            foreach ($collections as $collection){
+
+                if(Product::withoutTrashed()->where('collection_id', $collection->id)->exists()){
+                    $products = Product::withoutTrashed()->where('collection_id', $collection->id)->get();
+                    foreach ($products as $product){
+                        if($product->offer) {
+                            if (!($product->offer->delete())) {
+                                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                            }
+                        }
+                    }
+                }
+
+                if(Banner::withoutTrashed()->where('collection_id', $collection->id)->exists()){
+                    //esiste banner per quella collection
+                    if(Banner::withoutTrashed()->where('collection_id', $collection->id)->where('visible', true)->count('visible')) {
+                        //esiste banner per quella collection VISIBILE
+                        $types = [];
+                        if(Banner::withoutTrashed()->where('type', 'Main')->where('visible', true)->count('visible') == 1){
+                            //qui solo se è attivo un SOLO banner per tipo - devo controllare se quello che sto eliminando è lo stesso che è attivo
+                            array_push($types,'Main');
+                        }
+                        if(Banner::withoutTrashed()->where('type', 'Sub')->where('visible', true)->count('visible') == 1){
+                            array_push($types,'Sub');
+                        }
+                        if(Banner::withoutTrashed()->where('type', 'Mini')->where('visible', true)->count('visible') == 1){
+                            array_push($types,'Mini');
+                        }
+                    }
+                    foreach ($types as $type){    //analizzo solo le situazioni di rischio
+                        $countVisibleTot = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->count('visible');
+                        $coutnVisibleCollection = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->where('collection_id',$collection->id)->count('visible');
+                        $countVisible = $countVisibleTot - $coutnVisibleCollection;
+                        if($countVisible<=1) {
+                            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione. Almeno un Banner di Tipo'. $type. 'deve rimanere Visiile dopo l\'eliminazione!!');
+                        }
+                    }
+                    if(! Banner::withTrashed()->where('collection_id',$collection->id)->update(['visible' => false])) {
+                        return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                    }
+                }
+            }
+            if (Brand::withTrashed()->find($brand)->delete()) {
+                return redirect()->to('Admin/Brand/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
             }
         }else{
             if (Brand::withTrashed()->find($brand)->delete()) {
