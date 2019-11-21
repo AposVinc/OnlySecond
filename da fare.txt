@@ -9,11 +9,11 @@ tabelle/grafici BE (prima pg)
 
 FE
 ---------
-cerca
+? cerca - potenzialmente no
 si deve mettere un massimo alle quantità che si possono aggiungere (dipende dalla disponbilità in magazzino)
 se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 payments
-grafica Storico Ordini - da ultimare dopo checkout
+grafica Storico Ordini - da ultimare dopo riepilogo
 img prodotti come fossil carlie o Tissot Seastar - TS1204
 
 Login - div error se non va a buon fine registrazione
@@ -27,12 +27,13 @@ Login - div error se non va a buon fine registrazione
 -Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
 -Sara	-login checkout
 
--Vincenzo   -logica filtro - manca categorie
+-Vincenzo   - logica filtro - manca categorie, prezzo e sconto
+            - bottone che fa ricaricare la pagina -js reload windows.location.reload
+            - click da banner o nav che applica gia il filtro
 
-- si puo evitare?
-	? num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
-	? add newsletters - error/success da restituire
-	? Contattaci - Gestione Error/Succes Form
+? rendere automatico lo scorrimento ai banner
+? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
+
 
 
 
@@ -123,6 +124,9 @@ NO ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add
 NO ?ordinamento campi checkbox nelle liste
 ?fine   -rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
 ?fine   -disabilitare la prima riga di ogni select  "seleziona un elemento" con style="display:none;"
+	NO  num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
+	NO add newsletters - error/success da restituire
+	NO Contattaci - Gestione Error/Succes Form
 
 
 3. C'è bisogno di realizzare l'email generata per il cambio password        NO
