@@ -5,8 +5,6 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 tabelle/grafici BE (prima pg)
---Vin  subanner logica - differenziare in db con enum (main, sub, mini)
-        -controllare il numero dei banner
 
 FE
 ---------
@@ -51,6 +49,9 @@ Elimina img prodotto
 EditDate() (js)
 permettere al admin di modificare Contattaci e chi siamo
 cambiare ripristina con riattiva
+controllo eliminazione banner da brand e collection
+
+
 
 ok FE
 ----------
