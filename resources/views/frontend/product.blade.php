@@ -310,7 +310,7 @@
                                                     <div class="buttons clearfix">
                                                         <div class="pull-right pr_10 mt_10">
                                                             <button type="submit" class="btn btn-primary btn-sm">
-                                                            <a href="{{route('Review.Add', ['id' => $product->review->id])}}" class="review" title="Aggiungi alle recensioni">Invia</a>
+                                                            <a href="{{route('Review.Add')}}" class="review" title="Aggiungi alle recensioni">Invia</a>
                                                             </button>
                                                         </div>
                                                     </div>
