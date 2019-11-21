@@ -94,6 +94,10 @@
                                         <span>Quantità Acquistata:</span>
                                         <input class="cart-qty" name="product_quantity" min="1" value="{{$product->pivot->quantity}}" type="number">
                                     </div>
+                                    <div class="ml_100">
+                                        <a href="#"> <i class="fa fa-check ml_80 mt_20"></i></a>
+                                        <a href="{{route('Cart.RemoveProduct', ['cod' => $product->cod])}}"><i class="fa fa-trash ml_20 mt_20"></i></a>
+                                    </div>
                                 </div>
                                 <div class="mt_10 col-md-3">
                                     <div class="productPriceTotal pt_8 floatR">
@@ -102,7 +106,8 @@
                                     </div>
                                 </div>
                             </div>
-                    @endforeach
+                            </div>
+                        @endforeach
                 @endauth
                 </form>
                 <div class="col-sm-12 pl_0 pr_0">
