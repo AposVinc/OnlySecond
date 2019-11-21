@@ -164,7 +164,7 @@ class CollectionController extends Controller
 
         if(Banner::withoutTrashed()->where('collection_id', $idcollection)->exists()){
             //esiste banner per quella collection
-            if(Banner::withoutTrashed()->where('collection_id', $idcollection)->count('visible')){
+            if(Banner::withoutTrashed()->where('collection_id', $idcollection)->where('visible', true)->count('visible')){
                 //esiste banner per quella collection VISIBILE
                 $types = [];
                 if(Banner::withoutTrashed()->where('type', 'Main')->where('visible', true)->count('visible') == 1){
@@ -182,7 +182,7 @@ class CollectionController extends Controller
                     $countVisibleTot = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->count('visible');
                     $coutnVisibleCollection = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->where('collection_id',$idcollection)->count('visible');
                     $countVisible = $countVisibleTot - $coutnVisibleCollection;
-                    if($countVisible<1) {
+                    if($countVisible<=1) {
                         return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Almeno un Banner di Tipo'. $type. 'deve rimanere Visiile dopo l\'eliminazione!!');
                     }
                 }
