@@ -403,16 +403,16 @@
                 <h6 class="footer-title ptb_20">Informazioni</h6>
                 <ul>
                     <li><a href="{{route('About')}}">Chi siamo</a></li>
-                    <li><a href="#">Condizioni di vendita</a></li>
-                    <li><a href="#">Informativa Privacy</a></li>
-                    <li><a href="#">Termini e Condizioni</a></li>
+                    <li><a href="{{route('About')}}">Condizioni di vendita</a></li>
+                    <li><a href="{{route('About')}}">Informativa Privacy</a></li>
+                    <li><a href="{{route('About')}}">Termini e Condizioni</a></li>
                 </ul>
             </div>
             <div class="col-md-3 footer-block">
                 <h6 class="footer-title ptb_20">Servizi</h6>
                 <ul>
-                    <li><a href="{{route('Wishlist')}}">WishList</a></li>
                     <li><a href="{{route('Profile')}}">Il Mio Profilo</a></li>
+                    <li><a href="{{route('Wishlist')}}">WishList</a></li>
                     <li><a href="{{route('Chronology')}}">Cronologia Ordini</a></li>
                     <li><a href="{{route('Review')}}">Recensioni</a></li>
                 </ul>
@@ -420,18 +420,20 @@
             <div class="col-md-3 footer-block">
                 <h6 class="footer-title ptb_20">Extra</h6>
                 <ul>
-                    <li><a href="#">Brands</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">In Sconto</a></li>
+                    <li><a href="{{route('Shop')}}">Shop Online</a></li>
+                    <li><a href="{{route('Shop')}}">Brands</a></li>
+                    <li><a href="{{route('Discount')}}">In Sconto</a></li>
+                    <li><a href="{{route('About')}}">FAQs</a></li>
 
                 </ul>
             </div>
             <div class="col-md-3 footer-block">
                 <h6 class="footer-title ptb_20">Contattaci</h6>
                 <ul>
-                    <li>Shop Online</li>
                     <li>Via Vetoio, 67100 L'Aquila AQ </li>
-                    <li><a href="http://www.lionode.com/">www.onlysecondshop.it</a></li>
+                    <li><i class="fa fa-phone"> 0861254897</i></li>
+                    <li><i class="fa fa-envelope">onlysecondinfo@gmail.com</i></li>
+                    <li><a href="Home">www.onlysecondshop.it</a></li>
                 </ul>
             </div>
         </div>
