@@ -168,9 +168,7 @@ class CollectionController extends Controller
                 //esiste banner per quella collection VISIBILE
                 $types = [];
                 if(Banner::withoutTrashed()->where('type', 'Main')->where('visible', true)->count('visible') == 1){
-                    //se mettessi ==1 si entrerebbe qui solo se è attivo un SOLO banner per tipo e quel banner attivo è proprio della collection che sto per eliminare
-                    // - situazione di rischio-
-                    // percio potrei evitare di fare il foreach sotto e restituire da subito l'errore
+                    //qui solo se è attivo un SOLO banner per tipo - devo controllare se quello che sto eliminando è lo stesso che è attivo (caso, elimina Stella e poi bayswater)
                     array_push($types,'Main');
                 }
                 if(Banner::withoutTrashed()->where('type', 'Sub')->where('visible', true)->count('visible') == 1){
