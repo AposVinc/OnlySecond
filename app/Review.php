@@ -21,6 +21,7 @@ class Review extends Model
     protected $softCascade = [];
 
     protected $fillable =[
+        'id'
 
     ];
 

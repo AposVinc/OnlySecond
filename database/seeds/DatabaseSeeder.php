@@ -283,7 +283,9 @@ DatabaseSeeder extends Seeder
         $Carlie->products()->save($CarlieP3);
 
         $SportP1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
-            'genre' => 'U','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.','quantity_sold' => 1]);
+            'genre' => 'U','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.
+            Google Fit™ ti offre consigli di salute più intelligenti con gli obiettivi di attività basati sulle raccomandazioni dell’American Heart Association e dell’Organizzazione mondiale della sanità: 
+            i Minuti di movimento e i Punti cardio.','quantity_sold' => 1]);
         $SportP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero.png', 'main' => '1']);
         $SportP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_1.png', 'main' => '0']);
         $SportP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_2.png', 'main' => '0']);
@@ -304,7 +306,9 @@ DatabaseSeeder extends Seeder
         $Sport->products()->save($SportP1);
 
         $SportP2 = new Product(['cod' => 'FT6028','price' => '249', 'stock_availability' => '2',
-            'genre' => 'F','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.']);
+            'genre' => 'F','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile. 
+            Progettata per accompagnarti durante la tua giornata, la batteria dalla straordinaria efficienza ti offre oltre 24 ore di utilizzo del touchscreen*. 
+            Inoltre, la modalità automatica a basso consumo può allungare l’autonomia della batteria di altri due giorni.']);
         $SportP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa.png', 'main' => '1']);
         $SportP2I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_1.png', 'main' => '0']);
         $SportP2I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_2.png', 'main' => '0']);
@@ -1078,7 +1082,7 @@ DatabaseSeeder extends Seeder
         /*---   REVIEW   -----------------------------------------------------*/
 
         $review1 = new Review(['vote'=>'5', 'title'=>'Grande Acquisto', 'text'=>'Bell\'orologio, arrivato a casa in tempi brevissimi']);
-        $review1->product_id = $CarlieP1->id;
+        $review1->product_id = $CarlieP2->id;
         $user1->reviews()->save($review1);
         $review1->save();
 
@@ -1124,10 +1128,43 @@ DatabaseSeeder extends Seeder
         $user1->reviews()->save($review7);
         $review7->save();
 
-        $review8 = new Review(['vote'=>'2', 'title'=>'#', 'text'=>'#']);
+        $review8 = new Review(['vote'=>'3', 'title'=>'Come in foto', 'text'=>'Esattamente come in foto. Forse mi aspettavo una confezione un po\' più importante.']);
         $review8->product_id = $Lacoste_12_12->id;
         $user1->reviews()->save($review8);
         $review8->save();
+
+        $review9 = new Review(['vote'=>'1', 'title'=>'Niente di particolare', 'text'=>'Mi aspettavo molto di più, foto illusoria']);
+        $review9->product_id = $Six_3_Nine_P1->id;
+        $user2->reviews()->save($review9);
+        $review9->save();
+
+        $review10 = new Review(['vote'=>'2', 'title'=>'Scomodo', 'text'=>'Non è comodo, i brillantini si attaccano a tutto, non ne vale']);
+        $review10->product_id = $CarlieP3->id;
+        $user1->reviews()->save($review10);
+        $review10->save();
+
+        $review11 = new Review(['vote'=>'4', 'title'=>'Buono, per Android', 'text'=>'Estremamente leggero, colorato, tecnico e prezzo relativamente basso MA ci sono alcuni limiti di compatibilità con iOS']);
+        $review11->product_id = $SportP1->id;
+        $user2->reviews()->save($review11);
+        $review11->save();
+
+        $review12 = new Review(['vote'=>'5', 'title'=>'Consigliato!!!', 'text'=>'Se esiste un modello di smartwatch che, in assoluto, 
+        può essere usato come uno analogico allora è sicuramente questo Fossil Q Explorist, che al polso sta molto bene,
+        anche se pesa un po’ e non ha paura di farsi notare sia per la forma sia per i quadranti che in alcuni casi imitano molto bene i display analogici più classici.']);
+        $review12->product_id = $Q_ExploristP2->id;
+        $user1->reviews()->save($review12);
+        $review12->save();
+
+        $review13 = new Review(['vote'=>'4', 'title'=>'Buono', 'text'=>'Ottima presenza al polso, l’anima casual appare evidente ma non è adatto allo sport e la batteria potrebbe essere più generosa']);
+        $review13->product_id = $Q_ExploristP3->id;
+        $user2->reviews()->save($review13);
+        $review13->save();
+
+        $review14 = new Review(['vote'=>'2', 'title'=>'Smartwatch rivisitato', 'text'=>'Cercavo uno smartwatch più completo invece la descrizione mi ha illusa, non adatto allo sport']);
+        $review14->product_id = $Q_ExploristP4->id;
+        $user1->reviews()->save($review14);
+        $review14->save();
+
 
         /*---   CARTS   -----------------------------------------------------*/
 
