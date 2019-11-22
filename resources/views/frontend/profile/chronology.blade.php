@@ -35,7 +35,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 mb_20">
-                            <div id="order-attr" class="mt_10 mr_5 col-md-3 pull-right">
+                            <div id="order-attr" class="mt_10 col-md-3 pull-right">
                                 <div>
                                     <label class="collapseControl" data-toggle="collapse" data-target="#billing">Fatturazione <i class="fa fa-angle-down" style="color: #ffffff;"></i></label>
                                     <div class="collapse" id="billing">
