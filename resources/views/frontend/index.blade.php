@@ -54,8 +54,24 @@
 
         <div class="row">
             <div class="cms_banner">
+                <div class="col-xs-12 mt_60 carousel slide" data-ride="carousel">
+                    <div id="subbanner1" class="sub-hover carousel-inner">
+                        @foreach ($sub_banners as $sub_banner)
+                            @if ($loop->first)
+                                <div class="item active"> <a href="#"><img src="{{asset($sub_banner->path_image)}}" class="img-responsive" alt="Sub Banner"></a></div>
+                                @continue
+                            @endif
+                            <div class="item"> <a href="#"><img src="{{asset($sub_banner->path_image)}}" class="img-responsive" alt="Sub Banner"></a></div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--
+        <div class="row">
+            <div class="cms_banner">
                 <div class="col-xs-12 mt_60">
-                    <div id="subbanner4" class="main-banner owl-carousel"> <!--class=sub-hover-->
+                    <div id="subbanner4" class="main-banner owl-carousel"> <! --class=sub-hover--><!--
                         @foreach($sub_banners as $sub_banner)
                             <div class="item sub-img"><a href="#"><img src="{{asset($sub_banner->path_image)}}" alt="Sub Banner5" class="img-responsive"></a></div>
                         @endforeach
@@ -63,7 +79,7 @@
                 </div>
             </div>
         </div>
-
+-->
         <!-- =====  SUB BANNER END  ===== -->
 
         @include('frontend.partials.slideroffers')
