@@ -24,10 +24,9 @@ Login - div error se non va a buon fine registrazione
 -Sara	-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 -Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
--Sara   -lasciare opzione regalo
+-Sara   -gestire opzione regalo
 -Sara	-login checkout
 -Vincenzo   - logica filtro - manca categorie, prezzo e sconto
--Vincenzo   - grafica Storico Ordini - da ultimare dopo riepilogo
 -vin Sara   - click da banner o nav che applica gia il filtro
 -Vale       - Prodotto
 -Vale       - img prodotti come fossil carlie o Tissot Seastar - TS1204
@@ -102,6 +101,8 @@ carrello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo 
 Mostra subbanner in home
 si deve mettere un massimo alle quantità che si possono aggiungere (dipende dalla disponbilità in magazzino)
 bottone che fa ricaricare la pagina -js windows.location.reload
+grafica Storico Ordini - da ultimare dopo riepilogo
+
 
 
 
