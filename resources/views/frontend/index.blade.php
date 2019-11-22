@@ -3,17 +3,15 @@
 @section('content')
     <!-- =====  BANNER START  ===== -->
     <div class="banner">
-        @if($banners->count() == 1)
+        @foreach ($banners as $banner)
             <div class="main-banner owl-carousel">
-                <div class="item"><a href="#"><img src="{{asset($banners->first()->path_image)}}" alt="Main Banner" class="img-responsive" /></a></div>
-            </div>
-        @else
-            <div class="main-banner owl-carousel">
-                @foreach($banners as $banner)
+                @if ($loop->first)
                     <div class="item"><a href="#"><img src="{{asset($banner->path_image)}}" alt="Main Banner" class="img-responsive" /></a></div>
-                @endforeach
+                    @continue
+                @endif
+                <div class="item"><a href="#"><img src="{{asset($banner->path_image)}}" alt="Main Banner" class="img-responsive" /></a></div>
             </div>
-        @endif
+        @endforeach
     </div>
     <!-- =====  BANNER END  ===== -->
     <!-- =====  CONTAINER START  ===== -->
