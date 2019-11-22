@@ -64,7 +64,7 @@
                         @foreach($categories as $category)
                             <div class="checkbox">
                                 <label>
-                                    <input value="{{$category->name}}" type="checkbox"> {{$category->name}}</label>
+                                    <input value="{{$category->id}}" type="checkbox"> {{$category->name}}</label>
                             </div>
                         @endforeach
                     </div>
