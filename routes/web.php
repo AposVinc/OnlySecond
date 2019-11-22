@@ -88,6 +88,7 @@ Route::group(['middleware' => ['auth'] ], function () {
     Route::get('/Wishlist', function () {
         return view('frontend.profile.wishlist');
     })->name('Wishlist');
+
     Route::get('/Wishlist2', function () {
         return view('frontend.profile.wishlist2');
     })->name('Wishlist2');

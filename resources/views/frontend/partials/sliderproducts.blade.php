@@ -23,7 +23,7 @@
                                             <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $product->cod])}}"> <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> </a>
                                                 <div class="button-group text-center">
                                                     <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                                    <a href="#" class="add-to-cart"><span>Add to cart</span></a>
+                                                    <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="add-to-cart"><span>Add to cart</span></a>
                                                 </div>
                                                 <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
                                             </div>
@@ -55,7 +55,7 @@
                                             <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $product->cod])}}"> <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> </a>
                                                 <div class="button-group text-center">
                                                     <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"  class="wishlist"><span>wishlist</span></a>
-                                                    <a href="#" class="add-to-cart"><span>Add to cart</span></a>
+                                                    <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="add-to-cart"><span>Add to cart</span></a>
                                                 </div>
                                             </div>
                                             <div class="caption product-detail text-center">
@@ -92,8 +92,8 @@
                                         <div class="product-thumb  mb_30">
                                             <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $product->cod])}}"> <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> </a>
                                                 <div class="button-group text-center">
-                                                    <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
-                                                    <div class="add-to-cart"><a href="#"><span>Add to cart</span></a></div>
+                                                    <div class="wishlist"><a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"><span>wishlist</span></a></div>
+                                                    <div class="add-to-cart"><a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}"><span>Add to cart</span></a></div>
                                                 </div>
                                                 <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
                                             </div>
@@ -124,8 +124,8 @@
                                         <div class="product-thumb  mb_30">
                                             <div class="image product-imageblock"> <a href="{{route('Product', ['cod' => $product->cod])}}"> <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive"> </a>
                                                 <div class="button-group text-center">
-                                                    <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
-                                                    <div class="add-to-cart"><a href="#"><span>Add to cart</span></a></div>
+                                                    <div class="wishlist"><a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}"><span>wishlist</span></a></div>
+                                                    <div class="add-to-cart"><a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}"><span>Add to cart</span></a></div>
                                                 </div>
                                             </div>
                                             <div class="caption product-detail text-center">

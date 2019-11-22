@@ -20,7 +20,7 @@ class Banner extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable =[
-        'path_image','collection_id',
+        'path_image','collection_id','type'
     ];
 
     function collection()

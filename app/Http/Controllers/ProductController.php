@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Cart;
 use App\Category;
 use App\CategoryProduct;
 use App\Color;
@@ -447,19 +448,81 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function addToCart($cod){
-        if (\Auth::user()->productsCart()->where('cod', $cod)->first()){
-            return redirect()->back();
+    public function addToCart(Request $request, $cod){
+        $product = Product::where('cod', $cod)->first();
+        if(\Auth::check()){
+            if (\Auth::user()->products()->where('cod', $cod)->first()){
+                $cart = Cart::where('product_id', $product->id)->where('user_id', \Auth::id())->first();
+                \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $cart->quantity +1]);
+                return redirect()->back();
+            }else{
+                \Auth::user()->products()->save($product, ['quantity' => 1]);
+                return redirect()->back();
+            }
         }else{
-            $product = Product::where('cod', $cod)->first();
-            \Auth::user()->productsCart()->save($product);
+            $products = $request->session()->get('products');
+            $quantity = $request->session()->get('quantity');
+            if(empty($products)){
+                $request->session()->push('products', $product);
+                $request->session()->push('quantity', 1);
+            }else{
+                $q = [];
+                $trovato = false;
+                foreach ($products as $k => $p){
+                    if($p->cod == $product->cod){
+                        $trovato = true;
+                        $q = array_replace($quantity, array($k => $quantity[$k] + 1));
+                    }
+                }
+                if(!$trovato){
+                    $request->session()->push('products', $product);
+                    $request->session()->push('quantity', 1);
+                }else{
+                    $request->session()->forget('quantity');
+                    $request->session()->put('quantity', $q);
+                }
+            }
+            $this->calculateTotalPrice($request);
             return redirect()->back();
         }
     }
-    public function removeFromCart($cod){
+
+    public function calculateTotalPrice($request){
+        $totalprice = 0.00;
+        $products = $request->session()->get('products');
+        $quantity = $request->session()->get('quantity');
+        foreach ($products as $k => $product){
+            $totalprice += ($product->price * $quantity[$k]);
+        }
+        $request->session()->put('TotalPrice', number_format($totalprice, 2));
+        return;
+    }
+
+    public function removeFromCart(Request $request, $cod){
         $product = Product::where('cod', $cod)->first();
-        auth()->user()->products()->detach($product);
-        return redirect()->back();
+        if(\Auth::check()) {
+            auth()->user()->products()->detach($product);
+            return redirect()->back();
+        }else{
+            $products = $request->session()->get('products');
+            $quantity = $request->session()->get('quantity');
+            $prod = [];
+            $qt = [];
+            foreach ($products as $k => $p){
+                if($p->cod != $product->cod){
+                    array_push($prod, $p);
+                    array_push($qt, $quantity[$k]);
+                }
+            }
+            $request->session()->forget('products');
+            $request->session()->forget('quantity');
+            if(!empty($prod)){
+                $request->session()->put('products', $prod);
+                $request->session()->put('quantity', $qt);
+                $this->calculateTotalPrice($request);
+            }
+            return redirect()->back();
+        }
     }
 }
 

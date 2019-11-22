@@ -13,4 +13,6 @@ class Cart extends Pivot
         'quantity', 'product_id', 'user_id',
     ];
 
+    public $table = "carts";
+
 }

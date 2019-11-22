@@ -161,8 +161,8 @@ DatabaseSeeder extends Seeder
             'genre' => 'U','long_desc' => 'Questo orologio Breil ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 44 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Hardlex Crystal.
             L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 2]);
-        $Six_3_Nine_P1I1 = new Image(['path_image' => 'storage/Orologi/Breil/Six3Nine/Breil_Six_3_Nine_1.png', 'main' => '1']);
-        $Six_3_Nine_P1I2 = new Image(['path_image' => 'storage/Orologi/Breil/Six3Nine/Breil_Six_3_Nine_2.png', 'main' => '0']);
+        $Six_3_Nine_P1I1 = new Image(['path_image' => 'storage/Orologi/Breil/Six 3 Nine/Breil_Six_3_Nine_1.png', 'main' => '1']);
+        $Six_3_Nine_P1I2 = new Image(['path_image' => 'storage/Orologi/Breil/Six 3 Nine/Breil_Six_3_Nine_2.png', 'main' => '0']);
         $Six_3_Nine_P1->collection_id = $Breil->id;
         $Six_3_Nine_P1->supplier_id = $fornitore1->id;
         $Six_3_Nine_P1->color_id = $nero->id;
@@ -283,7 +283,9 @@ DatabaseSeeder extends Seeder
         $Carlie->products()->save($CarlieP3);
 
         $SportP1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
-            'genre' => 'U','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.','quantity_sold' => 1]);
+            'genre' => 'U','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.
+            Google Fit™ ti offre consigli di salute più intelligenti con gli obiettivi di attività basati sulle raccomandazioni dell’American Heart Association e dell’Organizzazione mondiale della sanità: 
+            i Minuti di movimento e i Punti cardio.','quantity_sold' => 1]);
         $SportP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero.png', 'main' => '1']);
         $SportP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_1.png', 'main' => '0']);
         $SportP1I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_2.png', 'main' => '0']);
@@ -304,7 +306,9 @@ DatabaseSeeder extends Seeder
         $Sport->products()->save($SportP1);
 
         $SportP2 = new Product(['cod' => 'FT6028','price' => '249', 'stock_availability' => '2',
-            'genre' => 'F','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.']);
+            'genre' => 'F','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile. 
+            Progettata per accompagnarti durante la tua giornata, la batteria dalla straordinaria efficienza ti offre oltre 24 ore di utilizzo del touchscreen*. 
+            Inoltre, la modalità automatica a basso consumo può allungare l’autonomia della batteria di altri due giorni.']);
         $SportP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa.png', 'main' => '1']);
         $SportP2I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_1.png', 'main' => '0']);
         $SportP2I3 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_2.png', 'main' => '0']);
@@ -447,7 +451,6 @@ DatabaseSeeder extends Seeder
 
 
         /* Guess */
-
         $Guess = new Brand(['name' => 'Guess', 'path_logo' => 'storage/Logo/Logo_Guess.png']);
         $Guess->save();
 
@@ -737,7 +740,7 @@ DatabaseSeeder extends Seeder
         $Gent_P2S->strap_color = $marrone->id;
         $Gent_P2->collection_id = $Gent->id;
         $Gent_P2->supplier_id = $fornitore2->id;
-        $Gent_P2->color_id = $nero->id;
+        $Gent_P2->color_id = $marrone->id;
         $Gent_P2->save();
         $Gent_P2->categories()->save($classic);
         $Gent_P2->categories()->save($sport);
@@ -829,25 +832,6 @@ DatabaseSeeder extends Seeder
         $Wellington->collections()->save($Bayswater);
 
         /*Prodotti Wellington */
-        $Roselyn_P1 = new Product(['cod' => 'DWR001','price' => '139', 'stock_availability' => '8', 'genre' => 'F',
-            'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro famoso cinturino NATO in versione rosso rubino, Classic Roselyn è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
-        $Roselyn_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_1.png', 'main' => '1']);
-        $Roselyn_P1I2 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_2.png', 'main' => '0']);
-        $Roselyn_P1I3 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_3.png', 'main' => '0']);
-        $Roselyn_P1S = new Specification(['case_size' => '10mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
-        $Roselyn_P1S->dial_color = $rosso_rubino->id;
-        $Roselyn_P1S->strap_color = $oro_rosa->id;
-        $Roselyn_P1->collection_id = $Roselyn->id;
-        $Roselyn_P1->supplier_id = $fornitore2->id;
-        $Roselyn_P1->color_id = $rosso_rubino->id;
-        $Roselyn_P1->save();
-        $Roselyn_P1->categories()->save($classic);
-        $Roselyn_P1->images()->save($Roselyn_P1I1);
-        $Roselyn_P1->images()->save($Roselyn_P1I2);
-        $Roselyn_P1->images()->save($Roselyn_P1I3);
-        $Roselyn_P1->specification()->save($Roselyn_P1S);
-        $Roselyn->products()->save($Roselyn_P1);
-
         $Bayswater_P1 = new Product(['cod' => 'DWB011','price' => '139', 'stock_availability' => '5', 'genre' => 'U',
             'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro storico cinturino NATO in versione blu notte, Classic Bayswater è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
         $Bayswater_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Bayswater/Wellington_Bayswater_1.png', 'main' => '1']);
@@ -867,40 +851,74 @@ DatabaseSeeder extends Seeder
         $Bayswater_P1->specification()->save($Bayswater_P1S);
         $Bayswater->products()->save($Bayswater_P1);
 
+        $Roselyn_P1 = new Product(['cod' => 'DWR001','price' => '139', 'stock_availability' => '8', 'genre' => 'F',
+            'long_desc' => 'Dotato di caratteristiche classiche quali una cassa sottile, dettagli in oro rosa o argento e il nostro famoso cinturino NATO in versione rosso rubino, Classic Roselyn è un pratico orologio indossabile sia di giorno che di sera.', 'quantity_sold' => 9]);
+        $Roselyn_P1I1 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_1.png', 'main' => '1']);
+        $Roselyn_P1I2 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_2.png', 'main' => '0']);
+        $Roselyn_P1I3 = new Image(['path_image' => 'storage/Orologi/Wellington/Roselyn/Wellington_Roselyn_Rosso_3.png', 'main' => '0']);
+        $Roselyn_P1S = new Specification(['case_size' => '10mm', 'material' => 'Inox', 'case_thickness' => '6mm', 'glass' => 'Zaffiro', 'strap_material' => 'Acciaio Inox', 'closing' => 'Fibbie', 'movement' => 'Quarzo Giapponese', 'warranty' => '2 anni']);
+        $Roselyn_P1S->dial_color = $rosso_rubino->id;
+        $Roselyn_P1S->strap_color = $oro_rosa->id;
+        $Roselyn_P1->collection_id = $Roselyn->id;
+        $Roselyn_P1->supplier_id = $fornitore2->id;
+        $Roselyn_P1->color_id = $rosso_rubino->id;
+        $Roselyn_P1->save();
+        $Roselyn_P1->categories()->save($classic);
+        $Roselyn_P1->images()->save($Roselyn_P1I1);
+        $Roselyn_P1->images()->save($Roselyn_P1I2);
+        $Roselyn_P1->images()->save($Roselyn_P1I3);
+        $Roselyn_P1->specification()->save($Roselyn_P1S);
+        $Roselyn->products()->save($Roselyn_P1);
 
 
 
         /*---   BANNER   -----------------------------------------------------*/
 
-        $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Diesel/Double Down P44/Diesel_Double Down P44_1.jpg','counter'=>1,'visible'=>0]);
+        $Six_3_Nine_B1 = new Banner(['path_image'=>'storage/Banner/Breil/Six 3 Nine/Breil_Six 3 Nine_Mini_1.jpg','type'=>'Mini','counter'=>1,'visible'=>1]);
+        $Six_3_Nine->banners()->save($Six_3_Nine_B1);
+
+        $Double_Down_P44_B1 = new Banner(['path_image'=>'storage/Banner/Diesel/Double Down P44/Diesel_Double Down P44_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>0]);
         $Double_Down_P44->banners()->save($Double_Down_P44_B1);
 
-        $Sport_B1 = new Banner(['path_image'=>'storage/Banner/Fossil/Sport/Fossil_Sport_1.jpg','counter'=>1,'visible'=>1]);
+        $Sport_B1 = new Banner(['path_image'=>'storage/Banner/Fossil/Sport/Fossil_Sport_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>1]);
         $Sport->banners()->save($Sport_B1);
 
-        $Lacoste_Moon_B1 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>1,'visible'=>1]);
+        $Lacoste_Moon_B1 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>1]);
         $Lacoste_Moon->banners()->save($Lacoste_Moon_B1);
 
-        $Lacoste_Moon_B2 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>2,'visible'=>0]);
+        $Lacoste_Moon_B2 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_Main_2.jpg','type'=>'Main','counter'=>2,'visible'=>0]);
         $Lacoste_Moon->banners()->save($Lacoste_Moon_B2);
 
-        $Lacoste_Moon_B3 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_1.jpg','counter'=>3,'visible'=>0]);
+        $Lacoste_Moon_B3 = new Banner(['path_image'=>'storage/Banner/Lacoste/Moon/Lacoste_Moon_Main_3.jpg','type'=>'Main','counter'=>3,'visible'=>0]);
         $Lacoste_Moon->banners()->save($Lacoste_Moon_B3);
 
-        $Gent_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_1.jpg','counter'=>1,'visible'=>1]);
+        $Stella_B1 = new Banner(['path_image'=>'storage/Banner/Swarovski/Stella/Swarovski_Stella_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>1]);
+        $Stella->banners()->save($Stella_B1);
+
+        $Gent_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>1]);
         $Gent->banners()->save($Gent_B1);
 
-        $Gent_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_2.jpg','counter'=>2,'visible'=>0]);
+        $Gent_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_Main_2.jpg','type'=>'Main','counter'=>2,'visible'=>0]);
         $Gent->banners()->save($Gent_B2);
 
-        $Gent_B3 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_3.jpg','counter'=>3,'visible'=>0]);
+        $Gent_B3 = new Banner(['path_image'=>'storage/Banner/Tissot/Gent XL/Tissot_Gent XL_Main_3.jpg','type'=>'Main','counter'=>3,'visible'=>0]);
         $Gent->banners()->save($Gent_B3);
 
-        $Lovely_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_1.jpg','counter'=>1,'visible'=>1]);
+        $Lovely_B1 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_Main_1.jpg','type'=>'Main','counter'=>1,'visible'=>1]);
         $Lovely->banners()->save($Lovely_B1);
 
-        $Lovely_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_2.jpg','counter'=>2,'visible'=>0]);
+        $Lovely_B2 = new Banner(['path_image'=>'storage/Banner/Tissot/Lovely/Tissot_Lovely_Main_2.jpg','type'=>'Main','counter'=>2,'visible'=>0]);
         $Lovely->banners()->save($Lovely_B2);
+
+        $Bayswater_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Bayswater/Wellington_Bayswater_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>0]);
+        $Bayswater->banners()->save($Bayswater_B1);
+
+        $Roselyn_B1 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Sub_1.jpg','type'=>'Sub','counter'=>1,'visible'=>1]);
+        $Roselyn->banners()->save($Roselyn_B1);
+
+        $Roselyn_B2 = new Banner(['path_image'=>'storage/Banner/Wellington/Roselyn/Wellington_Roselyn_Mini_2.jpg','type'=>'Mini','counter'=>2,'visible'=>1]);
+        $Roselyn->banners()->save($Roselyn_B2);
+
 
 
         /*---   OFFERTE   -----------------------------------------------------*/
@@ -924,6 +942,8 @@ DatabaseSeeder extends Seeder
         $offer5 = new Offer(['rate'=>'5','end'=>date('Y-m-d', strtotime('tomorrow')). ' 23:59:59']);
         $Moon_P1->offer()->save($offer5);
         $offer5->save();
+
+
 
         ////////////////////////////////////////////////////////////////////
         /*---   FE   -----------------------------------------------------*/
@@ -996,8 +1016,8 @@ DatabaseSeeder extends Seeder
         $order3->user_id = $user1->id;
         $order3->payment_id = $payment1->id;
         $order3->courier_id = $courier2->id;
-        $order3->mailing_address_id = $address3->id;
-        $order3->billing_address_id = $address1->id;
+        $order3->mailing_address_id = $address1->id;
+        $order3->billing_address_id = $address2->id;
         $order3->save();
 
         $order4 = new OrderHistory(['gift'=>'0']);
@@ -1016,6 +1036,14 @@ DatabaseSeeder extends Seeder
         $order5->billing_address_id = $address4->id;
         $order5->save();
 
+        $order6 = new OrderHistory(['gift'=>'1']);
+        $order6->user_id = $user2->id;
+        $order6->payment_id = $payment1->id;
+        $order6->courier_id = $courier1->id;
+        $order6->mailing_address_id = $address3->id;
+        $order6->billing_address_id = $address3->id;
+        $order6->save();
+
         /*---   PRODOTTI PER OGNI STORICO   -----------------------------------------------------*/
 
         $Moon_P1->orderHistories()->save($order1,['quantity' => 2, 'price' => '139']);
@@ -1028,29 +1056,33 @@ DatabaseSeeder extends Seeder
 
         $Double_Down_P44P1->orderHistories()->save($order4,['quantity' => 2, 'price' => '89']);
         $Q_ExploristP2->orderHistories()->save($order4,['quantity' => 1, 'price' => '239']);
-        //$Moon_P2->orderHistories()->save($order4,['quantity' => 2, 'price' => '139']);
+        $Moon_P2->orderHistories()->save($order4,['quantity' => 2, 'price' => '139']);
 
-        //$Moon_P2->orderHistories()->save($order5,['quantity' => 1, 'price' => '139']);
+        $Moon_P2->orderHistories()->save($order5,['quantity' => 1, 'price' => '139']);
         $CarlieP2->orderHistories()->save($order5,['quantity' => 1, 'price' => '109']);
         $CarlieP1->orderHistories()->save($order5,['quantity' => 2, 'price' => '109']);
-        $SportP1->orderHistories()->save($order5,['quantity' => 1, 'price' => '249']);
+        $CarlieP1->orderHistories()->save($order5,['quantity' => 1, 'price' => '109']);
+
+        $Moon_P1->orderHistories()->save($order6,['quantity' => 1, 'price' => '139']);
+        $SportP1->orderHistories()->save($order6,['quantity' => 1, 'price' => '249']);
+        $Q_ExploristP4->orderHistories()->save($order6,['quantity' => 2, 'price' => '239']);
 
         /*---   WISHLIST   -----------------------------------------------------*/
 
         $user1->productsWishlist()->save($Q_ExploristP3);
-        //$user1->productsWishlist()->save($Moon_P3);
+        $user1->productsWishlist()->save($Moon_P3);
         $user1->productsWishlist()->save($SportP2);
         $user1->productsWishlist()->save($CarlieP1);
         $user1->productsWishlist()->save($Double_Down_P44P1);
 
         $user2->productsWishlist()->save($Q_ExploristP4);
-        //$user2->productsWishlist()->save($Moon_P2);
+        $user2->productsWishlist()->save($Moon_P2);
         $user2->productsWishlist()->save($SportP2);
 
         /*---   REVIEW   -----------------------------------------------------*/
 
         $review1 = new Review(['vote'=>'5', 'title'=>'Grande Acquisto', 'text'=>'Bell\'orologio, arrivato a casa in tempi brevissimi']);
-        $review1->product_id = $CarlieP1->id;
+        $review1->product_id = $CarlieP2->id;
         $user1->reviews()->save($review1);
         $review1->save();
 
@@ -1096,10 +1128,43 @@ DatabaseSeeder extends Seeder
         $user1->reviews()->save($review7);
         $review7->save();
 
-        $review8 = new Review(['vote'=>'2', 'title'=>'#', 'text'=>'#']);
+        $review8 = new Review(['vote'=>'3', 'title'=>'Come in foto', 'text'=>'Esattamente come in foto. Forse mi aspettavo una confezione un po\' più importante.']);
         $review8->product_id = $Lacoste_12_12->id;
         $user1->reviews()->save($review8);
         $review8->save();
+
+        $review9 = new Review(['vote'=>'1', 'title'=>'Niente di particolare', 'text'=>'Mi aspettavo molto di più, foto illusoria']);
+        $review9->product_id = $Six_3_Nine_P1->id;
+        $user2->reviews()->save($review9);
+        $review9->save();
+
+        $review10 = new Review(['vote'=>'2', 'title'=>'Scomodo', 'text'=>'Non è comodo, i brillantini si attaccano a tutto, non ne vale']);
+        $review10->product_id = $CarlieP3->id;
+        $user1->reviews()->save($review10);
+        $review10->save();
+
+        $review11 = new Review(['vote'=>'4', 'title'=>'Buono, per Android', 'text'=>'Estremamente leggero, colorato, tecnico e prezzo relativamente basso MA ci sono alcuni limiti di compatibilità con iOS']);
+        $review11->product_id = $SportP1->id;
+        $user2->reviews()->save($review11);
+        $review11->save();
+
+        $review12 = new Review(['vote'=>'5', 'title'=>'Consigliato!!!', 'text'=>'Se esiste un modello di smartwatch che, in assoluto, 
+        può essere usato come uno analogico allora è sicuramente questo Fossil Q Explorist, che al polso sta molto bene,
+        anche se pesa un po’ e non ha paura di farsi notare sia per la forma sia per i quadranti che in alcuni casi imitano molto bene i display analogici più classici.']);
+        $review12->product_id = $Q_ExploristP2->id;
+        $user1->reviews()->save($review12);
+        $review12->save();
+
+        $review13 = new Review(['vote'=>'4', 'title'=>'Buono', 'text'=>'Ottima presenza al polso, l’anima casual appare evidente ma non è adatto allo sport e la batteria potrebbe essere più generosa']);
+        $review13->product_id = $Q_ExploristP3->id;
+        $user2->reviews()->save($review13);
+        $review13->save();
+
+        $review14 = new Review(['vote'=>'2', 'title'=>'Smartwatch rivisitato', 'text'=>'Cercavo uno smartwatch più completo invece la descrizione mi ha illusa, non adatto allo sport']);
+        $review14->product_id = $Q_ExploristP4->id;
+        $user1->reviews()->save($review14);
+        $review14->save();
+
 
         /*---   CARTS   -----------------------------------------------------*/
 
@@ -1107,6 +1172,8 @@ DatabaseSeeder extends Seeder
         $user1->products()->save($SportP2,['quantity'=>1]);
         $user1->products()->save($Moon_P1,['quantity'=>1]);
         $user1->products()->save($Lacoste_12_12_P1,['quantity'=>1]);
+
+        $user2->products()->save($SportP2,['quantity'=>1]);
 
         /*---   NEWSLETTERS   -----------------------------------------------------*/
 

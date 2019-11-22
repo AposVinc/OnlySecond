@@ -135,3 +135,24 @@
     font-size: 16px;
     font-weight: 600;
 }
+.ribbon.orangeOSCart{
+    right: 0;
+    top: 0;
+    background: #ee5e11;
+    color: #fff;
+    height: 10%;
+    width: 22%;
+}
+.ribbon.orangeOSCart:before {
+    border-top: 27px solid #ee5e11;
+}
+.ribbon.orangeOSCart:after {
+    border-bottom: 27px solid #ee5e11;
+}
+.ribbon.orangeOSCart span {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    font-weight: 600;
+    font-size: 14px;
+}

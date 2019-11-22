@@ -42,10 +42,9 @@
                     </div>
                 </div>
 
-                <div class="row">
-
+                <div id="listProducts" class="row">
                     @foreach($offers as $offer)
-                        <div class="product-layout product-grid col-md-4 col-xs-6 ">
+                        <div class="product-layout product-grid col-md-4 col-xs-6"  brand="{{$offer->product->collection->brand->id}}" collection="{{$offer->product->collection->id}}" color="{{$offer->product->color->hex}}" material="{{$offer->product->specification->material}}" price="{{$offer->calculateDiscount()}}" genre="{{$offer->product->genre}}" rate="{{$offer->rate}}" categories="">
                             <div class="item">
                                 <div class="product-thumb clearfix mb_50">
                                     <div class="image product-imageblock">
@@ -55,7 +54,7 @@
                                         </a>
                                         <div class="button-group text-center">
                                             <a href="{{route('Wishlist.AddProduct', ['cod' => $offer->product->cod])}}" class="wishlist" title="Aggiungi a wishlist"><span>Wishlist</span></a>
-                                            <a href="#" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
+                                            <a href="{{route('Cart.AddProduct', ['cod' => $offer->product->cod])}}" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
                                         </div>
                                         <div class="ribbon orangeOS"><span>{{$offer->rate}}%</span></div>
                                     </div>

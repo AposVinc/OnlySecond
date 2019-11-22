@@ -430,6 +430,7 @@ h6 {
     margin-left: 100px;
 }
 
+
 /* =====  margin right  ===== */
 
 .mr_0 {
@@ -1431,7 +1432,6 @@ label.checkme {
 #cart-dropdown {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #e5e5e5;
-    min-width: 285px;
     position: absolute;
     right: 0;
     top:90px;
@@ -1460,6 +1460,10 @@ label.checkme {
 }
 .spanIva{
     font-size: 10px;
+}
+.tdCartEmpty{
+    border: none !important;
+    width:202px;
 }
 
 /* ----------------------------------------------
@@ -3082,7 +3086,10 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-weight: normal;
     color: #ee5e11;
 }
-
+.collapseControl{
+    color: #ffffff;
+    font-size: 16px;
+}
 .heading-part .order-info label{
     font-size: 16px;
     font-style: italic;

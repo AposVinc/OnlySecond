@@ -3,6 +3,7 @@
 
 namespace App\Http\Composers;
 
+use App\Banner;
 use App\Brand;
 use App\Category;
 use App\Product;
@@ -14,9 +15,12 @@ class NavigationComposer
     public function __construct()
     {
         $brands = Brand::withoutTrashed()->orderBy('name')->get();
+
     }
 
     public  function compose(View $view){
+        $mini_banners = Banner::where('visible',1)->where('type','Mini')->get();
+
         $brands = Brand::withoutTrashed()->orderBy('name')->get();
         $cF = new Collection();
         $cM = new Collection();
@@ -46,6 +50,6 @@ class NavigationComposer
         }
         $categoriesU = $cU->unique('id')->sortBy('name');
 
-        $view->with('brands', $brands)->with('categoriesF', $categoriesF)->with('categoriesM', $categoriesM)->with('categoriesU', $categoriesU);
+        $view->with('brands', $brands)->with('categoriesF', $categoriesF)->with('categoriesM', $categoriesM)->with('categoriesU', $categoriesU)->with('mini_banners', $mini_banners);
     }
 }

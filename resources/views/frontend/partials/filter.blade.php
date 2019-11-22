@@ -14,7 +14,15 @@
                 <div id="filter-group">
                     <div class="checkbox">
                         <label>
-                            <input value="sconto" type="checkbox"> Fino al 50% </label>
+                            <input value="10" type="checkbox"> Dal 10% </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input value="20" type="checkbox"> Dal 20% </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input value="30" type="checkbox"> Dal 30% </label>
                     </div>
                 </div>
             </div>

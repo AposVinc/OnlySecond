@@ -1,52 +1,37 @@
 SEEDER
 ---------
-Vale-qualche acquisto effettuato (in una data vecchia) cosi da fare conteggio per slider (bestseller)
 eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestione delle immagini
-
 
 BE
 ---------
-NO ?cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
-tabelle/grafici BE (prima pg)
-subanner logica - differenziare in db con enum (main, sub, mini)
-
-
-?fine   -rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
-?fine   -disabilitare la prima riga di ogni select  "seleziona un elemento" con style="display:none;"
-
-NO ?bottoni fine tabella (List)
-NO ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
-NO ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
-NO ?ordinamento campi checkbox nelle liste
-
+-Sara - tabelle/grafici BE (prima pg)
+-Vin  - controllo eliminazione banner da brand e collection
 
 FE
 ---------
-?cerca
-?gestire messaggio di errore newsletter e contact us (con sessione?)
--Sara-aggiungi al carrello
---Vin  - logica filtro
-payments
+? cerca - potenzialmente no
+? rendere automatico lo scorrimento ai banner
+? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
--Sara-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
--Sara-checkout - se va a buon fine, incrementare quantity_sold dei prodotti
--Sara-login checkout
-
-grafica Storico Ordini - da ultimare dopo checkout
-wishlist    - azione aggiungi al carrello
-
-?Mostra subbanner in home
-num el in Brand(NAV) se >6 crea seconda colonna (commento layout)       - si puo evitare?
-add newsletters - error/success da restituire
-Contattaci - Gestione Error/Succes Form
-
+payments    - dopo checkout
 Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
       - email già usata div error con messaggio
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
 
-carello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo nel db quando ci si logga
+-Sara   -aggiungi al carrello
+-Sara	-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+-Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
+-Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
+-Sara   -gestire opzione regalo
+-Sara	-login checkout
+-Vincenzo   - logica filtro - manca categorie, prezzo e sconto
+-vin Sara   - click da banner o nav che applica gia il filtro
+-Vale       - Prodotto
+-Vale       - img prodotti come fossil carlie o Tissot Seastar - TS1204
+
+
 
 
 ok BE
@@ -66,6 +51,9 @@ Elimina img prodotto
 EditDate() (js)
 permettere al admin di modificare Contattaci e chi siamo
 cambiare ripristina con riattiva
+subanner logica - differenziare in db con enum (main, sub, mini)
+                - controllare il numero dei banner
+
 
 ok FE
 ----------
@@ -107,10 +95,48 @@ loghi brand 195px
 almeno 5 offerte
 categorie nel filtro
 slider brand - allineare verticalmente img loghi
+acquisti effettuati con stessi prodotti da due utenti diversi cosi da fare conteggio per slider (bestseller)
+wishlist    - azione aggiungi al carrello
+carrello - aggiungere al metodo di login se c'è qualcosa nel carrello salvarlo nel db quando ci si logga
+Mostra subbanner in home
+si deve mettere un massimo alle quantità che si possono aggiungere (dipende dalla disponbilità in magazzino)
+bottone che fa ricaricare la pagina -js windows.location.reload
+grafica Storico Ordini - da ultimare dopo riepilogo
 
 
 
-DA DISCUTERE
+
+
+
+------------------------------------------------
+DOMANDE DA FARE AL PROF
+1. appello      quando vogliamo
+2. grafica BE e Index BE        grafica ok, non ha dato una risposta
+
+
+-----------------------------------------------------------------
+
+NO:
+
+NO ?cambiare la disposizione della homepage del frontend... tipo disposizione delle sezioni (es. deals of the week spostarlo al posto di latest news..) ecc
+NO ?bottoni fine tabella (List)
+NO ?logica contactus (invio mail ecc non fatta - ora viene solo visualizzata la lista e si puo vedere la singola mail, senza poter rispondere)
+NO ?eliminare cose caricate precedentemente se qualcosa non va a buon fine - add product
+NO ?ordinamento campi checkbox nelle liste
+?fine   -rendere le tendine disattivate e solo quando è stata selezionata un opzione se non c'è messaggio di errore si attiva la tendina
+?fine   -disabilitare la prima riga di ogni select  "seleziona un elemento" con style="display:none;"
+	NO  num el in Brand(NAV) se >6 crea seconda colonna (commento layout)
+	NO add newsletters - error/success da restituire
+	NO Contattaci - Gestione Error/Succes Form
+
+
+3. C'è bisogno di realizzare l'email generata per il cambio password        NO
+4. Eliminazione account utente          NO
+
+---------------------------------------
+
+DISCUSSO:
+
 dove mettere simbolo €, prima o dopo?           DOPO
 confrontare font del prezzo in shop con quello di wishlist e decidere se lasciare cosi o cambiare qualcosa? mettere ROBOTO in cronologia- da valutare dopo
 nella sez profilo c'è la sez Pagamenti. La tabella Payments deve esser collegata a quella degli User? (vedere la pagina sul browser)
@@ -126,17 +152,4 @@ wishlist grafica    - come risolvere il problema della virgola      risolto
 Togliere compare e quickview dali bottoni dei prod          SI
 aggiugere sconto superiore a 10 20 30 40 % in filtraggio    --- solo superiori a 10 25 50
 paginazione dello shop          da fare
-
-
-
-DOMANDE DA FARE AL PROF
-1. appello      quando vogliamo
-2. grafica BE e Index BE        grafica ok, non ha dato una risposta
-3. C'è bisogno di realizzare l'email generata per il cambio password        NO
-4. Eliminazione account utente          NO
-
-
-
-
-
 

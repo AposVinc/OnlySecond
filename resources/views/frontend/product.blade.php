@@ -309,7 +309,9 @@
                                                 <div class="col-sm-4">
                                                     <div class="buttons clearfix">
                                                         <div class="pull-right pr_10 mt_10">
-                                                            <button type="submit" class="btn btn-primary btn-sm">Invia</button>
+                                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                            <a href="{{route('Review.Add')}}" class="review" title="Aggiungi alle recensioni">Invia</a>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -319,41 +321,51 @@
                                 </div>
 
                                 <div class="mtb_40">
-                                    @foreach($product->reviews as $review)
-
-                                        <div id="review" class="mb_40">
-
-                                            <label class="product-name"><span>Nome utente:</span>{{$review->user->name}}</label>
-
-                                            <div id="review" class=" mt_10">
-                                                <div class="col-lg-8">
-                                                    <div class="review-title">
-                                                        <span>Titolo:</span>
-                                                        <label>{{$review->title}}</label>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="review-vote-date">
-                                                        <span>Data:</span>
-                                                        <label>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
-                                                        <span style="margin-left: 25px;">Voto:</span>
-                                                        @for ($i = 1; $i < 6; $i++)
-                                                            @if($i <= $review->vote)
-                                                                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
-                                                            @else
-                                                                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                            @endif
-                                                        @endfor
-                                                    </div>
-                                                </div>
-                                                <div class="review-text">
-                                                    <p>{{$review->text}}</p>
-                                                </div>
-                                            </div>
-
+                                    @if($product->reviews->isEmpty())
+                                        <div class="text-center reviewEmpty">
+                                            <span style="font-size: 20px;"> Non ci sono recensioni</span>
+                                            <br>
+                                            <small> Aggiungi la prima recensione cliccando su "Scrivi una recensione" </small>
                                         </div>
-                                    @endforeach
+
+                                    @else
+                                        @foreach($product->reviews as $review)
+
+                                            <div id="review" class="mb_40">
+
+                                                <label class="product-name"><span>Nome utente:</span>{{$review->user->name}}</label>
+
+                                                <div id="review" class=" mt_10">
+                                                    <div class="col-lg-8">
+                                                        <div class="review-title">
+                                                            <span>Titolo:</span>
+                                                            <label>{{$review->title}}</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="review-vote-date">
+                                                            <span>Data:</span>
+                                                            <label>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
+                                                            <span style="margin-left: 25px;">Voto:</span>
+                                                            @for ($i = 1; $i < 6; $i++)
+                                                                @if($i <= $review->vote)
+                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                                                                @else
+                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                @endif
+                                                            @endfor
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-text">
+                                                        <p>{{$review->text}}</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        @endforeach
+                                    @endif
+
                                 </div>
 
                             </div>

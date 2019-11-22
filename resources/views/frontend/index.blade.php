@@ -18,7 +18,7 @@
     <!-- =====  BANNER END  ===== -->
     <!-- =====  CONTAINER START  ===== -->
     <div class="container">
-        <!-- =====  SUB BANNER  STRAT ===== -->
+        <!-- =====  SUB BANNER  START ===== -->
         <div class="row">
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
@@ -29,7 +29,7 @@
             </div>
             <div class="col-sm-3 mt_20 cms-icon ">
                 <div class="feature-i-left ptb_30 ">
-                    <div class="icon-right Star"></div>
+                    <div class="icon-right Order"></div>
                     <h6>Recensisci i Prodotti</h6>
                     <p>Lascia la recensione dei prodotti acquistati</p>
                 </div>
@@ -55,8 +55,10 @@
         <div class="row">
             <div class="cms_banner">
                 <div class="col-xs-12 mt_60">
-                    <div id="subbanner4" class="sub-hover">
-                        <div class="sub-img"><a href="#"><img src="{{asset('storage/sub5.jpg')}}" alt="Sub Banner5" class="img-responsive"></a></div>
+                    <div id="subbanner4" class="main-banner owl-carousel"> <!--class=sub-hover-->
+                        @foreach($sub_banners as $sub_banner)
+                            <div class="item sub-img"><a href="#"><img src="{{asset($sub_banner->path_image)}}" alt="Sub Banner5" class="img-responsive"></a></div>
+                        @endforeach
                     </div>
                 </div>
             </div>

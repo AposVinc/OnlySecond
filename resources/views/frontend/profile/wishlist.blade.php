@@ -29,7 +29,7 @@
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
                                 <div class="button-right">
-                                    <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
+                                    <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
                                     <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina dalla wishlist"></a>
                                 </div>
                                 <div class="mt_10">
@@ -42,7 +42,15 @@
                                     </div>
                                     <div class="product-attr">
                                         <span>Genere:</span>
-                                        <label>{{$product->genre}}</label>
+                                        <label>
+                                            @if($product->genre == "U")
+                                                Unisex
+                                            @elseif($product->genre == "M")
+                                                Uomo
+                                            @else
+                                                Donna
+                                            @endif
+                                        </label>
                                     </div>
                                     <div class="product-attr">
                                         <span>Categoria:</span>
@@ -82,7 +90,7 @@
                             </div>
                             <div id="wishlist" class="col-md-10 mt_10">
                                 <div class="button-right">
-                                    <a href="" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
+                                    <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" type="button" class="btn btn-outline fa fa-shopping-cart" title="Aggiungi al carrello"></a>
                                     <a href="{{route('Wishlist.RemoveProduct',['cod'=>$product->cod])}}" type="button" class="btn btn-outline fa fa-trash" title="Elimina dalla wishlist"></a>
                                 </div>
                                 <div>
@@ -92,7 +100,15 @@
                                     </div>
                                     <div class="product-attr">
                                         <span>Genere:</span>
-                                        <label>{{$product->genre}}</label>
+                                        <label>
+                                            @if($product->genre == "U")
+                                                Unisex
+                                            @elseif($product->genre == "M")
+                                                Uomo
+                                            @else
+                                                Donna
+                                            @endif
+                                        </label>
                                     </div>
                                     <div class="product-attr">
                                         <span>Categoria:</span>

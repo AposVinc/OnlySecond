@@ -65,7 +65,7 @@
                                             </a>
                                             <div class="button-group text-center">
                                                 <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}" class="wishlist" title="Aggiungi a wishlist"><span>Wishlist</span></a>
-                                                <a href="#" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
+                                                <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
                                             </div>
                                             <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
                                         </div>
@@ -103,7 +103,7 @@
                                             </a>
                                             <div class="button-group text-center">
                                                 <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}" class="wishlist" title="Aggiungi a wishlist"><span>Wishlist</span></a>
-                                                <a href="#" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
+                                                <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="add-to-cart" title="Aggiungi al carrello"><span>Add to cart</span></a>
                                             </div>
                                         </div>
                                         <div class="caption product-detail text-center">
