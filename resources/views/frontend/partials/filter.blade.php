@@ -14,15 +14,7 @@
                 <div id="filter-group">
                     <div class="checkbox">
                         <label>
-                            <input value="10" type="checkbox"> Dal 10% </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input value="20" type="checkbox"> Dal 20% </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input value="30" type="checkbox"> Dal 30% </label>
+                            <input value="sconto" type="checkbox"> Fino al 50% </label>
                     </div>
                 </div>
             </div>
@@ -72,7 +64,7 @@
                         @foreach($categories as $category)
                             <div class="checkbox">
                                 <label>
-                                    <input value="{{$category->id}}" type="checkbox"> {{$category->name}}</label>
+                                    <input value="{{$category->name}}" type="checkbox"> {{$category->name}}</label>
                             </div>
                         @endforeach
                     </div>

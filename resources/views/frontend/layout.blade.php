@@ -756,7 +756,7 @@
             }
         }
         if(arrCheckboxes.length){
-            parseProducts(products, arrCheckboxes, 'categories');
+            parseProductsByCategoryes(products, arrCheckboxes);
         }
 
         arrCheckboxes = [];
@@ -795,6 +795,20 @@
                     products[i].style.display = "block";
                 } else {
                     products[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function parseProductsByCategoryes(products, arrCheckboxes) {
+        for(var j=0; j < arrCheckboxes.length; j++){
+            for(var i=0; i < products.length; i++){
+                if(products[i].style.display !== "none"){
+                    if(products[i].hasAttribute(arrCheckboxes[j])){
+                        products[i].style.display = "block";
+                    } else {
+                        products[i].style.display = "none";
+                    }
                 }
             }
         }
