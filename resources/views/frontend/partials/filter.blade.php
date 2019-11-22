@@ -11,7 +11,7 @@
             <div id="slider-range" class="mtb_20"></div>
             <div class="list-group-item mb_10">
                 <label>Sconto</label>
-                <div id="filter-group">
+                <div id="filter-group-rates">
                     <div class="checkbox">
                         <label>
                             <input value="10" type="checkbox"> Dal 10% </label>

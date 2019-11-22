@@ -706,6 +706,18 @@
         }
 
         arrCheckboxes = [];
+        fGroup = $('#filter-group-rates').children();
+        for(i=0; i < fGroup.length; i++){
+            e = fGroup[i].children[0].children[0];
+            if(e.checked){
+                arrCheckboxes.push(e.value);
+            }
+        }
+        if(arrCheckboxes.length){
+            parseProductsByRates(products, arrCheckboxes, 'rate');
+        }
+
+        arrCheckboxes = [];
         fGroup = $('#filter-group-genres').children();
         for(i=0; i < fGroup.length; i++){
             e = fGroup[i].children[0].children[0];
@@ -756,7 +768,7 @@
             }
         }
         if(arrCheckboxes.length){
-            parseProductsByCategoryes(products, arrCheckboxes);
+            parseProductsByCategories(products, arrCheckboxes);
         }
 
         arrCheckboxes = [];
@@ -800,7 +812,21 @@
         }
     }
 
-    function parseProductsByCategoryes(products, arrCheckboxes) {
+    function parseProductsByRates(products, arrCheckboxes, attr) {
+        for(var j=0; j < arrCheckboxes.length; j++){
+            for(var i=0; i < products.length; i++){
+                if(products[i].style.display !== "none"){
+                    if(parseInt(products[i].getAttribute(attr), 10) >= parseInt(arrCheckboxes[j], 10)){
+                        products[i].style.display = "block";
+                    } else {
+                        products[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+
+    function parseProductsByCategories(products, arrCheckboxes) {
         for(var j=0; j < arrCheckboxes.length; j++){
             for(var i=0; i < products.length; i++){
                 if(products[i].style.display !== "none"){
