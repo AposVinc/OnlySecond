@@ -42,7 +42,15 @@
                                     </div>
                                     <div class="product-attr">
                                         <span>Genere:</span>
-                                        <label>{{$product->genre}}</label>
+                                        <label>
+                                            @if($product->genre == "U")
+                                                Unisex
+                                            @elseif($product->genre == "M")
+                                                Uomo
+                                            @else
+                                                Donna
+                                            @endif
+                                        </label>
                                     </div>
                                     <div class="product-attr">
                                         <span>Categoria:</span>
@@ -92,7 +100,15 @@
                                     </div>
                                     <div class="product-attr">
                                         <span>Genere:</span>
-                                        <label>{{$product->genre}}</label>
+                                        <label>
+                                            @if($product->genre == "U")
+                                                Unisex
+                                            @elseif($product->genre == "M")
+                                                Uomo
+                                            @else
+                                                Donna
+                                            @endif
+                                        </label>
                                     </div>
                                     <div class="product-attr">
                                         <span>Categoria:</span>

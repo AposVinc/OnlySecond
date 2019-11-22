@@ -37,8 +37,35 @@
                         <div class="col-lg-12 mb_20">
                             <div id="order-attr" class="mt_10 mr_5 col-md-3 pull-right">
                                 <div>
+                                    <label class="collapseControl" data-toggle="collapse" data-target="#billing">Fatturazione <i class="fa fa-angle-down" style="color: #ffffff;"></i></label>
+                                    <div class="collapse" id="billing">
+                                        <div>
+                                            <span>Indirizzo di Fatturazione:</span>
+                                            <label>{{$order->billingAddress->name}} {{$order->billingAddress->surname}}<br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}} - {{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}}<br> CAP:{{$order->billingAddress->zip}}</label>
+                                        </div>
+                                        <div>
+                                            <span>Metodo di Pagamento:</span>
+                                            <label>{{$order->payment->name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="mt_10 collapseControl" data-toggle="collapse" data-target="#mailing">Spedizione <i class="fa fa-angle-down" style="color: #ffffff;"></i></label>
+                                    <div class="collapse" id="mailing">
+                                        <div>
+                                            <span>Indirizzo di Spedizione:</span>
+                                            <label>{{$order->mailingAddress->name}} {{$order->mailingAddress->surname}}<br> {{$order->mailingAddress->address}}, {{$order->mailingAddress->civic_number}} - {{$order->mailingAddress->city}} {{'('. $order->mailingAddress->region. ')'}}<br> CAP:{{$order->mailingAddress->zip}}</label>
+                                        </div>
+                                        <div>
+                                            <span>Corriere:</span>
+                                            <label>{{$order->courier->name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--
+                                <div>
                                     <span>Indirizzo di Fatturazione:</span>
-                                    <label>{{$order->billingAddress->name}} {{$order->billingAddress->surname}} <br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}}<br>{{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}} CAP:{{$order->billingAddress->zip}}</label>
+                                    <label>{{$order->billingAddress->name}} {{$order->billingAddress->surname}}<br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}} - {{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}}<br> CAP:{{$order->billingAddress->zip}}</label>
                                 </div>
                                 <div>
                                     <span>Metodo di Pagamento:</span>
@@ -47,12 +74,13 @@
 
                                 <div>
                                     <span>Indirizzo di Spedizione:</span>
-                                    <label>{{$order->mailingAddress->name}} {{$order->mailingAddress->surname}} <br> {{$order->mailingAddress->address}}, {{$order->mailingAddress->civic_number}}<br>{{$order->mailingAddress->city}} {{'('. $order->mailingAddress->region. ')'}} CAP:{{$order->mailingAddress->zip}}</label>
+                                    <label>{{$order->mailingAddress->name}} {{$order->mailingAddress->surname}}<br> {{$order->mailingAddress->address}}, {{$order->mailingAddress->civic_number}} - {{$order->mailingAddress->city}} {{'('. $order->mailingAddress->region. ')'}}<br> CAP:{{$order->mailingAddress->zip}}</label>
                                 </div>
                                 <div>
                                     <span>Corriere:</span>
                                     <label>{{$order->courier->name}}</label>
                                 </div>
+                                -->
                             </div>
                             @foreach($order->products as $product)
                                 <div id="chronology" class="mb_10 col-md-8">
@@ -75,6 +103,34 @@
                                         <div class="product-attr">
                                             <span>Quantità Acquistata:</span>
                                             <label>{{$product->pivot->quantity}}</label>
+                                        </div>
+                                        <div class="product-attr">
+                                            <span>Genere:</span>
+                                            <label>
+                                                @if($product->genre == "U")
+                                                    Unisex
+                                                @elseif($product->genre == "M")
+                                                    Uomo
+                                                @else
+                                                    Donna
+                                                @endif
+                                            </label>
+                                        </div>
+                                        <div class="product-attr">
+                                            <span>Categoria:</span>
+                                            <label>
+                                                @php
+                                                    $stringa = "";
+                                                    foreach($product->categories as $category){
+                                                        if($stringa==""){
+                                                            $stringa = $stringa. $category->name;
+                                                        }else{
+                                                            $stringa = $stringa. ", ". $category->name;
+                                                        }
+                                                    }
+                                                    echo $stringa;
+                                                @endphp
+                                            </label>
                                         </div>
                                     </div>
                                 </div>

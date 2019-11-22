@@ -3086,7 +3086,10 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-weight: normal;
     color: #ee5e11;
 }
-
+.collapseControl{
+    color: #ffffff;
+    font-size: 16px;
+}
 .heading-part .order-info label{
     font-size: 16px;
     font-style: italic;
