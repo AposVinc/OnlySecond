@@ -10,9 +10,7 @@
             @endcomponent
 
             <div class="col-sm-12 col-lg-auto">
-
-                @foreach(auth()->user()->orderHistories()->get() as $order )
-
+                @foreach(auth()->user()->orderHistories()->get() as $order)
                     <div class="heading-part mb_10">
                         <div class="col-md-12">
                             <div class="order-info pl_0 col-md-2 ">
@@ -62,25 +60,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            <!--
-                                <div>
-                                    <span>Indirizzo di Fatturazione:</span>
-                                    <label>{{$order->billingAddress->name}} {{$order->billingAddress->surname}}<br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}} - {{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}}<br> CAP:{{$order->billingAddress->zip}}</label>
-                                </div>
-                                <div>
-                                    <span>Metodo di Pagamento:</span>
-                                    <label>{{$order->payment->name}}</label>
-                                </div>
-
-                                <div>
-                                    <span>Indirizzo di Spedizione:</span>
-                                    <label>{{$order->mailingAddress->name}} {{$order->mailingAddress->surname}}<br> {{$order->mailingAddress->address}}, {{$order->mailingAddress->civic_number}} - {{$order->mailingAddress->city}} {{'('. $order->mailingAddress->region. ')'}}<br> CAP:{{$order->mailingAddress->zip}}</label>
-                                </div>
-                                <div>
-                                    <span>Corriere:</span>
-                                    <label>{{$order->courier->name}}</label>
-                                </div>
-                                -->
                             </div>
                             @foreach($order->products as $product)
                                 <div id="chronology" class="mb_10 col-md-8">
@@ -104,6 +83,7 @@
                                             <span>Quantità Acquistata:</span>
                                             <label>{{$product->pivot->quantity}}</label>
                                         </div>
+
                                         <div class="product-attr">
                                             <span>Genere:</span>
                                             <label>
@@ -119,23 +99,18 @@
                                         <div class="product-attr">
                                             <span>Categoria:</span>
                                             <label>
-                                                @php
-                                                    $stringa = "";
-                                                    foreach($product->categories as $category){
-                                                        if($stringa==""){
-                                                            $stringa = $stringa. $category->name;
-                                                        }else{
-                                                            $stringa = $stringa. ", ". $category->name;
-                                                        }
-                                                    }
-                                                    echo $stringa;
-                                                @endphp
+                                                @foreach ($product->categories as $category)
+                                                    @if ($loop->first)
+                                                        {{$category->name}}
+                                                        @continue
+                                                    @endif
+                                                    {{', '. $category->name}}
+                                                @endforeach
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-
                         </div>
                     </div>
                 @endforeach
