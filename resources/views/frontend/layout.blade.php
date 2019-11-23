@@ -432,8 +432,8 @@
                 <ul>
                     <li><a href="{{route('Home')}}">www.onlysecondshop.it</a></li>
                     <li>Via Vetoio, 67100 L'Aquila AQ </li>
-                    <li><i class="fa fa-phone">0861254897</i></li>
-                    <li><i class="fa fa-envelope">onlysecondinfo@gmail.com</i></li>
+                    <li><i class="fa fa-phone">  0861254897</i></li>
+                    <li><i class="fa fa-envelope">  onlysecondinfo@gmail.com</i></li>
                 </ul>
             </div>
         </div>

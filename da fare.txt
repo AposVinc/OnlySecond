@@ -28,7 +28,6 @@ Login - div error se non va a buon fine registrazione
 -Sara	-login checkout
 -Vincenzo   - logica filtro - manca categorie, prezzo e sconto
 -vin Sara   - click da banner o nav che applica gia il filtro
--Vale       - Prodotto
 -Vale       - img prodotti come fossil carlie o Tissot Seastar - TS1204
 
 
@@ -102,7 +101,7 @@ Mostra subbanner in home
 si deve mettere un massimo alle quantità che si possono aggiungere (dipende dalla disponbilità in magazzino)
 bottone che fa ricaricare la pagina -js windows.location.reload
 grafica Storico Ordini - da ultimare dopo riepilogo
-
+pagina prodotto, risoluzione immagini, aggiungi recensioni
 
 
 

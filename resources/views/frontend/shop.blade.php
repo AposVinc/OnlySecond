@@ -70,7 +70,7 @@
                                             <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
                                         </div>
                                         <div class="caption product-detail text-center">
-                                            <h6 data-name="product_name" class="product-name mt_20"><a href="#" title="Casual Shirt With Ruffle Hem">{{$product->collection->brand->name}} {{$product->collection->name}}<br>{{$product->cod}}, {{$product->color->name}}</a></h6>
+                                            <h6 data-name="product_name" class="product-name mt_20"><a href="{{route('Product',['cod' => $product->cod])}}">{{$product->collection->brand->name}} {{$product->collection->name}}<br>{{$product->cod}}, {{$product->color->name}}</a></h6>
                                             <div class="rating">
                                                 @for ($i = 1; $i < 6; $i++)
                                                     @if($i <= $product->CalculateAverageVote())
@@ -107,7 +107,7 @@
                                             </div>
                                         </div>
                                         <div class="caption product-detail text-center">
-                                            <h6 data-name="product_name" class="product-name mt_20"><a href="#" title="Casual Shirt With Ruffle Hem">{{$product->collection->brand->name}} {{$product->collection->name}}<br>{{$product->cod}}, {{$product->color->name}}</a></h6>
+                                            <h6 data-name="product_name" class="product-name mt_20"><a href="{{route('Product',['cod' => $product->cod])}}">{{$product->collection->brand->name}} {{$product->collection->name}}<br>{{$product->cod}}, {{$product->color->name}}</a></h6>
                                             <div class="rating">
                                                 @for ($i = 1; $i < 6; $i++)
                                                     @if($i <= $product->CalculateAverageVote())

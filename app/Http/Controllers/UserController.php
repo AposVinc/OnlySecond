@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Product;
 use App\Review;
 use App\User;
 use Hash;
@@ -138,11 +139,13 @@ class UserController extends Controller
 
     /*-------------------   REVIEW   -------------------*/
 
-    public function addReview(Request $request)
+    public function addReview(Request $request, $cod)
     {
+        $product = Product::where('cod', $cod)->first();
         $review = new Review();
         $review->title = $request->title;
-        $review->review = $request->review;
+        $review->text = $request->text;
+        $review->product_id = $product->id;
 
         Auth::user()->reviews()->save($review);
 

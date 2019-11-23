@@ -735,7 +735,7 @@ DatabaseSeeder extends Seeder
             L\'orologio è impermeabile a 10ATM. Questo significa che l\'orologio è adatto al nuoto. 
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
         $Gent_P2I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Gent XL/Tissot_Gent XL_Blu_1.png', 'main' => '1']);
-        $Gent_P2S = new Specification(['case_size' => '42mm', 'material' => 'Inox', 'case_thickness' => '9.8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Pelle', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
+        $Gent_P2S = new Specification(['case_size' => '40mm', 'material' => 'Inox', 'case_thickness' => '9.8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Pelle', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Gent_P2S->dial_color = $blu->id;
         $Gent_P2S->strap_color = $marrone->id;
         $Gent_P2->collection_id = $Gent->id;
@@ -770,7 +770,7 @@ DatabaseSeeder extends Seeder
             L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
         $Lovely_P2I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Lovely/Tissot_Lovely_Oro_1.png', 'main' => '1']);
-        $Lovely_P2S = new Specification(['case_size' => '20mm', 'material' => 'Inox', 'case_thickness' => '8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
+        $Lovely_P2S = new Specification(['case_size' => '25mm', 'material' => 'Inox', 'case_thickness' => '8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
         $Lovely_P2S->dial_color = $argento->id;
         $Lovely_P2S->strap_color = $oro->id;
         $Lovely_P2->collection_id = $Lovely->id;
@@ -787,7 +787,7 @@ DatabaseSeeder extends Seeder
             L\'orologio è impermeabile a 30ATM. Questo significa che l\'orologio è adatto a immersioni profonde.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 12]);
         $Seastar_P1I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Seastar/Tissot_Seastar_Arancione_1.png', 'main' => '1']);
-        $Seastar_P1S = new Specification(['case_size' => '45mm', 'material' => 'Inox', 'case_thickness' => '13.5mm', 'glass' => 'Zaffiro', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
+        $Seastar_P1S = new Specification(['case_size' => '40mm', 'material' => 'Inox', 'case_thickness' => '13.5mm', 'glass' => 'Zaffiro', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
         $Seastar_P1S->dial_color = $nero->id;
         $Seastar_P1S->strap_color = $arancione->id;
         $Seastar_P1->collection_id = $Seastar->id;
@@ -1129,12 +1129,12 @@ DatabaseSeeder extends Seeder
         $review7->save();
 
         $review8 = new Review(['vote'=>'3', 'title'=>'Come in foto', 'text'=>'Esattamente come in foto. Forse mi aspettavo una confezione un po\' più importante.']);
-        $review8->product_id = $Lacoste_12_12->id;
+        $review8->product_id = $Lovely_P1->id;
         $user1->reviews()->save($review8);
         $review8->save();
 
         $review9 = new Review(['vote'=>'1', 'title'=>'Niente di particolare', 'text'=>'Mi aspettavo molto di più, foto illusoria']);
-        $review9->product_id = $Six_3_Nine_P1->id;
+        $review9->product_id = $Bayswater_P1->id;
         $user2->reviews()->save($review9);
         $review9->save();
 
@@ -1164,6 +1164,11 @@ DatabaseSeeder extends Seeder
         $review14->product_id = $Q_ExploristP4->id;
         $user1->reviews()->save($review14);
         $review14->save();
+
+        $review15 = new Review(['vote'=>'2', 'title'=>'Come in foto', 'text'=>'Esattamente come in foto. Forse mi aspettavo una confezione un po\' più importante.']);
+        $review15->product_id = $Lovely_P2->id;
+        $user2->reviews()->save($review15);
+        $review15->save();
 
 
         /*---   CARTS   -----------------------------------------------------*/

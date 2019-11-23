@@ -26,19 +26,20 @@
 
             <div class="col-md-7 prodetail caption product-thumb">
                 <div class="row">
-                    <div id="review" class="text-left col-md-7">
-                        <label class="product-name"><span><h2>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</h2></span></label>
+                    <div id="review" class="text-left col-lg-8">
+                        <span class="product-name"><h2>{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</h2></span>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-lg-2 mt_6 ml_100 ">
                         <a href="{{route('Wishlist.AddProduct', ['cod' => $product->cod])}}" id="wishlist">
-                            <i class="fa fa-heart " aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Aggiungi alla Wishlist!"></i>
+                            <i class="fa fa-heart "  aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Aggiungi alla Wishlist!"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="original_price">
-                    <h3><span class="price"><span class="currencySymbol">€</span>{{$product->price}}</span></h3>
+                <div class="original_price mb_10">
+                    <h3><span class="price">{{$product->price}}<span class="currencySymbol">€</span></span></h3>
                 </div>
+
                 <hr>
 
                 <ul class="list-unstyled product_info mtb_20">
@@ -77,15 +78,15 @@
                     <div class="form-group">
                         <hr>
                         <div class="row">
-                            <div class="col-md-4 qty form-group2">
-                                <label>Quantità</label>
-                                <input type="number" name="product_quantity" min="1" max="{{$product->stock_availability}}" class="mt_20">
+                            <div class="col-md-6 qty form-group2 mt_20 ">
+                                <label>Quantità:   </label>
+                                <input type="number" name="product_quantity" value="1" min="1" max="{{$product->stock_availability}}" class="cart-qty ml_10">
                             </div>
 
-                            <div class="mt_30 ml_40">
-                                <button>
-                                    <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="cart"><h4><i class="fa fa-shopping-cart">Aggiungi al Carrello</i></h4></a>
-                                </button>
+                            <div class="col-md-6 mt_20">
+                                <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="btn cart">
+                                    <i class="fa fa-shopping-cart">    Aggiungi al Carrello</i></a>
+
                             </div>
                         </div>
                     </div>
@@ -94,15 +95,15 @@
         </div>
             <div class="row mtb_60">
                 <div class="col-md-12">
-                    <div id="exTab5" class="mtb_30">
+                    <div id="Tab3" class="mtb_30">
                         <ul class="nav nav-tabs">
-                            <li class="active"> <a href="#1c" data-toggle="tab">Descrizione</a> </li>
-                            <li><a href="#2c" data-toggle="tab">Specifiche</a> </li>
-                            <li><a href="#3c" data-toggle="tab">Recensioni</a> </li>
+                            <li class="active "> <a href="#1c" data-toggle="tab"><h5>Descrizione</h5></a> </li>
+                            <li><a href="#2c" data-toggle="tab"><h5>Specifiche</h5></a> </li>
+                            <li><a href="#3c" data-toggle="tab"><h5>Recensioni</h5></a> </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active pt_10" id="1c">
-                                <p class="product-desc mtb_10">{{$product->long_desc}}</p>
+                            <div class="tab-pane active pt_10 mt_20" id="1c">
+                                <p class="product-desc mtb_10"><h5>{{$product->long_desc}}</h5>
                             </div>
 
                             <div class="tab-pane pt_10" id="2c">
@@ -265,16 +266,16 @@
 
                             <div class="tab-pane pt_10" id="3c">
 
-                                <div class="col-md-12">
-                                    <label data-toggle="collapse" data-target="#content"><div class="fa fa-plus">  Scrivi una recensione </div></label>
+                                <div class="mtb_10">
+                                    <a data-toggle="collapse" data-target="#content"><h4><i class="fa fa-plus">  Scrivi Una Recensione </i></h4></a>
+
                                     <div class="collapse" id="content">
 
-                                        <form action="{{route('Review.Add')}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
+                                        <form action="{{route('Review.Add', ['cod' => $product->cod])}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
                                             @csrf
-                                            <div class="form-group required">
+                                            <div class="form-group required mt_20">
                                                 <div class="col-sm-12">
-                                                    <label class="control-label" for="input-name">Titolo Recensione</label>
-                                                    <input name="name" value="" id="input-title" class="form-control" type="text">
+                                                    <label class="control-label" for="input-title">Titolo Recensione</label><input name="title" id="input-title" class="form-control" type="text" data-required="true" required>
                                                 </div>
 
                                             </div>
@@ -282,7 +283,7 @@
                                             <div class="form-group required">
                                                 <div class="col-sm-12">
                                                     <label class="control-label" for="input-review">la Tua Recensione</label>
-                                                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                                                    <textarea name="text" rows="5" id="input-review" class="form-control" data-required="true" required></textarea>
                                                 </div>
                                             </div>
 
@@ -307,12 +308,8 @@
 
 
                                                 <div class="col-sm-4">
-                                                    <div class="buttons clearfix">
-                                                        <div class="pull-right pr_10 mt_10">
-                                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                            <a href="{{route('Review.Add')}}" class="review" title="Aggiungi alle recensioni">Invia</a>
-                                                            </button>
-                                                        </div>
+                                                    <div class="pull-right pr_10">
+                                                        <button type="submit" class="btn">Invia</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,34 +317,27 @@
                                     </div>
                                 </div>
 
-                                <div class="mtb_40">
+                                <div class="col-md-12 mt_10">
                                     @if($product->reviews->isEmpty())
                                         <div class="text-center reviewEmpty">
-                                            <span style="font-size: 20px;"> Non ci sono recensioni</span>
+                                            <span style="font-size: 30px;"> Non ci sono recensioni!! <i class="fa fa-meh-o"></i> </span>
                                             <br>
-                                            <small> Aggiungi la prima recensione cliccando su "Scrivi una recensione" </small>
+                                            <div class="mt_10">
+                                            <span> Aggiungi la prima recensione cliccando su</span> <i>  "Scrivi Una Recensione" </i>
+                                            </div>
                                         </div>
-
                                     @else
                                         @foreach($product->reviews as $review)
 
-                                            <div id="review" class="mb_40">
-
-                                                <label class="product-name"><span>Nome utente:</span>{{$review->user->name}}</label>
-
-                                                <div id="review" class=" mt_10">
-                                                    <div class="col-lg-8">
-                                                        <div class="review-title">
-                                                            <span>Titolo:</span>
-                                                            <label>{{$review->title}}</label>
-
-                                                        </div>
+                                                <div id="review" class="mt_10">
+                                                    <div>
+                                                        <label class="product-name"><span style="margin-right: 10px">Nome Utente: </span>{{$review->user->name}}</label>
                                                     </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="review-vote-date">
-                                                            <span>Data:</span>
-                                                            <label>{{date('d-m-Y H:i', strtotime($review->created_at))}}</label>
-                                                            <span style="margin-left: 25px;">Voto:</span>
+                                                    <div class="row mt_10">
+                                                        <label class="col-lg-8 review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
+                                                        <label class="col-lg-4 review-vote-date">
+                                                            <span >Data:   </span>{{date('d-m-Y H:i', strtotime($review->created_at))}}
+                                                            <span style="margin-left: 10px;">Voto:  </span>
                                                             @for ($i = 1; $i < 6; $i++)
                                                                 @if($i <= $review->vote)
                                                                     <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
@@ -355,12 +345,11 @@
                                                                     <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
                                                                 @endif
                                                             @endfor
-                                                        </div>
+                                                        </label>
                                                     </div>
-                                                    <div class="review-text">
+                                                    <div style="margin-top:5px; text-align: justify;">
                                                         <p>{{$review->text}}</p>
                                                     </div>
-                                                </div>
 
                                             </div>
                                         @endforeach
