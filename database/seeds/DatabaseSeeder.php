@@ -822,14 +822,14 @@ DatabaseSeeder extends Seeder
         $Wellington->save();
 
         /* Collezioni Wellington */
+        $Bayswater = new Collection(['name' => 'Bayswater']);
+        $Wellington->collections()->save($Bayswater);
+
         $Roselyn = new Collection(['name' => 'Roselyn']);
         $Wellington->collections()->save($Roselyn);
 
         $Sheffield = new Collection(['name' => 'Sheffield']);
         $Wellington->collections()->save($Sheffield);
-
-        $Bayswater = new Collection(['name' => 'Bayswater']);
-        $Wellington->collections()->save($Bayswater);
 
         /*Prodotti Wellington */
         $Bayswater_P1 = new Product(['cod' => 'DWB011','price' => '139', 'stock_availability' => '5', 'genre' => 'U',

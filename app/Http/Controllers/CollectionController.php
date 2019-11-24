@@ -163,31 +163,41 @@ class CollectionController extends Controller
         }
 
         if(Banner::withoutTrashed()->where('collection_id', $idcollection)->exists()){
-            $visible = false;
-            $banners = Banner::withoutTrashed()->where('collection_id', $idcollection)->get();
-            foreach ($banners as $banner){
-                if($banner->visible){
-                    $visible = true;
+            //esiste banner per quella collection
+            if(Banner::withoutTrashed()->where('collection_id', $idcollection)->where('visible', true)->count('visible')){
+                //esiste banner per quella collection VISIBILE
+                $types = [];
+                if(Banner::withoutTrashed()->where('type', 'Main')->where('visible', true)->count('visible') == 1){
+                    //qui solo se è attivo un SOLO banner per tipo - devo controllare se quello che sto eliminando è lo stesso che è attivo (caso, elimina Stella e poi bayswater)
+                    array_push($types,'Main');
                 }
-            }
-            if($visible){
-                $countVisibleTot = Banner::withoutTrashed()->where('visible', true)->count('visible');
-                $coutnVisibleCollection = Banner::withoutTrashed()->where('visible', true)->where('collection_id',$idcollection)->count('visible');
-                $countVisible = $countVisibleTot - $coutnVisibleCollection;
-                if($countVisible>=1) {
-                    if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])) {
-                        if ($collection->delete()) {
-                            return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
-                        } else {
-                            return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
-                        }
-                    }else{
+                if(Banner::withoutTrashed()->where('type', 'Sub')->where('visible', true)->count('visible') == 1){
+                    array_push($types,'Sub');
+                }
+                if(Banner::withoutTrashed()->where('type', 'Mini')->where('visible', true)->count('visible') == 1){
+                    array_push($types,'Mini');
+                }
+
+                foreach ($types as $type){    //analizzo solo le situazioni di rischio
+                    $countVisibleTot = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->count('visible');
+                    $coutnVisibleCollection = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->where('collection_id',$idcollection)->count('visible');
+                    $countVisible = $countVisibleTot - $coutnVisibleCollection;
+                    if($countVisible<=1) {
+                        return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione. Almeno un Banner di Tipo '. $type. ' deve rimanere Visiile dopo l\'eliminazione!!');
+                    }
+                }
+
+                if(Banner::withTrashed()->where('collection_id',$idcollection)->update(['visible' => false])) {
+                    if ($collection->delete()) {
+                        return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
+                    } else {
                         return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
                     }
                 }else{
-                    return redirect()->to('Admin/Collection/List')->with('error', 'Attenzione!! Rendere visibile un altro Banner per effettuare questa Eliminazione');
+                    return redirect()->to('Admin/Collection/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
                 }
             }else{
+                //NON esiste alcun banner per quella collection VISIBILE
                 if ($collection->delete()) {
                     return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
                 } else {
@@ -195,6 +205,7 @@ class CollectionController extends Controller
                 }
             }
         }else{
+            //NON esiste alcun banner per quella collection
             if ($collection->delete()) {
                 return redirect()->to('Admin/Collection/List')->with('success', 'Eliminazione avvenuta con successo!!');
             } else {
