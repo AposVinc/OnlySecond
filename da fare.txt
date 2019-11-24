@@ -20,8 +20,6 @@ Login - div error se non va a buon fine registrazione
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
 
--Sara   -aggiungi al carrello
--Sara	-logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 -Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 -Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 -Sara   -gestire opzione regalo
@@ -102,8 +100,8 @@ si deve mettere un massimo alle quantità che si possono aggiungere (dipende dal
 bottone che fa ricaricare la pagina -js windows.location.reload
 grafica Storico Ordini - da ultimare dopo riepilogo
 pagina prodotto, risoluzione immagini, aggiungi recensioni
-
-
+logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
+aggiungi al carrello
 
 
 

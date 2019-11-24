@@ -453,35 +453,52 @@ class ProductController extends Controller
         if(\Auth::check()){
             if (\Auth::user()->products()->where('cod', $cod)->first()){
                 $cart = Cart::where('product_id', $product->id)->where('user_id', \Auth::id())->first();
-                \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $cart->quantity +1]);
+                if($request->filled('product_quantity')){
+                    \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $request->get('product_quantity')]);
+                }else{
+                    \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $cart->quantity +1]);
+                }
                 return redirect()->back();
             }else{
                 \Auth::user()->products()->save($product, ['quantity' => 1]);
                 return redirect()->back();
             }
         }else{
+            $trovato = false;
             $products = $request->session()->get('products');
             $quantity = $request->session()->get('quantity');
             if(empty($products)){
                 $request->session()->push('products', $product);
-                $request->session()->push('quantity', 1);
+                if($request->filled('product_quantity')){
+                    $request->session()->push('quantity', $request->get('product_quantity'));
+                }else{
+                    $request->session()->push('quantity', 1);
+                }
             }else{
                 $q = [];
-                $trovato = false;
                 foreach ($products as $k => $p){
                     if($p->cod == $product->cod){
                         $trovato = true;
-                        $q = array_replace($quantity, array($k => $quantity[$k] + 1));
+                        if($request->filled('product_quantity')){
+                            $q = array_replace($quantity, array($k => $request->get('product_quantity')));
+                        }else{
+                            $q = array_replace($quantity, array($k => $quantity[$k] + 1));
+                        }
                     }
                 }
                 if(!$trovato){
                     $request->session()->push('products', $product);
-                    $request->session()->push('quantity', 1);
+                    if($request->filled('product_quantity')){
+                        $request->session()->push('quantity', $request->get('product_quantity'));
+                    }else{
+                        $request->session()->push('quantity', 1);
+                    }
                 }else{
                     $request->session()->forget('quantity');
                     $request->session()->put('quantity', $q);
                 }
             }
+            $this->calculatepriceQuantityProduct($product, $request, $trovato);
             $this->calculateTotalPrice($request);
             return redirect()->back();
         }
@@ -492,10 +509,59 @@ class ProductController extends Controller
         $products = $request->session()->get('products');
         $quantity = $request->session()->get('quantity');
         foreach ($products as $k => $product){
-            $totalprice += ($product->price * $quantity[$k]);
+            $offer = $this->offer($product);
+            if($offer != 0){
+                $totalprice += ($offer * $quantity[$k]);
+            }else{
+                $totalprice += ($product->price * $quantity[$k]);
+            }
         }
-        $request->session()->put('TotalPrice', number_format($totalprice, 2));
-        return;
+        $request->session()->put('TotalPrice', number_format($totalprice, 2, ".", ""));
+        return ;
+    }
+
+    public function calculatepriceQuantityProduct($product, $request, $trovato){
+        $products = $request->session()->get('products');
+        if($trovato){
+            $price = $request->session()->get('price');
+            $p = [];
+            foreach ($products as $k => $p){
+                if($p->cod == $product->cod){
+                    $offer = $this->offer($product);
+                    $quantity = $request->session()->get('quantity')[$k];
+                    if($offer != 0){
+                        $total = $quantity * $offer;
+                    }else{
+                        $total = $quantity * $product->price;
+                    }
+                    $p = array_replace($price, array($k => number_format($total, 2, ".", "")));
+                }
+            }
+            $request->session()->forget('price');
+            $request->session()->put('price', $p);
+        }else{
+            foreach ($products as $k => $p){
+                if($p->cod == $product->cod){
+                    $offer = $this->offer($product);
+                    $quantity = $request->session()->get('quantity')[$k];
+                    if($offer != 0){
+                        $total = $quantity * $offer;
+                    }else{
+                        $total = $quantity * $product->price;
+                    }
+                    $request->session()->push('price', number_format($total, 2, ".", ""));
+                }
+            }
+        }
+        return ;
+    }
+
+    function offer($product){
+        $prod = Product::where('cod', $product->cod)->first();
+        if($prod->offer()->exists()){
+            return $prod->offer->calculateDiscount();
+        }
+        return 0;
     }
 
     public function removeFromCart(Request $request, $cod){
@@ -508,6 +574,7 @@ class ProductController extends Controller
             $quantity = $request->session()->get('quantity');
             $prod = [];
             $qt = [];
+            $pr = [];
             foreach ($products as $k => $p){
                 if($p->cod != $product->cod){
                     array_push($prod, $p);
@@ -516,14 +583,21 @@ class ProductController extends Controller
             }
             $request->session()->forget('products');
             $request->session()->forget('quantity');
+            $request->session()->forget('price');
             if(!empty($prod)){
                 $request->session()->put('products', $prod);
                 $request->session()->put('quantity', $qt);
                 $this->calculateTotalPrice($request);
+                foreach ($prod as $k => $p){
+                    if($p->cod != $product->cod){
+                        $this->calculatepriceQuantityProduct($p, $request, false);
+                    }
+                }
             }
             return redirect()->back();
         }
     }
+
 }
 
 

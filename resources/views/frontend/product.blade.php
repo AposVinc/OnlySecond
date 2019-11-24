@@ -78,16 +78,42 @@
                     <div class="form-group">
                         <hr>
                         <div class="row">
-                            <div class="col-md-6 qty form-group2 mt_20 ">
-                                <label>Quantità:   </label>
-                                <input type="number" name="product_quantity" value="1" min="1" max="{{$product->stock_availability}}" class="cart-qty ml_10">
-                            </div>
+                            <form method="get" action="{{route('Cart.AddProduct', ['cod' => $product->cod])}}">
+                                <div class="col-md-6 qty form-group2 mt_20 ">
+                                    <label>Quantità:   </label>
+                                    @auth()
+                                        @if(auth()->User()->products->isEmpty())
+                                            <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
+                                        @else
+                                            @foreach(auth()->User()->products as $prod)
+                                                @if($prod->cod == $product->cod)
+                                                    <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="{{$prod->pivot->quantity}}" type="number" style="width: 65px; height: 35px;">
+                                                @else
+                                                    @if($loop->last)
+                                                        <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @elseif(Session::has('quantity'))
+                                        @foreach(Session::get('products') as $prod)
+                                            @if($prod->cod == $product->cod)
+                                                <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="{{Session::get('quantity')[$loop->index]}}" type="number" style="width: 65px; height: 35px;">
+                                            @else
+                                                @if($loop->last)
+                                                    <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
+                                    @endauth
+                                </div>
 
-                            <div class="col-md-6 mt_20">
-                                <a href="{{route('Cart.AddProduct', ['cod' => $product->cod])}}" class="btn cart">
-                                    <i class="fa fa-shopping-cart">    Aggiungi al Carrello</i></a>
-
-                            </div>
+                                <div class="col-md-6 mt_20">
+                                    <button type="submit" class="btn cart fa fa-shopping-cart">    Aggiungi al Carrello</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

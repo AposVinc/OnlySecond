@@ -84,14 +84,22 @@ class User extends Authenticatable
     public function calculateTotalPrice(){
         $totalprice = 0.00;
         foreach ($this->products as $product){
-            $totalprice += ($product->price * $product->pivot->quantity);
+            if($product->offer()->exists()){
+                $totalprice += ($product->offer->calculateDiscount() * $product->pivot->quantity);
+            }else{
+                $totalprice += ($product->price * $product->pivot->quantity);
+            }
         }
-        return number_format($totalprice, 2);
+        return number_format($totalprice, 2, ".", "");
     }
 
     public function calculatepriceQuantityProduct($product){
-        $total = $product->pivot->quantity * $product->price;
-        return number_format($total, 2);
+        if($product->offer()->exists()){
+            $total = $product->pivot->quantity * $product->offer->calculateDiscount();
+        }else{
+            $total = $product->pivot->quantity * $product->price;
+        }
+        return number_format($total, 2, ".", "");
     }
 
 }
