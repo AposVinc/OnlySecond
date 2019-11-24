@@ -1618,7 +1618,6 @@ input#amount {
     width: 70px;
     display: inline-block;
     text-align: center;
-    cursor: pointer;
     transition: all 0.5s ease 0s;
 }
 .Order {
@@ -3147,50 +3146,9 @@ input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
 	5.6 Cart
 ----------------------------------------------- */
 
-.productName{
-    font-size: 18px;
-}
-.productName span{
+.cartProd span{
     font-weight: normal;
-    color: #ee5e11;
-    margin-right: 7px;
-}
-.productName label{
-    font-weight: bold;
-}
-.productPrice{
-    font-size: 16px;
-}
-.productPrice span{
-    color: #ee5e11;
-    margin-right: 5px;
-}
-.productField{
-    font-size: 13px;
-}
-.productField label{
-    font-weight: normal;
-}
-.productField span{
-    color: #ee5e11;
-    margin-right: 5px;
-}
-.cart-qty {
-    margin-top: 5px;
-    padding: 5px 8px;
-    width: 60px;
-    height: 30px;
-}
-.productQuantity{
-    font-size: 16px;
-    color: #ee5e11;
-    margin-right: 5px;
-}
-.productPriceTotal{
-    font-size: 16px;
-}
-.productPriceTotal span{
-    color: #ee5e11;
+    color: #ee5e11;  /*#ff6300   #ff711a     #e6641e     #ee5e11*/
 }
 
 /* ----------------------------------------------

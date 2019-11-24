@@ -432,8 +432,8 @@
                 <ul>
                     <li><a href="{{route('Home')}}">www.onlysecondshop.it</a></li>
                     <li>Via Vetoio, 67100 L'Aquila AQ </li>
-                    <li><i class="fa fa-phone">  0861254897</i></li>
-                    <li><i class="fa fa-envelope">  onlysecondinfo@gmail.com</i></li>
+                    <li><i class="fa fa-phone" style="padding-right: 5px;"></i>0861254897</li>
+                    <li><i class="fa fa-envelope" style="padding-right: 5px;"></i>onlysecondinfo@gmail.com</li>
                 </ul>
             </div>
         </div>
@@ -444,11 +444,11 @@
                 <div class="col-sm-4">
                     <div class="social_icon">
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><i class="fa fa-facebook"></i></li>
+                            <li><i class="fa fa-google"></i></li>
+                            <li><i class="fa fa-linkedin"></i></li>
+                            <li><i class="fa fa-twitter"></i></li>
+                            <li><i class="fa fa-rss"></i></li>
                         </ul>
                     </div>
                 </div>
