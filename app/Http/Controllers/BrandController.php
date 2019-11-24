@@ -270,9 +270,9 @@ class BrandController extends Controller
 
                 if(Banner::withoutTrashed()->where('collection_id', $collection->id)->exists()){
                     //esiste banner per quella collection
+                    $types = [];
                     if(Banner::withoutTrashed()->where('collection_id', $collection->id)->where('visible', true)->count('visible')) {
                         //esiste banner per quella collection VISIBILE
-                        $types = [];
                         if(Banner::withoutTrashed()->where('type', 'Main')->where('visible', true)->count('visible') == 1){
                             //qui solo se è attivo un SOLO banner per tipo - devo controllare se quello che sto eliminando è lo stesso che è attivo
                             array_push($types,'Main');
@@ -289,7 +289,7 @@ class BrandController extends Controller
                         $coutnVisibleCollection = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->where('collection_id',$collection->id)->count('visible');
                         $countVisible = $countVisibleTot - $coutnVisibleCollection;
                         if($countVisible<=1) {
-                            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione. Almeno un Banner di Tipo '. $type. ' deve rimanere Visiile dopo l\'eliminazione!!');
+                            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione. Almeno un Banner di Tipo '. $type. ' deve rimanere Visibile dopo l\'eliminazione!!');
                         }
                     }
                     if(! Banner::withTrashed()->where('collection_id',$collection->id)->update(['visible' => false])) {
