@@ -88,6 +88,7 @@
                                             @foreach(auth()->User()->products as $prod)
                                                 @if($prod->cod == $product->cod)
                                                     <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="{{$prod->pivot->quantity}}" type="number" style="width: 65px; height: 35px;">
+                                                    @break
                                                 @else
                                                     @if($loop->last)
                                                         <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">

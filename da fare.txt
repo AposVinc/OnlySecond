@@ -19,7 +19,6 @@ Login - div error se non va a buon fine registrazione
       - email già usata div error con messaggio
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
-
 -Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 -Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 -Sara   -gestire opzione regalo
