@@ -43,7 +43,7 @@
                                                 </div>
                                                 <h6 data-name="product_name" class="product-name"><a href="#" title="Casual Shirt With Ruffle Hem">{{$product->collection->brand->name}} {{$product->collection->name}}<br>{{$product->cod}}, {{$product->color->name}}</a></h6>
                                                 <span class="oldPrice"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
-                                                <span class="price"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
+                                                <span class="price"><span class="amount">{{$product->offer->calculateDiscount()}}<span class="currencySymbol">€</span></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                                 </div>
                                                 <h6 data-name="product_name" class="product-name"><a href="{{route('Product', ['cod' => $product->cod])}}">{{$product->collection->brand->name}} {{$product->collection->name}}<br>{{$product->cod}}, {{$product->color->name}}</a></h6>
                                                 <span class="oldPrice"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
-                                                <span class="price"><span class="amount">{{$product->price}}<span class="currencySymbol">€</span></span></span>
+                                                <span class="price"><span class="amount">{{$product->offer->calculateDiscount()}}<span class="currencySymbol">€</span></span></span>
                                             </div>
                                         </div>
                                     </div>
