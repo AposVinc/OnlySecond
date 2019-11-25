@@ -5,7 +5,6 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 -Sara - tabelle/grafici BE (prima pg)
--Vin  - controllo eliminazione banner da brand e collection
 
 FE
 ---------
@@ -14,6 +13,7 @@ FE
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
 payments    - dopo checkout
+paginazione shop
 Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
       - email già usata div error con messaggio
@@ -23,10 +23,10 @@ Login - div error se non va a buon fine registrazione
 -Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 -Sara   -gestire opzione regalo
 -Sara	-login checkout
--Vincenzo   - logica filtro - manca categorie, prezzo e sconto
+-Vincenzo   - logica filtro - manca prezzo
 -vin Sara   - click da banner o nav che applica gia il filtro
--Vale       - img prodotti come fossil carlie o Tissot Seastar - TS1204
 
+categorie in sez Specifiche in product.blade come nelle altre parti del sito
 
 
 
@@ -101,6 +101,8 @@ grafica Storico Ordini - da ultimare dopo riepilogo
 pagina prodotto, risoluzione immagini, aggiungi recensioni
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 aggiungi al carrello
+img prodotti come fossil carlie o Tissot Seastar - TS1204
+voto recensione
 
 
 

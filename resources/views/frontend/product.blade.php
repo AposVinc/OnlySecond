@@ -316,31 +316,21 @@
 
                                             <div class="form-group required">
                                                 <div class="col-sm-12">
-                                                    <label class="control-label" for="input-review">la Tua Recensione</label>
+                                                    <label class="control-label" for="input-review">La Tua Recensione</label>
                                                     <textarea name="text" rows="5" id="input-review" class="form-control" data-required="true" required></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="row">
-
                                                 <div class="col-sm-8">
-                                                    <div class="rating">
-                                                        <label>Vota:</label>
-                                                        @for ($i = 1; $i < 6; $i++)
-                                                            @if($i <= $product->CalculateAverageVote())
-                                                                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
-                                                            @else
-                                                                @if(is_float($product->CalculateAverageVote()) and ($i==ceil($product->CalculateAverageVote())) )
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star-half fa-stack-1x"></i></span>
-                                                                @else
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                @endif
-                                                            @endif
-                                                        @endfor
-                                                    </div>
+                                                    <fieldset class="reviewRating">
+                                                        <input type="radio" id="star5" name="reviewRating" value="5" /><label class = "full" for="star5" title="Stupendo - 5 stars"></label>
+                                                        <input type="radio" id="star4" name="reviewRating" value="4" /><label class = "full" for="star4" title="Buono - 4 stars"></label>
+                                                        <input type="radio" id="star3" name="reviewRating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                                        <input type="radio" id="star2" name="reviewRating" value="2" /><label class = "full" for="star2" title="Mediocre- 2 stars"></label>
+                                                        <input type="radio" id="star1" name="reviewRating" value="1" /><label class = "full" for="star1" title="Pessimo - 1 star"></label>
+                                                    </fieldset>
                                                 </div>
-
-
                                                 <div class="col-sm-4">
                                                     <div class="pull-right pr_10">
                                                         <button type="submit" class="btn">Invia</button>
