@@ -61,7 +61,14 @@
                     </li>
                     <li>
                         <label>Genere:</label>
-                        <span>{{$product->genre}}</span>
+                        <span>
+                            @if($product->genre == "U")
+                                Unisex
+                            @elseif($product->genre == "M")
+                                Uomo
+                            @else
+                                Donna
+                            @endif</span>
                     </li>
                     <li>
                         <label>Codice Prodotto:</label>
@@ -357,10 +364,18 @@
                                         @foreach($product->reviews as $review)
 
                                                 <div id="review" class="mt_10">
-                                                    <div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
                                                         <label class="product-name"><span style="margin-right: 10px">Nome Utente: </span>{{$review->user->name}}</label>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <div class="button-right">
+                                                                <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica la recensione"></a>
+                                                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" title="Rimuovi la recensione"></a>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="row mt_10">
+                                                    <div class="row mt_20">
                                                         <label class="col-lg-8 review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
                                                         <label class="col-lg-4 review-vote-date">
                                                             <span >Data:   </span>{{date('d-m-Y H:i', strtotime($review->created_at))}}
