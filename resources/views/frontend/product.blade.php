@@ -331,7 +331,7 @@
                                                         <input type="radio" id="star1" name="reviewRating" value="1" /><label class = "full" for="star1" title="Pessimo - 1 star"></label>
                                                     </fieldset>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-4 mb_20">
                                                     <div class="pull-right pr_10">
                                                         <button type="submit" class="btn">Invia</button>
                                                     </div>
@@ -361,8 +361,7 @@
                                                        @if(Auth::id() == $review->user_id)
                                                         <div class="col-md-5">
                                                             <div class="button-right">
-                                                                <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica la recensione"></a>
-                                                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" title="Rimuovi la recensione"></a>
+                                                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline" title="Rimuovi la recensione" style="padding: 5px"> <i class=" fa fa-trash"></i> Elimina</a>
                                                             </div>
                                                         </div>
                                                         @endif
@@ -384,7 +383,50 @@
                                                     <div style="margin-top:5px; text-align: justify;">
                                                         <p>{{$review->text}}</p>
                                                     </div>
-                                            </div>
+                                                    @if(Auth::id() == $review->user_id)
+                                                    <div class="mt_10">
+                                                        <a data-toggle="collapse" data-target="#content1" class=" btn-outline" style="padding: 5px" title="Modifica la recensione"><em><i class="fa fa-pencil"></i> Modifica</em></a>
+
+                                                        <div class="collapse" id="content1" >
+
+                                                            <form action="{{route('Review.Edit', ['id' => $review->id])}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-8">
+                                                                @csrf
+                                                                    <div class="form-group required mt_10" >
+                                                                        <div class="col-md-12">
+                                                                            <label class="control-label" for="input-title">Modifica Titolo</label>
+                                                                            <input name="title" id="input-title" class="form-control" type="text" data-required="true" required value="{{$review->title}}">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group required">
+                                                                        <div class="col-md-12">
+                                                                            <label class="control-label" for="input-review">Modifica Recensione</label>
+                                                                            <textarea name="text" type="text" rows="10" id="input-review" class="form-control" data-required="true" required >{{$review->text}}</textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-8">
+                                                                        <fieldset class="reviewRating">
+                                                                            <input type="radio" id="starFive" name="reviewRating" value="5"/><label class = "full" for="starFive" title="Stupendo - 5 stars"></label>
+                                                                            <input type="radio" id="starFour" name="reviewRating" value="4"/><label class = "full" for="starFour" title="Buono - 4 stars"></label>
+                                                                            <input type="radio" id="starThree" name="reviewRating" value="3"/><label class = "full" for="starThree" title="Meh - 3 stars"></label>
+                                                                            <input type="radio" id="starTwo" name="reviewRating" value="2"/><label class = "full" for="starTwo" title="Mediocre- 2 stars"></label>
+                                                                            <input type="radio" id="starOne" name="reviewRating" value="1"/><label class = "full" for="starOne" title="Pessimo - 1 star"></label>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                    <div class="col-sm-4 mb_20">
+                                                                        <div class="pull-right pr_10">
+                                                                            <button type="submit" class="btn" style="padding: 5px">Modifica</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+                                                    @endif
+                                                </div>
                                         @endforeach
                                     @endif
 
@@ -396,5 +438,4 @@
                 </div>
             </div>
     </div>
-
 @endsection

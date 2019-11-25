@@ -6,6 +6,7 @@ use App\Address;
 use App\Product;
 use App\Review;
 use App\User;
+use DB;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -156,5 +157,16 @@ class UserController extends Controller
             return back()->with('error','Errore durante il caricamento. Riprovare!!');
         }
     }
+
+    public function editReview(Request $request, $id){
+        if(DB::table('reviews')->where('id',$id)->update([
+            'title' => $request->title,
+            'text' => $request->text,
+            'vote' => $request->reviewRating])) {
+            return back();
+        }
+
+    }
+
 
 }

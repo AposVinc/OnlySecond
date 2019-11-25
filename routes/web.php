@@ -109,6 +109,7 @@ Route::group(['middleware' => ['auth'] ], function () {
     })->name('Review2');
 
     Route::post('/Review/Add/{cod}', 'UserController@addReview')->name('Review.Add');
+    Route::post('/Review/Edit/{id}', 'UserController@editReview')->name('Review.Edit');
 
     Route::get('/Review/Remove/{id}', function ($id) {
         Review::where('id',$id)->forceDelete();
