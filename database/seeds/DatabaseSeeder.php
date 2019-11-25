@@ -1082,7 +1082,7 @@ DatabaseSeeder extends Seeder
         /*---   REVIEW   -----------------------------------------------------*/
 
         $review1 = new Review(['vote'=>'5', 'title'=>'Grande Acquisto', 'text'=>'Bell\'orologio, arrivato a casa in tempi brevissimi']);
-        $review1->product_id = $CarlieP2->id;
+        $review1->product_id = $CarlieP1->id;
         $user1->reviews()->save($review1);
         $review1->save();
 
