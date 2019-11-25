@@ -361,6 +361,7 @@
                                                        @if(Auth::id() == $review->user_id)
                                                         <div class="col-md-5">
                                                             <div class="button-right">
+                                                                <a data-toggle="collapse" data-target="#content1" class=" btn-outline" style="padding: 5px" title="Modifica la recensione"><em><i class="fa fa-pencil"></i> Modifica</em></a>
                                                                 <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline" title="Rimuovi la recensione" style="padding: 5px"> <i class=" fa fa-trash"></i> Elimina</a>
                                                             </div>
                                                         </div>
@@ -385,7 +386,6 @@
                                                     </div>
                                                     @if(Auth::id() == $review->user_id)
                                                     <div class="mt_10">
-                                                        <a data-toggle="collapse" data-target="#content1" class=" btn-outline" style="padding: 5px" title="Modifica la recensione"><em><i class="fa fa-pencil"></i> Modifica</em></a>
 
                                                         <div class="collapse" id="content1" >
 
