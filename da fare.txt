@@ -22,7 +22,6 @@ Login - div error se non va a buon fine registrazione
 -Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 -Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 -Sara   -gestire opzione regalo
--Sara	-login checkout
 -Vincenzo   - logica filtro - manca prezzo
 -vin Sara   - click da banner o nav che applica gia il filtro
 
@@ -104,7 +103,7 @@ logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider de
 aggiungi al carrello
 img prodotti come fossil carlie o Tissot Seastar - TS1204
 voto recensione
-
+login checkout
 
 
 ------------------------------------------------
