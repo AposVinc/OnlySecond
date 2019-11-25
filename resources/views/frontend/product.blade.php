@@ -79,7 +79,7 @@
                         <hr>
                         <div class="row">
                             <form method="get" action="{{route('Cart.AddProduct', ['cod' => $product->cod])}}">
-                                <div class="col-md-6 qty form-group2 mt_20 ">
+                                <div class="col-md-7 qty form-group2 mt_20 ">
                                     <label>Quantità:   </label>
                                     @auth()
                                         @if(auth()->User()->products->isEmpty())
@@ -111,8 +111,8 @@
                                     @endauth
                                 </div>
 
-                                <div class="col-md-6 mt_20">
-                                    <button type="submit" class="btn cart fa fa-shopping-cart">    Aggiungi al Carrello</button>
+                                <div class="col-md-5 mt_20">
+                                    <button type="submit" class="btn cart" style="padding:6px"> <i class="fa fa-shopping-cart"></i>   Aggiungi al Carrello</button>
                                 </div>
                             </form>
                         </div>
@@ -294,7 +294,7 @@
                             <div class="tab-pane pt_10" id="3c">
 
                                 <div class="mtb_10">
-                                    <a data-toggle="collapse" data-target="#content"><h4><i class="fa fa-plus">  Scrivi Una Recensione </i></h4></a>
+                                    <a data-toggle="collapse" data-target="#content"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
 
                                     <div class="collapse" id="content">
 
@@ -347,7 +347,7 @@
                                 <div class="col-md-12 mt_10">
                                     @if($product->reviews->isEmpty())
                                         <div class="text-center reviewEmpty">
-                                            <span style="font-size: 30px;"> Non ci sono recensioni!! <i class="fa fa-meh-o"></i> </span>
+                                            <span style="font-size: 25px;"> Non ci sono recensioni!! <i class="fa fa-meh-o"></i> </span>
                                             <br>
                                             <div class="mt_10">
                                             <span> Aggiungi la prima recensione cliccando su</span> <i>  "Scrivi Una Recensione" </i>
