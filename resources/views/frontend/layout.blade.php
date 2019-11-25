@@ -489,14 +489,16 @@
             $("#slider-range").slider({
                 range: true,
                 min: 0,
-                max: 500,
-                values: [75, 300],
+                max: 800,
+                values: [150, 400],
                 slide: function(event, ui) {
-                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                    $("#amount").val("€" + ui.values[0] + " - €" + ui.values[1]);
+                    $("#amount").attr("minprice",ui.values[0]);
+                    $("#amount").attr("maxprice",ui.values[1]);
                 }
             });
-            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-                " - $" + $("#slider-range").slider("values", 1));
+            $("#amount").val("€" + $("#slider-range").slider("values", 0) +
+                " - €" + $("#slider-range").slider("values", 1));
         });
     </script>
     <!-- PRESI DALLA PAGINA category_page END -->
@@ -705,6 +707,11 @@
             products[i].style.display = "block";
         }
 
+
+        if ($('#amount')[0].getAttribute("minprice") !== "" && $('#amount')[0].getAttribute("maxprice") !== ""){
+            parseProductsByPrice(products, parseInt($('#amount')[0].getAttribute("minprice")), parseInt($('#amount')[0].getAttribute("maxprice")));
+        }
+
         arrCheckboxes = [];
         fGroup = $('#filter-group-rates').children();
         for(i=0; i < fGroup.length; i++){
@@ -804,6 +811,18 @@
         for(var i=0; i < products.length; i++){
             if(products[i].style.display !== "none"){
                 if(arrCheckboxes.includes(products[i].getAttribute(attr))){
+                    products[i].style.display = "block";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function parseProductsByPrice(products, min, max) {
+        for(var i=0; i < products.length; i++){
+            if(products[i].style.display !== "none"){
+                if(parseInt(products[i].getAttribute("price")) >= min && parseInt(products[i].getAttribute("price")) <= max){
                     products[i].style.display = "block";
                 } else {
                     products[i].style.display = "none";

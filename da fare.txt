@@ -22,10 +22,10 @@ Login - div error se non va a buon fine registrazione
 -Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 -Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 -Sara   -gestire opzione regalo
--Vincenzo   - logica filtro - manca prezzo
 -vin Sara   - click da banner o nav che applica gia il filtro
 
-categorie in sez Specifiche in product.blade come nelle altre parti del sito
+img Fossil Q Explorist FT4012
+categorie e genere in sez Specifiche in product.blade come nelle altre parti del sito
 un utente non puo aggiungere piu di un RECENSIONE. se esiste recensione per quel prod da parte di un utente si nasconde il tasto Scrivi recensione
 
 
@@ -104,6 +104,7 @@ aggiungi al carrello
 img prodotti come fossil carlie o Tissot Seastar - TS1204
 voto recensione
 login checkout
+logica filtro
 
 
 ------------------------------------------------

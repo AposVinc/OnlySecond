@@ -7,7 +7,7 @@
         <div class="filter-block">
             <p>
                 <label for="amount">Range Prezzo:</label>
-                <input type="text" id="amount" readonly>
+                <input type="text" id="amount" minprice="" maxprice="" readonly>
             </p>
             <div id="slider-range" class="mtb_20"></div>
             <div class="list-group-item mb_10">
