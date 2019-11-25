@@ -45,6 +45,10 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+        if(!session()->has('urlClick')) {
+            $url = \URL::previous();
+            session()->put('url', $url);
+        }
         return view('frontend.auth');
     }
 
@@ -63,8 +67,15 @@ class LoginController extends Controller
                     }
                 }
             }
-            $request->session()->forget(['products', 'quantity', 'TotalPrice']);
-            return redirect()->route('Home');
+            $request->session()->forget(['products', 'quantity', 'TotalPrice', 'price']);
+            if(session()->has('urlClick')){
+                $url = session()->get('urlClick');
+                session()->forget('urlClick');
+            }else{
+                $url = session()->get('url');
+                session()->forget('url');
+            }
+            return redirect($url);
         } else {
             return back();
         }
