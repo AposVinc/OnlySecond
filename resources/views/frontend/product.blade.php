@@ -11,7 +11,7 @@
 
                 <div class="images">
                     @if($product->images->count() == 1)
-                        <div class="main-images owl-carousel">
+                        <div class="main-banner owl-carousel">
                             <div class="item"><a href="#"><img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="Main Images" class="img-responsive" /></a></div>
                         </div>
                     @else
