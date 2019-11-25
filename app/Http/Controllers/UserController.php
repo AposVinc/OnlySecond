@@ -145,6 +145,7 @@ class UserController extends Controller
         $review = new Review();
         $review->title = $request->title;
         $review->text = $request->text;
+        $review->vote = $request->reviewRating;
         $review->product_id = $product->id;
 
         Auth::user()->reviews()->save($review);

@@ -24,8 +24,9 @@ Login - div error se non va a buon fine registrazione
 -Sara   -gestire opzione regalo
 -Sara	-login checkout
 -Vincenzo   - logica filtro - manca prezzo
-            - JS voto recensione
 -vin Sara   - click da banner o nav che applica gia il filtro
+
+categorie in sez Specifiche in product.blade come nelle altre parti del sito
 
 
 
@@ -101,6 +102,7 @@ pagina prodotto, risoluzione immagini, aggiungi recensioni
 logica carrello, se vuoto mostrare "cartello vuoto"(come amazon) e gli slider della home (nuovi arrivi bestseller ecc)
 aggiungi al carrello
 img prodotti come fossil carlie o Tissot Seastar - TS1204
+voto recensione
 
 
 

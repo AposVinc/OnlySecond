@@ -3213,3 +3213,43 @@ input[type="radio"]:checked + span, input[type="checkbox"]:checked + span {
 .user-name span{
     font-weight: normal;
 }
+
+
+/* ----------------------------------------------
+	5.10 Rating Product
+----------------------------------------------- */
+/*  https://codepen.io/jamesbarnett/pen/vlpkh   */
+fieldset{
+    margin: 0;
+    padding: 0;
+}
+
+.reviewRating {
+    border: none;
+    float: left;
+}
+
+.reviewRating > input { display: none; }
+.reviewRating > label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f006";
+}
+
+.reviewRating > label {
+    color: #ddd;
+    float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.reviewRating > input:checked ~ label, /* show gold star when clicked */
+.reviewRating:not(:checked) > label:hover, /* hover current star */
+.reviewRating:not(:checked) > label:hover ~ label { color: #ee5e11;  } /* hover previous stars in list */
+
+.reviewRating > input:checked + label:hover, /* hover current star when changing rating */
+.reviewRating > input:checked ~ label:hover,
+.reviewRating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.reviewRating > input:checked ~ label:hover ~ label { color: #f8be9f;  }
