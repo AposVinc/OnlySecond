@@ -363,17 +363,19 @@
                                     @else
                                         @foreach($product->reviews as $review)
 
-                                                <div id="review" class="mt_10">
+                                                <div id="review" class="mt_10 mb_60">
                                                     <div class="row">
                                                         <div class="col-md-7">
                                                         <label class="product-name"><span style="margin-right: 10px">Nome Utente: </span>{{$review->user->name}}</label>
                                                         </div>
+                                                       @if(Auth::id() == $review->user_id)
                                                         <div class="col-md-5">
                                                             <div class="button-right">
                                                                 <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica la recensione"></a>
                                                                 <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" title="Rimuovi la recensione"></a>
                                                             </div>
                                                         </div>
+                                                        @endif
                                                     </div>
                                                     <div class="row mt_20">
                                                         <label class="col-lg-8 review-title"><span style="margin-right: 8px">Titolo:</span>{{$review->title}}</label>
@@ -392,7 +394,6 @@
                                                     <div style="margin-top:5px; text-align: justify;">
                                                         <p>{{$review->text}}</p>
                                                     </div>
-
                                             </div>
                                         @endforeach
                                     @endif
