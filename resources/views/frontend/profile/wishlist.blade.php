@@ -113,13 +113,17 @@
                                     <div class="product-attr">
                                         <span>Categoria:</span>
                                         <label>
-                                            @foreach ($product->categories as $category)
-                                                @if ($loop->first)
-                                                    {{$category->name}}
-                                                    @continue
-                                                @endif
-                                                {{', '. $category->name}}
-                                            @endforeach
+                                            @php
+                                                $stringa = "";
+                                                foreach($product->categories as $category){
+                                                    if($stringa==""){
+                                                        $stringa = $stringa. $category->name;
+                                                    }else{
+                                                        $stringa = $stringa. ", ". $category->name;
+                                                    }
+                                                }
+                                                echo $stringa;
+                                            @endphp
                                         </label>
                                     </div>
                                     <div class="product-desc">

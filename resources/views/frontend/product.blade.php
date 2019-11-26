@@ -54,9 +54,17 @@
                     <li>
                         <label>Categoria:</label>
                         <span>
-                            @foreach($product->categories as $category)
-                                "{{$category->name}}"
-                            @endforeach
+                            @php
+                                $stringa = "";
+                                foreach($product->categories as $category){
+                                    if($stringa==""){
+                                        $stringa = $stringa. $category->name;
+                                    }else{
+                                        $stringa = $stringa. ", ". $category->name;
+                                    }
+                                }
+                                echo $stringa;
+                            @endphp
                         </span>
                     </li>
                     <li>
@@ -170,9 +178,17 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <span>
-                                                            @foreach($product->categories as $category)
-                                                                {{$category->name}}
-                                                            @endforeach
+                                                            @php
+                                                                $stringa = "";
+                                                                foreach($product->categories as $category){
+                                                                    if($stringa==""){
+                                                                        $stringa = $stringa. $category->name;
+                                                                    }else{
+                                                                        $stringa = $stringa. ", ". $category->name;
+                                                                    }
+                                                                }
+                                                                echo $stringa;
+                                                            @endphp
                                                         </span>
                                                     </div>
 
@@ -182,7 +198,13 @@
                                                         <strong>Genere</strong>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <span>{{$product->genre}}</span>
+                                                        <span>@if($product->genre == "U")
+                                                                Unisex
+                                                            @elseif($product->genre == "M")
+                                                                Uomo
+                                                            @else
+                                                                Donna
+                                                            @endif</span>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -352,7 +374,6 @@
                                         </div>
                                     @else
                                         @foreach($product->reviews as $review)
-
                                                 <div id="review" class="mt_10 mb_60">
                                                     <div class="row">
                                                         <div class="col-md-7">

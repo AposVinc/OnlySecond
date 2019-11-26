@@ -25,7 +25,6 @@ Login - div error se non va a buon fine registrazione
 -vin Sara   - click da banner o nav che applica gia il filtro
 
 -Vale   -img Fossil Q Explorist FT4012
--Vale   categorie e genere in sez Specifiche in product.blade come nelle altre parti del sito
 -Vale   un utente non puo aggiungere piu di un RECENSIONE. se esiste recensione per quel prod da parte di un utente si nasconde il tasto Scrivi recensione
 
 
@@ -105,7 +104,7 @@ img prodotti come fossil carlie o Tissot Seastar - TS1204
 voto recensione
 login checkout
 logica filtro
-
+categorie e genere in sez Specifiche in product.blade come nelle altre parti del sito
 
 ------------------------------------------------
 DOMANDE DA FARE AL PROF
