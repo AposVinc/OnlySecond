@@ -599,6 +599,30 @@
     </script>
 @endif
 
+@if(strpos(route::currentRouteName(),'Checkout')!== false)
+    <!-- checkout nuovo indirizzo -->
+    <script type="text/javascript">
+        $('input[name=\'shipping_address\']').on('change', function() {
+            if (this.value == 'existing') {
+                $('#shipping-existing').show();
+                $('#shipping-new').hide();
+            }
+            if (this.value == 'new') {
+                $('#shipping-existing').hide();
+                $('#shipping-new').show();
+            }
+            if (this.value == 'addressInvoice') {
+                $('#shipping-existing').hide();
+                $('#shipping-new').hide();
+            }
+            if (this.value == 'addressFavourite') {
+                $('#shipping-existing').hide();
+                $('#shipping-new').hide();
+            }
+        });
+    </script>
+@endif
+
 @if(strpos(route::currentRouteName(),'Shop')!== false or strpos(route::currentRouteName(),'Discount')!== false )
     <!-- PRESI DALLA PAGINA category_page -->
     <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
