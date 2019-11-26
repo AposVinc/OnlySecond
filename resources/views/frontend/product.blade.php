@@ -55,7 +55,7 @@
                         <label>Categoria:</label>
                         <span>
                             @foreach($product->categories as $category)
-                                {{$category->name}}
+                                "{{$category->name}}"
                             @endforeach
                         </span>
                     </li>
