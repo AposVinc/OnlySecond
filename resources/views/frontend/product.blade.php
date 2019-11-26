@@ -322,55 +322,72 @@
 
                             <div class="tab-pane pt_10" id="3c">
 
-                                <div class="mtb_10">
-                                    <a data-toggle="collapse" data-target="#content"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
+                                @auth()
 
-                                    <div class="collapse" id="content">
+                                @foreach($product->reviews as $review)
+                                    @if(Auth::id() == $review->user_id)
+                                            <p data-toggle="collapse" data-target="#content" disabled><h5> Hai già scritto una recensione per questo prodotto! </h5></p>
+                                    @else
+                                            <div class="mtb_10">
+                                                <a data-toggle="collapse" data-target="#content"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
 
-                                        <form action="{{route('Review.Add', ['cod' => $product->cod])}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
-                                            @csrf
-                                            <div class="form-group required mt_20">
-                                                <div class="col-sm-12">
-                                                    <label class="control-label" for="input-title">Titolo Recensione</label><input name="title" id="input-title" class="form-control" type="text" data-required="true" required>
+                                                <div class="collapse" id="content">
+
+                                                    <form action="{{route('Review.Add', ['cod' => $product->cod])}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
+                                                        @csrf
+                                                        <div class="form-group required mt_20">
+                                                            <div class="col-sm-12">
+                                                                <label class="control-label" for="input-title">Titolo Recensione</label><input name="title" id="input-title" class="form-control" type="text" data-required="true" required>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="form-group required">
+                                                            <div class="col-sm-12">
+                                                                <label class="control-label" for="input-review">La Tua Recensione</label>
+                                                                <textarea name="text" rows="5" id="input-review" class="form-control" data-required="true" required></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-sm-8">
+                                                                <fieldset class="reviewRating">
+                                                                    <input type="radio" id="star5" name="reviewRating" value="5" /><label class = "full" for="star5" title="Stupendo - 5 stars"></label>
+                                                                    <input type="radio" id="star4" name="reviewRating" value="4" /><label class = "full" for="star4" title="Buono - 4 stars"></label>
+                                                                    <input type="radio" id="star3" name="reviewRating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                                                    <input type="radio" id="star2" name="reviewRating" value="2" /><label class = "full" for="star2" title="Mediocre- 2 stars"></label>
+                                                                    <input type="radio" id="star1" name="reviewRating" value="1" /><label class = "full" for="star1" title="Pessimo - 1 star"></label>
+                                                                </fieldset>
+                                                            </div>
+                                                            <div class="col-sm-4 mb_20">
+                                                                <div class="pull-right pr_10">
+                                                                    <button type="submit" class="btn">Invia</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
-
                                             </div>
-
-                                            <div class="form-group required">
-                                                <div class="col-sm-12">
-                                                    <label class="control-label" for="input-review">La Tua Recensione</label>
-                                                    <textarea name="text" rows="5" id="input-review" class="form-control" data-required="true" required></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <fieldset class="reviewRating">
-                                                        <input type="radio" id="star5" name="reviewRating" value="5" /><label class = "full" for="star5" title="Stupendo - 5 stars"></label>
-                                                        <input type="radio" id="star4" name="reviewRating" value="4" /><label class = "full" for="star4" title="Buono - 4 stars"></label>
-                                                        <input type="radio" id="star3" name="reviewRating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                                                        <input type="radio" id="star2" name="reviewRating" value="2" /><label class = "full" for="star2" title="Mediocre- 2 stars"></label>
-                                                        <input type="radio" id="star1" name="reviewRating" value="1" /><label class = "full" for="star1" title="Pessimo - 1 star"></label>
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-sm-4 mb_20">
-                                                    <div class="pull-right pr_10">
-                                                        <button type="submit" class="btn">Invia</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                    @endif
+                                @endforeach
+                                @endauth
 
                                 <div class="col-md-12 mt_10">
+
                                     @if($product->reviews->isEmpty())
                                         <div class="text-center reviewEmpty">
                                             <span style="font-size: 25px;"> Non ci sono recensioni!! <i class="fa fa-meh-o"></i> </span>
                                             <br>
+                                            @if(Auth())
                                             <div class="mt_10">
                                             <span> Aggiungi la prima recensione cliccando su</span> <i>  "Scrivi Una Recensione" </i>
                                             </div>
+                                            @else
+                                                <div class="mt_10">
+                                                    <span> Aggiungi la prima recensione dopo aver effettuato </span> <i>  il Login </i>
+                                                </div>
+                                            @endif
+
                                         </div>
                                     @else
                                         @foreach($product->reviews as $review)
