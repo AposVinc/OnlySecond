@@ -13,7 +13,7 @@ FE
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
 payments    - dopo checkout
-paginazione shop
+Vinc    - paginazione shop
 Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
       - email già usata div error con messaggio

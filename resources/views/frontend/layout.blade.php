@@ -140,18 +140,18 @@
                                     <li>
                                         <table class="table table-striped">
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-center tdCartEmpty">
+                                            <tr>
+                                                <td class="text-center tdCartEmpty">
                                                         <span style="font-size: 18px;">
                                                             Il tuo carrello è vuoto.
                                                         </span>
-                                                        <br>
-                                                        <small>
-                                                            Per aggiungere articoli al tuo carrello, quando trovi un articolo che ti interessa, clicca su "Aggiungi al carrello"
-                                                            o sull'icona " <i class="fa fa-shopping-cart"></i> "
-                                                        </small>
-                                                    </td>
-                                                </tr>
+                                                    <br>
+                                                    <small>
+                                                        Per aggiungere articoli al tuo carrello, quando trovi un articolo che ti interessa, clicca su "Aggiungi al carrello"
+                                                        o sull'icona " <i class="fa fa-shopping-cart"></i> "
+                                                    </small>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </li>
@@ -159,81 +159,81 @@
                                     <li>
                                         <table class="table table-striped">
                                             <tbody>
-                                                @foreach(auth()->User()->products->sortBy('created_at') as $product)
-                                                    @if($loop->iteration > 3)
-                                                        @break
-                                                    @else
-                                                        <tr>
-                                                            @if($product->offer()->exists())
-                                                                <td class="text-center" style="width: 80px;">
-                                                                    <div style="position:absolute; width: 80px;">
-                                                                        <div class="image product-imageblock">
-                                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="ribbon orangeOSCart"><span>{{$product->offer->rate}}%</span></div>
-                                                                    </div>
-                                                                </td>
-                                                            @else
-                                                                <td class="text-center" style="width: 80px;">
-                                                                    <div>
+                                            @foreach(auth()->User()->products->sortBy('created_at') as $product)
+                                                @if($loop->iteration > 3)
+                                                    @break
+                                                @else
+                                                    <tr>
+                                                        @if($product->offer()->exists())
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div style="position:absolute; width: 80px;">
+                                                                    <div class="image product-imageblock">
                                                                         <a href="{{route('Product',['cod' => $product->cod])}}">
                                                                             <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
                                                                         </a>
                                                                     </div>
-                                                                </td>
-                                                            @endif
-                                                            <td class="text-left product-name">
-                                                                <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                                    <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
-                                                                    <span class="text-left price">{{$product->cod}}</span>
-                                                                    <span class="text-left price">qnt: {{$product->pivot->quantity}}</span>
-                                                                    @if($product->offer()->exists())
-                                                                        <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
-                                                                        <span class="price">{{$product->offer->calculateDiscount()}}€</span>
-                                                                    @else
-                                                                        <span class="text-left price">{{$product->price}}€</span>
-                                                                    @endif
-                                                                </a>
+                                                                    <div class="ribbon orangeOSCart"><span>{{$product->offer->rate}}%</span></div>
+                                                                </div>
                                                             </td>
-                                                            <td class="text-center">
-                                                                <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
-                                                                    <i class="fa fa-times-circle"></i>
-                                                                </a>
+                                                        @else
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div>
+                                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                        <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                    </a>
+                                                                </div>
                                                             </td>
-                                                        </tr>
-                                                    @endif
-                                                @endforeach
+                                                        @endif
+                                                        <td class="text-left product-name">
+                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                                <span class="text-left price">{{$product->cod}}</span>
+                                                                <span class="text-left price">qnt: {{$product->pivot->quantity}}</span>
+                                                                @if($product->offer()->exists())
+                                                                    <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
+                                                                    <span class="price">{{$product->offer->calculateDiscount()}}€</span>
+                                                                @else
+                                                                    <span class="text-left price">{{$product->price}}€</span>
+                                                                @endif
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
+                                                                <i class="fa fa-times-circle"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </li>
                                     <li>
                                         <table class="table">
                                             <tbody>
-                                                <tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    <strong>Sub-Totale</strong>
+                                                    <span class="spanIva">(Iva inclusa)</span>
+                                                </td>
+                                                <td class="text-right">
+                                                    {{auth()->User()->calculateTotalPrice()}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                @if(auth()->User()->calculateTotalPrice()>250)
                                                     <td class="text-left">
-                                                        <strong>Sub-Totale</strong>
-                                                        <span class="spanIva">(Iva inclusa)</span>
+                                                        <small>Costo di spedizione:</small>
                                                     </td>
                                                     <td class="text-right">
-                                                        {{auth()->User()->calculateTotalPrice()}}
+                                                        <small>Gratuita</small>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    @if(auth()->User()->calculateTotalPrice()>250)
-                                                        <td class="text-left">
-                                                            <small>Costo di spedizione:</small>
-                                                        </td>
-                                                        <td class="text-right">
-                                                            <small>Gratuita</small>
-                                                        </td>
-                                                    @else
-                                                        <td colspan="2">
-                                                            <small> + Costo di spedizione</small>
-                                                        </td>
-                                                    @endif
-                                                </tr>
+                                                @else
+                                                    <td colspan="2">
+                                                        <small> + Costo di spedizione</small>
+                                                    </td>
+                                                @endif
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </li>
@@ -251,85 +251,85 @@
                                     <li>
                                         <table class="table table-striped">
                                             <tbody>
-                                                @foreach(Session::get('products') as $product)
-                                                    @if($loop->iteration > 3)
-                                                        @break
-                                                    @else
-                                                        <tr>
-                                                            @if($product->offer()->exists())
-                                                                <td class="text-center" style="width: 80px;">
-                                                                    <div style="position:absolute; width: 80px;">
-                                                                        <div class="image product-imageblock">
-                                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                                                <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="ribbon orangeOSCart"><span>{{$product->offer->rate}}%</span></div>
-                                                                    </div>
-                                                                </td>
-                                                            @else
-                                                                <td class="text-center" style="width: 80px;">
+                                            @foreach(Session::get('products') as $product)
+                                                @if($loop->iteration > 3)
+                                                    @break
+                                                @else
+                                                    <tr>
+                                                        @if($product->offer()->exists())
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div style="position:absolute; width: 80px;">
                                                                     <div class="image product-imageblock">
                                                                         <a href="{{route('Product',['cod' => $product->cod])}}">
                                                                             <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
                                                                         </a>
                                                                     </div>
-                                                                </td>
-                                                            @endif
-                                                            <td class="text-left product-name">
-                                                                <a href="{{route('Product',['cod' => $product->cod])}}">
-                                                                    <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
-                                                                    <span class="text-left price">{{$product->cod}}</span>
-                                                                    @if(Session::has('quantity'))
-                                                                        <span class="text-left price">qnt: {{Session::get('quantity')[$loop->index] }}</span>
-                                                                    @endif
-                                                                    @if($product->offer()->exists())
-                                                                        <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
-                                                                        <span class="price">{{$product->offer->calculateDiscount()}}€</span>
-                                                                    @else
-                                                                        <span class="text-left price">{{$product->price}}€</span>
-                                                                    @endif
-                                                                </a>
+                                                                    <div class="ribbon orangeOSCart"><span>{{$product->offer->rate}}%</span></div>
+                                                                </div>
                                                             </td>
-                                                            <td class="text-center">
-                                                                <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
-                                                                    <i class="fa fa-times-circle"></i>
-                                                                </a>
+                                                        @else
+                                                            <td class="text-center" style="width: 80px;">
+                                                                <div class="image product-imageblock">
+                                                                    <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                        <img src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}">
+                                                                    </a>
+                                                                </div>
                                                             </td>
-                                                        </tr>
-                                                    @endif
-                                                @endforeach
+                                                        @endif
+                                                        <td class="text-left product-name">
+                                                            <a href="{{route('Product',['cod' => $product->cod])}}">
+                                                                <span>{{$product->collection->brand->name}} {{$product->collection->name}}</span>
+                                                                <span class="text-left price">{{$product->cod}}</span>
+                                                                @if(Session::has('quantity'))
+                                                                    <span class="text-left price">qnt: {{Session::get('quantity')[$loop->index] }}</span>
+                                                                @endif
+                                                                @if($product->offer()->exists())
+                                                                    <span class="price pr_10" style="float: left;"><del>{{$product->price}}€ </del> </span>
+                                                                    <span class="price">{{$product->offer->calculateDiscount()}}€</span>
+                                                                @else
+                                                                    <span class="text-left price">{{$product->price}}€</span>
+                                                                @endif
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a href="{{route('Cart.RemoveProduct',['cod'=>$product->cod])}}" type="button">
+                                                                <i class="fa fa-times-circle"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </li>
                                     <li>
                                         <table class="table">
                                             <tbody>
-                                                @if(Session::has('TotalPrice'))
-                                                    <tr>
+                                            @if(Session::has('TotalPrice'))
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <strong>Sub-Totale</strong>
+                                                        <span class="spanIva">(Iva inclusa)</span>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        {{Session::get('TotalPrice')}} €
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    @if(Session::get('TotalPrice')>250)
                                                         <td class="text-left">
-                                                            <strong>Sub-Totale</strong>
-                                                            <span class="spanIva">(Iva inclusa)</span>
+                                                            <small>Costo di spedizione:</small>
                                                         </td>
                                                         <td class="text-right">
-                                                            {{Session::get('TotalPrice')}} €
+                                                            <small>Gratuita</small>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        @if(Session::get('TotalPrice')>250)
-                                                            <td class="text-left">
-                                                                <small>Costo di spedizione:</small>
-                                                            </td>
-                                                            <td class="text-right">
-                                                                <small>Gratuita</small>
-                                                            </td>
-                                                        @else
-                                                            <td colspan="2">
-                                                                <small> + Costo di spedizione</small>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                @endif
+                                                    @else
+                                                        <td colspan="2">
+                                                            <small> + Costo di spedizione</small>
+                                                        </td>
+                                                    @endif
+                                                </tr>
+                                            @endif
                                             </tbody>
                                         </table>
                                     </li>
@@ -345,18 +345,18 @@
                                     <li>
                                         <table class="table table-striped">
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-center tdCartEmpty">
+                                            <tr>
+                                                <td class="text-center tdCartEmpty">
                                                         <span style="font-size: 18px;">
                                                             Il tuo carrello è vuoto.
                                                         </span>
-                                                        <br>
-                                                        <small>
-                                                            Per aggiungere articoli al tuo carrello, quando trovi un articolo che ti interessa, clicca su "Aggiungi al carrello"
-                                                            o sull'icona " <i class="fa fa-shopping-cart"></i> "
-                                                        </small>
-                                                    </td>
-                                                </tr>
+                                                    <br>
+                                                    <small>
+                                                        Per aggiungere articoli al tuo carrello, quando trovi un articolo che ti interessa, clicca su "Aggiungi al carrello"
+                                                        o sull'icona " <i class="fa fa-shopping-cart"></i> "
+                                                    </small>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </li>
@@ -480,30 +480,6 @@
 <script src="{{ URL::asset('js/frontend/jquery.magnific-popup.js') }}"></script>
 <script src="{{ URL::asset('js/frontend/custom.js') }}"></script>
 
-
-@if(strpos(route::currentRouteName(),'Shop')!== false or strpos(route::currentRouteName(),'Discount')!== false )
-    <!-- PRESI DALLA PAGINA category_page -->
-    <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
-    <script>
-        $(function() {
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 800,
-                values: [150, 400],
-                slide: function(event, ui) {
-                    $("#amount").val("€" + ui.values[0] + " - €" + ui.values[1]);
-                    $("#amount").attr("minprice",ui.values[0]);
-                    $("#amount").attr("maxprice",ui.values[1]);
-                }
-            });
-            $("#amount").val("€" + $("#slider-range").slider("values", 0) +
-                " - €" + $("#slider-range").slider("values", 1));
-        });
-    </script>
-    <!-- PRESI DALLA PAGINA category_page END -->
-@endif
-
 <script src="{{ URL::asset('js/frontend/jquery.firstVisitPopup.js') }}"></script>
 
 @if(strpos(route::currentRouteName(),'Contact')!== false)
@@ -511,7 +487,6 @@
     https://www.mtb-mag.com/forum/threads/questa-pagina-non-carica-correttamente-google-maps.369147/
 
     OpenStreetMaps è un alternativa a Maps ma meno completa -->
-
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script>
         map = new OpenLayers.Map("map");
@@ -624,218 +599,213 @@
     </script>
 @endif
 
+@if(strpos(route::currentRouteName(),'Shop')!== false or strpos(route::currentRouteName(),'Discount')!== false )
+    <!-- PRESI DALLA PAGINA category_page -->
+    <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
+    <script>
+        $(function() {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 800,
+                values: [150, 400],
+                slide: function(event, ui) {
+                    $("#amount").val("€" + ui.values[0] + " - €" + ui.values[1]);
+                    $("#amount").attr("minprice",ui.values[0]);
+                    $("#amount").attr("maxprice",ui.values[1]);
+                }
+            });
+            $("#amount").val("€" + $("#slider-range").slider("values", 0) +
+                " - €" + $("#slider-range").slider("values", 1));
+        });
+    </script>
+    <!-- PRESI DALLA PAGINA category_page END -->
 
-<script>
+    <script>
+        var filterGroup;
 
-    var filterGroup;
+        filterGroup = $('#filter-group-brands');
+        if ($('#filter-group-brands .checkbox').length > 6) AddShowMore(filterGroup);
 
-    filterGroup = $('#filter-group-brands');
-    if ($('#filter-group-brands .checkbox').length > 6) AddShowMore(filterGroup);
+        filterGroup = $('#filter-group-collections');
+        if ($('#filter-group-collections .checkbox').length > 6) AddShowMore(filterGroup);
 
-    filterGroup = $('#filter-group-collections');
-    if ($('#filter-group-collections .checkbox').length > 6) AddShowMore(filterGroup);
+        filterGroup = $('#filter-group-categories');
+        if ($('#filter-group-categories .checkbox').length > 6) AddShowMore(filterGroup);
 
-    filterGroup = $('#filter-group-categories');
-    if ($('#filter-group-categories .checkbox').length > 6) AddShowMore(filterGroup);
+        filterGroup = $('#filter-group-colors');
+        if ($('#filter-group-colors .checkbox').length > 6) AddShowMore(filterGroup);
 
-    filterGroup = $('#filter-group-colors');
-    if ($('#filter-group-colors .checkbox').length > 6) AddShowMore(filterGroup);
+        filterGroup = $('#filter-group-materials');
+        if ($('#filter-group-materials .checkbox').length > 6) AddShowMore(filterGroup);
 
-    filterGroup = $('#filter-group-materials');
-    if ($('#filter-group-materials .checkbox').length > 6) AddShowMore(filterGroup);
+        function AddShowMore(gen){
+            gen.parent().switchClass('mb_10','mb_15');  //poiche viene aggiunto "mostra altro", i div sono troppo appiccicati
+            var DivShowMore = $('<div class="showMore">\n' +
+                '                                <i class="fa fa-angle-down"></i>\n' +
+                '                                <a class="ml_7">Mostra Altro</a>\n' +
+                '                            </div>');
+            gen.addClass("content hideContent"); //aggiungo la classe solo a quelli >6
+            gen.children(':eq(5)').after(DivShowMore);
+        }
 
-    function AddShowMore(gen){
-        gen.parent().switchClass('mb_10','mb_15');  //poiche viene aggiunto "mostra altro", i div sono troppo appiccicati
-        var DivShowMore = $('<div class="showMore">\n' +
-            '                                <i class="fa fa-angle-down"></i>\n' +
-            '                                <a class="ml_7">Mostra Altro</a>\n' +
-            '                            </div>');
-        gen.addClass("content hideContent"); //aggiungo la classe solo a quelli >6
-        gen.children(':eq(5)').after(DivShowMore);
-    }
+        $(document).on('click', '.showMore a', function(){
+            var elementClick = $(this);
+            var divContent = elementClick.parents('.content');
+            elementClick.parent().remove();
+            var DivShowLess = $('<div class="showLess">\n' +
+                '                                <i class="fa fa-angle-up"></i>\n' +
+                '                                <a class="ml_7">Mostra Meno</a>\n' +
+                '                            </div>');
+            DivShowLess.appendTo(divContent);
+            divContent.switchClass("hideContent", "showContent",400);
+        });
 
-    $(document).on('click', '.showMore a', function(){
-        var elementClick = $(this);
-        var divContent = elementClick.parents('.content');
-        elementClick.parent().remove();
-        var DivShowLess = $('<div class="showLess">\n' +
-            '                                <i class="fa fa-angle-up"></i>\n' +
-            '                                <a class="ml_7">Mostra Meno</a>\n' +
-            '                            </div>');
-        DivShowLess.appendTo(divContent);
-        divContent.switchClass("hideContent", "showContent",400);
-    });
-
-    $(document).on('click', '.showLess a', function(){
-        var elementClick = $(this);
-        var divContent = elementClick.parents('.content');
-        elementClick.parent().remove();
-        divContent.removeClass("content showContent");
-        AddShowMore(divContent);
-    });
+        $(document).on('click', '.showLess a', function(){
+            var elementClick = $(this);
+            var divContent = elementClick.parents('.content');
+            elementClick.parent().remove();
+            divContent.removeClass("content showContent");
+            AddShowMore(divContent);
+        });
 
 
-    /*
-    $(document).ready(function(){
-        $('.navBrand').on('click', function () {
-            var brand = $(this).text();
-            var filterBrands = $('#filter-group-brands').children();
-            for(var i=0; i < filterBrands.length; i++){
-                var e = filterBrands[i].children[0];
-                if(e.innerText === brand){
-                    e.children[0].toggleAttribute('checked');
+        /*
+        $(document).ready(function(){
+            $('.navBrand').on('click', function () {
+                var brand = $(this).text();
+                var filterBrands = $('#filter-group-brands').children();
+                for(var i=0; i < filterBrands.length; i++){
+                    var e = filterBrands[i].children[0];
+                    if(e.innerText === brand){
+                        e.children[0].toggleAttribute('checked');
+                    }
+                }
+                parseProductsProva(brand);
+            })
+        });
+
+        function parseProductsProva(brand){
+            var products = $('#listProducts').children();
+            for(var i=0; i < products.length; i++){
+                if(!brand === products[i].getAttribute('brand')){
+                    products[i].style = "display: none;";
                 }
             }
-            parseProductsProva(brand);
-        })
-    });
+        }
+    */
+        function filtering() {
+            var e,i,arrCheckboxes,fGroup;
+            var products = $('#listProducts').children();
 
-    function parseProductsProva(brand){
-        var products = $('#listProducts').children();
-        for(var i=0; i < products.length; i++){
-            if(!brand === products[i].getAttribute('brand')){
-                products[i].style = "display: none;";
+            for(i=0; i < products.length; i++){
+                products[i].style.display = "block";
             }
-        }
-    }
-*/
-    function filtering() {
-        var e,i,arrCheckboxes,fGroup;
-        var products = $('#listProducts').children();
-
-        for(i=0; i < products.length; i++){
-            products[i].style.display = "block";
-        }
 
 
-        if ($('#amount')[0].getAttribute("minprice") !== "" && $('#amount')[0].getAttribute("maxprice") !== ""){
-            parseProductsByPrice(products, parseInt($('#amount')[0].getAttribute("minprice")), parseInt($('#amount')[0].getAttribute("maxprice")));
-        }
-
-        arrCheckboxes = [];
-        fGroup = $('#filter-group-rates').children();
-        for(i=0; i < fGroup.length; i++){
-            e = fGroup[i].children[0].children[0];
-            if(e.checked){
-                arrCheckboxes.push(e.value);
+            if ($('#amount')[0].getAttribute("minprice") !== "" && $('#amount')[0].getAttribute("maxprice") !== ""){
+                parseProductsByPrice(products, parseInt($('#amount')[0].getAttribute("minprice")), parseInt($('#amount')[0].getAttribute("maxprice")));
             }
-        }
-        if(arrCheckboxes.length){
-            parseProductsByRates(products, arrCheckboxes, 'rate');
-        }
 
-        arrCheckboxes = [];
-        fGroup = $('#filter-group-genres').children();
-        for(i=0; i < fGroup.length; i++){
-            e = fGroup[i].children[0].children[0];
-            if(e.checked){
-                arrCheckboxes.push(e.value);
-            }
-        }
-        if(arrCheckboxes.length){
-            parseProducts(products, arrCheckboxes, 'genre');
-        }
-
-        arrCheckboxes = [];
-        fGroup = $('#filter-group-brands').children();
-        for(i=0; i < fGroup.length; i++){
-            if(!fGroup[i].classList.contains('showMore')){
+            arrCheckboxes = [];
+            fGroup = $('#filter-group-rates').children();
+            for(i=0; i < fGroup.length; i++){
                 e = fGroup[i].children[0].children[0];
                 if(e.checked){
                     arrCheckboxes.push(e.value);
                 }
             }
-        }
-        if(arrCheckboxes.length) {
-            parseProducts(products, arrCheckboxes, 'brand');
-        }
+            if(arrCheckboxes.length){
+                parseProductsByRates(products, arrCheckboxes, 'rate');
+            }
 
-        arrCheckboxes = [];
-        fGroup = $('#filter-group-collections').children();
-        for(i=0; i < fGroup.length; i++){
-            if(!fGroup[i].classList.contains('showMore')){
+            arrCheckboxes = [];
+            fGroup = $('#filter-group-genres').children();
+            for(i=0; i < fGroup.length; i++){
                 e = fGroup[i].children[0].children[0];
                 if(e.checked){
                     arrCheckboxes.push(e.value);
                 }
             }
-        }
-        if(arrCheckboxes.length) {
-            parseProducts(products, arrCheckboxes, 'collection');
-        }
+            if(arrCheckboxes.length){
+                parseProducts(products, arrCheckboxes, 'genre');
+            }
 
-        arrCheckboxes = [];
-        fGroup = $('#filter-group-categories').children();
-        for(i=0; i < fGroup.length; i++){
-            if(!fGroup[i].classList.contains('showMore')){
-                e = fGroup[i].children[0].children[0];
-                if(e.checked){
-                    arrCheckboxes.push(e.value);
+            arrCheckboxes = [];
+            fGroup = $('#filter-group-brands').children();
+            for(i=0; i < fGroup.length; i++){
+                if(!fGroup[i].classList.contains('showMore')){
+                    e = fGroup[i].children[0].children[0];
+                    if(e.checked){
+                        arrCheckboxes.push(e.value);
+                    }
                 }
             }
-        }
-        if(arrCheckboxes.length){
-            parseProducts(products, arrCheckboxes, 'categories');
-        }
+            if(arrCheckboxes.length) {
+                parseProducts(products, arrCheckboxes, 'brand');
+            }
 
-        arrCheckboxes = [];
-        fGroup = $('#filter-group-colors').children();
-        for(i=0; i < fGroup.length; i++){
-            if(!fGroup[i].classList.contains('showMore')){
-                e = fGroup[i].children[0].children[0];
-                if(e.checked){
-                    arrCheckboxes.push(e.value);
+            arrCheckboxes = [];
+            fGroup = $('#filter-group-collections').children();
+            for(i=0; i < fGroup.length; i++){
+                if(!fGroup[i].classList.contains('showMore')){
+                    e = fGroup[i].children[0].children[0];
+                    if(e.checked){
+                        arrCheckboxes.push(e.value);
+                    }
                 }
             }
-        }
-        if(arrCheckboxes.length){
-            parseProducts(products, arrCheckboxes, 'color');
-        }
+            if(arrCheckboxes.length) {
+                parseProducts(products, arrCheckboxes, 'collection');
+            }
 
-        arrCheckboxes = [];
-        fGroup = $('#filter-group-materials').children();
-        for(i=0; i < fGroup.length; i++){
-            if(!fGroup[i].classList.contains('showMore')){
-                e = fGroup[i].children[0].children[0];
-                if(e.checked){
-                    arrCheckboxes.push(e.value);
+            arrCheckboxes = [];
+            fGroup = $('#filter-group-categories').children();
+            for(i=0; i < fGroup.length; i++){
+                if(!fGroup[i].classList.contains('showMore')){
+                    e = fGroup[i].children[0].children[0];
+                    if(e.checked){
+                        arrCheckboxes.push(e.value);
+                    }
                 }
             }
-        }
-        if(arrCheckboxes.length){
-            parseProducts(products, arrCheckboxes, 'material');
-        }
-    }
+            if(arrCheckboxes.length){
+                parseProducts(products, arrCheckboxes, 'categories');
+            }
 
-    function parseProducts(products, arrCheckboxes, attr) {
-        for(var i=0; i < products.length; i++){
-            if(products[i].style.display !== "none"){
-                if(arrCheckboxes.includes(products[i].getAttribute(attr))){
-                    products[i].style.display = "block";
-                } else {
-                    products[i].style.display = "none";
+            arrCheckboxes = [];
+            fGroup = $('#filter-group-colors').children();
+            for(i=0; i < fGroup.length; i++){
+                if(!fGroup[i].classList.contains('showMore')){
+                    e = fGroup[i].children[0].children[0];
+                    if(e.checked){
+                        arrCheckboxes.push(e.value);
+                    }
                 }
             }
-        }
-    }
+            if(arrCheckboxes.length){
+                parseProducts(products, arrCheckboxes, 'color');
+            }
 
-    function parseProductsByPrice(products, min, max) {
-        for(var i=0; i < products.length; i++){
-            if(products[i].style.display !== "none"){
-                if(parseInt(products[i].getAttribute("price")) >= min && parseInt(products[i].getAttribute("price")) <= max){
-                    products[i].style.display = "block";
-                } else {
-                    products[i].style.display = "none";
+            arrCheckboxes = [];
+            fGroup = $('#filter-group-materials').children();
+            for(i=0; i < fGroup.length; i++){
+                if(!fGroup[i].classList.contains('showMore')){
+                    e = fGroup[i].children[0].children[0];
+                    if(e.checked){
+                        arrCheckboxes.push(e.value);
+                    }
                 }
             }
+            if(arrCheckboxes.length){
+                parseProducts(products, arrCheckboxes, 'material');
+            }
         }
-    }
 
-    function parseProductsByRates(products, arrCheckboxes, attr) {
-        for(var j=0; j < arrCheckboxes.length; j++){
+        function parseProducts(products, arrCheckboxes, attr) {
             for(var i=0; i < products.length; i++){
                 if(products[i].style.display !== "none"){
-                    if(parseInt(products[i].getAttribute(attr), 10) >= parseInt(arrCheckboxes[j], 10)){
+                    if(arrCheckboxes.includes(products[i].getAttribute(attr))){
                         products[i].style.display = "block";
                     } else {
                         products[i].style.display = "none";
@@ -843,13 +813,11 @@
                 }
             }
         }
-    }
 
-    function parseProductsByCategories(products, arrCheckboxes) {
-        for(var j=0; j < arrCheckboxes.length; j++){
+        function parseProductsByPrice(products, min, max) {
             for(var i=0; i < products.length; i++){
                 if(products[i].style.display !== "none"){
-                    if(products[i].hasAttribute(arrCheckboxes[j])){
+                    if(parseInt(products[i].getAttribute("price")) >= min && parseInt(products[i].getAttribute("price")) <= max){
                         products[i].style.display = "block";
                     } else {
                         products[i].style.display = "none";
@@ -857,11 +825,37 @@
                 }
             }
         }
-    }
 
+        function parseProductsByRates(products, arrCheckboxes, attr) {
+            for(var j=0; j < arrCheckboxes.length; j++){
+                for(var i=0; i < products.length; i++){
+                    if(products[i].style.display !== "none"){
+                        if(parseInt(products[i].getAttribute(attr), 10) >= parseInt(arrCheckboxes[j], 10)){
+                            products[i].style.display = "block";
+                        } else {
+                            products[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
 
-</script>
+        function parseProductsByCategories(products, arrCheckboxes) {
+            for(var j=0; j < arrCheckboxes.length; j++){
+                for(var i=0; i < products.length; i++){
+                    if(products[i].style.display !== "none"){
+                        if(products[i].hasAttribute(arrCheckboxes[j])){
+                            products[i].style.display = "block";
+                        } else {
+                            products[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
 
+    </script>
+@endif
 
 </body>
 </html>
