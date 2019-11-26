@@ -24,9 +24,9 @@ Login - div error se non va a buon fine registrazione
 -Sara   -gestire opzione regalo
 -vin Sara   - click da banner o nav che applica gia il filtro
 
-img Fossil Q Explorist FT4012
-categorie e genere in sez Specifiche in product.blade come nelle altre parti del sito
-un utente non puo aggiungere piu di un RECENSIONE. se esiste recensione per quel prod da parte di un utente si nasconde il tasto Scrivi recensione
+-Vale   -img Fossil Q Explorist FT4012
+-Vale   categorie e genere in sez Specifiche in product.blade come nelle altre parti del sito
+-Vale   un utente non puo aggiungere piu di un RECENSIONE. se esiste recensione per quel prod da parte di un utente si nasconde il tasto Scrivi recensione
 
 
 
