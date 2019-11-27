@@ -4,9 +4,10 @@
 namespace App\Http\Composers;
 
 use App\Brand;
+use App\Category;
+use App\Collection;
 use App\Offer;
 use App\Product;
-use http\Url;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +21,13 @@ class ShopComposer
     public  function composeShop(View $view){
         $products = Product::withoutTrashed()->with('collection')->with('images')->paginate(18);
         if(strpos(Route::currentRouteName(),'Brand')!== false){
-            $products = Brand::where('name', \URL::getRequest()->route()->parameter('name'))->first()->products->paginate(18);
-            //$products = Brand::products()->where('name', \URL::getRequest()->route()->parameter('name'))->paginate(18);
+            $products = Brand::where('name', \URL::getRequest()->route()->parameter('brandName'))->first()->products->paginate(18);
+        }
+        if(strpos(Route::currentRouteName(),'Collection')!== false){
+            $products = Collection::where('name', \URL::getRequest()->route()->parameter('collectionName'))->first()->products->paginate(18);
+        }
+        if(strpos(Route::currentRouteName(),'Category')!== false){
+            $products = Category::where('name', \URL::getRequest()->route()->parameter('categoryName'))->first()->products->where('genre',\URL::getRequest()->route()->parameter('genre'))->paginate(18);
         }
         $view->with('products', $products);
     }
@@ -32,12 +38,5 @@ class ShopComposer
 
         $view->with('offers', $offers);
     }
-
-   /* public function shopBrand(View $view, $nameBrand)
-    {
-        $products = Brand::where('name', $nameBrand)->first()->products;
-        $view->with('products', $products);
-
-    }*/
 
 }

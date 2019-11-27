@@ -14,6 +14,7 @@ FE
 
 payments    - dopo checkout
 Vinc    - paginazione shop
+        - logica filtro
 Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
       - email già usata div error con messaggio
@@ -22,7 +23,6 @@ Login - div error se non va a buon fine registrazione
 -Sara	-checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 -Sara   -se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 -Sara   -gestire opzione regalo
--vin Sara   - click da banner o nav che applica gia il filtro
 
 -Vale   modifica "aggiungi una recensione cliccando su..." quando non si è loggati perchè non si vede la scritta
 
@@ -102,10 +102,12 @@ aggiungi al carrello
 img prodotti come fossil carlie o Tissot Seastar - TS1204
 voto recensione
 login checkout
-logica filtro
 img Fossil Q Explorist FT4012
 categorie e genere in sez Specifiche in product.blade come nelle altre parti del sito
 un utente non puo aggiungere piu di un RECENSIONE. se esiste recensione per quel prod da parte di un utente si nasconde il tasto Scrivi recensione
+click da banner o nav che applica gia il filtro
+
+
 
 ------------------------------------------------
 DOMANDE DA FARE AL PROF

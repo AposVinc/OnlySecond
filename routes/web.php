@@ -25,9 +25,17 @@ Route::get('/Shop', function () {
     return view('frontend.shop');
 })->name('Shop');
 
-Route::get('/Shop/Brand/{name}', function () {
+Route::get('/Shop/Brand={brandName}', function () {
     return view('frontend.shop');
 })->name('ShopBrand');
+
+Route::get('/Shop/Collection={collectionName}', function () {
+    return view('frontend.shop');
+})->name('ShopCollection');
+
+Route::get('/Shop/Category={categoryName}&Genre={genre}', function () {
+    return view('frontend.shop');
+})->name('ShopCategory');
 
 Route::get('/Product/{cod}', 'ProductController@showProduct')->name('Product');
 

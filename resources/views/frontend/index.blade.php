@@ -6,10 +6,10 @@
         @foreach ($banners as $banner)
             <div class="main-banner owl-carousel">
                 @if ($loop->first)
-                    <div class="item"><a href="#"><img src="{{asset($banner->path_image)}}" alt="Main Banner" class="img-responsive" /></a></div>
+                    <div class="item"><a href="{{ route('ShopCollection',['collectionName' => $banner->collection->name]) }}"><img src="{{asset($banner->path_image)}}" alt="Main Banner" class="img-responsive" /></a></div>
                     @continue
                 @endif
-                <div class="item"><a href="#"><img src="{{asset($banner->path_image)}}" alt="Main Banner" class="img-responsive" /></a></div>
+                <div class="item"><a href="{{ route('ShopCollection',['collectionName' => $banner->collection->name]) }}"><img src="{{asset($banner->path_image)}}" alt="Main Banner" class="img-responsive" /></a></div>
             </div>
         @endforeach
     </div>
@@ -56,10 +56,10 @@
                     <div id="subbanner1" class="sub-hover carousel-inner">
                         @foreach ($sub_banners as $sub_banner)
                             @if ($loop->first)
-                                <div class="item active"> <a href="#"><img src="{{asset($sub_banner->path_image)}}" class="img-responsive" alt="Sub Banner"></a></div>
+                                <div class="item active"> <a href="{{ route('ShopCollection',['collectionName' => $sub_banner->collection->name]) }}"><img src="{{asset($sub_banner->path_image)}}" class="img-responsive" alt="Sub Banner"></a></div>
                                 @continue
                             @endif
-                            <div class="item"> <a href="#"><img src="{{asset($sub_banner->path_image)}}" class="img-responsive" alt="Sub Banner"></a></div>
+                            <div class="item"> <a href="{{ route('ShopCollection',['collectionName' => $sub_banner->collection->name]) }}"><img src="{{asset($sub_banner->path_image)}}" class="img-responsive" alt="Sub Banner"></a></div>
                         @endforeach
                     </div>
                 </div>

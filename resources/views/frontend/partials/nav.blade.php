@@ -12,7 +12,7 @@
                     se vogliamo possiamo mettere un limite sul numero e mandare a capo dopo 6 brand o una cosa del genere
                     la pagina che si apre deve aver gia settato i filti. se scelgo tissot avro solo tissot-->
                     @foreach($brands as $brand)
-                        <li> <a class="navBrand" href="{{ route('ShopBrand',['name' => $brand->name]) }}">{{$brand->name}}</a></li>
+                        <li> <a class="navBrand" href="{{ route('ShopBrand',['brandName' => $brand->name]) }}">{{$brand->name}}</a></li>
                     @endforeach
                 </ul>
             </li>
@@ -22,7 +22,7 @@
                         <ul>
                             <li class="dropdown-header">Donna</li>
                             @foreach($categoriesF as $categoryF)
-                                <li><a href="{{ route('Shop') }}">{{$categoryF->name}}</a></li>
+                                <li><a href="{{ route('ShopCategory',['nameCategory' => $categoryF->name,'genre' => 'F']) }}">{{$categoryF->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -30,7 +30,7 @@
                         <ul>
                             <li class="dropdown-header">Uomo</li>
                             @foreach($categoriesM as $categoryM)
-                                <li><a href="{{ route('Shop') }}">{{$categoryM->name}}</a></li>
+                                <li><a href="{{ route('ShopCategory',['nameCategory' => $categoryM->name,'genre' => 'M']) }}">{{$categoryM->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -38,7 +38,7 @@
                         <ul>
                             <li class="dropdown-header">Unisex</li>
                             @foreach($categoriesU as $categoryU)
-                                <li><a href="{{ route('Shop') }}">{{$categoryU->name}}</a></li>
+                                <li><a href="{{ route('ShopCategory',['nameCategory' => $categoryM->name,'genre' => 'U']) }}">{{$categoryU->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -49,10 +49,10 @@
                                 <div class="carousel-inner">
                                     @foreach ($mini_banners as $mini_banner)
                                         @if ($loop->first)
-                                            <div class="item active"> <a href="#"><img src="{{asset($mini_banner->path_image)}}" class="img-responsive" alt="Mini Banner"></a></div>
+                                            <div class="item active"> <a href="{{ route('ShopCollection',['collectionName' => $mini_banner->collection->name]) }}"><img src="{{asset($mini_banner->path_image)}}" class="img-responsive" alt="Mini Banner"></a></div>
                                             @continue
                                         @endif
-                                        <div class="item"> <a href="#"><img src="{{asset($mini_banner->path_image)}}" class="img-responsive" alt="Mini Banner"></a></div>
+                                        <div class="item"> <a href="{{ route('ShopCollection',['collectionName' => $mini_banner->collection->name]) }}"><img src="{{asset($mini_banner->path_image)}}" class="img-responsive" alt="Mini Banner"></a></div>
                                     @endforeach
                                 </div>
                                 <!-- End Carousel Inner -->
