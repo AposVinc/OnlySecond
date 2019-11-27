@@ -3,3 +3,25 @@
     margin-right: 0;
     margin-left: -15px;
 }
+
+
+
+/*PAGINATION*/
+.pagination ul li a {
+    background-color: #f7f7f7;
+    color: #808080;
+    display: block;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    width: 36px;
+}
+.pagination ul li.active a {
+    background: #ee5e11 none repeat scroll 0 0;
+    color: #fff;
+}
+.pagination ul li {
+    display: inline-block;
+    margin: 0 2px;
+}

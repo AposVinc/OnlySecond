@@ -11,7 +11,7 @@ use Illuminate\View\View;
 class ShopComposer
 {
     public  function composeShop(View $view){
-        $products = Product::withoutTrashed()->with('collection')->with('images')->get();
+        $products = Product::withoutTrashed()->with('collection')->with('images')->paginate(18);
         $view->with('products', $products);
     }
 
