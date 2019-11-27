@@ -25,6 +25,10 @@ Route::get('/Shop', function () {
     return view('frontend.shop');
 })->name('Shop');
 
+Route::get('/Shop/Brand/{name}', function () {
+    return view('frontend.shop');
+})->name('ShopBrand');
+
 Route::get('/Product/{cod}', 'ProductController@showProduct')->name('Product');
 
 Route::get('/About', function(){

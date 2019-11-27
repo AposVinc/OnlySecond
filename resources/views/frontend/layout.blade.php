@@ -718,7 +718,7 @@
             }
         }
     */
-        function filtering() {
+      /*  function filtering() {
             var e,i,arrCheckboxes,fGroup;
             var products = $('#listProducts').children();
 
@@ -876,7 +876,7 @@
                     }
                 }
             }
-        }
+        }*/
 
     </script>
 @endif

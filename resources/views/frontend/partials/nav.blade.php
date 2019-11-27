@@ -12,7 +12,7 @@
                     se vogliamo possiamo mettere un limite sul numero e mandare a capo dopo 6 brand o una cosa del genere
                     la pagina che si apre deve aver gia settato i filti. se scelgo tissot avro solo tissot-->
                     @foreach($brands as $brand)
-                        <li> <a class="navBrand" href="{{ route('Shop') }}">{{$brand->name}}</a></li>
+                        <li> <a class="navBrand" href="{{ route('ShopBrand',['name' => $brand->name]) }}">{{$brand->name}}</a></li>
                     @endforeach
                 </ul>
             </li>
