@@ -322,12 +322,17 @@
 
                             <div class="tab-pane pt_10" id="3c">
 
-                                @auth()
+
 
                                 @foreach($product->reviews as $review)
                                     @if(Auth::id() == $review->user_id)
                                             <p data-toggle="collapse" data-target="#content" disabled><h5> Hai già scritto una recensione per questo prodotto! </h5></p>
+                                        @break
                                     @else
+                                        @guest()
+                                            <a href="{{route('User.Login')}}"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
+                                            @endguest
+                                    @auth()
                                             <div class="mtb_10">
                                                 <a data-toggle="collapse" data-target="#content"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
 
@@ -368,9 +373,10 @@
                                                     </form>
                                                 </div>
                                             </div>
+                                            @endauth
                                     @endif
                                 @endforeach
-                                @endauth
+
 
                                 <div class="col-md-12 mt_10">
 
@@ -378,16 +384,17 @@
                                         <div class="text-center reviewEmpty">
                                             <span style="font-size: 25px;"> Non ci sono recensioni!! <i class="fa fa-meh-o"></i> </span>
                                             <br>
-                                            @if(Auth())
+                                            @auth()
                                             <div class="mt_10">
                                             <span> Aggiungi la prima recensione cliccando su</span> <i>  "Scrivi Una Recensione" </i>
                                             </div>
-                                            @else
+                                            @endauth
+                                            @guest()
                                                 <div class="mt_10">
-                                                    <span> Aggiungi la prima recensione dopo aver effettuato </span> <i>  il Login </i>
-                                                </div>
-                                            @endif
+                                                    <span> Aggiungi la prima recensione dopo aver effettuato il </span> <i><a href="{{route('User.Login')}}"> Login </a></i>
 
+                                                </div>
+                                                @endguest
                                         </div>
                                     @else
                                         @foreach($product->reviews as $review)
