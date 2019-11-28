@@ -615,10 +615,63 @@
                 $('#shipping-existing').hide();
                 $('#shipping-new').hide();
             }
-            if (this.value == 'addressFavourite') {
-                $('#shipping-existing').hide();
-                $('#shipping-new').hide();
+        });
+
+        $('input[name=\'payment_address\']').on('change', function() {
+            if (this.value == 'existing') {
+                $('#payment-existing').show();
+                $('#payment-new').hide();
             }
+            if (this.value == 'new') {
+                $('#payment-existing').hide();
+                $('#payment-new').show();
+            }
+            if (this.value == 'address') {
+                $('#payment-existing').hide();
+                $('#payment-new').hide();
+            }
+        });
+
+        $('#button-shipping-address').on('click', function () {
+            $('#collapseOne').removeClass('in');
+            $('#collapseOne').attr('aria-expanded', false);
+            $('#collapseTwo').addClass('in');
+            $('#collapseTwo').attr('aria-expanded', true);
+            $('#collapseTwo').css('height', '');
+        });
+
+        $('#button-shipping-method').on('click', function () {
+            $('#collapseTwo').removeClass('in');
+            $('#collapseTwo').attr('aria-expanded', false);
+            $('#collapseThree').addClass('in');
+            $('#collapseThree').attr('aria-expanded', true);
+            $('#collapseThree').css('height', '');
+        });
+
+        $('#button-payment-method').on('click', function () {
+            if(document.getElementsByName('agree')[0].checked){
+                $('#collapseThree').removeClass('in');
+                $('#collapseThree').attr('aria-expanded', false);
+                $('#collapseFour').addClass('in');
+                $('#collapseFour').attr('aria-expanded', true);
+                $('#collapseFour').css('height', '');
+            }
+        });
+
+        $('#button-payment-address').on('click', function () {
+            $('#collapseFour').removeClass('in');
+            $('#collapseFour').attr('aria-expanded', false);
+            $('#collapseFive').addClass('in');
+            $('#collapseFive').attr('aria-expanded', true);
+            $('#collapseFive').css('height', '');
+        });
+
+        $('#button-gift').on('click', function () {
+            $('#collapseFive').removeClass('in');
+            $('#collapseFive').attr('aria-expanded', false);
+            $('#collapseSix').addClass('in');
+            $('#collapseSix').attr('aria-expanded', true);
+            $('#collapseSix').css('height', '');
         });
     </script>
 @endif
