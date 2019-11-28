@@ -5,11 +5,13 @@
         </div>
 
         <div class="filter-block">
+            <form>
             <p>
                 <label for="amount">Range Prezzo:</label>
                 <input type="text" id="amount" minprice="" maxprice="" readonly>
             </p>
             <div id="slider-range" class="mtb_20"></div>
+
             <div class="list-group-item mb_10">
                 <label>Sconto</label>
                 <div id="filter-group-rates">
@@ -101,7 +103,9 @@
                     </div>
                 </div>
                 <button onclick="filtering()" type="button" class="btn">Filtra</button>
+                <button type="reset" class="btn ml_5">Reset</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

@@ -718,166 +718,275 @@
             }
         }
     */
-      /*  function filtering() {
-            var e,i,arrCheckboxes,fGroup;
-            var products = $('#listProducts').children();
+        /*  function filtering() {
+              var e,i,arrCheckboxes,fGroup;
+              var products = $('#listProducts').children();
 
-            for(i=0; i < products.length; i++){
-                products[i].style.display = "block";
+              for(i=0; i < products.length; i++){
+                  products[i].style.display = "block";
+              }
+
+
+              if ($('#amount')[0].getAttribute("minprice") !== "" && $('#amount')[0].getAttribute("maxprice") !== ""){
+                  parseProductsByPrice(products, parseInt($('#amount')[0].getAttribute("minprice")), parseInt($('#amount')[0].getAttribute("maxprice")));
+              }
+
+              arrCheckboxes = [];
+              fGroup = $('#filter-group-rates').children();
+              for(i=0; i < fGroup.length; i++){
+                  e = fGroup[i].children[0].children[0];
+                  if(e.checked){
+                      arrCheckboxes.push(e.value);
+                  }
+              }
+              if(arrCheckboxes.length){
+                  parseProductsByRates(products, arrCheckboxes, 'rate');
+              }
+
+              arrCheckboxes = [];
+              fGroup = $('#filter-group-genres').children();
+              for(i=0; i < fGroup.length; i++){
+                  e = fGroup[i].children[0].children[0];
+                  if(e.checked){
+                      arrCheckboxes.push(e.value);
+                  }
+              }
+              if(arrCheckboxes.length){
+                  parseProducts(products, arrCheckboxes, 'genre');
+              }
+
+              arrCheckboxes = [];
+              fGroup = $('#filter-group-brands').children();
+              for(i=0; i < fGroup.length; i++){
+                  if(!fGroup[i].classList.contains('showMore')){
+                      e = fGroup[i].children[0].children[0];
+                      if(e.checked){
+                          arrCheckboxes.push(e.value);
+                      }
+                  }
+              }
+              if(arrCheckboxes.length) {
+                  parseProducts(products, arrCheckboxes, 'brand');
+              }
+
+              arrCheckboxes = [];
+              fGroup = $('#filter-group-collections').children();
+              for(i=0; i < fGroup.length; i++){
+                  if(!fGroup[i].classList.contains('showMore')){
+                      e = fGroup[i].children[0].children[0];
+                      if(e.checked){
+                          arrCheckboxes.push(e.value);
+                      }
+                  }
+              }
+              if(arrCheckboxes.length) {
+                  parseProducts(products, arrCheckboxes, 'collection');
+              }
+
+              arrCheckboxes = [];
+              fGroup = $('#filter-group-categories').children();
+              for(i=0; i < fGroup.length; i++){
+                  if(!fGroup[i].classList.contains('showMore')){
+                      e = fGroup[i].children[0].children[0];
+                      if(e.checked){
+                          arrCheckboxes.push(e.value);
+                      }
+                  }
+              }
+              if(arrCheckboxes.length){
+                  parseProducts(products, arrCheckboxes, 'categories');
+              }
+
+              arrCheckboxes = [];
+              fGroup = $('#filter-group-colors').children();
+              for(i=0; i < fGroup.length; i++){
+                  if(!fGroup[i].classList.contains('showMore')){
+                      e = fGroup[i].children[0].children[0];
+                      if(e.checked){
+                          arrCheckboxes.push(e.value);
+                      }
+                  }
+              }
+              if(arrCheckboxes.length){
+                  parseProducts(products, arrCheckboxes, 'color');
+              }
+
+              arrCheckboxes = [];
+              fGroup = $('#filter-group-materials').children();
+              for(i=0; i < fGroup.length; i++){
+                  if(!fGroup[i].classList.contains('showMore')){
+                      e = fGroup[i].children[0].children[0];
+                      if(e.checked){
+                          arrCheckboxes.push(e.value);
+                      }
+                  }
+              }
+              if(arrCheckboxes.length){
+                  parseProducts(products, arrCheckboxes, 'material');
+              }
+          }
+
+          function parseProducts(products, arrCheckboxes, attr) {
+              for(var i=0; i < products.length; i++){
+                  if(products[i].style.display !== "none"){
+                      if(arrCheckboxes.includes(products[i].getAttribute(attr))){
+                          products[i].style.display = "block";
+                      } else {
+                          products[i].style.display = "none";
+                      }
+                  }
+              }
+          }
+
+          function parseProductsByPrice(products, min, max) {
+              for(var i=0; i < products.length; i++){
+                  if(products[i].style.display !== "none"){
+                      if(parseInt(products[i].getAttribute("price")) >= min && parseInt(products[i].getAttribute("price")) <= max){
+                          products[i].style.display = "block";
+                      } else {
+                          products[i].style.display = "none";
+                      }
+                  }
+              }
+          }
+
+          function parseProductsByRates(products, arrCheckboxes, attr) {
+              for(var j=0; j < arrCheckboxes.length; j++){
+                  for(var i=0; i < products.length; i++){
+                      if(products[i].style.display !== "none"){
+                          if(parseInt(products[i].getAttribute(attr), 10) >= parseInt(arrCheckboxes[j], 10)){
+                              products[i].style.display = "block";
+                          } else {
+                              products[i].style.display = "none";
+                          }
+                      }
+                  }
+              }
+          }
+
+          function parseProductsByCategories(products, arrCheckboxes) {
+              for(var j=0; j < arrCheckboxes.length; j++){
+                  for(var i=0; i < products.length; i++){
+                      if(products[i].style.display !== "none"){
+                          if(products[i].hasAttribute(arrCheckboxes[j])){
+                              products[i].style.display = "block";
+                          } else {
+                              products[i].style.display = "none";
+                          }
+                      }
+                  }
+              }
+          }*/
+
+        function filtering() {
+            var e, i, fGroup;
+            var arrRatesChecked, arrGenresChecked, arrBrandsChecked, arrCollectionsChecked,
+                arrCategoriesChecked, arrColorsChecked, arrMaterialsChecked;
+
+            if ($('#amount')[0].getAttribute("minprice") !== "" && $('#amount')[0].getAttribute("maxprice") !== "") {
+                //parseProductsByPrice(products, parseInt($('#amount')[0].getAttribute("minprice")), parseInt($('#amount')[0].getAttribute("maxprice")));
+                var minprice = parseInt($('#amount')[0].getAttribute("minprice"));
+                var maxprice = parseInt($('#amount')[0].getAttribute("maxprice"));
             }
 
-
-            if ($('#amount')[0].getAttribute("minprice") !== "" && $('#amount')[0].getAttribute("maxprice") !== ""){
-                parseProductsByPrice(products, parseInt($('#amount')[0].getAttribute("minprice")), parseInt($('#amount')[0].getAttribute("maxprice")));
-            }
-
-            arrCheckboxes = [];
+            arrRatesChecked = [];
             fGroup = $('#filter-group-rates').children();
-            for(i=0; i < fGroup.length; i++){
+            for (i = 0; i < fGroup.length; i++) {
                 e = fGroup[i].children[0].children[0];
-                if(e.checked){
-                    arrCheckboxes.push(e.value);
+                if (e.checked) {
+                    arrRatesChecked.push(e.value);
                 }
             }
-            if(arrCheckboxes.length){
-                parseProductsByRates(products, arrCheckboxes, 'rate');
-            }
 
-            arrCheckboxes = [];
+            arrGenresChecked = [];
             fGroup = $('#filter-group-genres').children();
-            for(i=0; i < fGroup.length; i++){
+            for (i = 0; i < fGroup.length; i++) {
                 e = fGroup[i].children[0].children[0];
-                if(e.checked){
-                    arrCheckboxes.push(e.value);
+                if (e.checked) {
+                    arrGenresChecked.push(e.value);
                 }
             }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'genre');
-            }
 
-            arrCheckboxes = [];
+            arrBrandsChecked = [];
             fGroup = $('#filter-group-brands').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
+            for (i = 0; i < fGroup.length; i++) {
+                if (!fGroup[i].classList.contains('showMore')) {
                     e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
+                    if (e.checked) {
+                        arrBrandsChecked.push(e.value);
                     }
                 }
             }
-            if(arrCheckboxes.length) {
-                parseProducts(products, arrCheckboxes, 'brand');
-            }
 
-            arrCheckboxes = [];
+            arrCollectionsChecked = [];
             fGroup = $('#filter-group-collections').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
+            for (i = 0; i < fGroup.length; i++) {
+                if (!fGroup[i].classList.contains('showMore')) {
                     e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
+                    if (e.checked) {
+                        arrCollectionsChecked.push(e.value);
                     }
                 }
             }
-            if(arrCheckboxes.length) {
-                parseProducts(products, arrCheckboxes, 'collection');
-            }
 
-            arrCheckboxes = [];
+            arrCategoriesChecked = [];
             fGroup = $('#filter-group-categories').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
+            for (i = 0; i < fGroup.length; i++) {
+                if (!fGroup[i].classList.contains('showMore')) {
                     e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
+                    if (e.checked) {
+                        arrCategoriesChecked.push(e.value);
                     }
                 }
             }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'categories');
-            }
 
-            arrCheckboxes = [];
+            arrColorsChecked = [];
             fGroup = $('#filter-group-colors').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
+            for (i = 0; i < fGroup.length; i++) {
+                if (!fGroup[i].classList.contains('showMore')) {
                     e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
+                    if (e.checked) {
+                        arrColorsChecked.push(e.value);
                     }
                 }
             }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'color');
-            }
 
-            arrCheckboxes = [];
+            arrMaterialsChecked = [];
             fGroup = $('#filter-group-materials').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
+            for (i = 0; i < fGroup.length; i++) {
+                if (!fGroup[i].classList.contains('showMore')) {
                     e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
+                    if (e.checked) {
+                        arrMaterialsChecked.push(e.value);
                     }
                 }
             }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'material');
-            }
-        }
 
-        function parseProducts(products, arrCheckboxes, attr) {
-            for(var i=0; i < products.length; i++){
-                if(products[i].style.display !== "none"){
-                    if(arrCheckboxes.includes(products[i].getAttribute(attr))){
-                        products[i].style.display = "block";
+            jQuery.ajax({
+                url: '{{ route('Filter.GetProducts') }}',
+                method: "GET",
+                dataType: "json",
+                data: {
+                    arrRatesChecked: arrRatesChecked,
+                    arrGenresChecked: arrGenresChecked,
+                    arrBrandsChecked: arrBrandsChecked,
+                    arrCollectionsChecked: arrCollectionsChecked,
+                    arrCategoriesChecked: arrCategoriesChecked,
+                    arrColorsChecked: arrColorsChecked,
+                    arrMaterialsChecked: arrMaterialsChecked
+                },
+                success: function (result) {
+                    if (result.length === 0) {
+                        Error("Non ci sono Prodotti da Riattivare per la collezione selezionata");
                     } else {
-                        products[i].style.display = "none";
+                        console.log(result);
                     }
+                },
+                error: function (xhr) {
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                 }
-            }
+            })
         }
-
-        function parseProductsByPrice(products, min, max) {
-            for(var i=0; i < products.length; i++){
-                if(products[i].style.display !== "none"){
-                    if(parseInt(products[i].getAttribute("price")) >= min && parseInt(products[i].getAttribute("price")) <= max){
-                        products[i].style.display = "block";
-                    } else {
-                        products[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
-        function parseProductsByRates(products, arrCheckboxes, attr) {
-            for(var j=0; j < arrCheckboxes.length; j++){
-                for(var i=0; i < products.length; i++){
-                    if(products[i].style.display !== "none"){
-                        if(parseInt(products[i].getAttribute(attr), 10) >= parseInt(arrCheckboxes[j], 10)){
-                            products[i].style.display = "block";
-                        } else {
-                            products[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        }
-
-        function parseProductsByCategories(products, arrCheckboxes) {
-            for(var j=0; j < arrCheckboxes.length; j++){
-                for(var i=0; i < products.length; i++){
-                    if(products[i].style.display !== "none"){
-                        if(products[i].hasAttribute(arrCheckboxes[j])){
-                            products[i].style.display = "block";
-                        } else {
-                            products[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        }*/
-
     </script>
 @endif
 

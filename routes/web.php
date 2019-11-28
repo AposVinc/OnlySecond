@@ -37,6 +37,8 @@ Route::get('/Shop/Category={categoryName}&Genre={genre}', function () {
     return view('frontend.shop');
 })->name('ShopCategory');
 
+Route::get('/Filter/GetProducts', 'FilterController@getProducts')->name('Filter.GetProducts');
+
 Route::get('/Product/{cod}', 'ProductController@showProduct')->name('Product');
 
 Route::get('/About', function(){
