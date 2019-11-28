@@ -477,7 +477,7 @@
                         </div>
                         <div id="collapseSix" class="panel-collapse collapse" aria-expanded="false">
                             <div class="panel-body">
-                                <div class="table-responsive">
+                                <!--<div class="table-responsive">
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
@@ -514,9 +514,110 @@
                                         </tr>
                                         </tfoot>
                                     </table>
+                                </div>-->
+                                @foreach(auth()->User()->products as $product)
+                                    <div class="heading-part mb_10"></div>
+                                    <div class="mb_10 col-md-12">
+                                        @if($product->offer()->exists())
+                                            <div class="pl_0 col-md-1">
+                                                <div class="image product-imageblock">
+                                                    <a href="{{route('Product', ['cod' => $product->cod])}}">
+                                                        <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" height="100" width="100">
+                                                    </a>
+                                                </div>
+                                                <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
+                                            </div>
+                                        @else
+                                            <div class="pl_0 col-md-1">
+                                                <div class="image product-imageblock">
+                                                    <a href="{{route('Product', ['cod' => $product->cod])}}">
+                                                        <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" height="100" width="100">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        <div class="cartProd col-md-5">
+                                            <div class="product-name">
+                                                <span>Prodotto:</span>
+                                                <label>
+                                                    {{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}
+                                                </label>
+                                            </div>
+                                            <div class="product-price">
+                                                <span>Prezzo:</span>
+                                                <label>
+                                                    @if($product->offer()->exists())
+                                                        <del>{{$product->price}}€</del>
+                                                        {{$product->offer->calculateDiscount()}} €
+                                                    @else
+                                                        {{$product->price}} €
+                                                    @endif
+                                                </label>
+                                            </div>
+                                            <div class="product-attr">
+                                                <span>Genere:</span>
+                                                <label>
+                                                    @if($product->genre == "U")
+                                                        Unisex
+                                                    @elseif($product->genre == "M")
+                                                        Uomo
+                                                    @else
+                                                        Donna
+                                                    @endif
+                                                </label>
+                                            </div>
+                                            <div class="product-attr">
+                                                <span>Categoria:</span>
+                                                <label>
+                                                    @php
+                                                        $stringa = "";
+                                                        foreach($product->categories as $category){
+                                                            if($stringa==""){
+                                                                $stringa = $stringa. $category->name;
+                                                            }else{
+                                                                $stringa = $stringa. ", ". $category->name;
+                                                            }
+                                                        }
+                                                        echo $stringa;
+                                                    @endphp
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="cartProd col-md-3">
+                                            <div class="productQuantity" style="text-align: center">
+                                                <span>Quantità Acquistata: </span>
+                                                <label>{{$product->pivot->quantity}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="cartProd col-md-3">
+                                            <div class="productPriceTotal" style="text-align: center">
+                                                <span>Prezzo per Qt:</span>
+                                                <label>{{auth()->User()->calculatepriceQuantityProduct($product)}} €</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <div class="heading-part mb_10"></div>
+                                <div class="cartProd col-sm-4 col-sm-offset-9 pl_0">
+                                    <div class="product-name">
+                                        <span>Sub - Totale <small style="font-size: 10px;">(Iva inclusa)</small>:</span>
+                                        <label>{{auth()->User()->calculateTotalPrice()}} €</label>
+                                    </div>
+                                    <div class="productPriceTotal">
+                                        @if(auth()->User()->calculateTotalPrice()>250)
+                                            <span>Costo di spedizione:</span>
+                                            <label>Gratuita</label>
+                                        @else
+                                            <strong> + Costo di spedizione</strong>
+                                        @endif
+                                    </div>
+                                    <div class="product-name">
+                                        <span>Totale:</span>
+                                        <label>{{auth()->User()->calculateTotalPrice()}} €</label>
+                                    </div>
                                 </div>
                                 <div class="buttons mr_10">
-                                    <div class="pull-right">
+                                    <div class="pull-right mt_10">
                                         <input type="button" data-loading-text="Loading..." class="btn" id="button-confirm" value="Conferma Ordine">
                                     </div>
                                 </div>
