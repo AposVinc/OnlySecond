@@ -216,7 +216,7 @@
                                                     <strong>Sub-Totale</strong>
                                                     <span class="spanIva">(Iva inclusa)</span>
                                                 </td>
-                                                <td class="text-right">
+                                                <td id="totalPriceElement" class="text-right">
                                                     {{auth()->User()->calculateTotalPrice()}}
                                                 </td>
                                             </tr>
@@ -636,12 +636,19 @@
             if (this.value == 'standard') {
                 if($('#shippingElement').text() == "Gratuita"){
                     $('#shippingPrice').text('Gratuita');
+                    $('#totalPriceCart').text($('#totalPriceElement').text());
                 }else{
                     $('#shippingPrice').text('5.00 €');
+                    var subTotal = $('#totalPriceElement').text();
+                    var total = parseFloat(subTotal) + 5.00;
+                    $('#totalPriceCart').text(total.toFixed(2));
                 }
             }
             if (this.value == 'rapid') {
                 $('#shippingPrice').text('10.00 €');
+                var subTotal = $('#totalPriceElement').text();
+                var total = parseFloat(subTotal) + 10.00;
+                $('#totalPriceCart').text(total.toFixed(2));
             }
         });
 

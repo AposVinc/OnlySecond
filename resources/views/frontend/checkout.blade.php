@@ -617,7 +617,11 @@
                                     </div>
                                     <div id="totalPrice" class="product-name">
                                         <span>Totale:</span>
-                                        <label>{{auth()->User()->calculateTotalPrice()}} €</label>
+                                        @if(auth()->User()->calculateTotalPrice() > 250)
+                                            <label id="totalPriceCart">{{auth()->User()->calculateTotalPrice()}} €</label>
+                                        @else
+                                            <label id="totalPriceCart">{{number_format(auth()->User()->calculateTotalPrice() + 5.00, 2, ".", "")}} €</label>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="buttons mr_10">
