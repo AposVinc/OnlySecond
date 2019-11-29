@@ -212,13 +212,13 @@
                                 <p>Per favore seleziona il tuo metodo di consegna preferito per questo ordine.</p>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" checked="checked" value="flat.flat" name="shipping_method"> Spedizione Standard - 5.00€ (4-5 giorni lavorativi)
+                                        <input type="radio" checked="checked" value="standard" name="shipping_method"> Spedizione Standard - 5.00€ (4-5 giorni lavorativi)
                                         <p>Con ordine superiore a 250,00€, spedizione standard - 0,00€</p>
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" value="flat.flat" name="shipping_method"> Spedizione Rapida - 10.00€ (2 giorni lavorativi)
+                                        <input type="radio" value="rapid" name="shipping_method"> Spedizione Rapida - 10.00€ (2 giorni lavorativi)
                                     </label>
                                 </div>
                                 <div class="buttons mr_10">
@@ -604,14 +604,18 @@
                                         <label>{{auth()->User()->calculateTotalPrice()}} €</label>
                                     </div>
                                     <div class="productPriceTotal">
-                                        @if(auth()->User()->calculateTotalPrice()>250)
-                                            <span>Costo di spedizione:</span>
-                                            <label>Gratuita</label>
+                                        <span>Costo di spedizione:</span>
+                                        @if(auth()->User()->calculateTotalPrice() > 250)
+                                            <label id="shippingPrice">
+                                                Gratuita
+                                            </label>
                                         @else
-                                            <strong> + Costo di spedizione</strong>
+                                            <label id="shippingPrice">
+                                                5.00 €
+                                            </label>
                                         @endif
                                     </div>
-                                    <div class="product-name">
+                                    <div id="totalPrice" class="product-name">
                                         <span>Totale:</span>
                                         <label>{{auth()->User()->calculateTotalPrice()}} €</label>
                                     </div>

@@ -226,11 +226,11 @@
                                                         <small>Costo di spedizione:</small>
                                                     </td>
                                                     <td class="text-right">
-                                                        <small>Gratuita</small>
+                                                        <small id="shippingElement">Gratuita</small>
                                                     </td>
                                                 @else
                                                     <td colspan="2">
-                                                        <small> + Costo di spedizione</small>
+                                                        <small id="shippingElement"> + Costo di spedizione</small>
                                                     </td>
                                                 @endif
                                             </tr>
@@ -629,6 +629,19 @@
             if (this.value == 'address') {
                 $('#payment-existing').hide();
                 $('#payment-new').hide();
+            }
+        });
+
+        $('input[name=\'shipping_method\']').on('change', function() {
+            if (this.value == 'standard') {
+                if($('#shippingElement').text() == "Gratuita"){
+                    $('#shippingPrice').text('Gratuita');
+                }else{
+                    $('#shippingPrice').text('5.00 €');
+                }
+            }
+            if (this.value == 'rapid') {
+                $('#shippingPrice').text('10.00 €');
             }
         });
 
