@@ -967,6 +967,8 @@
                 method: "GET",
                 dataType: "json",
                 data: {
+                    minprice: minprice,
+                    maxprice: maxprice,
                     arrRatesChecked: arrRatesChecked,
                     arrGenresChecked: arrGenresChecked,
                     arrBrandsChecked: arrBrandsChecked,
