@@ -984,9 +984,9 @@ DatabaseSeeder extends Seeder
 
         /*---   Carte di credito   -----------------------------------------------------*/
 
-        $creditCard1 = new CreditCard(['user_id' => $user1->id,'numberCard'=>'11111111', 'holderCard'=>'0277889966', 'expirationCard'=>'12/2020']);
+        $creditCard1 = new CreditCard(['user_id' => $user1->id,'numberCard'=>'11111111', 'holderCard'=>'uu', 'expirationCard'=>'12/2020']);
         $creditCard1->save();
-        $creditCard2 = new CreditCard(['user_id' => $user2->id,'numberCard'=>'11111112', 'holderCard'=>'0277889966', 'expirationCard'=>'12/2020']);
+        $creditCard2 = new CreditCard(['user_id' => $user2->id,'numberCard'=>'11111112', 'holderCard'=>'zz', 'expirationCard'=>'12/2020']);
         $creditCard2->save();
 
         /*---   CORRIERI   -----------------------------------------------------*/
