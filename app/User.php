@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Address');
     }
 
+    public function creditCards()
+    {
+        return $this->hasMany('App\CreditCard');
+    }
+
     public function reviews()
     {
         return $this->hasMany('App\Review')->withTrashed();

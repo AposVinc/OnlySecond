@@ -13,9 +13,9 @@ class OrderHistory extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function payment()
+    public function creditCard()
     {
-        return $this->belongsTo('App\Payment');
+        return $this->belongsTo('App\CreditCard');
     }
 
     public function courier()
