@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Offer;
 use App\Product;
 use Illuminate\Http\Request;
@@ -18,15 +19,6 @@ class FilterController extends Controller{
             $minprice = number_format($request->get('minprice'),2);
             $maxprice = number_format($request->get('maxprice'),2);
             $products_with_offers = new Collection();
-            /*
-            foreach ($products as $key => $product){
-                if ($product->offer){
-                    if ($product->offer->calculateDiscount() >= $minprice and $product->offer->calculateDiscount() <= $maxprice){
-                        $products_with_offers->push($product);
-                    }
-                }
-            }
-            */
             foreach (Offer::all() as $offer){
                 if ($offer->calculateDiscount() >= $minprice and $offer->calculateDiscount() <= $maxprice){
                     $products_with_offers->push($offer->product);
@@ -50,33 +42,59 @@ class FilterController extends Controller{
                 }
             }
         }
+
+        if ($request->has('arrGenresChecked') and $request->get('arrGenresChecked')){
+            foreach ($request->get('arrGenresChecked') as $genre){
+                foreach ($products as $key => $product){
+                    if ($product->genre !== $genre){
+                        $products->forget($key);
+                    }
+                }
+            }
+        }
+
+        if ($request->has('arrBrandsChecked') and $request->get('arrBrandsChecked')){
+            foreach ($request->get('arrBrandsChecked') as $brand){
+                foreach ($products as $key => $product){
+                    if ($product->collection->brand->id !== (int)$brand){
+                        $products->forget($key);
+                    }
+                }
+            }
+        }
+
+        if ($request->has('arrCollectionsChecked') and $request->get('arrCollectionsChecked')){
+            foreach ($request->get('arrCollectionsChecked') as $collection){
+                foreach ($products as $key => $product){
+                    if ($product->collection->id !== (int)$collection){
+                        $products->forget($key);
+                    }
+                }
+            }
+        }
+//backup di products, mi ritorno tutti i prod degli array checkati, confronto le due liste ed elimino le differenze da  products
+        if ($request->has('arrCategoriesChecked') and $request->get('arrCategoriesChecked')){
+            foreach ($request->get('arrCategoriesChecked') as $category_checked){
+                foreach ($products as $key => $product){
+                    foreach ($product->categories as $category){
+                        if ($category->id !== (int)$category){
+                            $products->forget($key);
+                        }
+                    }
+                }
+            }
+        }
+
         /*
-        if ($request->has('arrGenresChecked') and !$request->get('arrGenresChecked')){
-            foreach ($request->get('arrGenresChecked') as $material){
-                echo $material->name;
-            }
-        }
-        if ($request->has('arrBrandsChecked') and !$request->get('arrBrandsChecked')){
-            foreach ($request->get('arrBrandsChecked') as $material){
-                echo $material->name;
-            }
-        }
-        if ($request->has('arrCollectionsChecked') and !$request->get('arrCollectionsChecked')){
-            foreach ($request->get('arrCollectionsChecked') as $material){
-                echo $material->name;
-            }
-        }
-        if ($request->has('arrCategoriesChecked') and !$request->get('arrCategoriesChecked')){
-            foreach ($request->get('arrCategoriesChecked') as $material){
-                echo $material->name;
-            }
-        }
-        if ($request->has('arrMaterialsChecked') and !$request->get('arrMaterialsChecked')){
-            foreach ($request->get('arrMaterialsChecked') as $material){
-                echo $material->name;
-            }
-        }
-        */
+                if ($request->has('arrMaterialsChecked') and $request->get('arrMaterialsChecked')){
+                    foreach ($request->get('arrMaterialsChecked') as $material){
+        foreach ($products as $key => $product){
+                            if ($product->brand !== $brand){
+                                $products->forget($key);
+                            }
+                        }            }
+                }
+                */
 
         return $products;
     }
