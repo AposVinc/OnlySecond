@@ -9,12 +9,12 @@
                 Cronologia Ordini
             @endcomponent
 
-            @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
             <div class="col-sm-12 col-lg-auto">
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 @foreach(auth()->user()->orderHistories()->get() as $order)
                     <div class="heading-part mb_10">
                         <div class="col-md-12">
