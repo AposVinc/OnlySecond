@@ -910,7 +910,9 @@
             arrBrandsChecked = [];
             fGroup = $('#filter-group-brands').children();
             for (i = 0; i < fGroup.length; i++) {
-                if (!fGroup[i].classList.contains('showMore')) {
+                if (fGroup[i].classList.contains('showMore') === true || fGroup[i].classList.contains('showLess') === true) {
+                    break;
+                } else {
                     e = fGroup[i].children[0].children[0];
                     if (e.checked) {
                         arrBrandsChecked.push(e.value);
@@ -921,7 +923,9 @@
             arrCollectionsChecked = [];
             fGroup = $('#filter-group-collections').children();
             for (i = 0; i < fGroup.length; i++) {
-                if (!fGroup[i].classList.contains('showMore')) {
+                if (fGroup[i].classList.contains('showMore') === true || fGroup[i].classList.contains('showLess') === true) {
+                    break;
+                } else {
                     e = fGroup[i].children[0].children[0];
                     if (e.checked) {
                         arrCollectionsChecked.push(e.value);
@@ -932,7 +936,9 @@
             arrCategoriesChecked = [];
             fGroup = $('#filter-group-categories').children();
             for (i = 0; i < fGroup.length; i++) {
-                if (!fGroup[i].classList.contains('showMore')) {
+                if (fGroup[i].classList.contains('showMore') === true || fGroup[i].classList.contains('showLess') === true) {
+                    break;
+                } else {
                     e = fGroup[i].children[0].children[0];
                     if (e.checked) {
                         arrCategoriesChecked.push(e.value);
@@ -943,7 +949,9 @@
             arrColorsChecked = [];
             fGroup = $('#filter-group-colors').children();
             for (i = 0; i < fGroup.length; i++) {
-                if (!fGroup[i].classList.contains('showMore')) {
+                if (fGroup[i].classList.contains('showMore') === true || fGroup[i].classList.contains('showLess') === true) {
+                    break;
+                } else {
                     e = fGroup[i].children[0].children[0];
                     if (e.checked) {
                         arrColorsChecked.push(e.value);
@@ -954,7 +962,9 @@
             arrMaterialsChecked = [];
             fGroup = $('#filter-group-materials').children();
             for (i = 0; i < fGroup.length; i++) {
-                if (!fGroup[i].classList.contains('showMore')) {
+                if (fGroup[i].classList.contains('showMore') === true || fGroup[i].classList.contains('showLess') === true) {
+                    break;
+                } else {
                     e = fGroup[i].children[0].children[0];
                     if (e.checked) {
                         arrMaterialsChecked.push(e.value);
