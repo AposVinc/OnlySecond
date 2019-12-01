@@ -1007,7 +1007,6 @@ DatabaseSeeder extends Seeder
 
         $order2 = new OrderHistory(['gift'=>'0']);
         $order2->user_id = $user1->id;
-        $order2->payPal = 1;
         $order2->courier_id = $courier1->id;
         $order2->mailing_address_id = $address2->id;
         $order2->billing_address_id = $address1->id;
@@ -1015,7 +1014,6 @@ DatabaseSeeder extends Seeder
 
         $order3 = new OrderHistory(['gift'=>'1']);
         $order3->user_id = $user1->id;
-        $order3->payPal = 1;
         $order3->courier_id = $courier2->id;
         $order3->mailing_address_id = $address1->id;
         $order3->billing_address_id = $address2->id;
@@ -1039,7 +1037,6 @@ DatabaseSeeder extends Seeder
 
         $order6 = new OrderHistory(['gift'=>'1']);
         $order6->user_id = $user2->id;
-        $order6->payPal = 1;
         $order6->courier_id = $courier1->id;
         $order6->mailing_address_id = $address3->id;
         $order6->billing_address_id = $address3->id;
