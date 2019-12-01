@@ -979,7 +979,7 @@
                 },
                 success: function (result) {
                     if (result.length === 0) {
-                        Error("Non ci sono Prodotti da Riattivare per la collezione selezionata");
+                        console.log(result);
                     } else {
                         console.log(result);
                     }
