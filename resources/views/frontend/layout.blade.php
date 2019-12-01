@@ -229,8 +229,11 @@
                                                         <small id="shippingElement">Gratuita</small>
                                                     </td>
                                                 @else
-                                                    <td colspan="2">
-                                                        <small id="shippingElement"> + Costo di spedizione</small>
+                                                    <td class="text-left">
+                                                        <small>Costo di spedizione:</small>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <small id="shippingElement">5.00 €</small>
                                                     </td>
                                                 @endif
                                             </tr>
@@ -324,8 +327,11 @@
                                                             <small>Gratuita</small>
                                                         </td>
                                                     @else
-                                                        <td colspan="2">
-                                                            <small> + Costo di spedizione</small>
+                                                        <td class="text-left">
+                                                            <small>Costo di spedizione:</small>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <small>5.00 €</small>
                                                         </td>
                                                     @endif
                                                 </tr>
@@ -659,6 +665,11 @@
                     if(list[i].children[1].children[0].required){
                         list[i].children[1].children[0].required = false;
                     }
+                    if(i == 2){
+                        if(list[i].children[2].children[0].required){
+                            list[i].children[2].children[0].required = false;
+                        }
+                    }
                 }
             }
             if (this.value == 'new') {
@@ -668,6 +679,11 @@
                 for(var i=0;i< list.length;i++){
                     if(!list[i].children[1].children[0].required){
                         list[i].children[1].children[0].required = true;
+                    }
+                    if(i == 2){
+                        if(!list[i].children[2].children[0].required){
+                            list[i].children[2].children[0].required = true;
+                        }
                     }
                 }
             }
@@ -679,27 +695,12 @@
                     if(list[i].children[1].children[0].required){
                         list[i].children[1].children[0].required = false;
                     }
+                    if(i == 2){
+                        if(list[i].children[2].children[0].required){
+                            list[i].children[2].children[0].required = false;
+                        }
+                    }
                 }
-            }
-        });
-
-        $('input[name=\'shipping_method\']').on('change', function() {
-            if (this.value == 'standard') {
-                if($('#shippingElement').text() == "Gratuita"){
-                    $('#shippingPrice').text('Gratuita');
-                    $('#totalPriceCart').text($('#totalPriceElement').text());
-                }else{
-                    $('#shippingPrice').text('5.00 €');
-                    var subTotal = $('#totalPriceElement').text();
-                    var total = parseFloat(subTotal) + 5.00;
-                    $('#totalPriceCart').text(total.toFixed(2));
-                }
-            }
-            if (this.value == 'rapid') {
-                $('#shippingPrice').text('10.00 €');
-                var subTotal = $('#totalPriceElement').text();
-                var total = parseFloat(subTotal) + 10.00;
-                $('#totalPriceCart').text(total.toFixed(2));
             }
         });
 
@@ -710,6 +711,11 @@
                 for(var i=0;i< list.length;i++){
                     if(list[i].children[1].children[0].required){
                         list[i].children[1].children[0].required = false;
+                    }
+                    if(i == 2){
+                        if(list[i].children[3].children[0].required){
+                            list[i].children[3].children[0].required = false;
+                        }
                     }
                 }
             }
@@ -726,6 +732,11 @@
                     if(list[i].children[1].children[0].required){
                         list[i].children[1].children[0].required = false;
                     }
+                    if(i == 2){
+                        if(list[i].children[3].children[0].required){
+                            list[i].children[3].children[0].required = false;
+                        }
+                    }
                 }
             }
             if (this.value == 'new') {
@@ -735,31 +746,27 @@
                     if(!list[i].children[1].children[0].required){
                         list[i].children[1].children[0].required = true;
                     }
+                    if(i == 2){
+                        if(!list[i].children[3].children[0].required){
+                            list[i].children[3].children[0].required = true;
+                        }
+                    }
                 }
             }
         });
 
         $('#button-shipping-address').on('click', function () {
             var error = false;
+            $( "#errorShippingNew" ).remove();
             var list = $('#shipping-new').children();
             if($('input[name=\'shipping_address\']')[2].checked){
                 for(var i=0;i< list.length;i++){
-                    if(i>0){
-                        if(list[i].children[1].children[0].value == ""){
+                    if(list[i].children[1].children[0].value == ""){
+                        error = true;
+                    }
+                    if(i == 2){
+                        if(list[i].children[2].children[0].value == ""){
                             error = true;
-                        }
-                        if(list.length >6){
-                            if(i == 3){
-                                if(list[i].children[2].children[0].value == ""){
-                                    error = true;
-                                }
-                            }
-                        }else{
-                            if(i == 2){
-                                if(list[i].children[2].children[0].value == ""){
-                                    error = true;
-                                }
-                            }
                         }
                     }
                 }
@@ -785,24 +792,64 @@
         });
 
         $('#button-payment-method').on('click', function () {
-            if(document.getElementsByName('agree')[0].checked){
-                $('#errorPaymentMethod').remove();
-                $('#collapseThree').removeClass('in');
-                $('#collapseThree').attr('aria-expanded', false);
-                $('#collapseFour').addClass('in');
-                $('#collapseFour').attr('aria-expanded', true);
-                $('#collapseFour').css('height', '');
+            var error = false;
+            $( "#errorPaymentMethodNew" ).remove();
+            var list = $('#payment-creditCard-new').children();
+            if($('input[name=\'payment_creditCard_method\']')[1].checked){
+                for(var i=0;i< list.length;i++){
+                    if(list[i].children[1].children[0].value == ""){
+                        error = true;
+                    }
+                    if(i == 2){
+                        if(list[i].children[3].children[0].value == ""){
+                            error = true;
+                        }
+                    }
+                }
+            }
+            if(error){
+                $('#payment-creditCard-new').prepend('<div id="errorPaymentMethodNew" class="alert alert-danger mr_10 ml_10">Compila tutti i campi</div>');
             }else{
-                $('#addErrorPaymentMethod').prepend('<div id="errorPaymentMethod" class="alert alert-danger mr_10">Accetta i termini e le condizioni</div>');
+                $( "#errorPaymentMethodNew" ).remove();
+                if(document.getElementsByName('agree')[0].checked){
+                    $('#errorPaymentMethod').remove();
+                    $('#collapseThree').removeClass('in');
+                    $('#collapseThree').attr('aria-expanded', false);
+                    $('#collapseFour').addClass('in');
+                    $('#collapseFour').attr('aria-expanded', true);
+                    $('#collapseFour').css('height', '');
+                }else{
+                    $('#addErrorPaymentMethod').prepend('<div id="errorPaymentMethod" class="alert alert-danger mr_10">Accetta i termini e le condizioni</div>');
+                }
             }
         });
 
         $('#button-payment-address').on('click', function () {
-            $('#collapseFour').removeClass('in');
-            $('#collapseFour').attr('aria-expanded', false);
-            $('#collapseFive').addClass('in');
-            $('#collapseFive').attr('aria-expanded', true);
-            $('#collapseFive').css('height', '');
+            var error = false;
+            $( "#errorPaymentNew" ).remove();
+            var list = $('#payment-new').children();
+            if($('input[name=\'payment_address\']')[2].checked){
+                for(var i=0;i< list.length;i++){
+                    if(list[i].children[1].children[0].value == ""){
+                        error = true;
+                    }
+                    if(i == 2){
+                        if(list[i].children[2].children[0].value == ""){
+                            error = true;
+                        }
+                    }
+                }
+            }
+            if(error){
+                $('#payment-new').prepend('<div id="errorPaymentNew" class="alert alert-danger mr_10 ml_10">Compila tutti i campi</div>');
+            }else{
+                $( "#errorPaymentNew" ).remove();
+                $('#collapseFour').removeClass('in');
+                $('#collapseFour').attr('aria-expanded', false);
+                $('#collapseFive').addClass('in');
+                $('#collapseFive').attr('aria-expanded', true);
+                $('#collapseFive').css('height', '');
+            }
         });
 
         $('#button-gift').on('click', function () {
@@ -835,6 +882,20 @@
                 $('#collapseOne').addClass('in');
                 $('#collapseOne').attr('aria-expanded', true);
                 $('#collapseOne').css('height', '');
+            });
+            jQuery("form #payment-creditCard-new input").on("invalid", function(event) {
+                $('#collapseSix').removeClass('in');
+                $('#collapseSix').attr('aria-expanded', false);
+                $('#collapseThree').addClass('in');
+                $('#collapseThree').attr('aria-expanded', true);
+                $('#collapseThree').css('height', '');
+            });
+            jQuery("form #payment-new input").on("invalid", function(event) {
+                $('#collapseSix').removeClass('in');
+                $('#collapseSix').attr('aria-expanded', false);
+                $('#collapseFour').addClass('in');
+                $('#collapseFour').attr('aria-expanded', true);
+                $('#collapseFour').css('height', '');
             });
         });
 

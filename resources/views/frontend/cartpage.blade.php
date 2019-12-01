@@ -128,7 +128,8 @@
                                     <span>Costo di spedizione:</span>
                                     <label>Gratuita</label>
                                 @else
-                                    <strong> + Costo di spedizione</strong>
+                                    <span>Costo di spedizione:</span>
+                                    <label>5.00 €</label>
                                 @endif
                             </div>
                         </div>

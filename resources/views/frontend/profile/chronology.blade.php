@@ -9,6 +9,11 @@
                 Cronologia Ordini
             @endcomponent
 
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="col-sm-12 col-lg-auto">
                 @foreach(auth()->user()->orderHistories()->get() as $order)
                     <div class="heading-part mb_10">
@@ -42,8 +47,8 @@
                                             <label>{{$order->billingAddress->name}} {{$order->billingAddress->surname}}<br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}} - {{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}}<br> CAP:{{$order->billingAddress->zip}}</label>
                                         </div>
                                         <div>
-                                            <span>Metodo di Pagamento:</span>
-                                            <label>{{$order->payment->name}}</label>
+                                           <!-- <span>Metodo di Pagamento:</span>
+                                            <label></label>-->
                                         </div>
                                     </div>
                                 </div>

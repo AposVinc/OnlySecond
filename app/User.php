@@ -72,7 +72,7 @@ class User extends Authenticatable
 
     public function productsCart()
     {
-        return $this->belongsToMany('App\Product', 'carts');
+        return $this->belongsToMany('App\Product', 'carts')->withPivot('quantity');
     }
 
     public function orderHistories()
