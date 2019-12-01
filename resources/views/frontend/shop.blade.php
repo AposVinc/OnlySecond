@@ -54,7 +54,7 @@
                 <div id="listProducts" class="row">
                     @foreach($products as $product)
                         @if($product->offer()->exists())
-                            <div class="product-layout product-grid col-md-4 col-xs-6 " brand="{{$product->collection->brand->id}}" collection="{{$product->collection->id}}" color="{{$product->color->hex}}" material="{{$product->specification->material}}" price="{{$product->offer->calculateDiscount()}}" genre="{{$product->genre}}" rate="{{$product->offer->rate}}" @foreach ($product->categories as $category){{$category->id}}="{{$category->name}}"  @endforeach >
+                            <div class="product-layout product-grid col-md-4 col-xs-6">
                                 <div class="item">
                                     <div class="product-thumb clearfix mb_50">
                                         <div class="image product-imageblock">
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                         @else
-                            <div class="product-layout product-grid col-md-4 col-xs-6" brand="{{$product->collection->brand->id}}" collection="{{$product->collection->id}}" color="{{$product->color->hex}}" material="{{$product->specification->material}}" price="{{$product->price}}" genre="{{$product->genre}}" rate="" @foreach ($product->categories as $category){{$category->id}}="{{$category->name}}" @endforeach >
+                            <div class="product-layout product-grid col-md-4 col-xs-6">
                                 <div class="item">
                                     <div class="product-thumb clearfix mb_50">
                                         <div class="image product-imageblock">
