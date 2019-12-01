@@ -629,11 +629,11 @@ class ProductController extends Controller
             }
         }
 
-        /*if($request->get('payment_method') == "paypal"){
+        if($request->get('payment_method') == "paypal"){
             return redirect()->away('https://www.paypal.com/it/signin');
         }else{
             return redirect()->route('Home');// cronologia ordini + messaggio
-        }*/
+        }
     }
 
 }
