@@ -12,9 +12,11 @@ use App\Product;
 use App\Specification;
 use App\Supplier;
 use App\Image;
+use App\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -596,6 +598,42 @@ class ProductController extends Controller
             }
             return redirect()->back();
         }
+    }
+
+    public function checkout(Request $request)
+    {
+        $mailing_address_id = 0;
+        $mailing_address = "";
+        //Dettaglio spedizione
+        if($request->get('shipping_address') == "existing"){
+            $mailing_address_id = $request->get('addressShipping_id');
+        }else if ($request->get('shipping_address') == "addressInvoice"){
+            $mailing_address = "equals";
+        }else{
+            $address = new Address();
+            $address->name = $request->get('nameShipping');
+            $address->surname = $request->get('surnameShipping');
+            $address->address = $request->get('addressShipping');
+            $address->civic_number = $request->get('civicNumberShipping');
+            $address->city = $request->get('cityShipping');
+            $address->region = $request->get('regionShipping');
+            $address->zip = $request->get('zipShipping');
+
+            Auth::user()->addresses()->save($address);
+
+            if ($address->save()){
+                $mailing_address_id = $address->id;
+            } else {
+                $mailing_address = "Error";
+                return redirect()->route('Checkout')->with('errorShipping','Errore nel salvataggio dell\'indirizzo di spedizione. Riprovare!!');
+            }
+        }
+
+        /*if($request->get('payment_method') == "paypal"){
+            return redirect()->away('https://www.paypal.com/it/signin');
+        }else{
+            return redirect()->route('Home');// cronologia ordini + messaggio
+        }*/
     }
 
 }

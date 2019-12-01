@@ -64,6 +64,8 @@ Route::group(['middleware' => ['auth'] ], function () {
         return view('frontend.checkout');
     })->name('Checkout');
 
+    Route::post('/CheckoutPost', 'ProductController@checkout')->name('CheckoutPost');
+
     Route::get('/Profile', function () {
         return view('frontend.profile.profile');
     })->name('Profile');

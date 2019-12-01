@@ -8,7 +8,8 @@
         @component('frontend.partials.breadcrumbshome')
             Checkout
         @endcomponent
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="post" action="{{route('CheckoutPost')}}">
+            @csrf
             <div class="col-lg-12 mtb_20">
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
@@ -17,6 +18,11 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true">
                             <div class="panel-body">
+                                @if (session('errorShipping'))
+                                    <div class="alert alert-danger">
+                                        {{ session('errorShipping') }}
+                                    </div>
+                                @endif
                                 <p>Per favore seleziona l'indirizzo di spedizione che preferisci utilizzare per quest'ordine</p>
                                 <div class="radio">
                                     <label>
@@ -24,7 +30,7 @@
                                     </label>
                                 </div>
                                 <div id="shipping-existing" class="mr_10">
-                                    <select class="form-control" name="address_id">
+                                    <select class="form-control" name="addressShipping_id">
                                         @foreach(Auth::user()->addresses()->orderBy('mailing','desc')->get() as $address)
                                             <option value="{{$address->id}}">{{$address->name}} {{$address->surname}} - {{$address->address}} n°{{$address->civic_number}}, {{$address->city}} {{'('. $address->region. ')'}}-CAP: {{$address->zip}}</option>
                                         @endforeach
@@ -45,34 +51,34 @@
                                     <div class="form-group required">
                                         <label for="name" class="col-sm-3 control-label">Nome</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="name" placeholder="Nome" value="" name="name" required>
+                                            <input type="text" class="form-control" id="name" placeholder="Nome" value="" name="nameShipping">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="surname" class="col-sm-3 control-label">Cognome</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="surname" placeholder="Cognome" value="" name="surname" required>
+                                            <input type="text" class="form-control" id="surname" placeholder="Cognome" value="" name="surnameShipping">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="address" class="col-sm-3 control-label">Indirizzo</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control" id="address" placeholder="Via" value="" name="address" required>
+                                            <input type="text" class="form-control" id="address" placeholder="Via" value="" name="addressShipping">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="civic-number" placeholder="Numero Civico" value="" name="civic-number" required>
+                                            <input type="text" class="form-control" id="civic-number" placeholder="Numero Civico" value="" name="civicNumberShipping">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="city" class="col-sm-3 control-label">Città</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="city" placeholder="Città" value="" name="city" required>
+                                            <input type="text" class="form-control" id="city" placeholder="Città" value="" name="cityShipping">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="region" class="col-sm-3 control-label">Provincia</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="region" name="region" required>
+                                            <select class="form-control" id="region" name="regionShipping">
                                                 <option value="" style="display: none;"> --- Seleziona --- </option>
                                                 <option value="ag">Agrigento</option>
                                                 <option value="al">Alessandria</option>
@@ -190,7 +196,7 @@
                                     <div class="form-group required">
                                         <label for="zip" class="col-sm-3 control-label">Codice Postale</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="zip" placeholder="Codice Postale" value="" name="zip" required>
+                                            <input type="text" class="form-control" id="zip" placeholder="Codice Postale" value="" name="zipShipping">
                                         </div>
                                     </div>
                                 </div>
@@ -234,23 +240,51 @@
                             <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Step 3: Metodo Di Pagamento <i class="fa fa-caret-down"></i></a> </h4>
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
-                            <div class="panel-body">
+                            <div id="addErrorPaymentMethod" class="panel-body">
                                 <p>Per favore seleziona il metodo di pagamento che preferisci utilizzare per quest'ordine</p>
 
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" checked="checked" value="cod" name="payment_method"> Pagamento con Bonifico
+                                        <input type="radio" checked="checked" value="paypal" name="payment_method"> Pagamento con Paypal
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" checked="new" value="cod" name="payment_method"> Pagamento con Paypal
+                                        <input type="radio" value="creditCard" name="payment_method"> Pagamento con Carta Di Credito
                                     </label>
                                 </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" checked="new" value="cod" name="payment_method"> Pagamento con Carta Di Credito
-                                    </label>
+                                <div id="payment-creditCard" style="display: none; padding-left: 25px;">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" checked="checked" value="existing" name="payment_creditCard_method"> Voglio utilizzare un carta di credito esistente
+                                        </label>
+                                    </div>
+                                    <div id="payment-creditCard-existing" style="padding-right: 10px;">
+                                        <select class="form-control" name="creditCard_id">
+                                            @foreach(Auth::user()->creditCards()->orderBy('favourite','desc')->get() as $card)
+                                                <option value="{{$card->id}}">n° {{$card->numberCard}}, intestatario {{$card->holderCard}}, scadenza {{$card->expirationCard}} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" value="new" name="payment_creditCard_method"> Voglio utilizzare una nuova carta di credito
+                                        </label>
+                                    </div>
+                                    <div id="payment-creditCard-new" style="display: none;">
+                                        <div class="form-group required">
+                                            <label for="name" class="col-sm-3 control-label">Intestatario carta</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="holderCard" placeholder="Intestatario Carta" value="" name="holderCard">
+                                            </div>
+                                        </div>
+                                        <div class="form-group required">
+                                            <label for="name" class="col-sm-3 control-label">Numero carta</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="numberCard" placeholder="Numero Carta" value="" name="numberCard">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="buttons mr_10">
@@ -296,34 +330,34 @@
                                     <div class="form-group required">
                                         <label for="name" class="col-sm-3 control-label">Nome</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="name" placeholder="Nome" value="" name="name" required>
+                                            <input type="text" class="form-control" id="name" placeholder="Nome" value="" name="name">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="surname" class="col-sm-3 control-label">Cognome</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="surname" placeholder="Cognome" value="" name="surname" required>
+                                            <input type="text" class="form-control" id="surname" placeholder="Cognome" value="" name="surname">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="address" class="col-sm-3 control-label">Indirizzo</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control" id="address" placeholder="Via" value="" name="address" required>
+                                            <input type="text" class="form-control" id="address" placeholder="Via" value="" name="address">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="civic-number" placeholder="Numero Civico" value="" name="civic-number" required>
+                                            <input type="text" class="form-control" id="civic-number" placeholder="Numero Civico" value="" name="civic-number">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="city" class="col-sm-3 control-label">Città</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="city" placeholder="Città" value="" name="city" required>
+                                            <input type="text" class="form-control" id="city" placeholder="Città" value="" name="city">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="region" class="col-sm-3 control-label">Provincia</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="region" name="region" required>
+                                            <select class="form-control" id="region" name="region">
                                                 <option value="" style="display: none;"> --- Seleziona --- </option>
                                                 <option value="ag">Agrigento</option>
                                                 <option value="al">Alessandria</option>
@@ -441,7 +475,7 @@
                                     <div class="form-group required">
                                         <label for="zip" class="col-sm-3 control-label">Codice Postale</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="zip" placeholder="Codice Postale" value="" name="zip" required>
+                                            <input type="text" class="form-control" id="zip" placeholder="Codice Postale" value="" name="zip">
                                         </div>
                                     </div>
                                 </div>
@@ -477,44 +511,6 @@
                         </div>
                         <div id="collapseSix" class="panel-collapse collapse" aria-expanded="false">
                             <div class="panel-body">
-                                <!--<div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
-                                        <thead>
-                                        <tr>
-                                            <td class="text-left"><strong>Nome del prodotto</strong></td>
-                                            <td class="text-left"><strong>Brand</strong></td>
-                                            <td class="text-left"><strong>Categoria</strong></td>
-                                            <td class="text-right"><strong>Genere</strong></td>
-                                            <td class="text-right"><strong>Colore</strong></td>
-                                            <td class="text-right"><strong>Prezzo</strong></td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">Orologio Breil</a></td>
-                                            <td class="text-left">Breil</td>
-                                            <td class="text-left">64983</td>
-                                            <td class="text-right">Donna</td>
-                                            <td class="text-right">Nero</td>
-                                            <td class="text-right">200,00€</td>
-                                        </tr>
-                                        </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <td class="text-right" colspan="5"><strong>Prezzo:</strong></td>
-                                            <td class="text-right">200,00€</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right" colspan="5"><strong>Costo di spedizione:</strong></td>
-                                            <td class="text-right">Gratuita</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right" colspan="5"><strong>Totale:</strong></td>
-                                            <td class="text-right">200,00€</td>
-                                        </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>-->
                                 @foreach(auth()->User()->products as $product)
                                     <div class="heading-part mb_10"></div>
                                     <div class="mb_10 col-md-12">
@@ -525,7 +521,7 @@
                                                         <img data-name="product_image" src="{{asset($product->images->where('main',1)->first()->path_image)}}" alt="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" title="{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}" class="img-responsive" height="100" width="100">
                                                     </a>
                                                 </div>
-                                                <div class="ribbon orangeOS"><span>{{$product->offer->rate}}%</span></div>
+                                                <div class="ribbon orangeOSCart"><span>{{$product->offer->rate}}%</span></div>
                                             </div>
                                         @else
                                             <div class="pl_0 col-md-1">
@@ -626,7 +622,9 @@
                                 </div>
                                 <div class="buttons mr_10">
                                     <div class="pull-right mt_10">
-                                        <input type="button" data-loading-text="Loading..." class="btn" id="button-confirm" value="Conferma Ordine">
+                                        <button type="submit" class="btn" id="button-confirm">
+                                            Conferma Ordine
+                                        </button>
                                     </div>
                                 </div>
                             </div>
