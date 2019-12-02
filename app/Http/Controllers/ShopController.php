@@ -36,7 +36,7 @@ class ShopController extends Controller{
 
     public function composeDiscount(){
         $today =  date('Y-m-d H:i:s', strtotime('now'));
-        $offers = Offer::where('end','>=',$today)->with('product')->get();
+        $offers = Offer::where('end','>=',$today)->with('product')->get()->paginate(18);
         return view('frontend.discount')->with('offers', $offers);
     }
 
@@ -145,7 +145,7 @@ class ShopController extends Controller{
             }
             $products = $products->intersect($all_products_by_single_group_filter);
         }
-        
+
         if (strpos(route::currentRouteName(),'Shop')!== false){
             $products = $products->paginate(18);
             return view('frontend.shop')->with('products', $products);
@@ -154,6 +154,7 @@ class ShopController extends Controller{
             foreach ($products as $product){
                 $offers->push($product->offer);
             }
+            $offers = $offers->paginate(18);
             return view('frontend.discount')->with('offers', $offers);
         }
 
