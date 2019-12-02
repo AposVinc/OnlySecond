@@ -5,7 +5,12 @@
         </div>
 
         <div class="filter-block">
-            <form action="{{route('Filter.GetProducts')}}" method="get">
+            @if (strpos(route::currentRouteName(),'Shop')!== false)
+                <form action="{{route('Shop.Filter.GetProducts')}}" method="get">
+            @endif
+            @if(strpos(route::currentRouteName(),'Discount')!== false)
+                <form action="{{route('Discount.Filter.GetProducts')}}" method="get">
+            @endif
                 <p>
                     <label for="amount">Range Prezzo:</label>
                     <input type="text" id="amount" name="price-range" minprice="" maxprice="" readonly>

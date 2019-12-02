@@ -10,26 +10,66 @@ use App\Product;
 use App\Specification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Route;
 
-class FilterController extends Controller{
-    //un esempio (che non sto usando) https://www.larashout.com/filtering-eloquent-models-in-laravel
-    public function getProducts(Request $request)
+class ShopController extends Controller{
+
+    public function composeShop(){
+        $products = Product::withoutTrashed()->get()->paginate(18);
+        return view('frontend.shop')->with('products', $products);
+    }
+
+    public function composeShopBrand($brandName){
+        $products = Brand::where('name',$brandName)->first()->products->paginate(18);
+        return view('frontend.shop')->with('products', $products);
+    }
+
+    public function composeShopCollection($collectionName){
+        $products = \App\Collection::where('name', $collectionName)->first()->products->paginate(18);
+        return view('frontend.shop')->with('products', $products);
+    }
+
+    public function composeShopCategory($categoryName, $genre){
+        $products = Category::where('name', $categoryName)->first()->products->where('genre',$genre)->paginate(18);
+        return view('frontend.shop')->with('products', $products);
+    }
+
+    public function composeDiscount(){
+        $today =  date('Y-m-d H:i:s', strtotime('now'));
+        $offers = Offer::where('end','>=',$today)->with('product')->get();
+        return view('frontend.discount')->with('offers', $offers);
+    }
+
+    public function filterProducts(Request $request)
     {
-        $products = Product::all();
-        if ($request->has('price-range')){
-            //se prod è in offerte
-            preg_match_all('/[0-9]+/',$request->get('price-range'),$pricerange);
-            $minprice = (float)number_format($pricerange[0][0],2);
-            $maxprice = (float)number_format($pricerange[0][1],2);
-            $products = $products->where('price','>=',$minprice)->where('price','<=',$maxprice);
-            $all_products_by_single_group_filter = new Collection();
-            foreach (Offer::all() as $offer){
-                if ($offer->calculateDiscount() >= $minprice and $offer->calculateDiscount() <= $maxprice){
-                    $all_products_by_single_group_filter->push($offer->product);
+        if (strpos(route::currentRouteName(),'Shop')!== false){
+            if ($request->has('price-range')){
+                preg_match_all('/[0-9]+/',$request->get('price-range'),$pricerange);
+                $minprice = (float)number_format($pricerange[0][0],2);
+                $maxprice = (float)number_format($pricerange[0][1],2);
+                $products = Product::where('price','>=',$minprice)->where('price','<=',$maxprice)->get();
+                $all_products_by_single_group_filter = new Collection();
+                foreach (Offer::all() as $offer){
+                    if ($offer->calculateDiscount() >= $minprice and $offer->calculateDiscount() <= $maxprice){
+                        $all_products_by_single_group_filter->push($offer->product);
+                    }
                 }
+                $merged = $products->merge($all_products_by_single_group_filter);
+                $products = $merged->unique('id')->sortBy('id');
             }
-            $merged = $products->merge($all_products_by_single_group_filter);
-            $products = $merged->unique('id')->sortBy('id');
+        } elseif (strpos(route::currentRouteName(),'Discount')!== false) {
+            if ($request->has('price-range')) {
+                preg_match_all('/[0-9]+/', $request->get('price-range'), $pricerange);
+                $minprice = (float)number_format($pricerange[0][0], 2);
+                $maxprice = (float)number_format($pricerange[0][1], 2);
+                $all_products_by_single_group_filter = new Collection();
+                foreach (Offer::all() as $offer) {
+                    if ($offer->calculateDiscount() >= $minprice and $offer->calculateDiscount() <= $maxprice) {
+                        $all_products_by_single_group_filter->push($offer->product);
+                    }
+                }
+                $products = $all_products_by_single_group_filter;
+            }
         }
 
         if ($request->has('rates_checked')){
@@ -105,7 +145,17 @@ class FilterController extends Controller{
             }
             $products = $products->intersect($all_products_by_single_group_filter);
         }
-        $products = $products->paginate(18);
-        return back()->with('products',$products);
+        
+        if (strpos(route::currentRouteName(),'Shop')!== false){
+            $products = $products->paginate(18);
+            return view('frontend.shop')->with('products', $products);
+        } elseif (strpos(route::currentRouteName(),'Discount')!== false) {
+            $offers = new Collection();
+            foreach ($products as $product){
+                $offers->push($product->offer);
+            }
+            return view('frontend.discount')->with('offers', $offers);
+        }
+
     }
 }

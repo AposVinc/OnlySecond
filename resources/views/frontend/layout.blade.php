@@ -973,7 +973,7 @@
             }
 
             jQuery.ajax({
-                url: '{{ route('Filter.GetProducts') }}',
+                url: '{{ route('Shop.Filter.GetProducts') }}',
                 method: "GET",
                 dataType: "json",
                 data: {
