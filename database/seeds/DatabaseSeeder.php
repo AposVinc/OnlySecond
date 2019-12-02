@@ -993,7 +993,7 @@ DatabaseSeeder extends Seeder
 
         $courier1 = new Courier(['name'=>'Bartolini', 'contact'=>'0277889966']);        $courier1->save();
         $courier2 = new Courier(['name'=>'SDA', 'contact'=>'0277885646']);              $courier2->save();
-        $courier3 = new Courier(['name'=>'Poste Italiae', 'contact'=>'0233385622']);    $courier3->save();
+        $courier3 = new Courier(['name'=>'Poste Italiane', 'contact'=>'0233385622']);    $courier3->save();
 
         /*---   STORICO ORDINI   -----------------------------------------------------*/
 
