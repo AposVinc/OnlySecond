@@ -282,7 +282,7 @@
                                                                             </div>
                                                                             <div id="payment-creditCard-existing" style="display:none; padding-right: 10px;">
                                                                                 <select class="form-control" name="creditCard_id">
-                                                                                    @foreach(Auth::user()->creditCards()->orderBy('favourite','desc')->get() as $card)
+                                                                                    @foreach(Auth::user()->creditCards()->orderBy('favorite','desc')->get() as $card)
                                                                                         <option value="{{$card->id}}">n° {{$card->numberCard}}, intestatario {{$card->holderCard}}, scadenza {{$card->expirationCard}} </option>
                                                                                     @endforeach
                                                                                 </select>
@@ -310,7 +310,7 @@
                                                                                         </div>
                                                                                         <div id="payment-creditCard-existing" style="padding-right: 10px;">
                                                                                             <select class="form-control" name="creditCard_id">
-                                                                                                @foreach(Auth::user()->creditCards()->orderBy('favourite','desc')->get() as $card)
+                                                                                                @foreach(Auth::user()->creditCards()->orderBy('favorite','desc')->get() as $card)
                                                                                                     <option value="{{$card->id}}">n° {{$card->numberCard}}, intestatario {{$card->holderCard}}, scadenza {{$card->expirationCard}} </option>
                                                                                                 @endforeach
                                                                                             </select>
