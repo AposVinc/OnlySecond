@@ -24,4 +24,9 @@ class PageComposer
         $fields = DB::table('pages')->where('contactus',1)->first();
         $view->with('fields', $fields);
     }
+
+    public  function composeCheckout(View $view){
+        $fields = DB::table('couriers')->where('deleted_at', null)->get();
+        $view->with('fields', $fields);
+    }
 }

@@ -6,6 +6,7 @@ use App\Address;
 use App\Product;
 use App\Review;
 use App\User;
+use App\CreditCard;
 use DB;
 use Hash;
 use Illuminate\Http\Request;
@@ -164,6 +165,74 @@ class UserController extends Controller
             'text' => $request->text,
             'vote' => $request->reviewRating])) {
             return back();
+        }
+
+    }
+
+    /*-------------------   PAYMENTS   -------------------*/
+
+
+    public function favoritePayment(Request $request)
+    {
+        $creditCards = Auth::user()->creditCards()->get();
+
+        $old_favorite = $creditCards->where('favorite','1')->first();
+        $new_favorite = $creditCards->where('id',$request->get('creditCard_id'))->first();
+
+        if($old_favorite != null){
+            $old_favorite->favorite = 0;
+            $new_favorite->favorite = 1;
+            if ($old_favorite->save() and $new_favorite->save()){
+                return back()->with('success', 'Caricamento avvenuto con successo!!');
+            }
+        }else{
+            $new_favorite->favorite = 1;
+            if ($new_favorite->save()){
+                return back()->with('success', 'Caricamento avvenuto con successo!!');
+            }
+        }
+
+        return back()->with('error','Errore durante il caricamento. Riprovare!!');
+    }
+
+    public function addPayment(Request $request)
+    {
+        if(CreditCard::where('numberCard', $request->get('numberCard'))->first()){
+            return back()->with('error','La carta di credito già è stata inserita!!');
+        }
+        $creditCard = new CreditCard();
+        $creditCard->numberCard = $request->get('numberCard');
+        $creditCard->holderCard = $request->get('holderCard');
+        $creditCard->expirationCard = $request->get('month'). "/". $request->get('year');
+
+        Auth::user()->creditCards()->save($creditCard);
+
+        if ($creditCard->save()){
+            return back()->with('success', 'Caricamento avvenuto con successo!!');
+        } else {
+            return back()->with('error','Errore durante il caricamento. Riprovare!!');
+        }
+    }
+
+    public function deletePayment(Request $request)
+    {
+        $creditCards = Auth::user()->creditCards()->get();
+        $old_favorite = $creditCards->where('favorite','1')->first();
+        $delete_address = $creditCards->where('id',$request->get('delete_payment'))->first();
+        if ($delete_address == $old_favorite){
+            $new_favorite = $creditCards->where('id','<>',$request->get('delete_payment'))->first();
+            $new_favorite->favorite = 1;
+        }
+
+        if (isset($new_favorite)) {
+            if (!($new_favorite->save())){
+                return back()->with('error','Errore durante il caricamento. Riprovare!!');
+            }
+        }
+        if ($delete_address->delete()){
+            return back()->with('success', 'Caricamento avvenuto con successo!!');
+        } else{
+            return back()->with('error','Errore durante il caricamento. Riprovare!!');
         }
 
     }

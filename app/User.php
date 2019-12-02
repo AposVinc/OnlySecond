@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Address');
     }
 
+    public function creditCards()
+    {
+        return $this->hasMany('App\CreditCard');
+    }
+
     public function reviews()
     {
         return $this->hasMany('App\Review')->withTrashed();
@@ -67,7 +72,7 @@ class User extends Authenticatable
 
     public function productsCart()
     {
-        return $this->belongsToMany('App\Product', 'carts');
+        return $this->belongsToMany('App\Product', 'carts')->withPivot('quantity');
     }
 
     public function orderHistories()

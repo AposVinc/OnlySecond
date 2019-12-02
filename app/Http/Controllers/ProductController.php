@@ -7,14 +7,19 @@ use App\Cart;
 use App\Category;
 use App\CategoryProduct;
 use App\Color;
+use App\CreditCard;
 use App\Offer;
+use App\OrderHistory;
+use App\OrderHistoryProduct;
 use App\Product;
 use App\Specification;
 use App\Supplier;
 use App\Image;
+use App\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -595,6 +600,159 @@ class ProductController extends Controller
                 }
             }
             return redirect()->back();
+        }
+    }
+
+    public function checkout(Request $request)
+    {
+        $mailing_address_id = 0;
+        $mailing_address = "";
+        $creditCard_id = 0;
+        $credit_Card = "";
+        $billing_address_id = 0;
+        $billing_address = "";
+        $orderHistory_id = 0;
+        //Dettaglio spedizione
+        if($request->get('shipping_address') == "existing"){
+            $mailing_address_id = $request->get('addressShipping_id');
+        }else if ($request->get('shipping_address') == "addressInvoice"){
+            $mailing_address = "equals";
+        }else{
+            $address = new Address();
+            $address->name = $request->get('nameShipping');
+            $address->surname = $request->get('surnameShipping');
+            $address->address = $request->get('addressShipping');
+            $address->civic_number = $request->get('civicNumberShipping');
+            $address->city = $request->get('cityShipping');
+            $address->region = $request->get('regionShipping');
+            $address->zip = $request->get('zipShipping');
+
+            Auth::user()->addresses()->save($address);
+
+            if ($address->save()){
+                $mailing_address_id = $address->id;
+            } else {
+                $mailing_address = "Error";
+                return redirect()->route('Checkout')->with('errorShipping','Errore nel salvataggio dell\'indirizzo di spedizione. Riprovare!!');
+            }
+        }
+
+        //Metodo di pagamento
+        if($request->get('payment_method') == "creditCard"){
+            if($request->get('payment_creditCard_method') == "existing"){
+                $creditCard_id = $request->get('creditCard_id');
+            }else{
+                if(CreditCard::where('numberCard', $request->get('numberCard'))->first()){
+                    return redirect()->route('Checkout')->with('errorPaymentMethod','La carta di credito già è stata inserita!!');
+                }
+                $creditCard = new CreditCard();
+                $creditCard->numberCard = $request->get('numberCard');
+                $creditCard->holderCard = $request->get('holderCard');
+                $creditCard->expirationCard = $request->get('month'). "/". $request->get('year');
+
+                Auth::user()->creditCards()->save($creditCard);
+
+                if ($creditCard->save()){
+                    $creditCard_id = $creditCard->id;
+                } else {
+                    $credit_Card = "Error";
+                    return redirect()->route('Checkout')->with('errorPaymentMethod','Errore nel salvataggio della carta di credito. Riprovare!!');
+                }
+            }
+        }
+
+        //Indirizzo di fatturazione
+        if($request->get('payment_address') == "existing"){
+            $billing_address_id = $request->get('addressPayment_id');
+        }else if ($request->get('payment_address') == "address"){
+            $billing_address = "equals";
+        }else{
+            $addressPayment = new Address();
+            $addressPayment->name = $request->get('name');
+            $addressPayment->surname = $request->get('surname');
+            $addressPayment->address = $request->get('address');
+            $addressPayment->civic_number = $request->get('civicNumber');
+            $addressPayment->city = $request->get('city');
+            $addressPayment->region = $request->get('region');
+            $addressPayment->zip = $request->get('zip');
+
+            Auth::user()->addresses()->save($addressPayment);
+
+            if ($addressPayment->save()){
+                $billing_address_id = $addressPayment->id;
+            } else {
+                $billing_address = "Error";
+                return redirect()->route('Checkout')->with('errorPaymentAddress','Errore nel salvataggio dell\'indirizzo di fatturazione. Riprovare!!');
+            }
+        }
+
+        //Conferma ordine
+        $orderHistory = new OrderHistory();
+        if($request->get('gift')){
+            $orderHistory->gift = 1;
+        }else{
+            $orderHistory->gift = 0;
+        }
+        if($credit_Card == "" && $creditCard_id != 0){
+            $orderHistory->creditCard_id = $creditCard_id;
+        }
+        $orderHistory->courier_id = $request->get('courier_id');
+        if($mailing_address == "" && $mailing_address_id !=0){
+            $orderHistory->mailing_address_id = $mailing_address_id;
+            if($billing_address == "equals"){
+                $orderHistory->billing_address_id = $mailing_address_id;
+            }
+        }
+        if($billing_address == "" && $billing_address_id !=0){
+            $orderHistory->billing_address_id = $billing_address_id;
+            if($mailing_address == "equals"){
+                $orderHistory->mailing_address_id = $billing_address_id;
+            }
+        }
+
+        Auth::user()->orderHistories()->save($orderHistory);
+
+        if ($orderHistory->save()){
+            $orderHistory_id = $orderHistory->id;
+
+            $products = Auth::user()->productsCart()->get();
+            foreach ($products as $product){
+                $orderHistoryProduct = new OrderHistoryProduct();
+                $orderHistoryProduct->product_id = $product->id;
+                $orderHistoryProduct->quantity = $product->pivot->quantity;
+                if($product->offer()->exists()){
+                    $orderHistoryProduct->price = $product->offer->calculateDiscount();
+                }else{
+                    $orderHistoryProduct->price = $product->price;
+                }
+                $orderHistoryProduct->order_history_id = $orderHistory_id;
+                if($orderHistoryProduct->save()){
+                    $quantity_sold = $product->quantity_sold;
+                    $stock_availabilityOld = $product->stock_availability;
+                    $stock_availability = $stock_availabilityOld - $product->pivot->quantity;
+                    if($stock_availability == 0){
+                        Product::where('id', $product->id)->update(['quantity_sold' => $quantity_sold + $product->pivot->quantity, 'stock_availability' => $stock_availability]);
+                        if($product->offer) {
+                            $product->offer->delete();
+                        }
+                        $product->delete();
+                    }else{
+                        Product::where('id', $product->id)->update(['quantity_sold' => $quantity_sold + $product->pivot->quantity, 'stock_availability' => $stock_availability]);
+                    }
+                    auth()->user()->productsCart()->detach($product);
+                }else{
+                    return redirect()->route('Checkout')->with('errorOrder','Impossibile effettuare l\'ordine. Riprovare!!');
+                }
+            }
+        } else {
+            return redirect()->route('Checkout')->with('errorOrder','Impossibile effettuare l\'ordine. Riprovare!!');
+        }
+
+        //Redirect order success
+        if($request->get('payment_method') == "paypal"){
+            return redirect()->away('https://www.paypal.com/it/signin');
+        }else{
+            return redirect()->route('Chronology')->with('success','Ordine effettuato con Successo!!');
         }
     }
 

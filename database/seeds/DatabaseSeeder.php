@@ -10,7 +10,7 @@ use App\Courier;
 use App\Image;
 use App\Offer;
 use App\OrderHistory;
-use App\Payment;
+use App\CreditCard;
 use App\Review;
 use App\Supplier;
 use App\User;
@@ -18,7 +18,6 @@ use App\Brand;
 use App\Collection;
 use App\Product;
 use App\Newsletter;
-use App\Cart;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Seeder;
@@ -983,22 +982,24 @@ DatabaseSeeder extends Seeder
         $user2->addresses()->save($address4);
         $address4->save();
 
-        /*---   PAGAMENTI   -----------------------------------------------------*/
+        /*---   Carte di credito   -----------------------------------------------------*/
 
-        $payment1 = new Payment(['name'=>'Carta di Credito']);      $payment1->save();
-        $payment2 = new Payment(['name'=>'Bonifico']);              $payment2->save();
+        $creditCard1 = new CreditCard(['user_id' => $user1->id,'numberCard'=>'11111111', 'holderCard'=>'uu', 'expirationCard'=>'12/2020']);
+        $creditCard1->save();
+        $creditCard2 = new CreditCard(['user_id' => $user2->id,'numberCard'=>'11111112', 'holderCard'=>'zz', 'expirationCard'=>'12/2020']);
+        $creditCard2->save();
 
         /*---   CORRIERI   -----------------------------------------------------*/
 
         $courier1 = new Courier(['name'=>'Bartolini', 'contact'=>'0277889966']);        $courier1->save();
         $courier2 = new Courier(['name'=>'SDA', 'contact'=>'0277885646']);              $courier2->save();
-        $courier3 = new Courier(['name'=>'Poste Italiae', 'contact'=>'0233385622']);    $courier3->save();
+        $courier3 = new Courier(['name'=>'Poste Italiane', 'contact'=>'0233385622']);    $courier3->save();
 
         /*---   STORICO ORDINI   -----------------------------------------------------*/
 
         $order1 = new OrderHistory(['gift'=>'0']);
         $order1->user_id = $user1->id;
-        $order1->payment_id = $payment1->id;
+        $order1->creditCard_id = $creditCard1->id;
         $order1->courier_id = $courier1->id;
         $order1->mailing_address_id = $address1->id;
         $order1->billing_address_id = $address1->id;
@@ -1006,7 +1007,6 @@ DatabaseSeeder extends Seeder
 
         $order2 = new OrderHistory(['gift'=>'0']);
         $order2->user_id = $user1->id;
-        $order2->payment_id = $payment2->id;
         $order2->courier_id = $courier1->id;
         $order2->mailing_address_id = $address2->id;
         $order2->billing_address_id = $address1->id;
@@ -1014,7 +1014,6 @@ DatabaseSeeder extends Seeder
 
         $order3 = new OrderHistory(['gift'=>'1']);
         $order3->user_id = $user1->id;
-        $order3->payment_id = $payment1->id;
         $order3->courier_id = $courier2->id;
         $order3->mailing_address_id = $address1->id;
         $order3->billing_address_id = $address2->id;
@@ -1022,7 +1021,7 @@ DatabaseSeeder extends Seeder
 
         $order4 = new OrderHistory(['gift'=>'0']);
         $order4->user_id = $user2->id;
-        $order4->payment_id = $payment1->id;
+        $order4->creditCard_id = $creditCard2->id;
         $order4->courier_id = $courier2->id;
         $order4->mailing_address_id = $address4->id;
         $order4->billing_address_id = $address4->id;
@@ -1030,7 +1029,7 @@ DatabaseSeeder extends Seeder
 
         $order5 = new OrderHistory(['gift'=>'0']);
         $order5->user_id = $user2->id;
-        $order5->payment_id = $payment2->id;
+        $order5->creditCard_id = $creditCard2->id;
         $order5->courier_id = $courier3->id;
         $order5->mailing_address_id = $address4->id;
         $order5->billing_address_id = $address4->id;
@@ -1038,7 +1037,6 @@ DatabaseSeeder extends Seeder
 
         $order6 = new OrderHistory(['gift'=>'1']);
         $order6->user_id = $user2->id;
-        $order6->payment_id = $payment1->id;
         $order6->courier_id = $courier1->id;
         $order6->mailing_address_id = $address3->id;
         $order6->billing_address_id = $address3->id;
