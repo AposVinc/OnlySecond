@@ -12,14 +12,12 @@ FE
 ? rendere automatico lo scorrimento ai banner
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
-Vinc    - paginazione shop
 Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
       - email già usata div error con messaggio
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
 
--vin Sara   - click da banner o nav che applica gia il filtro
 
 
 
@@ -99,15 +97,19 @@ aggiungi al carrello
 img prodotti come fossil carlie o Tissot Seastar - TS1204
 voto recensione
 login checkout
-logica filtro
 img Fossil Q Explorist FT4012
 categorie e genere in sez Specifiche in product.blade come nelle altre parti del sito
 un utente non puo aggiungere piu di un RECENSIONE. se esiste recensione per quel prod da parte di un utente si nasconde il tasto Scrivi recensione
+click da banner o nav che applica gia il filtro
+paginazione shop
+logica filtro
 controllo sulle recensioni dello stesso utente sul prodotto
 gestire opzione regalo
 se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 payments    - dopo checkout
+
+
 
 ------------------------------------------------
 DOMANDE DA FARE AL PROF

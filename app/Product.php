@@ -24,7 +24,6 @@ class Product extends Model
         'cod', 'collection_id', 'price', 'producer_id', 'category_id',
     ];
 
-
     function collection() {
         return $this->belongsTo('App\Collection')->withTrashed();
     }

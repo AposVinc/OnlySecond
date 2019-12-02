@@ -15,7 +15,6 @@ class NavigationComposer
     public function __construct()
     {
         $brands = Brand::withoutTrashed()->orderBy('name')->get();
-
     }
 
     public  function compose(View $view){

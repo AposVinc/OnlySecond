@@ -930,15 +930,15 @@
     <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
     <script>
         $(function() {
+            var minprice = $("#amount").attr("minprice");
+            var maxprice = $("#amount").attr("maxprice");
             $("#slider-range").slider({
                 range: true,
                 min: 0,
                 max: 800,
-                values: [150, 400],
+                values: [minprice || 150, maxprice || 400],
                 slide: function(event, ui) {
                     $("#amount").val("€" + ui.values[0] + " - €" + ui.values[1]);
-                    $("#amount").attr("minprice",ui.values[0]);
-                    $("#amount").attr("maxprice",ui.values[1]);
                 }
             });
             $("#amount").val("€" + $("#slider-range").slider("values", 0) +
@@ -994,192 +994,6 @@
             divContent.removeClass("content showContent");
             AddShowMore(divContent);
         });
-
-
-        /*
-        $(document).ready(function(){
-            $('.navBrand').on('click', function () {
-                var brand = $(this).text();
-                var filterBrands = $('#filter-group-brands').children();
-                for(var i=0; i < filterBrands.length; i++){
-                    var e = filterBrands[i].children[0];
-                    if(e.innerText === brand){
-                        e.children[0].toggleAttribute('checked');
-                    }
-                }
-                parseProductsProva(brand);
-            })
-        });
-
-        function parseProductsProva(brand){
-            var products = $('#listProducts').children();
-            for(var i=0; i < products.length; i++){
-                if(!brand === products[i].getAttribute('brand')){
-                    products[i].style = "display: none;";
-                }
-            }
-        }
-    */
-        function filtering() {
-            var e,i,arrCheckboxes,fGroup;
-            var products = $('#listProducts').children();
-
-            for(i=0; i < products.length; i++){
-                products[i].style.display = "block";
-            }
-
-
-            if ($('#amount')[0].getAttribute("minprice") !== "" && $('#amount')[0].getAttribute("maxprice") !== ""){
-                parseProductsByPrice(products, parseInt($('#amount')[0].getAttribute("minprice")), parseInt($('#amount')[0].getAttribute("maxprice")));
-            }
-
-            arrCheckboxes = [];
-            fGroup = $('#filter-group-rates').children();
-            for(i=0; i < fGroup.length; i++){
-                e = fGroup[i].children[0].children[0];
-                if(e.checked){
-                    arrCheckboxes.push(e.value);
-                }
-            }
-            if(arrCheckboxes.length){
-                parseProductsByRates(products, arrCheckboxes, 'rate');
-            }
-
-            arrCheckboxes = [];
-            fGroup = $('#filter-group-genres').children();
-            for(i=0; i < fGroup.length; i++){
-                e = fGroup[i].children[0].children[0];
-                if(e.checked){
-                    arrCheckboxes.push(e.value);
-                }
-            }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'genre');
-            }
-
-            arrCheckboxes = [];
-            fGroup = $('#filter-group-brands').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
-                    e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
-                    }
-                }
-            }
-            if(arrCheckboxes.length) {
-                parseProducts(products, arrCheckboxes, 'brand');
-            }
-
-            arrCheckboxes = [];
-            fGroup = $('#filter-group-collections').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
-                    e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
-                    }
-                }
-            }
-            if(arrCheckboxes.length) {
-                parseProducts(products, arrCheckboxes, 'collection');
-            }
-
-            arrCheckboxes = [];
-            fGroup = $('#filter-group-categories').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
-                    e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
-                    }
-                }
-            }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'categories');
-            }
-
-            arrCheckboxes = [];
-            fGroup = $('#filter-group-colors').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
-                    e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
-                    }
-                }
-            }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'color');
-            }
-
-            arrCheckboxes = [];
-            fGroup = $('#filter-group-materials').children();
-            for(i=0; i < fGroup.length; i++){
-                if(!fGroup[i].classList.contains('showMore')){
-                    e = fGroup[i].children[0].children[0];
-                    if(e.checked){
-                        arrCheckboxes.push(e.value);
-                    }
-                }
-            }
-            if(arrCheckboxes.length){
-                parseProducts(products, arrCheckboxes, 'material');
-            }
-        }
-
-        function parseProducts(products, arrCheckboxes, attr) {
-            for(var i=0; i < products.length; i++){
-                if(products[i].style.display !== "none"){
-                    if(arrCheckboxes.includes(products[i].getAttribute(attr))){
-                        products[i].style.display = "block";
-                    } else {
-                        products[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
-        function parseProductsByPrice(products, min, max) {
-            for(var i=0; i < products.length; i++){
-                if(products[i].style.display !== "none"){
-                    if(parseInt(products[i].getAttribute("price")) >= min && parseInt(products[i].getAttribute("price")) <= max){
-                        products[i].style.display = "block";
-                    } else {
-                        products[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
-        function parseProductsByRates(products, arrCheckboxes, attr) {
-            for(var j=0; j < arrCheckboxes.length; j++){
-                for(var i=0; i < products.length; i++){
-                    if(products[i].style.display !== "none"){
-                        if(parseInt(products[i].getAttribute(attr), 10) >= parseInt(arrCheckboxes[j], 10)){
-                            products[i].style.display = "block";
-                        } else {
-                            products[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        }
-
-        function parseProductsByCategories(products, arrCheckboxes) {
-            for(var j=0; j < arrCheckboxes.length; j++){
-                for(var i=0; i < products.length; i++){
-                    if(products[i].style.display !== "none"){
-                        if(products[i].hasAttribute(arrCheckboxes[j])){
-                            products[i].style.display = "block";
-                        } else {
-                            products[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        }
-
     </script>
 @endif
 

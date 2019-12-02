@@ -44,7 +44,7 @@
 
                 <div id="listProducts" class="row">
                     @foreach($offers as $offer)
-                        <div class="product-layout product-grid col-md-4 col-xs-6"  brand="{{$offer->product->collection->brand->id}}" collection="{{$offer->product->collection->id}}" color="{{$offer->product->color->hex}}" material="{{$offer->product->specification->material}}" price="{{$offer->calculateDiscount()}}" genre="{{$offer->product->genre}}" rate="{{$offer->rate}}" categories="">
+                        <div class="product-layout product-grid col-md-4 col-xs-6">
                             <div class="item">
                                 <div class="product-thumb clearfix mb_50">
                                     <div class="image product-imageblock">
@@ -85,14 +85,9 @@
                 </div>
 
                 <div class="pagination-nav text-center mt_50">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
+                    {{$offers->links()}}
                 </div>
+
             </div>
         </div>
 

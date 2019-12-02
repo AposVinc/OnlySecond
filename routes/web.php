@@ -12,6 +12,7 @@
 */
 
 use App\Review;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -21,9 +22,19 @@ Route::get('/Home', function () {
     return view('frontend.index');
 })->name('Home');
 
-Route::get('/Shop', function () {
-    return view('frontend.shop');
-})->name('Shop');
+Route::get('/Shop', 'ShopController@composeShop')->name('Shop');
+
+Route::get('/Shop/Brand={brandName}','ShopController@composeShopBrand')->name('ShopBrand');
+
+Route::get('/Shop/Collection={collectionName}', 'ShopController@composeShopCollection')->name('ShopCollection');
+
+Route::get('/Shop/Category={categoryName}&Genre={genre}', 'ShopController@composeShopCategory')->name('ShopCategory');
+
+Route::get('/Shop/Filter', 'ShopController@filterProducts')->name('Shop.Filter.GetProducts');
+
+Route::get('/Discount', 'ShopController@composeDiscount')->name('Discount');
+
+Route::get('/Discount/Filter', 'ShopController@filterProducts')->name('Discount.Filter.GetProducts');
 
 Route::get('/Product/{cod}', 'ProductController@showProduct')->name('Product');
 
@@ -37,10 +48,6 @@ Route::get('/CartPage', function(){
 
 Route::get('/Cart/Add/{cod}', 'ProductController@addToCart')->name('Cart.AddProduct');
 Route::get('/Cart/Remove/{cod}', 'ProductController@removeFromCart')->name('Cart.RemoveProduct');
-
-Route::get('/Discount', function(){
-    return view('frontend.discount');
-})->name('Discount');
 
 Route::get('/Password_Resets', function () {
     return view('frontend.password_resets');
