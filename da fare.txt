@@ -9,7 +9,6 @@ BE
 FE
 ---------
 ? cerca - potenzialmente no
-? rendere automatico lo scorrimento ai banner
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
 Login - div error se non va a buon fine registrazione
@@ -18,8 +17,7 @@ Login - div error se non va a buon fine registrazione
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
       - password errata, email non presente nel db
 
-
-
+cronologia ordini - prod eliminato
 
 
 
@@ -108,6 +106,7 @@ gestire opzione regalo
 se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 payments    - dopo checkout
+cronologia ordini - collapse - metodo di pagamento
 
 
 

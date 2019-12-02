@@ -21,6 +21,8 @@ class CreateCreditCardsTable extends Migration
             $table->string('expirationCard');
             $table->boolean('favorite')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

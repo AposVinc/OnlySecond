@@ -187,9 +187,9 @@ DatabaseSeeder extends Seeder
 
         /* Prodotti Diesel */
         $Double_Down_P44P1 = new Product(['cod' => 'DZ1436','price' => '89', 'stock_availability' => '10',
-            'genre' => 'U','long_desc' => 'Orologio Di Diesel Da Unisex Della Collezione Double Down 44. Questo Modello Ha Cassa Della Dimensione Di 52 X 44 Mm Ed È Realizzata In Policarbonato Con Finitura Opaca Di Colore Nero E Di Forma Rotonda, 
-            Con Spessore Di 14Mm. Il Vetro Di Questo Modello È Trasparente E Il Quadrante È Di Colore Nero. 
-            La Ghiera Di Questo Modello Di Orologio È In Nylon Con Finitura Lucida Di Colore Nero. 
+            'genre' => 'U','long_desc' => 'Orologio Di Diesel Da Unisex Della Collezione Double Down 44. Questo Modello Ha Cassa Della Dimensione Di 52 X 44 Mm Ed È Realizzata In Policarbonato Con Finitura Opaca Di Colore Nero E Di Forma Rotonda,
+            Con Spessore Di 14Mm. Il Vetro Di Questo Modello È Trasparente E Il Quadrante È Di Colore Nero.
+            La Ghiera Di Questo Modello Di Orologio È In Nylon Con Finitura Lucida Di Colore Nero.
             Le Anse Hanno Distanza Di 24Mm E Il Cinturino È Realizzato In Silicone Con Finitura Opaca Ed È Di Colore Nero. Questo Modello È Di Tipo Quarzo / 3 Sfere Ed Ha Una Resistenza All\'Acqua Di 5 Atm.','quantity_sold' => 2]);
         $Double_Down_P44P1I1 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero.png', 'main' => '1']);
         $Double_Down_P44P1I2 = new Image(['path_image' => 'storage/Orologi/Diesel/Double Down P44/Diesel_Double Down P44_DZ1436_Nero_1.png', 'main' => '0']);
@@ -228,7 +228,7 @@ DatabaseSeeder extends Seeder
         /* Prodotti Fossil */
         $CarlieP1 = new Product(['cod' => 'ES4432','price' => '109', 'stock_availability' => '24',
             'genre' => 'F','long_desc' => 'Questo orologio Fossil ha una cassa in acciaio inox con un diametro di 29 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 5]);
         $CarlieP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4432_Argento.png', 'main' => '1']);
         $CarlieP1S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '1 anno']);
@@ -245,7 +245,7 @@ DatabaseSeeder extends Seeder
 
         $CarlieP2 = new Product(['cod' => 'ES4433','price' => '109', 'stock_availability' => '5',
             'genre' => 'F','long_desc' => 'Questo orologio Fossil ha una cassa in acciaio inox oro rosa con un diametro di 29 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $CarlieP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4433_Rosa.png', 'main' => '1']);
         $CarlieP2S = new Specification(['case_size' => '28mm', 'material' => 'Acciaio Inossidabile', 'case_thickness' => '7mm', 'glass' => 'Minerale', 'strap_material' => 'Acciaio', 'closing' => 'Chiusura Di Sicurezza', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
@@ -262,7 +262,7 @@ DatabaseSeeder extends Seeder
 
         $CarlieP3 = new Product(['cod' => 'ES4488','price' => '109', 'stock_availability' => '5',
             'genre' => 'F','long_desc' => 'Questo orologio Fossil ha una cassa in acciaio inox nero con un diametro di 28 mm ed è dotato di un cinturino in Acciaio. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $CarlieP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero.png', 'main' => '1']);
         $CarlieP3I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Carlie/Fossil_Carlie_ES4488_Nero_1.png', 'main' => '0']);
@@ -283,7 +283,7 @@ DatabaseSeeder extends Seeder
 
         $SportP1 = new Product(['cod' => 'FT6024','price' => '249', 'stock_availability' => '12',
             'genre' => 'U','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.
-            Google Fit™ ti offre consigli di salute più intelligenti con gli obiettivi di attività basati sulle raccomandazioni dell’American Heart Association e dell’Organizzazione mondiale della sanità: 
+            Google Fit™ ti offre consigli di salute più intelligenti con gli obiettivi di attività basati sulle raccomandazioni dell’American Heart Association e dell’Organizzazione mondiale della sanità:
             i Minuti di movimento e i Punti cardio.','quantity_sold' => 1]);
         $SportP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero.png', 'main' => '1']);
         $SportP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6024_Nero_1.png', 'main' => '0']);
@@ -305,8 +305,8 @@ DatabaseSeeder extends Seeder
         $Sport->products()->save($SportP1);
 
         $SportP2 = new Product(['cod' => 'FT6028','price' => '249', 'stock_availability' => '2',
-            'genre' => 'F','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile. 
-            Progettata per accompagnarti durante la tua giornata, la batteria dalla straordinaria efficienza ti offre oltre 24 ore di utilizzo del touchscreen*. 
+            'genre' => 'F','long_desc' => 'Smartwatch sportivo da nuoto con tracker fitness integrato e cinturino intercambiabile.
+            Progettata per accompagnarti durante la tua giornata, la batteria dalla straordinaria efficienza ti offre oltre 24 ore di utilizzo del touchscreen*.
             Inoltre, la modalità automatica a basso consumo può allungare l’autonomia della batteria di altri due giorni.']);
         $SportP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa.png', 'main' => '1']);
         $SportP2I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Sport/Fossil_Sport_FT6028_Rosa_1.png', 'main' => '0']);
@@ -328,17 +328,17 @@ DatabaseSeeder extends Seeder
         $Sport->products()->save($SportP2);
 
         $Q_ExploristP1 = new Product(['cod' => 'FT4012','price' => '239', 'stock_availability' => '16',
-            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
-            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana!
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®.
             Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
             ✓ cardiofrequenzimetro
             ✓ GPS
             ✓ Scegli la tua interfaccia preferita
             ✓ Contapassi
-            ✓ Impermeabile pe ril nuoto 
+            ✓ Impermeabile pe ril nuoto
             e molto altro..
             Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
-            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay.
             Scegli smart e fashion. Scegli lo smartwatch Fossil.']);
         $Q_ExploristP1I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4012_Grigio.png', 'main' => '1']);
         $Q_ExploristP1I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4012_Grigio_1.png', 'main' => '0']);
@@ -360,17 +360,17 @@ DatabaseSeeder extends Seeder
         $Q_Explorist->products()->save($Q_ExploristP1);
 
         $Q_ExploristP2 = new Product(['cod' => 'FT4015','price' => '239', 'stock_availability' => '4',
-            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
-            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana!
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®.
             Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
             ✓ cardiofrequenzimetro
             ✓ GPS
             ✓ Scegli la tua interfaccia preferita
             ✓ Contapassi
-            ✓ Impermeabile pe ril nuoto 
+            ✓ Impermeabile pe ril nuoto
             e molto altro..
             Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
-            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay.
             Scegli smart e fashion. Scegli lo smartwatch Fossil.','quantity_sold' => 1]);
         $Q_ExploristP2I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4015_Marrone.png', 'main' => '1']);
         $Q_ExploristP2S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
@@ -388,17 +388,17 @@ DatabaseSeeder extends Seeder
         $Q_Explorist->products()->save($Q_ExploristP2);
 
         $Q_ExploristP3 = new Product(['cod' => 'FT4016','price' => '239', 'stock_availability' => '5',
-            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
-            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana!
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®.
             Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
             ✓ cardiofrequenzimetro
             ✓ GPS
             ✓ Scegli la tua interfaccia preferita
             ✓ Contapassi
-            ✓ Impermeabile pe ril nuoto 
+            ✓ Impermeabile pe ril nuoto
             e molto altro..
             Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
-            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay.
             Scegli smart e fashion. Scegli lo smartwatch Fossil.']);
         $Q_ExploristP3I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4016_Nero.png', 'main' => '1']);
         $Q_ExploristP3S = new Specification(['case_size' => '45mm', 'material' => 'Inox Colorato', 'case_thickness' => '12.5mm', 'glass' => 'Amoled', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Digitale smart', 'warranty' => '1 anno']);
@@ -416,17 +416,17 @@ DatabaseSeeder extends Seeder
         $Q_Explorist->products()->save($Q_ExploristP3);
 
         $Q_ExploristP4 = new Product(['cod' => 'FT4019','price' => '239', 'stock_availability' => '6',
-            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana! 
-            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®. 
+            'genre' => 'U','long_desc' => 'Questo smartwatch generazione 4 Fossil è un\'aggiunta intelligente alla tua vita quotidiana!
+            Tramite Bluetooth è possibile connettere facilmente lo smartwatch con gli smartphone Android ™ o iOS®.
             Usando il sistema operativo \'Wear OS by Google ™\' liscio e riceverai notifiche da tutte le tue app preferite e beneficerai di innumerevoli funzioni come:
             ✓ cardiofrequenzimetro
             ✓ GPS
             ✓ Scegli la tua interfaccia preferita
             ✓ Contapassi
-            ✓ Impermeabile pe ril nuoto 
+            ✓ Impermeabile pe ril nuoto
             e molto altro..
             Con un utilizzo medio devi caricare il tuo smartwatch dopo circa un giorno, ma questo non è affatto un problema.
-            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay. 
+            Questo smartwatch ricarica fino all\'80% entro 1 ora. Questo smartwatch di questa generazione 4 è inoltre dotato di un chip NFC per, tra gli altri, Google Pay.
             Scegli smart e fashion. Scegli lo smartwatch Fossil.','quantity_sold' => 1]);
         $Q_ExploristP4I1 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa.png', 'main' => '1']);
         $Q_ExploristP4I2 = new Image(['path_image' => 'storage/Orologi/Fossil/Q Explorist/Fossil_Q Explorist_FT4019_Rosa_1.png', 'main' => '0']);
@@ -460,7 +460,7 @@ DatabaseSeeder extends Seeder
         /* Prodotti Guess */
         $Atlas_P1 = new Product(['cod' => 'GAW668','price' => '199', 'stock_availability' => '10',
             'genre' => 'M','long_desc' => 'Questo orologio Guess ha una cassa in acciaio inox con un diametro di 45 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $Atlas_P1I1 = new Image(['path_image' => 'storage/Orologi/Guess/Atlas/Guess_Atlas_1.png', 'main' => '1']);
         $Atlas_P1I2 = new Image(['path_image' => 'storage/Orologi/Guess/Atlas/Guess_Atlas_2.png', 'main' => '0']);
@@ -492,7 +492,7 @@ DatabaseSeeder extends Seeder
         /* Prodotti Hugo Boss */
         $Exist_P1 = new Product(['cod' => 'HBE152','price' => '199', 'stock_availability' => '8',
             'genre' => 'M','long_desc' => 'Questo orologio Hugo ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 41 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo..','quantity_sold' => 1]);
         $Exist_P1I1 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo Boss_Exist_1.png', 'main' => '1']);
         $Exist_P1I2 = new Image(['path_image' => 'storage/Orologi/Hugo Boss/Exist/Hugo Boss_Exist_2.png', 'main' => '0']);
@@ -527,7 +527,7 @@ DatabaseSeeder extends Seeder
         /* Prodotti Lacoste */
         $Lacoste_12_12_P1 = new Product(['cod' => 'LC7905','price' => '99', 'stock_availability' => '6',
             'genre' => 'M','long_desc' => 'Questo orologio Lacoste ha una cassa in Gomma con un diametro di 42 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.','quantity_sold' => 1]);
         $Lacoste_12_12_P1I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu.png', 'main' => '1']);
         $Lacoste_12_12_P1I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7905_Blu_1.png', 'main' => '0']);
@@ -548,7 +548,7 @@ DatabaseSeeder extends Seeder
 
         $Lacoste_12_12_P2 = new Product(['cod' => 'LC7907', 'price' => '99', 'stock_availability' => '8',
             'genre' => 'M', 'long_desc' => 'Questo orologio Lacoste ha una cassa in plastica con un diametro di 42 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.']);
         $Lacoste_12_12_P2I1 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde.png', 'main' => '1']);
         $Lacoste_12_12_P2I2 = new Image(['path_image' => 'storage/Orologi/Lacoste/12.12/Lacoste_12.12_LC7907_Verde_1.png', 'main' => '0']);
@@ -656,9 +656,9 @@ DatabaseSeeder extends Seeder
         $Stella->products()->save($Stella_P1);
 
         $Stella_P2 = new Product(['cod' => 'SW5470','price' => '349', 'stock_availability' => '10', 'genre' => 'F',
-            'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox oro rosa con un diametro di 37 mm ed è dotato di un cinturino in Metallo. 
+            'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox oro rosa con un diametro di 37 mm ed è dotato di un cinturino in Metallo.
             All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
         $Stella_P2I1 = new Image(['path_image' => 'storage/Orologi/Swarovski/Stella/Swarovski_Stella_Rosa_1.png', 'main' => '1']);
         $Stella_P2S = new Specification(['case_size' => '37mm', 'material' => 'Inox Oro Rosso', 'case_thickness' => '9,7mm', 'glass' => 'Minerale', 'strap_material' => 'Metallo', 'closing' => 'Fibbia Decorata', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
@@ -675,7 +675,7 @@ DatabaseSeeder extends Seeder
 
         $Stella_P3 = new Product(['cod' => 'SW5373','price' => '279', 'stock_availability' => '8', 'genre' => 'F',
             'long_desc' => 'Questo orologio Swarovski ha una cassa in acciaio inox placcato oro con un diametro di 29 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo svizzero per orologi di qualità ed è finito con un vetro di tipo minerale.
-            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia. 
+            L\'orologio è impermeabile a 5ATM. Questo significa che l\'orologio è adatto per uso sotto doccia.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
         $Stella_P3I1 = new Image(['path_image' => 'storage/Orologi/Swarovski/Stella/Swarovski_Stella_Viola_1.png', 'main' => '1']);
         $Stella_P3S = new Specification(['case_size' => '29mm', 'material' => 'Inox Oro', 'case_thickness' => '7.5mm', 'glass' => 'Minerale', 'strap_material' => 'Cuoio', 'closing' => 'Nessuno', 'movement' => 'Quarzo Svizzero', 'warranty' => '2 anni']);
@@ -713,7 +713,7 @@ DatabaseSeeder extends Seeder
         /*Prodotto Tissot*/
         $Gent_P1 = new Product(['cod' => 'TG1164','price' => '240', 'stock_availability' => '12', 'genre' => 'M',
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox con un diametro di 42 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
-            L\'orologio è impermeabile a 10ATM. Questo significa che l\'orologio è adatto al nuoto. 
+            L\'orologio è impermeabile a 10ATM. Questo significa che l\'orologio è adatto al nuoto.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 9]);
         $Gent_P1I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Gent XL/Tissot_Gent XL_Nero_1.png', 'main' => '1']);
         $Gent_P1S = new Specification(['case_size' => '42mm', 'material' => 'Inox', 'case_thickness' => '9.8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Pelle', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
@@ -731,7 +731,7 @@ DatabaseSeeder extends Seeder
 
         $Gent_P2 = new Product(['cod' => 'TG1165','price' => '240', 'stock_availability' => '6', 'genre' => 'M',
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox con un diametro di 42 mm ed è dotato di un cinturino in Pelle. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
-            L\'orologio è impermeabile a 10ATM. Questo significa che l\'orologio è adatto al nuoto. 
+            L\'orologio è impermeabile a 10ATM. Questo significa che l\'orologio è adatto al nuoto.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 3]);
         $Gent_P2I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Gent XL/Tissot_Gent XL_Blu_1.png', 'main' => '1']);
         $Gent_P2S = new Specification(['case_size' => '40mm', 'material' => 'Inox', 'case_thickness' => '9.8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Pelle', 'closing' => 'Fibbie', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
@@ -749,7 +749,7 @@ DatabaseSeeder extends Seeder
 
         $Lovely_P1 = new Product(['cod' => 'TL5810','price' => '310', 'stock_availability' => '5', 'genre' => 'F',
             'long_desc' => 'Questo orologio Tissot ha una cassa in acciaio inox con un diametro di 20 mm ed è dotato di un cinturino in Metallo. All\'interno ha un movimento quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
-            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi. 
+            L\'orologio è impermeabile a 3ATM. Ciò significa che l\'orologio è impermeabile ai spruzzi.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 6]);
         $Lovely_P1I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Lovely/Tissot_Lovely_Argento_1.png', 'main' => '1']);
         $Lovely_P1S = new Specification(['case_size' => '20mm', 'material' => 'Inox', 'case_thickness' => '8mm', 'glass' => 'Zaffiro', 'strap_material' => 'Metallo', 'closing' => 'Milanese Clasp', 'movement' => 'Quarzo', 'warranty' => '2 anni']);
@@ -800,7 +800,7 @@ DatabaseSeeder extends Seeder
 
         $Seastar_P2 = new Product(['cod' => 'TS1205','price' => '490', 'stock_availability' => '15', 'genre' => 'M',
             'long_desc' => 'Questo orologio Tissot ha una cassa in colore ricoperto acciaio inossidabile con un diametro di 45 mm ed è dotato di un cinturino in Gomma. All\'interno ha un movimento Cronografo al quarzo per orologi di qualità ed è finito con un vetro di tipo Zaffiro.
-            L\'orologio è impermeabile a 30ATM. Questo significa che l\'orologio è adatto a immersioni profonde. 
+            L\'orologio è impermeabile a 30ATM. Questo significa che l\'orologio è adatto a immersioni profonde.
             L\'orologio è fornito con 2 anni di garanzia in tutto il mondo.', 'quantity_sold' => 8]);
         $Seastar_P2I1 = new Image(['path_image' => 'storage/Orologi/Tissot/Seastar/Tissot_Seastar_Nero_1.png', 'main' => '1']);
         $Seastar_P2S = new Specification(['case_size' => '45mm', 'material' => 'Inox', 'case_thickness' => '13.5mm', 'glass' => 'Zaffiro', 'strap_material' => 'Silicone', 'closing' => 'Fibbie', 'movement' => 'Cronografo', 'warranty' => '2 anni']);
@@ -999,7 +999,7 @@ DatabaseSeeder extends Seeder
 
         $order1 = new OrderHistory(['gift'=>'0']);
         $order1->user_id = $user1->id;
-        $order1->creditCard_id = $creditCard1->id;
+        $order1->credit_card_id = $creditCard1->id;
         $order1->courier_id = $courier1->id;
         $order1->mailing_address_id = $address1->id;
         $order1->billing_address_id = $address1->id;
@@ -1021,7 +1021,7 @@ DatabaseSeeder extends Seeder
 
         $order4 = new OrderHistory(['gift'=>'0']);
         $order4->user_id = $user2->id;
-        $order4->creditCard_id = $creditCard2->id;
+        $order4->credit_card_id = $creditCard2->id;
         $order4->courier_id = $courier2->id;
         $order4->mailing_address_id = $address4->id;
         $order4->billing_address_id = $address4->id;
@@ -1029,7 +1029,7 @@ DatabaseSeeder extends Seeder
 
         $order5 = new OrderHistory(['gift'=>'0']);
         $order5->user_id = $user2->id;
-        $order5->creditCard_id = $creditCard2->id;
+        $order5->credit_card_id = $creditCard2->id;
         $order5->courier_id = $courier3->id;
         $order5->mailing_address_id = $address4->id;
         $order5->billing_address_id = $address4->id;
@@ -1099,10 +1099,10 @@ DatabaseSeeder extends Seeder
         $review3->save();
 
         $review4 = new Review(['vote'=>'4','title'=>'Grande, bello e preciso',
-            'text'=> 'Spedizione velocissima, imballaggio perfetto, custodia funzionale ed elegantissima, pellicole di protezione presenti, ottimo orologio grande e molto bello. 
+            'text'=> 'Spedizione velocissima, imballaggio perfetto, custodia funzionale ed elegantissima, pellicole di protezione presenti, ottimo orologio grande e molto bello.
                        Morbidissimo e molto curato nel dettaglio il cinturino in silicone, l\'orologio è quindi anche piacevole da tenere al polso.
                        Arrivato con batteria carica ed orario correttamente impostato.
-                       Unica nota: la tipologia ed il colore del modello (lancette grigio scuro su quadrante nero) 
+                       Unica nota: la tipologia ed il colore del modello (lancette grigio scuro su quadrante nero)
                        non permettono una visione ottimale dell\'ora quando non c\'è tanta luce ma a me piaceva molto proprio questa caratteristica estetica.']);
         $review4->product_id = $Double_Down_P44P1->id;
         $user1->reviews()->save($review4);
@@ -1114,7 +1114,7 @@ DatabaseSeeder extends Seeder
         $review5->save();
 
         $review6 = new Review(['vote'=>'5', 'title'=>'Consigliato',
-            'text'=>'Sono molto contenta di questo smartwatch, la parte smart a mio avviso funziona benissimo. 
+            'text'=>'Sono molto contenta di questo smartwatch, la parte smart a mio avviso funziona benissimo.
                      Per alcuni sport, esempio il nuoto, serve scaricare app di terze parti che non sempre funzionano a dovere, ma per le mie esigenze è perfetto, contapassi e cardio sembrano affidabili.
                      Comodo e leggero da indossare.']);
         $review6->product_id = $SportP2->id;
@@ -1146,7 +1146,7 @@ DatabaseSeeder extends Seeder
         $user2->reviews()->save($review11);
         $review11->save();
 
-        $review12 = new Review(['vote'=>'5', 'title'=>'Consigliato!!!', 'text'=>'Se esiste un modello di smartwatch che, in assoluto, 
+        $review12 = new Review(['vote'=>'5', 'title'=>'Consigliato!!!', 'text'=>'Se esiste un modello di smartwatch che, in assoluto,
         può essere usato come uno analogico allora è sicuramente questo Fossil Q Explorist, che al polso sta molto bene,
         anche se pesa un po’ e non ha paura di farsi notare sia per la forma sia per i quadranti che in alcuni casi imitano molto bene i display analogici più classici.']);
         $review12->product_id = $Q_ExploristP2->id;

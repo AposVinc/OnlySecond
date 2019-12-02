@@ -40,21 +40,27 @@
                         <div class="col-lg-12 mb_20">
                             <div id="order-attr" class="mt_10 col-md-3 pull-right">
                                 <div>
-                                    <label class="collapseControl" data-toggle="collapse" data-target="#billing">Fatturazione <i class="fa fa-angle-down" style="color: #ffffff;"></i></label>
-                                    <div class="collapse" id="billing">
+                                    <label class="collapseControl" data-toggle="collapse" data-target="#billing{{$order->id}}">Fatturazione <i class="fa fa-angle-down" style="color: #ffffff;"></i></label>
+                                    <div class="collapse" id="billing{{$order->id}}">
                                         <div>
                                             <span>Indirizzo di Fatturazione:</span>
                                             <label>{{$order->billingAddress->name}} {{$order->billingAddress->surname}}<br> {{$order->billingAddress->address}}, {{$order->billingAddress->civic_number}} - {{$order->billingAddress->city}} {{'('. $order->billingAddress->region. ')'}}<br> CAP:{{$order->billingAddress->zip}}</label>
                                         </div>
                                         <div>
-                                           <!-- <span>Metodo di Pagamento:</span>
-                                            <label></label>-->
+                                            <span>Metodo di Pagamento:</span>
+                                            <div>
+                                                @if($order->creditCard)
+                                                    <label>{{$order->creditCard->holderCard}}<br>n°{{$order->creditCard->numberCard}}</label>
+                                                @else
+                                                    <label>PayPal</label>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="mt_10 collapseControl" data-toggle="collapse" data-target="#mailing">Spedizione <i class="fa fa-angle-down" style="color: #ffffff;"></i></label>
-                                    <div class="collapse" id="mailing">
+                                    <label class="mt_10 collapseControl" data-toggle="collapse" data-target="#mailing{{$order->id}}">Spedizione <i class="fa fa-angle-down" style="color: #ffffff;"></i></label>
+                                    <div class="collapse" id="mailing{{$order->id}}">
                                         <div>
                                             <span>Indirizzo di Spedizione:</span>
                                             <label>{{$order->mailingAddress->name}} {{$order->mailingAddress->surname}}<br> {{$order->mailingAddress->address}}, {{$order->mailingAddress->civic_number}} - {{$order->mailingAddress->city}} {{'('. $order->mailingAddress->region. ')'}}<br> CAP:{{$order->mailingAddress->zip}}</label>
