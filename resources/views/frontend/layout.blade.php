@@ -877,7 +877,7 @@
                   }
               }
           }*/
-
+/*
         function filtering() {
             var e, i, fGroup;
             var arrRatesChecked, arrGenresChecked, arrBrandsChecked, arrCollectionsChecked,
@@ -998,7 +998,7 @@
                     alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                 }
             })
-        }
+        }*/
     </script>
 @endif
 

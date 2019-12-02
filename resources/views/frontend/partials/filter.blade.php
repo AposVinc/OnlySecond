@@ -5,106 +5,106 @@
         </div>
 
         <div class="filter-block">
-            <form>
-            <p>
-                <label for="amount">Range Prezzo:</label>
-                <input type="text" id="amount" minprice="" maxprice="" readonly>
-            </p>
-            <div id="slider-range" class="mtb_20"></div>
+            <form action="{{route('Filter.GetProducts')}}" method="get">
+                <p>
+                    <label for="amount">Range Prezzo:</label>
+                    <input type="text" id="amount" name="price-range" minprice="" maxprice="" readonly>
+                </p>
+                <div id="slider-range" class="mtb_20"></div>
 
-            <div class="list-group-item mb_10">
-                <label>Sconto</label>
-                <div id="filter-group-rates">
-                    <div class="checkbox">
-                        <label>
-                            <input value="10" type="checkbox"> Dal 10% </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input value="20" type="checkbox"> Dal 20% </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input value="30" type="checkbox"> Dal 30% </label>
-                    </div>
-                </div>
-            </div>
-            <div class="list-group">
                 <div class="list-group-item mb_10">
-                    <label>Genere</label>
-                    <div id="filter-group-genres">
+                    <label>Sconto</label>
+                    <div id="filter-group-rates">
                         <div class="checkbox">
                             <label>
-                                <input value="M" type="checkbox"> Uomo </label>
+                                <input value="10" type="checkbox" name="rates_checked[]"> Dal 10% </label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input value="F" type="checkbox"> Donna </label>
+                                <input value="20" type="checkbox" name="rates_checked[]"> Dal 20% </label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input value="U" type="checkbox"> Unisex </label>
+                                <input value="30" type="checkbox" name="rates_checked[]"> Dal 30% </label>
                         </div>
                     </div>
                 </div>
-                <div class="list-group-item mb_10">
-                    <label>Brand</label>
-                    <div id="filter-group-brands" class="filter-group">
-                        @foreach($brands as $brand)
+                <div class="list-group">
+                    <div class="list-group-item mb_10">
+                        <label>Genere</label>
+                        <div id="filter-group-genres">
                             <div class="checkbox">
                                 <label>
-                                    <input value="{{$brand->id}}" type="checkbox"> {{$brand->name}}</label>
+                                    <input value="M" type="checkbox" name="genres_checked[]"> Uomo </label>
                             </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="list-group-item mb_10">
-                    <label>Collezioni</label>
-                    <div id="filter-group-collections" class="filter-group">
-                        @foreach($collections as $collection)
                             <div class="checkbox">
                                 <label>
-                                    <input value="{{$collection->id}}" type="checkbox"> {{$collection->name}}</label>
+                                    <input value="F" type="checkbox" name="genres_checked[]"> Donna </label>
                             </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="list-group-item mb_10">
-                    <label>Categorie</label>
-                    <div id="filter-group-categories" class="filter-group">
-                        @foreach($categories as $category)
                             <div class="checkbox">
                                 <label>
-                                    <input value="{{$category->id}}" type="checkbox"> {{$category->name}}</label>
+                                    <input value="U" type="checkbox" name="genres_checked[]"> Unisex </label>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
-                </div>
-                <div class="list-group-item mb_10">
-                    <label>Colore</label>
-                    <div id="filter-group-colors" class="filter-group">
-                        @foreach($colors as $color)
-                            <div class="checkbox">
-                                <label>
-                                    <input value="{{$color->hex}}" type="checkbox"> {{$color->name}}</label>
-                            </div>
-                        @endforeach
+                    <div class="list-group-item mb_10">
+                        <label>Brand</label>
+                        <div id="filter-group-brands" class="filter-group">
+                            @foreach($brands as $brand)
+                                <div class="checkbox">
+                                    <label>
+                                        <input value="{{$brand->id}}" type="checkbox" name="brands_checked[]"> {{$brand->name}}</label>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                <div class="list-group-item mb_10">
-                    <label>Materiale</label>
-                    <div id="filter-group-materials" class="filter-group">
-                        @foreach($materials as $material)
-                            <div class="checkbox">
-                                <label>
-                                    <input value="{{$material->material}}" type="checkbox"> {{$material->material}}</label>
-                            </div>
-                        @endforeach
+                    <div class="list-group-item mb_10">
+                        <label>Collezioni</label>
+                        <div id="filter-group-collections" class="filter-group">
+                            @foreach($collections as $collection)
+                                <div class="checkbox">
+                                    <label>
+                                        <input value="{{$collection->id}}" type="checkbox" name="collections_checked[]"> {{$collection->name}}</label>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
+                    <div class="list-group-item mb_10">
+                        <label>Categorie</label>
+                        <div id="filter-group-categories" class="filter-group">
+                            @foreach($categories as $category)
+                                <div class="checkbox">
+                                    <label>
+                                        <input value="{{$category->id}}" type="checkbox" name="categories_checked[]"> {{$category->name}}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="list-group-item mb_10">
+                        <label>Colore</label>
+                        <div id="filter-group-colors" class="filter-group">
+                            @foreach($colors as $color)
+                                <div class="checkbox">
+                                    <label>
+                                        <input value="{{$color->hex}}" type="checkbox" name="colors_checked[]"> {{$color->name}}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="list-group-item mb_10">
+                        <label>Materiale</label>
+                        <div id="filter-group-materials" class="filter-group">
+                            @foreach($materials as $material)
+                                <div class="checkbox">
+                                    <label>
+                                        <input value="{{$material->material}}" type="checkbox" name="materials_checked[]"> {{$material->material}}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Filtra</button> <!--  onclick="filtering()" -->
+                    <button type="reset" class="btn ml_5">Reset</button>
                 </div>
-                <button onclick="filtering()" type="button" class="btn">Filtra</button>
-                <button type="reset" class="btn ml_5">Reset</button>
-            </div>
             </form>
         </div>
     </div>

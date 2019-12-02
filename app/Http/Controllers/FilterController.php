@@ -16,11 +16,11 @@ class FilterController extends Controller{
     public function getProducts(Request $request)
     {
         $products = Product::all();
-
-        if ($request->has('minprice') and $request->has('maxprice')){
+        if ($request->has('price-range')){
             //se prod è in offerte
-            $minprice = number_format($request->get('minprice'),2);
-            $maxprice = number_format($request->get('maxprice'),2);
+            preg_match_all('/[0-9]+/',$request->get('price-range'),$pricerange);
+            $minprice = (float)number_format($pricerange[0][0],2);
+            $maxprice = (float)number_format($pricerange[0][1],2);
             $products = $products->where('price','>=',$minprice)->where('price','<=',$maxprice);
             $all_products_by_single_group_filter = new Collection();
             foreach (Offer::all() as $offer){
@@ -32,21 +32,22 @@ class FilterController extends Controller{
             $products = $merged->unique('id')->sortBy('id');
         }
 
-        if ($request->has('arrRatesChecked') and $request->get('arrRatesChecked')){
+        if ($request->has('rates_checked')){
             $all_products_by_single_group_filter = new Collection();
-            foreach ($request->get('arrRatesChecked') as $rate){
+            foreach ($request->get('rates_checked') as $rate){
                 foreach (Offer::all() as $offer){
-                    if ($offer->rate >= $rate){
+                    if ($offer->rate >= (int)$rate){
                         $all_products_by_single_group_filter->push($offer->product);
                     }
                 }
             }
+            $products = $products->unique('id');
             $products = $products->intersect($all_products_by_single_group_filter);
         }
 
-        if ($request->has('arrGenresChecked') and $request->get('arrGenresChecked')){
+        if ($request->has('genres_checked')){
             $all_products_by_single_group_filter = new Collection();
-            foreach ($request->get('arrGenresChecked') as $genre){
+            foreach ($request->get('genres_checked') as $genre){
                 foreach (Product::where('genre',$genre)->get() as $product){
                     $all_products_by_single_group_filter->push($product);
                 }
@@ -54,9 +55,9 @@ class FilterController extends Controller{
             $products = $products->intersect($all_products_by_single_group_filter);
         }
 
-        if ($request->has('arrBrandsChecked') and $request->get('arrBrandsChecked')){
+        if ($request->has('brands_checked')){
             $all_products_by_single_group_filter = new Collection();
-            foreach ($request->get('arrBrandsChecked') as $brand){
+            foreach ($request->get('brands_checked') as $brand){
                 foreach ( Brand::where("id",$brand)->first()->products as $product){
                     $all_products_by_single_group_filter->push($product);
                 }
@@ -64,9 +65,9 @@ class FilterController extends Controller{
             $products = $products->intersect($all_products_by_single_group_filter);
         }
 
-        if ($request->has('arrCollectionsChecked') and $request->get('arrCollectionsChecked')){
+        if ($request->has('collections_checked')){
             $all_products_by_single_group_filter = new Collection();
-            foreach ($request->get('arrCollectionsChecked') as $collection){
+            foreach ($request->get('collections_checked') as $collection){
                 foreach ( \App\Collection::where("id",$collection)->first()->products as $product){
                     $all_products_by_single_group_filter->push($product);
                 }
@@ -74,9 +75,9 @@ class FilterController extends Controller{
             $products = $products->intersect($all_products_by_single_group_filter);
         }
 
-        if ($request->has('arrCategoriesChecked') and $request->get('arrCategoriesChecked')){
+        if ($request->has('categories_checked')){
             $all_products_by_single_group_filter = new Collection();
-            foreach ($request->get('arrCategoriesChecked') as $category){
+            foreach ($request->get('categories_checked') as $category){
                 foreach ( Category::where("id",$category)->first()->products as $product){
                     $all_products_by_single_group_filter->push($product);
                 }
@@ -85,9 +86,9 @@ class FilterController extends Controller{
             $products = $products->intersect($all_products_by_single_group_filter);
         }
 
-        if ($request->has('arrColorsChecked') and $request->get('arrColorsChecked')){
+        if ($request->has('colors_checked')){
             $all_products_by_single_group_filter = new Collection();
-            foreach ($request->get('arrColorsChecked') as $color){
+            foreach ($request->get('colors_checked') as $color){
                 foreach ( Color::where("hex",$color)->first()->products as $product){
                     $all_products_by_single_group_filter->push($product);
                 }
@@ -95,16 +96,16 @@ class FilterController extends Controller{
             $products = $products->intersect($all_products_by_single_group_filter);
         }
 
-        if ($request->has('arrMaterialsChecked') and $request->get('arrMaterialsChecked')){
+        if ($request->has('materials_checked')){
             $all_products_by_single_group_filter = new Collection();
-            foreach ($request->get('arrMaterialsChecked') as $material){
+            foreach ($request->get('materials_checked') as $material){
                 foreach (Specification::where('material',$material)->get() as $spec){
                     $all_products_by_single_group_filter->push($spec->product);
                 }
             }
             $products = $products->intersect($all_products_by_single_group_filter);
         }
-
-        return $products;
+        $products = $products->paginate(18);
+        return back()->with('products',$products);
     }
 }
