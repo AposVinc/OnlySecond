@@ -100,13 +100,30 @@
                         <label>Materiale</label>
                         <div id="filter-group-materials" class="filter-group">
                             @foreach($materials as $material)
-                                <div class="checkbox">
-                                    <label>
-                                        <input value="{{$material->material}}" type="checkbox" name="materials_checked[]"> {{$material->material}}</label>
-                                </div>
+                                @if(session()->has('material'))
+                                    @if(in_array($material->material,session()->get('material')))
+                                        <div class="checkbox">
+                                            <label>
+                                                <input value="{{$material->material}}" checked="checked" type="checkbox" name="materials_checked[]"> {{$material->material}}</label>
+                                        </div>
+                                    @else
+                                        <div class="checkbox">
+                                            <label>
+                                                <input value="{{$material->material}}" type="checkbox" name="materials_checked[]"> {{$material->material}}</label>
+                                        </div>
+                                    @endif
+                                @else
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="{{$material->material}}" type="checkbox" name="materials_checked[]"> {{$material->material}}</label>
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
+                    @php
+                        session()->forget('material');
+                    @endphp
                     <button type="submit" class="btn">Filtra</button> <!--  onclick="filtering()" -->
                     <button type="reset" class="btn ml_5">Reset</button>
                 </div>

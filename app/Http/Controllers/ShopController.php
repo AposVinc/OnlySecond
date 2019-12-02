@@ -145,7 +145,9 @@ class ShopController extends Controller{
             }
             $products = $products->intersect($all_products_by_single_group_filter);
         }
-        
+
+        $request->session()->put('material', $request->get('materials_checked'));
+
         if (strpos(route::currentRouteName(),'Shop')!== false){
             $products = $products->paginate(18);
             return view('frontend.shop')->with('products', $products);
