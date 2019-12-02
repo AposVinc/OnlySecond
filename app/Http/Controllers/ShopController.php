@@ -42,34 +42,31 @@ class ShopController extends Controller{
 
     public function filterProducts(Request $request)
     {
-        if (strpos(route::currentRouteName(),'Shop')!== false){
-            if ($request->has('price-range')){
-                preg_match_all('/[0-9]+/',$request->get('price-range'),$pricerange);
-                $minprice = (float)number_format($pricerange[0][0],2);
-                $maxprice = (float)number_format($pricerange[0][1],2);
-                $products = Product::where('price','>=',$minprice)->where('price','<=',$maxprice)->get();
-                $all_products_by_single_group_filter = new Collection();
-                foreach (Offer::all() as $offer){
-                    if ($offer->calculateDiscount() >= $minprice and $offer->calculateDiscount() <= $maxprice){
-                        $all_products_by_single_group_filter->push($offer->product);
-                    }
+        $products = Product::all();
+        if ($request->has('price-range')) {
+
+            preg_match_all('/[0-9]+/', $request->get('price-range'), $pricerange);
+            $minprice = (float)number_format($pricerange[0][0], 2);
+            $maxprice = (float)number_format($pricerange[0][1], 2);
+
+            $all_products_by_single_group_filter = new Collection();
+            foreach (Offer::all() as $offer){
+                if ($offer->calculateDiscount() >= $minprice and $offer->calculateDiscount() <= $maxprice){
+                    $all_products_by_single_group_filter->push($offer->product);
                 }
+            }
+
+            if (strpos(route::currentRouteName(),'Shop')!== false){
+                $products = Product::where('price','>=',$minprice)->where('price','<=',$maxprice)->get();
                 $merged = $products->merge($all_products_by_single_group_filter);
                 $products = $merged->unique('id')->sortBy('id');
             }
-        } elseif (strpos(route::currentRouteName(),'Discount')!== false) {
-            if ($request->has('price-range')) {
-                preg_match_all('/[0-9]+/', $request->get('price-range'), $pricerange);
-                $minprice = (float)number_format($pricerange[0][0], 2);
-                $maxprice = (float)number_format($pricerange[0][1], 2);
-                $all_products_by_single_group_filter = new Collection();
-                foreach (Offer::all() as $offer) {
-                    if ($offer->calculateDiscount() >= $minprice and $offer->calculateDiscount() <= $maxprice) {
-                        $all_products_by_single_group_filter->push($offer->product);
-                    }
-                }
+            elseif (strpos(route::currentRouteName(),'Discount')!== false) {
                 $products = $all_products_by_single_group_filter;
             }
+
+            $request->session()->put('minprice', $minprice);
+            $request->session()->put('maxprice', $maxprice);
         }
 
         if ($request->has('rates_checked')){
@@ -83,6 +80,8 @@ class ShopController extends Controller{
             }
             $products = $products->unique('id');
             $products = $products->intersect($all_products_by_single_group_filter);
+
+            $request->session()->put('rates_checked', $request->get('rates_checked'));
         }
 
         if ($request->has('genres_checked')){
@@ -93,6 +92,8 @@ class ShopController extends Controller{
                 }
             }
             $products = $products->intersect($all_products_by_single_group_filter);
+
+            $request->session()->put('genres_checked', $request->get('genres_checked'));
         }
 
         if ($request->has('brands_checked')){
@@ -103,6 +104,8 @@ class ShopController extends Controller{
                 }
             }
             $products = $products->intersect($all_products_by_single_group_filter);
+
+            $request->session()->put('brands_checked', $request->get('brands_checked'));
         }
 
         if ($request->has('collections_checked')){
@@ -113,6 +116,8 @@ class ShopController extends Controller{
                 }
             }
             $products = $products->intersect($all_products_by_single_group_filter);
+
+            $request->session()->put('collections_checked', $request->get('collections_checked'));
         }
 
         if ($request->has('categories_checked')){
@@ -124,6 +129,8 @@ class ShopController extends Controller{
             }
             $products = $products->unique('id');
             $products = $products->intersect($all_products_by_single_group_filter);
+
+            $request->session()->put('categories_checked', $request->get('categories_checked'));
         }
 
         if ($request->has('colors_checked')){
@@ -134,6 +141,8 @@ class ShopController extends Controller{
                 }
             }
             $products = $products->intersect($all_products_by_single_group_filter);
+
+            $request->session()->put('colors_checked', $request->get('colors_checked'));
         }
 
         if ($request->has('materials_checked')){
@@ -144,9 +153,9 @@ class ShopController extends Controller{
                 }
             }
             $products = $products->intersect($all_products_by_single_group_filter);
-        }
 
-        $request->session()->put('material', $request->get('materials_checked'));
+            $request->session()->put('materials_checked', $request->get('materials_checked'));
+        }
 
         if (strpos(route::currentRouteName(),'Shop')!== false){
             $products = $products->paginate(18);

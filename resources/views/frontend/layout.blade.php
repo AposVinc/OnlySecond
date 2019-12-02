@@ -628,15 +628,15 @@
     <script src="{{ URL::asset('js/frontend/jquery-ui.js') }}"></script>
     <script>
         $(function() {
+            var minprice = $("#amount").attr("minprice");
+            var maxprice = $("#amount").attr("maxprice");
             $("#slider-range").slider({
                 range: true,
                 min: 0,
                 max: 800,
-                values: [150, 400],
+                values: [minprice || 150, maxprice || 400],
                 slide: function(event, ui) {
                     $("#amount").val("€" + ui.values[0] + " - €" + ui.values[1]);
-                    $("#amount").attr("minprice",ui.values[0]);
-                    $("#amount").attr("maxprice",ui.values[1]);
                 }
             });
             $("#amount").val("€" + $("#slider-range").slider("values", 0) +
