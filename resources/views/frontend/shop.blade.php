@@ -132,7 +132,6 @@
 
                 </div>
 
-
                 <div class="pagination-nav text-center mt_50">
                     {{$products->links()}}
                 </div>

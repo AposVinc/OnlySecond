@@ -36,7 +36,7 @@ class ShopController extends Controller{
 
     public function composeDiscount(){
         $today =  date('Y-m-d H:i:s', strtotime('now'));
-        $offers = Offer::where('end','>=',$today)->with('product')->get();
+        $offers = Offer::where('end','>=',$today)->with('product')->get()->paginate(18);
         return view('frontend.discount')->with('offers', $offers);
     }
 
@@ -156,6 +156,7 @@ class ShopController extends Controller{
             foreach ($products as $product){
                 $offers->push($product->offer);
             }
+            $offers = $offers->paginate(18);
             return view('frontend.discount')->with('offers', $offers);
         }
 
