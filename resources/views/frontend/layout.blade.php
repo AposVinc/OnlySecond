@@ -605,6 +605,29 @@
     </script>
 @endif
 
+@if(strpos(route::currentRouteName(),'Payment')!== false)
+
+    <script type="text/javascript">
+        $('input[name=\'select_payment\']').on('change', function() {
+            if (this.value == 'existing') {
+                $('#payment-existing').show();
+                $('#payment-new').hide();
+                $('#payment-delete').hide();
+            }
+            if (this.value == 'new') {
+                $('#payment-existing').hide();
+                $('#payment-new').show();
+                $('#payment-delete').hide();
+            }
+            if (this.value == 'delete') {
+                $('#payment-existing').hide();
+                $('#payment-new').hide();
+                $('#payment-delete').show();
+            }
+        });
+    </script>
+@endif
+
 @if(strpos(route::currentRouteName(),'Checkout')!== false)
     <!-- checkout nuovo indirizzo -->
     <script type="text/javascript">

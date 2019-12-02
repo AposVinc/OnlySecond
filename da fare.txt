@@ -12,7 +12,6 @@ FE
 ? rendere automatico lo scorrimento ai banner
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
-payments    - dopo checkout
 Vinc    - paginazione shop
 Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
@@ -108,6 +107,7 @@ controllo sulle recensioni dello stesso utente sul prodotto
 gestire opzione regalo
 se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
+payments    - dopo checkout
 
 ------------------------------------------------
 DOMANDE DA FARE AL PROF

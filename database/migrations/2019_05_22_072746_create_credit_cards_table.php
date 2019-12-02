@@ -19,7 +19,7 @@ class CreateCreditCardsTable extends Migration
             $table->string('numberCard')->unique();
             $table->string('holderCard');
             $table->string('expirationCard');
-            $table->boolean('favourite')->default(0);
+            $table->boolean('favorite')->default(0);
             $table->timestamps();
         });
     }

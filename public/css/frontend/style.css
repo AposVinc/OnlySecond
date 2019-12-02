@@ -67,7 +67,7 @@ Created by: 	Lionode
 	5.1 Review
     5.2 Wishlist
     5.3 Chronology
-	5.4 Address
+	5.4 Address and Payments
 	5.5 Carousel Logo Brand
 	5.6 Cart
 
@@ -3114,9 +3114,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 
 /* ----------------------------------------------
-	5.4 Address
+	5.4 Address and Payments
 ----------------------------------------------- */
-.label-radio-address{
+.label-radio-address, .label-radio-payments{
     font-size: 16px;
 }
 
