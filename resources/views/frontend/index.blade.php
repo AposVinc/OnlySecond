@@ -1,6 +1,15 @@
 @extends('frontend.layout')
 
 @section('content')
+
+    @if(session('success') or session('error'))
+        <div class="container mt_30">
+            <div class="row">
+                @include('frontend.partials.message')
+            </div>
+        </div>
+    @endif
+
     <!-- =====  BANNER START  ===== -->
     <div class="banner">
         @foreach ($banners as $banner)

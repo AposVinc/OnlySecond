@@ -1,9 +1,13 @@
 @extends('frontend.layout')
 
 @section('content')
+
     <!-- =====  CONTAINER START  ===== -->
     <div class="container mt_30">
         <div class="row ">
+
+            @include('frontend.partials.message')
+
             <div class="col-sm-12 col-lg-auto mtb_20">
                 <!-- about  -->
                 <div class="row">

@@ -9,3 +9,6 @@
     </div>
 </div>
 <!-- =====  BREADCRUMB END  ===== -->
+
+@include('frontend.partials.message')
+

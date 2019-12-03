@@ -32,6 +32,9 @@
                                         <div class="form-group">
                                             <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                         </div>
+
+                                        @include('frontend.partials.message')
+
                                         <div class="form-group text-center">
                                             <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                                             <label for="remember"> Ricordami </label>
@@ -71,6 +74,9 @@
                                         <div class="form-group">
                                             <input type="password" name="password_confirmation" id="password_confirmation" tabindex="2" class="form-control" placeholder="Confirm Password">
                                         </div>
+
+                                        @include('frontend.partials.message')
+
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
