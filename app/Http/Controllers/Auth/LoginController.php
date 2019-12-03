@@ -52,7 +52,7 @@ class LoginController extends Controller
         return view('frontend.auth');
     }
 
-    public function loginFE(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
@@ -77,7 +77,7 @@ class LoginController extends Controller
             }
             return redirect($url);
         } else {
-            return back();
+            return back()->with('error','Email e/o Password errati!!! Riprova!!!');
         }
     }
 

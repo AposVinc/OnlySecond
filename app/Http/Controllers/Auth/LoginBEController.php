@@ -39,7 +39,7 @@ class LoginBEController extends Controller
         if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('Admin.Index');
         }else{
-            return redirect()->route('Admin.LoginForm');
+            return redirect()->route('Admin.LoginForm')->with('error','Email e/o Password errati!!! Riprova!!!');
         }
     }
 

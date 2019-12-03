@@ -54,9 +54,9 @@
                         <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                     </div>
 
-                    @if ($message_error_be = $errors->first('login_be_error_message'))
+                    @if (session()->get('error'))
                         <div class="isa_error">
-                            {{ $message_error_be }}
+                            {{ session()->get('error') }}
                         </div>
                     @endif
 

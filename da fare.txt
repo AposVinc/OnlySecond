@@ -15,7 +15,7 @@ Login - div error se non va a buon fine registrazione
       - no login diretto se registrazione andata a buon fine ma messaggio??
       - email già usata div error con messaggio
       - tooltip errori campi (dimensione password e conferma password, password = conferma password)
-      - password errata, email non presente nel db
+
 
 
 
@@ -105,7 +105,7 @@ se quantità in magazzino è 0 si elimina il prodotto(disattiva)
 checkout - se va a buon fine, incrementare quantity_sold dei prodotti (per best seller), decrementare quantità in magazzino
 payments    - dopo checkout
 cronologia ordini - collapse - metodo di pagamento - prod eliminato
-
+Login - password errata, email non presente nel db
 
 
 ------------------------------------------------

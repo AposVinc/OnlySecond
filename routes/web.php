@@ -135,7 +135,7 @@ Route::group(['middleware' => ['auth'] ], function () {
 //ROUTE CON SOLO MODEL UTENTE E NON ADMIN
 // Authentication Routes...
 Route::get('Login', 'Auth\LoginController@showLoginForm')->name('User.Login');
-Route::post('Login', 'Auth\LoginController@loginFE')->name('User.LoginPost');
+Route::post('Login', 'Auth\LoginController@login')->name('User.LoginPost');
 Route::get('Logout', 'Auth\LoginController@logout')->name('User.Logout');
 
 // Registration Routes...
