@@ -39,9 +39,7 @@ class OrderHistory extends Model
     }
 
     public function products(){
-//ATTENZIONE:i modelli Pivot potrebbero non utilizzare la caratteristica SoftDeletes. Se è necessario eliminare i record di pivot,
-// prendere in considerazione la possibilità di convertire il modello pivot in un modello Eloquent effettivo.
-        return $this->belongsToMany('App\Product')->using('App\OrderHistoryProduct')->withPivot('quantity')->withPivot('price');
+        return $this->belongsToMany('App\Product')->withTrashed()->using('App\OrderHistoryProduct')->withPivot('quantity')->withPivot('price');
     }
 
     public function calculateTotalPrice(){
