@@ -15,13 +15,13 @@
                 @if(session()->has('minprice') and session()->has('maxprice'))
                         <p>
                             <label for="amount">Range Prezzo:</label>
-                            <input type="text" id="amount" name="price-range" minprice="{{session()->get('minprice')}}" maxprice="{{session()->get('maxprice')}}" readonly>
+                            <input type="text" id="amount" name="price_range" minprice="{{session()->get('minprice')}}" maxprice="{{session()->get('maxprice')}}" readonly>
                         </p>
                         <div id="slider-range" class="mtb_20"></div>
                 @else
                         <p>
                             <label for="amount">Range Prezzo:</label>
-                            <input type="text" id="amount" name="price-range" minprice="" maxprice="" readonly>
+                            <input type="text" id="amount" name="price_range" minprice="" maxprice="" readonly>
                         </p>
                         <div id="slider-range" class="mtb_20"></div>
                 @endif

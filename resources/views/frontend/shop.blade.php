@@ -19,32 +19,16 @@
                             <button type="button" id="list-view" class="btn btn-default list-view"></button>
                         </div>
                     </div>
-                    <div class="page-wrapper pull-right">
-                        <label class="control-label" for="input-limit">Show :</label>
-                        <div class="limit">
-                            <select id="input-limit" class="form-control">
-                                <option value="8" selected="selected">08</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                        <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                    </div>
                     <div class="sort-wrapper pull-right">
-                        <label class="control-label" for="input-sort">Sort By :</label>
+                        <label class="control-label" for="input-sort">Ordina Per :</label>
                         <div class="sort-inner">
                             <select id="input-sort" class="form-control">
-                                <option value="ASC" selected="selected">Default</option>
-                                <option value="ASC">Name (A - Z)</option>
-                                <option value="DESC">Name (Z - A)</option>
-                                <option value="ASC">Price (Low &gt; High)</option>
-                                <option value="DESC">Price (High &gt; Low)</option>
-                                <option value="DESC">Rating (Highest)</option>
-                                <option value="ASC">Rating (Lowest)</option>
-                                <option value="ASC">Model (A - Z)</option>
-                                <option value="DESC">Model (Z - A)</option>
+                                <option value="name_ASC" selected="selected">Nome (A - Z)</option>
+                                <option value="name_DESC">Nome (Z - A)</option>
+                                <option value="price_ASC">Prezzo (Cres)</option>
+                                <option value="price_DESC">Price (Decres)</option>
+                                <option value="vote_DESC">Rating (Cres)</option>
+                                <option value="vote_ASC">Rating (Decres)</option>
                             </select>
                         </div>
                         <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>

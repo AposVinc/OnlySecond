@@ -43,9 +43,9 @@ class ShopController extends Controller{
     public function filterProducts(Request $request)
     {
         $products = Product::all();
-        if ($request->has('price-range')) {
+        if ($request->has('price_range')) {
 
-            preg_match_all('/[0-9]+/', $request->get('price-range'), $pricerange);
+            preg_match_all('/[0-9]+/', $request->get('price_range'), $pricerange);
             $minprice = (float)number_format($pricerange[0][0], 2);
             $maxprice = (float)number_format($pricerange[0][1], 2);
 
@@ -155,6 +155,38 @@ class ShopController extends Controller{
             $products = $products->intersect($all_products_by_single_group_filter);
 
             $request->session()->put('materials_checked', $request->get('materials_checked'));
+        }
+
+        if ($request->has('select_sort')) {
+            $sort_type = $request->get('select_sort');
+            switch ($sort_type){
+                case "name_ASC":
+                    $products->sortBy(function($product) {
+                        return $product->collection->brand->name;});
+                    break;
+                case "name_DESC":
+                    $products->sortByDesc(function($product) {
+                        return $product->collection->brand->name;});
+                    break;
+
+                case "price_ASC":
+                    $products->sortBy('price');
+                    break;
+
+                case "price_DESC":
+                    $products->sortByDesc('price');
+                    break;
+
+                case "vote_DESC":
+                    $products->sortBy(function($product) {
+                        return $product->CalculateAverageVote();});
+                    break;
+
+                case "vote_ASC":
+                    $products->sortByDesc(function($product) {
+                        return $product->CalculateAverageVote();});
+                    break;
+            }
         }
 
         if (strpos(route::currentRouteName(),'Shop')!== false){
