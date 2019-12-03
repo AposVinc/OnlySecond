@@ -30,7 +30,7 @@ class ImageController extends Controller
 
     public function showImage($id)
     {
-        $image = Image::where('id',$id)->first();
+        $image = Image::where('id',$id)->withTrashed()->first();
         return view('backend.image.showimage', ['image' => $image]);
     }
 
