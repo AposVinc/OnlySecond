@@ -187,6 +187,9 @@ class ShopController extends Controller{
                         return $product->CalculateAverageVote();});
                     break;
             }
+            $products = $products->paginate(18);
+
+            return response()->view('frontend.shop',['products' => $products]);
         }
 
         if (strpos(route::currentRouteName(),'Shop')!== false){
