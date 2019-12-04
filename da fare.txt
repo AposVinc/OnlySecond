@@ -4,7 +4,6 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 
 BE
 ---------
--Sara - tabelle/grafici BE (prima pg)
 
 FE
 ---------
@@ -12,8 +11,6 @@ FE
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
 Login - tooltip errori campi (dimensione password e conferma password, password = conferma password)
-
-
 
 
 ok BE
@@ -35,6 +32,7 @@ permettere al admin di modificare Contattaci e chi siamo
 cambiare ripristina con riattiva
 subanner logica - differenziare in db con enum (main, sub, mini)
                 - controllare il numero dei banner
+tabelle/grafici BE (prima pg)
 
 
 ok FE
