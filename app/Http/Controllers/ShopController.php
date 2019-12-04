@@ -40,7 +40,7 @@ class ShopController extends Controller{
         return view('frontend.discount')->with('offers', $offers);
     }
 
-    public function filterProducts(Request $request)
+    public function filterProducts(Request $request, $flag = false)
     {
         $products = Product::all();
         if ($request->has('price_range')) {
@@ -161,35 +161,32 @@ class ShopController extends Controller{
             $sort_type = $request->get('select_sort');
             switch ($sort_type){
                 case "name_ASC":
-                    $products->sortBy(function($product) {
+                    $products = $products->sortBy(function($product) {
                         return $product->collection->brand->name;});
                     break;
                 case "name_DESC":
-                    $products->sortByDesc(function($product) {
+                    $products = $products->sortByDesc(function($product) {
                         return $product->collection->brand->name;});
                     break;
 
                 case "price_ASC":
-                    $products->sortBy('price');
+                    $products = $products->sortBy('price');
                     break;
 
                 case "price_DESC":
-                    $products->sortByDesc('price');
+                    $products = $products->sortByDesc('price');
                     break;
 
                 case "vote_DESC":
-                    $products->sortBy(function($product) {
+                    $products = $products->sortBy(function($product) {
                         return $product->CalculateAverageVote();});
                     break;
 
                 case "vote_ASC":
-                    $products->sortByDesc(function($product) {
+                    $products = $products->sortByDesc(function($product) {
                         return $product->CalculateAverageVote();});
                     break;
             }
-            $products = $products->paginate(18);
-
-            return response()->view('frontend.shop',['products' => $products]);
         }
 
         if (strpos(route::currentRouteName(),'Shop')!== false){

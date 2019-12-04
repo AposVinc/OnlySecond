@@ -258,10 +258,11 @@
                             @endforeach
                         </div>
                     </div>
+                    <input type="hidden" name="select_sort" value="name_ASC">
                     @php
                         session()->forget(['minprice', 'maxprice', 'rates_checked', 'genres_checked', 'brands_checked', 'collections_checked', 'categories_checked', 'colors_checked', 'materials_checked']);
                     @endphp
-                    <button type="submit" class="btn">Filtra</button> <!--  onclick="filtering()" -->
+                    <button id="btnSubmit" type="submit" class="btn">Filtra</button> <!--  onclick="filtering()" -->
                     <button type="reset" class="btn ml_5">Reset</button>
                 </div>
             </form>
