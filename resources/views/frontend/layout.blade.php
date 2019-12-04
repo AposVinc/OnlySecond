@@ -97,16 +97,8 @@
     <div class="header">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-4" style="display: inline-block;">
-                    <div class="main-search mt_40">
-                        <input id="search-input" name="search" value="" placeholder="Cerca" class="form-control input-lg" autocomplete="off" type="text">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </div>
                 <!-- Title -->
-                <div class="navbar-header col-xs-6 col-sm-4">
+                <div class="navbar-header col-lg-offset-4 col-xs-6 col-sm-4">
                     <a class="navbar-brand mt_6" href="{{route('Home')}}">
                         <img alt="OnlySecond" src="{{url::asset('images/logo/lungo-O-bianca.png')}}">
                     </a>
