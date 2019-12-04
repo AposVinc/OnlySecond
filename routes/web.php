@@ -102,10 +102,6 @@ Route::group(['middleware' => ['auth'] ], function () {
         return view('frontend.profile.wishlist');
     })->name('Wishlist');
 
-    Route::get('/Wishlist2', function () {
-        return view('frontend.profile.wishlist2');
-    })->name('Wishlist2');
-
     Route::get('/Wishlist/Add/{cod}', 'ProductController@addToWishlist')->name('Wishlist.AddProduct');
     Route::get('/Wishlist/Remove/{cod}', 'ProductController@removeFromWishlist')->name('Wishlist.RemoveProduct');
 
@@ -116,10 +112,6 @@ Route::group(['middleware' => ['auth'] ], function () {
     Route::get('/Review', function () {
         return view('frontend.profile.review');
     })->name('Review');
-
-    Route::get('/Review2', function () {
-        return view('frontend.profile.review2');
-    })->name('Review2');
 
     Route::post('/Review/Add/{cod}', 'UserController@addReview')->name('Review.Add');
     Route::post('/Review/Edit/{id}', 'UserController@editReview')->name('Review.Edit');
