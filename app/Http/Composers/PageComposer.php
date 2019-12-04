@@ -29,4 +29,16 @@ class PageComposer
         $fields = DB::table('couriers')->where('deleted_at', null)->get();
         $view->with('fields', $fields);
     }
+
+    public  function composeBEIndex(View $view){
+        $brands = DB::table('brands')->where('deleted_at', null)->count();
+        $collections = DB::table('collections')->where('deleted_at', null)->count();
+        $categories = DB::table('categories')->where('deleted_at', null)->count();
+        $products = DB::table('products')->where('deleted_at', null)->count();
+        $users = DB::table('users')->count();
+        $suppliers = DB::table('suppliers')->where('deleted_at', null)->count();
+        $fields = ['brands' => $brands, 'collections' => $collections, 'categories' => $categories, 'products' => $products,
+                    'users' => $users, 'suppliers' => $suppliers];
+        $view->with('fields', $fields);
+    }
 }

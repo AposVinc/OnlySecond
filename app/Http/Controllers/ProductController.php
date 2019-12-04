@@ -421,6 +421,19 @@ class ProductController extends Controller
         }
     }
 
+    public function getFourProductMoreSent()
+    {
+        $products = Product::where('quantity_sold', '>' , 0)->take(4)->orderBy('quantity_sold','desc')->get();
+        $data = [];
+        $color = ["#DC3545","#19A9D5","#007BFF","#8fc9fb"];
+        foreach ($products as $k => $product){
+            $nameCollection = $product->collection->name;
+            $nameBrand = $product->collection->brand->name;
+            $obj = ['label' => $nameBrand. ' '. $nameCollection. ' '.$product->cod, 'data' => $product->quantity_sold, 'color' => $color[$k]];
+            array_push($data, $obj);
+        }
+        return $data;
+    }
 
     /*-------------------   FRONTEND   -------------------*/
 

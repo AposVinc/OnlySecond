@@ -245,4 +245,23 @@ class BrandController extends Controller
             }
         }
     }
+
+    public function getSevenBrandMoreSent()
+    {
+        $brands = Brand::all();
+        $data = [];
+        foreach ($brands as $brand){
+            $collections = Collection::where('brand_id', $brand->id)->get();
+            $brandsCount = 0;
+            foreach ($collections as $collection){
+                $collectionsCount = Product::where('quantity_sold', '>' , 0)->where('collection_id', $collection->id)->sum('quantity_sold');
+                $brandsCount += $collectionsCount;
+            }
+            if($brandsCount != 0){
+                $obj = ['label' => $brand->name, 'data' => $brandsCount];
+                array_push($data, $obj);
+            }
+        }
+        return $data;
+    }
 }

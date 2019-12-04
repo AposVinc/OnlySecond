@@ -261,6 +261,124 @@
     <script src="{{ URL::asset('js/backend/init-scripts/data-table/datatables-init.js')}}"></script>
 @endif
 
+@if(strpos(route::currentRouteName(),'.Index')!== false)
+    <!--  flot-chart js -->
+    <script src="{{ URL::asset('vendor/backend/flot/excanvas.min.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/flot/jquery.flot.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/flot/jquery.flot.pie.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/flot/jquery.flot.time.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/flot/jquery.flot.stack.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/flot/jquery.flot.resize.js')}}"></script>
+    <script src="{{ URL::asset('vendor/backend/flot/jquery.flot.crosshair.js')}}"></script>
+    <script src="{{ URL::asset('js/backend/init-scripts/flot-chart/curvedLines.js')}}"></script>
+    <script src="{{ URL::asset('js/backend/init-scripts/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js')}}"></script>
+    <!--  Chart js -->
+    <script src="{{ URL::asset('vendor/backend/chart.js/dist/Chart.bundle.min.js')}}"></script>
+
+    <script>
+        (function($){
+
+            "use strict"; // Start of use strict
+
+            var SufeeAdmin = {
+                pieFlot: function(data){
+
+                    var plotObj = $.plot( $( "#flot-pie" ), data, {
+                        series: {
+                            pie: {
+                                show: true,
+                                radius: 1,
+                                label: {
+                                    show: false,
+
+                                }
+                            }
+                        },
+                        grid: {
+                            hoverable: true
+                        },
+                        tooltip: {
+                            show: true,
+                            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+                            shifts: {
+                                x: 20,
+                                y: 0
+                            },
+                            defaultTheme: false
+                        }
+                    } );
+                },
+            };
+
+            jQuery.ajax({
+                url:'{{ route('Admin.GetFourProductMoreSent') }}',
+                method:"GET",
+                dataType: "json",
+                success:function(result)
+                {
+                    SufeeAdmin.pieFlot(result);
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+
+        })(jQuery);
+    </script>
+    <script>
+        ( function ( $ ) {
+            "use strict";
+        // single bar chart
+            var ctx = document.getElementById( "singelBarChart" );
+            ctx.height = 167;
+
+            jQuery.ajax({
+                url:'{{ route('Admin.GetSevenBrandMoreSent') }}',
+                method:"GET",
+                dataType: "json",
+                success:function(result)
+                {
+                    var labels = [];
+                    for(var i=0; i<result.length;i++){
+                        labels.push(result[i].label);
+                    }
+                    var datasetsData = [];
+                    for(var i=0; i<result.length;i++){
+                        datasetsData.push(result[i].data);
+                    }
+                    var myChart = new Chart( ctx,{
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: "Prodotti Venduti",
+                                    data: datasetsData,
+                                    borderColor: "rgba(0, 123, 255, 0.9)",
+                                    borderWidth: "0",
+                                    backgroundColor: "rgba(0, 123, 255, 0.5)"
+                                }
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [ {
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                } ]
+                            }
+                        }
+                    } );
+                },
+                error:function(xhr){
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+
+        } )( jQuery );
+    </script>
+@endif
 
 <script>
     (function($) {

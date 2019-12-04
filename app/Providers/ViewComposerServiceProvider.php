@@ -37,5 +37,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer('frontend.contact', 'App\Http\Composers\PageComposer@composeContactUS');
 
         view()->composer('frontend.checkout', 'App\Http\Composers\PageComposer@composeCheckout');
+
+        view()->composer('backend.index', 'App\Http\Composers\PageComposer@composeBEIndex');
     }
 }

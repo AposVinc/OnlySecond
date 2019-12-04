@@ -184,6 +184,10 @@ Route::group(['middleware' => ['admin']], function () {
                 return view('backend.index');
             })->name('Index');
 
+            #route chiamata ajax per grafici
+            Route::get('/GetFourProductMoreSent', 'ProductController@getFourProductMoreSent')->name('GetFourProductMoreSent');
+            Route::get('/GetSevenBrandMoreSent', 'BrandController@getSevenBrandMoreSent')->name('GetSevenBrandMoreSent');
+
             #route chiamata ajax per collection
             Route::post('/GetCollection', 'CollectionController@getCollection')->name('GetCollection');
             Route::post('/RestoreGetCollection', 'CollectionController@getCollectionRestore')->name('RestoreGetCollection');
