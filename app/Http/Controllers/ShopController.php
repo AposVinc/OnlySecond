@@ -168,6 +168,5 @@ class ShopController extends Controller{
             $offers = $offers->paginate(18);
             return view('frontend.discount')->with('offers', $offers);
         }
-
     }
 }

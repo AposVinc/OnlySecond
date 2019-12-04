@@ -64,6 +64,13 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function validatorEmail(array $data)
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+        ]);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -78,6 +85,25 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => $data['password']
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        if ($this->validatorEmail($request->all())->fails()) {
+            return redirect()->route('User.Register')->with('error','Errore!!! La Mail E\' Già Registrata Sul Nostro Sito');
+        }
+        if ($this->validator($request->all())->fails()) {
+            return redirect()->route('User.Register')->with('error','Errore!!! La Procedura Registrazione Non E\' Andata A Buon Fine');
+        }
+
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 
 }
