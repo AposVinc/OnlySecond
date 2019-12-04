@@ -994,6 +994,17 @@
             divContent.removeClass("content showContent");
             AddShowMore(divContent);
         });
+
+
+
+        $("#input-sort").change(function() {
+
+            var select_sort = $("#input-sort").val();
+            $('input[name=\'select_sort\']').val(select_sort);
+            $('#btnSubmit').trigger('click');
+        });
+
+
     </script>
 @endif
 

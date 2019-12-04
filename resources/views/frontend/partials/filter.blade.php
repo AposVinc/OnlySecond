@@ -15,13 +15,13 @@
                 @if(session()->has('minprice') and session()->has('maxprice'))
                         <p>
                             <label for="amount">Range Prezzo:</label>
-                            <input type="text" id="amount" name="price-range" minprice="{{session()->get('minprice')}}" maxprice="{{session()->get('maxprice')}}" readonly>
+                            <input type="text" id="amount" name="price_range" minprice="{{session()->get('minprice')}}" maxprice="{{session()->get('maxprice')}}" readonly>
                         </p>
                         <div id="slider-range" class="mtb_20"></div>
                 @else
                         <p>
                             <label for="amount">Range Prezzo:</label>
-                            <input type="text" id="amount" name="price-range" minprice="" maxprice="" readonly>
+                            <input type="text" id="amount" name="price_range" minprice="" maxprice="" readonly>
                         </p>
                         <div id="slider-range" class="mtb_20"></div>
                 @endif
@@ -258,10 +258,11 @@
                             @endforeach
                         </div>
                     </div>
+                    <input type="hidden" name="select_sort" value="name_ASC">
                     @php
                         session()->forget(['minprice', 'maxprice', 'rates_checked', 'genres_checked', 'brands_checked', 'collections_checked', 'categories_checked', 'colors_checked', 'materials_checked']);
                     @endphp
-                    <button type="submit" class="btn">Filtra</button> <!--  onclick="filtering()" -->
+                    <button id="btnSubmit" type="submit" class="btn">Filtra</button> <!--  onclick="filtering()" -->
                     <button type="reset" class="btn ml_5">Reset</button>
                 </div>
             </form>

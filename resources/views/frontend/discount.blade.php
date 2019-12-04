@@ -29,13 +29,15 @@
                         </div>
                     </div>
                     <div class="page-wrapper pull-right">
-                        <label class="control-label" for="input-limit">Ordina per :</label>
-                        <div class="limit">
-                            <select id="input-limit" class="form-control">
-                                <option value="Default" selected="selected">Default</option>
-                                <option value="nuovi">I Più Nuovi</option>
-                                <option value="menocari">I Meno Cari</option>
-                                <option value="piùcari">I Più Cari</option>
+                        <label class="control-label" for="input-sort">Ordina Per :</label>
+                        <div class="sort-inner">
+                            <select id="input-sort" class="form-control">
+                                <option value="name_ASC" selected="selected">Nome (A - Z)</option>
+                                <option value="name_DESC">Nome (Z - A)</option>
+                                <option value="price_ASC">Prezzo (Cres)</option>
+                                <option value="price_DESC">Price (Decres)</option>
+                                <option value="vote_DESC">Rating (Cres)</option>
+                                <option value="vote_ASC">Rating (Decres)</option>
                             </select>
                         </div>
                         <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
