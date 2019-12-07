@@ -9,7 +9,7 @@
                 <div class="brand owl-carousel pb_20">
                     @foreach($brands as $brand)
                         <div class="logoBrand item text-center">
-                            <a href="#" class="helper">
+                            <a href="{{route('ShopBrand',['brandName' => $brand->name])}}" class="helper">
                                 <img src="{{asset($brand->path_logo)}}" alt="{{$brand->name}}" class="img-responsive" />
                             </a>
                         </div>
