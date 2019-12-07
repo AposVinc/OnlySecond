@@ -70,6 +70,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" id="password2" tabindex="2" class="form-control" placeholder="Password">
+                                            <small class="ml_10" style="font-style: italic">Deve avere almeno 8 caratteri</small>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password_confirmation" id="password_confirmation" tabindex="2" class="form-control" placeholder="Confirm Password">

@@ -24,10 +24,18 @@ class UserController extends Controller
 
             //tutti e 3 gli input sono stati inseriti    //nuova psw e conf sono uguali
             if($request->has('old-password') and $request->has('new-password') and $request->has('confirm-new-password')
-                    and ($request->has('new-password') == $request->has('confirm-new-password'))){
-                if (Hash::check($request->get('old-password'), $user->password)){     //vecchia psw è uguale a quella salvata
-                    $user->password = $request->get('new-password');
+                    and ($request->get('new-password') === $request->get('confirm-new-password'))){
+                if (strlen($request->get('new-password')) >= 8) {
+                    if (Hash::check($request->get('old-password'), $user->password)) {     //vecchia psw è uguale a quella salvata
+                        $user->password = $request->get('new-password');
+                    } else {
+                        return redirect()->route('EditProfile')->with('error', 'Errore!! La Vecchia Password inserita non è corretta!!');
+                    }
+                } else {
+                    return redirect()->route('EditProfile')->with('error', 'Errore!! La Password deve avere almeno 8 caratteri!!');
                 }
+            } else {
+                return redirect()->route('EditProfile')->with('error', 'Errore!! La Password e Conferma Password non corrispondono!!');
             }
             if ($user->save()){ //fare direttamente la login?
                 return redirect()->route('EditProfile')->with('success', 'Modifica avvenuta con successo!!');

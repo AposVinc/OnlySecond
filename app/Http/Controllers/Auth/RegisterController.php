@@ -70,6 +70,12 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
         ]);
     }
+    protected function validatorPassword(array $data)
+    {
+        return Validator::make($data, [
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
 
     /**
      * Create a new user instance after a valid registration.
@@ -91,6 +97,9 @@ class RegisterController extends Controller
     {
         if ($this->validatorEmail($request->all())->fails()) {
             return redirect()->route('User.Register')->with('error','Errore!!! La Mail E\' Già Registrata Sul Nostro Sito');
+        }
+        if ($this->validatorPassword($request->all())->fails()) {
+            return redirect()->route('User.Register')->with('error','Errore!!! La Password deve avere almeno 8 caratteri');
         }
         if ($this->validator($request->all())->fails()) {
             return redirect()->route('User.Register')->with('error','Errore!!! La Procedura Registrazione Non E\' Andata A Buon Fine');
