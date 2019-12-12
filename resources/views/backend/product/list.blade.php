@@ -32,6 +32,7 @@
                                         <th>Creato il</th>
                                         <th>Ultima modifica</th>
                                         <th>Disattivato il</th>
+                                        <th>Azioni</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +46,11 @@
                                             <td>{{$product->created_at}}</td>
                                             <td>{{$product->updated_at}}</td>
                                             <td>{{$product->deleted_at}}</td>
+                                            <td>
+                                                <i class="fa fa-edit" style="color: darkblue"></i><a href=""></a>
+                                                <i class="fa fa-minus-square" style="color: #cc0000"></i><a href=""></a>
+                                                <i class="fa fa-refresh" style="color: green"></i><a href=""></a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
