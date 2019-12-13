@@ -19,6 +19,28 @@ class ShopController extends Controller{
         return view('frontend.shop')->with('products', $products);
     }
 
+    public function composeShopSearch(Request $request){
+        $word = $request->get('search');
+
+        if (Brand::where('name',$word)->count()){
+            $products = Brand::where('name',$word)->first()->products;
+            $products = $products->paginate(18);
+        }
+        if (\App\Collection::where('name',$word)->count()){
+            $products = \App\Collection::where('name',$word)->first()->products;
+            $products = $products->paginate(18);
+        }
+        if (Product::where('cod',$word)->count()){
+            $products = Product::where('cod',$word)->first();
+            $products = $products->paginate(18);
+        }
+        if (isset($products)){
+            return view('frontend.shop')->with('products', $products);
+        } else {
+            return redirect()->route('Shop')->with('error','Il prodotto da te cercato non è presente nel nostro catalogo');
+        }
+    }
+
     public function composeShopBrand($brandName){
         $products = Brand::where('name',$brandName)->first()->products->paginate(18);
         return view('frontend.shop')->with('products', $products);

@@ -12,7 +12,6 @@
 */
 
 use App\Review;
-use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -21,6 +20,8 @@ Route::get('/', function () {
 Route::get('/Home', function () {
     return view('frontend.index');
 })->name('Home');
+
+Route::get('/Search', 'ShopController@composeShopSearch')->name('Shop.Search');
 
 Route::get('/Shop', 'ShopController@composeShop')->name('Shop');
 
