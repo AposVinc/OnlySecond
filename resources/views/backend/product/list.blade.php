@@ -47,9 +47,12 @@
                                             <td>{{$product->updated_at}}</td>
                                             <td>{{$product->deleted_at}}</td>
                                             <td>
-                                                <a href="{{route('Admin.Product.EditButton',$product->cod)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
-                                                <a href="{{route('Admin.Product.DeleteButton',$product->cod)}}"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
-                                                <a href="{{route('Admin.Product.RestoreButton',$product->cod)}}"> <i class="fa fa-refresh" style="color: green"></i></a>
+                                                @if (!$product->trashed())
+                                                    <a href="{{route('Admin.Product.EditButton',$product->cod)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
+                                                    <a href="{{route('Admin.Product.DeleteButton',$product->cod)}}"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
+                                                @else
+                                                    <a href="{{route('Admin.Product.RestoreButton',$product->cod)}}"> <i class="fa fa-refresh" style="color: green"></i></a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

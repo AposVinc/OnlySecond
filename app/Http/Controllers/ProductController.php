@@ -59,9 +59,8 @@ class ProductController extends Controller
 
     public function showEditFormButton($cod)
     {
-
         if(Product::withoutTrashed()->exists()){
-            $selected_product = Product::withTrashed()->where('cod',$cod)->first();
+            $selected_product = Product::where('cod',$cod)->first();
 
             $brands = Brand::all();
             $categories = Category::all();
