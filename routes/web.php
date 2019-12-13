@@ -302,6 +302,9 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/Product')->group(function () {
                     Route::name('Product.')->group(function () {
                         Route::get('/List', 'ProductController@showListForm')->name('List');
+                        Route::get('/List/Edit/{cod}', 'ProductController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/{cod}', 'ProductController@destroyButton')->name('DeleteButton');
+                        Route::get('/List/Restore/{cod}', 'ProductController@restoreButton')->name('RestoreButton');
 
                         Route::get('/Add', 'ProductController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'ProductController@create')->name('AddPost');

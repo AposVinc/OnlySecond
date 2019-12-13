@@ -47,9 +47,9 @@
                                             <td>{{$product->updated_at}}</td>
                                             <td>{{$product->deleted_at}}</td>
                                             <td>
-                                                <i class="fa fa-edit" style="color: darkblue"></i><a href=""></a>
-                                                <i class="fa fa-minus-square" style="color: #cc0000"></i><a href=""></a>
-                                                <i class="fa fa-refresh" style="color: green"></i><a href=""></a>
+                                                <a href="{{route('Admin.Product.EditButton',$product->cod)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
+                                                <a href="{{route('Admin.Product.DeleteButton',$product->cod)}}"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
+                                                <a href="{{route('Admin.Product.RestoreButton',$product->cod)}}"> <i class="fa fa-refresh" style="color: green"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

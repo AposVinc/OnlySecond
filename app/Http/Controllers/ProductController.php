@@ -399,6 +399,16 @@ class ProductController extends Controller
         }
     }
 
+    public function restoreButton($cod)
+    {
+        $product = Product::withTrashed()->where('cod',$cod)->first();
+        if($product->restore()){
+            return redirect()->back()->with('success', 'Ripristino avvenuto con successo!!');
+        }else{
+            return redirect()->back()->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -418,6 +428,21 @@ class ProductController extends Controller
             return redirect()->to('Admin/Product/List')->with('success', 'Eliminazione avvenuta con successo!!');
         }else{
             return redirect()->to('Admin/Product/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+        }
+    }
+
+    public function destroyButton($cod)
+    {
+        $product = Product::where('cod',$cod)->first();
+        if($product->offer) {
+            if (!($product->offer->delete())) {
+                return redirect()->back()->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+        if($product->delete()){
+            return redirect()->back()->with('success', 'Eliminazione avvenuta con successo!!');
+        }else{
+            return redirect()->back()->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 
