@@ -57,6 +57,22 @@ class ProductController extends Controller
         }
     }
 
+    public function showEditFormButton($cod)
+    {
+
+        if(Product::withoutTrashed()->exists()){
+            $selected_product = Product::withTrashed()->where('cod',$cod)->first();
+
+            $brands = Brand::all();
+            $categories = Category::all();
+            $suppliers = Supplier::all();
+            $colors = Color::all();
+            return view('backend.product.edit',['selected_product' => $selected_product,'brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
+        }else{
+            return redirect()->to('Admin/Product/List')->with('error','Non ci sono Prodotti Attivi da Modificare!!');
+        }
+    }
+
     public function showDeleteForm()
     {
         if (Product::withoutTrashed()->exists()){
