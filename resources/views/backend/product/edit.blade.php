@@ -23,47 +23,43 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" onchange="GetCollection()" data-dependent="collection" required>
-                            @if(isset($selected_product))
+                        @if(isset($selected_product))
+                            <select name="brand" id="brand" class="form-control" onchange="GetCollection()" data-dependent="collection" required disabled>
+                                <option value="{{$selected_product->collection->brand->id}}">{{$selected_product->collection->brand->name}}</option>
+                        @else
+                            <select name="brand" id="brand" class="form-control" onchange="GetCollection()" data-dependent="collection" required>
                                 <option value="">Seleziona il brand</option>
-                                @foreach($brands as $brand)
-                                    @if($brand == $selected_product->collection->brand)
-                                        <option value="{{$brand->id}}" selected>{{$brand->name}}</option>
-                                    @else
-                                        <option value="{{$brand->id}}">{{$brand->name}}</option>
-                                    @endif
-                                @endforeach
-                            @else
-                                <option value="">Seleziona il brand</option>
-                                @foreach($brands as $brand)
-                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
-                                @endforeach
-                            @endif
-                        </select>
+                                   @foreach($brands as $brand)
+                                      <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                   @endforeach
+                        @endif
+                            </select>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="collection" class=" form-control-label">Collezione</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="collection" id="collection" class="form-control" onchange="GetProduct()" required>
-                            @if(isset($selected_product))
+                        @if(isset($selected_product))
+                            <select name="collection" id="collection" class="form-control" onchange="GetProduct()" required disabled>
                                 <option value="{{$selected_product->collection->id}}">{{$selected_product->collection->name}}</option>
-                            @else
+                        @else
+                            <select name="collection" id="collection" class="form-control" onchange="GetProduct()" required>
                                 <option value="">Seleziona la collezione</option>
-                            @endif
-                        </select>
+                        @endif
+                            </select>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="product" id="product" class="form-control" required>
-                            @if(isset($selected_product))
+                        @if(isset($selected_product))
+                            <select name="product" id="product" class="form-control" required disabled>
                                 <option value="{{$selected_product->id}}">{{$selected_product->cod}}</option>
-                            @else
+                        @else
+                            <select name="product" id="product" class="form-control" required>
                                 <option value="">Seleziona il prodotto</option>
-                            @endif
-                        </select>
+                        @endif
+                            </select>
                     </div>
                 </div>
             </div>
