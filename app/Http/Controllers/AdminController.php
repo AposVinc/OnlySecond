@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
@@ -115,10 +116,25 @@ class AdminController extends Controller
 
     public function destroy(Request $request)
     {
-        if (Admin::withTrashed()->find($request->user)->delete()) {
-            return redirect()->to('Admin/User/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        if (Admin::withTrashed()->find($request->user)->hasPermissionTo('gest_utenti','admin')){
+            if (Permission::findByName('gest_utenti','admin')->roles()->count() == 1) {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore!!! Deve esistere almeno un Utente che è abilitato alla Gestione Degli Utenti!!');
+            }
+            if (Admin::withTrashed()->find($request->user)->delete()) {
+                return redirect()->to('Admin/User/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
         } else {
-            return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            if (Admin::withTrashed()->find($request->user)->delete()) {
+                return redirect()->to('Admin/User/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
         }
     }
+
+    /*
+
+    */
 }

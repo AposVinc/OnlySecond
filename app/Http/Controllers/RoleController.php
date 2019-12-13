@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -132,10 +133,23 @@ class RoleController extends Controller
     public function destroy(Request $request)
     {
         $role = Role::findById(strval( $request->role ),'admin');
-        if ($role->delete()) {
-            return redirect()->to('Admin/Role/List')->with('success', 'Eliminazione avvenuta con successo!!');
+
+        if ($role->hasPermissionTo('gest_utenti')){
+            if (Permission::findByName('gest_utenti','admin')->roles()->count() == 1) {
+                return redirect()->to('Admin/Role/List')->with('error', 'Errore!!! Deve esistere almeno un Ruolo che è abilitato alla Gestione Degli Utenti!!');
+            }
+            if ($role->delete()) {
+                return redirect()->to('Admin/Role/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
         } else {
-            return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            if ($role->delete()) {
+                return redirect()->to('Admin/Role/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
         }
+
     }
 }
