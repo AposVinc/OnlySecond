@@ -57,6 +57,21 @@ class ProductController extends Controller
         }
     }
 
+    public function showEditFormButton($cod)
+    {
+        if(Product::withoutTrashed()->exists()){
+            $selected_product = Product::where('cod',$cod)->first();
+
+            $brands = Brand::all();
+            $categories = Category::all();
+            $suppliers = Supplier::all();
+            $colors = Color::all();
+            return view('backend.product.edit',['selected_product' => $selected_product,'brands' => $brands,'categories' => $categories, 'suppliers' => $suppliers, 'colors' => $colors]);
+        }else{
+            return redirect()->to('Admin/Product/List')->with('error','Non ci sono Prodotti Attivi da Modificare!!');
+        }
+    }
+
     public function showDeleteForm()
     {
         if (Product::withoutTrashed()->exists()){
@@ -399,6 +414,16 @@ class ProductController extends Controller
         }
     }
 
+    public function restoreButton($cod)
+    {
+        $product = Product::withTrashed()->where('cod',$cod)->first();
+        if($product->restore()){
+            return redirect()->back()->with('success', 'Ripristino avvenuto con successo!!');
+        }else{
+            return redirect()->back()->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -418,6 +443,21 @@ class ProductController extends Controller
             return redirect()->to('Admin/Product/List')->with('success', 'Eliminazione avvenuta con successo!!');
         }else{
             return redirect()->to('Admin/Product/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+        }
+    }
+
+    public function destroyButton($cod)
+    {
+        $product = Product::where('cod',$cod)->first();
+        if($product->offer) {
+            if (!($product->offer->delete())) {
+                return redirect()->back()->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+        if($product->delete()){
+            return redirect()->back()->with('success', 'Eliminazione avvenuta con successo!!');
+        }else{
+            return redirect()->back()->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 

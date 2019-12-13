@@ -149,3 +149,8 @@ wishlist grafica    - come risolvere il problema della virgola      risolto
 Togliere compare e quickview dali bottoni dei prod          SI
 aggiugere sconto superiore a 10 20 30 40 % in filtraggio    --- solo superiori a 10 25 50
 paginazione dello shop          da fare
+
+
+
+search
+intercetto la stringa e faccio una ricerca sui nomi e ritorno i profotto
