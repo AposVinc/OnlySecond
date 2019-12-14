@@ -36,6 +36,19 @@ class AdminController extends Controller
         }
     }
 
+    public function showEditFormButton($email)
+    {
+        if (Admin::all()->isNotEmpty()) {
+            $selected_user = Admin::where('email',$email)->first();
+
+            $users = Admin::withTrashed()->get();
+            $roles = Role::all();
+            return view('backend.user.edit', ['selected_user' => $selected_user,'users' => $users, 'roles' => $roles]);
+        }else{
+            return redirect()->to('Admin/User/List')->with('error','Non ci sono Utenti da Modificare!!');
+        }
+    }
+
     public function showRestoreForm()
     {
         if (Admin::onlyTrashed()->exists()){
@@ -114,6 +127,16 @@ class AdminController extends Controller
         }
     }
 
+    public function restoreButton($email)   //query senza nome
+    {
+        $user = Admin::onlyTrashed()->where('email', $email)->first();
+        if (Admin::onlyTrashed()->find($user->id)->restore()) {
+            return redirect()->to('Admin/User/List')->with('success', 'Ripristino avvenuto con successo!!');
+        } else {
+            return redirect()->to('Admin/User/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
+    }
+
     public function destroy(Request $request)
     {
         if (Admin::withTrashed()->find($request->user)->hasPermissionTo('gest_utenti','admin')){
@@ -134,7 +157,25 @@ class AdminController extends Controller
         }
     }
 
-    /*
+    public function destroyButton($email)
+    {
+        $user = Admin::where('email', $email)->first();
+        if (Admin::withTrashed()->find($user->id)->hasPermissionTo('gest_utenti','admin')){
+            if (Permission::findByName('gest_utenti','admin')->roles()->count() == 1) {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore!!! Deve esistere almeno un Utente che è abilitato alla Gestione Degli Utenti!!');
+            }
+            if (Admin::withTrashed()->find($user->id)->delete()) {
+                return redirect()->to('Admin/User/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        } else {
+            if (Admin::withTrashed()->find($user->id)->delete()) {
+                return redirect()->to('Admin/User/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/User/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+    }
 
-    */
 }

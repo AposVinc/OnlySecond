@@ -210,6 +210,9 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/User')->group(function () {
                     Route::name('User.')->group(function () {
                         Route::get('/List', 'AdminController@showListForm')->name('List');
+                        Route::get('/List/Edit/{email}', 'AdminController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/{email}', 'AdminController@destroyButton')->name('DeleteButton');
+                        Route::get('/List/Restore/{email}', 'AdminController@restoreButton')->name('RestoreButton');
 
                         Route::get('/Add', 'AdminController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'AdminController@create')->name('AddPost');
