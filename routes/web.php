@@ -264,7 +264,7 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/Brand')->group(function () {
                     Route::name('Brand.')->group(function () {
                         Route::get('/List', 'BrandController@showListForm')->name('List');
-                        Route::get('/List/Image/{id}', 'BrandController@showImage')->name('Image');
+                        Route::get('/List/Image/Logo_{name}', 'BrandController@showImage')->name('Image');
 
                         Route::get('/Add', 'BrandController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'BrandController@create')->name('AddPost');

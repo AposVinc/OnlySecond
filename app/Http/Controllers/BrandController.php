@@ -23,9 +23,9 @@ class BrandController extends Controller
         return view('backend.brand.list', ['brands' => $brands]);
     }
 
-    public function showImage($id)
+    public function showImage($name)
     {
-        $brand = Brand::where('id', $id)->first();
+        $brand = Brand::where('name', $name)->first();
         return view('backend.brand.showimage', ['brand' => $brand]);
     }
 

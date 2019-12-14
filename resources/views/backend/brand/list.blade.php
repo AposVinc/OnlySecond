@@ -36,7 +36,7 @@
                                 @foreach($brands as $brand)
                                     <tr>
                                         <td>{{$brand->name}}</td>
-                                        <td><u><a href="{{route('Admin.Brand.Image',['id' => $brand->id])}}">{{$brand->path_logo}}</a></u></td>
+                                        <td><u><a href="{{route('Admin.Brand.Image',['name' => $brand->name])}}">{{$brand->path_logo}}</a></u></td>
                                         <td>{{$brand->created_at}}</td>
                                         <td>{{$brand->updated_at}}</td>
                                         <td>{{$brand->deleted_at}}</td>
