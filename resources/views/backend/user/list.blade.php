@@ -15,6 +15,24 @@
         Utenti
     @endcomponent
 
+    @component('backend.dialogDelete')
+        @slot('title')
+            Utente
+        @endslot
+        @slot('content')
+            questo utente
+        @endslot
+    @endcomponent
+
+    @component('backend.dialogRestore')
+        @slot('title')
+            Utente
+        @endslot
+        @slot('content')
+            questo utente
+        @endslot
+    @endcomponent
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -30,6 +48,7 @@
                                         <th>Creato il</th>
                                         <th>Ultima modifica</th>
                                         <th>Disattivato il</th>
+                                        <th>Azioni</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,6 +61,18 @@
                                             <td>{{$user->created_at}}</td>
                                             <td>{{$user->updated_at}}</td>
                                             <td>{{$user->deleted_at}}</td>
+                                            <td>
+                                                @if (!$user->trashed())
+                                                    <a href="{{route('Admin.User.EditButton',$user->email)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
+                                                    <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.User.DeleteButton',$user->email)}}" style="cursor: pointer">
+                                                        <i class="fa fa-minus-square" style="color: #cc0000"></i>
+                                                    </a>
+                                                @else
+                                                    <a id="iconRestore" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.User.RestoreButton',$user->email)}}" style="cursor: pointer">
+                                                        <i class="fa fa-refresh" style="color: green"></i>
+                                                    </a>
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endforeach
@@ -53,4 +84,5 @@
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
+
 @endsection
