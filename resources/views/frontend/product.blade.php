@@ -345,8 +345,11 @@
 
                                                 <div class="collapse" id="content">
 
-                                                    <form action="{{route('Review.Add', ['cod' => $product->cod])}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
+                                                    <form action="{{route('Review.Add')}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
                                                         @csrf
+
+                                                        <input name="productCod" hidden value="{{$product->cod}}">
+
                                                         <div class="form-group required mt_20">
                                                             <div class="col-sm-12">
                                                                 <label class="control-label" for="input-title">Titolo Recensione</label><input name="title" id="input-title" class="form-control" type="text" data-required="true" required>
@@ -394,8 +397,11 @@
 
                                                 <div class="collapse" id="content">
 
-                                                    <form action="{{route('Review.Add', ['cod' => $product->cod])}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
+                                                    <form action="{{route('Review.Add')}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-12">
                                                         @csrf
+
+                                                        <input name="productCod" hidden value="{{$product->cod}}">
+
                                                         <div class="form-group required mt_20">
                                                             <div class="col-sm-12">
                                                                 <label class="control-label" for="input-title">Titolo Recensione</label><input name="title" id="input-title" class="form-control" type="text" data-required="true" required>

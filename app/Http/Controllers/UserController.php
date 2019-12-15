@@ -149,9 +149,9 @@ class UserController extends Controller
 
     /*-------------------   REVIEW   -------------------*/
 
-    public function addReview(Request $request, $cod)
+    public function addReview(Request $request)
     {
-        $product = Product::where('cod', $cod)->first();
+        $product = Product::where('cod', $request->get('productCod'))->first();
         $review = new Review();
         $review->title = $request->title;
         $review->text = $request->text;
