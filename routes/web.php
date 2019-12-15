@@ -114,7 +114,7 @@ Route::group(['middleware' => ['auth'] ], function () {
         return view('frontend.profile.review');
     })->name('Review');
 
-    Route::post('/Review/Add/{cod}', 'UserController@addReview')->name('Review.Add');
+    Route::post('/Review/Add', 'UserController@addReview')->name('Review.Add');
     Route::post('/Review/Edit/{id}', 'UserController@editReview')->name('Review.Edit');
 
     Route::get('/Review/Remove/{id}', function ($id) {
