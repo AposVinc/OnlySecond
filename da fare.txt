@@ -5,13 +5,19 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 
+battery button product
+
 FE
 ---------
-? cerca - potenzialmente no
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
 
 Login - tooltip errori campi (dimensione password e conferma password, password = conferma password)
 
+Fossil carlie ES4432:
+        - in recensioni 2 volte scrivi recensioni
+        - gestione offerta
+toglire id in review edit
+review remove passare codice prodotto ed email si prendono i due id e poi si fa l'eliminazione
 
 ok BE
 ----------
@@ -103,7 +109,7 @@ cronologia ordini - collapse - metodo di pagamento - prod eliminato
 Login   - password errata, email non presente nel db
 Register- div error se non va a buon fine registrazione
         - email già usata div error con messaggio
-
+cerca home page
 
 ------------------------------------------------
 DOMANDE DA FARE AL PROF
