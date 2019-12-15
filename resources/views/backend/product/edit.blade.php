@@ -53,7 +53,8 @@
                     <div class="col col-md-3"><label for="product" class=" form-control-label">Prodotto</label></div>
                     <div class="col-12 col-md-9">
                         @if(isset($selected_product))
-                            <select name="product" id="product" class="form-control" required disabled>
+                            <input name="product" value="{{$selected_product->id}}" hidden>
+                            <select name="productDisabled" id="product" class="form-control" required disabled>
                                 <option value="{{$selected_product->id}}">{{$selected_product->cod}}</option>
                         @else
                             <select name="product" id="product" class="form-control" required>
