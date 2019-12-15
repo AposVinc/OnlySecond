@@ -287,6 +287,9 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/Collection')->group(function () {
                     Route::name('Collection.')->group(function () {
                         Route::get('/List', 'CollectionController@showListForm')->name('List');
+                        Route::get('/List/Edit/{name}', 'CollectionController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/{name}', 'CollectionController@destroyButton')->name('DeleteButton');
+                        Route::get('/List/Restore/{name}', 'CollectionController@restoreButton')->name('RestoreButton');
 
                         Route::get('/Add', 'CollectionController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'CollectionController@create')->name('AddPost');

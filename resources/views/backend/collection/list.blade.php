@@ -15,6 +15,24 @@
         Collezioni
     @endcomponent
 
+    @component('backend.dialogDelete')
+        @slot('title')
+            Collezione
+        @endslot
+        @slot('content')
+            questa collezione
+        @endslot
+    @endcomponent
+
+    @component('backend.dialogRestore')
+        @slot('title')
+            Collezione
+        @endslot
+        @slot('content')
+            questa collezione
+        @endslot
+    @endcomponent
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -29,6 +47,7 @@
                                     <th>Creato il</th>
                                     <th>Ultima modifica</th>
                                     <th>Disattivato il</th>
+                                    <th>Azioni</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -39,6 +58,14 @@
                                         <td>{{$collection->created_at}}</td>
                                         <td>{{$collection->updated_at}}</td>
                                         <td>{{$collection->deleted_at}}</td>
+                                        <td>
+                                            @if (!$collection->trashed())
+                                                <a href="{{route('Admin.Collection.EditButton',$collection->name)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
+                                                <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Collection.DeleteButton',$collection->name)}}" style="cursor: pointer"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
+                                            @else
+                                                <a id="iconRestore" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Collection.RestoreButton',$collection->name)}}" style="cursor: pointer"><i class="fa fa-refresh" style="color: green"></i></a>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
