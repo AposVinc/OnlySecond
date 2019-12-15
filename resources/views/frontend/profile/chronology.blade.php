@@ -10,7 +10,7 @@
             @endcomponent
 
             <div class="col-sm-12 col-lg-auto">
-                @foreach(auth()->user()->orderHistories()->get() as $order)
+                @foreach(auth()->user()->orderHistories()->orderBy('id', 'desc')->get() as $order)
                     <div class="heading-part mb_10">
                         <div class="col-md-12">
                             <div class="order-info pl_0 col-md-2 ">
