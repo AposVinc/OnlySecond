@@ -16,9 +16,10 @@ Login - tooltip errori campi (dimensione password e conferma password, password 
 Fossil carlie ES4432:
         - in recensioni 2 volte scrivi recensioni
         - gestione offerta
-toglire id in review edit
-review remove passare codice prodotto ed email si prendono i due id e poi si fa l'eliminazione
 
+se metodo post meglio togliere id da url:       toglire id in review edit
+review remove, invece che passare in chiaro id review(pericoloso), passare codice prodotto ed email si prendono i due id, si ritrova la review corrispondente e poi si fa l'eliminazione
+            si dovrebbe fare il controllo se chi sta eliminado è il proprietario della review
 ok BE
 ----------
 Calendario in Offer
