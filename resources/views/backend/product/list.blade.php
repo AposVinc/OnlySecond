@@ -15,6 +15,24 @@
         Prodotti
     @endcomponent
 
+    @component('backend.dialogDelete')
+        @slot('title')
+            Prodotto
+        @endslot
+        @slot('content')
+            questo prodotto
+        @endslot
+    @endcomponent
+
+    @component('backend.dialogRestore')
+        @slot('title')
+            Prodotto
+        @endslot
+        @slot('content')
+            questo prodotto
+        @endslot
+    @endcomponent
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -49,9 +67,9 @@
                                             <td>
                                                 @if (!$product->trashed())
                                                     <a href="{{route('Admin.Product.EditButton',$product->cod)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
-                                                    <a href="{{route('Admin.Product.DeleteButton',$product->cod)}}"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
+                                                    <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Product.DeleteButton',$product->cod)}}" style="cursor: pointer"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
                                                 @else
-                                                    <a href="{{route('Admin.Product.RestoreButton',$product->cod)}}"> <i class="fa fa-refresh" style="color: green"></i></a>
+                                                    <a id="iconRestore" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Product.RestoreButton',$product->cod)}}" style="cursor: pointer"><i class="fa fa-refresh" style="color: green"></i></a>
                                                 @endif
                                             </td>
                                         </tr>
