@@ -34,6 +34,18 @@ class CategoryController extends Controller
         }
     }
 
+    public function showEditFormButton($id)
+    {
+        if (Category::withoutTrashed()->exists()){
+            $selected_category = Category::where('id',$id)->first();
+
+            $categories = Category::all();
+            return view('backend.category.edit', ['categories' => $categories, 'selected_category' => $selected_category]);
+        } else {
+            return redirect()->to('Admin/Category/List')->with('error','Non ci sono Categorie da Modificare!!');
+        }
+    }
+
     public function showRestoreForm()
     {
         if (Category::onlyTrashed()->exists()){
@@ -88,9 +100,18 @@ class CategoryController extends Controller
     public function restore(Request $request)
     {
         $id = $request->get('category');
-
         $category = Category::withTrashed()->where('id', $id)->first();
 
+        if ($category->restore()) {
+            return redirect()->to('Admin/Category/List')->with('success','Ripristino avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Category/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
+    }
+
+    public function restoreButton($id)
+    {
+        $category = Category::withTrashed()->where('id', $id)->first();
 
         if ($category->restore()) {
             return redirect()->to('Admin/Category/List')->with('success','Ripristino avvenuto con successo!!');
@@ -103,6 +124,15 @@ class CategoryController extends Controller
     {
         $id = $request->get('category');
 
+        if (Category::withTrashed()->find($id)->delete()) {
+            return redirect()->to('Admin/Category/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return redirect()->to('Admin/Category/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+        }
+    }
+
+    public function destroyButton($id)
+    {
         if (Category::withTrashed()->find($id)->delete()) {
             return redirect()->to('Admin/Category/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {

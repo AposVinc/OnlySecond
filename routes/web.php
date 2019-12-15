@@ -329,6 +329,9 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/Category')->group(function () {
                     Route::name('Category.')->group(function () {
                         Route::get('/List', 'CategoryController@showListForm')->name('List');
+                        Route::get('/List/Edit/{id}', 'CategoryController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/{id}', 'CategoryController@destroyButton')->name('DeleteButton');
+                        Route::get('/List/Restore/{id}', 'CategoryController@restoreButton')->name('RestoreButton');
 
                         Route::get('/Add', 'CategoryController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'CategoryController@create')->name('AddPost');
