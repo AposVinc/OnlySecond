@@ -122,11 +122,7 @@ class ProductController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(Request $request)  //
     {
         if (Product::where('cod', $request->cod)->first()) {
@@ -288,13 +284,7 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request)
     {
         $idProduct = $request->get('product');
@@ -405,35 +395,46 @@ class ProductController extends Controller
 
     public function restore(Request $request)   //query senza nome
     {
-        $id = $request->get('product');
-        $product = Product::withTrashed()->where('id',$id)->first();
-        if($product->restore()){
-            return redirect()->to('Admin/Product/List')->with('success', 'Ripristino avvenuto con successo!!');
-        }else{
-            return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        $product = Product::withTrashed()->where('id',$request->get('product'))->first();
+
+        if (!$product->collection->brand->trashed()){
+            if (!$product->collection->trashed()){
+                if($product->restore()){
+                    return redirect()->to('Admin/Product/List')->with('success', 'Ripristino avvenuto con successo!!');
+                }else{
+                    return redirect()->to('Admin/Product/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+                }
+            } else {
+                return redirect()->to('Admin/Product/List')->with('error', 'Errore!! La Collezione del prodotto è disattivata!!');
+            }
+        } else {
+            return redirect()->to('Admin/Product/List')->with('error', 'Errore!! Il Brand del prodotto è disattivato!!');
         }
+
     }
 
     public function restoreButton($cod)
     {
         $product = Product::withTrashed()->where('cod',$cod)->first();
-        if($product->restore()){
-            return redirect()->back()->with('success', 'Ripristino avvenuto con successo!!');
-        }else{
-            return redirect()->back()->with('error', 'Errore durante il Ripristino. Riprovare!!');
+
+        if (!$product->collection->brand->trashed()){
+            if (!$product->collection->trashed()){
+                if($product->restore()){
+                    return redirect()->back()->with('success', 'Ripristino avvenuto con successo!!');
+                }else{
+                    return redirect()->back()->with('error', 'Errore durante il Ripristino. Riprovare!!');
+                }
+            } else {
+                return redirect()->back()->with('error', 'Errore!! La Collezione del prodotto è disattivata!!');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Errore!! Il Brand del prodotto è disattivato!!');
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
-        $id = $request->get('product');
-        $product = Product::where('id',$id)->first();
+        $product = Product::where('id',$request->get('product'))->first();
         if($product->offer) {
             if (!($product->offer->delete())) {
                 return redirect()->to('Admin/Product/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
