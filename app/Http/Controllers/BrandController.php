@@ -11,11 +11,6 @@ use App\Product;
 
 class BrandController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function showListForm()
     {
@@ -44,6 +39,17 @@ class BrandController extends Controller
         }
     }
 
+    public function showEditFormButton($name)
+    {
+        if (Brand::withoutTrashed()->exists()){
+            $selected_brand = Brand::where('name',$name)->first();
+            $brands = Brand::all();
+            return view('backend.brand.edit',['brands' => $brands,'selected_brand' => $selected_brand]);
+        } else {
+            return redirect()->to('Admin/Brand/List')->with('error','Non ci sono Brand da Modificare!!');
+        }
+    }
+
     public function showRestoreForm()
     {
         if (Brand::onlyTrashed()->exists()){
@@ -65,12 +71,6 @@ class BrandController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         if (Brand::where('name', $request->newbrand)->first()) {
@@ -107,12 +107,6 @@ class BrandController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Brand $brand
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         //se brand e newname sono uguali ->effettua mod // altrimenti se new name gia esiste errore ma se non esite ok
@@ -168,12 +162,6 @@ class BrandController extends Controller
         }
     }
 
-    /**
-     * Restore the specified resource from storage.
-     *
-     * @param \App\Brand $brand
-     * @return \Illuminate\Http\Response
-     */
 
     public function restore(Request $request)   //query senza nome
     {
@@ -184,12 +172,21 @@ class BrandController extends Controller
         }
     }
 
+    public function restoreButton($name)   //query senza nome
+    {
+        if (Brand::where('name',$name)->restore()) {
+            return redirect()->back()->with('success', 'Ripristino avvenuto con successo!!');
+        } else {
+            return redirect()->back()->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
+    }
+
     public function destroy(Request $request)
     {
-        $brand = $request->get('brand');
+        $brand = Brand::where('id',$request->get('brand'))->first();
 
-        if(Collection::withoutTrashed()->where('brand_id',$brand)->exists()){
-            $collections = Collection::withoutTrashed()->where('brand_id',$brand)->get();
+        if(Collection::withoutTrashed()->where('brand_id',$brand->id)->exists()){
+            $collections = Collection::withoutTrashed()->where('brand_id',$brand->id)->get();
             foreach ($collections as $collection){
 
                 if(Product::withoutTrashed()->where('collection_id', $collection->id)->exists()){
@@ -232,13 +229,75 @@ class BrandController extends Controller
                     }
                 }
             }
-            if (Brand::withTrashed()->find($brand)->delete()) {
+            if (Brand::withTrashed()->find($brand->id)->delete()) {
                 return redirect()->to('Admin/Brand/List')->with('success', 'Eliminazione avvenuta con successo!!');
             } else {
                 return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
             }
         }else{
-            if (Brand::withTrashed()->find($brand)->delete()) {
+            if (Brand::withTrashed()->find($brand->id)->delete()) {
+                return redirect()->to('Admin/Brand/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+    }
+
+    public function destroyButton($name)
+    {
+        $brand = Brand::where('name',$name)->first();
+
+        if(Collection::withoutTrashed()->where('brand_id',$brand->id)->exists()){
+            $collections = Collection::withoutTrashed()->where('brand_id',$brand->id)->get();
+            foreach ($collections as $collection){
+
+                if(Product::withoutTrashed()->where('collection_id', $collection->id)->exists()){
+                    $products = Product::withoutTrashed()->where('collection_id', $collection->id)->get();
+                    foreach ($products as $product){
+                        if($product->offer) {
+                            if (!($product->offer->delete())) {
+                                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                            }
+                        }
+                    }
+                }
+
+                if(Banner::withoutTrashed()->where('collection_id', $collection->id)->exists()){
+                    //esiste banner per quella collection
+                    $types = [];
+                    if(Banner::withoutTrashed()->where('collection_id', $collection->id)->where('visible', true)->count('visible')) {
+                        //esiste banner per quella collection VISIBILE
+                        if(Banner::withoutTrashed()->where('type', 'Main')->where('visible', true)->count('visible') == 1){
+                            //qui solo se è attivo un SOLO banner per tipo - devo controllare se quello che sto eliminando è lo stesso che è attivo
+                            array_push($types,'Main');
+                        }
+                        if(Banner::withoutTrashed()->where('type', 'Sub')->where('visible', true)->count('visible') == 1){
+                            array_push($types,'Sub');
+                        }
+                        if(Banner::withoutTrashed()->where('type', 'Mini')->where('visible', true)->count('visible') == 1){
+                            array_push($types,'Mini');
+                        }
+                    }
+                    foreach ($types as $type){    //analizzo solo le situazioni di rischio
+                        $countVisibleTot = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->count('visible');
+                        $coutnVisibleCollection = Banner::withoutTrashed()->where('type', $type)->where('visible', true)->where('collection_id',$collection->id)->count('visible');
+                        $countVisible = $countVisibleTot - $coutnVisibleCollection;
+                        if($countVisible<=1) {
+                            return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione. Almeno un Banner di Tipo '. $type. ' deve rimanere Visibile dopo l\'eliminazione!!');
+                        }
+                    }
+                    if(! Banner::withTrashed()->where('collection_id',$collection->id)->update(['visible' => false])) {
+                        return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                    }
+                }
+            }
+            if (Brand::withTrashed()->find($brand->id)->delete()) {
+                return redirect()->to('Admin/Brand/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }else{
+            if (Brand::withTrashed()->find($brand->id)->delete()) {
                 return redirect()->to('Admin/Brand/List')->with('success', 'Eliminazione avvenuta con successo!!');
             } else {
                 return redirect()->to('Admin/Brand/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');

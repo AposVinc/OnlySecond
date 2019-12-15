@@ -22,18 +22,29 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="brand" class=" form-control-label">Brand</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="brand" id="brand" class="form-control" required>
-                            <option value="">Seleziona il brand da modificare</option>
-                            @foreach($brands as $key => $data)
-                                <option value="{{$data->id}}">{{$data->name}}</option>
-                            @endforeach
-                        </select>
+                        @if(isset($selected_brand))
+                            <input name="brand" value="{{$selected_brand->id}}" hidden>
+                            <select name="brandDisabled" id="brand" class="form-control" required disabled>
+                                <option value="{{$selected_brand->id}}">{{$selected_brand->name}}</option>
+                        @else
+                            <select name="brand" id="brand" class="form-control" required>
+                                <option value="">Seleziona il brand</option>
+                                @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                @endforeach
+                        @endif
+                            </select>
                     </div>
                 </div>
 
                 <div class="row form-group pt_24">
                     <div class="col col-md-3"><label for="newname" class=" form-control-label">Nome Brand</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="newname" name="newname" placeholder="Inserisci il nuovo nome del brand" class="form-control" required>
+                    <div class="col-12 col-md-9">
+                        @if(isset($selected_brand))
+                            <input type="text" id="newname" name="newname" placeholder="Inserisci il nuovo nome del brand" class="form-control" value="{{$selected_brand->name}}" required>
+                        @else
+                            <input type="text" id="newname" name="newname" placeholder="Inserisci il nuovo nome del brand" class="form-control" required>
+                        @endif
                     </div>
                 </div>
                 <div class="row form-group">
