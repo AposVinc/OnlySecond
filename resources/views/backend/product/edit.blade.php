@@ -72,9 +72,9 @@
                     <div class="col col-md-3"><label for="cod" class="form-control-label">Codice</label></div>
                     <div class="col-12 col-md-9">
                         @if(isset($selected_product))
-                            <input type="text" id="cod" name="cod" placeholder="Inserisci il codice del prodotto" class="form-control" value="{{$selected_product->cod}}" required>
+                            <input type="text" id="cod" name="cod" placeholder="Inserisci il codice del prodotto" class="form-control" value="{{$selected_product->cod}}" maxlength="6" required>
                         @else
-                            <input type="text" id="cod" name="cod" placeholder="Inserisci il codice del prodotto" class="form-control" required>
+                            <input type="text" id="cod" name="cod" placeholder="Inserisci il codice del prodotto" class="form-control" maxlength="6" required>
                         @endif
                     </div>
                 </div>
