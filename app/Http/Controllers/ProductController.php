@@ -508,43 +508,27 @@ class ProductController extends Controller
 
     public function addToCart(Request $request, $cod){
         $product = Product::where('cod', $cod)->first();
-        if(\Auth::check()){
-            if (\Auth::user()->products()->where('cod', $cod)->first()){
-                $cart = Cart::where('product_id', $product->id)->where('user_id', \Auth::id())->first();
-                if($request->filled('product_quantity')){
-                    \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $request->get('product_quantity')]);
-                }else{
-                    \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $cart->quantity +1]);
-                }
-                return redirect()->back();
-            }else{
-                \Auth::user()->products()->save($product, ['quantity' => 1]);
-                return redirect()->back();
-            }
+        if($product->stock_availability == 0){
+            return redirect()->back();
         }else{
-            $trovato = false;
-            $products = $request->session()->get('products');
-            $quantity = $request->session()->get('quantity');
-            if(empty($products)){
-                $request->session()->push('products', $product);
-                if($request->filled('product_quantity')){
-                    $request->session()->push('quantity', $request->get('product_quantity'));
+            if(\Auth::check()){
+                if (\Auth::user()->products()->where('cod', $cod)->first()){
+                    $cart = Cart::where('product_id', $product->id)->where('user_id', \Auth::id())->first();
+                    if($request->filled('product_quantity')){
+                        \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $request->get('product_quantity')]);
+                    }else{
+                        \Auth::user()->products()->where('cod', $cod)->update(['quantity' => $cart->quantity +1]);
+                    }
+                    return redirect()->back();
                 }else{
-                    $request->session()->push('quantity', 1);
+                    \Auth::user()->products()->save($product, ['quantity' => 1]);
+                    return redirect()->back();
                 }
             }else{
-                $q = [];
-                foreach ($products as $k => $p){
-                    if($p->cod == $product->cod){
-                        $trovato = true;
-                        if($request->filled('product_quantity')){
-                            $q = array_replace($quantity, array($k => $request->get('product_quantity')));
-                        }else{
-                            $q = array_replace($quantity, array($k => $quantity[$k] + 1));
-                        }
-                    }
-                }
-                if(!$trovato){
+                $trovato = false;
+                $products = $request->session()->get('products');
+                $quantity = $request->session()->get('quantity');
+                if(empty($products)){
                     $request->session()->push('products', $product);
                     if($request->filled('product_quantity')){
                         $request->session()->push('quantity', $request->get('product_quantity'));
@@ -552,13 +536,33 @@ class ProductController extends Controller
                         $request->session()->push('quantity', 1);
                     }
                 }else{
-                    $request->session()->forget('quantity');
-                    $request->session()->put('quantity', $q);
+                    $q = [];
+                    foreach ($products as $k => $p){
+                        if($p->cod == $product->cod){
+                            $trovato = true;
+                            if($request->filled('product_quantity')){
+                                $q = array_replace($quantity, array($k => $request->get('product_quantity')));
+                            }else{
+                                $q = array_replace($quantity, array($k => $quantity[$k] + 1));
+                            }
+                        }
+                    }
+                    if(!$trovato){
+                        $request->session()->push('products', $product);
+                        if($request->filled('product_quantity')){
+                            $request->session()->push('quantity', $request->get('product_quantity'));
+                        }else{
+                            $request->session()->push('quantity', 1);
+                        }
+                    }else{
+                        $request->session()->forget('quantity');
+                        $request->session()->put('quantity', $q);
+                    }
                 }
+                $this->calculatepriceQuantityProduct($product, $request, $trovato);
+                $this->calculateTotalPrice($request);
+                return redirect()->back();
             }
-            $this->calculatepriceQuantityProduct($product, $request, $trovato);
-            $this->calculateTotalPrice($request);
-            return redirect()->back();
         }
     }
 

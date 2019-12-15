@@ -100,7 +100,7 @@
                                 <div class="col-md-7 qty form-group2 mt_20 ">
                                     <label>Quantità:   </label>
                                     @if($product->stock_availability == 0)
-                                        <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;" disabled>
+                                        <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="" type="number" style="width: 65px; height: 35px;" disabled>
                                     @else
                                         @auth()
                                             @if(auth()->User()->products->isEmpty())
@@ -134,7 +134,11 @@
                                 </div>
 
                                 <div class="col-md-5 mt_20">
-                                    <button type="submit" class="btn cart" style="padding:6px"> <i class="fa fa-shopping-cart"></i>   Aggiungi al Carrello</button>
+                                    @if($product->stock_availability == 0)
+                                        <button type="submit" class="btn cart" style="padding:6px" disabled> <i class="fa fa-shopping-cart"></i>   Aggiungi al Carrello</button>
+                                    @else
+                                        <button type="submit" class="btn cart" style="padding:6px"> <i class="fa fa-shopping-cart"></i>   Aggiungi al Carrello</button>
+                                    @endif
                                 </div>
                             </form>
                         </div>

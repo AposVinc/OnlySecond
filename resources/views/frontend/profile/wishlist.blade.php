@@ -84,7 +84,12 @@
                         <div class="col-lg-12 mb_40">
                             <div class="heading-part mt_0 mb_10">
                                 <label class="sub_title"><span>Prodotto:</span></label>
-                                <div class="product-info">{{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}</div>
+                                <div class="product-info">
+                                    {{$product->collection->brand->name}} {{$product->collection->name}} - {{$product->cod}}
+                                    @if($product->stock_availability == 0)
+                                        <label style="color: red;font-size: 18px; padding-left: 20px;">Prodotto non disponibile</label>
+                                    @endif
+                                </div>
                             </div>
                             <div class="mt_10 col-md-2">
                                 <div class="image product-imageblock">
