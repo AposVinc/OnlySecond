@@ -76,7 +76,7 @@
                             @if(isset($selected_user))
                                 <option value="">Seleziona il ruolo</option>
                                 @foreach($roles as $role)
-                                    @if($role->id == $selected_user->role->id)
+                                    @if($role->id == $selected_user->roles->first()->id)
                                         <option value="{{$role->id}}" selected>{{$role->name}}</option>
                                     @else
                                         <option value="{{$role->id}}">{{$role->name}}</option>
