@@ -36,6 +36,18 @@ class OfferController extends Controller{
         }
     }
 
+    public function showEditFormButton($cod)
+    {
+        if(Offer::all()->isNotEmpty()){
+            $selected_offer = Product::where('cod',$cod)->first()->offer;
+
+            $brands = Brand::all();
+            return view('backend.offer.edit', ['brands' => $brands, 'selected_offer' => $selected_offer]);
+        }else{
+            return redirect()->to('Admin/Offer/List')->with('error','Non ci sono Offerte da Modificare!!');
+        }
+    }
+
     public function showDeleteForm()
     {
         if (Offer::all()->isNotEmpty()){
@@ -107,6 +119,17 @@ class OfferController extends Controller{
             return redirect()->to('Admin/Offer/List')->with('success', 'Eliminazione avvenuta con successo!!');
         }else{
             return redirect()->to('Admin/Offer/List')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+        }
+    }
+
+    public function destroyButton($cod)
+    {
+        $selected_offer = Product::where('cod',$cod)->first()->offer;
+
+        if ($selected_offer->delete()){
+            return redirect()->back()->with('success', 'Eliminazione avvenuta con successo!!');
+        }else{
+            return redirect()->back()->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
         }
     }
 }

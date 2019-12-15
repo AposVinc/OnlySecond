@@ -382,6 +382,8 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/Offer')->group(function () {
                     Route::name('Offer.')->group(function () {
                         Route::get('/List', 'OfferController@showListForm')->name('List');
+                        Route::get('/List/Edit/Offer_{cod}', 'OfferController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/Offer_{cod}', 'OfferController@destroyButton')->name('DeleteButton');
 
                         Route::get('/Add', 'OfferController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'OfferController@create')->name('AddPost');
@@ -391,9 +393,6 @@ Route::group(['middleware' => ['admin']], function () {
 
                         Route::get('/Delete', 'OfferController@showDeleteForm')->name('Delete');
                         Route::post('/DeletePost', 'OfferController@destroy')->name('DeletePost');
-
-                        Route::get('/Restore', 'OfferController@showRestoreForm')->name('Restore');
-                        Route::post('/RestorePost', 'OfferController@restore')->name('RestorePost');
                     });
                 });
             });
