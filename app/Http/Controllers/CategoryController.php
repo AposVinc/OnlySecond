@@ -114,9 +114,9 @@ class CategoryController extends Controller
         $category = Category::withTrashed()->where('id', $id)->first();
 
         if ($category->restore()) {
-            return redirect()->to('Admin/Category/List')->with('success','Ripristino avvenuto con successo!!');
+            return redirect()->back()->with('success','Ripristino avvenuto con successo!!');
         }else{
-            return redirect()->to('Admin/Category/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+            return redirect()->back()->with('error', 'Errore durante il Ripristino. Riprovare!!');
         }
     }
 
@@ -134,9 +134,9 @@ class CategoryController extends Controller
     public function destroyButton($id)
     {
         if (Category::withTrashed()->find($id)->delete()) {
-            return redirect()->to('Admin/Category/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            return redirect()->back()->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
-            return redirect()->to('Admin/Category/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            return redirect()->back()->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
 
