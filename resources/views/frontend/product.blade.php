@@ -83,10 +83,13 @@
                         <span>{{$product->cod}}</span>
                     </li>
                     <li>
-                        <label>Disponibilità:</label>
-                        <span>{{$product->stock_availability}}</span>
+                        @if($product->stock_availability == 0)
+                            <label style="color: red;font-size: 20px;">Prodotto non disponibile</label>
+                        @else
+                            <label>Disponibilità:</label>
+                            <span>{{$product->stock_availability}}</span>
+                        @endif
                     </li>
-
                 </ul>
 
                 <div id="product">
@@ -96,34 +99,38 @@
                             <form method="get" action="{{route('Cart.AddProduct', ['cod' => $product->cod])}}">
                                 <div class="col-md-7 qty form-group2 mt_20 ">
                                     <label>Quantità:   </label>
-                                    @auth()
-                                        @if(auth()->User()->products->isEmpty())
-                                            <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
-                                        @else
-                                            @foreach(auth()->User()->products as $prod)
+                                    @if($product->stock_availability == 0)
+                                        <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;" disabled>
+                                    @else
+                                        @auth()
+                                            @if(auth()->User()->products->isEmpty())
+                                                <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
+                                            @else
+                                                @foreach(auth()->User()->products as $prod)
+                                                    @if($prod->cod == $product->cod)
+                                                        <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="{{$prod->pivot->quantity}}" type="number" style="width: 65px; height: 35px;">
+                                                        @break
+                                                    @else
+                                                        @if($loop->last)
+                                                            <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @elseif(Session::has('quantity'))
+                                            @foreach(Session::get('products') as $prod)
                                                 @if($prod->cod == $product->cod)
-                                                    <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="{{$prod->pivot->quantity}}" type="number" style="width: 65px; height: 35px;">
-                                                    @break
+                                                    <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="{{Session::get('quantity')[$loop->index]}}" type="number" style="width: 65px; height: 35px;">
                                                 @else
                                                     @if($loop->last)
                                                         <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
                                                     @endif
                                                 @endif
                                             @endforeach
-                                        @endif
-                                    @elseif(Session::has('quantity'))
-                                        @foreach(Session::get('products') as $prod)
-                                            @if($prod->cod == $product->cod)
-                                                <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="{{Session::get('quantity')[$loop->index]}}" type="number" style="width: 65px; height: 35px;">
-                                            @else
-                                                @if($loop->last)
-                                                    <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
-                                                @endif
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
-                                    @endauth
+                                        @else
+                                            <input name="product_quantity" min="1" max="{{$product->stock_availability}}" value="" placeholder="1" type="number" style="width: 65px; height: 35px;">
+                                        @endauth
+                                    @endif
                                 </div>
 
                                 <div class="col-md-5 mt_20">

@@ -747,7 +747,7 @@ class ProductController extends Controller
             $orderHistory->gift = 0;
         }
         if($credit_Card == "" && $creditCard_id != 0){
-            $orderHistory->creditCard_id = $creditCard_id;
+            $orderHistory->credit_card_id = $creditCard_id;
         }
         $orderHistory->courier_id = $request->get('courier_id');
         if($mailing_address == "" && $mailing_address_id !=0){
@@ -782,16 +782,7 @@ class ProductController extends Controller
                 if($orderHistoryProduct->save()){
                     $quantity_sold = $product->quantity_sold;
                     $stock_availabilityOld = $product->stock_availability;
-                    $stock_availability = $stock_availabilityOld - $product->pivot->quantity;
-                    if($stock_availability == 0){
-                        Product::where('id', $product->id)->update(['quantity_sold' => $quantity_sold + $product->pivot->quantity, 'stock_availability' => $stock_availability]);
-                        if($product->offer) {
-                            $product->offer->delete();
-                        }
-                        $product->delete();
-                    }else{
-                        Product::where('id', $product->id)->update(['quantity_sold' => $quantity_sold + $product->pivot->quantity, 'stock_availability' => $stock_availability]);
-                    }
+                    Product::where('id', $product->id)->update(['quantity_sold' => $quantity_sold + $product->pivot->quantity, 'stock_availability' => $stock_availabilityOld - $product->pivot->quantity]);
                     auth()->user()->productsCart()->detach($product);
                 }else{
                     return redirect()->route('Checkout')->with('errorOrder','Impossibile effettuare l\'ordine. Riprovare!!');
