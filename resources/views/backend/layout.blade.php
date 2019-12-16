@@ -903,18 +903,20 @@
 
     </script>
 @endif
-<script type="text/javascript">
-    jQuery(function($) {
-        $('a').on('click', function () {
-            if($(this).attr('id') == "iconDelete"){
-                $('#buttonDelete').attr('href', $(this).data('url'));
-            }
-            if($(this).attr('id') == "iconRestore"){
-                $('#buttonRestore').attr('href', $(this).data('url'));
-            }
-        })
-    });
-</script>
+@if(strpos(route::currentRouteName(),'.List')!== false)
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('a').on('click', function () {
+                if($(this).attr('id') == "iconDelete"){
+                    $('#buttonDelete').attr('href', $(this).data('url'));
+                }
+                if($(this).attr('id') == "iconRestore"){
+                    $('#buttonRestore').attr('href', $(this).data('url'));
+                }
+            })
+        });
+    </script>
+@endif
 </body>
 
 </html>
