@@ -63,6 +63,8 @@
                                     <label for="gest_utenti" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_utenti'))
                                             <input type="checkbox" id="gest_utenti" name="gest_utenti" value="gest_utenti" class="form-check-input" checked>Utenti
+                                        @else
+                                            <input type="checkbox" id="gest_utenti" name="gest_utenti" value="gest_utenti" class="form-check-input">Utenti
                                         @endif
                                     </label>
                                 </div>
@@ -70,6 +72,8 @@
                                     <label for="gest_sito" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_sito'))
                                             <input type="checkbox" id="permissions" name="gest_sito" value="gest_sito" class="form-check-input" checked>Sito
+                                        @else
+                                            <input type="checkbox" id="permissions" name="gest_sito" value="gest_sito" class="form-check-input">Sito
                                         @endif
                                     </label>
                                 </div>
@@ -77,6 +81,8 @@
                                     <label for="gest_prodotti" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_prodotti'))
                                             <input type="checkbox" id="gest_prodotti" name="gest_prodotti" value="gest_prodotti" class="form-check-input" checked> Prodotti
+                                        @else
+                                            <input type="checkbox" id="gest_prodotti" name="gest_prodotti" value="gest_prodotti" class="form-check-input"> Prodotti
                                         @endif
                                     </label>
                                 </div>
@@ -84,6 +90,8 @@
                                     <label for="gest_offerte" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_offerte'))
                                             <input type="checkbox" id="gest_offerte" name="gest_offerte" value="gest_offerte" class="form-check-input" checked> Offerte
+                                        @else
+                                            <input type="checkbox" id="gest_offerte" name="gest_offerte" value="gest_offerte" class="form-check-input"> Offerte
                                         @endif
                                     </label>
                                 </div>
@@ -91,6 +99,8 @@
                                     <label for="gest_banner" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_banner'))
                                             <input type="checkbox" id="gest_banner" name="gest_banner" value="gest_banner" class="form-check-input" checked> Banner
+                                        @else
+                                            <input type="checkbox" id="gest_banner" name="gest_banner" value="gest_banner" class="form-check-input"> Banner
                                         @endif
                                     </label>
                                 </div>
@@ -98,6 +108,8 @@
                                     <label for="gest_imgprod" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_imgprod'))
                                             <input type="checkbox" id="gest_imgprod" name="gest_imgprod" value="gest_imgprod" class="form-check-input" checked> Immagini Prodotti
+                                        @else
+                                            <input type="checkbox" id="gest_imgprod" name="gest_imgprod" value="gest_imgprod" class="form-check-input"> Immagini Prodotti
                                         @endif
                                     </label>
                                 </div>
@@ -105,6 +117,8 @@
                                     <label for="gest_fornitori" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_fornitori'))
                                             <input type="checkbox" id="gest_fornitori" name="gest_fornitori" value="gest_fornitori" class="form-check-input" checked> Fornitori
+                                        @else
+                                            <input type="checkbox" id="gest_fornitori" name="gest_fornitori" value="gest_fornitori" class="form-check-input"> Fornitori
                                         @endif
                                     </label>
                                 </div>
@@ -112,6 +126,8 @@
                                     <label for="gest_newsletter" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_newsletter'))
                                             <input type="checkbox" id="gest_newsletter" name="gest_newsletter" value="gest_newsletter" class="form-check-input" checked> Newsletter
+                                        @else
+                                            <input type="checkbox" id="gest_newsletter" name="gest_newsletter" value="gest_newsletter" class="form-check-input"> Newsletter
                                         @endif
                                     </label>
                                 </div>
@@ -119,6 +135,8 @@
                                     <label for="gest_assistenza" class="form-check-label">
                                         @if($selected_role->hasPermissionTo('gest_assistenza'))
                                             <input type="checkbox" id="permissions" name="gest_assistenza" value="gest_assistenza" class="form-check-input" checked> Assistenza Clienti
+                                        @else
+                                            <input type="checkbox" id="permissions" name="gest_assistenza" value="gest_assistenza" class="form-check-input"> Assistenza Clienti
                                         @endif
                                     </label>
                                 </div>
