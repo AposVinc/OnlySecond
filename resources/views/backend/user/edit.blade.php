@@ -24,7 +24,8 @@
                     <div class="col col-md-3"><label for="user" class=" form-control-label">Utente</label></div>
                     <div class="col-12 col-md-9">
                         @if(isset($selected_user))
-                            <select name="user" id="user" class="form-control" required disabled>
+                            <input name="user" value="{{$selected_user->id}}" hidden>
+                            <select name="userDisabled" id="user" class="form-control" required disabled>
                                 <option value="{{$selected_user->id}}">{{$selected_user->name}}</option>
                             </select>
                         @else
@@ -62,9 +63,9 @@
                     <div class="col col-md-3"><label for="password" class=" form-control-label">Password</label></div>
                     <div class="col-12 col-md-9">
                         @if(isset($selected_user))
-                            <input type="password" id="password" name="password" placeholder="Inserire la nuova password" class="form-control" value="{{$selected_user->password}}" required>
+                            <input type="password" id="password" name="password" placeholder="Inserire la nuova password" class="form-control">
                         @else
-                            <input type="password" id="password" name="password" placeholder="Inserire la nuova password" class="form-control" required>
+                            <input type="password" id="password" name="password" placeholder="Inserire la nuova password" class="form-control">
                         @endif
                     </div>
                 </div>
@@ -93,7 +94,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-sm">
+                <button type="submit" class="btn btn-primary btn-sm" onclick="enableField()">
                     <i class="fa fa-dot-circle-o"></i> Modifica
                 </button>
                 <button type="reset" class="btn btn-danger btn-sm">
