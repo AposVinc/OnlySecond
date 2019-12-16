@@ -361,6 +361,9 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/Supplier')->group(function () {
                     Route::name('Supplier.')->group(function () {
                         Route::get('/List', 'SupplierController@showListForm')->name('List');
+                        Route::get('/List/Edit/{email}', 'SupplierController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/{email}', 'SupplierController@destroyButton')->name('DeleteButton');
+                        Route::get('/List/Restore/{email}', 'SupplierController@restoreButton')->name('RestoreButton');
 
                         Route::get('/Add', 'SupplierController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'SupplierController@create')->name('AddPost');

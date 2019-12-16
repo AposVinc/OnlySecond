@@ -15,6 +15,24 @@
         Fornitori
     @endcomponent
 
+    @component('backend.dialogDelete')
+        @slot('title')
+            Fornitore
+        @endslot
+        @slot('content')
+            questo fornitore
+        @endslot
+    @endcomponent
+
+    @component('backend.dialogRestore')
+        @slot('title')
+            Fornitore
+        @endslot
+        @slot('content')
+            questo fornitore
+        @endslot
+    @endcomponent
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -32,6 +50,7 @@
                                         <th>Creato il</th>
                                         <th>Ultima modifica</th>
                                         <th>Disattivato il</th>
+                                        <th>Azioni</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +64,18 @@
                                         <td>{{$supplier->created_at}}</td>
                                         <td>{{$supplier->updated_at}}</td>
                                         <td>{{$supplier->deleted_at}}</td>
+                                        <td>
+                                            @if (!$supplier->trashed())
+                                                <a href="{{route('Admin.Supplier.EditButton',$supplier->email)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
+                                                <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Supplier.DeleteButton',$supplier->email)}}" style="cursor: pointer">
+                                                    <i class="fa fa-minus-square" style="color: #cc0000"></i>
+                                                </a>
+                                            @else
+                                                <a id="iconRestore" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Supplier.RestoreButton',$supplier->email)}}" style="cursor: pointer">
+                                                    <i class="fa fa-refresh" style="color: green"></i>
+                                                </a>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
