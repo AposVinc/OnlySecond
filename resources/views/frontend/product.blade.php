@@ -36,8 +36,19 @@
                     </div>
                 </div>
 
-                <div class="original_price mb_10">
-                    <h3><span class="price">{{$product->price}}<span class="currencySymbol">€</span></span></h3>
+                <div class="original-price mb_10">
+                    @if($product->offer()->exists())
+                        <div class="product-price">
+
+                            <label>
+                                <span class="price"> <del> {{$product->price}}<span class="currencySymbol">€</span></del></span>
+                                <span class="price"> {{$product->offer->calculateDiscount()}} <span class="currencySymbol">€</span></span>
+                            </label>
+                        </div>
+
+                        @else
+                        <h3><span class="price">{{$product->price}}<span class="currencySymbol">€</span></span></h3>
+                    @endif
                 </div>
 
                 <hr>
@@ -342,7 +353,9 @@
                                     @else
                                         @guest()
                                             <a href="{{route('User.Login')}}"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
-                                            @endguest
+                                            @break
+                                        @endguest
+
                                     @auth()
                                             <div class="mtb_10">
                                                 <a data-toggle="collapse" data-target="#content"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>

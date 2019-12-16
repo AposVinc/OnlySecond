@@ -11,13 +11,12 @@ FE
 
 Login - tooltip errori campi (dimensione password e conferma password, password = conferma password)
 
-Fossil carlie ES4432:
-        - in recensioni 2 volte scrivi recensioni
-        - gestione offerta
+<--Vale:
 
 se metodo post meglio togliere id da url:       toglire id in review edit
 review remove, invece che passare in chiaro id review(pericoloso), passare codice prodotto ed email si prendono i due id, si ritrova la review corrispondente e poi si fa l'eliminazione
             si dovrebbe fare il controllo se chi sta eliminado è il proprietario della review
+-->
 ok BE
 ----------
 Calendario in Offer
@@ -109,6 +108,8 @@ Login   - password errata, email non presente nel db
 Register- div error se non va a buon fine registrazione
         - email già usata div error con messaggio
 cerca home page
+Fossil carlie ES4432: in recensioni 2 volte scrivi recensioni
+gestione offerta
 
 ------------------------------------------------
 DOMANDE DA FARE AL PROF
