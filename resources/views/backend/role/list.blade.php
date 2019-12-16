@@ -61,19 +61,114 @@
                                 @foreach($roles as $role)
                                     <tr>
                                         <td>{{$role->name}}</td>
-                                            @if($role->hasPermissionTo('gest_utenti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o">
-                                                <input value="1" hidden>
-                                            </i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_sito'))  <td class="centre-text-cell"><i class="fa fa-check-square-o">
-                                                <input value="1" hidden>
-                                            </i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_prodotti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_offerte'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_banner'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_imgprod'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_fornitori'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_newsletter'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_assistenza'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
+                                            @if($role->hasPermissionTo('gest_utenti'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_sito'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_prodotti'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_offerte'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_banner'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_imgprod'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_fornitori'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_newsletter'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
+                                            @if($role->hasPermissionTo('gest_assistenza'))
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-check-square-o">
+                                                        <input value="1" hidden>
+                                                    </i>
+                                                </td>
+                                            @else
+                                                <td class="centre-text-cell">
+                                                    <i class="fa fa-square-o">
+                                                    </i>
+                                                </td>
+                                            @endif
                                         <td>{{$role->created_at}}</td>
                                         <td>{{$role->updated_at}}</td>
                                         <td>
