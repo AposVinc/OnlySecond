@@ -70,7 +70,7 @@ class AdminController extends Controller
     }
 
 
-    public function create(Request $request)  //
+    public function create(Request $request)
     {
         if (Admin::where('email', $request->email)->first()) {
             return redirect()->to('Admin/User/List')->with('error', 'Esiste già un Utente con l\'email inserita!!');
@@ -112,13 +112,7 @@ class AdminController extends Controller
         }
     }
 
-    /**
-     * Restore the specified resource from storage.
-     *
-     * @param  \App\Brand  $brand
-     * @return \Illuminate\Http\Response
-     */
-    public function restore(Request $request)   //query senza nome
+    public function restore(Request $request)
     {
         if (Admin::onlyTrashed()->find($request->user)->restore()) {
             return redirect()->to('Admin/User/List')->with('success', 'Ripristino avvenuto con successo!!');
@@ -127,7 +121,7 @@ class AdminController extends Controller
         }
     }
 
-    public function restoreButton($email)   //query senza nome
+    public function restoreButton($email)
     {
         $user = Admin::onlyTrashed()->where('email', $email)->first();
         if (Admin::onlyTrashed()->find($user->id)->restore()) {

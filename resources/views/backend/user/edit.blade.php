@@ -25,7 +25,7 @@
                     <div class="col-12 col-md-9">
                         @if(isset($selected_user))
                             <input name="user" value="{{$selected_user->id}}" hidden>
-                            <select name="userDisabled" id="user" class="form-control" required disabled>
+                            <select name="userDisabled" id="user" class="form-control" disabled>
                                 <option value="{{$selected_user->id}}">{{$selected_user->name}}</option>
                             </select>
                         @else
