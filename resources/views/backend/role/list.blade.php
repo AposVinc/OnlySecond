@@ -15,6 +15,24 @@
         Ruoli
     @endcomponent
 
+    @component('backend.dialogDelete')
+        @slot('title')
+            Ruolo
+        @endslot
+        @slot('content')
+            questo ruolo
+        @endslot
+    @endcomponent
+
+    @component('backend.dialogRestore')
+        @slot('title')
+            Ruolo
+        @endslot
+        @slot('content')
+            questo ruolo
+        @endslot
+    @endcomponent
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -27,23 +45,28 @@
                                     <th>Nome</th>
                                     <th>Gest Utenti</th>
                                     <th>Gest Sito</th>
-                                    <th>Gest Prodotti</th>
-                                    <th>Gest Offerte</th>
+                                    <th>Gest Prod.</th>
+                                    <th>Gest Off.</th>
                                     <th>Gest Banner</th>
-                                    <th>Gest Img Prodotti</th>
+                                    <th>Gest Img Prod.</th>
                                     <th>Gest Fornitori</th>
                                     <th>Gest Newsletter</th>
-                                    <th>Assistenza Clienti</th>
+                                    <th>Ass. Clienti</th>
                                     <th>Creato il</th>
-                                    <th>Ultima modifica</th>
+                                    <th>Ult. mod.</th>
+                                    <th>Azioni</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($roles as $role)
                                     <tr>
                                         <td>{{$role->name}}</td>
-                                            @if($role->hasPermissionTo('gest_utenti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
-                                            @if($role->hasPermissionTo('gest_sito'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
+                                            @if($role->hasPermissionTo('gest_utenti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o">
+                                                <input value="1" hidden>
+                                            </i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
+                                            @if($role->hasPermissionTo('gest_sito'))  <td class="centre-text-cell"><i class="fa fa-check-square-o">
+                                                <input value="1" hidden>
+                                            </i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_prodotti'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_offerte'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                             @if($role->hasPermissionTo('gest_banner'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
@@ -53,6 +76,12 @@
                                             @if($role->hasPermissionTo('gest_assistenza'))  <td class="centre-text-cell"><i class="fa fa-check-square-o"></i></td> @else <td class="centre-text-cell"><i class="fa fa-square-o"></i></td> @endif
                                         <td>{{$role->created_at}}</td>
                                         <td>{{$role->updated_at}}</td>
+                                        <td>
+                                            <a href="{{route('Admin.Role.EditButton',$role->name)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
+                                            <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Role.DeleteButton',$role->name)}}" style="cursor: pointer">
+                                                <i class="fa fa-minus-square" style="color: #cc0000"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

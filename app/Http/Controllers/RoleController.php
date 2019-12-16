@@ -29,6 +29,18 @@ class RoleController extends Controller
         }
     }
 
+    public function showEditFormButton($name)
+    {
+        if (Role::all()->isNotEmpty()) {
+            $selected_role = Role::where('name', $name)->first();
+
+            $roles = Role::all();
+            return view('backend.role.edit', ['selected_role' => $selected_role, 'roles' => $roles]);
+        }else{
+            return redirect()->to('Admin/Role/List')->with('error','Non ci sono Ruoli da Modificare!!');
+        }
+    }
+
     public function showDeleteForm()
     {
         if (Role::all()->isNotEmpty()){
@@ -53,12 +65,6 @@ class RoleController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Brand  $brand
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         $role = Role::findById($request->role ,'admin');
@@ -150,6 +156,28 @@ class RoleController extends Controller
                 return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
             }
         }
+    }
 
+    public function destroyButton($name)
+    {
+        $r = Role::where('name', $name)->first();
+        $role = Role::findById(strval( $r->id ),'admin');
+
+        if ($role->hasPermissionTo('gest_utenti')){
+            if (Permission::findByName('gest_utenti','admin')->roles()->count() == 1) {
+                return redirect()->to('Admin/Role/List')->with('error', 'Errore!!! Deve esistere almeno un Ruolo che è abilitato alla Gestione Degli Utenti!!');
+            }
+            if ($role->delete()) {
+                return redirect()->to('Admin/Role/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        } else {
+            if ($role->delete()) {
+                return redirect()->to('Admin/Role/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            } else {
+                return redirect()->to('Admin/Role/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
     }
 }
