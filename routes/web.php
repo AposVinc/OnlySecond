@@ -415,6 +415,7 @@ Route::group(['middleware' => ['admin']], function () {
                     Route::name('Image.')->group(function () {
                         Route::get('/List', 'ImageController@showListForm')->name('List');
                         Route::get('/List/Image/{id}', 'ImageController@showImage')->name('ShowImage');
+                        Route::get('/List/Delete/{id}', 'ImageController@destroyButton')->name('DeleteButton');
 
                         Route::get('/Add', 'ImageController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'ImageController@create')->name('AddPost');

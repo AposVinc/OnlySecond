@@ -15,6 +15,15 @@
         Immagini
     @endcomponent
 
+    @component('backend.dialogDelete')
+        @slot('title')
+            Immagine prodotto
+        @endslot
+        @slot('content')
+            questa immagine
+        @endslot
+    @endcomponent
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -31,6 +40,7 @@
                                         <th>Img Principale</th>
                                         <th>Creato il</th>
                                         <th>Disattivato il</th>
+                                        <th>Azioni</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,11 +57,17 @@
                                         @endif
                                         <td>{{$image->created_at}}</td>
                                         <td>{{$image->deleted_at}}</td>
+                                        <td>
+                                            @if (!$image->trashed())
+                                                <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Image.DeleteButton',$image->id)}}" style="cursor: pointer">
+                                                    <i class="fa fa-minus-square" style="color: #cc0000"></i>
+                                                </a>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
