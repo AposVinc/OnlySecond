@@ -394,10 +394,10 @@
                     <div class="col col-md-9">
                         <label class="switch switch-3d switch-primary mr-3">
                             @if(isset($selected_product))
-                                @if($selected_product->battery_replacement)
+                                @if($selected_product->specification->battery_replacement == 1)
                                     <input type="checkbox" id="battery_replacement" name="battery_replacement" class="switch-input" value="true" checked="true">
                                 @else
-                                    <input type="checkbox" id="battery_replacement" name="battery_replacement" class="switch-input" value="false" checked="false">
+                                    <input type="checkbox" id="battery_replacement" name="battery_replacement" class="switch-input" value="false">
                                 @endif
                             @else
                                 <input type="checkbox" id="battery_replacement" name="battery_replacement" class="switch-input" value="true" checked="true">

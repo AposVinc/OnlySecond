@@ -5,8 +5,6 @@ eliminare cartella "immagini da eliminare" dopo aver finito del tutto la gestion
 BE
 ---------
 
-battery button product
-
 FE
 ---------
 ? diminuire elementi in filtraggio da 6 a 4? (mostra altro)
@@ -40,7 +38,7 @@ cambiare ripristina con riattiva
 subanner logica - differenziare in db con enum (main, sub, mini)
                 - controllare il numero dei banner
 tabelle/grafici BE (prima pg)
-
+battery button product
 
 ok FE
 ----------
