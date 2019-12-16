@@ -42,6 +42,18 @@ class BannerController extends Controller
         }
     }
 
+    public function showEditFormButton($id)
+    {
+        if (Banner::withoutTrashed()->exists()){
+            $selected_banner = Banner::where('id',$id)->first();
+
+            $brands = Brand::all();
+            return view('backend.banner.edit',['selected_banner' => $selected_banner, 'brands' => $brands]);
+        } else {
+            return redirect()->to('Admin/Banner/List')->with('error','Non ci sono Banner da Modificare!!');
+        }
+    }
+
     public function showDeleteForm()
     {
         if (Banner::withoutTrashed()->exists()){
@@ -184,6 +196,31 @@ class BannerController extends Controller
         }
     }
 
+    public function destroyButton($id)
+    {
+        $type = Banner::where('id', $id)->first()->type;
+        if(Banner::where('id', $id)->first()->visible){
+            $countVisible = Banner::withoutTrashed()->where('type',$type)->where('visible', true)->count('visible');
+            if($countVisible>=2){
+                $result = $this->removeBanner($id);
+                if($result == "Success"){
+                    return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
+                }else{
+                    return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+                }
+            }else{
+                return redirect()->to('Admin/Banner/List')->with('error', 'Attenzione!! Rendere visibile un altro banner (dello stesso tipo) per effettuare questa Eliminazione');
+            }
+        }else{
+            $result = $this->removeBanner($id);
+            if($result == "Success"){
+                return redirect()->to('Admin/Banner/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            }else{
+                return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }
+    }
+
     function removeBanner($banner){
         $oldpath = Banner::where('id', $banner)->first()->path_image;
         $path = str_replace('storage', 'public', $oldpath);
@@ -198,6 +235,15 @@ class BannerController extends Controller
     public function restore(Request $request){
 
         if(Banner::where('id', $request->get('banner'))->restore()){
+            return redirect()->to('Admin/Banner/List')->with('success', 'Ripristino avvenuto con successo!!');
+        }else{
+            return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
+    }
+
+    public function restoreButton($id){
+
+        if(Banner::where('id', $id)->restore()){
             return redirect()->to('Admin/Banner/List')->with('success', 'Ripristino avvenuto con successo!!');
         }else{
             return redirect()->to('Admin/Banner/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');

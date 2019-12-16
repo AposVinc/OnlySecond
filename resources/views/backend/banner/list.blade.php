@@ -15,6 +15,24 @@
         Banner
     @endcomponent
 
+    @component('backend.dialogDelete')
+        @slot('title')
+            Banner
+        @endslot
+        @slot('content')
+            questo banner
+        @endslot
+    @endcomponent
+
+    @component('backend.dialogRestore')
+        @slot('title')
+            Banner
+        @endslot
+        @slot('content')
+            questo banner
+        @endslot
+    @endcomponent
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -33,6 +51,7 @@
                                         <th>Creato il</th>
                                         <th>Ultima modifica</th>
                                         <th>Disattivato il</th>
+                                        <th>Azioni</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,6 +69,18 @@
                                         <td>{{$banner->created_at}}</td>
                                         <td>{{$banner->updated_at}}</td>
                                         <td>{{$banner->deleted_at}}</td>
+                                        <td>
+                                            @if (!$banner->trashed())
+                                                <a href="{{route('Admin.Banner.EditButton',$banner->id)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
+                                                <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Banner.DeleteButton',$banner->id)}}" style="cursor: pointer">
+                                                    <i class="fa fa-minus-square" style="color: #cc0000"></i>
+                                                </a>
+                                            @else
+                                                <a id="iconRestore" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Banner.RestoreButton',$banner->id)}}" style="cursor: pointer">
+                                                    <i class="fa fa-refresh" style="color: green"></i>
+                                                </a>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

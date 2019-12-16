@@ -434,6 +434,10 @@ Route::group(['middleware' => ['admin']], function () {
                     Route::name('Banner.')->group(function () {
                         Route::get('/List', 'BannerController@showListForm')->name('List');
                         Route::get('/List/Image/{id}', 'BannerController@showImage')->name('ShowImage');
+                        Route::get('/List/Edit/{id}', 'BannerController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/{id}', 'BannerController@destroyButton')->name('DeleteButton');
+                        Route::get('/List/Restore/{id}', 'BannerController@restoreButton')->name('RestoreButton');
+
 
                         Route::get('/Add', 'BannerController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'BannerController@create')->name('AddPost');
