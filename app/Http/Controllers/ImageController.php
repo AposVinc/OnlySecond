@@ -181,4 +181,21 @@ class ImageController extends Controller
             return redirect()->to('Admin/Image/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
         }
     }
+
+    public function destroyButton($id)
+    {
+        $image = Image::where('id', $id)->first();
+        $oldpath = $image->path_image;
+        $path = str_replace('storage', 'public', $oldpath);
+
+        if(Storage::delete($path)){
+            if(Image::where('id', $id)->forceDelete()){
+                return redirect()->to('Admin/Image/List')->with('success', 'Eliminazione avvenuta con successo!!');
+            }else{
+                return redirect()->to('Admin/Image/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+            }
+        }else{
+            return redirect()->to('Admin/Image/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+        }
+    }
 }

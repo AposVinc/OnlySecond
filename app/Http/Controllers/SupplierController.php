@@ -28,6 +28,18 @@ class SupplierController extends Controller
         }
     }
 
+    public function showEditFormButton($email)
+    {
+        if (Supplier::withoutTrashed()->exists()){
+            $selected_supplier = Supplier::where('email',$email)->first();
+
+            $suppliers = Supplier::all();
+            return view('backend.supplier.edit', ['selected_supplier' => $selected_supplier,'suppliers' => $suppliers]);
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error','Non ci sono Fornitori da Modificare!!');
+        }
+    }
+
     public function showRestoreForm()
     {
         if (Supplier::onlyTrashed()->exists()){
@@ -48,13 +60,6 @@ class SupplierController extends Controller
         }
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)  //
     {
         if (Supplier::where('email', $request->email)->first()) {
@@ -78,12 +83,6 @@ class SupplierController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Brand  $brand
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         $supplier = Supplier::where('id', $request->supplier)->first();
@@ -122,15 +121,19 @@ class SupplierController extends Controller
         }
     }
 
-    /**
-     * Restore the specified resource from storage.
-     *
-     * @param  \App\Brand  $brand
-     * @return \Illuminate\Http\Response
-     */
-    public function restore(Request $request)   //query senza nome
+    public function restore(Request $request)
     {
         if (Supplier::onlyTrashed()->where('id',$request->supplier)->restore()) {
+            return redirect()->to('Admin/Supplier/List')->with('success', 'Ripristino avvenuto con successo!!');
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
+        }
+    }
+
+    public function restoreButton($email)
+    {
+        $supplier = Supplier::onlyTrashed()->where('email', $email)->first();
+        if (Supplier::onlyTrashed()->where('id',$supplier->id)->restore()) {
             return redirect()->to('Admin/Supplier/List')->with('success', 'Ripristino avvenuto con successo!!');
         } else {
             return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante il Ripristino. Riprovare!!');
@@ -140,6 +143,16 @@ class SupplierController extends Controller
     public function destroy(Request $request)
     {
         if (Supplier::withTrashed()->find($request->supplier)->delete()) {
+            return redirect()->to('Admin/Supplier/List')->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');
+        }
+    }
+
+    public function destroyButton($email)
+    {
+        $supplier = Supplier::where('email', $email)->first();
+        if (Supplier::withTrashed()->find($supplier->id)->delete()) {
             return redirect()->to('Admin/Supplier/List')->with('success', 'Eliminazione avvenuta con successo!!');
         } else {
             return redirect()->to('Admin/Supplier/List')->with('error', 'Errore durante l\'Eliminazione, Riprovare!!');

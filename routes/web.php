@@ -361,6 +361,9 @@ Route::group(['middleware' => ['admin']], function () {
                 Route::prefix('/Supplier')->group(function () {
                     Route::name('Supplier.')->group(function () {
                         Route::get('/List', 'SupplierController@showListForm')->name('List');
+                        Route::get('/List/Edit/{email}', 'SupplierController@showEditFormButton')->name('EditButton');
+                        Route::get('/List/Delete/{email}', 'SupplierController@destroyButton')->name('DeleteButton');
+                        Route::get('/List/Restore/{email}', 'SupplierController@restoreButton')->name('RestoreButton');
 
                         Route::get('/Add', 'SupplierController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'SupplierController@create')->name('AddPost');
@@ -415,6 +418,7 @@ Route::group(['middleware' => ['admin']], function () {
                     Route::name('Image.')->group(function () {
                         Route::get('/List', 'ImageController@showListForm')->name('List');
                         Route::get('/List/Image/{id}', 'ImageController@showImage')->name('ShowImage');
+                        Route::get('/List/Delete/{id}', 'ImageController@destroyButton')->name('DeleteButton');
 
                         Route::get('/Add', 'ImageController@showAddForm')->name('Add');
                         Route::post('/AddPost', 'ImageController@create')->name('AddPost');

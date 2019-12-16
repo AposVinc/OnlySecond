@@ -24,15 +24,6 @@
         @endslot
     @endcomponent
 
-    @component('backend.dialogRestore')
-        @slot('title')
-            Ruolo
-        @endslot
-        @slot('content')
-            questo ruolo
-        @endslot
-    @endcomponent
-
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
