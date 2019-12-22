@@ -3,7 +3,7 @@
 @section('content')
 
     @if(session('success') or session('error'))
-        <div class="container mt_30">
+        <div class="container">
             <div class="row">
                 @include('frontend.partials.message')
             </div>
