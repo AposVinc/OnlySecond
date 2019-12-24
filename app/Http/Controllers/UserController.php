@@ -34,8 +34,6 @@ class UserController extends Controller
                 } else {
                     return redirect()->route('EditProfile')->with('error', 'Errore!! La Password deve avere almeno 8 caratteri!!');
                 }
-            } else {
-                return redirect()->route('EditProfile')->with('error', 'Errore!! La Password e Conferma Password non corrispondono!!');
             }
             if ($user->save()){ //fare direttamente la login?
                 return redirect()->route('EditProfile')->with('success', 'Modifica avvenuta con successo!!');

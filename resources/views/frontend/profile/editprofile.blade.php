@@ -45,7 +45,7 @@
                                 <div class="form-group required">
                                     <label for="psw" id="label-psw" class="col-sm-3 control-label">Password</label>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="psw" placeholder="Password" value="********" name="psw" disabled>
+                                        <input type="password" class="form-control" id="psw" placeholder="Password" value="********" name="psw" readonly disabled>
                                     </div>
                                 </div>
                             </div>

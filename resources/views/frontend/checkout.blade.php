@@ -40,11 +40,6 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" value="addressInvoice" name="shipping_address"> Voglio utilizzare l'indirizzo di fatturazione
-                                                    </label>
-                                                </div>
                                                 @if (session('errorShipping'))
                                                     <div class="radio">
                                                         <label>
