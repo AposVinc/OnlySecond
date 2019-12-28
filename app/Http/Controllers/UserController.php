@@ -165,8 +165,8 @@ class UserController extends Controller
         }
     }
 
-    public function editReview(Request $request, $id){
-        if(DB::table('reviews')->where('id',$id)->update([
+    public function editReview(Request $request){
+        if(DB::table('reviews')->where('id',$request->get('reviewId'))->update([
             'title' => $request->title,
             'text' => $request->text,
             'vote' => $request->reviewRating])) {

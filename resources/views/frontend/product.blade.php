@@ -507,8 +507,9 @@
 
                                                         <div class="collapse" id="content1" >
 
-                                                            <form action="{{route('Review.Edit', ['id' => $review->id])}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-8">
+                                                            <form action="{{route('Review.Edit')}}" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-8">
                                                                 @csrf
+                                                                <input name="reviewId" hidden value="{{$review->id}}">
                                                                     <div class="form-group required mt_10" >
                                                                         <div class="col-md-12">
                                                                             <label class="control-label" for="input-title">Modifica Titolo</label>
