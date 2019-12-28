@@ -175,6 +175,14 @@ class UserController extends Controller
 
     }
 
+    public function deleteReview(Request $request){
+        if(DB::table('reviews')->where('id',$request->get('deleteReviewId'))->delete()){
+        return redirect()->back();}
+    }
+
+
+
+
     /*-------------------   PAYMENTS   -------------------*/
 
 

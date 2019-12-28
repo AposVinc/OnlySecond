@@ -347,18 +347,14 @@
 
 
                                 @foreach($product->reviews as $review)
-                                    @if(Auth::id() == $review->user_id)
-                                            <p data-toggle="collapse" data-target="#content" disabled><h5> Hai già scritto una recensione per questo prodotto! </h5></p>
-                                        @break
-                                    @else
-                                        @guest()
-                                            <a href="{{route('User.Login')}}"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
-                                            @break
-                                        @endguest
-
                                     @auth()
+                                        @if(Auth::id() == $review->user_id)
+                                                <p data-toggle="collapse" data-target="#content" disabled><h5> Hai già scritto una recensione per questo prodotto! </h5></p>
+                                            @break
+
+                                        @else
                                             <div class="mtb_10">
-                                                <a data-toggle="collapse" data-target="#content"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
+                                                <a data-toggle="collapse" data-target="#content" disabled><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
 
                                                 <div class="collapse" id="content">
 
@@ -400,8 +396,13 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                            @endauth
-                                    @endif
+                                        @endif
+                                    @endauth
+
+                                    @guest()
+                                            <a href="{{route('User.Login')}}"><h5><i class="fa fa-plus"></i>  Scrivi Una Recensione </h5></a>
+                                            @break
+                                    @endguest
                                 @endforeach
 
 
@@ -423,7 +424,6 @@
                                                             <div class="col-sm-12">
                                                                 <label class="control-label" for="input-title">Titolo Recensione</label><input name="title" id="input-title" class="form-control" type="text" data-required="true" required>
                                                             </div>
-
                                                         </div>
 
                                                         <div class="form-group required">
@@ -467,20 +467,24 @@
                                                     <span> Aggiungi la prima recensione dopo aver effettuato il </span> <i><a href="{{route('User.Login')}}"> Login </a></i>
 
                                                 </div>
-                                                @endguest
+                                            @endguest
                                         </div>
                                     @else
                                         @foreach($product->reviews as $review)
                                                 <div id="review" class="mt_10 mb_60">
                                                     <div class="row">
-                                                        <div class="col-md-7">
+                                                        <div class="col-md-6">
                                                         <label class="product-name"><span style="margin-right: 10px">Nome Utente: </span>{{$review->user->name}}</label>
                                                         </div>
                                                        @if(Auth::id() == $review->user_id)
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-6">
                                                             <div class="button-right">
-                                                                <a data-toggle="collapse" data-target="#content1" class=" btn-outline" style="padding: 5px" title="Modifica la recensione"><em><i class="fa fa-pencil"></i> Modifica</em></a>
-                                                                <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline" title="Rimuovi la recensione" style="padding: 5px"> <i class=" fa fa-trash"></i> Elimina</a>
+                                                                <a data-toggle="collapse" data-target="#content1" class="btn-outline" title="Modifica la recensione"><em><i class="fa fa-pencil"></i> Modifica</em></a>
+                                                                <form action="{{route('Review.Delete')}}" title="Rimuovi la recensione" type="button" class="btn btn-outline" style="padding: 0">
+                                                                    <button type="submit" class="btn btn-outline" style="padding: 5px"><i class=" fa fa-trash"></i>  Elimina</button>
+                                                                    <input name="deleteReviewId" hidden value="{{$review->id}}">
+                                                                </form>
+
                                                             </div>
                                                         </div>
                                                         @endif

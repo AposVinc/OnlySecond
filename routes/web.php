@@ -116,11 +116,7 @@ Route::group(['middleware' => ['auth'] ], function () {
 
     Route::post('/Review/Add', 'UserController@addReview')->name('Review.Add');
     Route::post('/Review/Edit', 'UserController@editReview')->name('Review.Edit');
-
-    Route::get('/Review/Remove/{id}', function ($id) {
-        Review::where('id',$id)->forceDelete();
-        return back();
-    })->name('Review.Remove');
+    Route::get('/Review/Delete', 'UserController@deleteReview')->name('Review.Delete');
 
 });
 
