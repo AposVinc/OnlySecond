@@ -109,12 +109,6 @@
 }
 */
 
-
-
-
-
-
-
 .ribbon.orangeOS {
     top: 5%;
     background: #ee5e11;
@@ -155,4 +149,26 @@
     right: 15%;
     font-weight: 600;
     font-size: 12px;
+}
+
+.ribbon.orangeOSProduct{
+    right: 0;
+    top: 0;
+    background: #ee5e11;
+    color: #fff;
+    height: 8%;
+    width: 15%;
+}
+.ribbon.orangeOSProduct:before {
+    border-top: 27px solid #ee5e11;
+}
+.ribbon.orangeOSProduct:after {
+    border-bottom: 27px solid #ee5e11;
+}
+.ribbon.orangeOSProduct span {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 20px;
+    font-weight: 200;
 }

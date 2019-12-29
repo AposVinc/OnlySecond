@@ -19,8 +19,10 @@
                             @foreach($product->images as $image)
                                 <div class="item"><a href="#"><img src="{{asset($image->path_image)}}" alt="Main Images" class="img-responsive" /></a></div>
                             @endforeach
+
                         </div>
                     @endif
+                        <div class="ribbon orangeOSProduct"><span>{{$product->offer->rate}}%</span></div>
                 </div>
             </div>
 
