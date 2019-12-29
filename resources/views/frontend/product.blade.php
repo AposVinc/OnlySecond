@@ -22,7 +22,11 @@
 
                         </div>
                     @endif
-                        <div class="ribbon orangeOSProduct"><span>{{$product->offer->rate}}%</span></div>
+                    @if($product->offer()->exists())
+                        <div class="ribbon orangeOSProduct">
+                            <span>{{$product->offer->rate}}%</span>
+                        </div>
+                    @endif
                 </div>
             </div>
 
