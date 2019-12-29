@@ -105,14 +105,20 @@ DatabaseSeeder extends Seeder
 
         /*---   ADMIN   -----------------------------------------------------*/
 
-        $admin1 = new Admin(['name'=>'a', 'email'=>'a@a.it', 'password'=>'aaaaaaaa']);
+        $admin1 = new Admin(['name'=>'Maria Rossi', 'email'=>'maria.rossi@onlysecond.it', 'password'=>'mariarossi']);
         $admin1->assignRole($admin)->save();
 
-        $admin2 = new Admin(['name'=>'b', 'email'=>'b@b.it', 'password'=>'bbbbbbbb']);
-        $admin2->assignRole($pubblicitario)->save();
+        $admin2 = new Admin(['name'=>'Diego Bianchi', 'email'=>'diego.bianchi@onlysecond.it', 'password'=>'diegobianchi']);
+        $admin2->assignRole($manager)->save();
 
-        $admin3 = new Admin(['name'=>'c', 'email'=>'c@c.it', 'password'=>'cccccccc']);
-        $admin3->assignRole($assistenza)->save();
+        $admin3 = new Admin(['name'=>'Giuseppe Verdi', 'email'=>'giuseppe.verdi@onlysecond.it', 'password'=>'giuseppeverdi']);
+        $admin3->assignRole($pubblicitario)->save();
+
+        $admin4 = new Admin(['name'=>'Giovanna Bruno', 'email'=>'giovanna.bruno@onlysecond.it', 'password'=>'giovannabruno']);
+        $admin4->assignRole($designer)->save();
+
+        $admin5 = new Admin(['name'=>'Carlo Mazzone', 'email'=>'carlo.mazzone@onlysecond.it', 'password'=>'carlomazzone']);
+        $admin5->assignRole($assistenza)->save();
 
         /*---   CATEGORIE   -----------------------------------------------------*/
 
@@ -950,10 +956,10 @@ DatabaseSeeder extends Seeder
 
         /*---   CLIENTI REGISTRATI   -----------------------------------------------------*/
 
-        $user1 = new User(['name'=>'u', 'surname'=>'u', 'phone' =>'123456789', 'email'=>'u@u.it', 'password'=>'uuuuuuuu']);
+        $user1 = new User(['name'=>'Luca', 'surname'=>'Russo', 'phone' =>'123456789', 'email'=>'luca.russo@gmail.it', 'password'=>'lucarusso']);
         $user1->save();
 
-        $user2 = new User(['name'=>'z', 'surname'=>'z', 'phone' =>'123456789', 'email'=>'z@z.it', 'password'=>'zzzzzzzz']);
+        $user2 = new User(['name'=>'Valeria', 'surname'=>'Conte', 'phone' =>'123456789', 'email'=>'valeria.conte@gmail.it', 'password'=>'valeriaconte']);
         $user2->save();
 
         /*---   INDIRIZZI   -----------------------------------------------------*/
