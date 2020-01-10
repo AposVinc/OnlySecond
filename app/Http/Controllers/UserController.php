@@ -166,12 +166,26 @@ class UserController extends Controller
     }
 
     public function editReview(Request $request){
-        if(DB::table('reviews')->where('id',$request->get('reviewId'))->update([
-            'title' => $request->title,
-            'text' => $request->text,
-            'vote' => $request->reviewRating])) {
-            return back();
+
+        if ($request->has('reviewRating')){
+            if(DB::table('reviews')->where('id',$request->get('reviewId'))->update([
+                'title' => $request->title,
+                'text' => $request->text,
+                'vote' => $request->reviewRating])) {
+                return back()->with('success', 'Caricamento avvenuto con successo!!');
+            } else {
+                return back()->with('error','Errore durante il caricamento. Riprovare!!');
+            }
+        } else {
+            if(DB::table('reviews')->where('id',$request->get('reviewId'))->update([
+                'title' => $request->title,
+                'text' => $request->text])) {
+                return back()->with('success', 'Caricamento avvenuto con successo!!');
+            } else {
+                return back()->with('error','Errore durante il caricamento. Riprovare!!');
+            }
         }
+
 
     }
 

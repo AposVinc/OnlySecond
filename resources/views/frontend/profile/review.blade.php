@@ -25,8 +25,11 @@
                     </div>
                     <div id="review" class="col-md-10 mt_10">
                         <div class="button-right">
-                            <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica la recensione"></a>
-                            <a href="{{route('Review.Remove', ['id' => $review->id])}}" type="button" class="btn btn-outline fa fa-trash" title="Rimuovi la recensione"></a>
+                            <form action="{{route('Review.Delete')}}">
+                                <a href="{{route('Product', ['cod' => $review->product->cod])}}" type="button" class="btn btn-outline fa fa-pencil" title="Modifica la recensione"></a>
+                                <button type="submit" class="btn btn-outline fa fa-trash" title="Rimuovi la recensione"></button>
+                                <input name="deleteReviewId" hidden value="{{$review->id}}">
+                            </form>
                         </div>
                         <div class="review-title">
                             <span>Titolo:</span>
