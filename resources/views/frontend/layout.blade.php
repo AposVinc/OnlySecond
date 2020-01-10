@@ -664,21 +664,7 @@
                     }
                 }
             }
-            if (this.value == 'addressInvoice') {
-                $('#shipping-existing').hide();
-                $('#shipping-new').hide();
-                var list = $('#shipping-new').children();
-                for(var i=0;i< list.length;i++){
-                    if(list[i].children[1].children[0].required){
-                        list[i].children[1].children[0].required = false;
-                    }
-                    if(i == 2){
-                        if(list[i].children[2].children[0].required){
-                            list[i].children[2].children[0].required = false;
-                        }
-                    }
-                }
-            }
+
         });
 
         $('input[name=\'payment_address\']').on('change', function() {
@@ -783,19 +769,6 @@
         $('#button-shipping-address').on('click', function () {
             var error = false;
             $( "#errorShippingNew" ).remove();
-            var list = $('#shipping-new').children();
-            if($('input[name=\'shipping_address\']')[2].checked){
-                for(var i=0;i< list.length;i++){
-                    if(list[i].children[1].children[0].value == ""){
-                        error = true;
-                    }
-                    if(i == 2){
-                        if(list[i].children[2].children[0].value == ""){
-                            error = true;
-                        }
-                    }
-                }
-            }
             if(error){
                 $('#shipping-new').prepend('<div id="errorShippingNew" class="alert alert-danger mr_10 ml_10">Compila tutti i campi</div>');
             }else{
@@ -923,7 +896,6 @@
                 $('#collapseFour').css('height', '');
             });
         });
-
     </script>
 @endif
 
