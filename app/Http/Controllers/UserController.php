@@ -42,9 +42,32 @@ class UserController extends Controller
             }
         }else{  //email è diversa da quella dell'utente loggato
             if (User::where('email',$request->email)->first()){ //controlla se gia esiste e se non esiste permetti mod
-
+                return redirect()->route('EditProfile')->with('error', 'Errore!! La Mail già è registrata!!');
             }else{
+                $user = User::where('email',Auth::user()->email)->first();
+                $user->name = $request->name;
+                $user->surname = $request->surname;
+                $user->phone = $request->phone;
+                $user->email = $request->email;
 
+                //tutti e 3 gli input sono stati inseriti    //nuova psw e conf sono uguali
+                if($request->has('old-password') and $request->has('new-password') and $request->has('confirm-new-password')
+                    and ($request->get('new-password') === $request->get('confirm-new-password'))){
+                    if (strlen($request->get('new-password')) >= 8) {
+                        if (Hash::check($request->get('old-password'), $user->password)) {     //vecchia psw è uguale a quella salvata
+                            $user->password = $request->get('new-password');
+                        } else {
+                            return redirect()->route('EditProfile')->with('error', 'Errore!! La Vecchia Password inserita non è corretta!!');
+                        }
+                    } else {
+                        return redirect()->route('EditProfile')->with('error', 'Errore!! La Password deve avere almeno 8 caratteri!!');
+                    }
+                }
+                if ($user->save()){ //fare direttamente la login?
+                    return redirect()->route('EditProfile')->with('success', 'Modifica avvenuta con successo!!');
+                } else {
+                    return redirect()->route('EditProfile')->with('error', 'Errore durante l\'eliminazione, Riprovare!!');
+                }
             }
         }
     }
@@ -189,9 +212,13 @@ class UserController extends Controller
 
     }
 
-    public function deleteReview(Request $request){
-        if(DB::table('reviews')->where('id',$request->get('deleteReviewId'))->delete()){
-        return redirect()->back();}
+    public function deleteReview(Request $request)
+    {
+        if (DB::table('reviews')->where('id', $request->get('deleteReviewId'))->delete()) {
+            return back()->with('success', 'Eliminazione avvenuta con successo!!');
+        } else {
+            return back()->with('error', 'Errore durante l\'eliminazione. Riprovare!!');
+        }
     }
 
 
