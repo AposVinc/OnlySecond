@@ -26,9 +26,9 @@
                                 <option value="name_ASC" selected="selected">Nome (A - Z)</option>
                                 <option value="name_DESC">Nome (Z - A)</option>
                                 <option value="price_ASC">Prezzo (Cres)</option>
-                                <option value="price_DESC">Price (Decres)</option>
-                                <option value="vote_DESC">Rating (Cres)</option>
-                                <option value="vote_ASC">Rating (Decres)</option>
+                                <option value="price_DESC">Prezzo (Decres)</option>
+                                <option value="vote_DESC">Votazione (Cres)</option>
+                                <option value="vote_ASC">Votazione (Decres)</option>
                             </select>
                         </div>
                         <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>

@@ -59,7 +59,7 @@
                                         <td>{{$image->deleted_at}}</td>
                                         <td>
                                             @if (!$image->trashed())
-                                                <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Image.DeleteButton',$image->id)}}" style="cursor: pointer">
+                                                <a id="iconDelete" title="Elimina" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Image.DeleteButton',$image->id)}}" style="cursor: pointer">
                                                     <i class="fa fa-minus-square" style="color: #cc0000"></i>
                                                 </a>
                                             @endif

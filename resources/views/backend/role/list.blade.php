@@ -163,8 +163,8 @@
                                         <td>{{$role->created_at}}</td>
                                         <td>{{$role->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('Admin.Role.EditButton',$role->name)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
-                                            <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Role.DeleteButton',$role->name)}}" style="cursor: pointer">
+                                            <a href="{{route('Admin.Role.EditButton',$role->name)}}"><i class="fa fa-edit" title="Modifica" style="color: darkblue"></i></a>
+                                            <a id="iconDelete" title="Elimina" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Role.DeleteButton',$role->name)}}" style="cursor: pointer">
                                                 <i class="fa fa-minus-square" style="color: #cc0000"></i>
                                             </a>
                                         </td>

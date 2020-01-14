@@ -59,8 +59,8 @@
                                         <td>{{$offer->created_at}}</td>
                                         <td>{{$offer->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('Admin.Offer.EditButton',$offer->product->cod)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
-                                            <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Offer.DeleteButton',$offer->product->cod)}}" style="cursor: pointer"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
+                                            <a href="{{route('Admin.Offer.EditButton',$offer->product->cod)}}"><i class="fa fa-edit" title="Modifica" style="color: darkblue"></i></a>
+                                            <a id="iconDelete" title="Elimina" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Offer.DeleteButton',$offer->product->cod)}}" style="cursor: pointer"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

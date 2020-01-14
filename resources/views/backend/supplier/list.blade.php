@@ -66,12 +66,12 @@
                                         <td>{{$supplier->deleted_at}}</td>
                                         <td>
                                             @if (!$supplier->trashed())
-                                                <a href="{{route('Admin.Supplier.EditButton',$supplier->email)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
-                                                <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Supplier.DeleteButton',$supplier->email)}}" style="cursor: pointer">
+                                                <a href="{{route('Admin.Supplier.EditButton',$supplier->email)}}"><i class="fa fa-edit" title="Modifica" style="color: darkblue"></i></a>
+                                                <a id="iconDelete" title="Elimina" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Supplier.DeleteButton',$supplier->email)}}" style="cursor: pointer">
                                                     <i class="fa fa-minus-square" style="color: #cc0000"></i>
                                                 </a>
                                             @else
-                                                <a id="iconRestore" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Supplier.RestoreButton',$supplier->email)}}" style="cursor: pointer">
+                                                <a id="iconRestore" title="Riattiva" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Supplier.RestoreButton',$supplier->email)}}" style="cursor: pointer">
                                                     <i class="fa fa-refresh" style="color: green"></i>
                                                 </a>
                                             @endif

@@ -60,10 +60,10 @@
                                         <td>{{$collection->deleted_at}}</td>
                                         <td>
                                             @if (!$collection->trashed())
-                                                <a href="{{route('Admin.Collection.EditButton',$collection->name)}}"><i class="fa fa-edit" style="color: darkblue"></i></a>
-                                                <a id="iconDelete" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Collection.DeleteButton',$collection->name)}}" style="cursor: pointer"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
+                                                <a href="{{route('Admin.Collection.EditButton',$collection->name)}}"><i class="fa fa-edit" title="Modifica" style="color: darkblue"></i></a>
+                                                <a id="iconDelete" title="Elimina" data-toggle="modal" data-target="#deleteModal" data-url="{{route('Admin.Collection.DeleteButton',$collection->name)}}" style="cursor: pointer"><i class="fa fa-minus-square" style="color: #cc0000"></i></a>
                                             @else
-                                                <a id="iconRestore" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Collection.RestoreButton',$collection->name)}}" style="cursor: pointer"><i class="fa fa-refresh" style="color: green"></i></a>
+                                                <a id="iconRestore" title="Riattiva" data-toggle="modal" data-target="#restoreModal" data-url="{{route('Admin.Collection.RestoreButton',$collection->name)}}" style="cursor: pointer"><i class="fa fa-refresh" style="color: green"></i></a>
                                             @endif
                                         </td>
                                     </tr>
