@@ -30,7 +30,7 @@ class NewsletterController extends Controller
             Mail::to($newsletter->email)->send(new \App\Mail\Newsletter($input));
         }
 
-        return redirect()->to('Admin/Newsletter/List');
+        return redirect()->to('Admin/Newsletter/List')->with('success','Email mandate con successo');
     }
 
     /*-------------------   FRONTEND   -------------------*/
